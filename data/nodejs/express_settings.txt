@@ -1,0 +1,20 @@
+..title..
+Node.js
+
+..link.. nodejs/express.txt
+..
+
+
+..text..
+setup/settings.js
+
+..code..
+const settings = {}
+
+settings.PORT = 3000
+
+settings.STATIC_URL = '/static'
+
+settings.STATIC_ROOT = 'staticfiles'
+
+module.exports = settings

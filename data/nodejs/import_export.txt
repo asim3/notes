@@ -1,0 +1,26 @@
+..title..
+Node.js
+
+..link.. nodejs/master.txt
+..
+
+
+..text..
+other_file.js
+
+..code..
+const obj = {
+  "name": "Asim",
+  "email": "abcd@efg.hi"
+}
+
+module.exports = obj
+
+
+..text..
+index.js
+
+..code..
+const other_file = require('./other_file')
+
+console.log(other_file.name, other_file.email)

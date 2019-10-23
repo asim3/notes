@@ -1,0 +1,69 @@
+..title..
+Cheat Sheet for Django
+
+..link.. master.txt
+..
+
+..link.. django/2_sittings.txt
+Sittings
+
+..link.. django/3_urls.txt
+URLs
+
+..link.. django/5_templates.txt
+templates
+
+..link.. django/4_views.txt
+Views
+
+..link.. django/11_class_based_views.txt
+Class Based Views
+
+..link.. django/9_model.txt
+Model
+
+..link.. django/10_form.txt
+Form
+
+..link.. django/8_admin.txt
+Admin
+
+..link.. django/12_middleware.txt
+middleware
+
+..link.. django/15_crispy_form.txt
+Crispy Form
+..link.. django/other.txt
+Other 
+
+
+..sub_title..
+Virtual Environments
+
+..text..
+add virtual environments
+..code..
+sudo apt-get install python3-venv
+python -m venv ~/venv
+
+# run 
+source venv/bin/activate
+
+pip install Django
+
+deactivate
+
+
+..code..
+django-admin startproject my_name
+
+python manage.py startapp app_name
+python manage.py runserver
+
+python manage.py makemigrations && python manage.py migrate
+python manage.py createsuperuser
+
+python manage.py collectstatic
+
+..code..
+alias dj_brandat="source ~/venv/bin/activate && cd ~/Dropbox/Django/Developing/2019_03_31_brandat_ux/version_06 && python manage.py runserver"

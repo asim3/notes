@@ -1,0 +1,114 @@
+..title..
+HTML
+
+..link.. master.txt
+..
+
+..link.. js/math.txt
+Math
+
+..link.. js/array.txt
+Array
+
+..link.. js/date.txt
+Date
+
+..link.. js/files.txt
+files
+
+..link.. js/converters.txt
+converters
+
+..link.. js/functions.txt
+Functions
+
+..link.. js/animation.txt
+Animation
+
+..link.. js/p5.txt
+p5.js
+
+..link.. js/closure.txt
+closure
+
+..link.. js/other.txt
+Other
+
+
+..code..
+const foo = 1, bar = 2;
+document.title = 'title'
+typeof 'a' // string
+typeof true // boolean
+typeof setTimeout // function
+typeof [] // object
+window.scrollTo({ top: 0 })
+
+
+..sub_title..
+Get Element
+..code..
+document.querySelector('#root')
+document.getElementById('root')
+
+document.getElementById('id').style.display = 'block'
+
+
+..sub_title..
+find in String
+..code..
+text.includes(word)
+text.replace(/( |\"|\')/g, "")
+
+..code..
+const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
+const found = paragraph.match(/(quick|lazy)/g);
+console.log(found); // Array ["quick", "lazy"]
+
+
+..sub_title..
+New HTML Element
+..code..
+const btn = document.createElement("BUTTON")
+btn.innerHTML = "CLICK ME"
+btn.style = "margin: 10px;"
+document.body.appendChild(btn)
+
+// new head script
+var head = document.getElementsByTagName('head')[0];
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.onload = function() { ... }
+script.onerror = function() { ... }
+head.appendChild(script);
+script.src = "https://localhost/"+ file_name +".js";
+
+..sub_title..
+Events
+..code..
+document.addEventListener('click', function (event) {
+	// console.log(event.target)
+  if(event.target.dataset.delete) {
+    console.log(event.target.dataset.delete)
+  }
+})
+
+
+..sub_title..
+Time Loop
+..code..
+const func = (value, value_2) =>  console.log(value + value_2)
+setTimeout(func, 1000, 'val_1', 'val_2')
+
+
+..code..
+let copy_timer = 0
+clearTimeout(copy_timer)
+copy_timer = setTimeout(() => { copy_clicks = 0 }, 1000)
+requestAnimationFrame(func)
+cancelAnimationFrame(func)
+
+for (i = 0; i < 10; i++) {
+  if (i === 3) { break; }
+  text += "The number is " + i + "<br>";
+}

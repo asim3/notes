@@ -1,0 +1,92 @@
+..title..
+Django Class Based Views
+
+..link.. django/11_class_based_views.txt
+..
+
+..sub_title..
+override
+..code..
+class OverrideView(CreateView):
+
+    def form_valid(self, form):
+        form.instance.fk_user = self.request.user
+        self.extra_context = {'new_data': 'abc'}
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        next = self.request.GET.get('next', None)
+        if next is not None:
+            return next
+        return super().get_success_url()
+
+    def get_success_url(self):
+        add_to_order = self.kwargs.get('add_to_order', None)
+        if add_to_order is not None:
+            return f'/staff/choose/{self.object.id}/'
+        return super().get_success_url()
+
+    def get_success_url(self):
+        return reverse('url_name', kwargs={'pk': self.object.id})
+
+
+..code..
+from django.shortcuts import get_object_or_404
+
+class OverrideView(ListView):
+
+    def get_queryset(self):
+        self.extra_context = {'new_data': 'abc'}
+        pk = self.kwargs.get("pk")
+        queryset = get_object_or_404(OrderModel, pk=pk)
+        if queryset is not None:
+            queryset = getattr(queryset, 'cards', None)
+
+        return queryset.all()
+
+
+..code..
+class OverrideView(RedirectView):
+    pattern_name = 'orders_details'
+
+    def get(self, request, *args, **kwargs):
+        self.extra_context = {'new_data': 'abc'}
+        queryset, is_created = OrderModel.objects.get_or_create(
+            status='New',
+            fk_user=self.request.user,
+        )
+        kwargs['pk'] = queryset.pk
+        return super().get(request, *args, **kwargs)
+
+
+..code..
+class OverrideView(ListView):
+
+    def get(self, request, *args, **kwargs):
+        try:
+            user_balance = AccountModel.objects.get(fk_user=request.user.id)
+        except AccountModel.DoesNotExist:
+            user_balance = None
+        self.extra_context = {"user_balance": user_balance}
+        return super().get(request, *args, **kwargs)
+
+
+..code..
+from django.contrib.auth import login, views
+
+class LoginView(views.LoginView):
+    template_name='user/login.html'
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        if self.request.user.is_staff:
+            return '/users/'
+        else:
+            return '/staff/'
+            
+..code..
+..code..
+..code..
+..code..
+..code..
+..code..

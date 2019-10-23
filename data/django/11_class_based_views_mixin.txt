@@ -1,0 +1,35 @@
+..title..
+Django Class Based Views
+
+..link.. django/11_class_based_views.txt
+..
+
+..sub_title..
+Mixin
+..نص..
+السماح للمستخدم الفعال فقط
+..code..
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+class BlogUpdateView(LoginRequiredMixin, UpdateView):
+    ...
+
+
+
+..نص..
+تحديد شرط مخصوص
+..code..
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
+class BlogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    ...
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
+
+
+
+..نص..
+تحديد شرط مخصوص
+..code..

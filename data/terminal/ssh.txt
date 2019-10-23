@@ -1,0 +1,52 @@
+..title..
+Enabling SSH on Ubuntu
+
+..link.. terminal/deploy.txt
+..
+
+..link.. https://ifconfig.co/ip
+My Public IP 
+
+
+..sub_title..
+My Local IP 
+..code..
+ip route
+# ... kernel scope link src 190.168.my.local.ip 
+
+
+..sub_title..
+Install SSH Over LAN
+..code..
+sudo apt install openssh-server
+sudo systemctl status ssh
+# press >> q << to get back
+
+
+..sub_title..
+Enable & Disable SSH Over LAN
+..code..
+# Disabling SSH on Ubuntu
+sudo systemctl disable ssh
+# Enable SSH on Ubuntu
+sudo systemctl enable ssh
+
+
+..text..
+connect to ssh
+..code..
+ssh myname@remote.server.ip
+
+
+..text..
+generate key
+..code..
+ssh-keygen -t rsa
+# or 
+ssh-keygen -b 4096
+
+
+..text..
+copy public key to remote server
+..code..
+scp ~/test.txt myname@remote.server.ip:~/path/

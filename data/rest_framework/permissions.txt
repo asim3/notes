@@ -1,0 +1,80 @@
+..title..
+Django Class Based Views
+
+..link.. rest_framework/master.txt
+..
+
+..link.. https://github.com/encode/django-rest-framework/blob/master/rest_framework/permissions.py
+github
+
+..sub_title..
+Permissions
+
+..text..
+/app_name/settings.py
+..code..
+
+REST_FRAMEWORK = {
+    ...
+
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAdminUser',
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'rest_framework.permissions.DjangoModelPermissions',
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        'rest_framework.permissions.DjangoObjectPermissions',
+    ),
+}
+
+
+
+..text..
+/app_name/views.py
+..code..
+def get_object(self):
+    obj = get_object_or_404(self.get_queryset(), pk=self.kwargs["pk"])
+    self.check_object_permissions(self.request, obj)
+    return obj
+
+
+
+..sub_title..
+Custom permissions
+
+..code..
+from rest_framework.permissions import BasePermission
+
+class BlacklistPermission(BasePermission):
+
+    def has_permission(self, request, view):
+        ip_addr = request.META['REMOTE_ADDR']
+        blacklisted = Blacklist.objects.filter(ip_addr=ip_addr).exists()
+        return not blacklisted
+
+
+..code..
+class IsOwnerOrReadOnly(BasePermission):
+    """
+    Object-level permission to only allow owners of an object to edit it.
+    Assumes the model instance has an `owner` attribute.
+    """
+
+    def has_object_permission(self, request, view, obj):
+        # Read permissions are allowed to any request,
+        # so we'll always allow GET, HEAD or OPTIONS requests.
+        if request.method in permissions.SAFE_METHODS:
+            return True
+
+        # Instance must have an attribute named `owner`.
+        return obj.owner == request.user
+
+
+..code..
+class CustomerAccessPermission(permissions.BasePermission):
+    message = 'Adding customers not allowed.'
+
+    def has_permission(self, request, view):
+         ...
+

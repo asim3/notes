@@ -1,0 +1,12 @@
+.root {
+  padding: 10vw;
+  background: gray;
+}
+.test1 {
+  padding: 10vw;
+  background: red;
+}
+.test2 {
+  padding: 10vw;
+  background: blue;
+}

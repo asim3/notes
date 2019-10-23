@@ -1,0 +1,59 @@
+..title..
+Terminal, Bash, Linux Command Line
+
+..link.. terminal/master.txt
+..
+
+..link.. http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html
+BASH HOW-TO
+
+
+..text..
+to run script in terminal
+..code..
+>>> bash file_name
+
+
+..code..
+#!/bin/bash
+
+echo Hello World
+echo "This is a shell script"
+
+VAR='Hello World'
+echo "$VAR"
+
+echo 'my name' > file.txt
+
+
+..code..
+>> bash file_name value1 value2
+
+echo $@ # value1 value2
+echo "$@" # value1 value2
+echo "$1" # value1
+echo "${1}" # value1
+echo "${2}" # value2
+echo "$((5 + 5))" # 10
+# echo "$(1 + 1)" # error
+# echo "$(1 + 1)" # error
+
+
+
+..code..
+log_enabled="true"
+if [ "$1" = "1" ]; then
+    echo "my name is asim 1"
+else
+    echo "my name is asim 2"
+fi
+
+
+..code..
+T1="foo"
+T2="bar"
+if [ "$T1" = "$T2" ]; then
+    echo expression evaluated as true
+else
+    echo expression evaluated as false
+fi

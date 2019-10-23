@@ -1,0 +1,72 @@
+..title..
+Cheat Sheet for Heroku
+
+..link.. master.txt
+..
+..link.. heroku/django.txt
+Django
+..link.. heroku/php.txt
+PHP
+
+
+
+..code..
+heroku -v
+heroku login
+heroku apps
+heroku create _
+heroku git:clone -a _
+heroku git:remote -a _
+heroku apps:destroy -a _
+
+
+..sub_title..
+commit changes
+..code..
+git init
+git add .
+..code..
+git commit -m "init commit"
+..code..
+git push heroku master
+..code..
+git status
+
+
+..sub_title..
+push to heroku
+..code..
+git push heroku master
+..code..
+heroku open
+
+
+..text..
+database info
+..code..
+heroku pg:info -a _
+watch "heroku pg:info -a _"
+
+
+..sub_title..
+scale Dynos
+..code..
+heroku ps:scale web=1 -a _
+
+
+..sub_title..
+Run app locally
+..code..
+heroku local web
+
+# pg_config is in postgresql-devel 
+# libpq-dev in Debian/Ubuntu
+# libpq-devel on Cygwin/Babun
+
+sudo apt install libpq-dev 
+
+
+..sub_title..
+other
+..code..
+heroku access

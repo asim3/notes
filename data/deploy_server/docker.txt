@@ -1,0 +1,61 @@
+..title..
+Docker
+
+..link.. deploy_server/master.txt
+..
+
+
+..text..
+Uninstall old versions
+..code..
+sudo apt-get remove docker docker-engine docker.io containerd runc
+
+
+..text..
+Install Docker Engine - Community
+..code..
+
+
+
+
+..code..
+docker run <image>
+docker start <name|id>
+docker stop <name|id>
+docker rm <name|id>
+
+
+..text..
+Show images
+..code..
+# show running images
+docker ps 
+# show all images
+docker ps -a 
+
+
+
+..text..
+
+..code..
+
+
+
+
+
+
+..text..
+
+..code..
+
+
+
+
+
+
+..text..
+
+..code..
+
+
+

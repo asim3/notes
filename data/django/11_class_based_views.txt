@@ -1,0 +1,125 @@
+..title..
+Django Class Based Views
+
+..link.. django/4_views.txt
+..
+
+..link.. django/11_class_based_views_template.txt
+Template View
+
+..link.. django/11_class_based_views_list.txt
+List View
+
+..link.. django/11_class_based_views_update.txt
+Update View
+
+..link.. django/11_class_based_views_create.txt
+Create View
+
+..link.. django/11_class_based_views_detail.txt
+Detail View
+
+..link.. django/11_class_based_views_login.txt
+Login View
+
+..link.. django/11_class_based_views_delete.txt
+Delete View
+
+..link.. django/11_class_based_views_mixin.txt
+Mixin
+
+..link.. django/11_class_based_views_pattern.txt
+الأنماط
+
+..link.. django/11_class_based_views_override.txt
+Override
+
+..sub_title..
+Built-in class-based views API
+..code..
+https://docs.djangoproject.com/en/2.1/ref/class-based-views/
+
+..sub_title..
+الشكل البسيط
+..code..
+path('', TemplateView.as_view(template_name="base/home.html") ),
+
+
+..sub_title..
+الشكل الطبيعي
+..code..
+# views.py
+from django.views.generic import TemplateView
+
+class AboutView(TemplateView):
+    template_name = "about.html"
+    extra_context = None
+
+    def dispatch(self, request, *args, **kwargs):
+      # ...
+      return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+      # ...
+      return super().get(request, *args, **kwargs)
+
+
+..code..
+# urls.py
+path('about/', AboutView.as_view() ),
+
+
+..sub_title..
+تخطي المعادلة
+..code..
+class ListTable(ListView):
+    # queryset = Table1.objects.order_by(order_by_this)
+    model = Table1
+    paginate_by= 10
+    template_name = 'show_table/show_table.html'
+    ordering = 'id'
+
+    def dispatch(self, request, *args, **kwargs):
+        ...
+
+        return super().dispatch(request, *args, **kwargs)
+
+
+
+..sub_title..
+تحويل الرابط
+..code..
+from django.urls import path
+from django.views.generic.base import RedirectView
+
+urlpatterns = [
+  path('details/', RedirectView.as_view(url='https://djangoproject.com') ),
+  path('details/', RedirectView.as_view(pattern_name='show_table') ),
+]
+
+..sub_title..
+جميع انواع الأصناف
+..code..
+TemplateView
+DetailView
+ListView
+
+CreateView
+UpdateView
+DeleteView
+
+
+
+..sub_title..
+Base64_img
+..code..
+def get_base64_img(base64_text):
+    try:
+        import base64
+        from django.core.files.base import ContentFile
+
+        format, base64_img = base64_text.split(';base64,')
+        ext = format.split('/')[-1]
+        return ContentFile(base64.b64decode(base64_img), name='temp.' + ext)
+    except:
+        return None

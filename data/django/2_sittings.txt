@@ -1,0 +1,55 @@
+..title..
+Django Settings
+
+..link.. django/0_master.txt
+..
+
+
+..code..
+STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static_collected")
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR , 'static_files'), )
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/MEDIA_ROOT')
+
+
+..code..
+LOGIN_REDIRECT_URL = '/home/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+TIME_ZONE = 'Asia/Riyadh'
+
+
+
+..text..
+LANGUAGES
+..code..
+LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ar-sa'
+LANGUAGES = [('ar',)]
+TIME_ZONE = 'Asia/Riyadh'
+
+
+..text..
+TIME
+..code..
+DATE_FORMAT = 'Y / m / d'
+DATETIME_FORMAT = 'Y / m / d P'
+
+
+..sub_title..
+Heroku
+..code..
+import django_heroku
+django_heroku.settings(locals())
+
+
+..sub_title..
+غير هام
+..code..
+CSRF_COOKIE_NAME = 'asim_csrf'

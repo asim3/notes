@@ -1,0 +1,67 @@
+..title..
+Bootstrap 4
+
+..link.. master.txt
+..
+
+..link.. bootstrap/options.txt
+المساحة والألوان
+
+..link.. bootstrap/styles.txt
+الانماط
+
+..link.. bootstrap/navbar.txt
+التنقل
+
+..link.. bootstrap/card.txt
+بطاقة
+
+..link.. bootstrap/favorites_1.txt
+المفضلة
+
+..link.. bootstrap/table.txt
+الجدول
+
+..link.. bootstrap/img.txt
+الصور
+
+..link.. bootstrap/other.txt
+اخرى
+
+
+..sub_title..
+CDN link
+..code..
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+..sub_title..
+القالب
+..code..
+container
+container-fluid
+
+..text..
+width
+..code..
+xs    <= 576px
+sm    >= 576px
+md    >= 768px
+lg    >= 992px
+xl    >= 1200px
+
+..sub_title..
+زر
+..code..
+btn btn-primary
+btn btn-outline-success
+active
+disabled
+..نص..
+الحجم
+..code..
+btn btn-lg btn-sm btn-block
+..نص..
+مجموعة ازرار
+..code..
+btn-group btn-group-lg btn-group-sm

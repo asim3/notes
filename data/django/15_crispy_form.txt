@@ -1,0 +1,51 @@
+..title..
+Django Crispy Form
+
+..link.. django/0_master.txt
+..
+..sub_title..
+التثبيت
+..code..
+pip install --upgrade django-crispy-forms
+
+..sub_title..
+CDN link
+..code..
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+..نص..
+إضافة بعد التحميل الى الجانقو
+..code..
+INSTALLED_APPS = (
+    ...
+    'crispy_forms',
+)
+
+# CRISPY_TEMPLATE_PACK = 'uni_form'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+..sub_title..
+إضافة الى النماذج
+..code..
+{% load crispy_forms_tags %}
+
+<form method="post" class="uniForm">
+    {{ form|crispy }}
+</form>
+
+
+..sub_title..
+
+..code..
+
+..sub_title..
+
+..code..
+
+..sub_title..
+
+..code..
+
+..sub_title..
+
+..code..

@@ -1,0 +1,89 @@
+..title..
+Django URLs
+
+..link.. django/0_master.txt
+..
+
+
+..text..
+Using static html in /project/templates/index.html
+..code..
+# /project/urls.py
+path('', TemplateView.as_view(template_name="index.html") ),
+
+
+# /project/settings.py
+TEMPLATES = [
+    {
+        ...
+        'DIRS': [os.path.join(os.path.dirname(__file__), 'templates')],
+        ...
+    },
+]
+
+
+..code..
+from django.urls import path, include, re_path
+..code..
+from . import views
+
+..code..
+urlpatterns = [
+  path('', include('___.urls')),
+  path('print/<int:xxxx>', views.__),
+  path('print/<slug:xxxx>', views.__),
+  re_path(r'^(?i)xxxx/', views.__),
+  path('index/', views.index, name='main-view'),
+  path('admin/', admin.site.urls),
+]
+
+..sub_title..
+static files
+..code..
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+urlpatterns += staticfiles_urlpatterns()
+
+..code..
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Note that request.FILES will only contain data if the request method
+# was POST and the <form> that posted the request has the attribute
+# enctype="multipart/form-data". Otherwise, request.FILES will be empty.
+
+
+..sub_title..
+Get URL by URL name
+..code..
+from django.urls import reverse
+
+reverse('url_name', kwargs={'pk': self.object.id})
+
+def myview(request):
+    return HttpResponseRedirect(reverse('arch-summary', args=[1945]))
+
+
+..text..
+Class Based Views
+..code..
+# urls.py
+from django.views.generic import TemplateView
+
+urlpatterns = [
+  path('', TemplateView.as_view(template_name="base/home.html") ),
+]
+
+
+..sub_title..
+App Name
+..code..
+app_name = 'myappname'
+urlpatterns = [
+  path('home/', views.index, name='home'),
+  ...
+]
+# in templates {{ url 'myappname:home' }}

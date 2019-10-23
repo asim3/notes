@@ -1,0 +1,36 @@
+..title..
+Django Admin
+
+..link.. django/0_master.txt
+..
+
+..sub_title..
+Shows models in admin page
+..code..
+
+from django.contrib import admin
+from .models import TableName
+
+admin.site.register(TableName)
+
+
+..code..
+from django.contrib import admin
+from .models import Table1
+
+@admin.register(Table1)
+class AdminTable1(admin.ModelAdmin):
+    list_display = ('title', 'desc', 'year', 'date', 'age', 'ser')
+
+
+..sub_title..
+Overriding admin templates
+..code..
+# add template base "dirs" in settings
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['base/templates'],
+        # ...
+    },
+]

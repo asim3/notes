@@ -1,0 +1,84 @@
+..title..
+Schedule Tasks on Linux Using Crontab
+
+..link.. terminal/master.txt
+..
+
+
+
+..text..
+show crontabs are currently running
+..code..
+crontab -l
+..text..
+edit crontabs list 
+..code..
+crontab -e
+
+
+
+..text..
+run every minute
+..code..
+* * * * * /bin/execute/this/script.sh
+
+# minute (from 0 to 59)
+# hour (from 0 to 23)
+# day of month (from 1 to 31)
+# month (from 1 to 12)
+# day of week (from 0 to 6) (0=Sunday)
+
+..text..
+run every Friday 1AM
+..code..
+0 1 * * 5 /bin/execute/this/script.sh
+
+# minute: 0
+# of hour: 1
+# of day of month: * (every day of month)
+# of month: * (every month)
+# and weekday: 5 (=Friday)
+
+..code..
+# run on workdays 1AM
+0 1 * * 1-5 /bin/execute/this/script.sh
+
+# run 10 past after every hour on the 1st of every month
+10 * 1 * * /bin/execute/this/script.sh
+
+# run every 10 minutes
+0,10,20,30,40,50 * * * * /bin/execute/this/script.sh
+# or
+*/10 * * * * /bin/execute/this/script.sh
+
+..code..
+@reboot     # Run once, at startup
+@yearly     # Run once  a year     "0 0 1 1 *"
+@annually   # (same as  @yearly)
+@monthly    # Run once  a month    "0 0 1 * *"
+@weekly     # Run once  a week     "0 0 * * 0"
+@daily      # Run once  a day      "0 0 * * *"
+@midnight   # (same as  @daily)
+@hourly     # Run once  an hour    "0 * * * *"
+
+
+..text..
+save output in separate logfile
+..code..
+*/10 * * * * /bin/execute/this/script.sh >> /var/log/script_output.log 2>&1
+
+# 2>&1 means store errors in messages as well
+# > will overwrite the file
+# >> will append to the file
+
+..text..
+Mailing the crontab output
+..code..
+MAILTO="yourname@yourdomain.com"
+
+..text..
+Trashing the crontab output
+..code..
+*/10 * * * * /bin/execute/this/script.sh > /dev/null 2>&1
+
+# /dev/null is the black hole

@@ -1,0 +1,135 @@
+..title..
+p5.js
+
+..link.. js/master.txt
+..
+
+
+..text..
+Setup
+..code..
+createCanvas(windowWidth, windowHeight)
+
+const canvas = createCanvas(100, 100)
+canvas.parent('canvas_root')
+
+const cnv = createCanvas(windowWidth, windowHeight)
+cnv.style('display', 'block')
+background(255, 0, 200)
+
+frameRate(27)
+noLoop()
+
+img = loadImage('assets/moonwalk.jpg')
+pg = createGraphics(200, 250) // in draw: image(pg, 150, 5)
+slider = createSlider(0, 255, 127) // slider has a range between 0 and 255 with a starting value of 127
+
+colorMode(HSB, 255) // hue, saturation, and brightness
+
+// Request the data from apixu.com
+let url = 'https://api.apixu.com/v1/current.json?key=513d8003c8b348f1a2461629162106&q=NYC';
+loadJSON(url, gotWeather);
+
+..text..
+Draw
+..code..
+background(0)
+
+noStroke() // transparent
+stroke(255)
+strokeWeight(2)
+
+noFill() // transparent
+fill(0,200,0, 127)
+
+point(x - 10, y - 10)
+line(x, y, 50, 50)
+rect(x, y, width - 50, height - 50)
+rect(mouseX, mouseY, 50, 50)
+
+ellipse(x, y, 30) // An ellipse "Circle"
+ellipse(x, y, 800, 50) // An ellipse "Circle"
+triangle(x, y, 320, 100, 310, 80)
+
+redraw()
+translate(x, y)
+random(255)
+dist(0, 0, 20, 20) // Distance 2D
+dist(mouseX, mouseY, 360, 200)
+
+image(mouse_png, mouseX, mouseY, 20, 20)
+image(pg, 150, 5) // in setup: pg = createGraphics(200, 250)
+
+createVector(40, 50)
+
+textSize(32)
+text(`abcdef`, x, y)
+
+
+..text..
+Function
+..code..
+function mousePressed() {
+  redraw()
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+
+
+
+
+
+
+..code..
+let x = 10, y = 10, z = 50
+function setup() {
+  createCanvas(500, 500)
+  frameRate(27)
+}
+function draw() {
+  x = x < 100 ? x + 1 : 0
+  y = y < 100 ? y + 1 : 0
+  background(0)
+  noStroke() // transparent
+  noFill() // transparent
+
+  stroke(255)
+  point(x, y)
+
+  stroke(0, 0, 255)
+  line(x + 10, y + 10, x + 50, y + 50)
+
+  stroke(100,255,0)
+  rect(x + 18, y + 18, 50, 50)
+
+  stroke(0, 0, 255)
+  ellipse(x, y, 800, 50) // An ellipse
+  triangle(x, y, 320, 100, 310, 80)
+}
+
+
+..code..
+  let x = 10, y = 10, z = 50
+  function xy() {
+      x = x + 20
+      setTimeout(xy,500)
+  }
+  function setup() {
+    // Sets the screen to be 720 pixels wide and 400 pixels high
+    createCanvas(500, 500)
+    xy()
+  }
+  function draw() {
+    background(0);
+    noStroke();
+    for (let i = 0; i < height; i += 20) {
+      if(i > x) { break; }
+      fill(129, 206, 15);
+      rect(0, i, width, 10);
+      fill(255);
+      rect(i, 0, 10, height);
+    }
+  }

@@ -1,0 +1,16 @@
+..title..
+Bootstrap 4
+
+..link.. bootstrap/master.txt
+..
+
+..sub_title..
+الصور
+..code..
+<img src="..." class="img-fluid" alt="Responsive image">
+
+
+..code..
+img-thumbnail
+img-rounded
+img-circle

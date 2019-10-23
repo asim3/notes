@@ -1,0 +1,14 @@
+..title..
+Terminal, Bash, Linux Command Line
+
+..link.. terminal/master.txt
+..
+
+..link.. https://smallbusiness.chron.com/write-cmd-script-53226.html
+CMD tutorial
+
+
+..text..
+disables auto close
+..code..
+@echo off

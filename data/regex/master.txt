@@ -1,0 +1,46 @@
+..title..
+REGEX
+
+..link.. master.txt
+..
+
+..فرعي..
+عام
+
+..code..
+.	Any Character
+\.	Period
+\d	Any Digit
+\D	Any Non-digit character
+\w	Any Alphanumeric character
+\W	Any Non-alphanumeric character
+\s	Any Whitespace
+\S	Any Non-whitespace character
+
+
+..فرعي..
+التكرار
+..code..
+*	Zero or more repetitions
++	One or more repetitions
+?	Optional character
+
+
+..فرعي..
+منطق
+..code..
+[abc]	Only a, b, or c
+[^abc]	Not a, b, nor c
+[a-z]	Characters a to z
+[0-9]	Numbers 0 to 9
+{m}	m Repetitions
+{m,n}	m to n Repetitions
+^…$	Starts and ends
+
+..فرعي..
+مجموعات
+..code..
+(…)	Capture Group
+(a(bc))	Capture Sub-group
+(.*)	Capture all
+(abc|def)	Matches abc or def

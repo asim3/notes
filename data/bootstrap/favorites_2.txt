@@ -1,0 +1,310 @@
+..title..
+Bootstrap 4
+
+..link.. bootstrap/favorites_1.txt
+..
+
+
+..raw..
+
+
+  <div class="card-columns">
+    <div class="card">
+      <img class="card-img-top" src="img1.png" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">John Doe</h4>
+        <p class="card-text">Some example text.</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img-top" src="img1.png" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">John Doe</h4>
+        <p class="card-text">Some example text.</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img-top" src="img1.png" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">John Doe</h4>
+        <p class="card-text">Some example text.</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
+  </div>
+
+<hr>
+
+  <div class="card-columns">
+    <div class="card">
+      <img class="card-img-top" src="img1.png" alt="Card image">
+      <div class="card-img-overlay">
+        <h4 class="card-title">John Doe</h4>
+        <p class="card-text">Some example text.</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img-top" src="img1.png" alt="Card image">
+      <div class="card-img-overlay">
+        <h4 class="card-title">John Doe</h4>
+        <p class="card-text">Some example text.</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img-top" src="img1.png" alt="Card image">
+      <div class="card-img-overlay">
+        <h4 class="card-title">John Doe</h4>
+        <p class="card-text">Some example text.</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
+  </div>
+
+<hr>
+
+<div class="card-columns">
+  <div class="card bg-primary">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the first card</p>
+    </div>
+  </div>
+  <div class="card bg-warning">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the second card</p>
+    </div>
+  </div>
+  <div class="card bg-success">
+    <div class="card-body text-center">
+      <p class="card-text">Some text <br> new line <br> new line <br> new line <br> new line <br> new line</p>
+    </div>
+  </div>
+  <div class="card bg-danger">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the fourth card</p>
+    </div>
+  </div>
+  <div class="card bg-light">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the fifth card</p>
+    </div>
+  </div>
+  <div class="card bg-info">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the sixth card</p>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="card-deck">
+  <div class="card bg-primary">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the first card</p>
+    </div>
+  </div>
+  <div class="card bg-warning">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the second card</p>
+    </div>
+  </div>
+  <div class="card bg-success">
+    <div class="card-body text-center">
+      <p class="card-text">Some text <br> new line <br> new line <br> new line <br> new line <br> new line</p>
+    </div>
+  </div>
+  <div class="card bg-danger">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the fourth card</p>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="card-group">
+  <div class="card bg-primary">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the first card</p>
+    </div>
+  </div>
+  <div class="card bg-warning">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the second card</p>
+    </div>
+  </div>
+  <div class="card bg-success">
+    <div class="card-body text-center">
+      <p class="card-text">Some text <br> new line <br> new line <br> new line <br> new line <br> new line</p>
+    </div>
+  </div>
+  <div class="card bg-danger">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the fourth card</p>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="media border p-3">
+  <img src="img1.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+  <div class="media-body">
+    <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+</div>
+
+<hr>
+
+<div class="media border p-3">
+  <div class="media-body">
+    <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+    <p>text line <br> text line <br> text line <br> text line <br> text line <br> </p>
+  </div>
+  <img src="img1.png" alt="John Doe" class="ml-3 mt-3 rounded-circle" style="width:60px;">
+</div>
+
+<hr>
+
+<!-- Media top -->
+<div class="media">
+  <img src="img1.png" class="align-self-start mr-3 rounded-circle" style="width:60px">
+  <div class="media-body">
+    <h4>Media Top</h4>
+    <p>text line <br> text line <br> text line <br> text line <br> text line <br> </p>
+  </div>
+</div>
+
+<hr>
+
+<!-- Media middle -->
+<div class="media">
+  <img src="img1.png" class="align-self-center mr-3 rounded-circle" style="width:60px">
+  <div class="media-body">
+    <h4>Media Middle</h4>
+    <p>text line <br> text line <br> text line <br> text line <br> text line <br> </p>
+  </div>
+</div>
+
+<hr>
+
+<!-- Media bottom -->
+<div class="media">
+  <img src="img1.png" class="align-self-end mr-3 rounded-circle" style="width:60px">
+  <div class="media-body">
+    <h4>Media Bottom</h4>
+    <p>text line <br> text line <br> text line <br> text line <br> text line <br> </p>
+  </div>
+</div>
+
+<hr>
+
+<div class="media border p-3">
+  <img src="img1.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+  <div class="media-body">
+    <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+    <p>text line <br> text line <br> text line <br> text line <br> text line <br> </p>
+    <div class="media p-3">
+      <img src="img1.png" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
+      <div class="media-body">
+        <h4>Jane Doe <small><i>Posted on February 20 2016</i></small></h4>
+        <p>text line <br> text line <br> text line <br> text line <br> text line <br> </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="d-flex justify-content-start bg-secondary mb-3">
+  <div class="p-2 bg-info">Flex item 1</div>
+  <div class="p-2 bg-warning">Flex item 2</div>
+  <div class="p-2 bg-primary">Flex item 3</div>
+</div>
+<div class="d-flex justify-content-end bg-secondary mb-3">
+  <div class="p-2 bg-info">Flex item 1</div>
+  <div class="p-2 bg-warning">Flex item 2</div>
+  <div class="p-2 bg-primary">Flex item 3</div>
+</div>
+<div class="d-flex justify-content-center bg-secondary mb-3">
+  <div class="p-2 bg-info">Flex item 1</div>
+  <div class="p-2 bg-warning">Flex item 2</div>
+  <div class="p-2 bg-primary">Flex item 3</div>
+</div>
+<div class="d-flex justify-content-between bg-secondary mb-3">
+  <div class="p-2 bg-info">Flex item 1</div>
+  <div class="p-2 bg-warning">Flex item 2</div>
+  <div class="p-2 bg-primary">Flex item 3</div>
+</div>
+<div class="d-flex justify-content-around bg-secondary mb-3">
+  <div class="p-2 bg-info">Flex item 1</div>
+  <div class="p-2 bg-warning">Flex item 2</div>
+  <div class="p-2 bg-primary">Flex item 3</div>
+</div>
+
+<hr>
+
+<div class="d-flex">
+  <div class="p-2 bg-info flex-fill flex-fill">Flex item 1</div>
+  <div class="p-2 bg-warning flex-fill flex-fill">Flex item 2</div>
+  <div class="p-2 bg-primary flex-fill flex-fill">Flex item 3</div>
+</div>
+
+<hr>
+
+<div class="d-flex bg-secondary">
+  <div class="p-2 mr-auto bg-info">Flex item 1</div>
+  <div class="p-2 bg-warning">Flex item 2</div>
+  <div class="p-2 bg-primary">Flex item 3</div>
+</div>
+
+<div class="d-flex bg-secondary">
+  <div class="p-2 bg-info">Flex item 1</div>
+  <div class="p-2 bg-warning">Flex item 2</div>
+  <div class="p-2 ml-auto bg-primary">Flex item 3</div>
+</div>
+
+<hr>
+
+<div class="d-flex flex-wrap bg-light">
+    <div class="p-2 border">Flex item 1</div>
+    <div class="p-2 border">Flex item 2</div>
+    <div class="p-2 border">Flex item 3</div>
+    <div class="p-2 border">Flex item 4</div>
+    <div class="p-2 border">Flex item 5</div>
+    <div class="p-2 border">Flex item 6</div>
+    <div class="p-2 border">Flex item 7</div>
+    <div class="p-2 border">Flex item 8</div>
+    <div class="p-2 border">Flex item 9</div>
+    <div class="p-2 border">Flex item 10</div>
+    <div class="p-2 border">Flex item 11</div>
+    <div class="p-2 border">Flex item 12</div>
+    <div class="p-2 border">Flex item 13 </div>
+    <div class="p-2 border">Flex item 14</div>
+    <div class="p-2 border">Flex item 15</div>
+    <div class="p-2 border">Flex item 16</div>
+    <div class="p-2 border">Flex item 17</div>
+    <div class="p-2 border">Flex item 18</div>
+    <div class="p-2 border">Flex item 19</div>
+    <div class="p-2 border">Flex item 20</div>
+    <div class="p-2 border">Flex item 21</div>
+    <div class="p-2 border">Flex item 22</div>
+    <div class="p-2 border">Flex item 23</div>
+    <div class="p-2 border">Flex item 24</div>
+    <div class="p-2 border">Flex item 25</div>
+  </div>
+
+<hr>
+
+
+
+<hr>

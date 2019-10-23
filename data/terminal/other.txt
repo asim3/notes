@@ -1,0 +1,104 @@
+..title..
+Terminal, Bash, Linux Command Line
+
+..link.. terminal/master.txt
+..
+
+
+..code..
+echo "b9beac143e36226aa8a0b03fc1cbb5921cff80123866e718aaeba4edb81cfa63 *ubuntu-18.04.3-live-server-amd64.iso" | shasum -a 256 --check
+
+killall python3
+
+..code..
+NAME="John"
+echo $NAME
+echo "Hello $NAME!"
+echo "${NAME}!"
+
+
+..code..
+get_name() {
+  echo "John"
+}
+
+echo "You are $(get_name)"
+
+get_name "John"
+
+
+..code..
+git commit && git push
+
+
+..code..
+history
+
+..code..
+hostname -I
+
+
+..code..
+export
+declare
+
+
+..text..
+show all drivers
+..code..
+df -h
+
+
+..code..
+top
+
+
+..code..
+cd /etc
+more /etc/lsb-release
+
+
+..code..
+ps aux
+
+..text..
+Shutdown
+..code..
+# Log Out 
+gnome-session-quit
+
+sudo reboot
+sudo shutdown -r
+
+sudo shutdown -P now
+shutdown +30 "Leave to pickup friend!"
+
+..code..
+# get website public IP address 
+nslookup
+
+# get website nameserver
+nslookup
+set query=ns
+
+..code..
+# fix broken packages
+sudo apt-get install -f 
+sudo dpkg --configure -a
+
+# cleans the packages and install script in /var/cache/apt/archives/
+apt clean
+
+# cleans obsolete deb-packages, less than clean
+apt autoclean
+
+# removes orphaned packages which are not longer needed
+apt autoremove
+
+
+..text..
+execute a file
+..code..
+if [ -f ~/file_name ]; then
+    source ~/file_name;
+fi

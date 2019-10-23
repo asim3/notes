@@ -1,0 +1,67 @@
+..sub_title..
+Asim Notes
+
+
+
+..text..
+Languages
+..link.. html/master.txt
+HTML & CSS
+..link.. js/master.txt
+JS
+..link.. python/master.txt
+Python
+..link.. nodejs/master.txt
+Node.js
+..link.. regex/master.txt
+regex
+
+
+
+..text..
+Frameworks
+..link.. django/0_master.txt
+Django
+..link.. rest_framework/master.txt
+REST
+..link.. react_js/master.txt
+React.js
+
+
+
+..text..
+Libraries
+..link.. bootstrap/master.txt
+Bootstrap 4
+
+
+
+..text..
+Service
+..link.. aws/master.txt
+AWS
+..link.. heroku/master.txt
+Heroku
+..link.. git/master.txt
+git
+..link.. https://www.twilio.com/pricing
+Twilio
+
+
+
+..text..
+Other
+..link.. terminal/master.txt
+Terminal
+
+..link.. deploy_server/master.txt
+Deploy a Server
+
+
+
+..text..
+Projects
+..link.. https://alzod.com
+Alzod
+..link.. https://meras.herokuapp.com
+Meras

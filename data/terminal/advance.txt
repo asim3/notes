@@ -1,0 +1,97 @@
+..title..
+Advance
+
+..link.. terminal/master.txt
+..
+
+..link.. terminal/customise.txt
+Customise terminal
+
+
+..text..
+add a hard link "shortcut"
+..code..
+ln ~/Downloads/my_file.pdf ~/Desktop/short_cut.aaaaa
+sudo ln -s /usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin/node /usr/bin/node
+
+..text..
+Edit bash init file
+..code..
+nano ~/.bashrc
+nano ~/.bash_profile # for macOS
+nano /etc/profile # for all users except root
+
+..code..
+# add to ~/.bashrc
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+
+..text..
+Aliases (shortcut for terminal commands)
+..code..
+# add to ~/.bash_aliases
+alias ddd="cd ~/Desktop/"
+
+
+..text..
+PATH
+..code..
+echo $PATH
+
+..code..
+which sudo
+which python
+PATH=/some/dir:$PATH
+PATH=$PATH:/some/dir # alert: do not do this
+
+
+
+
+..text..
+connect domain names with IP addresses in local computer 
+..code..
+sudo nano /etc/hosts
+
+
+..text..
+Show running process name
+..code..
+pgrep -l sys
+pgrep -l python
+pgrep -l firefox
+
+
+..text..
+Stop running process by name
+..code..
+pkill python
+pkill firefox
+pkill gunicorn
+
+
+..text..
+show processes running in memory
+..code..
+ps
+
+
+..text..
+Prints the location of binary files
+..code..
+which python
+which node
+which sudo
+
+
+..text..
+Print or check checksums
+..code..
+# MD5 (128-bit)
+md5sum filename
+# check
+md5sum -c md5sum.txt 
+
+# SHA256 (256-bit)
+sha256sum filename

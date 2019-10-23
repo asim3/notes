@@ -1,0 +1,28 @@
+..title..
+React.js
+
+..link.. react_js/master.txt
+..
+
+
+..sub_title..
+Function Components "pure functions"
+
+..code..
+function MyElement(props) {
+  return <h1>Hello!</h1>
+}
+
+
+..text..
+prevent default in functions
+..code..
+function ActionLink(props) {
+	let i = 0
+  function on_click(e) {
+    e.preventDefault()
+    console.log(props.text, i++)
+  }
+
+  return <a href={props.href} onClick={on_click}>{props.text}</a>;
+}

@@ -1,0 +1,18 @@
+h1, h3
+{
+  padding: 7vh;
+}
+a
+{
+  display: block;
+  float: right;
+  width: 31vw;
+  max-width: 233px;
+}
+img
+{
+  width: 100%;
+  max-width: 70px;
+  height: 100%;
+  max-height: 70px;
+}

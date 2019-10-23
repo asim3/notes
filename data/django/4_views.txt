@@ -1,0 +1,91 @@
+..title..
+Django Views
+
+..link.. django/0_master.txt
+..
+
+..link.. django/6_orm.txt
+ORM
+
+..link.. django/7_login.txt
+Login
+
+..link.. django/7_login2.txt
+Login 2
+
+..link.. django/11_class_based_views.txt
+Class Based Views
+
+..link.. django/4_views_other.txt
+Other
+
+
+
+..sub_title..
+عرض الصفحة الرئيسية
+..code..
+from django.shortcuts import render, redirect
+..code..
+def showGet(request):
+	return render(request, 'index.html')
+
+
+..sub_title..
+GET & POST data
+..code..
+def showGet(request):
+	if request.GET.get('title', False):
+			context['title'] = request.GET['title']
+
+  if request.GET['title']: # Error if GET['title'] is not set
+
+
+..code..
+>>> cleaned_data['foo']
+# exception, KeyError: 'foo'
+>>> cleaned_data.get('foo')
+# No exception, just get nothing back.
+>>> cleaned_data.get('foo', "Sane Default")
+'Sane Default'
+
+
+
+
+..sub_title..
+Post
+..code..
+from home.forms import HomeForm
+
+def showPost(self, request):
+	form = HomeForm(request.POST or None, initial=dict, instance=obj)
+	# if request.method == 'POST':
+	if form.is_valid():
+		username = form.cleaned_data.get('username')
+		# ...
+	context = {
+		'form': form,
+	}
+	return render(request, 'form.html', context)
+
+
+..sub_title..
+JSON
+..code..
+from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
+..code..
+def showItem(e):
+   data = {"type": "group","id": "555","img": "7.jpg"}
+   return JsonResponse(data, safe=False)
+
+
+..code..
+from django.http import JsonResponse
+
+class CheckFontExistView(DetailView):
+	model = Font
+	slug_field = 'name'
+	fields = ['name', 'file']
+
+	def render_to_response(self, context, **response_kwargs):
+		data = {"name": self.object.name,"src": self.object.file.url}
+		return JsonResponse(data, safe=False)

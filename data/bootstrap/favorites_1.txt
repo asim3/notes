@@ -1,0 +1,527 @@
+..title..
+Bootstrap 4
+
+..link.. bootstrap/master.txt
+..
+
+..رابط.. bootstrap/favorites_2.txt
+البطاقات
+
+..رابط.. bootstrap/favorites_3.txt
+المدخلات
+
+
+..raw..
+
+  <div class="jumbotron">
+    <h1>Bootstrap Tutorial</h1>
+    <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+  </div>
+
+  <hr>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">
+      <img src="img1.png" alt="logo" style="width:40px;">
+    </a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link 2</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </nav>
+
+  <hr>
+
+  <script>
+  /*
+  document.getElementById("navbar_toggler")
+      .addEventListener("click", function() {
+        var navbar_collapse = document.getElementById("navbar_collapse");
+        if(navbar_collapse.style.display !== 'block') {
+          navbar_collapse.style.maxHeight = '0px';
+          navbar_collapse.style.display = 'block';
+          height = 2
+          function navbar_collapse_height() {
+            height += 17;
+            navbar_collapse.style.maxHeight = height + 'px';
+            if(height < 1000) {
+              requestAnimationFrame(navbar_collapse_height)
+            }
+          }
+          requestAnimationFrame(navbar_collapse_height)
+        }
+        else {
+          navbar_collapse.style.display = 'none';
+        }
+      });
+  */
+  </script>
+  <div class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <div id="brand_name" class="navbar-brand">اسم التطبيق</div>
+      <div id="navbar_toggler" class="navbar-toggler">
+        <span class="navbar-toggler-icon"></span>
+      </div>
+      <div id="navbar_collapse" class="collapse navbar-collapse overflow-hidden" style="max-height: 1005px; display: block;">
+          <ul id="navbar_links" class="navbar-nav ml-auto mt-2 mt-lg-0"><li class="nav-item">               <a class="nav-link" href="/">الرئيسية</a>            </li><li class="nav-item">               <a class="nav-link" href="/show_table">عرض جدول</a>            </li><li class="nav-item">               <a class="nav-link" href="/edit_table">تعديل جدول</a>            </li><li class="nav-item">               <a class="nav-link" href="/signup">تسجيل حساب</a>            </li></ul>
+  		    <form class="form-inline my-2 my-lg-0">
+  		      <input class="form-control mx-sm-2" type="search" placeholder="Search">
+  		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  		    </form>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Photos</a></li>
+    <li class="breadcrumb-item"><a href="#">Summer 2017</a></li>
+    <li class="breadcrumb-item"><a href="#">Italy</a></li>
+    <li class="breadcrumb-item active">Rome</li>
+  </ul>
+
+  <hr>
+
+  <div class="alert bg-info">
+    <strong>Success!</strong> Indicates a successful or positive action.
+  </div>
+
+  <hr>
+
+  <div class="alert" style="background: #e9ecef;">
+    <strong>Success!</strong> Indicates a successful or positive action.
+  </div>
+
+  <hr>
+
+  <div class="alert alert-success">
+    <strong>Success!</strong> Indicates a successful or positive action.
+  </div>
+
+  <hr>
+
+  <div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close">&times;</button>
+    <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+  </div>
+
+  <hr>
+
+  <div class="clearfix">
+    <button type="button" class="close">&times;</button>
+  </div>
+
+  <hr>
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+  </ul>
+
+  <hr>
+
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+  </ul>
+
+  <hr>
+
+  <ul class="nav nav-pills nav-justified">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+  </ul>
+
+  <hr>
+
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Active</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Dropdown</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+  </ul>
+
+  <hr>
+
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+  </ul>
+
+  <hr>
+
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item disabled"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+
+  <ul class="pagination pagination-sm justify-content-center">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+  </ul>
+
+  <hr>
+
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action">First item</a>
+    <a href="#" class="list-group-item list-group-item-action">Second item</a>
+    <a href="#" class="list-group-item list-group-item-action">Third item</a>
+  </div>
+
+  <hr>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">First item</li>
+    <li class="list-group-item">Second item</li>
+    <li class="list-group-item">Third item</li>
+    <li class="list-group-item">Fourth item</li>
+  </ul>
+
+  <hr>
+
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Inbox
+      <span class="badge badge-primary badge-pill">12</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Ads
+      <span class="badge badge-primary badge-pill">50</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Junk
+      <span class="badge badge-primary badge-pill">99</span>
+    </li>
+  </ul>
+
+  <hr>
+
+  <h2>
+    h2 heading
+    <small>secondary text</small>
+  </h2>
+
+  <hr>
+
+  <button type="button" class="btn btn-primary">Primary</button>
+  <button type="button" class="btn my-2 btn-secondary">Secondary</button>
+  <button type="button" class="btn btn-success">Success</button>
+  <button type="button" class="btn btn-info">Info</button>
+  <button type="button" class="btn btn-warning">Warning</button>
+  <button type="button" class="btn btn-danger">Danger</button>
+  <button type="button" class="btn btn-dark">Dark</button>
+  <button type="button" class="btn">Basic</button>
+  <button type="button" class="btn btn-light">Light</button>
+  <button type="button" class="btn btn-link">Link</button>
+
+  <hr>
+
+  <button type="button" class="btn btn-outline-primary">Primary</button>
+  <button type="button" class="btn my-2 btn-outline-secondary">Secondary</button>
+  <button type="button" class="btn btn-outline-success">Success</button>
+  <button type="button" class="btn btn-outline-info">Info</button>
+  <button type="button" class="btn btn-outline-warning">Warning</button>
+  <button type="button" class="btn btn-outline-danger">Danger</button>
+  <button type="button" class="btn btn-outline-dark">Dark</button>
+  <button type="button" class="btn btn-outline-light text-dark">Light</button>
+
+  <hr>
+
+  <span class="badge badge-primary">Primary</span>
+  <span class="badge my-2 badge-secondary">Secondary</span>
+  <span class="badge badge-success">Success</span>
+  <span class="badge badge-danger">Danger</span>
+  <span class="badge badge-warning">Warning</span>
+  <span class="badge badge-info">Info</span>
+  <span class="badge badge-light">Light</span>
+  <span class="badge badge-dark">Dark</span>
+
+  <hr>
+
+  <button type="button" class="btn btn-primary btn-lg">Large</button>
+  <button type="button" class="btn btn-primary">Default</button>
+  <button type="button" class="btn btn-primary btn-sm">Small</button>
+
+  <hr>
+
+  <button type="button" class="btn btn-primary btn-block">Full-Width Button</button>
+
+  <hr>
+
+  <button type="button" class="btn btn-primary active">Active Primary</button>
+  <button type="button" class="btn my-2 btn-primary" disabled>Disabled Primary</button>
+  <a href="#" class="btn btn-primary disabled">Disabled Link</a>
+
+  <hr>
+
+  <button class="btn btn-primary">
+    <span class="spinner-border spinner-border-sm"></span>
+  </button>
+
+  <button class="btn btn-primary">
+    <span class="spinner-border spinner-border-sm"></span>
+    Loading..
+  </button>
+
+  <button class="btn my-2 btn-primary" disabled>
+    <span class="spinner-border spinner-border-sm"></span>
+    Loading..
+  </button>
+
+  <button class="btn btn-primary" disabled>
+    <span class="spinner-grow spinner-grow-sm"></span>
+    Loading..
+  </button>
+
+  <hr>
+
+  <script>
+    const dropdown_toggle = function(self) {
+      const drop_menu = self.parentElement.querySelector('.dropdown-menu')
+      if(drop_menu.style.display !== 'block') {
+        drop_menu.style.display = 'block'
+      }
+      else {
+        drop_menu.style.display = 'none'
+      }
+    }
+  </script>
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary">Apple</button>
+    <button type="button" class="btn btn-primary">Samsung</button>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle" onclick="dropdown_toggle(this)">
+         Sony
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Tablet</a>
+        <a class="dropdown-item" href="#">Smartphone</a>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="btn-group-vertical">
+    <button type="button" class="btn btn-primary">Apple</button>
+    <button type="button" class="btn btn-primary">Samsung</button>
+    <button type="button" class="btn btn-primary">Sony</button>
+  </div>
+
+  <hr>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-danger">Sony</button>
+    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" onclick="dropdown_toggle(this)">
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu">
+      <h5 class="dropdown-header">Dropdown header</h5>
+      <a class="dropdown-item" href="#">Link 1</a>
+      <a class="dropdown-item" href="#">Link 2</a>
+      <a class="dropdown-item" href="#">Link 3</a>
+      <h5 class="dropdown-header">Dropdown header</h5>
+      <a class="dropdown-item" href="#">Another link</a>
+      <a class="dropdown-item active" href="#">Active</a>
+      <a class="dropdown-item disabled" href="#">Disabled</a>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-success dropdown-toggle" onclick="document.getElementById('dm1').style.display='block'">Sony</button>
+    <div class="dropdown-menu" id="dm1" onclick="document.getElementById('dm1').style.display='none'">
+      <h5 class="dropdown-header">Dropdown header</h5>
+      <a class="dropdown-item" href="#">Link 1</a>
+      <a class="dropdown-item" href="#">Link 2</a>
+      <a class="dropdown-item" href="#">Link 3</a>
+      <h5 class="dropdown-header">Dropdown header</h5>
+      <a class="dropdown-item" href="#">Another link</a>
+      <a class="dropdown-item active" href="#">Active</a>
+      <a class="dropdown-item disabled" href="#">Disabled</a>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-warning dropdown-toggle" onclick="document.getElementById('dm2').style.display='block'">Sony </button>
+    <div class="dropdown-menu dropdown-menu-right" id="dm2" onclick="document.getElementById('dm2').style.display='none'">
+      <h5 class="dropdown-header">Dropdown header</h5>
+      <a class="dropdown-item" href="#">Link 1</a>
+      <a class="dropdown-item" href="#">Link 2</a>
+      <a class="dropdown-item" href="#">Link 3</a>
+      <h5 class="dropdown-header">Dropdown header</h5>
+      <a class="dropdown-item" href="#">Another link</a>
+      <a class="dropdown-item active" href="#">Active</a>
+      <a class="dropdown-item disabled" href="#">Disabled</a>
+    </div>
+  </div>
+
+  <hr>
+
+  <button type="button" class="btn btn-primary">
+    Messages <span class="badge badge-light">4</span>
+  </button>
+
+  <hr>
+
+  <div class="progress">
+    <div class="progress-bar" style="width:70%">70 %</div>
+  </div>
+
+  <hr>
+
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 40%"></div>
+  </div>
+
+  <hr>
+
+  <div class="progress">
+    <div class="progress-bar bg-success" style="width:40%">
+      Free Space
+    </div>
+    <div class="progress-bar bg-warning" style="width:17%">
+      Warning
+    </div>
+    <div class="progress-bar bg-danger" style="width:20%">
+      Danger
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="spinner-border text-muted"></div>
+  <div class="spinner-border text-primary"></div>
+  <div class="spinner-border text-success"></div>
+  <div class="spinner-border text-info"></div>
+  <div class="spinner-border text-warning"></div>
+  <div class="spinner-border text-danger"></div>
+  <div class="spinner-border spinner-border-sm text-secondary"></div>
+  <div class="spinner-border spinner-border-sm text-dark"></div>
+  <div class="spinner-border text-light"></div>
+
+  <hr>
+
+  <div class="spinner-grow spinner-grow-sm text-muted"></div>
+  <div class="spinner-grow spinner-grow-sm text-primary"></div>
+  <div class="spinner-grow text-success"></div>
+  <div class="spinner-grow text-info"></div>
+  <div class="spinner-grow text-warning"></div>
+  <div class="spinner-grow text-danger"></div>
+  <div class="spinner-grow text-secondary"></div>
+  <div class="spinner-grow text-dark"></div>
+  <div class="spinner-grow text-light"></div>
+
+  <hr>
+
+  <div class="toast" style="opacity: 1;">
+    <div class="toast-header">
+      <strong class="mr-auto text-primary">Toast Header</strong>
+      <small class="text-muted">5 mins ago</small>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+    </div>
+    <div class="toast-body">
+      Some text inside the toast body
+    </div>
+  </div>
+
+  <hr>
+
+  <button type="button" class="btn btn-primary" onclick="document.getElementById('myModal').style.display='block'">
+    Open modal
+  </button>
+  <div class="modal" id="myModal" style="background: #00000042;">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          Modal body..
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="document.getElementById('myModal').style.display='none'">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr>

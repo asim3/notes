@@ -1,0 +1,60 @@
+..title..
+Terminal, Bash, Linux Command Line
+
+..link.. terminal/master.txt
+..
+
+..link.. https://www.debian.org/
+Install Debian 10 Buster
+
+
+
+..text..
+Install RPM Packages On Ubuntu
+..code..
+sudo apt update
+apt show virtualbox
+sudo apt install virtualbox
+
+
+..text..
+Install RPM Packages On Ubuntu
+..code..
+# setup
+sudo add-apt-repository universe
+sudo apt-get update
+sudo apt-get install alien
+
+# convert .rpm package to .deb
+sudo alien <name of package>.rpm
+
+..text..
+Install deb Package On Ubuntu
+..code..
+sudo dpkg -i <name of package>.deb
+
+..text..
+Install RPM Package Directly on Ubuntu
+..code..
+sudo alien -i <name of package>.rpm
+
+
+..text..
+install the Java Runtime Environment (JRE)
+..code..
+sudo apt install default-jre
+java -version
+
+sudo apt install default-jdk
+javac -version
+
+
+..text..
+Installing the Oracle JDK
+..code..
+# ???? not working
+# add its package repository
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt update
+
+sudo apt install oracle-java8-installer

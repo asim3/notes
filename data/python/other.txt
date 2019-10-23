@@ -1,0 +1,70 @@
+..title..
+Cheat Sheet for Python
+
+..link.. python/master.txt
+..
+
+
+
+..sub_title..
+التأكد من حالة المتغير
+..code..
+assert hasattr(request, 'user')
+
+assert True # nothing happens
+assert False # error: Traceback (most recent call last): AssertionError
+
+
+..sub_title..
+عرض جمع اسماء الدوال
+..code..
+"\n".join( dir(obj) )
+
+..code..
+x = 12
+isinstance(x, int) # True
+y = 12.0
+isinstance(y, float) # True
+
+..code..
+len()						# returns Length of an Object
+type()					# returns type of the given object.
+
+..code..
+sorted()				# returns sorted list from a given iterable
+reversed()			# returns reversed iterator of a sequence
+all()						# returns true when all elements in iterable is true
+iter()					# returns iterator for an object
+max()						# returns largest element
+min()						# returns smallest element
+Tuple count()		# returns occurrences of element in a tuple
+Tuple index()		# returns smallest index of element in tuple
+enumerate()			# returns an Enumerate Object
+zip()						# returns an Iterator of Tuples
+
+..code..
+filter()				# constructs iterator from elements which are true
+slice()					# creates a slice object specified by range()
+map()						# Applies Function and Returns a List
+setattr()				# sets the value of given attribute of an object
+hasattr()       # returns true if an object has the given named attribute and false if it does not.
+
+..code..
+any()						# Checks if any Element of an Iterable is True
+sum()						# Add items of an Iterable
+
+
+
+..code..
+dir()						# return a list of valid attributes of the object.
+locals()				# returns a dictionary of the current local symbol table
+globals()				# returns the dictionary of the current global symbol table
+
+
+..code..
+from dis import dis
+def _():
+    class Base:
+        pass
+
+dis(_)

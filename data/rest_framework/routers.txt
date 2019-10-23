@@ -1,0 +1,34 @@
+..title..
+Django Class Based Views
+
+..link.. rest_framework/master.txt
+..
+
+
+..sub_title..
+Routers
+
+
+..text..
+/app_name/routers.py
+..code..
+from rest_framework import routers
+from members import views
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
+
+
+
+..text..
+/app_name/urls.py
+..code..
+from django.urls import include, path
+from django.contrib import admin
+from .routers import router
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+]

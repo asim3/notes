@@ -1,0 +1,14 @@
+..title..
+Terminal, Bash, Linux Command Line
+
+..link.. terminal/master.txt
+..
+
+..link.. https://www.debian.org/
+ISO Bootable USB Drive
+
+
+..text..
+Using Startup Disk Creator
+..code..
+usb-creator-gtk

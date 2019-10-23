@@ -1,0 +1,62 @@
+..title..
+Django Templates
+
+..link.. django/5_templates.txt
+..
+
+
+
+..نص..
+Show form data and errors
+..code..
+{{ form.cleaned_data }}
+{% for err in form.errors.values %}
+  {{ err }}
+{% endfor %}
+
+
+..نص..
+عرض جميع بيانات متغير
+..code..
+{% for key, value in json.items %}
+  <li>{{key}} - {{value}}</li>
+{% endfor %}
+
+
+
+..sub_title..
+debug
+..code..
+{% debug %}
+
+<pre>{% debug %}</pre>
+<pre>{% filter force_escape %}{% debug %}{% endfilter %}</pre>
+
+
+
+..sub_title..
+template debug
+..code..
+pip install django-template-debug
+..code..
+INSTALLED_APPS = ('template_debug', )
+..code..
+{% load debug_tags %}
+..code..
+The available tags to use:
+{% variables %}
+{% set_trace %}
+{% attributes varname %}
+{% details varname %}
+..code..
+<pre style="direction:ltr;text-align:left;white-space: pre-line;">
+    {% variables %}
+</pre>
+
+
+
+..sub_title..
+show python object
+..code..
+{% if object_list %}
+	{{ object_list|join:" - " }}
