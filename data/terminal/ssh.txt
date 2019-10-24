@@ -68,4 +68,8 @@ ssh -T git@github.com
 
 # if ERROR: 
 #   ssh: connect to host github.com port 22: Connection timed out
-# 
+sudo nano ~/.ssh/config
+# add to ~/.ssh/config
+Host github.com
+ Hostname ssh.github.com
+ Port 443

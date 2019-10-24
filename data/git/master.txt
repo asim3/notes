@@ -13,8 +13,8 @@ git commit -m "شرح مبسط للتعديلات"
 
 ..code..
 git remote add origin https://github.com/asim3/notes.git
+git remote add origin_ssh git@github.com:asim3/notes.git
 git remote add my_origin https://github.com/asim3/notes.git
-
 git push origin master
 git push my_origin master
 
