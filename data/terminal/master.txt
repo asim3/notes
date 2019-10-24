@@ -6,6 +6,8 @@ Terminal, Bash, Linux Command Line
 
 ..link.. terminal/schedule.txt
 Schedule Tasks
+..link.. terminal/ssh.txt
+SSH
 ..link.. terminal/advance.txt
 Advance
 ..link.. terminal/script_file.txt

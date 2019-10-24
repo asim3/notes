@@ -30,6 +30,8 @@ Config
 git config --global user.name "ASIM_NAME"
 git config --global user.email "asim@office"
 git config --list
+# edit
+git config --local -e
 
 
 ..text..
