@@ -2,7 +2,6 @@
 Asim Notes
 
 
-
 ..text..
 Languages
 ..link.. html/master.txt
