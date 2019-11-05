@@ -34,6 +34,26 @@ Aliases (shortcut for terminal commands)
 # add to ~/.bash_aliases
 alias ddd="cd ~/Desktop/"
 
+..text..
+environment variables
+..code..
+# save new variable: nano ~/.bash_env_variables
+export ASIM_1="AAAAAAAAAAAAAAAAA"
+export ASIM_2="bbbbbbbbbbbbbbbb"
+
+# print variable
+echo $ASIM
+printenv ASIM
+# print all variables
+env
+
+
+# add to ~/.bashrc
+if [ -f ~/.bash_env_variables ]; then
+    . ~/.bash_env_variables
+fi
+
+
 
 ..text..
 PATH
