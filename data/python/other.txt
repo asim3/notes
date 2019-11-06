@@ -6,8 +6,16 @@ Cheat Sheet for Python
 
 
 
+
 ..sub_title..
-التأكد من حالة المتغير
+environment variables
+..code..
+import os
+
+os.environ.get('HOME')
+
+
+
 ..code..
 assert hasattr(request, 'user')
 
