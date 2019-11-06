@@ -1,5 +1,8 @@
+..title..
+Cheat Sheet for Python
 
-
+..link.. python/master.txt
+..
 
 
 ..sub_title..
