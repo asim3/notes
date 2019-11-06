@@ -1,0 +1,87 @@
+..title..
+AWS
+
+..link.. aws/master.txt
+..
+
+
+..sub_title..
+Installation
+
+..code..
+pip install boto3
+pip install django-storages
+
+..text..
+settings.py
+
+..code..
+INSTALLED_APPS = [
+  # ...
+  'storages',
+]
+
+
+..code..
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = 'test-brandat'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_LOCATION = 'static_collect_folder2'
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400',}
+
+
+..sub_title..
+public and private
+
+..text..
+storage_backends.py
+..code..
+from django.conf import settings
+from storages.backends.s3boto3 import S3Boto3Storage
+
+class StaticStorage(S3Boto3Storage):
+  location = settings.AWS_STATIC_LOCATION
+
+class PublicMediaStorage(S3Boto3Storage):
+  location = settings.AWS_PUBLIC_MEDIA_LOCATION
+  file_overwrite = False
+
+class PrivateMediaStorage(S3Boto3Storage):
+  location = settings.AWS_PRIVATE_MEDIA_LOCATION
+  default_acl = 'private'
+  file_overwrite = False
+  custom_domain = False
+
+..text..
+settings.py
+..code..
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = 'test-brandat'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400',}
+
+AWS_STATIC_LOCATION = 'static'
+STATICFILES_STORAGE = 'mysite.storage_backends.StaticStorage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_STATIC_LOCATION)
+
+AWS_PUBLIC_MEDIA_LOCATION = 'media/public'
+DEFAULT_FILE_STORAGE = 'mysite.storage_backends.PublicMediaStorage'
+
+AWS_PRIVATE_MEDIA_LOCATION = 'media/private'
+PRIVATE_FILE_STORAGE = 'mysite.storage_backends.PrivateMediaStorage'
+
+
+..text..
+models.py
+..code..
+from django.conf import settings
+from mysite.storage_backends import PrivateMediaStorage
+
+class PrivateDocument(models.Model):
+  upload = models.FileField(storage=PrivateMediaStorage())

@@ -8,13 +8,13 @@ Django Settings
 ..code..
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static_collected")
+STATIC_ROOT = os.path.join(BASE_DIR, "static_collect_folder")
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR , 'static_files'), )
+STATICFILES_DIRS = (os.path.join(BASE_DIR , 'static_root_folder'), )
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/MEDIA_ROOT')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root_folder')
 
 
 ..code..
