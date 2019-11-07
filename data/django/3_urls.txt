@@ -87,3 +87,19 @@ urlpatterns = [
   ...
 ]
 # in templates {{ url 'myappname:home' }}
+
+
+..sub_title..
+Django Redirects
+..code..
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+HttpResponseRedirect(reverse('status'))
+
+..text..
+or 
+..code..
+from django.shortcuts import redirect
+
+redirect('status')
