@@ -38,13 +38,6 @@ include another page
 ..code..
 {% include "base/paginator.html" %}
 
-..sub_title..
-show args sent to HTML
-..code..
-{% for x in Items2 %}
-     {{ x.title }}
-{% endfor %}
-
 
 ..sub_title..
 الشرط
@@ -75,11 +68,15 @@ show args sent to HTML
 
 
 ..sub_title..
-تكرار
+for loop
 ..code..
 {% for post in posts %}
+  <tr class="{% cycle '#ff0000' '#0000ff' %}">
     {{ post.author }}
     {{ post.title }}
+  </tr>
+{% empty %}
+  Sorry, no athletes in this list.
 {% endfor %}
 
 
