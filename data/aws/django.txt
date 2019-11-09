@@ -23,15 +23,8 @@ INSTALLED_APPS = [
 
 
 ..code..
-AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = 'test-brandat'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_LOCATION = 'static_collect_folder2'
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400',}
+
 
 
 ..sub_title..
@@ -40,47 +33,53 @@ public and private
 ..text..
 storage_backends.py
 ..code..
-from django.conf import settings
 from storages.backends.s3boto3 import S3Boto3Storage
 
-class StaticStorage(S3Boto3Storage):
-  location = settings.AWS_STATIC_LOCATION
 
 class PublicMediaStorage(S3Boto3Storage):
-  location = settings.AWS_PUBLIC_MEDIA_LOCATION
+  location = 'media/public'
   file_overwrite = False
 
+
+class FontMediaStorage(S3Boto3Storage):
+  location = 'media/font'
+  file_overwrite = True
+
+
 class PrivateMediaStorage(S3Boto3Storage):
-  location = settings.AWS_PRIVATE_MEDIA_LOCATION
+  location = 'media/private'
   default_acl = 'private'
   file_overwrite = False
   custom_domain = False
+  signature_version = 's3v4'
+
+
 
 ..text..
 settings.py
 ..code..
+# AWS Storage
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = 'test-brandat'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400',}
+AWS_DEFAULT_ACL = 'public-read'
 
-AWS_STATIC_LOCATION = 'static'
-STATICFILES_STORAGE = 'mysite.storage_backends.StaticStorage'
-STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_STATIC_LOCATION)
+AWS_LOCATION = 'static'
+AWS_STORAGE_BUCKET_NAME = 'test2-brandat'
+AWS_S3_REGION_NAME = 'eu-central-1'
 
-AWS_PUBLIC_MEDIA_LOCATION = 'media/public'
-DEFAULT_FILE_STORAGE = 'mysite.storage_backends.PublicMediaStorage'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com' % (AWS_STORAGE_BUCKET_NAME, AWS_S3_REGION_NAME)
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
-AWS_PRIVATE_MEDIA_LOCATION = 'media/private'
-PRIVATE_FILE_STORAGE = 'mysite.storage_backends.PrivateMediaStorage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'brandat_ux.storage_backends.PublicMediaStorage'
+# end: AWS Storage
+
 
 
 ..text..
 models.py
 ..code..
-from django.conf import settings
 from mysite.storage_backends import PrivateMediaStorage
 
 class PrivateDocument(models.Model):
