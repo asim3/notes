@@ -136,3 +136,13 @@ def get_absolute_url(self):
 ..code..
 def snippet(self):
   return self.title[:50] + '...'
+
+
+..sub_title..
+File Extension Validator
+
+..code..
+from django.core.validators import FileExtensionValidator
+
+  file = models.FileField(upload_to='font/', blank=True, null=True,
+    validators=[FileExtensionValidator(allowed_extensions=['xml', 'ttp', 'svg'])])
