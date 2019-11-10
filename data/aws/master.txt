@@ -9,4 +9,14 @@ AWS
 Django
 
 
+..text..
+CORS configuration
 ..code..
+<CORSConfiguration>
+  <CORSRule>
+    <AllowedOrigin>*</AllowedOrigin>
+    <AllowedMethod>GET</AllowedMethod>
+  </CORSRule>
+</CORSConfiguration>
+
+
