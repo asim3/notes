@@ -33,19 +33,11 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
     {{ form|crispy }}
 </form>
 
-
-..sub_title..
-
 ..code..
+{% load crispy_forms_tags %}
 
-..sub_title..
-
-..code..
-
-..sub_title..
-
-..code..
-
-..sub_title..
-
-..code..
+<form method="post" class="uniForm">
+    {{ crispy }}
+    {{ form|as_crispy_errors }}
+    {{ form.field|as_crispy_field }}
+</form>|crispy
