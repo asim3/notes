@@ -59,12 +59,22 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ..sub_title..
 Get URL by URL name
 ..code..
-from django.urls import reverse
-
+from django.shortcuts import resolve_url
 reverse('url_name', kwargs={'pk': self.object.id})
 
-def myview(request):
-    return HttpResponseRedirect(reverse('arch-summary', args=[1945]))
+..text..
+or
+..code..
+from django.urls import reverse
+reverse('url_name', kwargs={'pk': self.object.id})
+
+..text..
+http response redirect
+..code..
+from django.shortcuts import redirect
+return redirect('arch-summary', args=[1945])
+# or 
+return HttpResponseRedirect(reverse('arch-summary', args=[1945]))
 
 
 ..text..
