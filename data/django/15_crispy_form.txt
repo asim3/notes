@@ -40,4 +40,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
     {{ crispy }}
     {{ form|as_crispy_errors }}
     {{ form.field|as_crispy_field }}
-</form>|crispy
+</form>
