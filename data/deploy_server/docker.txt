@@ -56,52 +56,58 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 sudo docker run hello-world
 
 
+..text..
+Show running images
+..code..
+docker ps 
+
+# all 
+docker ps -a 
 
 
+..sub_title..
+Build stage
+
+..text..
+Dockerfile
+..code..
+FROM python:3
+ENV pythonunbuffered 1
+RUN mkdir /my_file
+WORKDIR /my_file
+COPY . /my_file/
+RUN pip install -r requirements.txt
 
 
+..text..
+docker-compose.yml
+..code..
+version: '3'
+
+services:
+  web:
+    build: .
+    command: python my_project/my_project/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/my_file
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    image: postgres
 
 
+..code..
+docker-compose run web python my_project/my_project/manage.py migrate
+docker-compose build
+docker-compose up
 
 
+..sub_title..
+Run stage
 ..code..
 docker run <image>
 docker start <name|id>
 docker stop <name|id>
 docker rm <name|id>
-
-
-..text..
-Show images
-..code..
-# show running images
-docker ps 
-# show all images
-docker ps -a 
-
-
-
-..text..
-
-..code..
-
-
-
-
-
-
-..text..
-
-..code..
-
-
-
-
-
-
-..text..
-
-..code..
-
-
-
