@@ -5,7 +5,7 @@ Deploy to a Linux Server
 ..
 
 ..link.. deploy_server/docker.txt
-Docker
+Docker Engine - Community
 
 ..link.. deploy_server/deploy_django.txt
 Deploy Django
