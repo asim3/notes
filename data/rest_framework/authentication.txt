@@ -38,3 +38,29 @@ TokenAuthentication:
 RemoteUserAuthentication:
    allows you to delegate authentication to your web server, 
    which sets the REMOTE_USER environment variable.
+
+
+
+..link.. https://github.com/davesque/django-rest-framework-simplejwt
+Simple JWT
+
+..code..
+pip install djangorestframework_simplejwt
+
+
+..code..
+REST_FRAMEWORK = {
+  'DEFAULT_AUTHENTICATION_CLASSES': (
+    'rest_framework_simplejwt.authentication.JWTAuthentication',
+  )
+}
+
+
+..code..
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
+
+urlpatterns = [
+  path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+  path('api/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+]

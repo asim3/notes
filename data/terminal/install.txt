@@ -10,6 +10,12 @@ Install Debian 10 Buster
 
 
 ..text..
+Unpack an archive
+..code..
+tar -xzf Postman.tar.gz 
+
+
+..text..
 Install RPM Packages On Ubuntu
 ..code..
 sudo apt update
