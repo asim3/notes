@@ -101,10 +101,28 @@ sudo chmod 664
 7 = rwx
 
 
+..text..
+Run in Background
 ..code..
-sleep 3; echo done # execute 1 then 2
-sleep 3 && echo 3 # execute 1 then (if 1 is ok) run 2
-echo 1 || echo 3 # execute 1 then (if 1 is error) run 2
+# executes in background
+sleep 3 &
+
+# list background
+jobs
+
+# go to background
+fg
+
+
+..code..
+sleep 3; echo done 
+# execute 1 then 2
+
+sleep 3 && echo 3 
+# execute 1 then (if 1 is ok) run 2
+
+echo 1 || echo 3 
+# execute 1 then (if 1 is error) run 2
 
 
 ..code..
@@ -119,18 +137,12 @@ echo 1 || echo 3 # execute 1 then (if 1 is error) run 2
 
 <
 # Read input from a file.
+
 2>
 # Redirect error messages.
 
 |
 # Send the output from one program as input to another program.
-
-
-..code..
-& 
-# the shell executes the command terminated by & in the background, 
-  does not wait for the command to finish and immediately returns exit 
-  code 0. Once again, & has nothing to do with &&.
 
 |&
 # a shorthand for 2>&1 | i.e. both standard output and standard error 
