@@ -66,6 +66,7 @@ exit
 ssh-keygen -t rsa -b 4096 -C "myname@example.com"
 scp ~/.ssh/id_rsa.pub username@remote.server.ip:~/.ssh/authorized_keys
 
+sudo chown -R $USER:$USER /var/www/html/newfile
 
 ..text..
 disable password and root login

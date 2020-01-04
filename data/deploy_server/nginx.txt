@@ -63,6 +63,7 @@ server {
         server_name myexample.com www.myexample.com;
 
         location / {
+                # rewrite ^/$ AR/ redirect;
                 try_files $uri $uri/ =404;
         }
 }
