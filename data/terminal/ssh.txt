@@ -4,16 +4,6 @@ Enabling SSH on Ubuntu
 ..link.. terminal/deploy.txt
 ..
 
-..link.. https://ifconfig.co/ip
-My Public IP 
-
-
-..sub_title..
-My Local IP 
-..code..
-ip route
-# ... kernel scope link src 190.168.my.local.ip 
-
 
 ..text..
 generate key

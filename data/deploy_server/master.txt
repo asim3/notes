@@ -4,104 +4,80 @@ Deploy to a Linux Server
 ..link.. master.txt
 ..
 
-..link.. deploy_server/docker.txt
-Docker Engine - Community
+..link.. deploy_server/firewall.txt
+Firewall
 
 ..link.. deploy_server/deploy_django.txt
 Deploy Django
+
+..link.. deploy_server/docker.txt
+Install Docker 
+
+..link.. deploy_server/nginx.txt
+Install Nginx
 
 ..link.. deploy_server/apache.txt
 Install apache2
 
 
+
 ..sub_title..
-Setup Server
+Get Server IP 
 ..code..
-ssh username@remote.server.ip
-sudo apt-get update && sudo apt-get upgrade
+ip route
+# ... kernel scope link src 190.168.my.local.ip 
+ifconfig
 
-# set hostname
+
+..link.. https://ifconfig.co/ip
+My Public IP 
+
+
+..sub_title..
+Login to Server
+..code..
+ssh username@server.ip
+
+
+..text..
+change hostname
+..code..
 hostnamectl set-hostname my-test-server
+cat /etc/hostname 
 
-# check hostname
-hostname
-
-# add hostname ip
+# change hostname ip
 sudo nano /etc/hosts
-..code..
 # /etc/hosts
 127.0.0.1       localhost
 192.168.1.1     my-test-server
-
-..text..
-add user
-..code..
-sudo adduser asim
-
-# add user to sudo group
-sudo adduser asim sudo
-
-# logout SSH
-exit
 
 
 ..sub_title..
 Copy public key to remote server
 ..code..
-# @ local pc
-scp ~/.ssh/my_pub.pub username@remote.server.ip:~/.ssh/authorized_keys
-
-
-..code..
-# @ remote server
+mkdir ~/.ssh/
 sudo chmod 700 ~/.ssh/
 sudo chmod 600 ~/.ssh/*
+
+# logout SSH
+exit
+
+# @ local pc
+ssh-keygen -t rsa -b 4096 -C "myname@example.com"
+scp ~/.ssh/id_rsa.pub username@remote.server.ip:~/.ssh/authorized_keys
 
 
 ..text..
 disable password and root login
 ..code..
+ssh username@server.ip
 sudo nano /etc/ssh/sshd_config 
-..code..
-# /etc/ssh/sshd_config 
+@ ...
 PermitRootLogin no
 PasswordAuthentication no 
-..code..
-sudo systemctl restart sshd 
 
-
-..sub_title..
-Uncomplicated Firewall
-..code..
-sudo apt-get install ufw 
-sudo ufw status
-sudo ufw status verbose
-sudo ufw status numbered
-
-sudo ufw enable
-sudo ufw disable
-
-sudo ufw default allow outgoing
-sudo ufw default deny incoming
 
 ..text..
-close ports 
+Restart SSH
 ..code..
-sudo ufw deny http 
-sudo ufw deny https
-sudo ufw deny 8000 
-sudo ufw deny proto tcp from any to any port 80,443
-sudo ufw deny ftp
-sudo ufw deny from 192.168.1.1
-sudo ufw deny from 192.168.1.1 to any port 22
-
-..text..
-open ports 
-..code..
-sudo ufw allow ssh 
-sudo ufw allow 8000
-sudo ufw enable
-
-
-# Reset to installed defaults
-sudo ufw reset
+sudo systemctl restart sshd
