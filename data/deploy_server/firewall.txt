@@ -25,6 +25,7 @@ Firewall status
 sudo ufw status
 sudo ufw status verbose
 sudo ufw status numbered
+sudo ufw app list
 
 
 ..text..

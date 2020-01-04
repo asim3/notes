@@ -1,5 +1,5 @@
 ..title..
-Install Nginx
+Installing Nginx
 
 ..link.. deploy_server/master.txt
 ..
@@ -7,5 +7,79 @@ Install Nginx
 
 
 ..sub_title..
-
+Installing Nginx
 ..code..
+sudo apt update
+sudo apt install nginx
+
+
+..text..
+Adjusting the Firewall
+..code..
+# check Firewall Available applications 
+sudo ufw app list
+
+sudo ufw allow 'Nginx HTTP'
+sudo ufw status
+
+
+..text..
+Checking your Web Server
+..code..
+systemctl status nginx
+
+# start automatically when the server boots
+sudo systemctl enable nginx
+sudo systemctl disable nginx
+
+# Managing the Nginx Process
+sudo systemctl reload nginx
+sudo systemctl restart nginx
+sudo systemctl start nginx
+sudo systemctl stop nginx
+
+
+..sub_title..
+Setting Up Server Blocks
+..code..
+sudo mkdir -p /var/www/myexample.com/html
+sudo chown -R $USER:$USER /var/www/myexample.com/html
+sudo chmod -R 755 /var/www/myexample.com
+nano /var/www/myexample.com/html/index.html
+
+
+..text..
+create a server block
+..code..
+sudo nano /etc/nginx/sites-available/myexample.com
+@ ...
+server {
+        listen 80;
+        listen [::]:80;
+
+        root /var/www/myexample.com/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name myexample.com www.myexample.com;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+
+
+..text..
+enable server block
+..code..
+sudo ln -s /etc/nginx/sites-available/myexample.com /etc/nginx/sites-enabled/
+
+..text..
+avoid a possible hash bucket memory problem
+..code..
+sudo nano /etc/nginx/nginx.conf
+@ ...
+http {
+        server_names_hash_bucket_size 64;
+
+sudo nginx -t
+sudo systemctl restart nginx

@@ -7,6 +7,7 @@ Docker Engine - Community
 
 ..text..
 Docker Engine - Community package is now called docker-ce
+..text..
 Docker Engine - Enterprise package is now called docker-ee
 
 
