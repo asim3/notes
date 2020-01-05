@@ -1,0 +1,45 @@
+..title..
+Docker Engine - Community
+
+..link.. deploy_server/docker.txt
+..
+
+
+
+..sub_title..
+Build stage
+
+..text..
+Dockerfile
+..code..
+FROM python:3
+ENV pythonunbuffered 1
+RUN mkdir /my_file
+WORKDIR /my_file
+COPY . /my_file/
+RUN pip install -r requirements.txt
+
+
+..text..
+docker-compose.yml
+..code..
+version: '3'
+
+services:
+  web:
+    build: .
+    command: python my_project/my_project/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/my_file
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    image: postgres
+
+
+..code..
+docker-compose run web python my_project/my_project/manage.py migrate
+docker-compose build
+docker-compose up
