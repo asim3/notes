@@ -3,17 +3,32 @@ Docker Engine - Community
 
 ..link.. deploy_server/master.txt
 ..
+..link.. deploy_server/docker_install.txt
+docker install
+..link.. deploy_server/docker_build.txt
+docker build
+
+
+..code..
+docker pull <image>
+docker run <image>
+
+
+..text..
+Show images
+..code..
+docker ps 
+docker ps -a
+docker images -q
+docker top <name|id>
+docker stats <name|id>
+docker history <name|id>
 
 
 ..text..
 login to an image
 ..code..
 docker attach <name|id>
-
-
-..code..
-docker pull <image>
-docker run <image>
 
 
 ..code..
@@ -26,13 +41,3 @@ docker rm <name|id>
 docker image rm <name|id>
 
 
-..text..
-Show images
-..code..
-docker ps 
-docker ps -a
-docker images -q
-
-docker top <name|id>
-docker stats <name|id>
-docker history <name|id>
