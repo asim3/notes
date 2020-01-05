@@ -7,17 +7,17 @@ Deploy to a Linux Server
 ..link.. deploy_server/firewall.txt
 Firewall
 
-..link.. deploy_server/deploy_django.txt
-Deploy Django
-
 ..link.. deploy_server/docker.txt
-Install Docker 
+Docker 
 
 ..link.. deploy_server/nginx.txt
-Install Nginx
+Nginx
 
 ..link.. deploy_server/apache.txt
-Install apache2
+apache2
+
+..link.. deploy_server/deploy_django.txt
+Deploy Django
 
 
 

@@ -10,7 +10,9 @@ Docker Engine - Community
 docker-compose -v
 docker-compose version
 
+sudo apt install docker-compose
 pip3 install -U docker-compose
+
 
 ..code..
 mkdir ~/myproject
@@ -30,13 +32,13 @@ services:
 docker-compose config
  
 ..code..
-docker-compose up -d
-docker ps
-docker-compose down
+sudo docker-compose up -d
+sudo docker ps
+sudo docker-compose down
 
 
 ..text..
 scale services
 ..code..
-docker-compose up -d --scale database=4
-docker-compose up -d --scale web=3
+sudo docker-compose up -d --scale database=4
+sudo docker-compose up -d --scale web=3
