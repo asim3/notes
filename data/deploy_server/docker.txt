@@ -4,9 +4,12 @@ Docker Engine - Community
 ..link.. deploy_server/master.txt
 ..
 ..link.. deploy_server/docker_install.txt
-docker install
+install
 ..link.. deploy_server/docker_build.txt
-docker build
+build
+..link.. deploy_server/docker_compose.txt
+compose
+
 
 
 ..code..
