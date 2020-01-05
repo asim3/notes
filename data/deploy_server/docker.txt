@@ -15,13 +15,18 @@ docker run <image>
 
 
 ..text..
-Show images
+running images status
 ..code..
 docker ps 
 docker ps -a
-docker images -q
 docker top <name|id>
 docker stats <name|id>
+
+
+..text..
+images status
+..code..
+docker images -q
 docker history <name|id>
 
 
