@@ -3,6 +3,10 @@ Docker Engine - Community
 
 ..link.. deploy_server/docker.txt
 ..
+..link.. https://github.com/wsargent/docker-cheat-sheet#dockerfile
+docker-cheat-sheet
+..link.. https://docs.docker.com/engine/reference/builder/#environment-replacement
+Environment replacement
 
 
 ..code..
@@ -18,16 +22,18 @@ MAINTAINER asim <asim@gmail.com>
 # execute on build
 RUN apt-get update
 
-# execute on create image
+# execute on run image
 CMD ["echo", "Hello Worldddd"]
 
 
 ..text..
-B
+Build 
 ..code..
 docker build -t my_docker_name:mytag ~/my_docker_folder/
 
 
+..text..
+Build
 ..code..
 FROM python:3
 ENV pythonunbuffered 1
