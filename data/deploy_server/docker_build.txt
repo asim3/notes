@@ -5,12 +5,29 @@ Docker Engine - Community
 ..
 
 
+..code..
+nano Dockerfile
 
-..sub_title..
-Build stage
+..code..
+# select Base OS
+FROM ubuntu
+
+# my name and email 
+MAINTAINER asim <asim@gmail.com>
+
+# execute on build
+RUN apt-get update
+
+# execute on create image
+CMD ["echo", "Hello Worldddd"]
+
 
 ..text..
-Dockerfile
+B
+..code..
+docker build -t my_docker_name:mytag ~/my_docker_folder/
+
+
 ..code..
 FROM python:3
 ENV pythonunbuffered 1
