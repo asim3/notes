@@ -28,66 +28,37 @@ Other
 
 
 ..code..
-cd
-ls
-ls -l
-
-..text..
-Copy
-..code..
-cp ~/text.txt ~/Documents/
-cp ~/text.txt .
-
-..text..
-Rename
-..code..
-mv document downloads #folders
-mv index.js app.js #files
-
-
-..text..
-Add Directories (Folders)
-..code..
-mkdir dirname
-
-
-..text..
-Remove Directories (Folders)
-..code..
-# remove directory & all directory content
-rm -r dirname 
-
-rm -rf dirname # -r (recursive) -f (force)
-
-rm -r dirname1 dirname2 dirname3
-
-rm filename.txt
-rm filename1.txt filename2.txt filename3
+rm file_name.txt
+rm file_name1.txt file2.txt file3
 rm *.pdf
+rm remove_empty_directories 
+rm -r remove_directories_and_contents
+rm -rf remove_directories_and_contents_by_force
+rm -r multiple_directories dir2 dir3
 
-rm -f filename # -f (force)
-rm -fv *.txt
+mkdir add_new_folders
+
+
+..code..
+cp ~/copy_from.txt ~/to_directorie/
+cp ~/duplicate.txt .
+
+mv rename_folders to_downloads
+mv rename_files.js to_other.js
 
 
 ..text..
-create files
+Read and Edit
 ..code..
-touch text.txt
+touch add_new_file.txt
+nano edit_file.txt
+gedit edit_file.txt
+
+cat read_file_in_terminal.txt
+less read_file_in_terminal.txt # press "q" to exit
 
 
 ..text..
-edit files
-..code..
-nano text.txt
-gedit text.txt
-
-..text..
-read file in terminal
-..code..
-cat test.txt
-less test.txt # press "q" to exit
-
-..sub_title..
 Permissions
 ..code..
 sudo chown myusername file.txt
@@ -101,51 +72,3 @@ sudo chmod 664
 5 = r-x
 6 = rw-
 7 = rwx
-
-
-..text..
-Run in Background
-..code..
-# executes in background
-sleep 3 &
-
-# list background
-jobs
-
-# go to background
-fg
-
-
-..code..
-sleep 3; echo done 
-# execute 1 then 2
-
-sleep 3 && echo 3 
-# execute 1 then (if 1 is ok) run 2
-
-echo 1 || echo 3 
-# execute 1 then (if 1 is error) run 2
-
-
-..code..
-!!
-# Execute last command again
-
->
-# Save output to a file.
-
->>
-# Append output to a file.
-
-<
-# Read input from a file.
-
-2>
-# Redirect error messages.
-
-|
-# Send the output from one program as input to another program.
-
-|&
-# a shorthand for 2>&1 | i.e. both standard output and standard error 
-  of command1 are connected to command2's standard input through the pipe.
