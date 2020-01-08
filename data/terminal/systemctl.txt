@@ -3,17 +3,55 @@ Terminal, Bash, Linux Command Line
 
 ..link.. terminal/master.txt
 ..
+..link.. terminal/systemctl_add_new.txt
+Add new units
+
+
+..text..
+list all units
+..code..
+systemctl list-units
+# filter
+systemctl list-units |grep ___
+
+
+..text..
+units status
+..code..
+systemctl status ___
+sudo systemctl status ___
+systemctl is-enabled ___
+systemctl is-active ___
+systemctl is-failed ___
+systemctl is-system-running
+systemctl --failed
+
+..text..
+start units automatically when the server boots
+..code..
+sudo systemctl enable ___
+sudo systemctl disable ___
+
+
+..text..
+controlling units
+..code..
+sudo systemctl start ___
+sudo systemctl stop ___
+sudo systemctl reload ___
+sudo systemctl restart ___
 
 
 ..code..
-systemctl status nginx
+systemctl reboot
+systemctl poweroff
+systemctl suspend
 
-# start automatically when the server boots
-sudo systemctl enable nginx
-sudo systemctl disable nginx
 
-# Managing the Nginx Process
-sudo systemctl reload nginx
-sudo systemctl restart nginx
-sudo systemctl start nginx
-sudo systemctl stop nginx
+..text..
+show logs
+..code..
+journalctl
+journalctl -u ___
+# only from this boot
+journalctl -b
