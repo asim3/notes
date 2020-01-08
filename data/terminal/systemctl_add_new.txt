@@ -1,0 +1,33 @@
+..title..
+Terminal, Bash, Linux Command Line
+
+
+..link.. terminal/systemctl.txt
+..
+
+
+..code..
+nano pointless.sh
+
+..code..
+#!/bin/bash
+
+while true
+do
+  echo The current time is $(date)
+  sleep 1
+done
+
+..code..
+chmod +x pointless.sh
+
+cd /etc/systemd/system
+sudo nano pointless.service
+..code..
+[Service]
+ExecStart=/home/asim/pointless.sh
+
+..code..
+sudo systemctl start pointless
+sudo systemctl status pointless
+tail /var/log/syslog
