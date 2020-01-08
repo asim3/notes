@@ -7,9 +7,6 @@ HTML
 ..link.. html/font.txt
 Font
 
-..link.. html/style.txt
-Style
-
 ..code..
 <script src="main.js"></script>
 
