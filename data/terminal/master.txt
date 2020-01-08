@@ -20,6 +20,8 @@ Bootable USB
 Aliases
 ..link.. terminal/cmd.txt
 windows.cmd
+..link.. terminal/systemctl.txt
+systemctl
 ..link.. terminal/other.txt
 Other
 
