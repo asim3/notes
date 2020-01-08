@@ -1,0 +1,19 @@
+..title..
+Terminal, Bash, Linux Command Line
+
+..link.. terminal/master.txt
+..
+
+
+..code..
+systemctl status nginx
+
+# start automatically when the server boots
+sudo systemctl enable nginx
+sudo systemctl disable nginx
+
+# Managing the Nginx Process
+sudo systemctl reload nginx
+sudo systemctl restart nginx
+sudo systemctl start nginx
+sudo systemctl stop nginx
