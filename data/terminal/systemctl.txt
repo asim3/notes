@@ -53,5 +53,9 @@ show logs
 ..code..
 journalctl
 journalctl -u ___
+
+# show live logs
+journalctl -u ___ -f
+
 # only from this boot
 journalctl -b
