@@ -34,6 +34,8 @@ React.js
 Libraries
 ..link.. bootstrap/master.txt
 Bootstrap 4
+..link.. https://saleor.io/
+Saleor
 
 
 
@@ -47,6 +49,8 @@ Heroku
 git
 ..link.. https://www.twilio.com/pricing
 Twilio
+..link.. https://www.linode.com/
+Linode
 
 
 
