@@ -5,7 +5,9 @@ Asim Notes
 ..text..
 Languages
 ..link.. html/master.txt
-HTML & CSS
+HTML
+..link.. css/master.txt
+CSS
 ..link.. js/master.txt
 JS
 ..link.. python/master.txt
