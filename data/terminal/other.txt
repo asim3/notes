@@ -102,3 +102,55 @@ execute a file
 if [ -f ~/file_name ]; then
     source ~/file_name;
 fi
+
+
+
+
+
+..text..
+Run in Background
+..code..
+# executes in background
+sleep 3 &
+
+# list background
+jobs
+
+# go to background
+fg
+
+
+..code..
+sleep 3; echo done 
+# execute 1 then 2
+
+sleep 3 && echo 3 
+# execute 1 then (if 1 is ok) run 2
+
+echo 1 || echo 3 
+# execute 1 then (if 1 is error) run 2
+
+
+..code..
+!!
+# Execute last command again
+
+>
+# Save output to a file.
+
+>>
+# Append output to a file.
+
+<
+# Read input from a file.
+
+2>
+# Redirect error messages.
+
+|
+# Send the output from one program as input to another program.
+
+|&
+# a shorthand for 2>&1 | i.e. both standard output and standard error 
+  of command1 are connected to command2's standard input through the pipe.
+
