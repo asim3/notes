@@ -20,9 +20,9 @@ Buckets
 ..code..
 aws s3 ls
 aws s3 ls s3://mybucket/
-aws s3api create-bucket --bucket mybucket --acl public-read
-aws s3api delete-bucket --bucket mybucket
-aws s3 mb s3://make_bucket_and_contents
+aws s3 mb s3://make_private_bucket
+aws s3api create-bucket --bucket my_public_bucket --acl public-read
+aws s3api delete-bucket --bucket delete_mybucket
 
 
 ..text..
@@ -48,7 +48,7 @@ aws s3 rm s3://mybucket/remove_directories_and_contents --recursive --exclude "*
 ..text..
 Website
 ..code..
-aws s3 website s3://my-bucket/ --index-document index.html --error-document error.html
+!!
 
 
 ..text..
