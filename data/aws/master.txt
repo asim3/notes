@@ -22,7 +22,6 @@ aws s3 ls
 aws s3 ls s3://mybucket/
 aws s3 mb s3://make_private_bucket
 aws s3api create-bucket --bucket my_public_bucket --acl public-read
-aws s3api delete-bucket --bucket delete_mybucket
 
 
 ..text..
@@ -39,10 +38,12 @@ aws s3 sync s3://mybucket . --delete --acl public-read
 ..text..
 remove
 ..code..
-aws s3 rb s3://remove_bucket_and_contents --force
-aws s3 rm s3://remove_empty_bucket/
+aws s3 rm s3://my_bucket/remove_file.txt
 aws s3 rm s3://mybucket/remove_directories_and_contents --recursive
 aws s3 rm s3://mybucket/remove_directories_and_contents --recursive --exclude "*.jpg"
+
+aws s3 rb s3://remove_bucket_and_contents --force
+aws s3api delete-bucket --bucket delete_mybucket
 
 
 ..text..
