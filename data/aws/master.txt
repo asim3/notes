@@ -47,9 +47,11 @@ aws s3api delete-bucket --bucket delete_mybucket
 
 
 ..text..
-Website
+Permissions
 ..code..
-!!
+aws s3api put-object-acl --bucket mybucket --key "root/directorie/file.txt" --acl private
+aws s3api put-object-acl --bucket mybucket --key "root/directorie/file.txt" --acl public-read
+aws s3api put-object-acl --bucket mybucket --key "root/directorie/file.txt" --acl public-read-write
 
 
 ..text..
