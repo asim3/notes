@@ -9,6 +9,14 @@ AWS
 Django
 
 
+
+..text..
+Installing the AWS CLI
+..code..
+pip3 install awscli
+
+
+
 ..text..
 CORS configuration
 ..code..
@@ -18,5 +26,3 @@ CORS configuration
     <AllowedMethod>GET</AllowedMethod>
   </CORSRule>
 </CORSConfiguration>
-
-
