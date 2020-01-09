@@ -16,6 +16,18 @@ Installing the AWS CLI
 pip3 install awscli
 
 
+..code..
+aws s3 ls
+aws s3 cp
+aws s3 ls
+aws s3 mb
+aws s3 mv
+aws s3 presign
+aws s3 rb
+aws s3 rm
+aws s3 sync
+aws s3 website
+
 
 ..text..
 CORS configuration
