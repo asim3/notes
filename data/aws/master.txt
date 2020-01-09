@@ -9,24 +9,52 @@ AWS
 Django
 
 
-
 ..text..
 Installing the AWS CLI
 ..code..
 pip3 install awscli
+aws configure
 
-
+..text..
+Buckets
 ..code..
 aws s3 ls
-aws s3 cp
-aws s3 ls
-aws s3 mb
-aws s3 mv
-aws s3 presign
-aws s3 rb
-aws s3 rm
-aws s3 sync
-aws s3 website
+aws s3 ls s3://mybucket/
+aws s3api create-bucket --bucket mybucket --acl public-read
+aws s3api delete-bucket --bucket mybucket
+aws s3 mb s3://make_bucket_and_contents
+
+
+..text..
+copy
+..code..
+aws s3 cp ./f.txt s3://mybucket/f.txt --acl public-read
+aws s3 cp . s3://copy_to_bucket/ --acl public-read --recursive
+aws s3 cp . s3://copy_to_bucket/ --acl public-read --recursive --exclude "*.mp4" --exclude "*.zip"
+aws s3 cp . s3://copy_to_bucket/ --acl public-read --recursive --exclude "*" --include "*.jpg"
+aws s3 sync . s3://mybucket --delete --acl public-read
+aws s3 sync s3://mybucket . --delete --acl public-read
+
+
+..text..
+remove
+..code..
+aws s3 rb s3://remove_bucket_and_contents --force
+aws s3 rm s3://remove_empty_bucket/
+aws s3 rm s3://mybucket/remove_directories_and_contents --recursive
+aws s3 rm s3://mybucket/remove_directories_and_contents --recursive --exclude "*.jpg"
+
+
+..text..
+Website
+..code..
+aws s3 website s3://my-bucket/ --index-document index.html --error-document error.html
+
+
+..text..
+To  create  a  pre-signed  URL  with the default one hour lifetime that links to an object in an S3 bucket
+..code..
+aws s3 presign s3://mybucket/ --expires-in 604800
 
 
 ..text..
