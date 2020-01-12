@@ -5,6 +5,8 @@ Terminal, Bash, Linux Command Line
 ..
 ..link.. terminal/systemctl_add_new.txt
 Add new units
+..link.. https://cockpit-project.org/
+cockpit
 
 
 ..text..
