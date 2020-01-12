@@ -25,6 +25,10 @@ aws s3api create-bucket --bucket my_public_bucket --acl public-read
 ..text..
 copy
 ..code..
+aws s3 cp [from] [to] --recursive
+aws s3 sync [from] [to] --delete
+
+..code..
 aws s3 cp s3://download_from_bucket/ ./download_from_bucket/ --recursive
 aws s3 cp ./copy_to_bucket.txt s3://mybucket/f.txt --acl public-read
 aws s3 cp ./copy_to_bucket/ s3://copy_to_bucket/ --acl public-read --recursive
