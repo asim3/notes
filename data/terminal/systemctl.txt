@@ -10,7 +10,10 @@ Add new units
 ..text..
 list all units
 ..code..
-systemctl list-units
+systemctl -t service
+systemctl list-unit-files -t service 
+systemctl --failed
+
 # filter
 systemctl list-units |grep ___
 
@@ -24,7 +27,7 @@ systemctl is-enabled ___
 systemctl is-active ___
 systemctl is-failed ___
 systemctl is-system-running
-systemctl --failed
+
 
 ..text..
 start units automatically when the server boots
