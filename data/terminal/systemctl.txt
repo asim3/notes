@@ -33,7 +33,12 @@ systemctl is-system-running
 start units automatically when the server boots
 ..code..
 sudo systemctl enable ___
+sudo systemctl enable ___ ___ ___
 sudo systemctl disable ___
+
+# start & enable 
+sudo systemctl enable --now ___
+
 
 
 ..text..
@@ -43,6 +48,9 @@ sudo systemctl start ___
 sudo systemctl stop ___
 sudo systemctl reload ___
 sudo systemctl restart ___
+
+# control remote hosts using ssh 
+sudo systemctl -H [hostname] restart ___
 
 
 ..code..
