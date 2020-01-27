@@ -8,6 +8,25 @@ Advance
 Customise terminal
 
 
+
+..code..
+# kernel version
+uname -a
+
+# current IP address
+ip addr show
+
+# free disk space 
+df -ah
+
+# directory size
+du -sh my_directory/
+
+# check open ports (net sockets) (tcp ports) (udp ports)
+netstat -tulpn
+
+
+
 ..text..
 add user
 ..code..
