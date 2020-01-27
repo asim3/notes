@@ -28,20 +28,19 @@ Other
 
 
 ..code..
-rm file_name.txt
-rm file_name1.txt file2.txt file3
-rm *.pdf
-rm remove_empty_directories 
-rm -r remove_directories_and_contents
-rm -rf remove_directories_and_contents_by_force
-rm -r multiple_directories dir2 dir3
-
 mkdir add_new_folders
+
+rm f1.txt f2.txt file3
+
+rm -rf remove_directories_and_contents_by_force
+rm -r dir2 dir3
+
+rm *.pdf
 
 
 ..code..
-cp ~/copy_from.txt ~/to_directorie/
-cp ~/duplicate.txt .
+cp copy_from.txt /to_directorie/
+cp duplicate.txt .
 
 mv rename_folders to_downloads
 mv rename_files.js to_other.js
@@ -51,11 +50,12 @@ mv rename_files.js to_other.js
 Read and Edit
 ..code..
 touch add_new_file.txt
-nano edit_file.txt
-gedit edit_file.txt
 
 cat read_file_in_terminal.txt
 less read_file_in_terminal.txt # press "q" to exit
+
+nano edit_file.txt
+gedit edit_file.txt
 
 
 ..text..
