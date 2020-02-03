@@ -1,0 +1,73 @@
+
+..title..
+Terminal, Bash, Linux Command Line
+
+..link.. terminal/master.txt
+..
+
+
+
+..code..
+sleep 3; echo done 
+# execute 1 then 2
+
+sleep 3 && echo 3 
+# execute 1 then (if 1 is ok) run 2
+
+echo 1 || echo 3 
+# execute 1 then (if 1 is error) run 2
+
+
+..code..
+# Execute last command again
+!!
+
+# Save output to a file
+ls > my.txt
+
+# Save error output to a file
+lss 2> my.txt
+
+# Save output & error output to a file
+ls &> my.txt
+
+# Append output to a file
+ls >> my.txt
+
+# Append error output to a file
+lss 2>> my.txt
+
+# Append output & error output to a file
+ls >> my.txt 2>&1
+
+# Read input from a file
+<
+
+
+..code..
+cat my.txt | less
+
+
+
+
+
+..code..
+NAME="John"
+echo $NAME
+echo "Hello $NAME!"
+echo "${NAME}!"
+
+
+..text..
+Run in Background
+..code..
+# executes in background
+sleep 3 &
+
+# list background
+jobs
+
+# go to background
+fg
+
+
