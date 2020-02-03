@@ -4,24 +4,24 @@ Terminal, Bash, Linux Command Line
 ..link.. master.txt
 ..
 
-..link.. terminal/schedule.txt
-Schedule Tasks
-..link.. terminal/ssh.txt
-SSH
-..link.. terminal/advance.txt
-Advance
+..link.. terminal/basics.txt
+Basics
 ..link.. terminal/script_file.txt
 Write Script File for Terminal
 ..link.. terminal/install.txt
 Install Packages
-..link.. terminal/iso.txt
-Bootable USB
 ..link.. terminal/aliases.txt
 Aliases
-..link.. terminal/cmd.txt
-windows.cmd
+..link.. terminal/schedule.txt
+Schedule Tasks
 ..link.. terminal/systemctl.txt
 systemctl
+..link.. terminal/ssh.txt
+SSH
+..link.. terminal/cmd.txt
+windows.cmd
+..link.. terminal/advance.txt
+Advance
 ..link.. terminal/other.txt
 Other
 
