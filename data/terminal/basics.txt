@@ -45,10 +45,24 @@ ls >> my.txt 2>&1
 
 
 ..code..
+cat my.txt | head
+cat my.txt | tail
+
+# scroll
 cat my.txt | less
+cat my.txt | more
 
+# filter
+cat my.txt | grep asim
+cat my.txt | grep " asim"
+cat my.txt | grep -v asim
 
+cat my.txt | sort
+cat my.txt | sort -r
+# sort for numbers
+cat my.txt | sort -n
 
+cat my.txt | grep '[0-9]' | sort -n
 
 
 ..code..
