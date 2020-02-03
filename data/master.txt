@@ -45,8 +45,6 @@ Service
 AWS
 ..link.. heroku/master.txt
 Heroku
-..link.. git/master.txt
-git
 ..link.. https://www.twilio.com/pricing
 Twilio
 ..link.. https://www.linode.com/
@@ -60,7 +58,7 @@ Other
 Terminal
 
 ..link.. deploy_server/master.txt
-Deploy a Server
+DevOps
 
 
 
