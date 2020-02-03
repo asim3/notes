@@ -57,7 +57,7 @@ Other
 ..link.. terminal/master.txt
 Terminal
 
-..link.. deploy_server/master.txt
+..link.. devops/master.txt
 DevOps
 
 

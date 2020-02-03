@@ -1,13 +1,15 @@
 ..title..
 Uncomplicated Firewall
 
-..link.. deploy_server/master.txt
+..link.. devops/master.txt
 ..
 
 
 
 ..sub_title..
 Uncomplicated Firewall
+
+
 ..code..
 sudo apt-get update && sudo apt-get upgrade
 

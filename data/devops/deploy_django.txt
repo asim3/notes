@@ -1,7 +1,7 @@
 ..title..
 Deploy Django
 
-..link.. deploy_server/master.txt
+..link.. devops/master.txt
 ..
 
 
