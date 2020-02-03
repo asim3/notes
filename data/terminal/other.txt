@@ -5,6 +5,12 @@ Terminal, Bash, Linux Command Line
 ..
 
 
+..text..
+ISO Bootable USB
+..code..
+usb-creator-gtk
+
+
 ..code..
 echo "b9beac143e36226aa8a0b03fc1cbb5921cff80123866e718aaeba4edb81cfa63 *ubuntu-18.04.3-live-server-amd64.iso" | shasum -a 256 --check
 
