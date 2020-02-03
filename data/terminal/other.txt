@@ -10,12 +10,6 @@ echo "b9beac143e36226aa8a0b03fc1cbb5921cff80123866e718aaeba4edb81cfa63 *ubuntu-1
 
 killall python3
 
-..code..
-NAME="John"
-echo $NAME
-echo "Hello $NAME!"
-echo "${NAME}!"
-
 
 ..code..
 get_name() {
@@ -25,10 +19,6 @@ get_name() {
 echo "You are $(get_name)"
 
 get_name "John"
-
-
-..code..
-git commit && git push
 
 
 ..code..
@@ -69,9 +59,11 @@ gnome-session-quit
 
 sudo reboot
 sudo shutdown -r
-
+sudo shutdown now
 sudo shutdown -P now
+
 shutdown +30 "Leave to pickup friend!"
+
 
 ..code..
 # get website public IP address 
@@ -102,55 +94,3 @@ execute a file
 if [ -f ~/file_name ]; then
     source ~/file_name;
 fi
-
-
-
-
-
-..text..
-Run in Background
-..code..
-# executes in background
-sleep 3 &
-
-# list background
-jobs
-
-# go to background
-fg
-
-
-..code..
-sleep 3; echo done 
-# execute 1 then 2
-
-sleep 3 && echo 3 
-# execute 1 then (if 1 is ok) run 2
-
-echo 1 || echo 3 
-# execute 1 then (if 1 is error) run 2
-
-
-..code..
-!!
-# Execute last command again
-
->
-# Save output to a file.
-
->>
-# Append output to a file.
-
-<
-# Read input from a file.
-
-2>
-# Redirect error messages.
-
-|
-# Send the output from one program as input to another program.
-
-|&
-# a shorthand for 2>&1 | i.e. both standard output and standard error 
-  of command1 are connected to command2's standard input through the pipe.
-
