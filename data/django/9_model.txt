@@ -89,6 +89,7 @@ pineapple.pizza_set.all() # default name: model_name + '_set'
 Pizza.objects.filter(toppings__name__startswith='p')
 Topping.objects.filter(pizza_set__name__contains='Hawaiian')
 
+
 ..link.. https://www.revsys.com/tidbits/tips-using-djangos-manytomanyfield/
 Tips for Using M2M Field
 
@@ -140,9 +141,17 @@ def snippet(self):
 
 ..sub_title..
 File Extension Validator
-
 ..code..
 from django.core.validators import FileExtensionValidator
 
   file = models.FileField(upload_to='font/', blank=True, null=True,
     validators=[FileExtensionValidator(allowed_extensions=['xml', 'ttp', 'svg'])])
+
+
+..sub_title..
+Translation
+..code..
+from django.utils.translation import gettext_lazy as _
+
+class MyThing(models.Model):
+    name = models.CharField(help_text=_('This is the help text'))
