@@ -65,5 +65,9 @@ python manage.py createsuperuser
 
 python manage.py collectstatic
 
+
+..sub_title..
+Translation
 ..code..
-alias dj_brandat="source ~/venv/bin/activate && cd ~/Dropbox/Django/Developing/2019_03_31_brandat_ux/version_06 && python manage.py runserver"
+mkdir locale
+python3 manage.py makemessages -l ar
