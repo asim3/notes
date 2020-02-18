@@ -5,8 +5,27 @@ Django Templates
 ..
 
 
+..sub_text..
+Translation
+..code..
+{% load i18n %}
+<p>{% trans "Welcome to our page" %}</p>
 
-..نص..
+
+{% get_current_language as LANGUAGE_CODE %}
+<!-- Current language: {{ LANGUAGE_CODE }} -->
+
+
+{% get_available_languages as languages %}
+{% for lang_code, lang_name in languages %}
+    {% language lang_code %}
+        <a href="{% url 'category' slug=category.slug %}">{{ lang_name }}</a>
+    {% endlanguage %}
+{% endfor %}
+
+
+
+..text..
 Show form data and errors
 ..code..
 {{ form.cleaned_data }}
