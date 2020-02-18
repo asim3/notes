@@ -5,7 +5,7 @@ Django Templates
 ..
 
 
-..sub_text..
+..sub_title..
 Translation
 ..code..
 {% load i18n %}
