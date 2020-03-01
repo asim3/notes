@@ -61,6 +61,7 @@ gedit edit_file.txt
 ..text..
 Permissions
 ..code..
+sudo chown asim:asim /www
 sudo chown myusername file.txt
 sudo chmod 664 
 
