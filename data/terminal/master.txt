@@ -6,22 +6,24 @@ Terminal, Bash, Linux Command Line
 
 ..link.. terminal/basics.txt
 Basics
-..link.. terminal/script_file.txt
-Write Script File for Terminal
-..link.. terminal/install.txt
+..link.. terminal/advance.txt
 Install Packages
 ..link.. terminal/aliases.txt
 Aliases
+..link.. terminal/ssh.txt
+SSH
+..text..
+
 ..link.. terminal/schedule.txt
 Schedule Tasks
 ..link.. terminal/systemctl.txt
 systemctl
-..link.. terminal/ssh.txt
-SSH
 ..link.. terminal/cmd.txt
-windows.cmd
-..link.. terminal/advance.txt
 Advance
+..link.. terminal/script_file.txt
+Write Bash Script
+..link.. terminal/install.txt
+windows.cmd
 ..link.. terminal/other.txt
 Other
 
