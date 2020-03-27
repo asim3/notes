@@ -8,8 +8,8 @@ Deploy to a Linux Server
 Git 
 ..link.. devops/jenkins.txt
 Jenkins
-..link.. devops/puppet.txt
-puppet
+..link.. devops/ansible.txt
+Ansible
 ..link.. devops/docker.txt
 Docker
 ..link.. devops/nagios.txt
