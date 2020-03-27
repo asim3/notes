@@ -30,16 +30,10 @@ Other
 ..code..
 mkdir add_new_folders
 
-rm f1.txt f2.txt file3
-
-rm -rf remove_directories_and_contents_by_force
-rm -r dir2 dir3
-
 rm *.pdf
+rm -rf remove_directories_and_contents_by_force
 
-
-..code..
-cp copy_from.txt /to_directorie/
+cp copy_this.txt /to_directorie/
 cp duplicate.txt .
 
 mv rename_folders to_downloads
@@ -73,3 +67,26 @@ sudo chmod 664
 5 = r-x
 6 = rw-
 7 = rwx
+
+
+..text..
+Linux Directory
+..code..
+/etc     => Configuration files
+/tmp     => Temporary Files "will be deleted after reboot"
+/var     => Variable Files
+
+/bin     => User Binary Files
+/sbin    => Root Binary Files
+/root    => Root Home Directory
+
+/dev     => All devices that are connected
+/lib     => System Libraries
+/media   => Mount point for removable media
+/mnt     => Mount point for temporary file systems
+/opt     => Optional Add-on applications
+/srv     => systemctl Files !!
+/usr     => User Installed Programs 
+/proc    => Process Information
+
+/lost+found    => Misplaced Data
