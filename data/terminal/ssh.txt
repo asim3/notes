@@ -1,7 +1,7 @@
 ..title..
 Enabling SSH on Ubuntu
 
-..link.. terminal/deploy.txt
+..link.. terminal/master.txt
 ..
 
 
