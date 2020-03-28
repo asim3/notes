@@ -10,7 +10,8 @@ install
 build
 ..link.. devops/docker_compose.txt
 compose
-
+..link.. devops/docker_swarm.txt
+swarm
 
 
 ..sub_title..
