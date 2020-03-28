@@ -9,9 +9,39 @@ docker-cheat-sheet
 Environment replacement
 
 
-..code..
-nano Dockerfile
 
+..code..
+mkdir -p ~/test/src/ && nano ~/test/src/index.php
+<?php
+
+echo "Hello, World";
+
+
+..code..
+nano ~/test/Dockerfile
+FROM php:7.0-apache
+COPY src/ /var/www/html
+EXPOSE 80
+
+
+..text..
+Build & Run
+..code..
+sudo docker build -t my_php_test:mytag ~/test/
+sudo docker images
+sudo docker run -p 80:80 my_php_test
+
+
+..code..
+# Run container in background and print container ID
+sudo docker run -p 80:80 -d my_php_test
+
+# Bind mount a volume
+sudo docker run -p 80:80 -v ~/test/src/:/var/www/html/ my_php_test
+
+
+..sub_title..
+Dockerfile
 ..code..
 # select Base OS
 FROM ubuntu
@@ -27,13 +57,7 @@ CMD ["echo", "Hello Worldddd"]
 
 
 ..text..
-Build 
-..code..
-docker build -t my_docker_name:mytag ~/my_docker_folder/
-
-
-..text..
-Build
+Dockerfile for Django !!
 ..code..
 FROM python:3
 ENV pythonunbuffered 1
