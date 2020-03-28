@@ -11,6 +11,10 @@ Docker Engine - Community package is now called docker-ce
 Docker Engine - Enterprise package is now called docker-ee
 
 
+..link.. https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-repository
+install
+
+
 ..text..
 Uninstall old versions
 ..code..
@@ -25,7 +29,7 @@ sudo apt-get install \
     apt-transport-https \
     ca-certificates \
     curl \
-    gnupg-agent \
+    gnupg2 \
     software-properties-common
 
 
