@@ -69,14 +69,11 @@ mkdir ~/.ssh/
 sudo chmod 700 ~/.ssh/
 sudo chmod 600 ~/.ssh/*
 
-# logout SSH
-exit
-
 # @ local pc
-ssh-keygen -t rsa -b 4096 -C "myname@example.com"
 scp ~/.ssh/id_rsa.pub username@remote.server.ip:~/.ssh/authorized_keys
 
-sudo chown -R $USER:$USER /var/www/html/newfile
+# logout SSH
+exit
 
 ..text..
 disable password and root login
