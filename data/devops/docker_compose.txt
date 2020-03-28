@@ -30,77 +30,31 @@ services:
     volumes:
       - ~/test/src/:/var/www/html
     ports:
-      - 5000:80
+      - "5000:80"
 
-  website:
+  my-test-website:
     image: php:apache
     volumes:
       - ../test/src:/var/www/html/
     ports:
-      - 5001:80
+      - "5001:80"
 
 
 ..code..
+# Check the validity of docker-compose.yml
 cd ~/test-compose/ && sudo docker-compose config
+
 cd ~/test-compose/ && sudo docker-compose up -d
 cd ~/test-compose/ && sudo docker-compose down
 
 
+sudo docker-compose -f ~/test-compose/docker-compose.yml up
+sudo docker-compose -f ~/test-compose/docker-compose.yml down
 
-
-
-
-
-
-
-
-
+sudo docker-compose -f ~/test-compose/docker-compose.yml start
+sudo docker-compose -f ~/test-compose/docker-compose.yml stop
 
 
 ..code..
-mkdir ~/myproject
-nano ~/myproject/docker-compose.yml
-
-
-..text..
-docker-compose.yml
-..code..
-version: '3'
-
-services:
-  web:
-    build: .
-    command: python my_project/my_project/manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/my_file
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
-  db:
-    image: postgres
-
-
-..sub_title..
-Check the validity of docker-compose.yml
-..code..
-docker-compose config
- 
-
-..code..
-docker-compose run web python my_project/my_project/manage.py migrate
-docker-compose build
-docker-compose up
-
-
-..code..
-sudo docker-compose up -d
-sudo docker ps
-sudo docker-compose down
-
-
-..text..
-scale services
-..code..
-sudo docker-compose up -d --scale database=4
-sudo docker-compose up -d --scale web=3
+cd ~/test-compose/ && sudo docker-compose ps
+cd ~/test-compose/ && sudo docker-compose images
