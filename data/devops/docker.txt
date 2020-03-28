@@ -28,10 +28,15 @@ sudo docker image rm <name|id>
 
 
 ..text..
-container status
+container list
 ..code..
 sudo docker ps 
 sudo docker ps -a
+
+
+..text..
+container status
+..code..
 sudo docker top <name|id>
 sudo docker stats <name|id>
 
