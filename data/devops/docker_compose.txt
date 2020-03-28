@@ -20,6 +20,38 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 
+..code..
+mkdir -p ~/test-compose/ && nano ~/test-compose/docker-compose.yml
+version: '3'
+
+services:
+  my-test-service:
+    build: ~/test/
+    volumes:
+      - ~/test/src/:/var/www/html
+    ports:
+      - 5000:80
+
+  website:
+    image: php:apache
+    volumes:
+      - ../test/src:/var/www/html/
+    ports:
+      - 5001:80
+
+
+..code..
+cd ~/test-compose/ && sudo docker-compose config
+cd ~/test-compose/ && sudo docker-compose up -d
+cd ~/test-compose/ && sudo docker-compose down
+
+
+
+
+
+
+
+
 
 
 
@@ -28,15 +60,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 ..code..
 mkdir ~/myproject
 nano ~/myproject/docker-compose.yml
-
-..code..
-version: '3'
-
-services:
-  web:
-    image: nginx
-  database:
-    image: redis
 
 
 ..text..
