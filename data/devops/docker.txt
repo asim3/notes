@@ -26,40 +26,32 @@ sudo docker images
 ..text..
 Image
 ..code..
-sudo docker image rm __id__
-sudo docker image pull __id__
-sudo docker image run __id__
-sudo docker image history __id__
+sudo docker image build ~/Dockerfile_path/
 
+sudo docker image rm __id__
+# Pull an image or a repository from a registry
+sudo docker image pull __id__
 
 
 ..text..
 Containers
 ..code..
+sudo docker container run __image_name__
+
 # List all running containers
-sudo docker ps 
-# List all containers
-sudo docker ps -a
-# Remove one or more containers
-sudo docker rm __id__
+sudo docker container ls
+sudo docker container ls -a
 
-sudo docker pause __id__
-sudo docker unpause __id__
-
-sudo docker start __id__
-sudo docker stop __id__
-sudo docker kill __id__
+# Display a live stream of container(s) resource usage statistics
+sudo docker container stats __id__
 
 
-
-..text..
-container status
 ..code..
-sudo docker top __id__
-sudo docker stats __id__
+sudo docker container pause __id__
+sudo docker container unpause __id__
 
-
-..text..
-login to a container
-..code..
-sudo docker attach __id__
+sudo docker container start __id__
+sudo docker container restart __id__
+sudo docker container stop __id__
+sudo docker container kill __id__
+sudo docker container rm __id__
