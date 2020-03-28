@@ -77,6 +77,7 @@ Linux Directory
 /etc     => Configuration files
 /tmp     => Temporary Files "will be deleted after reboot"
 /var     => Variable Files
+/usr     => User Installed Programs 
 
 /bin     => User Binary Files
 /sbin    => Root Binary Files
@@ -88,7 +89,6 @@ Linux Directory
 /mnt     => Mount point for temporary file systems
 /opt     => Optional Add-on applications
 /srv     => systemctl Files !!
-/usr     => User Installed Programs 
 /proc    => Process Information
 
 /lost+found    => Misplaced Data
