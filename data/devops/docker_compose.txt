@@ -7,11 +7,22 @@ Docker Engine - Community
 
 
 ..code..
-docker-compose -v
 docker-compose version
 
-sudo apt install docker-compose
-pip3 install -U docker-compose
+
+..link.. https://docs.docker.com/compose/install/#install-using-pip#install-compose-on-linux-systems
+install
+
+
+..code..
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+
+
+
+
 
 
 ..code..
