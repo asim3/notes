@@ -18,43 +18,48 @@ Containerization
 
 
 ..text..
-image status
+List all images
 ..code..
 sudo docker images
-sudo docker pull <image>
-sudo docker run <image>
-sudo docker history <image>
-sudo docker image rm <name|id>
 
 
 ..text..
-container list
+Image
 ..code..
+sudo docker image rm __id__
+sudo docker image pull __id__
+sudo docker image run __id__
+sudo docker image history __id__
+
+
+
+..text..
+Containers
+..code..
+# List all running containers
 sudo docker ps 
+# List all containers
 sudo docker ps -a
+# Remove one or more containers
+sudo docker rm __id__
+
+sudo docker pause __id__
+sudo docker unpause __id__
+
+sudo docker start __id__
+sudo docker stop __id__
+sudo docker kill __id__
+
 
 
 ..text..
 container status
 ..code..
-sudo docker top <name|id>
-sudo docker stats <name|id>
+sudo docker top __id__
+sudo docker stats __id__
 
 
 ..text..
 login to a container
 ..code..
-sudo docker attach <name|id>
-
-
-..code..
-sudo docker unpause <name|id>
-sudo docker start <name|id>
-
-..code..
-sudo docker pause <name|id>
-sudo docker stop <name|id>
-sudo docker kill <name|id>
-
-..code..
-sudo docker rm <name|id>
+sudo docker attach __id__
