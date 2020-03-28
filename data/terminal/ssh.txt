@@ -16,16 +16,20 @@ ssh-keygen -b 4096
 
 
 ..text..
-Adding SSH key to the ssh-agent
+Adding public key to the remote server
 ..code..
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
+# @ local pc
+scp ~/.ssh/id_rsa.pub username@remote.server.ip:~/.ssh/authorized_keys
 
-..text..
-Adding public key to the remote server
-..code..
-scp ~/test.txt myname@remote.server.ip:~/path/
+mkdir ~/.ssh/
+sudo chmod 700 ~/.ssh/
+sudo chmod 600 ~/.ssh/*
+
+# logout SSH
+exit
 
 
 ..sub_title..
