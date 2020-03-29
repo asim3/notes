@@ -5,5 +5,41 @@ Docker Engine - Community
 ..
 
 
+
+..sub_title..
+Docker swarm - Container Orchestration
+
+
+..code..
+sudo docker system info
+# Swarm: inactive
+
+sudo docker swarm init
+sudo docker node ls
+
+sudo docker system info
+# Swarm: active
+#  NodeID: vasvwn0p73956uuz2dw6touhf
+#  Is Manager: true
+
+
+
 ..text..
-Docker swarm
+add a worker to this swarm
+..code..
+# @ manager to show the command
+sudo docker swarm join-token worker
+# @ other machine
+sudo docker swarm join --token SWMTKN-1-131pcgzoht8er4e2iq18nz9o5ljjjr7wd10p5vltjjb57kmnft-86mk38pcp1tn4wwzxh6xqig5f 192.168.100.134:2377
+
+
+
+
+
+
+
+
+
+
+
+
