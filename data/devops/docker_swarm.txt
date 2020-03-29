@@ -15,13 +15,6 @@ sudo docker system info
 # Swarm: inactive
 
 sudo docker swarm init
-sudo docker node ls
-
-sudo docker system info
-# Swarm: active
-#  NodeID: vasvwn0p73956uuz2dw6touhf
-#  Is Manager: true
-
 
 
 ..text..
@@ -33,11 +26,18 @@ sudo docker swarm join-token worker
 sudo docker swarm join --token SWMTKN-1-131pcgzoht8er4e2iq18nz9o5ljjjr7wd10p5vltjjb57kmnft-86mk38pcp1tn4wwzxh6xqig5f 192.168.100.134:2377
 
 
+..code..
+sudo docker node ls
+
+# show status & ip addr
+sudo docker node inspect __id__
 
 
-
-
-
+..sub_title..
+Stack Files
+..code..
+sudo docker stack ls
+sudo docker stack deploy -c ./test-compose/docker-compose.yml my-stack-name
 
 
 
