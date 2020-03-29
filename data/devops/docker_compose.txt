@@ -27,6 +27,7 @@ version: '3'
 services:
   my-test-service:
     build: ~/test/
+    restart: always
     volumes:
       - ~/test/src/:/var/www/html
     ports:
@@ -34,6 +35,7 @@ services:
 
   my-test-website:
     image: php:apache
+    restart: always
     volumes:
       - ../test/src:/var/www/html/
     ports:
