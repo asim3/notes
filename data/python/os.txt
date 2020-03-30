@@ -5,6 +5,8 @@ Cheat Sheet for Python
 ..
 ..link.. python/os_download_files.txt
 download files
+..link.. python/os_bash.txt
+Executing Shell Commands
 
 
 
