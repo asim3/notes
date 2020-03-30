@@ -3,6 +3,9 @@ Cheat Sheet for Python
 
 ..link.. python/master.txt
 ..
+..link.. python/os_download_files.txt
+download files
+
 
 
 ..code..
@@ -43,65 +46,3 @@ with open('test.txt', 'r') as fff:
     file_contents = fff.read()
 
 
-..text..
-Downloading Files
-..code..
-import requests
-
-url = 'http://google.com/favicon.ico'
-r = requests.get(url, allow_redirects=True)
-if r.ok:
-    open('google.ico', 'wb').write(r.content)
-
-
-..code..
-def is_downloadable(url):
-    h = requests.head(url, allow_redirects=True)
-    header = h.headers
-    content_type = header.get('content-type')
-    if 'text' in content_type.lower():
-        return False
-    if 'html' in content_type.lower():
-        return False
-    return True
-
-
-
-..sub_title..
-Read excel file
-..code..
-pip install xlrd
-import xlrd 
-
-file = xlrd.open_workbook("sample.xlsx") 
-sheet = file.sheet_by_index(0) 
-
-# return value of row 0 and column 1 
-sheet.cell_value(0, 1) 
-
-# number of rows 
-print(sheet.nrows) 
-
-# number of columns 
-print(sheet.ncols) 
-
-# all columns name
-for i in range(sheet.ncols): 
-    print(sheet.cell_value(0, i)) 
-
-# all row values in a list 
-print(sheet.row_values(1))
-
-
-..text..
-Status bar
-..code..
-import progressbar
-from time import sleep
-bar = progressbar.ProgressBar(maxval=20, \
-    widgets=[progressbar.Bar('=', '[', ']'), ' ', progressbar.Percentage()])
-bar.start()
-for i in xrange(20):
-    bar.update(i+1)
-    sleep(0.1)
-bar.finish()
