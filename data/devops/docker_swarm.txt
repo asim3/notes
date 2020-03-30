@@ -18,28 +18,37 @@ sudo docker swarm init
 
 
 ..text..
-add a worker to this swarm
+add a worker node to the swarm
 ..code..
 # @ manager to show the command
 sudo docker swarm join-token worker
+
 # @ other machine
-sudo docker swarm join --token SWMTKN-1-131pcgzoht8er4e2iq18nz9o5ljjjr7wd10p5vltjjb57kmnft-86mk38pcp1tn4wwzxh6xqig5f 192.168.100.134:2377
-
-
-..code..
-sudo docker node ls
-
-# show status & ip addr
-sudo docker node inspect __id__
+sudo docker swarm join --token SWMTKN-1-e...nnn 192.168.100.134:2377
 
 
 ..sub_title..
-Stack Files
+Manage Swarm nodes
+..code..
+sudo docker node ps
+sudo docker node ls
+sudo docker node ls -q
+
+# get all node info in JSON
+sudo docker node inspect __node_id__
+
+
+..sub_title..
+Swarm Stack Files
 ..code..
 sudo docker stack ls
 sudo docker stack deploy -c ./test-compose/docker-compose.yml my-stack-name
+sudo docker stack rm my-stack-name
 
 
 
-
+..sub_title..
+Swarm Service
+..code..
+sudo docker service ls
 
