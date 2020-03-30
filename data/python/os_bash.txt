@@ -3,3 +3,41 @@ Cheat Sheet for Python
 
 ..link.. python/os.txt
 ..
+
+
+..sub_title..
+Executing Shell Commands
+
+
+..code..
+import os
+
+os.system("echo Hello from bash!")
+# Hello from bash!
+
+home_dir = os.system("cd ~")
+print("home_dir: %d \n\n" % home_dir)
+# home_dir: 0
+
+unknown_dir = os.system("cd does_not_exist")
+print("unknown_dir: %d" % unknown_dir)
+# sh: 1: cd: can't cd to does_not_exist
+# unknown_dir: 512
+
+
+
+..sub_title..
+SubProcess Module
+..code..
+import os
+
+
+
+
+..code..
+import os
+
+
+
+..code..
+import os
