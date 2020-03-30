@@ -9,12 +9,18 @@ Cheat Sheet for Python
 import os
 
 dir = os.getcwd()
-new_dir = os.path.join(dir, 'my_new/dirname')
-os.chdir(new_dir)
-os.listdir( os.getcwd() )
-os.mkdir(new_dir)
+dir_list = os.listdir(dir)
+print(dir_list)
 
-# !! os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+my_new_dirname = 'my_new_dirname'
+new_dir = os.path.join(dir, my_new_dirname)
+if not my_new_dirname in dir_list:
+  os.mkdir(new_dir)
+os.chdir(new_dir)
+
+dir = os.getcwd()
+dir_list = os.listdir(dir)
+print(dir_list)
 
 
 ..text..
@@ -33,7 +39,6 @@ if os.path.isfile('test.txt'):
 ..text..
 Read file
 ..code..
-
 with open('test.txt', 'r') as fff:
     file_contents = fff.read()
 
