@@ -18,8 +18,6 @@ SSH
 Schedule Tasks
 ..link.. terminal/systemctl.txt
 systemctl
-..link.. terminal/script_file.txt
-Write Bash Script
 ..link.. terminal/other.txt
 Other
 
