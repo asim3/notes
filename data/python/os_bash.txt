@@ -31,7 +31,7 @@ SubProcess
 ..code..
 import subprocess
 
-sub_pro = subprocess.run(["touch", "new_file.txt"])
+sub_pro = subprocess.run(["ls", "/etc/apt/"])
 print(sub_pro.returncode) # 0
 
 sub_pro = subprocess.run(["ls", "/etc/apt/"], stderr=subprocess.PIPE, stdout=subprocess.PIPE)
