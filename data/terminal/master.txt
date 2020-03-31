@@ -7,9 +7,9 @@ Terminal, Bash, Linux Command Line
 ..link.. terminal/basics.txt
 Basics
 ..link.. terminal/advance.txt
+Advance
+..link.. terminal/install.txt
 Install Packages
-..link.. terminal/aliases.txt
-Aliases
 ..link.. terminal/ssh.txt
 SSH
 ..text..
@@ -18,12 +18,8 @@ SSH
 Schedule Tasks
 ..link.. terminal/systemctl.txt
 systemctl
-..link.. terminal/cmd.txt
-Advance
 ..link.. terminal/script_file.txt
 Write Bash Script
-..link.. terminal/install.txt
-windows.cmd
 ..link.. terminal/other.txt
 Other
 
