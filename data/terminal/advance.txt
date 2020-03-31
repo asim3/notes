@@ -7,6 +7,8 @@ Advance
 Aliases
 ..link.. terminal/advance_customise.txt
 Customise terminal
+..link.. terminal/advance_script_file.txt
+Write Bash Script
 
 
 
