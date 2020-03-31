@@ -27,17 +27,58 @@ print("unknown_dir: %d" % unknown_dir)
 
 
 ..sub_title..
-SubProcess Module
+SubProcess
+..code..
+import subprocess
+
+sub_pro = subprocess.run(["touch", "new_file.txt"])
+print(sub_pro.returncode) # 0
+
+sub_pro = subprocess.run(["ls", "/etc/apt/"], stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+print(sub_pro.returncode) # 0
+print(sub_pro.stderr)     # b''
+print(sub_pro.stdout)     # b'apt.conf.d\nauth.conf.d\n'
+
+
+try:
+  failed_command = subprocess.run(["false"], check=True)
+  print("this will not work")
+except:
+  print("this will be printed")
+
+
+..text..
+Timing
 ..code..
 import os
+import subprocess
+
+os.system("sleep 2")
+print("will wait for process")
+
+sub_pro = subprocess.run(["sleep", "1"])
+print("will wait for subprocess")
+
+sub_pro = subprocess.Popen(["sleep", "4"])
+print("will not wait")
+sub_pro.wait()
+print("will wait")
 
 
 
-
+..text..
+Popen
 ..code..
-import os
+import subprocess
+from time import sleep
 
 
+sub_pro = subprocess.Popen(["sleep", "2"])
+print("will not wait")
 
-..code..
-import os
+for i in range(10):
+  # check if bash finished
+  print(sub_pro.poll())
+  sleep(.3)
+
+print("done")
