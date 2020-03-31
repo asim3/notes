@@ -3,8 +3,9 @@ Advance
 
 ..link.. terminal/master.txt
 ..
-
-..link.. terminal/customise.txt
+..link.. terminal/advance_aliases.txt
+Aliases
+..link.. terminal/advance_customise.txt
 Customise terminal
 
 
