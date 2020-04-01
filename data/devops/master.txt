@@ -72,18 +72,9 @@ sudo nano /etc/hosts
 192.168.1.1     my-test-server
 
 
-..sub_title..
+..link.. terminal/ssh.txt
 Copy public key to remote server
-..code..
-mkdir ~/.ssh/
-sudo chmod 700 ~/.ssh/
-sudo chmod 600 ~/.ssh/*
 
-# @ local pc
-scp ~/.ssh/id_rsa.pub username@remote.server.ip:~/.ssh/authorized_keys
-
-# logout SSH
-exit
 
 ..text..
 disable password and root login
@@ -95,7 +86,14 @@ PermitRootLogin no
 PasswordAuthentication no 
 
 
-..text..
-Restart SSH
 ..code..
 sudo systemctl restart sshd
+
+
+..text..
+Granting sudo Privileges to Users
+..code..
+sudo cat /etc/sudoers.d/README 
+man visudo
+visudo
+
