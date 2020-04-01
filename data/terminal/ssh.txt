@@ -21,11 +21,16 @@ Adding public key to the remote server
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
+
+..code..
+# @ remote pc
+mkdir ~/.ssh/
+sudo chown username:username .ssh/
+sudo chmod 700 ~/.ssh/
+
 # @ local pc
 scp ~/.ssh/id_rsa.pub username@remote.server.ip:~/.ssh/authorized_keys
-
-mkdir ~/.ssh/
-sudo chmod 700 ~/.ssh/
+sudo chown username:username .ssh/authorized_keys
 sudo chmod 600 ~/.ssh/*
 
 # logout SSH
