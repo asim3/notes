@@ -50,6 +50,16 @@ ssh username@server.ip
 
 
 ..text..
+Add a New User
+..code..
+sudo useradd -m my-new-user
+# set a password
+sudo passwd my-new-user
+# add User to sudo
+sudo adduser my-new-user sudo
+
+
+..text..
 change hostname
 ..code..
 hostnamectl set-hostname my-test-server
