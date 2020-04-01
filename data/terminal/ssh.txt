@@ -19,19 +19,21 @@ ssh-keygen -b 4096
 Adding public key to the remote server
 ..code..
 eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
+ssh-add ./.ssh/id_rsa
 
 
 ..code..
 # @ remote pc
-mkdir ~/.ssh/
+sudo mkdir .ssh/
 sudo chown username:username .ssh/
-sudo chmod 700 ~/.ssh/
+sudo chmod 700 .ssh/
 
-# @ local pc
+# copy from local pc to remote pc using ssh
 scp ~/.ssh/id_rsa.pub username@remote.server.ip:~/.ssh/authorized_keys
+
+# @ remote pc
 sudo chown username:username .ssh/authorized_keys
-sudo chmod 600 ~/.ssh/*
+sudo chmod 600 .ssh/authorized_keys
 
 # logout SSH
 exit
@@ -46,11 +48,8 @@ sudo systemctl status ssh
 
 
 ..sub_title..
-Enable & Disable SSH Over LAN
+Enable SSH
 ..code..
-# Disabling SSH on Ubuntu
-sudo systemctl disable ssh
-# Enable SSH on Ubuntu
 sudo systemctl enable ssh
 
 
