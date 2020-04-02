@@ -8,20 +8,17 @@ Enabling SSH on Ubuntu
 ..text..
 generate key
 ..code..
+ssh-keygen -t rsa -b 4096
 ssh-keygen -t rsa -b 4096 -C "myname@example.com"
-# or 
-ssh-keygen -t rsa
-# or 
-ssh-keygen -b 4096
 
 
-..text..
-Adding public key to the remote server
 ..code..
 eval "$(ssh-agent -s)"
 ssh-add ./.ssh/id_rsa
 
 
+..text..
+Adding public key to the remote server
 ..code..
 # @ remote pc
 sudo mkdir .ssh/
