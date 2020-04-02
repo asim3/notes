@@ -83,6 +83,9 @@ sudo nano /etc/hosts
 ..link.. terminal/ssh.txt
 Copy public key to remote server
 
+..code..
+ssh-copy-id 192.168.100.99
+
 
 ..text..
 disable password and root login
