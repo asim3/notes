@@ -3,8 +3,55 @@ Ansible
 
 ..link.. devops/master.txt
 ..
+..link.. devops/ansible_roles.txt
+Roles
+..link.. devops/ansible_playbooks.txt
+Playbooks
 
 
 
 ..sub_title..
 Configuration Management
+
+..text..
+New user for ansible
+..code..
+sudo adduser admin_ansible
+
+
+..text..
+installing ansible
+..code..
+sudo add-apt-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt install ansible
+
+ansible --version
+
+
+..text..
+configurations
+..code..
+ls -alh /etc/ansible
+sudo chown -R ansadm:ansadm /etc/ansible
+
+nano /etc/ansible/hosts
+
+
+..text..
+test connection
+..code..
+ansible -m ping all
+
+..text..
+shell commands "ad-hoc commands"
+..code..
+ansible -m shell -a 'hostname' all
+ansible -m shell -a 'whoami' all
+
+ansible -m shell -b -a 'whoami' all 
+# Missing sudo password
+
+ansible -m shell -b -K -a 'whoami' all
+# root
+
