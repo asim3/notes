@@ -8,11 +8,12 @@ Enabling SSH on Ubuntu
 ..text..
 generate key
 ..code..
-ssh-keygen -t rsa -b 4096
 ssh-keygen -t rsa -b 4096 -C "myname@example.com"
+ssh-keygen -t rsa -b 4096
+sudo chmod 700 ~/.ssh/
+sudo chmod 600 ~/.ssh/*
 
-
-..code..
+# Start the ssh-agent in the background
 eval "$(ssh-agent -s)"
 ssh-add ./.ssh/id_rsa
 
@@ -20,17 +21,16 @@ ssh-add ./.ssh/id_rsa
 ..text..
 Adding public key to the remote server
 ..code..
-# @ remote pc
-sudo mkdir .ssh/
-sudo chown username:username .ssh/
-sudo chmod 700 .ssh/
+ssh username@remote.server.ip 'pwd'
+ssh username@remote.server.ip 'mkdir ~/.ssh/'
+ssh username@remote.server.ip 'chmod 700 ~/.ssh/'
 
 # copy from local pc to remote pc using ssh
 scp ~/.ssh/id_rsa.pub username@remote.server.ip:~/.ssh/authorized_keys
 
-# @ remote pc
-sudo chown username:username .ssh/authorized_keys
-sudo chmod 600 .ssh/authorized_keys
+ssh username@remote.server.ip
+chmod 600 .ssh/authorized_keys
+chown username:username .ssh/authorized_keys
 
 # logout SSH
 exit
