@@ -52,9 +52,15 @@ ssh username@server.ip
 ..text..
 Add a New User
 ..code..
-sudo useradd -m my-new-user
+# useradd is a low level utility for adding users. 
+# sudo useradd -m my-new-user
+# On Debian, administrators should usually use adduser(8) instead.
+
+sudo adduser my-new-user
+
 # set a password
-sudo passwd my-new-user
+# sudo passwd my-new-user
+
 # add User to sudo
 sudo adduser my-new-user sudo
 
