@@ -64,6 +64,8 @@ sudo adduser my-new-user
 # add User to sudo
 sudo adduser my-new-user sudo
 
+# switch user
+su - my-new-user
 
 ..text..
 change hostname
