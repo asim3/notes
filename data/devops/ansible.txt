@@ -35,6 +35,10 @@ configurations
 ls -alh /etc/ansible
 sudo chown -R ansadm:ansadm /etc/ansible
 
+
+..text..
+inventory
+..code..
 nano /etc/ansible/hosts
 
 
@@ -43,8 +47,9 @@ test connection
 ..code..
 ansible -m ping all
 
-..text..
-shell commands "ad-hoc commands"
+
+..sub_title..
+ad-hoc commands "shell commands"
 ..code..
 ansible -m shell -a 'hostname' all
 ansible -m shell -a 'whoami' all
