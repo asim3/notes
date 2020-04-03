@@ -6,3 +6,15 @@ Ansible
 
 
 ..code..
+
+ 
+ 
+ ..code..
+ nano ./my-first-playbook.yml
+ ---
+- hosts: all
+  become: true
+
+
+..code..
+ansible-playbook -K ./my-first-playbook.yml 
