@@ -10,11 +10,13 @@ Ansible
  
  
  ..code..
- nano ./my-first-playbook.yml
- ---
-- hosts: all
-  become: true
+ nano nginx-install-playbook.yml
+---
+- name: "install nginx"
+
+      
 
 
 ..code..
-ansible-playbook -K ./my-first-playbook.yml 
+ansible-playbook ./nginx-install-playbook.yml --check
+ansible-playbook -K ./nginx-install-playbook.yml 
