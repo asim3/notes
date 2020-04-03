@@ -3,10 +3,12 @@ Ansible
 
 ..link.. devops/master.txt
 ..
-..link.. devops/ansible_roles.txt
-Roles
 ..link.. devops/ansible_playbooks.txt
 Playbooks
+..link.. https://docs.ansible.com/ansible/latest/modules/modules_by_category.html
+modules
+..link.. devops/ansible_roles.txt
+Roles
 
 
 
