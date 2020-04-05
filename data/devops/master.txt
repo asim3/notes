@@ -75,9 +75,9 @@ cat /etc/hostname
 
 # change hostname ip
 sudo nano /etc/hosts
-# /etc/hosts
 127.0.0.1       localhost
 192.168.1.1     my-test-server
+192.168.100.44  my-admin-server
 
 
 ..link.. terminal/ssh.txt
@@ -90,21 +90,23 @@ ssh-copy-id 192.168.100.99
 ..text..
 disable password and root login
 ..code..
-ssh username@server.ip
 sudo nano /etc/ssh/sshd_config 
-@ ...
+sudo systemctl restart sshd
+
+# /etc/ssh/sshd_config
 PermitRootLogin no
 PasswordAuthentication no 
-
-
-..code..
-sudo systemctl restart sshd
 
 
 ..text..
 Granting sudo Privileges to Users
 ..code..
-sudo cat /etc/sudoers.d/README 
-man visudo
-visudo
+sudo visudo
 
+# /etc/sudoers.tmp
+
+# after %sudo
+asim    ALL=(ALL:ALL) NOPASSWD: ALL
+asim    ALL=(ALL:ALL) NOPASSWD: /usr/bin/ansible
+
+# user hostname=(runas-user:runas-group) command
