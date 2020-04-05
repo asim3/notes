@@ -31,7 +31,7 @@ nano     ./roles/my-first-role/tasks/main.yml
  
  ..code..
  nano ./my-first-playbook.yml
- ---
+---
 - hosts: all
   become: true
   roles:
