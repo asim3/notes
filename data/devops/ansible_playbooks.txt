@@ -5,9 +5,6 @@ Ansible
 ..
 
 
-..code..
-
- 
 
 ..code..
 nano nginx-install-playbook.yml
