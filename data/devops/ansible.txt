@@ -17,11 +17,6 @@ Roles
 ..sub_title..
 Configuration Management
 
-..text..
-New user for ansible
-..code..
-sudo adduser admin_ansible
-
 
 ..text..
 installing ansible
@@ -36,8 +31,9 @@ ansible --version
 ..text..
 configurations
 ..code..
-ls -alh /etc/ansible
-sudo chown -R ansadm:ansadm /etc/ansible
+sudo adduser admin_ansible
+sudo chown -R admin_ansible:admin_ansible /etc/ansible
+sudo apt upgrade python python3 aptitude
 
 
 ..text..
