@@ -1,0 +1,37 @@
+lines (23 sloc) 561 Bytes
+..title..
+Ansible
+
+..link.. devops/ansible.txt
+..
+
+
+..code..
+nano var-playbook.yml
+---
+- name: "copy files"
+  hosts: all
+  # become: true
+  gather_facts: False
+  vars:
+    testing_vars: 'my name is asim'
+
+
+  tasks:
+  - name: Create a directory if it does not exist
+    file:
+     path: '~/test-ansible/new'
+     state: directory
+     mode: '0755'
+
+  - name: add new file
+    file:
+     path: '~/test-ansible/new/{{ testing_vars }}.txt'
+     owner: asim_username
+     group: asim_username
+     state: touch
+     mode: '644'
+
+
+..code..
+ansible-playbook var-playbook.yml --check
