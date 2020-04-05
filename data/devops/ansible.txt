@@ -7,6 +7,8 @@ Ansible
 Playbooks
 ..link.. https://docs.ansible.com/ansible/latest/modules/modules_by_category.html
 modules
+..link.. devops/ansible_variables.txt
+variables
 ..link.. devops/ansible_roles.txt
 Roles
 
