@@ -1,0 +1,8 @@
+..title..
+Docker Engine - Community
+
+..link.. devops/docker.txt
+..
+
+..link.. https://docs.docker.com/engine/swarm/ingress/
+swarm routing mesh
