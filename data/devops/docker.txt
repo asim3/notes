@@ -12,6 +12,8 @@ build
 compose
 ..link.. devops/docker_swarm.txt
 swarm
+..link.. devops/routing_mesh.txt
+routing mesh
 
 
 ..sub_title..
