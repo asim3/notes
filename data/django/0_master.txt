@@ -44,26 +44,25 @@ Virtual Environments
 add virtual environments
 ..code..
 sudo apt-get install python3-venv
-python -m venv ~/venv
+python3 -m venv ~/venv
 
 # run 
-source venv/bin/activate
+source ~/venv/bin/activate
 
-pip install Django
+pip3 install Django
+pip3 install -r requirements.txt
 
 deactivate
 
 
 ..code..
 django-admin startproject my_name
-
 python manage.py startapp app_name
+python manage.py collectstatic
 python manage.py runserver
 
 python manage.py makemigrations && python manage.py migrate
 python manage.py createsuperuser
-
-python manage.py collectstatic
 
 
 ..sub_title..
