@@ -11,7 +11,7 @@ other
 ..sub_title..
 استدعاء الملفات الساكنة
 ..code..
-{% load staticfiles %}
+{% load static %}
 {% static 'css/main.css' %}
 {% static 'js/main.js' %}
 ..text..
