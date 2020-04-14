@@ -22,10 +22,6 @@ INSTALLED_APPS = [
 ]
 
 
-..code..
-
-
-
 
 ..sub_title..
 public and private
