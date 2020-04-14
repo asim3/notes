@@ -43,15 +43,6 @@ DATETIME_FORMAT = 'Y / m / d P'
 
 
 ..text..
-local_settings
-..code..
-try:
-    from local_settings import *
-except:
-    print("\nlocal_settings not found!\n")
-    
-
-..text..
 Heroku
 ..code..
 import django_heroku
@@ -59,6 +50,24 @@ django_heroku.settings(locals())
 
 
 ..text..
-غير هام
+local_settings
 ..code..
-CSRF_COOKIE_NAME = 'asim_csrf'
+try:
+    from .local_settings import *
+except:
+    print("\nlocal_settings not found!\n")
+
+
+..text..
+local_settings.py
+..code..
+DEBUG = True
+
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+
+STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+
