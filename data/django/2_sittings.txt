@@ -42,14 +42,23 @@ DATE_FORMAT = 'Y / m / d'
 DATETIME_FORMAT = 'Y / m / d P'
 
 
-..sub_title..
+..text..
+local_settings
+..code..
+try:
+    from local_settings import *
+except:
+    print("\nlocal_settings not found!\n")
+    
+
+..text..
 Heroku
 ..code..
 import django_heroku
 django_heroku.settings(locals())
 
 
-..sub_title..
+..text..
 غير هام
 ..code..
 CSRF_COOKIE_NAME = 'asim_csrf'
