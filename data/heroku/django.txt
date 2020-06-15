@@ -25,7 +25,10 @@ echo "Django==2.1.4" >> requirements.txt
 echo "django-heroku==0.3.1" >> requirements.txt
 echo "gunicorn==19.9.0" >> requirements.txt
 echo "python-3.7.1" >> runtime.txt
-echo "web: gunicorn <your_project_name>.wsgi" >> Procfile
+
+echo "web: gunicorn <project>.wsgi" >> Procfile
+echo "web: gunicorn --chdir <folder> <project>.wsgi" >> Procfile
+
 
 
 ..sub_title..
