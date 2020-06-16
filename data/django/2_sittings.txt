@@ -50,6 +50,14 @@ django_heroku.settings(locals())
 
 
 ..text..
+import settings
+..code..
+from django.conf import settings
+
+settings.NEWS_API_KEY
+
+
+..text..
 local_settings
 ..code..
 try:
