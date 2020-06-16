@@ -79,3 +79,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
+
+..text..
+environment variables
+..code..
+import os
+
+os.environ.get('HOME')
