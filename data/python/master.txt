@@ -83,9 +83,13 @@ dict(datetime)    # {'a':1,'b':2,'c':3}
 
 
 ..sub_title..
-عرض التاريخ
+Date & Time
 ..code..
-datetime.strftime(\"%d/%m/%Y\")
+from datetime import datetime
+
+date = datetime.now()
+date.strftime("%d/%m/%Y %H:%M:%S")
+date.strftime("%d/%m/%Y %I:%M:%S %p")
 
 
 ..sub_title..
