@@ -34,6 +34,11 @@ class CreateNew(CreateView):
 
     def form_valid(self, form):
         obj = form.save(commit=False)
+        obj.user = self.request.user
+        return super().form_valid(form)
+        
+    def form_valid(self, form):
+        obj = form.save(commit=False)
         obj.fk_student = Table1.objects.get(id=self.kwargs.get('id'))
         return super().form_valid(form)
 
