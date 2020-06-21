@@ -61,7 +61,7 @@ Other
 ..link.. terminal/master.txt
 Terminal
 
-..link.. devops/master.txt
+..link2.. devops/master.txt
 DevOps
 
 
