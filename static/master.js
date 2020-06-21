@@ -10,6 +10,7 @@ const parse_tags = function(text) {
 		{ tag: "text", type: "text", start: `div class='text'`, end: "div" },
 		{ tag: "نص", type: "text", start: `div class='text arabic'`, end: "div" },
 		{ tag: "link", type: "link", start: `div class='btn btn-primary mb-1'`, end: "div" },
+		{ tag: "link2", type: "link", start: `div class='btn btn-success mb-1'`, end: "div" },
 		{ tag: "رابط", type: "link", start: `div class='btn btn-primary mb-1 arabic'`, end: "div" },
 		{ tag: "code", type: "code", start: `pre class='alert code' onclick='copy_this(this)'`, end: "pre" },
 		{ tag: "برمجة", type: "code", start: `pre class='alert code'`, end: "pre" },
