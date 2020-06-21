@@ -29,6 +29,11 @@ du -sh my_directory/
 netstat -tulpn
 
 
+..text..
+CURL in readable JSON format
+..code..
+curl http://localhost:8080/api/rawdata | json_pp
+
 
 ..text..
 add user
