@@ -8,10 +8,14 @@ Docker Engine - Community
 ..sub-title..
 Networks
 ..code..
+sudo docker network ls
+
 sudo docker network create web
 
 
 ..sub-title..
 Volumes
 ..code..
+sudo docker volume ls
+
 sudo docker volume create --name=wordpress
