@@ -51,8 +51,6 @@ Twilio
 Linode
 ..link.. https://letsencrypt.org/docs/
 LetsEncrypt
-..link.. https://docs.containo.us/
-Traefik
 
 
 
