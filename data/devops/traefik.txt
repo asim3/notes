@@ -13,7 +13,7 @@ https
 ..text..
 
 ..code..
-nano ~/traefik_test_1/docker-compose.yml
+mkdir ~/traefik_test_1/ && nano ~/traefik_test_1/docker-compose.yml
 
 version: '3'
 
@@ -36,6 +36,7 @@ services:
 ..text..
 run traefik
 ..code..
+cd ~/traefik_test_1/
 sudo docker-compose up -d reverse-proxy
 
 curl http://localhost:8080/api/rawdata | json_pp 
@@ -59,6 +60,7 @@ nano ~/traefik_test_1/docker-compose.yml
 ..text..
 run whoami
 ..code..
+cd ~/traefik_test_1/
 sudo docker-compose up -d whoami
 
 # check if the site is running
@@ -71,5 +73,17 @@ sudo docker-compose up -d --scale whoami=2
 curl -H Host:whoami.docker.localhost http://127.0.0.1
 
 
+..text..
+testing
+..code..
+sudo docker images
+sudo docker container ls
+
+http://localhost:8080/api/rawdata
+
+http://whoami.docker.localhost/
+# Hostname: 9cfc613e5d9b
+# IP: 127.0.0.1
+# ...
 
       
