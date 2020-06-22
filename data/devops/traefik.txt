@@ -86,4 +86,10 @@ http://whoami.docker.localhost/
 # IP: 127.0.0.1
 # ...
 
-      
+..text..
+network & volume
+..code..
+sudo docker network create web
+sudo docker volume create --name=wordpress
+
+sudo docker-compose up -d --remove-orphans
