@@ -33,6 +33,10 @@ middleware
 
 ..link.. django/15_crispy_form.txt
 Crispy Form
+
+..link.. django/translation.txt
+Translation
+
 ..link.. django/other.txt
 Other 
 
