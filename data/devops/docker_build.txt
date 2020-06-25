@@ -9,35 +9,39 @@ docker-cheat-sheet
 Environment replacement
 
 
-
+..text..
+making php file
 ..code..
-mkdir -p ~/test/src/ && nano ~/test/src/index.php
+mkdir -p ~/test_docker_build/src/ 
+nano ~/test_docker_build/src/index.php
 <?php
 
 echo "Hello, World";
 
 
+..text..
+making php Dockerfile
 ..code..
-nano ~/test/Dockerfile
+nano ~/test_docker_build/Dockerfile
 FROM php:7.0-apache
 COPY src/ /var/www/html
 EXPOSE 80
 
 
 ..text..
-Build & Run
+Build docker image
 ..code..
-sudo docker image build -t my_php_test:mytag ~/test/
+sudo docker image build -t my_php_test:mytag ~/test_docker_build/
 sudo docker images
-sudo docker container run -p 80:80 my_php_test
 
+sudo docker container run    -p 80:80 my_php_test:mytag
+sudo docker container run -d -p 80:80 my_php_test:mytag
+# -d for: Run container in background
 
+..text..
+Bind mount a volume
 ..code..
-# Run container in background and print container ID
-sudo docker container run -p 80:80 -d my_php_test
-
-# Bind mount a volume
-sudo docker container run -p 80:80 -v ~/test/src/:/var/www/html/ my_php_test
+sudo docker container run -p 80:80 -v ~/test_docker_build/src/:/var/www/html/ my_php_test
 
 
 ..sub_title..
