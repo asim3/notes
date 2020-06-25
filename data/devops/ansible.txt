@@ -39,7 +39,10 @@ sudo apt upgrade python python3 aptitude
 ..text..
 inventory
 ..code..
-nano /etc/ansible/hosts
+sudo mkdir /etc/ansible
+sudo nano /etc/ansible/hosts
+192.168.100.147    ansible_user=asim_username
+192.168.100.148   ansible_user=asim_username
 
 
 ..text..
@@ -49,11 +52,14 @@ ansible -m ping all
 
 
 ..sub_title..
-ad-hoc commands "shell commands"
+execute shell commands "ad-hoc commands"
 ..code..
 ansible -m shell -a 'hostname' all
 ansible -m shell -a 'whoami' all
 
+..text..
+become sudo
+..code..
 ansible -m shell -b -a 'whoami' all 
 # Missing sudo password
 
