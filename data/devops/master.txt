@@ -16,6 +16,8 @@ Docker
 Nagios
 ..link.. devops/traefik.txt
 Traefik
+..link.. devops/kubernetes.txt
+Kubernetes
 
 
 ..sub_title..
