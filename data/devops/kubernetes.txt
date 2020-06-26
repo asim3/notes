@@ -3,3 +3,31 @@ Kubernetes
 
 ..link.. devops/master.txt
 ..
+
+
+..sub_title..
+Install Kubernetes locally for testing
+
+..link.. https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux
+Install kubectl
+..text..
+a v1.2 client should work with v1.1, v1.2, and v1.3 master. Using the latest version of kubectl helps avoid unforeseen issues
+..code..
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+kubectl version --client
+
+
+
+..link.. https://kubernetes.io/docs/tasks/tools/install-minikube/
+Install Minikube
+..code..
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
+
+chmod +x ./minikube
+sudo mv ./minikube /usr/local/bin/minikube
+
+
