@@ -48,7 +48,13 @@ sudo docker container ls
 sudo docker container ls -a
 
 # Display a live stream of container(s) resource usage statistics
-sudo docker container stats __id__
+sudo docker container stats
+
+
+..text..
+get into a Docker container's shell
+..code..
+sudo docker exec -it __id__ bash
 
 
 ..text..
