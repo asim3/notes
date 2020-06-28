@@ -40,6 +40,15 @@ services:
       - ../test/src:/var/www/html/
     ports:
       - "5001:80"
+      
+volumes:
+  my_volumes_data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/var/asim-volume'
+  
 
 
 ..code..
