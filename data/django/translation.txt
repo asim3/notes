@@ -34,10 +34,22 @@ settings.py
 ..code..
 MIDDLEWARE = [
     # . . . 
-    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
     # . . . 
 ]
+
+LANGUAGE_CODE = 'ar'
+
+LANGUAGES = [
+    ('ar', _('Arabic')),
+    ('en', _('English')),
+]
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 
 ..text..
