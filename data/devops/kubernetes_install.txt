@@ -34,3 +34,5 @@ sudo mv ./minikube /usr/local/bin/minikube
 sudo apt install conntrack
 
 sudo minikube start --driver='none'
+
+minikube status
