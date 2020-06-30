@@ -1,8 +1,9 @@
 ..title..
 Kubernetes
 
-..link.. devops/master.txt
+..link.. devops/kubernetes.txt
 ..
+
 
 
 ..sub_title..
@@ -30,4 +31,6 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 chmod +x ./minikube
 sudo mv ./minikube /usr/local/bin/minikube
 
+sudo apt install conntrack
 
+sudo minikube start --driver='none'
