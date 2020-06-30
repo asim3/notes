@@ -1,0 +1,12 @@
+..title..
+Kubernetes
+
+..link.. devops/master.txt
+..
+..link.. devops/kubernetes_install.txt
+Install
+
+
+..text..
+
+..code..
