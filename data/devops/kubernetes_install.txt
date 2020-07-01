@@ -29,8 +29,8 @@ kubectl version --client
 
 ..text..
 install kubeadm 
-..code..
-
+..link.. https://www.youtube.com/watch?v=lOd-0_DpYG8&list=PLMPZQTftRCS8Pp4wiiUruly5ODScvAwcQ&index=17
+youtube
 
 ..text..
 install kubelet
