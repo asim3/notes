@@ -7,12 +7,16 @@ Kubernetes
 
 
 ..sub_title..
-Install Kubernetes locally for testing
+Install Kubernetes for production
 
-..link.. https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux
-Install kubectl
+
+..link.. /devops/docker_install.txt
+install docker
+
+
 ..text..
-a v1.2 client should work with v1.1, v1.2, and v1.3 master. Using the latest version of kubectl helps avoid unforeseen issues
+install kubectl ### a v1.2 client should work with v1.1, v1.2, and v1.3 master. Using the latest version of kubectl helps avoid unforeseen issues
+
 ..code..
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 
@@ -23,8 +27,62 @@ kubectl version --client
 
 
 
+..text..
+install kubeadm 
+..code..
+
+
+..text..
+install kubelet
+..code..
+
+
+
+
+..code..
+# Disable SWAP on all nodes
+sudo swapoff -a
+# Disable SELinux on all nodes
+sudo setenforce 0
+sudo sed -i 's/enforcing/disabled/g' /etc/selinux/config
+sudo grep disabled /etc/selinux/config | grep -v '#'
+
+# reboot all nodes
+
+
+..text..
+initialise master node
+..code..
+kubeadm init --pod-network-cidr=10.240.0.0/16
+
+# configure pod network on master node only
+kubectl apply -f https://raw.githubsercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
+
+kubectl get pods --all-namespaces
+
+
+..text..
+initialise worker node
+..code..
+kubeadm token create --print-join-command
+
+kubeadm join --token [] --discovery-token-ca-cert-hash []
+
+
+
+
+
+
+..sub_title..
+Install Kubernetes for testing
+
+..link.. https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux
+Install kubectl
+
+
 ..link.. https://kubernetes.io/docs/tasks/tools/install-minikube/
 Install Minikube
+
 ..code..
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
 
@@ -36,3 +94,4 @@ sudo apt install conntrack
 sudo minikube start --driver='none'
 
 minikube status
+
