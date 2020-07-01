@@ -10,3 +10,19 @@ Install
 ..text..
 
 ..code..
+kubectl get nodes
+
+kubectl get pods
+
+kubectl config view
+
+
+
+..code..
+kubeadm version
+kubeadm upgrade
+
+
+..text..
+etcd is the [ master node database ]
+
