@@ -5,14 +5,8 @@ Kubernetes
 ..
 
 
-
 ..sub_title..
-Install Kubernetes for production
-
-
-..link.. /devops/docker_install.txt
-install docker
-
+Install Kubernetes for testing
 
 ..text..
 install kubectl ### a v1.2 client should work with v1.1, v1.2, and v1.3 master. Using the latest version of kubectl helps avoid unforeseen issues
@@ -26,34 +20,55 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 
 
-
-..text..
-install kubeadm 
-..link.. https://www.youtube.com/watch?v=lOd-0_DpYG8&list=PLMPZQTftRCS8Pp4wiiUruly5ODScvAwcQ&index=17
-youtube
-
-..text..
-install kubelet
-..code..
-
-
-
+..link.. https://kubernetes.io/docs/tasks/tools/install-minikube/
+Install Minikube
 
 ..code..
-# Disable SWAP on all nodes
-sudo swapoff -a
-# Disable SELinux on all nodes
-sudo setenforce 0
-sudo sed -i 's/enforcing/disabled/g' /etc/selinux/config
-sudo grep disabled /etc/selinux/config | grep -v '#'
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
 
-# reboot all nodes
+chmod +x ./minikube
+sudo mv ./minikube /usr/local/bin/minikube
+
+sudo apt install conntrack
+
+sudo minikube start --driver='none'
+
+minikube status
+
+
+
+
+..sub_title..
+Install Kubernetes for production
+
+
+..link.. /devops/docker_install.txt
+install docker
+
+
+..link.. https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux
+Install kubectl
+
+
+..text..
+Install kubeadm & kubelet $ conntrack
+..code..
+kubeadm version
+kubelet --version
+sudo conntrack -S
+
+sudo snap install --classic kubeadm
+sudo snap install --classic kubelet
+sudo apt install conntrack
+sudo apt install socat
 
 
 ..text..
 initialise master node
 ..code..
-kubeadm init --pod-network-cidr=10.240.0.0/16
+sudo kubeadm init
+sudo kubeadm init --pod-network-cidr=192.168.100.164/24
+sudo kubeadm init --pod-network-cidr=10.240.0.0/16
 
 # configure pod network on master node only
 kubectl apply -f https://raw.githubsercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
@@ -72,26 +87,4 @@ kubeadm join --token [] --discovery-token-ca-cert-hash []
 
 
 
-
-..sub_title..
-Install Kubernetes for testing
-
-..link.. https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux
-Install kubectl
-
-
-..link.. https://kubernetes.io/docs/tasks/tools/install-minikube/
-Install Minikube
-
-..code..
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
-
-chmod +x ./minikube
-sudo mv ./minikube /usr/local/bin/minikube
-
-sudo apt install conntrack
-
-sudo minikube start --driver='none'
-
-minikube status
 
