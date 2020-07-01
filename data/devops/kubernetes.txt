@@ -7,20 +7,31 @@ Kubernetes
 Install
 
 
-..text..
-
 ..code..
-kubectl get nodes
+sudo kubectl config view
 
-kubectl get pods
+..text..
+List all nodes "service" in a cluster
+..code..
+sudo kubectl get nodes
 
-kubectl config view
+
+..text..
+Add new pod
+..code..
+sudo kubectl run asim-pod --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8000
+
+# list all pods
+sudo kubectl get pods
 
 
 
+
+..text..
+kubeadm
 ..code..
 kubeadm version
-kubeadm upgrade
+sudo kubeadm config view
 
 
 ..text..
