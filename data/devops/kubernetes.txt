@@ -5,15 +5,20 @@ Kubernetes
 ..
 ..link.. devops/kubernetes_install.txt
 Install
-
+..link.. devops/kubernetes_api.txt
+API
 
 ..code..
 sudo kubectl config view
 
 ..text..
-List all nodes "service" in a cluster
+List
 ..code..
+# List all nodes "service" in a cluster
 sudo kubectl get nodes
+
+# list all pods
+sudo kubectl get pods
 
 
 ..text..
@@ -21,17 +26,7 @@ Add new pod
 ..code..
 sudo kubectl run asim-pod --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8000
 
-# list all pods
-sudo kubectl get pods
 
-
-
-
-..text..
-kubeadm
-..code..
-kubeadm version
-sudo kubeadm config view
 
 
 ..text..
