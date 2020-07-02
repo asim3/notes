@@ -18,7 +18,10 @@ List
 sudo kubectl get nodes
 
 # list all pods
+sudo kubectl get pod
 sudo kubectl get pods
+sudo kubectl get pod -o wide
+sudo kubectl get pod -o yaml
 
 
 ..text..
@@ -26,9 +29,55 @@ Add new pod
 ..code..
 sudo kubectl run asim-pod --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8000
 
+# OR
+nano asim2-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: asim2-pod
+  labels:
+    app: asim2-app
+    tier: dev
+spec:
+  containers:
+  - name: asim2-container
+    image: nginx
 
+..code..
+sudo kubectl create -f asim2-pod.yaml
+sudo kubctl delete -f asim2-pod.yaml
+
+
+..code..
+sudo kubectl get pod asim-pod -o yaml
+
+sudo kubectl describe pod asim-pod
+
+sudo kubectl delete pod asim-pod
+
+
+..text..
+bash to a pod
+..code..
+sudo kubectl exec -it asim-pod -- /bin/sh
+
+sudo kubectl exec pv-pod ls /var/
+sudo kubectl exec pv-pod cat /var/my-text.txt
+
+
+..text..
+Presistent Volume
+..code..
+kubectl get pv
+kubectl get pvc
+sudo kubectl describe asim-pv
 
 
 ..text..
 etcd is the [ master node database ]
+
+=============================
+kind: ReplicationController # old
+kind: ReplicaSet # new
+=============================
 
