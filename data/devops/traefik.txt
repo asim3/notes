@@ -46,14 +46,14 @@ curl http://localhost:8080/api/rawdata | json_pp
 EDIT docker-compose.yml file and add the following at the end
 ..code..
 nano ~/traefik_test_1/docker-compose.yml
+# must be within the same traefik-compose file
 
 # ...
 
   whoami:
-    # A container that exposes an API to show its IP address
     image: containous/whoami
     labels:
-      - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
+      - "traefik.http.routers.whoami.rule=Host(`mmm.com`)"
       
    
 
