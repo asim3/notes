@@ -100,3 +100,6 @@ execute a file
 if [ -f ~/file_name ]; then
     source ~/file_name;
 fi
+
+..code..
+if [ -f ~/file_name.txt ]; then echo 333; else echo 444; fi;
