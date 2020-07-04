@@ -21,6 +21,14 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 
 ..code..
+sudo docker-compose up -d --scale __name__=3
+sudo docker-compose start
+
+sudo docker-compose stop
+sudo docker-compose down # stop then remove all containers
+
+
+..code..
 mkdir -p ~/test-compose/ && nano ~/test-compose/docker-compose.yml
 version: '3'
 
@@ -41,6 +49,7 @@ services:
     ports:
       - "5001:80"
       
+..code..
 volumes:
   my_volumes_data:
     driver: local
@@ -50,22 +59,32 @@ volumes:
       device: '/var/asim-volume'
   
 
-
 ..code..
 # Check the validity of docker-compose.yml
-cd ~/test-compose/ && sudo docker-compose config
+# cd ~/test-compose/ 
+sudo docker-compose config
 
-cd ~/test-compose/ && sudo docker-compose up -d
-cd ~/test-compose/ && sudo docker-compose down
+# cd ~/test-compose/
+sudo docker-compose up -d
+sudo docker-compose up -d --scale __id__=3
+sudo docker-compose up    --scale __id__=2
 
 
+
+# OR 
 sudo docker-compose -f ~/test-compose/docker-compose.yml up
+
+# cd ~/test-compose/ 
+sudo docker-compose down
+
+# OR 
 sudo docker-compose -f ~/test-compose/docker-compose.yml down
 
-sudo docker-compose -f ~/test-compose/docker-compose.yml start
-sudo docker-compose -f ~/test-compose/docker-compose.yml stop
 
 
 ..code..
-cd ~/test-compose/ && sudo docker-compose ps
-cd ~/test-compose/ && sudo docker-compose images
+# cd ~/test-compose/ 
+sudo docker-compose ps
+
+# cd ~/test-compose/ 
+sudo docker-compose images
