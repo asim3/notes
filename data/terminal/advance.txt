@@ -11,6 +11,27 @@ Customise terminal
 Write Bash Script
 
 
+..text..
+Files archive
+..code..
+# Create archive.tar from files foo and bar.
+tar -cf my_archive.tar my_file.txt
+tar -cf dir_archive.tar ./test_tar/
+
+tar -cvf my_archive.tar my_file.txt # print all files verbosely
+
+# List all files in archive.tar verbosely.
+tar -tf my_archive.tar
+tar -tvf my_archive.tar
+
+# Extract all files from archive.tar.
+tar -xf my_archive.tar
+tar -xvf my_archive.tar # print all files verbosely
+
+
+# gzipped archive
+tar -czf my_archive.tar.gz my_file.txt
+tar -xzf my_archive.tar.gz
 
 ..code..
 # kernel version
