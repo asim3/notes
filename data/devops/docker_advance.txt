@@ -25,6 +25,7 @@ Push Image to Docker Hub
 ..code..
 sudo docker commit __id__ asim3/my-image-1:mytag
 
+# sudo apt-get install pass gnupg2
 sudo docker login
 
 sudo docker push asim3/my-image-1:mytag
