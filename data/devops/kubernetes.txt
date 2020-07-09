@@ -5,6 +5,8 @@ Kubernetes
 ..
 ..link.. devops/kubernetes_install.txt
 Install
+..link.. devops/kubernetes_deployment.txt
+Deployment
 ..link.. devops/kubernetes_api.txt
 API
 
