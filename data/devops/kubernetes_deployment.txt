@@ -1,0 +1,10 @@
+..title..
+Kubernetes
+
+..link.. devops/kubernetes.txt
+..
+
+..text..
+Manifest file
+..code..
+
