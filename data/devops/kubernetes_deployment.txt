@@ -72,6 +72,8 @@ sudo kubectl rollout status deployment/my-metadata-name
 ..text..
 update
 ..code..
+sudo kubectl apply -f my-k8s/my-first-deployment.yml
+# OR
 sudo kubectl edit deploy my-metadata-name
 # OR
 sudo kubectl set image deploy my-metadata-name nginx-container=nginx:1.9.1
