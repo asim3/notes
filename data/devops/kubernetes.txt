@@ -7,8 +7,9 @@ Kubernetes
 Install
 ..link.. devops/kubernetes_deployment.txt
 Deployment
-..link.. devops/kubernetes_api.txt
-API
+..link.. devops/kubernetes_service.txt
+Service
+
 
 ..code..
 sudo kubectl config view
