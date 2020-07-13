@@ -1,0 +1,47 @@
+..title..
+Kubernetes
+
+..link.. devops/kubernetes.txt
+..
+
+
+..sub_title..
+Helm
+
+
+..text..
+
+..code..
+sudo snap install helm --classic
+
+# OR
+
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+
+
+..text..
+Repository
+..code..
+helm repo update
+
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm search repo stable
+
+
+..text..
+status
+..code..
+# list all deployed releases
+helm ls
+
+helm status smiling-penguin
+
+
+..text..
+Install Chart
+..code..
+helm install stable/mysql --generate-name
+
+helm uninstall smiling-penguin
