@@ -10,38 +10,53 @@ Helm
 
 
 ..text..
-
+Installation
 ..code..
 sudo snap install helm --classic
-
-# OR
-
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
-chmod 700 get_helm.sh
-./get_helm.sh
 
 
 ..text..
 Repository
 ..code..
-helm repo update
+sudo helm repo list
 
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
-helm search repo stable
+# add new repository
+sudo helm repo add my-stable https://kubernetes-charts.storage.googleapis.com/
+
+sudo helm repo update
+sudo helm repo remove my-stable
 
 
 ..text..
-status
+search
 ..code..
-# list all deployed releases
-helm ls
+sudo helm search repo wordpress
 
-helm status smiling-penguin
+sudo helm search repo my-stable
+sudo helm search repo bitnami
+
+
+..text..
+list all releases
+..code..
+sudo helm ls
+sudo helm ls -a
+
+sudo helm status smiling-penguin
 
 
 ..text..
 Install Chart
 ..code..
-helm install stable/mysql --generate-name
+sudo helm install my-test-1 bitnami/wordpress
 
-helm uninstall smiling-penguin
+sudo helm ls
+sudo helm uninstall my-test-1
+
+
+
+..text..
+Bitnami Repository
+..code..
+sudo helm repo add bitnami https://charts.bitnami.com/bitnami
+sudo helm install my-kubeapps bitnami/kubeapps
