@@ -9,6 +9,8 @@ Install
 Deployment
 ..link.. devops/kubernetes_service.txt
 Service
+..link.. devops/kubernetes_helm.txt
+Helm
 
 
 ..code..
