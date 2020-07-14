@@ -96,3 +96,11 @@ apiVersion: v1
 kind: ReplicationController # old
 kind: ReplicaSet # new
 
+
+..text..
+Pod logs
+..code..
+sudo kubectl logs __pod_name__
+
+# follow
+sudo kubectl logs __pod_name__ -f
