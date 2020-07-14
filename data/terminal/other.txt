@@ -24,6 +24,46 @@ df -h
 # only include filesystems of a particular type
 df -ht ext4
 
+# list all drives
+lsblk
+
+
+..text..
+Prepare the Drive
+..code..
+# unmount a drive
+sync
+sudo umount /dev/sdb1
+
+# edit
+sudo fdisk /dev/sdb
+   i   print information about a partition
+   d   delete a partition
+   F   list free unpartitioned space
+   n   add a new partition
+       p   primary (0 primary, 0 extended, 4 free)
+       1   partition number
+           enter for default
+           enter for default
+           
+   t   change a partition type
+       83  for Linux
+
+   p   print the partition table
+   w   write table to disk and exit
+
+# Format the new partition using Ext4
+sudo mkfs.ext4 /dev/sdb1
+
+
+..text..
+# Mount the new drive
+..code..
+sudo mkdir /my-new-dev/
+sudo mount /dev/sdb1 /my-new-dev/
+
+df -H
+lsblk
 
 
 ..text..
