@@ -11,6 +11,9 @@ Deployment
 Service
 ..link.. devops/kubernetes_helm.txt
 Helm
+..link.. devops/kubernetes_volume.txt
+Volume
+
 
 
 ..code..
@@ -78,14 +81,6 @@ sudo kubectl exec -it asim2-pod -- /bin/sh
 # OR
 sudo kubectl exec asim2-pod -- touch /home/asim-test.txt
 sudo kubectl exec asim2-pod -- ls /home -al
-
-
-..text..
-Presistent Volume
-..code..
-sudo kubectl get pv
-sudo kubectl get pvc
-sudo kubectl describe asim-pv
 
 
 ..text..
