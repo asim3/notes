@@ -5,6 +5,10 @@ Terminal, Bash, Linux Command Line
 ..
 
 
+..code..
+watch 'ps aux | grep -i apt'
+
+
 ..text..
 Memory & CPU Info
 ..code..
@@ -29,7 +33,7 @@ lsblk
 
 
 ..text..
-Prepare the Drive
+Prepare a Drive
 ..code..
 # unmount a drive
 sync
@@ -57,13 +61,14 @@ sudo mkfs.ext4 /dev/sdb1
 
 
 ..text..
-# Mount the new drive
+# Mount a new drive
 ..code..
 sudo mkdir /my-new-dev/
 sudo mount /dev/sdb1 /my-new-dev/
 
 df -H
 lsblk
+
 
 
 ..text..
