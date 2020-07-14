@@ -1,0 +1,14 @@
+..title..
+Kubernetes
+
+..link.. devops/kubernetes.txt
+..
+
+
+..text..
+Persistent Volume
+..code..
+sudo kubectl get pv
+sudo kubectl get pvc
+sudo kubectl describe asim-pv
+
