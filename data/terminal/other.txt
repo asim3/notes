@@ -6,6 +6,27 @@ Terminal, Bash, Linux Command Line
 
 
 ..text..
+Memory & CPU Info
+..code..
+free -h
+top
+htop
+
+# full details
+cat /proc/meminfo
+
+
+..text..
+Disk Info
+..code..
+df -h
+
+# only include filesystems of a particular type
+df -ht ext4
+
+
+
+..text..
 ISO Bootable USB
 ..code..
 usb-creator-gtk
@@ -43,10 +64,6 @@ declare
 show all drivers
 ..code..
 df -h
-
-
-..code..
-top
 
 
 ..code..
