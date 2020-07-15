@@ -13,7 +13,8 @@ Service
 Helm
 ..link.. devops/kubernetes_volume.txt
 Volume
-
+..link.. devops/kubernetes_BKPR.txt
+Bitnami Production
 
 
 ..code..
