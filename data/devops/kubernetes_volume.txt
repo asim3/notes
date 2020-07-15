@@ -9,6 +9,10 @@ Kubernetes
 Persistent Volume
 ..code..
 sudo kubectl get pv
-sudo kubectl get pvc
 sudo kubectl describe asim-pv
 
+
+..text..
+Persistent Volume Claims
+..code..
+sudo kubectl get pvc
