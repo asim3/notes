@@ -40,6 +40,7 @@ sudo mv ./minikube /usr/local/bin/minikube
 # don't use sudo
 minikube start
 minikube status
+minikube dashboard
 
 
 # OR
