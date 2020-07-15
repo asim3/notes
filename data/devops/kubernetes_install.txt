@@ -37,7 +37,11 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 chmod +x ./minikube
 sudo mv ./minikube /usr/local/bin/minikube
 
+# don't use sudo
+minikube start
+minikube status
+
+
+# OR
 sudo minikube start --driver='none'
-
 sudo minikube status
-
