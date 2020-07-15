@@ -60,3 +60,5 @@ Bitnami Repository
 ..code..
 sudo helm repo add bitnami https://charts.bitnami.com/bitnami
 sudo helm install my-kubeapps bitnami/kubeapps
+
+watch 'sudo kubectl get pods'
