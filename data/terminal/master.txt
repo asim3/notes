@@ -20,6 +20,8 @@ Schedule Tasks
 systemctl
 ..link.. terminal/env_variables.txt
 env variables
+..link.. terminal/info.txt
+system info
 ..link.. terminal/other.txt
 Other
 
