@@ -18,6 +18,8 @@ SSH
 Schedule Tasks
 ..link.. terminal/systemctl.txt
 systemctl
+..link.. terminal/env_variables.txt
+env variables
 ..link.. terminal/other.txt
 Other
 
