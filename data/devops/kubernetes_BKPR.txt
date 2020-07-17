@@ -41,6 +41,7 @@ export OAUTH_AUTHZ_DOMAIN="my-domain.com"
 export KEYCLOAK_PASSWORD="secretpassword"
 export KEYCLOAK_GROUP=""
 
+echo $DNS_ZONE
 
 sudo kubeprod install generic \
   --dns-zone "${DNS_ZONE}" \
