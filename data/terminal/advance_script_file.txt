@@ -39,6 +39,16 @@ echo "$((5 + 5))" # 10
 # echo "$(1 + 1)" # error
 
 
+..code..
+get_name() {
+  echo "John"
+}
+
+echo "You are $(get_name)"
+
+get_name "John"
+
+
 
 ..code..
 log_enabled="true"
