@@ -37,22 +37,6 @@ tar -czf my_archive.tar.gz /var/my_dir/
 tar -xzf my_archive.tar.gz
 
 
-..code..
-# kernel version
-uname -a
-
-# current IP address
-ip addr show
-
-# free disk space 
-df -ah
-
-# directory size
-du -sh my_directory/
-
-# check open ports (net sockets) (tcp ports) (udp ports)
-netstat -tulpn
-
 
 ..text..
 CURL in readable JSON format
@@ -84,12 +68,15 @@ add a hard link "shortcut"
 ln ~/Downloads/my_file.pdf ~/Desktop/short_cut.aaaaa
 sudo ln -s /usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin/node /usr/bin/node
 
+
+
 ..text..
 Edit bash init file
 ..code..
 nano ~/.bashrc
 nano ~/.bash_profile # for macOS
 nano /etc/profile # for all users except root
+
 
 ..code..
 # add to ~/.bashrc
@@ -98,68 +85,12 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 
+
 ..text..
 Aliases (shortcut for terminal commands)
 ..code..
 # add to ~/.bash_aliases
 alias ddd="cd ~/Desktop/"
-
-..text..
-environment variables
-..code..
-# save new variable: nano ~/.bash_env_variables
-export ASIM_1="AAAAAAAAAAAAAAAAA"
-export ASIM_2="bbbbbbbbbbbbbbbb"
-
-# print variable
-echo $ASIM
-printenv ASIM
-# print all variables
-env
-
-
-# add to ~/.bashrc
-if [ -f ~/.bash_env_variables ]; then
-    . ~/.bash_env_variables
-fi
-
-
-..text..
-Tree
-..code..
-sudo apt  install tree
-
-mkdir test-tree
-mkdir test-tree/file1
-mkdir test-tree/file2
-mkdir test-tree/file3
-touch test-tree/file1/file1.txt
-touch test-tree/file1/file2.txt
-
-tree test-tree/
-test-tree/
-├── file1
-│   ├── file1.txt
-│   └── file2.txt
-├── file2
-└── file3
-
-3 directories, 2 files
-
-
-
-..text..
-PATH
-..code..
-echo $PATH
-
-..code..
-which sudo
-which python
-PATH=/some/dir:$PATH
-PATH=$PATH:/some/dir # alert: do not do this
-
-
 
 
 ..text..
@@ -182,20 +113,6 @@ Stop running process by name
 pkill python
 pkill firefox
 pkill gunicorn
-
-
-..text..
-show processes running in memory
-..code..
-ps
-
-
-..text..
-Prints the location of binary files
-..code..
-which python
-which node
-which sudo
 
 
 ..text..
