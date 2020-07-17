@@ -1,0 +1,121 @@
+..title..
+Info
+
+..link.. terminal/master.txt
+..
+
+
+..sub_title..
+Info
+
+..text..
+kernel info
+..code..
+# kernel version
+uname -a
+
+hostname -I
+more /etc/lsb-release
+
+
+
+..text..
+show processes running in memory
+..code..
+ps aux
+watch 'ps aux'
+
+
+..text..
+IP address
+..code..
+ip rout
+ip addr show
+
+# check open ports (net sockets) (tcp ports) (udp ports)
+netstat -tulpn
+
+
+..text..
+Tree
+..code..
+sudo apt  install tree
+
+mkdir test-tree
+mkdir test-tree/file1
+mkdir test-tree/file2
+mkdir test-tree/file3
+touch test-tree/file1/file1.txt
+touch test-tree/file1/file2.txt
+
+tree test-tree/
+test-tree/
+├── file1
+│   ├── file1.txt
+│   └── file2.txt
+├── file2
+└── file3
+
+3 directories, 2 files
+
+
+
+..text..
+list all groups
+..code..
+cat /etc/group
+
+# show all my groups
+id
+
+
+..text..
+Memory & CPU Info
+..code..
+free -h
+top
+htop
+
+# full details
+cat /proc/meminfo
+
+
+..text..
+Disk Info
+..code..
+df -h
+
+# only include filesystems of a particular type
+df -ht ext4
+
+# list all drives
+lsblk
+
+# directory size
+du -sh my_directory/
+
+
+..text..
+show all commands history
+..code..
+history
+
+
+..text..
+PATH
+..code..
+echo $PATH
+which sudo
+which python
+
+# add to PATH
+PATH=/some/dir:$PATH
+PATH=$PATH:/some/dir # alert: do not do this
+
+
+..text..
+Prints the location of binary files
+..code..
+which python
+which node
+which sudo
