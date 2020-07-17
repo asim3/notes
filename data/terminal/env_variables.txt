@@ -40,13 +40,3 @@ echo 'home: $HOME'
 
 echo "I am $(whoami)"
       I am asim_username
-
-
-..text..
-set env in a separate file
-..code..
-nano ~/.bashrc
-
-if [ -f ~/.bash_env_variables ]; then
-    . ~/.bash_env_variables
-fi
