@@ -33,6 +33,8 @@ sudo kubeprod version
 ..text..
 Deploy BKPR
 ..code..
+nano ~/.bashrc
+
 export DNS_ZONE=my-domain.com
 export ADMIN_EMAIL=admin@my-domain.com
 export OAUTH_AUTHZ_DOMAIN="my-domain.com"
@@ -40,7 +42,7 @@ export KEYCLOAK_PASSWORD="secretpassword"
 export KEYCLOAK_GROUP=""
 
 
-kubeprod install generic \
+sudo kubeprod install generic \
   --dns-zone "${DNS_ZONE}" \
   --email "${ADMIN_EMAIL}" \
   --authz-domain "${OAUTH_AUTHZ_DOMAIN}" \
@@ -48,7 +50,8 @@ kubeprod install generic \
   --keycloak-group "${KEYCLOAK_GROUP}"
 
 
-kubectl get pods -n kubeprod
+sudo kubectl get pods
+sudo kubectl get pods -n kubeprod
 
 
 ..text..
