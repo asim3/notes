@@ -1,0 +1,41 @@
+..title..
+Advance
+
+..link.. terminal/master.txt
+..
+
+
+..sub_title..
+environment variables
+
+
+..text..
+print all variables
+..code..
+env
+
+..text..
+set a new environment variable
+..code..
+nano ~/.bashrc
+
+# ...
+export ASIM_1="AAAAAAAAAAAAAAAAA"
+export ASIM_2="bbbbbbbbbbbbbbbb"
+
+
+..text..
+print variable
+..code..
+echo $ASIM
+printenv ASIM
+
+
+..text..
+set env in a separate file
+..code..
+nano ~/.bashrc
+
+if [ -f ~/.bash_env_variables ]; then
+    . ~/.bash_env_variables
+fi
