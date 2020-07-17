@@ -14,8 +14,9 @@ kernel info
 # kernel version
 uname -a
 
-hostname -I
-more /etc/lsb-release
+whoami
+
+cat /etc/lsb-release
 
 
 
@@ -30,6 +31,7 @@ watch 'ps aux'
 IP address
 ..code..
 ip rout
+hostname -I
 ip addr show
 
 # check open ports (net sockets) (tcp ports) (udp ports)
