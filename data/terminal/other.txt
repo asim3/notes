@@ -10,31 +10,11 @@ watch 'ps aux | grep -i apt'
 
 
 ..text..
-Memory & CPU Info
-..code..
-free -h
-top
-htop
-
-# full details
-cat /proc/meminfo
-
-
-..text..
-Disk Info
-..code..
-df -h
-
-# only include filesystems of a particular type
-df -ht ext4
-
-# list all drives
-lsblk
-
-
-..text..
 Prepare a Drive
 ..code..
+lsblk
+df -h
+
 # unmount a drive
 sync
 sudo umount /dev/sdb1
@@ -80,50 +60,12 @@ usb-creator-gtk
 ..code..
 echo "b9beac143e36226aa8a0b03fc1cbb5921cff80123866e718aaeba4edb81cfa63 *ubuntu-18.04.3-live-server-amd64.iso" | shasum -a 256 --check
 
-killall python3
-
-
-..code..
-get_name() {
-  echo "John"
-}
-
-echo "You are $(get_name)"
-
-get_name "John"
-
-
-..code..
-history
-
-..code..
-hostname -I
-
-
-..code..
-export
-declare
-
-
-..text..
-show all drivers
-..code..
-df -h
-
-
-..code..
-cd /etc
-more /etc/lsb-release
-
-
-..code..
-ps aux
 
 ..text..
 Shutdown
 ..code..
 # Log Out 
-gnome-session-quit
+exit
 
 sudo reboot
 sudo shutdown -r
@@ -133,14 +75,8 @@ sudo shutdown -P now
 shutdown +30 "Leave to pickup friend!"
 
 
-..code..
-# get website public IP address 
-nslookup
-
-# get website nameserver
-nslookup
-set query=ns
-
+..text..
+fix broken packages
 ..code..
 # fix broken packages
 sudo apt-get install -f 
