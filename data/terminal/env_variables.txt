@@ -32,6 +32,10 @@ printenv ASIM
 
 echo "my home dir is $HOME and my shell is $SHELL"
 
+
+echo "home: ${HOME}"
+      home: /home/asim_username
+
 echo "home: $HOME"
       home: /home/asim_username
 
