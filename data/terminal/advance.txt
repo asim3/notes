@@ -114,6 +114,8 @@ pkill python
 pkill firefox
 pkill gunicorn
 
+killall python3
+
 
 ..text..
 Print or check checksums
