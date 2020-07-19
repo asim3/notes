@@ -57,7 +57,12 @@ Permissions
 ..code..
 sudo chown asim:asim /www
 sudo chown myusername file.txt
-sudo chmod 664 
+
+sudo chmod +rwx file.txt
+sudo chmod -rwx file.txt
+sudo chmod -x file.txt
+sudo chmod +x file.txt
+sudo chmod 664 file.txt
 
 0 = ---
 1 = --x
