@@ -25,6 +25,8 @@ sudo kubectl config view
 ..text..
 List
 ..code..
+sudo kubectl get all
+
 # List all nodes "service" in a cluster
 sudo kubectl get nodes
 
