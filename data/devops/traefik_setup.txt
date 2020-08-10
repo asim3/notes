@@ -1,0 +1,166 @@
+..title..
+Traefik
+
+..link.. devops/traefik.txt
+..
+
+..link.. https://gist.github.com/Mau5Machine/00401feb19433cf0387cc66c8e90c26c
+docker-compose.yml
+..link.. https://gist.github.com/Mau5Machine/ccd4d62a85b88c2996ba81a1a1b223b1
+dynamic.yaml
+
+
+..text..
+nano test1.yaml
+..code..
+version: "3.3"
+services:
+  traefik:
+    image: traefik:v2.0
+    restart: always
+    container_name: traefik
+    ports:
+      - "80:80" # <== http
+      - "8080:8080" # <== :8080 is where the dashboard runs on
+      - "443:443" # <== https
+    command:
+    #### These are the CLI commands that will configure Traefik and tell it how to work! ####
+      ## API Settings - https://docs.traefik.io/operations/api/, endpoints - https://docs.traefik.io/operations/api/#endpoints ##
+      - --api.insecure=true # <== Enabling insecure api, NOT RECOMMENDED FOR PRODUCTION
+      - --api.dashboard=true # <== Enabling the dashboard to view services, middlewares, routers, etc...
+      - --api.debug=true # <== Enabling additional endpoints for debugging and profiling
+      ## Log Settings (options: ERROR, DEBUG, PANIC, FATAL, WARN, INFO) - https://docs.traefik.io/observability/logs/ ##
+      - --log.level=DEBUG # <== Setting the level of the logs from traefik
+      ## Provider Settings - https://docs.traefik.io/providers/docker/#provider-configuration ##
+      - --providers.docker=true # <== Enabling docker as the provider for traefik
+      - --providers.docker.exposedbydefault=false # <== Don't expose every container to traefik, only expose enabled ones
+      - --providers.file.filename=/dynamic.yaml # <== Referring to a dynamic configuration file
+      - --providers.docker.network=web # <== Operate on the docker network named web
+      ## Entrypoints Settings - https://docs.traefik.io/routing/entrypoints/#configuration ##
+      - --entrypoints.web.address=:80 # <== Defining an entrypoint for port :80 named web
+      - --entrypoints.web-secured.address=:443 # <== Defining an entrypoint for https on port :443 named web-secured
+      ## Certificate Settings (Let's Encrypt) -  https://docs.traefik.io/https/acme/#configuration-examples ##
+      - --certificatesresolvers.mytlschallenge.acme.tlschallenge=true # <== Enable TLS-ALPN-01 to generate and renew ACME certs
+      - --certificatesresolvers.mytlschallenge.acme.email=theafkdeveloper@gmail.com # <== Setting email for certs
+      - --certificatesresolvers.mytlschallenge.acme.storage=/letsencrypt/acme.json # <== Defining acme file to store cert information
+    volumes:
+      - ./letsencrypt:/letsencrypt # <== Volume for certs (TLS)
+      - /var/run/docker.sock:/var/run/docker.sock # <== Volume for docker admin
+      - ./dynamic.yaml:/dynamic.yaml # <== Volume for dynamic conf file, **ref: line 27
+    networks:
+      - web # <== Placing traefik on the network named web, to access containers on this network
+    labels:
+    #### Labels define the behavior and rules of the traefik proxy for this container ####
+      - "traefik.enable=true" # <== Enable traefik on itself to view dashboard and assign subdomain to view it
+      - "traefik.http.routers.api.rule=Host(`monitor.example.com`)" # <== Setting the domain for the dashboard
+      - "traefik.http.routers.api.service=api@internal" # <== Enabling the api to be a service to access
+
+networks:
+  web:
+    external: true
+
+
+..text..
+nano test2.yaml
+..code..
+version: "3.3"
+services:
+  wordpress: # <== we aren't going to open :80 here because traefik is going to serve this on entrypoint 'web'
+  ## :80 is already exposed from within the container ##
+    image: wordpress
+    restart: always
+    container_name: wp
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: exampledb
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - web
+      - backend
+    labels:
+      #### Labels define the behavior and rules of the traefik proxy for this container ####
+      - "traefik.enable=true" # <== Enable traefik to proxy this container
+      - "traefik.http.routers.nginx-web.rule=Host(`example.com`)" # <== Your Domain Name goes here for the http rule
+      - "traefik.http.routers.nginx-web.entrypoints=web" # <== Defining the entrypoint for http, **ref: line 30
+      - "traefik.http.routers.nginx-web.middlewares=redirect@file" # <== This is a middleware to redirect to https
+      - "traefik.http.routers.nginx-secured.rule=Host(`example.com`)" # <== Your Domain Name for the https rule 
+      - "traefik.http.routers.nginx-secured.entrypoints=web-secured" # <== Defining entrypoint for https, **ref: line 31
+      - "traefik.http.routers.nginx-secured.tls.certresolver=mytlschallenge" # <== Defining certsresolvers for https
+  
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - backend
+
+networks:
+  web:
+    external: true
+  backend:
+    external: false
+    
+volumes:
+  wordpress:
+    external: true
+  db:
+    external: true
+    
+    
+    
+..text..
+networks & volumes
+..code..
+version: "3.3"
+services:
+  # ...
+  
+networks:
+  web:
+    external: true
+  backend:
+    external: false
+    
+volumes:
+  wordpress:
+    external: true
+  db:
+    external: true
+
+
+
+..text..
+nano dynamic.yaml
+..code..
+## Setting up the middleware for redirect to https ##
+http:
+  middlewares:
+    redirect:
+      redirectScheme:
+        scheme: https
+
+
+..text..
+RUN
+..code..
+sudo docker-compose -f test1.yaml config
+sudo docker-compose -f test2.yaml config
+
+sudo docker network create web
+sudo docker network create backend --internal
+
+sudo docker volume create --name=wordpress
+sudo docker volume create --name=db
+
+sudo docker-compose -f test1.yaml up -d
+sudo docker-compose -f test2.yaml up -d
+
