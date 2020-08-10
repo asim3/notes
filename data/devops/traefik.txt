@@ -3,17 +3,10 @@ Traefik
 
 ..link.. devops/master.txt
 ..
+
 ..link.. devops/traefik_setup.txt
 traefik setup
 
-
-..link.. devops/traefik_configuration.txt
-Configuration
-..link.. devops/traefik_https.txt
-https
-
-
-..text..
 
 ..code..
 mkdir ~/traefik_test_1/ && nano ~/traefik_test_1/docker-compose.yml
