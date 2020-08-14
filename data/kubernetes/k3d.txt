@@ -9,3 +9,10 @@ Kubernetes
 install
 ..code..
 curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
+
+
+..text..
+create a new single-node cluster (= 1 container running k3s + 1 loadbalancer container)
+..code..
+sudo k3d cluster create my-cluster-asim
+
