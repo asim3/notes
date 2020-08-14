@@ -1,0 +1,11 @@
+..title..
+Kubernetes
+
+..link.. kubernetes/master.txt
+..
+
+
+..text..
+install
+..code..
+curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
