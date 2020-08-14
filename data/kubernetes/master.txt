@@ -4,7 +4,7 @@ Kubernetes
 ..link.. master.txt
 ..
 
-..link.. kubernetes/install.txt
+..link2.. kubernetes/install.txt
 Install
 ..link.. kubernetes/deployment.txt
 Deployment
@@ -16,8 +16,6 @@ Volume
 ..sub_title..
 Kubernetes
 
-..link.. kubernetes/k3d.txt
-K3D
 ..link.. kubernetes/helm.txt
 Helm
 ..link.. kubernetes/rancher.txt

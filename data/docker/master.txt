@@ -16,7 +16,7 @@ compose
 swarm
 ..link.. docker/routing_mesh.txt
 routing mesh
-..link.. docker/traefik.txt
+..link2.. docker/traefik.txt
 Traefik
 
 ..sub_title..
