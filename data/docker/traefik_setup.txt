@@ -1,7 +1,7 @@
 ..title..
 Traefik
 
-..link.. devops/traefik.txt
+..link.. docker/traefik.txt
 ..
 
 ..link.. https://gist.github.com/Mau5Machine/00401feb19433cf0387cc66c8e90c26c

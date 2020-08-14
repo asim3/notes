@@ -29,6 +29,21 @@ REST
 React.js
 
 
+..sub_title..
+Kubernetes
+
+..link.. docker/master.txt
+Docker
+..link.. kubernetes/master.txt
+Kubernetes
+
+
+..text..
+Linux Server
+..link.. terminal/master.txt
+Terminal
+..link2.. devops/master.txt
+DevOps
 
 ..text..
 Libraries
@@ -36,7 +51,6 @@ Libraries
 Bootstrap 4
 ..link.. https://saleor.io/
 Saleor
-
 
 
 ..text..
@@ -51,17 +65,6 @@ Twilio
 Linode
 ..link.. https://letsencrypt.org/docs/
 LetsEncrypt
-
-
-
-..text..
-Other
-..link.. terminal/master.txt
-Terminal
-
-..link2.. devops/master.txt
-DevOps
-
 
 
 ..text..

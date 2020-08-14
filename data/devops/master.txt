@@ -15,17 +15,6 @@ Nagios
 
 
 ..sub_title..
-Kubernetes
-
-..link.. devops/docker.txt
-Docker
-..link.. devops/kubernetes.txt
-Kubernetes
-..link.. devops/traefik.txt
-Traefik
-
-
-..sub_title..
 Linux Server
 
 ..link.. devops/firewall.txt

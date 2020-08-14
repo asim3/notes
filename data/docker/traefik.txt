@@ -1,10 +1,10 @@
 ..title..
 Traefik
 
-..link.. devops/master.txt
+..link.. docker/master.txt
 ..
 
-..link.. devops/traefik_setup.txt
+..link.. docker/traefik_setup.txt
 traefik setup
 
 
