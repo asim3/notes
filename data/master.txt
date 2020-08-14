@@ -21,7 +21,7 @@ regex
 
 ..text..
 Frameworks
-..link.. django/0_master.txt
+..link2.. django/0_master.txt
 Django
 ..link.. rest_framework/master.txt
 REST
@@ -34,15 +34,18 @@ Kubernetes
 
 ..link.. docker/master.txt
 Docker
-..link.. kubernetes/master.txt
+..link2.. kubernetes/master.txt
 Kubernetes
 
 
-..text..
+..sub_title..
 Linux Server
+
+..link2.. server/master.txt
+Server
 ..link.. terminal/master.txt
 Terminal
-..link2.. devops/master.txt
+..link.. devops/master.txt
 DevOps
 
 ..text..
