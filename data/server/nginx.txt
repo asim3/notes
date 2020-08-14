@@ -1,7 +1,7 @@
 ..title..
 Installing Nginx
 
-..link.. devops/master.txt
+..link.. server/master.txt
 ..
 
 

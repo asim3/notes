@@ -1,7 +1,7 @@
 ..title..
 Install apache2
 
-..link.. devops/master.txt
+..link.. server/master.txt
 ..
 
 
