@@ -2,7 +2,7 @@
 ..title..
 Kubernetes
 
-..link.. devops/kubernetes.txt
+..link.. kubernetes/master.txt
 ..
 ..link.. https://github.com/bitnami/kube-prod-runtime/blob/master/docs/quickstart-generic.md
 Docs

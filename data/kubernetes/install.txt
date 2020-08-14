@@ -1,9 +1,11 @@
 ..title..
 Kubernetes
 
-..link.. devops/kubernetes.txt
+..link.. kubernetes/master.txt
 ..
-..link.. devops/kubernetes_install_pro.txt
+..link.. kubernetes/install_minikube.txt
+Install Minikube
+..link.. kubernetes/install_pro.txt
 Production install
 
 
@@ -23,40 +25,6 @@ kubectl version --client
 
 
 
-..code..
-sudo apt install conntrack
-
-
-
-..link.. https://kubernetes.io/docs/tasks/tools/install-minikube/
-Install Minikube
-
-..code..
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
-
-chmod +x ./minikube
-sudo mv ./minikube /usr/local/bin/minikube
-
-# don't use sudo
-minikube start
-minikube start --nodes 2
-minikube start --nodes 2 -p my-demo
-
-minikube stop
-minikube delete
-
-minikube status
-minikube service list
-minikube dashboard
-
-
-# OR
-sudo minikube start --driver='none'
-sudo minikube status
-
-
-
-
 ..text..
 install K3D 
 ..code..
@@ -68,3 +36,4 @@ create a new single-node cluster (= 1 container running k3s + 1 loadbalancer con
 ..code..
 sudo k3d cluster create my-cluster-asim
 
+sudo kubectl get nodes

@@ -1,0 +1,43 @@
+..title..
+Kubernetes
+
+..link.. kubernetes/install.txt
+..
+
+
+..sub_title..
+Install Minikube
+
+
+..code..
+sudo apt install conntrack
+
+
+
+..link.. https://kubernetes.io/docs/tasks/tools/install-minikube/
+Install Minikube
+
+..code..
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
+
+chmod +x ./minikube
+sudo mv ./minikube /usr/local/bin/minikube
+
+# don't use sudo
+minikube start
+minikube start --nodes 2
+minikube start --nodes 2 -p my-demo
+
+minikube stop
+minikube delete
+
+minikube status
+minikube service list
+minikube dashboard
+
+
+# OR
+sudo minikube start --driver='none'
+sudo minikube status
+
+

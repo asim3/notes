@@ -1,7 +1,7 @@
 ..title..
 Kubernetes
 
-..link.. devops/kubernetes.txt
+..link.. kubernetes/master.txt
 ..
 ..link.. https://rancher.com/docs/rancher/v2.x/en/quick-start-guide/deployment/quickstart-manual-setup/
 quickstart
