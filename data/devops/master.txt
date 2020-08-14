@@ -10,14 +10,19 @@ Git
 Jenkins
 ..link.. devops/ansible.txt
 Ansible
-..link.. devops/docker.txt
-Docker
 ..link.. devops/nagios.txt
 Nagios
-..link.. devops/traefik.txt
-Traefik
+
+
+..sub_title..
+Kubernetes
+
+..link.. devops/docker.txt
+Docker
 ..link.. devops/kubernetes.txt
 Kubernetes
+..link.. devops/traefik.txt
+Traefik
 
 
 ..sub_title..
