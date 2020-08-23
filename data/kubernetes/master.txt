@@ -26,7 +26,16 @@ Bitnami Production
 
 
 ..code..
+sudo kubectl version --short
 sudo kubectl config view
+
+
+..text..
+cluster
+..code..
+sudo kubectl cluster-info
+
+
 
 ..text..
 List
