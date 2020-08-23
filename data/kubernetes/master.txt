@@ -31,18 +31,33 @@ Bitnami Production
 sudo kubectl version --short --client 
 sudo kubectl version --short
 
+
+..sub_title..
+kubeconfig settings
+..code..
 sudo kubectl config view
+# clusters
+sudo kubectl config get-clusters
+sudo kubectl config delete-cluster my-new-k3d
+# context
+sudo kubectl config get-contexts
+sudo kubectl config current-context
+# set 
+sudo kubectl config set-credentials admin@my-222-k3 --username=admin --password=607848076805b18bb3dd74f0d58ee0f0
+sudo kubectl config set-cluster ...
+sudo kubectl config set-context ...
+# unset
+sudo kubectl config set-credentials ccc --username=bbb --password=aaa
+sudo kubectl config unset users.ccc
 
 
-..text..
-cluster
 ..code..
 sudo kubectl cluster-info
 
 
 
 ..text..
-List
+GET
 ..code..
 sudo kubectl get all
 
@@ -58,8 +73,8 @@ sudo kubectl get pod
 sudo kubectl get po
 
 
-..text..
-Add new pod
+..sub_title..
+Creating objects
 ..code..
 nano asim2-pod.yaml
 apiVersion: v1
@@ -73,14 +88,18 @@ spec:
 
 
 ..code..
+sudo kubectl apply  -f ./asim2-pod.yaml
 sudo kubectl create -f asim2-pod.yaml
-sudo kubctl delete -f asim2-pod.yaml
+
+# Deleting resources
+sudo kubectl delete -f asim2-pod.yaml
 
 
 ..text..
 OR
 ..code..
 sudo kubectl run asim-pod --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8000
+
 
 
 ..code..

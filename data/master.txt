@@ -32,10 +32,10 @@ React.js
 ..sub_title..
 Linux Server
 
-..link2.. server/master.txt
-Server
 ..link.. terminal/master.txt
 Terminal
+..link2.. server/master.txt
+Server
 ..link.. devops/master.txt
 DevOps
 
