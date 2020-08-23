@@ -37,6 +37,15 @@ Login to Server
 ssh username@server.ip
 
 
+..link.. terminal/ssh.txt
+Copy public key to remote server
+
+..code..
+ssh-copy-id username@server.ip
+
+ssh-copy-id asim@10.68.15.202
+
+
 ..text..
 Add a New User
 ..code..
@@ -66,13 +75,6 @@ sudo nano /etc/hosts
 127.0.0.1       localhost
 192.168.1.1     my-test-server
 192.168.100.44  my-admin-server
-
-
-..link.. terminal/ssh.txt
-Copy public key to remote server
-
-..code..
-ssh-copy-id 192.168.100.99
 
 
 ..text..
