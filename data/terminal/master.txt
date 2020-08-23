@@ -53,6 +53,31 @@ gedit edit_file.txt
 
 
 ..text..
+CURL
+..code..
+curl google.com
+
+# Follow redirects
+curl -L google.com
+
+# write to file instead of stdout
+curl -o my_new_file_name.txt google.com
+
+# O capital: write to a file with the original name
+curl -O https://raw.githubusercontent.com/asim3/notes/master/data/master.txt
+
+# Silent mode
+curl -s -O https://raw.githubusercontent.com/asim3/notes/master/data/master.txt
+curl -sO https://raw.githubusercontent.com/asim3/notes/master/data/master.txt
+
+# run the file in command line
+curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
+
+# CURL in readable JSON format
+curl https://jsonplaceholder.typicode.com/users | json_pp
+
+
+..text..
 Permissions
 ..code..
 sudo chown asim:asim /www

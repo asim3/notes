@@ -39,25 +39,6 @@ tar -xzf my_archive.tar.gz
 
 
 ..text..
-CURL
-..code..
-curl google.com
-
-# Follow redirects
-curl -L google.com
-
-# write to file instead of stdout
-curl -o myfile.txt google.com
-
-# O capital: use remote name
-curl -O https://raw.githubusercontent.com/asim3/notes/master/data/master.txt
-
-# CURL in readable JSON format
-curl https://jsonplaceholder.typicode.com/users | json_pp
-
-
-
-..text..
 add user
 ..code..
 sudo adduser asim
