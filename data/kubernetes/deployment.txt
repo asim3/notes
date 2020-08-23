@@ -4,7 +4,36 @@ Kubernetes
 ..link.. kubernetes/master.txt
 ..
 
+
+..sub_title..
+Creating objects
+..code..
+nano asim2-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: asim2-pod
+spec:
+  containers:
+  - name: asim2-container
+    image: nginx
+
+
+..code..
+sudo kubectl apply  -f ./asim2-pod.yaml
+sudo kubectl create -f asim2-pod.yaml
+
+# Deleting resources
+sudo kubectl delete -f asim2-pod.yaml
+
+
 ..text..
+OR
+..code..
+sudo kubectl run asim-pod --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8000
+
+
+..sub_title..
 Manifest file
 ..code..
 nano my-k8s/my-first-deployment.yml
@@ -35,7 +64,7 @@ spec:
 ..text..
 deploy
 ..code..
-sudo kubectl create -f my-k8s/my-first-deployment.yml
+sudo kubectl apply -f my-k8s/my-first-deployment.yml
 
 
 ..text..

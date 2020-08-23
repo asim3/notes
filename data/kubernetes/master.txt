@@ -36,24 +36,36 @@ sudo kubectl version --short
 kubeconfig settings
 ..code..
 sudo kubectl config view
+
 # clusters
 sudo kubectl config get-clusters
 sudo kubectl config delete-cluster my-new-k3d
+
 # context
 sudo kubectl config get-contexts
+sudo kubectl config delete-context my-new-k3d
 sudo kubectl config current-context
-# set 
-sudo kubectl config set-credentials admin@my-222-k3 --username=admin --password=607848076805b18bb3dd74f0d58ee0f0
-sudo kubectl config set-cluster ...
-sudo kubectl config set-context ...
-# unset
+
+
+..text..
+SET
+..code..
+sudo kubectl config set-cluster my-cluster --server=https://1.2.3.4
+sudo kubectl config set-cluster my-cluster --certificate-authority=~/.kube/my-cluster/kube.ca.crt
+
+sudo kubectl config set-context my-cluster --cluster=cluster_nickname
+sudo kubectl config set-context my-cluster --user=user_nickname
+sudo kubectl config set-context my-cluster --namespace=namespace
+
+
+sudo kubectl config set-credentials admin@my-k3 --username=admin --password=5ee0f
 sudo kubectl config set-credentials ccc --username=bbb --password=aaa
+# unset
 sudo kubectl config unset users.ccc
 
 
 ..code..
 sudo kubectl cluster-info
-
 
 
 ..text..
@@ -73,34 +85,6 @@ sudo kubectl get pod
 sudo kubectl get po
 
 
-..sub_title..
-Creating objects
-..code..
-nano asim2-pod.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: asim2-pod
-spec:
-  containers:
-  - name: asim2-container
-    image: nginx
-
-
-..code..
-sudo kubectl apply  -f ./asim2-pod.yaml
-sudo kubectl create -f asim2-pod.yaml
-
-# Deleting resources
-sudo kubectl delete -f asim2-pod.yaml
-
-
-..text..
-OR
-..code..
-sudo kubectl run asim-pod --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8000
-
-
 
 ..code..
 sudo kubectl get pod asim2-pod -o wide
@@ -112,10 +96,6 @@ sudo kubectl describe pod asim2-pod
 sudo kubectl delete pod asim2-pod
 
 
-..sub_title..
-Advance
-
-
 ..text..
 bash to a pod
 ..code..
@@ -123,15 +103,6 @@ sudo kubectl exec -it asim2-pod -- /bin/sh
 # OR
 sudo kubectl exec asim2-pod -- touch /home/asim-test.txt
 sudo kubectl exec asim2-pod -- ls /home -al
-
-
-..text..
-etcd is the [ master node database ]
-
-..code..
-apiVersion: v1
-kind: ReplicationController # old
-kind: ReplicaSet # new
 
 
 ..text..
