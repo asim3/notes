@@ -73,6 +73,9 @@ curl -sO https://raw.githubusercontent.com/asim3/notes/master/data/master.txt
 # run the file in command line
 curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
 
+# Allow insecure server connections when using SSL
+curl -k https://0.0.0.0:40499
+
 # CURL in readable JSON format
 curl https://jsonplaceholder.typicode.com/users | json_pp
 

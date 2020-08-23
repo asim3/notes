@@ -23,6 +23,9 @@ Traefik
 Containerization
 
 
+..code..
+sudo docker version
+
 ..text..
 List all images
 ..code..
