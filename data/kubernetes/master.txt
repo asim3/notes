@@ -16,11 +16,11 @@ Volume
 ..sub_title..
 Apps
 
-..link.. kubernetes/helm.txt
+..link.. kubernetes/app_helm.txt
 Helm
-..link.. kubernetes/rancher.txt
+..link.. kubernetes/app_rancher.txt
 Rancher
-..link.. kubernetes/BKPR.txt
+..link.. kubernetes/app_BKPR.txt
 Bitnami Production
 
 
