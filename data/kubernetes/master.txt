@@ -12,6 +12,8 @@ Deployment
 Service
 ..link.. kubernetes/volume.txt
 Volume
+..link.. kubernetes/rest_api.txt
+REST API
 
 ..sub_title..
 Apps

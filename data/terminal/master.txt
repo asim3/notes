@@ -76,6 +76,9 @@ curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
 # Allow insecure server connections when using SSL
 curl -k https://0.0.0.0:40499
 
+# sending multiple headers
+curl -H "Accept: application/json" -H "Content-Type: application/json" https://google.com
+
 # CURL in readable JSON format
 curl https://jsonplaceholder.typicode.com/users | json_pp
 
