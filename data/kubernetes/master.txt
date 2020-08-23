@@ -14,7 +14,7 @@ Service
 Volume
 
 ..sub_title..
-Kubernetes
+Apps
 
 ..link.. kubernetes/helm.txt
 Helm
