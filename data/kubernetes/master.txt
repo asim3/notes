@@ -6,6 +6,8 @@ Kubernetes
 
 ..link2.. kubernetes/install.txt
 Install
+..link2.. kubernetes/settings.txt
+Settings
 ..link.. kubernetes/deployment.txt
 Deployment
 ..link.. kubernetes/service.txt
@@ -31,40 +33,7 @@ Bitnami Production
 sudo kubectl version --short --client 
 sudo kubectl version --short
 
-
-..sub_title..
-kubeconfig settings
-..code..
 sudo kubectl config view
-
-# clusters
-sudo kubectl config get-clusters
-sudo kubectl config delete-cluster my-new-k3d
-
-# context
-sudo kubectl config get-contexts
-sudo kubectl config delete-context my-new-k3d
-sudo kubectl config current-context
-
-
-..text..
-SET
-..code..
-sudo kubectl config set-cluster my-cluster --server=https://1.2.3.4
-sudo kubectl config set-cluster my-cluster --certificate-authority=~/.kube/my-cluster/kube.ca.crt
-
-sudo kubectl config set-context my-cluster --cluster=cluster_nickname
-sudo kubectl config set-context my-cluster --user=user_nickname
-sudo kubectl config set-context my-cluster --namespace=namespace
-
-
-sudo kubectl config set-credentials admin@my-k3 --username=admin --password=5ee0f
-sudo kubectl config set-credentials ccc --username=bbb --password=aaa
-# unset
-sudo kubectl config unset users.ccc
-
-
-..code..
 sudo kubectl cluster-info
 
 
