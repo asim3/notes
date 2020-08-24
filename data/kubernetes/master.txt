@@ -6,7 +6,7 @@ Kubernetes
 
 ..link2.. kubernetes/install.txt
 Install
-..link2.. kubernetes/settings.txt
+..link.. kubernetes/settings.txt
 Settings
 ..link.. kubernetes/deployment.txt
 Deployment

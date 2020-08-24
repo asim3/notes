@@ -43,6 +43,12 @@ credentials
 ..code..
 sudo kubectl config set-credentials user_nickname --username=admin --password=aaa
 sudo kubectl config set-credentials ccc --username=bbb --password=aaa
+    --client-certificate=path/to/certfile.crt 
+    --client-key=path/to/keyfile.key 
+
+    --token=bearer_token
+    --auth-provider=provider_name
+    --auth-provider-arg=key=value
 
 
 ..text..
@@ -53,3 +59,46 @@ sudo kubectl config unset contexts
 sudo kubectl config unset users
 sudo kubectl config unset users.ccc
 sudo kubectl config unset current-context
+
+
+
+..sub_title..
+user management
+
+..text..
+Manage user accounts
+..code..
+sudo kubectl get ns # list namespace
+sudo kubectl create namespace namespace-nickname
+
+
+
+..text..
+service account
+..code..
+sudo kubectl get sa
+
+nano my_service_file.yml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: service-nickname
+  namespace: namespace-nickname
+
+
+sudo kubectl create -f my_service_file.yml
+
+sudo kubectl get      sa -n namespace-nickname
+sudo kubectl describe sa service-nickname -n namespace-nickname
+sudo kubectl delete   sa service-nickname -n namespace-nickname
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-nickname
+  namespace: namespace-nickname
+spec: 
+  serviceAccountName: service-nickname 
+  containers:
+  - # ...
