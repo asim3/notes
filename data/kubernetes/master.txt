@@ -34,6 +34,8 @@ sudo kubectl version --short --client
 sudo kubectl version --short
 
 sudo kubectl config view
+sudo kubectl config view --raw
+
 sudo kubectl cluster-info
 
 
