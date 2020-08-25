@@ -80,7 +80,7 @@ const fetch_path = (path) => {
             if (response.ok) {
                 response.text()
                     .then(function (text) {
-                        const new_href = website_href + path
+                        const new_href = website_href + "?path=" + path
                         window.history.pushState(path, null, new_href)
                         return document.getElementById("body").innerHTML = parse_tags(text)
                     })
