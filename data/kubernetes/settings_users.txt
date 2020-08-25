@@ -22,41 +22,6 @@ sudo kubectl get clusterrolebinding
 
 
 ..text..
-Role
-..code..
-nano my_role.yml
-
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  namespace: default
-  name: role-nickname
-rules:
-- apiGroups: [""] # "" indicates the core API group
-  resources: ["pods"]
-  verbs: ["get", "watch", "list"]
-
-..code..
-nano my_role_binding.yml
-
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: role-binding-nickname
-  namespace: default
-subjects:
-# You can specify more than one "subject"
-- kind: User
-  name: jane # "name" is case sensitive
-  apiGroup: rbac.authorization.k8s.io
-roleRef:
-  # "roleRef" specifies the binding to a Role / ClusterRole
-  kind: Role
-  name: role-nickname
-  apiGroup: rbac.authorization.k8s.io
-
-
-..text..
 ClusterRole
 ..code..
 nano my_cluster_role.yml
@@ -98,9 +63,6 @@ roleRef:
 
 
 ..code..
-sudo kubectl apply -f my_role.yml
-sudo kubectl apply -f my_role_binding.yml
-
 sudo kubectl apply -f my_cluster_role.yml
 sudo kubectl apply -f my_cluster_role_binding.yml
 
