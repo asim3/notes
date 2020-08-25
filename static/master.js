@@ -1,5 +1,4 @@
-const website_href = window.location.href
-
+const website_href = window.location.href.split('?')[0]
 
 const parse_tags = function (text) {
 
@@ -74,14 +73,16 @@ const replace_html = (text) => {
 }
 
 
-const fetch_path = (path) => {
+const fetch_path = (path, back = false) => {
     fetch(`data/${path}`)
         .then(function (response) {
             if (response.ok) {
                 response.text()
                     .then(function (text) {
-                        const new_href = website_href + "?path=" + path
-                        window.history.pushState(path, null, new_href)
+                        if (!back) {
+                            const new_href = website_href + "?path=" + path
+                            window.history.pushState(path, null, new_href)
+                        }
                         return document.getElementById("body").innerHTML = parse_tags(text)
                     })
             }
@@ -101,5 +102,5 @@ window.onload = () => {
 }
 
 window.onpopstate = function (event) {
-    fetch_path(event.state)
+    fetch_path(event.state, true)
 };
