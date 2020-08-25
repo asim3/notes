@@ -12,7 +12,7 @@ const parse_tags = function (text) {
         { tag: "link", type: "link", start: `div class='btn btn-primary mb-1'`, end: "div" },
         { tag: "link2", type: "link", start: `div class='btn btn-success mb-1'`, end: "div" },
         { tag: "رابط", type: "link", start: `div class='btn btn-primary mb-1 arabic'`, end: "div" },
-        { tag: "code", type: "code", start: `pre class='alert code' onclick='copy_this(this)'`, end: "pre" },
+        { tag: "code", type: "code", start: `pre class='alert code'`, end: "pre" },
         { tag: "برمجة", type: "code", start: `pre class='alert code'`, end: "pre" },
     ]
     const match_1 = text.match(reg_exp)
@@ -69,41 +69,34 @@ const parse_tags = function (text) {
 const replace_html = (text) => {
     return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 }
+
+
 const fetch_path = (path) => {
     fetch(`data/${path}`)
         .then(function (response) {
-
             if (response.ok) {
                 response.text()
                     .then(function (text) {
+                        const new_href = window.location.href + "/" + path
+                        window.history.pushState(path, null, new_href)
                         return document.getElementById("body").innerHTML = parse_tags(text)
                     })
             }
             else {
                 fetch_path('master.txt')
                 console.log(response)
+                // TODO: add bootstrap function
+                alert(`not found: ${path}`)
             }
 
         })
-}
-
-let copy_clicks = 0
-let copy_timer = 0
-const copy_this = function (div) {
-    copy_clicks++
-    clearTimeout(copy_timer)
-    copy_timer = setTimeout(() => { copy_clicks = 0 }, 1000)
-    if (copy_clicks > 2) {
-        copy_clicks = 0
-        navigator.clipboard.writeText(div.innerText)
-            .then(
-                x => div.style.background = "#" + ((1 << 24) * Math.random() | 0).toString(16),
-                x => div.style.background = "red"
-            )
-    }
 }
 
 
 window.onload = () => {
     fetch_path("master.txt")
 }
+
+window.onpopstate = function (event) {
+    fetch_path(event.state)
+};

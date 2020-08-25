@@ -36,11 +36,15 @@ myWindow.close();   // Closes the new window
 ..text..
 add to window history
 ..code..
-window.history.pushState(null, null, href);
-window.history.back()
-// run by clicking back button or calling history.back()
-window.onpopstate = () => {};
+var new_href = window.location.href + "/my-path"
+window.history.pushState("my_obj", null, new_href);
 
+// run by clicking back button or calling history.back()
+window.onpopstate = function(event) {
+    alert("my_obj: " + JSON.stringify(event.state))
+};
+
+window.history.back()
 
 ..code..
 const aaa = {
