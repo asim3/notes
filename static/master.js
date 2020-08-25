@@ -1,3 +1,6 @@
+const website_href = window.location.href
+
+
 const parse_tags = function (text) {
 
     const reg_exp = /\.\.([^\.\n\s]*)\.\.([^\n]*)/
@@ -77,7 +80,7 @@ const fetch_path = (path) => {
             if (response.ok) {
                 response.text()
                     .then(function (text) {
-                        const new_href = window.location.href + "/" + path
+                        const new_href = website_href + path
                         window.history.pushState(path, null, new_href)
                         return document.getElementById("body").innerHTML = parse_tags(text)
                     })
