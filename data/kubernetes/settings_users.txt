@@ -8,26 +8,23 @@ Kubernetes
 ..sub_title..
 user management
 
-
 ..text..
 ClusterRole
+..code..
+
+
 
 ..text..
 ClusterRoleBinding
+..code..
+
 
 
 ..text..
+..code..
 
 
 #--- !!!!
-
-
-..text..
-Manage user accounts
-..code..
-sudo kubectl get ns # list namespace
-sudo kubectl create namespace namespace-nickname
-
 
 
 ..text..
@@ -36,6 +33,7 @@ service account
 sudo kubectl get sa
 
 nano my_service_file.yml
+---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -43,13 +41,15 @@ metadata:
   namespace: namespace-nickname
 
 
+..code..
 sudo kubectl create -f my_service_file.yml
 
 sudo kubectl get      sa -n namespace-nickname
 sudo kubectl describe sa service-nickname -n namespace-nickname
 sudo kubectl delete   sa service-nickname -n namespace-nickname
 
----
+
+..code..
 apiVersion: v1
 kind: Pod
 metadata:

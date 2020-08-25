@@ -68,6 +68,17 @@ sudo kubectl delete pod asim2-pod
 
 
 ..text..
+Namespace
+..code..
+sudo kubectl get ns
+sudo kubectl create namespace namespace-nickname
+sudo kubectl delete namespace namespace-nickname
+
+sudo kubectl get all -n namespace-nickname
+sudo kubectl get pods -n namespace-nickname
+
+
+..text..
 bash to a pod
 ..code..
 sudo kubectl exec -it asim2-pod -- /bin/sh

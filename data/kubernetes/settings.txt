@@ -47,21 +47,19 @@ sudo kubectl config delete-context context_nickname
 credentials
 ..code..
 sudo kubectl config set-credentials user_nickname --username=admin --password=aaa
-sudo kubectl config set-credentials ccc --username=bbb --password=aaa
-    --client-certificate=path/to/certfile.crt 
-    --client-key=path/to/keyfile.key 
-
-    --token=bearer_token
-    --auth-provider=provider_name
-    --auth-provider-arg=key=value
+sudo kubectl config set-credentials aaa --client-certificate=path/to/certfile.crt 
+sudo kubectl config set-credentials aaa --client-key=path/to/keyfile.key 
+sudo kubectl config set-credentials aaa --token=bearer_token
+sudo kubectl config set-credentials aaa --auth-provider=provider_name
+sudo kubectl config set-credentials aaa --auth-provider-arg=key=value
 
 
 ..text..
 unset
 ..code..
+sudo kubectl config unset current-context
 sudo kubectl config unset clusters
 sudo kubectl config unset contexts
 sudo kubectl config unset users
-sudo kubectl config unset users.ccc
-sudo kubectl config unset current-context
+sudo kubectl config unset users.aaa
 
