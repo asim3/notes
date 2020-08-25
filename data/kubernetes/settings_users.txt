@@ -1,0 +1,61 @@
+..title..
+Kubernetes
+
+..link.. kubernetes/settings.txt
+..
+
+
+..sub_title..
+user management
+
+
+..text..
+ClusterRole
+
+..text..
+ClusterRoleBinding
+
+
+..text..
+
+
+#--- !!!!
+
+
+..text..
+Manage user accounts
+..code..
+sudo kubectl get ns # list namespace
+sudo kubectl create namespace namespace-nickname
+
+
+
+..text..
+service account
+..code..
+sudo kubectl get sa
+
+nano my_service_file.yml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: service-nickname
+  namespace: namespace-nickname
+
+
+sudo kubectl create -f my_service_file.yml
+
+sudo kubectl get      sa -n namespace-nickname
+sudo kubectl describe sa service-nickname -n namespace-nickname
+sudo kubectl delete   sa service-nickname -n namespace-nickname
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-nickname
+  namespace: namespace-nickname
+spec: 
+  serviceAccountName: service-nickname 
+  containers:
+  - # ...

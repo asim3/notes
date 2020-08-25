@@ -3,6 +3,8 @@ Kubernetes
 
 ..link.. kubernetes/master.txt
 ..
+..link.. kubernetes/settings_users.txt
+user management
 
 
 ..sub_title..
@@ -28,15 +30,18 @@ sudo kubectl config set-cluster cluster_nickname --certificate-authority=~/.kube
 ..text..
 context
 ..code..
-sudo kubectl config get-contexts
-sudo kubectl config delete-context my-new-k3d
-
+# print current user
 sudo kubectl config current-context
-sudo kubectl config use-context context_nickname
 
-sudo kubectl config set-context context_nickname --cluster=cluster_nickname
-sudo kubectl config set-context context_nickname --user=user_nickname
-sudo kubectl config set-context context_nickname --namespace=namespace
+# switch between users
+sudo kubectl config use-context    context_nickname
+
+sudo kubectl config get-contexts
+sudo kubectl config set-context    context_nickname --cluster=cluster_nickname
+sudo kubectl config set-context    context_nickname --user=user_nickname
+sudo kubectl config set-context    context_nickname --namespace=namespace
+sudo kubectl config delete-context context_nickname
+
 
 ..text..
 credentials
@@ -60,45 +65,3 @@ sudo kubectl config unset users
 sudo kubectl config unset users.ccc
 sudo kubectl config unset current-context
 
-
-
-..sub_title..
-user management
-
-..text..
-Manage user accounts
-..code..
-sudo kubectl get ns # list namespace
-sudo kubectl create namespace namespace-nickname
-
-
-
-..text..
-service account
-..code..
-sudo kubectl get sa
-
-nano my_service_file.yml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: service-nickname
-  namespace: namespace-nickname
-
-
-sudo kubectl create -f my_service_file.yml
-
-sudo kubectl get      sa -n namespace-nickname
-sudo kubectl describe sa service-nickname -n namespace-nickname
-sudo kubectl delete   sa service-nickname -n namespace-nickname
-
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: pod-nickname
-  namespace: namespace-nickname
-spec: 
-  serviceAccountName: service-nickname 
-  containers:
-  - # ...
