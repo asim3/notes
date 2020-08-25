@@ -98,8 +98,8 @@ const fetch_path = (path, back = false) => {
 
 
 window.onload = () => {
-    const website_init = window.location.href.split('?')[1].split('=')[1]
-    fetch_path(website_init)
+    const website_init_path = window.location.href.split('?')[1] || 'path=master.txt'
+    fetch_path(website_init_path.split('=')[1])
 }
 
 window.onpopstate = function (event) {
