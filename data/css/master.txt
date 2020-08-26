@@ -1,11 +1,3 @@
-..title..
-HTML
-
-..link.. master.txt
-..
-
-
-
 ..text..
 No Select
 ..code..

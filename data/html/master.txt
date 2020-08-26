@@ -1,12 +1,3 @@
-..title..
-HTML
-
-..link.. master.txt
-..
-
-..link.. html/font.txt
-Font
-
 ..code..
 <script src="main.js"></script>
 

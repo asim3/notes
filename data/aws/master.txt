@@ -1,12 +1,3 @@
-..title..
-AWS
-
-..link.. master.txt
-..
-..link.. aws/django.txt
-Django
-
-
 ..text..
 Installing the AWS CLI
 ..code..
