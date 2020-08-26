@@ -44,10 +44,47 @@ get_name() {
   echo "John"
 }
 
+function my_function {
+  echo "asim"
+}
+
+get_name
+
+my_function
+
 echo "You are $(get_name)"
 
-get_name "John"
 
+..text..
+Functions with arguments
+..code..
+function my_function {
+  echo "\$1 = $1"
+  echo "\$2 = $2"
+  echo "\$3 = $3"
+  echo "\$# = $#"
+  echo "\$@ = $@"
+  echo "\$* = $*"
+}
+
+my_function "asim"
+echo "-------------------"
+my_function "asim" "bader"
+echo "-------------------"
+my_function "asim" "bader" "ahmed"
+
+
+..text..
+string replace regex
+..code..
+echo "asim bader ahmed asim bader ahmed" | sed -e 's/asim/mohammed/'
+# mohammed bader ahmed asim bader ahmed
+echo "asim bader ahmed asim bader ahmed" | sed -e 's/asim/mohammed/g'
+# mohammed bader ahmed mohammed bader ahmed
+
+
+dir="aaa/bbb/ccc/ddd_eee.txt"
+echo $(echo "$dir" | sed -e 's/.*\///' -e 's/\..*//' -e 's/_/ /');
 
 
 ..code..
