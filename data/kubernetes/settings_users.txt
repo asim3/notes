@@ -20,6 +20,10 @@ sudo kubectl get rolebinding
 sudo kubectl get clusterrole
 sudo kubectl get clusterrolebinding
 
+sudo kubectl describe clusterrole cluster-role-nickname
+sudo kubectl describe clusterrolebinding cluster-role-nickname
+sudo kubectl describe clusterrolebinding cluster-admin
+
 
 ..text..
 ClusterRole
@@ -48,10 +52,10 @@ nano my_cluster_role_binding.yml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: read-secrets
+  name: cluster-role-binding-nickname
   # The namespace of the RoleBinding determines where the permissions are granted.
   # This only grants permissions within the "development" namespace.
-  namespace: development
+  namespace: default
 subjects:
 - kind: User
   name: dave
@@ -67,16 +71,13 @@ sudo kubectl apply -f my_cluster_role.yml
 sudo kubectl apply -f my_cluster_role_binding.yml
 
 
-#--- !!!!
 
 
 ..text..
-service account
+Service Accounts
 ..code..
-sudo kubectl get sa
-
 nano my_service_file.yml
----
+
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -87,18 +88,9 @@ metadata:
 ..code..
 sudo kubectl create -f my_service_file.yml
 
-sudo kubectl get      sa -n namespace-nickname
+sudo kubectl get      serviceaccounts
+sudo kubectl get      sa
+sudo kubectl get      sa              -n namespace-nickname
+
 sudo kubectl describe sa service-nickname -n namespace-nickname
 sudo kubectl delete   sa service-nickname -n namespace-nickname
-
-
-..code..
-apiVersion: v1
-kind: Pod
-metadata:
-  name: pod-nickname
-  namespace: namespace-nickname
-spec: 
-  serviceAccountName: service-nickname 
-  containers:
-  - # ...

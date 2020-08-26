@@ -37,6 +37,7 @@ sudo kubectl config view
 sudo kubectl config view --raw
 
 sudo kubectl cluster-info
+sudo kubectl api-resources
 
 
 ..text..
@@ -70,12 +71,13 @@ sudo kubectl delete pod asim2-pod
 ..text..
 Namespace
 ..code..
-sudo kubectl get ns
-sudo kubectl create namespace namespace-nickname
-sudo kubectl delete namespace namespace-nickname
+sudo kubectl get    namespace
+sudo kubectl get    ns
+sudo kubectl create ns         namespace-nickname
+sudo kubectl delete ns         namespace-nickname
 
-sudo kubectl get all -n namespace-nickname
-sudo kubectl get pods -n namespace-nickname
+sudo kubectl get    all  -n namespace-nickname
+sudo kubectl get    pods -n namespace-nickname
 
 
 ..text..

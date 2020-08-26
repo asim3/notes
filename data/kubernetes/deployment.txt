@@ -33,6 +33,20 @@ OR
 sudo kubectl run asim-pod --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8000
 
 
+..text..
+select a namespace
+..code..
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-nickname
+  namespace: namespace-nickname # <<<<<< 
+spec: 
+  serviceAccountName: service-nickname 
+  containers:
+  - # ...
+
+
 ..sub_title..
 Manifest file
 ..code..
