@@ -1,0 +1,28 @@
+..link.. master.txt
+..
+..link.. terminal/advance_aliases.txt
+advance aliases
+..link.. terminal/advance_customise.txt
+advance customise
+..link.. terminal/advance_script_file.txt
+advance script file
+..link.. terminal/advance.txt
+advance
+..link.. terminal/basics.txt
+basics
+..link.. terminal/env_variables.txt
+env variables
+..link.. terminal/info.txt
+info
+..link.. terminal/install.txt
+install
+..link.. terminal/other.txt
+other
+..link.. terminal/schedule.txt
+schedule
+..link.. terminal/ssh.txt
+ssh
+..link.. terminal/systemctl_add_new.txt
+systemctl add new
+..link.. terminal/systemctl.txt
+systemctl

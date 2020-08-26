@@ -1,0 +1,24 @@
+..link.. master.txt
+..
+..link.. python/arguments.txt
+arguments
+..link.. python/dict.txt
+dict
+..link.. python/function.txt
+function
+..link.. python/list.txt
+list
+..link.. python/object.txt
+object
+..link.. python/os_bash.txt
+os bash
+..link.. python/os_download_files.txt
+os download files
+..link.. python/os.txt
+os
+..link.. python/other.txt
+other
+..link.. python/pip.txt
+pip
+..link.. python/string.txt
+string

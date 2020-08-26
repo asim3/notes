@@ -73,8 +73,27 @@ const replace_html = (text) => {
 }
 
 
+const get_path_init_html = function (path) {
+    return new Promise(function (resolve, reject) {
+        dir_path = path.match(/(.*\/)/g)[0] || ""
+        fetch(`${website_href + 'data/' + dir_path}init.txt`)
+            .then(function (response) {
+                if (response.ok) {
+                    response.text()
+                        .then(function (text) {
+                            resolve(parse_tags(text))
+                        })
+                }
+                else {
+                    reject()
+                }
+            })
+    })
+}
+
+
 const fetch_path = (path, back = false) => {
-    fetch(`data/${path}`)
+    fetch(website_href + 'data/' + path)
         .then(function (response) {
             if (response.ok) {
                 response.text()
@@ -83,14 +102,19 @@ const fetch_path = (path, back = false) => {
                             const new_href = website_href + "?path=" + path
                             window.history.pushState(path, null, new_href)
                         }
-                        return document.getElementById("body").innerHTML = parse_tags(text)
+                        get_path_init_html(path).then(function (path_init_html) {
+                            return document.getElementById("body").innerHTML = path_init_html + parse_tags(text)
+                        })
+                            .catch(function () {
+                                return document.getElementById("body").innerHTML = parse_tags(text)
+                            })
                     })
             }
             else {
                 fetch_path('master.txt')
                 console.log(response)
                 // TODO: add bootstrap function
-                alert(`not found: ${path}`)
+                alert(`not found: ${website_href + path}`)
             }
 
         })
