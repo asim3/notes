@@ -22,7 +22,7 @@ Bootstrap 4
 
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <a class="navbar-brand" href="#">
-      <img src="img1.png" alt="logo" style="width:40px;">
+      <img src="./images/user.png" alt="logo" style="width:40px;">
     </a>
     <ul class="navbar-nav">
       <li class="nav-item">

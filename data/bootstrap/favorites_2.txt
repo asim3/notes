@@ -10,7 +10,7 @@ Bootstrap 4
 
   <div class="card-columns">
     <div class="card">
-      <img class="card-img-top" src="img1.png" alt="Card image">
+      <img class="card-img-top" src="./images/user.png" alt="Card image">
       <div class="card-body">
         <h4 class="card-title">John Doe</h4>
         <p class="card-text">Some example text.</p>
@@ -19,7 +19,7 @@ Bootstrap 4
     </div>
 
     <div class="card">
-      <img class="card-img-top" src="img1.png" alt="Card image">
+      <img class="card-img-top" src="./images/user.png" alt="Card image">
       <div class="card-body">
         <h4 class="card-title">John Doe</h4>
         <p class="card-text">Some example text.</p>
@@ -28,7 +28,7 @@ Bootstrap 4
     </div>
 
     <div class="card">
-      <img class="card-img-top" src="img1.png" alt="Card image">
+      <img class="card-img-top" src="./images/user.png" alt="Card image">
       <div class="card-body">
         <h4 class="card-title">John Doe</h4>
         <p class="card-text">Some example text.</p>
@@ -41,7 +41,7 @@ Bootstrap 4
 
   <div class="card-columns">
     <div class="card">
-      <img class="card-img-top" src="img1.png" alt="Card image">
+      <img class="card-img-top" src="./images/user.png" alt="Card image">
       <div class="card-img-overlay">
         <h4 class="card-title">John Doe</h4>
         <p class="card-text">Some example text.</p>
@@ -50,7 +50,7 @@ Bootstrap 4
     </div>
 
     <div class="card">
-      <img class="card-img-top" src="img1.png" alt="Card image">
+      <img class="card-img-top" src="./images/user.png" alt="Card image">
       <div class="card-img-overlay">
         <h4 class="card-title">John Doe</h4>
         <p class="card-text">Some example text.</p>
@@ -59,7 +59,7 @@ Bootstrap 4
     </div>
 
     <div class="card">
-      <img class="card-img-top" src="img1.png" alt="Card image">
+      <img class="card-img-top" src="./images/user.png" alt="Card image">
       <div class="card-img-overlay">
         <h4 class="card-title">John Doe</h4>
         <p class="card-text">Some example text.</p>
@@ -156,7 +156,7 @@ Bootstrap 4
 <hr>
 
 <div class="media border p-3">
-  <img src="img1.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+  <img src="./images/user.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
   <div class="media-body">
     <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -170,14 +170,14 @@ Bootstrap 4
     <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
     <p>text line <br> text line <br> text line <br> text line <br> text line <br> </p>
   </div>
-  <img src="img1.png" alt="John Doe" class="ml-3 mt-3 rounded-circle" style="width:60px;">
+  <img src="./images/user.png" alt="John Doe" class="ml-3 mt-3 rounded-circle" style="width:60px;">
 </div>
 
 <hr>
 
 <!-- Media top -->
 <div class="media">
-  <img src="img1.png" class="align-self-start mr-3 rounded-circle" style="width:60px">
+  <img src="./images/user.png" class="align-self-start mr-3 rounded-circle" style="width:60px">
   <div class="media-body">
     <h4>Media Top</h4>
     <p>text line <br> text line <br> text line <br> text line <br> text line <br> </p>
@@ -188,7 +188,7 @@ Bootstrap 4
 
 <!-- Media middle -->
 <div class="media">
-  <img src="img1.png" class="align-self-center mr-3 rounded-circle" style="width:60px">
+  <img src="./images/user.png" class="align-self-center mr-3 rounded-circle" style="width:60px">
   <div class="media-body">
     <h4>Media Middle</h4>
     <p>text line <br> text line <br> text line <br> text line <br> text line <br> </p>
@@ -199,7 +199,7 @@ Bootstrap 4
 
 <!-- Media bottom -->
 <div class="media">
-  <img src="img1.png" class="align-self-end mr-3 rounded-circle" style="width:60px">
+  <img src="./images/user.png" class="align-self-end mr-3 rounded-circle" style="width:60px">
   <div class="media-body">
     <h4>Media Bottom</h4>
     <p>text line <br> text line <br> text line <br> text line <br> text line <br> </p>
@@ -209,12 +209,12 @@ Bootstrap 4
 <hr>
 
 <div class="media border p-3">
-  <img src="img1.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+  <img src="./images/user.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
   <div class="media-body">
     <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
     <p>text line <br> text line <br> text line <br> text line <br> text line <br> </p>
     <div class="media p-3">
-      <img src="img1.png" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
+      <img src="./images/user.png" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
       <div class="media-body">
         <h4>Jane Doe <small><i>Posted on February 20 2016</i></small></h4>
         <p>text line <br> text line <br> text line <br> text line <br> text line <br> </p>
