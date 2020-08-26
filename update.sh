@@ -3,7 +3,7 @@
 function update_paths {
     for dir in $1/* ; do
         if [[ $dir != *"init.txt" ]]; then
-            echo "..link.. $dir";
+            echo "..link.. $(echo "$dir" | sed -e 's/.\///')";
             echo $(echo "$dir" | sed -e 's/.*\///' -e 's/\..*//' -e 's/_/ /');
         fi
 
@@ -13,6 +13,4 @@ function update_paths {
     done;
 }
 
-cd ./data
 update_paths "."
-cd ..
