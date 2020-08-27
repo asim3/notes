@@ -1,5 +1,3 @@
-..link.. master.txt
-..
 ..link.. react_js/components.txt
 components
 ..link.. react_js/events.txt

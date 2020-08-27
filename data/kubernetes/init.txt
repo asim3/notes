@@ -1,5 +1,3 @@
-..link.. master.txt
-..
 ..link.. kubernetes/app_BKPR.txt
 app BKPR
 ..link.. kubernetes/app_helm.txt

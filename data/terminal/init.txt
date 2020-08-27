@@ -1,5 +1,3 @@
-..link.. master.txt
-..
 ..link.. terminal/advance_aliases.txt
 advance aliases
 ..link.. terminal/advance_customise.txt

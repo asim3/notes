@@ -1,5 +1,3 @@
-..link.. master.txt
-..
 ..link.. rest_framework/authentication.txt
 authentication
 ..link.. rest_framework/permissions.txt

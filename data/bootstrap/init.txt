@@ -1,5 +1,3 @@
-..link.. master.txt
-..
 ..link.. bootstrap/card.txt
 card
 ..link.. bootstrap/favorites_1.txt

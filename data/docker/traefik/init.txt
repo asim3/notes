@@ -1,4 +1,2 @@
-..link.. docker/master.txt
-..
 ..link.. docker/traefik/traefik_setup.txt
 traefik setup

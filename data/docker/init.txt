@@ -1,5 +1,3 @@
-..link.. master.txt
-..
 ..link.. docker/advance.txt
 advance
 ..link.. docker/build.txt

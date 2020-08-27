@@ -1,5 +1,3 @@
-..link.. master.txt
-..
 ..link.. django/10_forms_login.txt
 10 forms login
 ..link.. django/10_form.txt
