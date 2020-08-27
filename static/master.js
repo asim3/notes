@@ -72,6 +72,38 @@ const replace_html = (text) => {
     return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 }
 
+const get_full_path_links = function (path) {
+    const path_list = path.split("/")
+    let full_path_links = `
+        <ul class="breadcrumb"> 
+            <li class="breadcrumb-item">
+                <span class="breadcrumb-link" onclick="fetch_path('master.txt')">notes</span>
+            </li>`
+    path_list.map((path_text, dir_index) => {
+        if (path_text.slice(-4) === ".txt") {
+            full_path_links += `
+                <li class="breadcrumb-item active">
+                    ${path_text.slice(0,-4).replace(/_/g, ' ')}
+                </li>`
+        }
+        else {
+            let path_full_href = ""
+            path_list.map((x, i) => {
+                if (i <= dir_index) {
+                    path_full_href += x + "/";
+                }
+            })
+            full_path_links += `
+            <li class="breadcrumb-item">
+                <span class="breadcrumb-link" onclick="fetch_path('${path_full_href}master.txt')">
+                    ${path_text}
+                </a>
+            </li>`
+        }
+    })
+    full_path_links += `</ul> <hr>`
+    return full_path_links
+}
 
 const get_path_init_html = function (path) {
     return new Promise(function (resolve, reject) {
@@ -81,7 +113,7 @@ const get_path_init_html = function (path) {
                 if (response.ok) {
                     response.text()
                         .then(function (text) {
-                            resolve(parse_tags(text))
+                            resolve(get_full_path_links(path) + parse_tags(text))
                         })
                 }
                 else {

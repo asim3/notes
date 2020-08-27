@@ -39,6 +39,10 @@ body
 	font-size: 14px;
 	line-height: 20px;
 }
+.breadcrumb-link {
+  color: #007bff;
+  cursor: pointer;
+}
 .link
 {
   margin: 15px auto;
