@@ -114,7 +114,7 @@ const fetch_path = (path, back = false) => {
                 fetch_path('master.txt')
                 console.log(response)
                 // TODO: add bootstrap function
-                alert(`not found: ${website_href + path}`)
+                alert(`NOT FOUND: ${website_href + path}`)
             }
 
         })
