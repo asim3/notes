@@ -4,54 +4,54 @@ Asim Notes
 
 ..text..
 Languages
-..link.. html/master.txt
+..link.. html/index.txt
 HTML
-..link.. css/master.txt
+..link.. css/index.txt
 CSS
-..link.. js/master.txt
+..link.. js/index.txt
 JS
-..link.. python/master.txt
+..link.. python/index.txt
 Python
-..link.. nodejs/master.txt
+..link.. nodejs/index.txt
 Node.js
-..link.. regex/master.txt
+..link.. regex/index.txt
 regex
 
 
 
 ..text..
 Frameworks
-..link2.. django/0_master.txt
+..link2.. django/0_index.txt
 Django
-..link.. rest_framework/master.txt
+..link.. rest_framework/index.txt
 REST
-..link.. react_js/master.txt
+..link.. react_js/index.txt
 React.js
 
 
 ..sub_title..
 Linux Server
 
-..link.. terminal/master.txt
+..link.. terminal/index.txt
 Terminal
-..link2.. server/master.txt
+..link2.. server/index.txt
 Server
-..link.. devops/master.txt
+..link.. devops/index.txt
 DevOps
 
 
 ..sub_title..
 Containerization
 
-..link.. docker/master.txt
+..link.. docker/index.txt
 Docker
-..link2.. kubernetes/master.txt
+..link2.. kubernetes/index.txt
 Kubernetes
 
 
 ..text..
 Libraries
-..link.. bootstrap/master.txt
+..link.. bootstrap/index.txt
 Bootstrap 4
 ..link.. https://saleor.io/
 Saleor
@@ -59,9 +59,9 @@ Saleor
 
 ..text..
 Service
-..link.. aws/master.txt
+..link.. aws/index.txt
 AWS
-..link.. heroku/master.txt
+..link.. heroku/index.txt
 Heroku
 ..link.. https://www.twilio.com/docs
 Twilio
