@@ -12,9 +12,6 @@ function echo_dir_link {
 }
 
 function update_paths {
-    up_dir="$(echo "$path" | sed -e 's/^\.//' -e 's/\/[^\/]*$//')/master.txt"
-    echo "..link.. $(echo "$up_dir" | sed -e 's/^\.//' -e 's/^\///')"
-    echo "..";
     for path in $1/* ; do
         if [ -d $path ]; then
             echo_dir_link $path
