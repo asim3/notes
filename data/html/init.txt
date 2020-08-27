@@ -1,4 +1,2 @@
 ..link.. html/font.txt
 font
-..link.. html/master.txt
-master

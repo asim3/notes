@@ -6,8 +6,6 @@ build
 compose
 ..link.. docker/install.txt
 install
-..link.. docker/master.txt
-master
 ..link.. docker/routing_mesh.txt
 routing mesh
 ..link.. docker/swarm.txt

@@ -4,7 +4,5 @@ apache
 deploy django
 ..link.. server/firewall.txt
 firewall
-..link.. server/master.txt
-master
 ..link.. server/nginx.txt
 nginx

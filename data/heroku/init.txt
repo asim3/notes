@@ -1,6 +1,4 @@
 ..link.. heroku/django.txt
 django
-..link.. heroku/master.txt
-master
 ..link.. heroku/php.txt
 php

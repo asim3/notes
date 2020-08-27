@@ -10,7 +10,5 @@ ansible variables
 git
 ..link.. devops/jenkins.txt
 jenkins
-..link.. devops/master.txt
-master
 ..link.. devops/nagios.txt
 nagios

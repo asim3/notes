@@ -8,8 +8,6 @@ favorites 2
 favorites 3
 ..link.. bootstrap/img.txt
 img
-..link.. bootstrap/master.txt
-master
 ..link.. bootstrap/navbar.txt
 navbar
 ..link.. bootstrap/options.txt

@@ -14,8 +14,6 @@ files
 form
 ..link.. js/functions.txt
 functions
-..link.. js/master.txt
-master
 ..link.. js/math.txt
 math
 ..link.. js/other.txt
