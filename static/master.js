@@ -77,13 +77,13 @@ const get_full_path_links = function (path) {
     let full_path_links = `
         <ul class="breadcrumb"> 
             <li class="breadcrumb-item">
-                <span class="breadcrumb-link" onclick="fetch_path('master.txt')">notes</span>
+                <span class="breadcrumb-link" onclick="fetch_path('index.txt')">notes</span>
             </li>`
     path_list.map((path_text, dir_index) => {
         if (path_text.slice(-4) === ".txt") {
             full_path_links += `
                 <li class="breadcrumb-item active">
-                    ${path_text.slice(0,-4).replace(/_/g, ' ')}
+                    ${path_text.slice(0, -4).replace(/_/g, ' ')}
                 </li>`
         }
         else {
@@ -95,7 +95,7 @@ const get_full_path_links = function (path) {
             })
             full_path_links += `
             <li class="breadcrumb-item">
-                <span class="breadcrumb-link" onclick="fetch_path('${path_full_href}master.txt')">
+                <span class="breadcrumb-link" onclick="fetch_path('${path_full_href}index.txt')">
                     ${path_text}
                 </a>
             </li>`
@@ -143,7 +143,7 @@ const fetch_path = (path, back = false) => {
                     })
             }
             else {
-                fetch_path('master.txt')
+                fetch_path('index.txt')
                 console.log(response)
                 // TODO: add bootstrap function
                 alert(`NOT FOUND: ${website_href + path}`)
@@ -154,7 +154,7 @@ const fetch_path = (path, back = false) => {
 
 
 window.onload = () => {
-    const website_init_path = window.location.href.split('?')[1] || 'path=master.txt'
+    const website_init_path = window.location.href.split('?')[1] || 'path=index.txt'
     fetch_path(website_init_path.split('=')[1])
 }
 

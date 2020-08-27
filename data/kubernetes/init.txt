@@ -12,6 +12,8 @@ install minikube
 install pro
 ..link.. kubernetes/install.txt
 install
+..link.. kubernetes/master.txt
+master
 ..link.. kubernetes/rest_api.txt
 rest api
 ..link.. kubernetes/service.txt

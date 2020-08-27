@@ -8,6 +8,8 @@ forms
 hook
 ..link.. react_js/install.txt
 install
+..link.. react_js/master.txt
+master
 ..link.. react_js/other.txt
 other
 ..link.. react_js/state.txt

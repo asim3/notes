@@ -1,5 +1,7 @@
 ..link.. rest_framework/authentication.txt
 authentication
+..link.. rest_framework/master.txt
+master
 ..link.. rest_framework/permissions.txt
 permissions
 ..link.. rest_framework/routers.txt

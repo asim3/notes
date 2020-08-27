@@ -6,6 +6,8 @@ dict
 function
 ..link.. python/list.txt
 list
+..link.. python/master.txt
+master
 ..link.. python/object.txt
 object
 ..link.. python/os_bash.txt

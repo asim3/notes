@@ -7,7 +7,7 @@ function echo_file_link {
 }
 
 function echo_dir_link {
-    echo "..link.. $(echo "$1" | sed -e 's/.\///')/master.txt";
+    echo "..link.. $(echo "$1" | sed -e 's/.\///')/index.txt";
     echo $(echo "$1" | sed -e 's/.*\///' -e 's/\..*//' -e 's/_/ /g');
 }
 
@@ -15,7 +15,7 @@ function update_paths {
     for path in $1/* ; do
         if [ -d $path ]; then
             echo_dir_link $path
-        elif [[ $path != *"init.txt" ]] && [[ $path != *"master.txt" ]]; then
+        elif [[ $path != *"init.txt" ]] && [[ $path != *"index.txt" ]]; then
             echo_file_link $path
         fi
 

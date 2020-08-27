@@ -14,6 +14,8 @@ env variables
 info
 ..link.. terminal/install.txt
 install
+..link.. terminal/master.txt
+master
 ..link.. terminal/other.txt
 other
 ..link.. terminal/schedule.txt
