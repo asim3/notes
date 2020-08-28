@@ -1,11 +1,3 @@
-..title..
-Ansible
-
-..link.. devops/ansible.txt
-..
-
-
-
 ..code..
 nano nginx-install-playbook.yml
 ---

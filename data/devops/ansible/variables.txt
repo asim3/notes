@@ -1,11 +1,3 @@
-lines (23 sloc) 561 Bytes
-..title..
-Ansible
-
-..link.. devops/ansible.txt
-..
-
-
 ..code..
 nano ./my_vars.yml
 ---
