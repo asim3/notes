@@ -1,9 +1,3 @@
-..title..
-React.js
-
-..link.. react_js/master.txt
-..
-
 ..sub_title..
 "this" in Class methods
 
