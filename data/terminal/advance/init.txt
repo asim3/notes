@@ -1,0 +1,6 @@
+..link.. terminal/advance/aliases.txt
+aliases
+..link.. terminal/advance/bash_script.txt
+bash script
+..link.. terminal/advance/customise.txt
+customise

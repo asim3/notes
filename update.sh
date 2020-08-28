@@ -7,7 +7,7 @@ function echo_file_link {
 }
 
 function echo_dir_link {
-    echo "..link.. $(echo "$1" | sed -e 's/.\///')/index.txt";
+    echo "..link2.. $(echo "$1" | sed -e 's/.\///')/index.txt";
     echo $(echo "$1" | sed -e 's/.*\///' -e 's/\..*//' -e 's/_/ /g');
 }
 

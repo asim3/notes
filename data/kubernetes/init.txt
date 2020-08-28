@@ -1,24 +1,14 @@
-..link.. kubernetes/app_BKPR.txt
-app BKPR
-..link.. kubernetes/app_helm.txt
-app helm
-..link.. kubernetes/app_rancher.txt
-app rancher
+..link2.. kubernetes/apps/index.txt
+apps
 ..link.. kubernetes/deployment.txt
 deployment
-..link.. kubernetes/install_minikube.txt
-install minikube
-..link.. kubernetes/install_pro.txt
-install pro
-..link.. kubernetes/install.txt
+..link2.. kubernetes/install/index.txt
 install
 ..link.. kubernetes/rest_api.txt
 rest api
 ..link.. kubernetes/service.txt
 service
-..link.. kubernetes/settings.txt
+..link2.. kubernetes/settings/index.txt
 settings
-..link.. kubernetes/settings_users.txt
-settings users
 ..link.. kubernetes/volume.txt
 volume

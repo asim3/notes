@@ -1,11 +1,7 @@
 ..link.. bootstrap/card.txt
 card
-..link.. bootstrap/favorites_1.txt
-favorites 1
-..link.. bootstrap/favorites_2.txt
-favorites 2
-..link.. bootstrap/favorites_3.txt
-favorites 3
+..link2.. bootstrap/favorites/index.txt
+favorites
 ..link.. bootstrap/img.txt
 img
 ..link.. bootstrap/navbar.txt

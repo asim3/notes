@@ -1,11 +1,5 @@
-..link.. devops/ansible_playbooks.txt
-ansible playbooks
-..link.. devops/ansible_roles.txt
-ansible roles
-..link.. devops/ansible.txt
+..link2.. devops/ansible/index.txt
 ansible
-..link.. devops/ansible_variables.txt
-ansible variables
 ..link.. devops/git.txt
 git
 ..link.. devops/jenkins.txt

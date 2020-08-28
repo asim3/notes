@@ -8,11 +8,7 @@ function
 list
 ..link.. python/object.txt
 object
-..link.. python/os_bash.txt
-os bash
-..link.. python/os_download_files.txt
-os download files
-..link.. python/os.txt
+..link2.. python/os/index.txt
 os
 ..link.. python/other.txt
 other

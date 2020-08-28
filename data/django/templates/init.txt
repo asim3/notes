@@ -1,0 +1,2 @@
+..link.. django/templates/other.txt
+other

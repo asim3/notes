@@ -1,0 +1,20 @@
+..link.. django/views/class_based_views/create.txt
+create
+..link.. django/views/class_based_views/delete.txt
+delete
+..link.. django/views/class_based_views/detail.txt
+detail
+..link.. django/views/class_based_views/list.txt
+list
+..link.. django/views/class_based_views/login.txt
+login
+..link.. django/views/class_based_views/mixin.txt
+mixin
+..link.. django/views/class_based_views/override.txt
+override
+..link.. django/views/class_based_views/pattern.txt
+pattern
+..link.. django/views/class_based_views/template.txt
+template
+..link.. django/views/class_based_views/update.txt
+update

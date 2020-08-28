@@ -10,5 +10,5 @@ install
 routing mesh
 ..link.. docker/swarm.txt
 swarm
-..link.. docker/traefik/index.txt
+..link2.. docker/traefik/index.txt
 traefik

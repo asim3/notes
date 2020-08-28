@@ -1,10 +1,4 @@
-..link.. terminal/advance_aliases.txt
-advance aliases
-..link.. terminal/advance_customise.txt
-advance customise
-..link.. terminal/advance_script_file.txt
-advance script file
-..link.. terminal/advance.txt
+..link2.. terminal/advance/index.txt
 advance
 ..link.. terminal/basics.txt
 basics
@@ -20,7 +14,5 @@ other
 schedule
 ..link.. terminal/ssh.txt
 ssh
-..link.. terminal/systemctl_add_new.txt
-systemctl add new
-..link.. terminal/systemctl.txt
+..link2.. terminal/systemctl/index.txt
 systemctl

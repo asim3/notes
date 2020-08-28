@@ -1,0 +1,4 @@
+..link.. kubernetes/install/minikube_install.txt
+minikube install
+..link.. kubernetes/install/production_install.txt
+production install

@@ -1,60 +1,22 @@
-..link.. django/10_forms_login.txt
-10 forms login
-..link.. django/10_form.txt
-10 form
-..link.. django/11_class_based_views_create.txt
-11 class based views create
-..link.. django/11_class_based_views_delete.txt
-11 class based views delete
-..link.. django/11_class_based_views_detail.txt
-11 class based views detail
-..link.. django/11_class_based_views_list.txt
-11 class based views list
-..link.. django/11_class_based_views_login.txt
-11 class based views login
-..link.. django/11_class_based_views_mixin.txt
-11 class based views mixin
-..link.. django/11_class_based_views_override.txt
-11 class based views override
-..link.. django/11_class_based_views_pattern.txt
-11 class based views pattern
-..link.. django/11_class_based_views_template.txt
-11 class based views template
-..link.. django/11_class_based_views.txt
-11 class based views
-..link.. django/11_class_based_views_update.txt
-11 class based views update
-..link.. django/12_middleware.txt
-12 middleware
-..link.. django/15_crispy_form.txt
-15 crispy form
-..link.. django/2_sittings.txt
-2 sittings
-..link.. django/3_urls.txt
-3 urls
-..link.. django/4_views_other.txt
-4 views other
-..link.. django/4_views.txt
-4 views
-..link.. django/5_templates_other.txt
-5 templates other
-..link.. django/5_templates.txt
-5 templates
-..link.. django/6_orm_filter.txt
-6 orm filter
-..link.. django/6_orm_sql.txt
-6 orm sql
-..link.. django/6_orm.txt
-6 orm
-..link.. django/7_login2.txt
-7 login2
-..link.. django/7_Login.txt
-7 Login
-..link.. django/8_admin.txt
-8 admin
-..link.. django/9_model.txt
-9 model
+..link.. django/admin.txt
+admin
+..link.. django/crispy_form.txt
+crispy form
+..link2.. django/forms/index.txt
+forms
+..link.. django/middleware.txt
+middleware
+..link.. django/model.txt
+model
 ..link.. django/other.txt
 other
+..link.. django/sittings.txt
+sittings
+..link2.. django/templates/index.txt
+templates
 ..link.. django/translation.txt
 translation
+..link.. django/urls.txt
+urls
+..link2.. django/views/index.txt
+views

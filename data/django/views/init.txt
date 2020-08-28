@@ -1,0 +1,10 @@
+..link2.. django/views/class_based_views/index.txt
+class based views
+..link.. django/views/login_2.txt
+login 2
+..link.. django/views/Login.txt
+Login
+..link2.. django/views/orm/index.txt
+orm
+..link.. django/views/other.txt
+other
