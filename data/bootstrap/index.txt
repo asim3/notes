@@ -1,34 +1,3 @@
-..title..
-Bootstrap 4
-
-..link.. master.txt
-..
-
-..link.. bootstrap/options.txt
-المساحة والألوان
-
-..link.. bootstrap/styles.txt
-الانماط
-
-..link.. bootstrap/navbar.txt
-التنقل
-
-..link.. bootstrap/card.txt
-بطاقة
-
-..link.. bootstrap/favorites_1.txt
-المفضلة
-
-..link.. bootstrap/table.txt
-الجدول
-
-..link.. bootstrap/img.txt
-الصور
-
-..link.. bootstrap/other.txt
-اخرى
-
-
 ..sub_title..
 CDN link
 ..code..

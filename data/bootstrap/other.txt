@@ -1,9 +1,3 @@
-..title..
-Bootstrap 4
-
-..link.. bootstrap/master.txt
-..
-
 ..link.. https://octicons.github.com/
 GitHub's icons
 

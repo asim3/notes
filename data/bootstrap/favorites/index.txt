@@ -1,16 +1,3 @@
-..title..
-Bootstrap 4
-
-..link.. bootstrap/master.txt
-..
-
-..رابط.. bootstrap/favorites_2.txt
-البطاقات
-
-..رابط.. bootstrap/favorites_3.txt
-المدخلات
-
-
 ..raw..
 
   <div class="jumbotron">
@@ -22,7 +9,7 @@ Bootstrap 4
 
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <a class="navbar-brand" href="#">
-      <img src="./images/user.png" alt="logo" style="width:40px;">
+      <img src="./static/images/user.png" alt="logo" style="width:40px;">
     </a>
     <ul class="navbar-nav">
       <li class="nav-item">
