@@ -1,9 +1,3 @@
-..title..
-Django Class Based Views
-
-..link.. rest_framework/master.txt
-..
-
 ..link.. https://github.com/encode/django-rest-framework/blob/master/rest_framework/permissions.py
 github
 

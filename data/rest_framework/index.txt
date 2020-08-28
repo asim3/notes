@@ -1,29 +1,5 @@
-..title..
-Django REST framework
-
-..link.. master.txt
-..
-
-..link.. rest_framework/serializers.txt
-Serializers
-
-..link.. rest_framework/views.txt
-Views
-
-..link.. rest_framework/routers.txt
-Routers
-
-..link.. rest_framework/authentication.txt
-Authentication
-
-..link.. rest_framework/permissions.txt
-Permissions
-
-
-
-
 ..sub_title..
-REST framework
+Django REST framework
 
 
 ..text..
