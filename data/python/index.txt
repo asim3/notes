@@ -1,28 +1,3 @@
-..title..
-Cheat Sheet for Python
-
-..link.. master.txt
-..
-..link.. python/arguments.txt
-Arguments
-..link.. python/list.txt
-List
-..link.. python/dict.txt
-Dictionary
-..link.. python/string.txt
-String
-..link.. python/object.txt
-Object
-..link.. python/pip.txt
-pip
-..link.. python/function.txt
-function
-..link.. python/os.txt
-OS
-..link.. python/other.txt
-Other
-
-
 ..sub_title..
 Virtual Environments
 ..code..
