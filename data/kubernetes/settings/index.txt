@@ -1,12 +1,3 @@
-..title..
-Kubernetes
-
-..link.. kubernetes/master.txt
-..
-..link.. kubernetes/settings_users.txt
-user management
-
-
 ..sub_title..
 Kubernetes settings
 

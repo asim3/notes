@@ -1,22 +1,3 @@
-..title..
-Kubernetes
-
-..link.. master.txt
-..
-
-..link2.. kubernetes/install.txt
-Install
-..link.. kubernetes/settings.txt
-Settings
-..link.. kubernetes/deployment.txt
-Deployment
-..link.. kubernetes/service.txt
-Service
-..link.. kubernetes/volume.txt
-Volume
-..link.. kubernetes/rest_api.txt
-REST API
-
 ..sub_title..
 Apps
 

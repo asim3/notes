@@ -1,14 +1,3 @@
-..title..
-Kubernetes
-
-..link.. kubernetes/master.txt
-..
-..link.. kubernetes/install_minikube.txt
-Install Minikube
-..link.. kubernetes/install_pro.txt
-Production install
-
-
 ..sub_title..
 Install Kubernetes for testing
 
