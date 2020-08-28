@@ -1,11 +1,3 @@
-..title..
-Schedule Tasks on Linux Using Crontab
-
-..link.. terminal/master.txt
-..
-
-
-
 ..text..
 show crontabs are currently running
 ..code..

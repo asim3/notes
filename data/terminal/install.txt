@@ -1,9 +1,3 @@
-..title..
-Terminal, Bash, Linux Command Line
-
-..link.. terminal/master.txt
-..
-
 ..link.. https://www.debian.org/
 Install Debian 10 Buster
 

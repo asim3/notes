@@ -1,11 +1,3 @@
-..title..
-Terminal, Bash, Linux Command Line
-
-
-..link.. terminal/systemctl.txt
-..
-
-
 ..code..
 touch my_service.sh
 chmod +x my_service.sh

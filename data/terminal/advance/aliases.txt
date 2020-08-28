@@ -1,10 +1,3 @@
-..title..
-Aliases
-
-..link.. terminal/advance.txt
-..
-
-
 ..sub_title..
 Aliases (shortcut for terminal commands)
 

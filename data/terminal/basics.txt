@@ -1,12 +1,3 @@
-
-..title..
-Terminal, Bash, Linux Command Line
-
-..link.. terminal/master.txt
-..
-
-
-
 ..code..
 sleep 3; echo done 
 # execute 1 then 2

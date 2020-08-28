@@ -1,32 +1,3 @@
-..title..
-Terminal, Bash, Linux Command Line
-
-..link.. master.txt
-..
-
-..link.. terminal/basics.txt
-Basics
-..link.. terminal/advance.txt
-Advance
-..link.. terminal/install.txt
-Install Packages
-..link.. terminal/ssh.txt
-SSH
-..text..
-
-..link.. terminal/schedule.txt
-Schedule Tasks
-..link.. terminal/systemctl.txt
-systemctl
-..link.. terminal/env_variables.txt
-env variables
-..link.. terminal/info.txt
-system info
-..link.. terminal/other.txt
-Other
-
-
-
 ..code..
 mkdir add_new_folders
 
