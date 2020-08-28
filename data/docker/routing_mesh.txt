@@ -1,8 +1,2 @@
-..title..
-Docker Engine - Community
-
-..link.. docker/master.txt
-..
-
 ..link.. https://docs.docker.com/engine/swarm/ingress/
 swarm routing mesh

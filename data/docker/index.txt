@@ -1,25 +1,5 @@
-..title..
-Docker Engine - Community
-
-..link.. master.txt
-..
-
-..link.. docker/install.txt
-install
-..link.. docker/build.txt
-build
-..link.. docker/advance.txt
-advance
-..link.. docker/compose.txt
-compose
-..link.. docker/swarm.txt
-swarm
-..link.. docker/routing_mesh.txt
-routing mesh
-..link2.. docker/traefik.txt
-Traefik
-
 ..sub_title..
+Docker Engine - Community
 Containerization
 
 

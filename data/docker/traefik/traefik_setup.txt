@@ -1,9 +1,3 @@
-..title..
-Traefik
-
-..link.. docker/traefik.txt
-..
-
 ..link.. https://gist.github.com/Mau5Machine/00401feb19433cf0387cc66c8e90c26c
 docker-compose.yml
 ..link.. https://gist.github.com/Mau5Machine/ccd4d62a85b88c2996ba81a1a1b223b1

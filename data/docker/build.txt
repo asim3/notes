@@ -1,13 +1,10 @@
-..title..
-Docker Engine - Community
-
-..link.. docker/master.txt
-..
 ..link.. https://github.com/wsargent/docker-cheat-sheet#dockerfile
 docker-cheat-sheet
 ..link.. https://docs.docker.com/engine/reference/builder/#environment-replacement
 Environment replacement
 
+..sub_title..
+Docker Engine - Community
 
 ..text..
 making php file

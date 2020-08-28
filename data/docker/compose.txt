@@ -1,11 +1,3 @@
-..title..
-Docker Engine - Community
-
-..link.. docker/master.txt
-..
-
-
-
 ..code..
 docker-compose version
 

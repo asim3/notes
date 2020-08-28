@@ -1,13 +1,3 @@
-..title..
-Traefik
-
-..link.. docker/master.txt
-..
-
-..link.. docker/traefik_setup.txt
-traefik setup
-
-
 ..code..
 mkdir ~/traefik_test_1/ && nano ~/traefik_test_1/docker-compose.yml
 
