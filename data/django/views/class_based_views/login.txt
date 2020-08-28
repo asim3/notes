@@ -1,9 +1,3 @@
-..title..
-Django Class Based Views
-
-..link.. django/11_class_based_views.txt
-..
-
 ..link.. https://github.com/django/django/blob/master/django/contrib/auth/views.py
 @GitHub
 

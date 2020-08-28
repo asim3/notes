@@ -1,9 +1,3 @@
-..title..
-Django Class Based Views
-
-..link.. django/11_class_based_views.txt
-..
-
 ..sub_title..
 views.py
 ..code..

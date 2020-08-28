@@ -1,9 +1,3 @@
-..title..
-Django Class Based Views
-
-..link.. django/11_class_based_views.txt
-..
-
 ..sub_title..
 views.py
 ..code..
@@ -11,15 +5,16 @@ from django.views.generic import (
     CreateView, DetailView, ListView,
     UpdateView, DeleteView
 )
+from show_table.models import Table1
+from django.urls import reverse
 
+class UpdateTable(UpdateView):
+    template_name = 'edit_table/edit_table.html'
+    pk_url_kwarg = 'pk'
 
-class CreateNew(CreateView):
-    template_name = 'edit_table/create_new.html'
-
-    success_url = '/show/' # or Table1.get_absolute_url >> in model.py
-    # or
+    success_url = "//youtube.com" # or Table1.get_absolute_url >> in model.py
     def get_success_url(self):
-        return reverse('user_details', kwargs={'pk': self.object.id})
+        return reverse('url_name', kwargs={'pk': self.object.id})
 
     model = Table1
     fields = ['title', 'desc', 'year', 'age', 'ser']
@@ -34,40 +29,22 @@ class CreateNew(CreateView):
 
     def form_valid(self, form):
         obj = form.save(commit=False)
-        obj.user = self.request.user
-        return super().form_valid(form)
-        
-    def form_valid(self, form):
-        obj = form.save(commit=False)
         obj.fk_student = Table1.objects.get(id=self.kwargs.get('id'))
         return super().form_valid(form)
-
-    def dispatch(self, request, *args, **kwargs):
-        form = self.get_form()
-        old_form = {}
-        for field in self.fields:
-            value = ''
-            if form.data:
-                value = form.data.get(field)
-            old_form[field] = value
-        self.extra_context = {'old_form': old_form}
-        return super().dispatch(request, *args, **kwargs)
-
 
 
 ..text..
 urls.py
 ..code..
 urlpatterns = [
-  path('new/', CreateNew.as_view(), name='create_new'),
+  path('edit/<slug:pk>', UpdateTable.as_view(), name='edit_table'),
 ]
-
 
 
 ..text..
 templates
 ..code..
-  <h3>إضافة حقل جديد</h3>
+  <h3>تعديل الجدول</h3>
   <a class="btn btn-info mb-2" href="/show/">رجوع</a>
 
   <form method="post">
@@ -75,7 +52,7 @@ templates
     {{ form|crispy }}
     <div class="alert">
 
-
+      <a class="btn btn-danger" href="/delete/{{ object.id }}">حذف</a>
       <input type="submit" class="btn btn-primary float-left" value="حفظ">
 
     </div>

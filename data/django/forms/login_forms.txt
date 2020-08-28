@@ -1,9 +1,3 @@
-..title..
-Django Login Form
-
-..link.. django/10_form.txt
-..
-
 ..code..
 from django import forms
 from django.contrib.auth import (

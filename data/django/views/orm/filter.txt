@@ -1,12 +1,3 @@
-..title..
-Django Model
-
-..link.. django/6_orm.txt
-..
-
-
-
-
 ..sub_title..
 Null
 ..code..

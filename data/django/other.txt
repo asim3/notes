@@ -1,9 +1,3 @@
-..title..
-Django Other
-
-..link.. django/0_master.txt
-..
-
 ..link.. https://django-hordak.readthedocs.io/en/stable/accounting-for-developers.html
 accounting app
 

@@ -1,26 +1,3 @@
-..title..
-Django Views
-
-..link.. django/0_master.txt
-..
-
-..link.. django/6_orm.txt
-ORM
-
-..link.. django/7_login.txt
-Login
-
-..link.. django/7_login2.txt
-Login 2
-
-..link.. django/11_class_based_views.txt
-Class Based Views
-
-..link.. django/4_views_other.txt
-Other
-
-
-
 ..sub_title..
 عرض الصفحة الرئيسية
 ..code..

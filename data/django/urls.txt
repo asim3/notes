@@ -1,10 +1,3 @@
-..title..
-Django URLs
-
-..link.. django/0_master.txt
-..
-
-
 ..text..
 Using static html in /project/templates/index.html
 ..code..

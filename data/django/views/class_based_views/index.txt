@@ -1,39 +1,3 @@
-..title..
-Django Class Based Views
-
-..link.. django/4_views.txt
-..
-
-..link.. django/11_class_based_views_template.txt
-Template View
-
-..link.. django/11_class_based_views_list.txt
-List View
-
-..link.. django/11_class_based_views_update.txt
-Update View
-
-..link.. django/11_class_based_views_create.txt
-Create View
-
-..link.. django/11_class_based_views_detail.txt
-Detail View
-
-..link.. django/11_class_based_views_login.txt
-Login View
-
-..link.. django/11_class_based_views_delete.txt
-Delete View
-
-..link.. django/11_class_based_views_mixin.txt
-Mixin
-
-..link.. django/11_class_based_views_pattern.txt
-الأنماط
-
-..link.. django/11_class_based_views_override.txt
-Override
-
 ..sub_title..
 Built-in class-based views API
 ..code..

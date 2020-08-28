@@ -21,7 +21,7 @@ regex
 
 ..text..
 Frameworks
-..link2.. django/0_index.txt
+..link2.. django/index.txt
 Django
 ..link.. rest_framework/index.txt
 REST

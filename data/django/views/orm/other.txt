@@ -1,9 +1,3 @@
-..title..
-Django Model
-
-..link.. django/6_orm.txt
-..
-
 ..نص..
 تنفيذ أمر مباشر
 ..code..

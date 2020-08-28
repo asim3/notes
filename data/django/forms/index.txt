@@ -1,13 +1,3 @@
-..title..
-Django Form
-
-..link.. django/0_master.txt
-..
-
-..link.. django/10_forms_login.txt
-Login Form
-
-
 ..sub_title..
 Form
 ..code..

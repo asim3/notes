@@ -1,15 +1,3 @@
-..title..
-Django Model
-
-..link.. django/4_views.txt
-..
-
-..link.. django/6_orm_filter.txt
-التصفية
-
-..link.. django/6_orm_sql.txt
-Other
-
 ..code..
 from .models import table1, table2, table3
 

@@ -1,9 +1,3 @@
-..title..
-Django Admin
-
-..link.. django/0_master.txt
-..
-
 ..sub_title..
 Shows models in admin page
 ..code..
