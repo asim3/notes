@@ -1,9 +1,3 @@
-..title..
-Setup PHP for Heroku
-
-..link.. heroku/master.txt
-..
-
 ..sub_title..
 app setup
 
