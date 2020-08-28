@@ -1,11 +1,3 @@
-..title..
-Installing Nginx
-
-..link.. server/master.txt
-..
-
-
-
 ..sub_title..
 Installing Nginx
 ..code..
