@@ -9,8 +9,8 @@ const parse_tags = function (text) {
         { tag: "raw", type: "raw", start: `div class='raw'`, end: "div" },
         { tag: "text", type: "text", start: `div class='text'`, end: "div" },
         { tag: "نص", type: "text", start: `div class='text arabic'`, end: "div" },
-        { tag: "link", type: "link", start: `div class='btn btn-primary mb-1'`, end: "div" },
-        { tag: "link2", type: "link", start: `div class='btn btn-success mb-1'`, end: "div" },
+        { tag: "link", type: "link", start: `div class='btn btn-primary my-1'`, end: "div" },
+        { tag: "link2", type: "link", start: `div class='btn btn-success my-1'`, end: "div" },
         { tag: "رابط", type: "link", start: `div class='btn btn-primary mb-1 arabic'`, end: "div" },
         { tag: "code", type: "code", start: `pre class='alert code'`, end: "pre" },
         { tag: "برمجة", type: "code", start: `pre class='alert code'`, end: "pre" },
@@ -67,8 +67,12 @@ const replace_html = (text) => {
 
 const get_full_path_links = function (path) {
     const path_list = path.split("/")
-    let full_path_links = `
-        <ul class="breadcrumb"> 
+    let full_path_links = ` 
+        <div class="jumbotron mb-1 pb-0">
+            <h1 class="capitalize">${path_list[0].replace(/_/g, ' ')}</h1>
+            <p  class="capitalize">${path_list.slice(1, -1).toString().replace(/,/g, ' - ').replace(/_/g, ' ')}</p>
+        
+        <ul class="breadcrumb m-0 pl-0"> 
             <li class="breadcrumb-item">
                 <span class="breadcrumb-link" onclick="fetch_path('index.txt')">notes</span>
             </li>`
@@ -89,12 +93,12 @@ const get_full_path_links = function (path) {
             full_path_links += `
             <li class="breadcrumb-item">
                 <span class="breadcrumb-link" onclick="fetch_path('${path_full_href}index.txt')">
-                    ${path_text}
+                    ${path_text.replace(/_/g, ' ')}
                 </a>
             </li>`
         }
     })
-    full_path_links += `</ul> <hr>`
+    full_path_links += `</ul> </div>`
     return full_path_links
 }
 
@@ -106,7 +110,7 @@ const get_path_init_html = function (path) {
                 if (response.ok) {
                     response.text()
                         .then(function (text) {
-                            resolve(get_full_path_links(path) + parse_tags(text))
+                            resolve(get_full_path_links(path) + parse_tags(text) + "<hr>")
                         })
                 }
                 else {

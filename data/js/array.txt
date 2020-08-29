@@ -1,6 +1,22 @@
 ..sub_title..
 Array
 ..code..
+const arr = [1,2,3,4,5,6,7]
+
+arr[0] // 1
+arr[3] // 4
+
+arr.slice(3)
+// [4, 5, 6, 7]
+
+arr.slice(-2)
+// [6, 7]
+arr.slice(0, -2)
+// [1, 2, 3, 4, 5]
+
+
+
+..code..
 const array1 = [1, 2, 3]
 array1.includes(2)
 
