@@ -1,8 +1,6 @@
 const website_href = window.location.href.split('?')[0]
 
 const parse_tags = function (text) {
-
-    const reg_exp = /\.\.([^\.\n\s]*)\.\.([^\n]*)/
     const html_tags = [
         { tag: "title", type: "title", start: `div class='title'`, end: "div" },
         { tag: "عنوان", type: "title", start: `div class='jumbotron title arabic'`, end: "div" },
@@ -17,9 +15,9 @@ const parse_tags = function (text) {
         { tag: "code", type: "code", start: `pre class='alert code'`, end: "pre" },
         { tag: "برمجة", type: "code", start: `pre class='alert code'`, end: "pre" },
     ]
+    const reg_exp = /\.\.([^\.\n\s]*)\.\.([^\n]*)/
     const match_1 = text.match(reg_exp)
     if (match_1 && match_1[1]) {
-
         let match_tag = html_tags.find(obj => obj.tag == match_1[1])
         if (!match_tag) {
             match_tag = { tag: "error", type: "error", start: `div class='code' style='background: red;'`, end: "div" }
@@ -59,12 +57,7 @@ const parse_tags = function (text) {
             return `<${match_tag.start}>${replace_html(match_tag.html.trim())}</${match_tag.end}> ${next_html}`
         }
     }
-    else {
-        if (match_tag.type == "raw") {
-            return text
-        }
-        return replace_html(text)
-    }
+    return replace_html(text)
 }
 
 
