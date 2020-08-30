@@ -67,9 +67,10 @@ const replace_html = (text) => {
 
 const get_full_path_links = function (path) {
     const path_list = path.split("/")
+    const title = path_list[0].replace(/_/g, ' ').replace("index.txt", "asim notes")
     let full_path_links = ` 
         <div class="jumbotron mb-1 pb-0">
-            <h1 class="capitalize">${path_list[0].replace(/_/g, ' ')}</h1>
+            <h1 class="capitalize">${title}</h1>
         <ul class="breadcrumb m-0 pl-0"> 
             <li class="breadcrumb-item">
                 <span class="breadcrumb-link" onclick="fetch_path('index.txt')">notes</span>
@@ -102,8 +103,8 @@ const get_full_path_links = function (path) {
 
 const get_path_init_html = function (path) {
     return new Promise(function (resolve, reject) {
-        dir_path = path.match(/(.*\/)/g)[0] || ""
-        fetch(`${website_href + 'data/' + dir_path}init.txt`)
+        dir_path = path.match(/(.*\/)/g) || [""]
+        fetch(`${website_href + 'data/' + dir_path[0]}init.txt`)
             .then(function (response) {
                 if (response.ok) {
                     response.text()
@@ -149,8 +150,9 @@ const fetch_path = (path, back = false) => {
 
 
 window.onload = () => {
-    const website_init_path = window.location.href.split('?')[1] || 'path=index.txt'
-    fetch_path(website_init_path.split('=')[1])
+    let website_init_path = window.location.href.split('?')[1] || 'path=index.txt'
+    website_init_path = website_init_path.split('=')[1] || 'index.txt'
+    fetch_path(website_init_path)
 }
 
 window.onpopstate = function (event) {
