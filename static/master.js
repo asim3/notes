@@ -70,8 +70,6 @@ const get_full_path_links = function (path) {
     let full_path_links = ` 
         <div class="jumbotron mb-1 pb-0">
             <h1 class="capitalize">${path_list[0].replace(/_/g, ' ')}</h1>
-            <p  class="capitalize">${path_list.slice(1, -1).toString().replace(/,/g, ' - ').replace(/_/g, ' ')}</p>
-        
         <ul class="breadcrumb m-0 pl-0"> 
             <li class="breadcrumb-item">
                 <span class="breadcrumb-link" onclick="fetch_path('index.txt')">notes</span>

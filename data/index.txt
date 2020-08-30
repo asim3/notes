@@ -1,3 +1,17 @@
+..raw..
+<div class="jumbotron mb-1 pb-0">
+  <h1 class="capitalize">Asim Notes</h1>
+  <ul class="breadcrumb m-0 pl-0"> 
+    <li class="breadcrumb-item">
+      <span class="breadcrumb-link" onclick="fetch_path('index.txt')">notes</span>
+    </li>
+    <li class="breadcrumb-item active">
+      index
+    </li>
+  </ul> 
+</div>
+
+
 ..sub_title..
 Asim Notes
 
