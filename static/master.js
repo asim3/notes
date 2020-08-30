@@ -126,15 +126,16 @@ const fetch_path = (path, back = false) => {
             if (response.ok) {
                 response.text()
                     .then(function (text) {
+                        const body_text = text.slice(0, 2) === ".." ? parse_tags(text) : markdownit().render(text)
                         if (!back) {
                             const new_href = website_href + "?path=" + path
                             window.history.pushState(path, null, new_href)
                         }
                         get_path_init_html(path).then(function (path_init_html) {
-                            return document.getElementById("body").innerHTML = path_init_html + parse_tags(text)
+                            return document.getElementById("body").innerHTML = path_init_html + body_text
                         })
                             .catch(function () {
-                                return document.getElementById("body").innerHTML = parse_tags(text)
+                                return document.getElementById("body").innerHTML = body_text
                             })
                     })
             }

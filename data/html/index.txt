@@ -1,7 +1,10 @@
-..code..
+adding `js` to html 
+``` html
 <script src="main.js"></script>
+```
 
-..code..
+adding `css` to html 
+```
 <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16">
 <link rel="stylesheet" type="text/css" href="main.css">
 
@@ -22,21 +25,25 @@ rel values:
     prev
     search
     stylesheet
+```
 
-..code..
+
+```
 <a href="tel:+966500"></a>
     tel: – place a phone call
     mailto: – open an email app
     sms: – send a text message
     callto: open Skype
+```
 
-..text..
-CSS 
-..code..
+
+### CSS
+```
 a[href^="mailto:"] { ... }
 a[href^="tel:"] { ... }
+```
 
-..text..
 return false will prevent browser from following the link
-..code..
+```
 <a href="/home.html" onclick="show_page(this.href);return false;">show</a>
+```
