@@ -1,4 +1,0 @@
-..link.. heroku/django.txt
-django
-..link.. heroku/php.txt
-php

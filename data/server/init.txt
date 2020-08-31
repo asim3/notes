@@ -1,8 +1,0 @@
-..link.. server/apache.txt
-apache
-..link.. server/deploy_django.txt
-deploy django
-..link.. server/firewall.txt
-firewall
-..link.. server/nginx.txt
-nginx

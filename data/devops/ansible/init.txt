@@ -1,6 +1,0 @@
-..link.. devops/ansible/playbooks.txt
-playbooks
-..link.. devops/ansible/roles.txt
-roles
-..link.. devops/ansible/variables.txt
-variables

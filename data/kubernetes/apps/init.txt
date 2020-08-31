@@ -1,6 +1,0 @@
-..link.. kubernetes/apps/BKPR.txt
-BKPR
-..link.. kubernetes/apps/helm.md
-helm
-..link.. kubernetes/apps/rancher.txt
-rancher

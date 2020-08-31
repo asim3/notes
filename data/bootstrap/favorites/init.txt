@@ -1,4 +1,0 @@
-..link.. bootstrap/favorites/cards.txt
-cards
-..link.. bootstrap/favorites/inputs.txt
-inputs

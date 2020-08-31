@@ -1,4 +1,0 @@
-..link.. django/views/ORM/filter.txt
-filter
-..link.. django/views/ORM/other.txt
-other

@@ -113,12 +113,12 @@ const get_full_path_links = function (path) {
 const get_path_init_html = function (path) {
     return new Promise(function (resolve, reject) {
         dir_path = path.match(/(.*\/)/g) || [""]
-        fetch(`${website_href + 'data/' + dir_path[0]}init.txt`)
+        fetch(`${website_href + 'data/' + dir_path[0]}init.html`)
             .then(function (response) {
                 if (response.ok) {
                     response.text()
                         .then(function (text) {
-                            resolve(get_full_path_links(path) + parse_tags(text) + "<hr>")
+                            resolve(get_full_path_links(path) + text + "<hr>")
                         })
                 }
                 else {
