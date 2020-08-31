@@ -1,5 +1,7 @@
 const website_href = window.location.href.split('?')[0]
 
+const loading_div = `<div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%;"></div>`
+
 const replace_html = (text) => {
     return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 }
@@ -75,12 +77,13 @@ const get_full_path_links = function (path) {
     const path_list = path.split("/")
     const title = path_list[0].replace(/_/g, ' ').replace("index.txt", "asim notes")
     let full_path_links = ` 
-        <div class="jumbotron mb-1 pb-0">
+        <div id="jumbotron" class="jumbotron pt-4 pb-0">
             <h1 class="capitalize">${title}</h1>
-        <ul class="breadcrumb m-0 pl-0"> 
-            <li class="breadcrumb-item">
-                <span class="breadcrumb-link" onclick="fetch_path('index.txt')">notes</span>
-            </li>`
+            <div class="progress" id="loading_div"></div>
+            <ul class="breadcrumb m-0 pl-0"> 
+                <li class="breadcrumb-item">
+                    <span class="breadcrumb-link" onclick="fetch_path('index.txt')">notes</span>
+                </li>`
     path_list.map((path_text, dir_index) => {
         if (path_text.slice(-4) === ".txt") {
             full_path_links += `
@@ -126,7 +129,8 @@ const get_path_init_html = function (path) {
 }
 
 
-const fetch_path = (path, back = false) => {
+const fetch_path = function (path, back = false) {
+    document.getElementById("loading_div").innerHTML = loading_div
     fetch(website_href + 'data/' + path)
         .then(function (response) {
             if (response.ok) {
