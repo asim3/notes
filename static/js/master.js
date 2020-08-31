@@ -136,7 +136,7 @@ const fetch_path = function (path, back = false) {
             if (response.ok) {
                 response.text()
                     .then(function (text) {
-                        const body_text = text.slice(0, 2) === ".." ? parse_tags(text) : markdownit().render(text)
+                        const body_text = path.slice(-3) === ".md" ? markdownit().render(text) : parse_tags(text)
                         if (!back) {
                             const new_href = website_href + "?path=" + path
                             window.history.pushState(path, null, new_href)
