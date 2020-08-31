@@ -1,9 +1,6 @@
-..sub_title..
-Helm
+# Helm
 
-
-..text..
-Installation
+#### Installation
 ```
 sudo snap install helm --classic
 

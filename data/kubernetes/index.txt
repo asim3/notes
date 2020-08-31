@@ -1,15 +1,6 @@
 ..sub_title..
 Apps
 
-..link.. kubernetes/app_helm.txt
-Helm
-..link.. kubernetes/app_rancher.txt
-Rancher
-..link.. kubernetes/app_BKPR.txt
-Bitnami Production
-
-
-
 ..code..
 sudo kubectl version --short --client 
 sudo kubectl version --short

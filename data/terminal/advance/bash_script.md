@@ -1,14 +1,15 @@
-..link.. http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html
-BASH HOW-TO
+[BASH HOW-TO](http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html)
 
 
-..text..
 to run script in terminal
-..code..
->>> bash file_name
+```
+bash file_name
+# or
+. file_name
+```
 
 
-..code..
+```
 #!/bin/bash
 
 echo Hello World
@@ -18,9 +19,10 @@ VAR='Hello World'
 echo "$VAR"
 
 echo 'my name' > file.txt
+```
 
 
-..code..
+```
 >> bash file_name value1 value2
 
 echo $@ # value1 value2
@@ -31,9 +33,10 @@ echo "${2}" # value2
 echo "$((5 + 5))" # 10
 # echo "$(1 + 1)" # error
 # echo "$(1 + 1)" # error
+```
 
 
-..code..
+```
 get_name() {
   echo "John"
 }
@@ -47,11 +50,11 @@ get_name
 my_function
 
 echo "You are $(get_name)"
+```
 
 
-..text..
 Functions with arguments
-..code..
+```
 function my_function {
   echo "\$1 = $1"
   echo "\$2 = $2"
@@ -66,11 +69,11 @@ echo "-------------------"
 my_function "asim" "bader"
 echo "-------------------"
 my_function "asim" "bader" "ahmed"
+```
 
 
-..text..
 string replace regex
-..code..
+```
 echo "asim bader ahmed asim bader ahmed" | sed -e 's/asim/mohammed/'
 # mohammed bader ahmed asim bader ahmed
 echo "asim bader ahmed asim bader ahmed" | sed -e 's/asim/mohammed/g'
@@ -79,18 +82,20 @@ echo "asim bader ahmed asim bader ahmed" | sed -e 's/asim/mohammed/g'
 
 dir="aaa/bbb/ccc/ddd_eee.txt"
 echo $(echo "$dir" | sed -e 's/.*\///' -e 's/\..*//' -e 's/_/ /');
+```
 
 
-..code..
+```
 log_enabled="true"
 if [ "$1" = "1" ]; then
     echo "my name is asim 1"
 else
     echo "my name is asim 2"
 fi
+```
 
 
-..code..
+```
 T1="foo"
 T2="bar"
 if [ "$T1" = "$T2" ]; then
@@ -98,3 +103,4 @@ if [ "$T1" = "$T2" ]; then
 else
     echo expression evaluated as false
 fi
+```

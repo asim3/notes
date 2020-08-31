@@ -15,7 +15,7 @@ function update_paths {
     for path in $1/* ; do
         if [ -d $path ]; then
             echo_dir_link $path
-        elif [[ $path != *"init.txt" ]] && [[ $path != *"index.txt" ]]; then
+        elif [[ $path != *"init."* ]] && [[ $path != *"index."* ]]; then
             echo_file_link $path
         fi
 
