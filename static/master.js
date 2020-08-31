@@ -1,5 +1,15 @@
 const website_href = window.location.href.split('?')[0]
 
+const replace_html = (text) => {
+    return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+}
+
+const highlight_code = function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block)
+    })
+}
+
 const parse_tags = function (text) {
     const html_tags = [
         { tag: "title", type: "title", start: `div class='title'`, end: "div" },
@@ -60,10 +70,6 @@ const parse_tags = function (text) {
     return replace_html(text)
 }
 
-
-const replace_html = (text) => {
-    return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
-}
 
 const get_full_path_links = function (path) {
     const path_list = path.split("/")
@@ -132,10 +138,14 @@ const fetch_path = (path, back = false) => {
                             window.history.pushState(path, null, new_href)
                         }
                         get_path_init_html(path).then(function (path_init_html) {
-                            return document.getElementById("body").innerHTML = path_init_html + body_text
+                            document.getElementById("body").innerHTML = path_init_html + body_text
+                            highlight_code()
+                            return true
                         })
                             .catch(function () {
-                                return document.getElementById("body").innerHTML = body_text
+                                document.getElementById("body").innerHTML = body_text
+                                highlight_code()
+                                return true
                             })
                     })
             }

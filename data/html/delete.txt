@@ -1,0 +1,38 @@
+html
+``` html
+<script src="main.js"></script>
+```
+
+``` js
+document.addEventListener('click', function (event) {
+	// console.log(event.target)
+  if(event.target.dataset.delete) {
+    console.log(event.target.dataset.delete)
+  }
+})
+```
+
+``` python
+from time import sleep
+
+def func():
+    for i in range(10):
+        sleep(.5)
+        yield i
+
+type(func)    # <class 'function'>
+type(func())   # <class 'generator'>
+```
+
+
+``` bash
+echo "asim bader ahmed asim bader ahmed" | sed -e 's/asim/mohammed/'
+# mohammed bader ahmed asim bader ahmed
+echo "asim bader ahmed asim bader ahmed" | sed -e 's/asim/mohammed/g'
+# mohammed bader ahmed mohammed bader ahmed
+
+
+dir="aaa/bbb/ccc/ddd_eee.txt"
+echo $(echo "$dir" | sed -e 's/.*\///' -e 's/\..*//' -e 's/_/ /');
+```
+

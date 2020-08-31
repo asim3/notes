@@ -1,2 +1,4 @@
+..link.. html/delete.txt
+delete
 ..link.. html/font.txt
 font
