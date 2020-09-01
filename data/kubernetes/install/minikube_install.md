@@ -25,12 +25,14 @@ minikube start
 minikube start --nodes 2
 minikube start --nodes 2 -p my-demo
 
-minikube stop
-minikube delete
-
 minikube status
 minikube service list
 minikube dashboard
+
+minikube ssh
+
+minikube stop
+minikube delete
 ```
 
 OR
