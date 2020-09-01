@@ -1,5 +1,5 @@
-#### No Select
-```
+No Select
+```css
 html { font-size: 17px;}
 
 @media (max-width: 900px) { html { font-size: 15px; } }
@@ -20,22 +20,22 @@ h3 {
 ```
 
 
-#### No Select
-```
+No Select
+```css
 .no_select
 {
   -webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 ```
 
-#### Centered
-```
+Centered
+```css
 .centered {
   position: fixed;
   top: 50%;
@@ -50,8 +50,8 @@ h3 {
 
 
 
-#### Background Centered
-```
+Background Centered
+```css
 .background_center {
     width: 30%;
     height: 100px;
@@ -65,8 +65,8 @@ h3 {
 ```
 
 
-#### svg viewBox
-```
+svg viewBox
+```xml
 <svg viewBox="0 0 300 300" height="210" width="500">
     <polygon points="200,10 250,190 160,210" 
         style="fill:lime;stroke:purple;stroke-width:1"></polygon>

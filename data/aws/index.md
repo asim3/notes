@@ -1,11 +1,11 @@
-#### Installing the AWS CLI
-```
+Installing the AWS CLI
+```shell
 pip3 install awscli
 aws configure
 ```
 
-#### Buckets
-```
+Buckets
+```shell
 aws s3 ls
 aws s3 ls s3://mybucket/
 aws s3 mb s3://make_private_bucket
@@ -13,13 +13,13 @@ aws s3api create-bucket --bucket my_public_bucket --acl public-read
 ```
 
 
-#### copy
-```
+copy
+```shell
 aws s3 cp [from] [to] --recursive
 aws s3 sync [from] [to] --delete
 ```
 
-```
+```shell
 aws s3 cp s3://download_from_bucket/ ./download_from_bucket/ --recursive
 aws s3 cp ./copy_to_bucket.txt s3://mybucket/f.txt --acl public-read
 aws s3 cp ./copy_to_bucket/ s3://copy_to_bucket/ --acl public-read --recursive
@@ -30,8 +30,8 @@ aws s3 sync s3://mybucket ./download_from_bucket/ --delete
 ```
 
 
-#### remove
-```
+remove
+```shell
 aws s3 rm s3://my_bucket/remove_file.txt
 aws s3 rm s3://mybucket/remove_directories_and_contents --recursive
 aws s3 rm s3://mybucket/remove_directories_and_contents --recursive --exclude "*.jpg"
@@ -41,23 +41,23 @@ aws s3api delete-bucket --bucket delete_mybucket
 ```
 
 
-#### Permissions
-```
+Permissions
+```shell
 aws s3api put-object-acl --bucket mybucket --key "root/directorie/file.txt" --acl private
 aws s3api put-object-acl --bucket mybucket --key "root/directorie/file.txt" --acl public-read
 aws s3api put-object-acl --bucket mybucket --key "root/directorie/file.txt" --acl public-read-write
 ```
 
 
-#### limited URL lifetime 
-To  create  a  pre-signed  URL  with the default one hour lifetime that links to an object in an S3 bucket
-```
+limited URL lifetime 
+> To  create  a  pre-signed  URL  with the default one hour lifetime that links to an object in an S3 bucketshell
+```shell
 aws s3 presign s3://mybucket/ --expires-in 604800
 ```
 
 
-#### CORS configuration
-```
+CORS configuration
+```shell
 <CORSConfiguration>
   <CORSRule>
     <AllowedOrigin>*</AllowedOrigin>

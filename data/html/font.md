@@ -1,13 +1,9 @@
-..رابط.. https://www.fontface.me/
-خطوط عربية
-..رابط.. https://www.cssfontstack.com/
-الخطوط الاساسية
+[خطوط عربية](https://www.fontface.me/)
+
+[الخطوط الاساسية](https://www.cssfontstack.com/)
 
 
-..sub_title..
-الخطوط
-
-..code..
+```css
 @font-face {
   font-family: 'MyWebFont';
   src: url('webfont.eot'); /* IE9 Compat Modes */
@@ -17,15 +13,16 @@
        url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
+```
 
-..text..
-or
-..code..
+**or**
+```html
 <link rel="stylesheet" type="text/css" href="//www.fontstatic.com/f=sky-bold" />
+```
 
-..text..
-css
-..code..
+**css**
+```css
 body {
   font-family: 'sky-bold', Arial, Helvetica, sans-serif;
 }
+```
