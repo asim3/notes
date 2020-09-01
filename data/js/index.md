@@ -1,4 +1,4 @@
-```
+```js
 const foo = 1, bar = 2;
 document.title = 'title'
 typeof 'a' // string
@@ -10,7 +10,7 @@ window.scrollTo({ top: 0 })
 
 
 #### Get Element
-```
+```js
 document.querySelector('#root')
 document.getElementById('root')
 
@@ -19,12 +19,12 @@ document.getElementById('id').style.display = 'block'
 
 
 #### find in String
-```
+```js
 text.includes(word)
 text.replace(/( |\"|\')/g, "")
 ```
 
-```
+```js
 const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
 const found = paragraph.match(/(quick|lazy)/g);
 console.log(found); // Array ["quick", "lazy"]
@@ -32,7 +32,7 @@ console.log(found); // Array ["quick", "lazy"]
 
 
 #### New HTML Element
-```
+```js
 const btn = document.createElement("BUTTON")
 btn.innerHTML = "CLICK ME"
 btn.style = "margin: 10px;"
@@ -41,7 +41,7 @@ document.body.appendChild(btn)
 
 
 #### new head script
-```
+```js
 var head = document.getElementsByTagName('head')[0];
 var script = document.createElement('script');
 script.type = 'text/javascript';
@@ -52,7 +52,7 @@ script.src = "https://localhost/"+ file_name +".js";
 ```
 
 #### Events
-```
+```js
 document.addEventListener('click', function (event) {
 	// console.log(event.target)
   if(event.target.dataset.delete) {
@@ -63,13 +63,13 @@ document.addEventListener('click', function (event) {
 
 
 #### Time Loop
-```
+```js
 const func = (value, value_2) =>  console.log(value + value_2)
 setTimeout(func, 1000, 'val_1', 'val_2')
 ```
 
 
-```
+```js
 let copy_timer = 0
 clearTimeout(copy_timer)
 copy_timer = setTimeout(() => { copy_clicks = 0 }, 1000)
