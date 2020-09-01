@@ -82,13 +82,19 @@ const get_full_path_links = function (path) {
             <div class="progress" id="loading_div"></div>
             <ul class="breadcrumb m-0 pl-0"> 
                 <li class="breadcrumb-item">
-                    <span class="breadcrumb-link" onclick="fetch_path('index.txt')">notes</span>
+                    <span class="breadcrumb-link" onclick="fetch_path('index.html')">notes</span>
                 </li>`
     path_list.map((path_text, dir_index) => {
-        if (path_text.slice(-4) === ".txt") {
+        if (path_text.slice(-3) === ".md") {
             full_path_links += `
                 <li class="breadcrumb-item active">
-                    ${path_text.slice(0, -4).replace(/_/g, ' ')}
+                    ${path_text.slice(0, -3).replace(/_/g, ' ')}
+                </li>`
+        }
+        else if (path_text.slice(-5) === ".html") {
+            full_path_links += `
+                <li class="breadcrumb-item active">
+                    ${path_text.slice(0, -5).replace(/_/g, ' ')}
                 </li>`
         }
         else {
@@ -100,7 +106,7 @@ const get_full_path_links = function (path) {
             })
             full_path_links += `
             <li class="breadcrumb-item">
-                <span class="breadcrumb-link" onclick="fetch_path('${path_full_href}index.txt')">
+                <span class="breadcrumb-link" onclick="fetch_path('${path_full_href}index.md')">
                     ${path_text.replace(/_/g, ' ')}
                 </a>
             </li>`
@@ -154,7 +160,7 @@ const fetch_path = function (path, back = false) {
                     })
             }
             else {
-                fetch_path('index.txt')
+                fetch_path('index.html')
                 console.log(response)
                 // TODO: add bootstrap function
                 alert(`NOT FOUND: ${website_href + path}`)
@@ -165,8 +171,8 @@ const fetch_path = function (path, back = false) {
 
 
 window.onload = () => {
-    let website_init_path = window.location.href.split('?')[1] || 'path=index.txt'
-    website_init_path = website_init_path.split('=')[1] || 'index.txt'
+    let website_init_path = window.location.href.split('?')[1] || 'path=index.html'
+    website_init_path = website_init_path.split('=')[1] || 'index.html'
     fetch_path(website_init_path)
 }
 
