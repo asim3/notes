@@ -12,7 +12,7 @@ EOF
 }
 
 function echo_dir_link {
-    dir_path="$(echo "$1" | sed -e 's/.\///')/index.txt";
+    dir_path="$(echo "$1" | sed -e 's/.\///')/index.md";
     dir_name="$(echo "$1" | sed -e 's/.*\///' -e 's/\..*//' -e 's/_/ /g')";
     cat << EOF
 <div class='btn btn-success my-1' onclick="fetch_path('$dir_path')">

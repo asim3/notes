@@ -1,56 +1,54 @@
-..link.. https://docs.ansible.com/ansible/latest/modules/modules_by_category.html
-modules
+[modules](https://docs.ansible.com/ansible/latest/modules/modules_by_category.html)
 
 
-..sub_title..
-Configuration Management
+## Configuration Management
 
 
-..text..
-installing ansible
-..code..
+#### installing ansible
+```
 sudo add-apt-repository ppa:ansible/ansible
 sudo apt-get update
 sudo apt install ansible
 
 ansible --version
+```
 
 
-..text..
-configurations
-..code..
+#### configurations
+```
 sudo adduser admin_ansible
 sudo chown -R admin_ansible:admin_ansible /etc/ansible
 sudo apt upgrade python python3 aptitude
+```
 
 
-..text..
-inventory
-..code..
+#### inventory
+```
 sudo mkdir /etc/ansible
 sudo nano /etc/ansible/hosts
 192.168.100.147    ansible_user=asim_username
 192.168.100.148   ansible_user=asim_username
+```
 
 
-..text..
-test connection
-..code..
+#### test connection
+```
 ansible -m ping all
+```
 
 
-..sub_title..
-execute shell commands "ad-hoc commands"
-..code..
+## execute shell commands "ad-hoc commands"
+```
 ansible -m shell -a 'hostname' all
 ansible -m shell -a 'whoami' all
+```
 
-..text..
-become sudo
-..code..
+#### become sudo
+```
 ansible -m shell -b -a 'whoami' all 
 # Missing sudo password
 
 ansible -m shell -b -K -a 'whoami' all
 # root
+```
 

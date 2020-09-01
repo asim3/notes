@@ -1,10 +1,8 @@
-..sub_title..
-Django REST framework
+## Django REST framework
 
 
-..text..
-Install
-..code..
+#### Install
+```
 pip install djangorestframework
 
 # Markdown support for the browsable API.
@@ -12,22 +10,22 @@ pip install markdown
 
 # Filtering support
 pip install django-filter  
+```
 
 
 
-..text..
-Add to INSTALLED_APPS
-..code..
+#### Add to INSTALLED_APPS
+```
 INSTALLED_APPS = [
     ...
     'rest_framework',
     'rest_framework.authtoken'
 ]
+```
 
 
-..text..
-/app_name/urls.py
-..code..
+#### /app_name/urls.py
+```
 from .routers import router
 from rest_framework.authtoken.views import ObtainAuthToken
 
@@ -49,24 +47,24 @@ urlpatterns = [
     path('login/', UserLoginView.as_view()),
     path('api_auth_token/', ObtainAuthToken.as_view()),
 ]
+```
 
 
 
-..text..
-Pagination size
-..code..
+#### Pagination size
+```
 REST_FRAMEWORK = {
     ...
 
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }
+```
 
 
 
-..text..
-Default renderer classes
-..code..
+#### Default renderer classes
+```
 REST_FRAMEWORK = {
     ...
 
@@ -75,11 +73,11 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
     ),
 }
+```
 
 
-..text..
-Hierarchy
-..code..
+#### Hierarchy
+```
 include(router.urls)
 |
 └── router.register('url_path', UserViewSet)
@@ -91,3 +89,5 @@ include(router.urls)
               |
               ├── model = User
               └── fields = ['url', 'username']
+
+```

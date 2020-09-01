@@ -1,4 +1,4 @@
-..code..
+```
 heroku -v
 heroku login
 heroku apps
@@ -6,45 +6,45 @@ heroku create _
 heroku git:clone -a _
 heroku git:remote -a _
 heroku apps:destroy -a _
+```
 
 
-..sub_title..
-commit changes
-..code..
+#### commit changes
+```
 git init
 git add .
-..code..
+
 git commit -m "init commit"
-..code..
+
 git push heroku master
-..code..
+
 git status
+```
 
 
-..sub_title..
-push to heroku
-..code..
+#### push to heroku
+```
 git push heroku master
-..code..
+
 heroku open
+```
 
 
-..text..
-database info
-..code..
+#### database info
+```
 heroku pg:info -a _
 watch "heroku pg:info -a _"
+```
 
 
-..sub_title..
-scale Dynos
-..code..
+#### scale Dynos
+```
 heroku ps:scale web=1 -a _
+```
 
 
-..sub_title..
-Run app locally
-..code..
+#### Run app locally
+```
 heroku local web
 
 # pg_config is in postgresql-devel 
@@ -52,9 +52,10 @@ heroku local web
 # libpq-devel on Cygwin/Babun
 
 sudo apt install libpq-dev 
+```
 
 
-..sub_title..
-other
-..code..
+#### other
+```
 heroku access
+```

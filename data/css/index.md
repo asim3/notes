@@ -1,6 +1,5 @@
-..text..
-No Select
-..code..
+#### No Select
+```
 html { font-size: 17px;}
 
 @media (max-width: 900px) { html { font-size: 15px; } }
@@ -18,11 +17,11 @@ h2 {
 h3 {
   font-size: 2rem;
 }
+```
 
 
-..text..
-No Select
-..code..
+#### No Select
+```
 .no_select
 {
   -webkit-touch-callout: none;
@@ -33,10 +32,10 @@ No Select
 	user-select: none;
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
+```
 
-..text..
-Centered
-..code..
+#### Centered
+```
 .centered {
   position: fixed;
   top: 50%;
@@ -47,12 +46,12 @@ Centered
   display: grid;
   justify-content: space-evenly;
 }
+```
 
 
 
-..text..
-Background Centered
-..code..
+#### Background Centered
+```
 .background_center {
     width: 30%;
     height: 100px;
@@ -63,12 +62,13 @@ Background Centered
     -moz-background-size: cover;
     -webkit-background-size: cover;
 }
+```
 
 
-..text..
-svg viewBox
-..code..
+#### svg viewBox
+```
 <svg viewBox="0 0 300 300" height="210" width="500">
     <polygon points="200,10 250,190 160,210" 
         style="fill:lime;stroke:purple;stroke-width:1"></polygon>
 </svg>
+```

@@ -1,9 +1,7 @@
-..sub_title..
-Virtual Environments
+## Virtual Environments
 
-..text..
-add virtual environments
-..code..
+#### add virtual environments
+```
 sudo apt-get install python3-venv
 python3 -m venv ~/venv
 
@@ -14,9 +12,10 @@ pip3 install Django
 pip3 install -r requirements.txt
 
 deactivate
+```
 
 
-..code..
+```
 django-admin startproject my_name
 python manage.py startapp app_name
 python manage.py collectstatic
@@ -24,10 +23,11 @@ python manage.py runserver
 
 python manage.py makemigrations && python manage.py migrate
 python manage.py createsuperuser
+```
 
 
-..sub_title..
-Translation
-..code..
+## Translation
+```
 mkdir locale
 python3 manage.py makemessages -l ar
+```

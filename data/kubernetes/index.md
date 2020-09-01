@@ -1,7 +1,4 @@
-..sub_title..
-Apps
-
-..code..
+```
 sudo kubectl version --short --client 
 sudo kubectl version --short
 
@@ -10,11 +7,11 @@ sudo kubectl config view --raw
 
 sudo kubectl cluster-info
 sudo kubectl api-resources
+```
 
 
-..text..
-GET
-..code..
+#### GET
+```
 sudo kubectl get all
 
 # List all nodes "service" in a cluster
@@ -27,10 +24,11 @@ sudo kubectl get pods -o wide
 sudo kubectl get pods
 sudo kubectl get pod
 sudo kubectl get po
+```
 
 
 
-..code..
+```
 sudo kubectl get pod asim2-pod -o wide
 sudo kubectl get pod asim2-pod -o yaml
 sudo kubectl get pod asim2-pod -o json
@@ -38,11 +36,11 @@ sudo kubectl get pod asim2-pod -o json
 sudo kubectl describe pod asim2-pod
 
 sudo kubectl delete pod asim2-pod
+```
 
 
-..text..
-Namespace
-..code..
+#### Namespace
+```
 sudo kubectl get    namespace
 sudo kubectl get    ns
 sudo kubectl create ns         namespace-nickname
@@ -50,21 +48,22 @@ sudo kubectl delete ns         namespace-nickname
 
 sudo kubectl get    all  -n namespace-nickname
 sudo kubectl get    pods -n namespace-nickname
+```
 
 
-..text..
-bash to a pod
-..code..
+#### bash to a pod
+```
 sudo kubectl exec -it asim2-pod -- /bin/sh
 # OR
 sudo kubectl exec asim2-pod -- touch /home/asim-test.txt
 sudo kubectl exec asim2-pod -- ls /home -al
+```
 
 
-..text..
-Pod logs
-..code..
+#### Pod logs
+```
 sudo kubectl logs __pod_name__
 
 # follow
 sudo kubectl logs __pod_name__ -f
+```

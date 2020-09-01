@@ -1,4 +1,4 @@
-..code..
+```
 .	Any Character
 \.	Period
 \d	Any Digit
@@ -7,18 +7,19 @@
 \W	Any Non-alphanumeric character
 \s	Any Whitespace
 \S	Any Non-whitespace character
+```
 
 
-..text..
-repetitions
-..code..
+#### repetitions
+```
 *	Zero or more repetitions
 +	One or more repetitions
 ?	Optional character
+```
 
 
 
-..code..
+```
 [abc]	Only a, b, or c
 [^abc]	Not a, b, nor c
 [a-z]	Characters a to z
@@ -26,12 +27,13 @@ repetitions
 {m}	m Repetitions
 {m,n}	m to n Repetitions
 ^…$	Starts and ends
+```
 
 
-..text..
-Groups
-..code..
+#### Groups
+```
 (…)	Capture Group
 (a(bc))	Capture Sub-group
 (.*)	Capture all
 (abc|def)	Matches abc or def
+```

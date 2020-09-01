@@ -1,36 +1,28 @@
-..sub_title..
-CDN link
-..code..
+#### CDN link
+```
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+```
 
 
-..sub_title..
-القالب
-..code..
+```
 container
 container-fluid
+```
 
-..text..
-width
-..code..
+
+#### width
+```
 xs    <= 576px
 sm    >= 576px
 md    >= 768px
 lg    >= 992px
 xl    >= 1200px
+```
 
-..sub_title..
-زر
-..code..
+
+```
 btn btn-primary
 btn btn-outline-success
 active
 disabled
-..نص..
-الحجم
-..code..
-btn btn-lg btn-sm btn-block
-..نص..
-مجموعة ازرار
-..code..
-btn-group btn-group-lg btn-group-sm
+```

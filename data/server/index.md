@@ -1,34 +1,31 @@
-..text..
-Get Server IP 
-
-..code..
+#### Get Server IP 
+```
 ip route
 # ... kernel scope link src 190.168.my.local.ip 
 ifconfig
+```
 
 
-..link.. https://ifconfig.co/ip
-My Public IP 
+[My Public IP](https://ifconfig.co/ip)
 
 
-..text..
-Login to Server
-..code..
+#### Login to Server
+```
 ssh username@server.ip
+```
 
 
-..link.. terminal/ssh.txt
-Copy public key to remote server
 
-..code..
+#### Copy public key to remote server
+```
 ssh-copy-id username@server.ip
 
 ssh-copy-id asim@10.68.15.202
+```
 
 
-..text..
-Add a New User
-..code..
+#### Add a New User
+```
 # useradd is a low level utility for adding users. 
 # sudo useradd -m my-new-user
 # On Debian, administrators should usually use adduser(8) instead.
@@ -43,10 +40,10 @@ sudo adduser my-new-user sudo
 
 # switch user
 su - my-new-user
+```
 
-..text..
-change hostname
-..code..
+#### change hostname
+```
 hostnamectl set-hostname my-test-server
 cat /etc/hostname 
 
@@ -55,22 +52,22 @@ sudo nano /etc/hosts
 127.0.0.1       localhost
 192.168.1.1     my-test-server
 192.168.100.44  my-admin-server
+```
 
 
-..text..
-disable password and root login
-..code..
+#### disable password and root login
+```
 sudo nano /etc/ssh/sshd_config 
 sudo systemctl restart sshd
 
 # /etc/ssh/sshd_config
 PermitRootLogin no
 PasswordAuthentication no 
+```
 
 
-..text..
-Granting sudo Privileges to Users
-..code..
+#### Granting sudo Privileges to Users
+```
 sudo visudo
 
 # /etc/sudoers.tmp
@@ -80,3 +77,4 @@ asim    ALL=(ALL:ALL) NOPASSWD: ALL
 asim    ALL=(ALL:ALL) NOPASSWD: /usr/bin/ansible
 
 # user hostname=(runas-user:runas-group) command
+```

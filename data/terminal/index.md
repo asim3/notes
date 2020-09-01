@@ -1,4 +1,4 @@
-..code..
+```
 mkdir add_new_folders
 
 rm *.pdf
@@ -9,11 +9,11 @@ cp duplicate.txt .
 
 mv rename_folders to_downloads
 mv rename_files.js to_other.js
+```
 
 
-..text..
-Read and Edit
-..code..
+#### Read and Edit
+```
 touch add_new_file.txt
 
 cat read_file_in_terminal.txt
@@ -21,11 +21,11 @@ less read_file_in_terminal.txt # press "q" to exit
 
 nano edit_file.txt
 gedit edit_file.txt
+```
 
 
-..text..
-CURL
-..code..
+#### CURL
+```
 curl google.com
 
 # Follow redirects
@@ -52,11 +52,11 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" https://g
 
 # CURL in readable JSON format
 curl https://jsonplaceholder.typicode.com/users | json_pp
+```
 
 
-..text..
-Permissions
-..code..
+#### Permissions
+```
 sudo chown asim:asim /www
 sudo chown myusername file.txt
 
@@ -74,11 +74,11 @@ sudo chmod 664 file.txt
 5 = r-x
 6 = rw-
 7 = rwx
+```
 
 
-..text..
-Linux Directory
-..code..
+#### Linux Directory
+```
 /etc     => Configuration files
 /tmp     => Temporary Files "will be deleted after reboot"
 /var     => Variable Files
@@ -97,3 +97,4 @@ Linux Directory
 /proc    => Process Information
 
 /lost+found    => Misplaced Data
+```
