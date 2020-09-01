@@ -1,4 +1,4 @@
-```
+```shell
 sudo kubectl version --short --client 
 sudo kubectl version --short
 
@@ -10,8 +10,8 @@ sudo kubectl api-resources
 ```
 
 
-#### GET
-```
+GET
+```shell
 sudo kubectl get all
 
 # List all nodes "service" in a cluster
@@ -28,7 +28,7 @@ sudo kubectl get po
 
 
 
-```
+```shell
 sudo kubectl get pod asim2-pod -o wide
 sudo kubectl get pod asim2-pod -o yaml
 sudo kubectl get pod asim2-pod -o json
@@ -39,8 +39,8 @@ sudo kubectl delete pod asim2-pod
 ```
 
 
-#### Namespace
-```
+Namespace
+```shell
 sudo kubectl get    namespace
 sudo kubectl get    ns
 sudo kubectl create ns         namespace-nickname
@@ -51,8 +51,8 @@ sudo kubectl get    pods -n namespace-nickname
 ```
 
 
-#### bash to a pod
-```
+bash to a pod
+```shell
 sudo kubectl exec -it asim2-pod -- /bin/sh
 # OR
 sudo kubectl exec asim2-pod -- touch /home/asim-test.txt
@@ -60,8 +60,8 @@ sudo kubectl exec asim2-pod -- ls /home -al
 ```
 
 
-#### Pod logs
-```
+Pod logs
+```shell
 sudo kubectl logs __pod_name__
 
 # follow

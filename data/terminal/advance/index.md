@@ -1,6 +1,5 @@
-..text..
 Files archive
-..code..
+```shell
 # new tar file
 tar -cf my_archive.tar my_file.txt
 tar -cf dir_archive.tar ./my_dir/
@@ -15,23 +14,26 @@ tar -tvf my_archive.tar
 
 # print all files while adding to archive
 tar -cvf my_archive.tar my_file.txt 
+```
 
 
-..text..
 gzipped archive >> super small size
-..code..
+```shell
 tar -czf my_archive.tar.gz /var/my_dir/
 tar -xzf my_archive.tar.gz
+```
 
 
 
-..text..
 add user
-..code..
+```shell
 sudo adduser asim
 
 # list all groups
 cat /etc/group
+
+# set a password
+sudo passwd my-new-user
 
 # add user to sudo group
 sudo adduser asim sudo
@@ -41,66 +43,67 @@ sudo adduser asim my_group
 
 # show all my groups
 id
+```
 
 
-..text..
 add a hard link "shortcut"
-..code..
+```shell
 ln ~/Downloads/my_file.pdf ~/Desktop/short_cut.aaaaa
 sudo ln -s /usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin/node /usr/bin/node
+```
 
 
 
-..text..
 Edit bash init file
-..code..
+```shell
 nano ~/.bashrc
 nano ~/.bash_profile # for macOS
 nano /etc/profile # for all users except root
+```
 
 
-..code..
+```shell
 # add to ~/.bashrc
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+```
 
 
 
-..text..
 Aliases (shortcut for terminal commands)
-..code..
+```shell
 # add to ~/.bash_aliases
 alias ddd="cd ~/Desktop/"
+```
 
 
-..text..
 connect domain names with IP addresses in local computer 
-..code..
+```shell
 sudo nano /etc/hosts
+```
 
 
-..text..
 Show running process name
-..code..
+```shell
 pgrep -l sys
 pgrep -l python
 pgrep -l firefox
+```
 
 
-..text..
 Stop running process by name
-..code..
+```shell
 pkill python
 pkill firefox
 pkill gunicorn
 
 killall python3
+```
 
 
-..text..
 Print or check checksums
-..code..
+```shell
 # MD5 (128-bit)
 md5sum filename
 # check
@@ -108,3 +111,4 @@ md5sum -c md5sum.txt
 
 # SHA256 (256-bit)
 sha256sum filename
+```
