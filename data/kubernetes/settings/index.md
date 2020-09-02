@@ -1,13 +1,11 @@
-## Kubernetes settings
 
-
-```
+```text
 sudo kubectl config view
 ```
 
 
-#### clusters
-```
+clusters
+```text
 sudo kubectl config get-clusters
 sudo kubectl config delete-cluster my-new-k3d
 
@@ -18,8 +16,8 @@ sudo kubectl config set-cluster cluster_nickname --certificate-authority=~/.kube
 ```
 
 
-#### context
-```
+context
+```text
 # print current user
 sudo kubectl config current-context
 
@@ -34,8 +32,8 @@ sudo kubectl config delete-context context_nickname
 ```
 
 
-#### credentials
-```
+credentials
+```text
 sudo kubectl config set-credentials user_nickname --username=admin --password=aaa
 sudo kubectl config set-credentials aaa --client-certificate=path/to/certfile.crt 
 sudo kubectl config set-credentials aaa --client-key=path/to/keyfile.key 
@@ -45,8 +43,8 @@ sudo kubectl config set-credentials aaa --auth-provider-arg=key=value
 ```
 
 
-#### unset
-```
+unset
+```text
 sudo kubectl config unset current-context
 sudo kubectl config unset clusters
 sudo kubectl config unset contexts

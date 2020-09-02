@@ -14,7 +14,7 @@ GET
 ```shell
 sudo kubectl get all
 
-# List all nodes "service" in a cluster
+# List all nodes `service` in a cluster
 sudo kubectl get nodes
 
 sudo kubectl get deployments
@@ -48,6 +48,14 @@ sudo kubectl delete ns         namespace-nickname
 
 sudo kubectl get    all  -n namespace-nickname
 sudo kubectl get    pods -n namespace-nickname
+```
+
+List secrets
+```
+sudo kubectl get secrets
+
+sudo kubectl describe secret
+sudo kubectl describe secret my-secret
 ```
 
 

@@ -1,13 +1,12 @@
-..sub_title..
-user management
+[Creating sample user](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md)
 
-..text..
+
 daemonset
-..code..
+```shell
 sudo kubectl get ds --all-namespaces
+```
 
-
-..code..
+```shell
 sudo kubectl get role
 sudo kubectl get rolebinding
 sudo kubectl get clusterrole
@@ -16,13 +15,13 @@ sudo kubectl get clusterrolebinding
 sudo kubectl describe clusterrole cluster-role-nickname
 sudo kubectl describe clusterrolebinding cluster-role-nickname
 sudo kubectl describe clusterrolebinding cluster-admin
+```
 
 
-..text..
 ClusterRole
-..code..
-nano my_cluster_role.yml
 
+`nano my_cluster_role.yml`
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -35,13 +34,13 @@ rules:
   # objects is "secrets"
   resources: ["secrets"]
   verbs: ["get", "watch", "list"]
+```
 
 
-..text..
 ClusterRoleBinding
-..code..
-nano my_cluster_role_binding.yml
 
+`nano my_cluster_role_binding.yml`
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
@@ -57,28 +56,30 @@ roleRef:
   kind: ClusterRole
   name: cluster-role-nickname
   apiGroup: rbac.authorization.k8s.io
+```
 
 
-..code..
+```shell
 sudo kubectl apply -f my_cluster_role.yml
 sudo kubectl apply -f my_cluster_role_binding.yml
+```
 
 
 
 
-..text..
 Service Accounts
-..code..
-nano my_service_file.yml
 
+`nano my_service_file.yml`
+```yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: service-nickname
   namespace: namespace-nickname
+```
 
 
-..code..
+```shell
 sudo kubectl create -f my_service_file.yml
 
 sudo kubectl get      serviceaccounts
@@ -87,3 +88,4 @@ sudo kubectl get      sa              -n namespace-nickname
 
 sudo kubectl describe sa service-nickname -n namespace-nickname
 sudo kubectl delete   sa service-nickname -n namespace-nickname
+```
