@@ -1,5 +1,5 @@
 python manage.py
-```text
+```  bash
 heroku run python manage.py makemigrations
 heroku run python manage.py migrate -a _
 
@@ -10,7 +10,7 @@ heroku run python manage.py collectstatic -a _
 
 
 app setup
-```text
+```  bash
 pip install django-heroku gunicorn
 
 echo "Django==2.1.4" >> requirements.txt

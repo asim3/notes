@@ -1,5 +1,5 @@
 Files archive
-```text
+```  bash
 # new tar file
 tar -cf my_archive.tar my_file.txt
 tar -cf dir_archive.tar ./my_dir/
@@ -18,7 +18,7 @@ tar -cvf my_archive.tar my_file.txt
 
 
 gzipped archive >> super small size
-```text
+```  bash
 tar -czf my_archive.tar.gz /var/my_dir/
 tar -xzf my_archive.tar.gz
 ```
@@ -26,7 +26,7 @@ tar -xzf my_archive.tar.gz
 
 
 add user
-```text
+```  bash
 sudo adduser asim
 
 # list all groups
@@ -47,7 +47,7 @@ id
 
 
 add a hard link "shortcut"
-```text
+```  bash
 ln ~/Downloads/my_file.pdf ~/Desktop/short_cut.aaaaa
 sudo ln -s /usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin/node /usr/bin/node
 ```
@@ -55,14 +55,14 @@ sudo ln -s /usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin/node /usr/bin/node
 
 
 Edit bash init file
-```text
+```  bash
 nano ~/.bashrc
 nano ~/.bash_profile # for macOS
 nano /etc/profile # for all users except root
 ```
 
 
-```text
+```  bash
 # add to ~/.bashrc
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -72,20 +72,20 @@ fi
 
 
 Aliases (shortcut for terminal commands)
-```text
+```  bash
 # add to ~/.bash_aliases
 alias ddd="cd ~/Desktop/"
 ```
 
 
 connect domain names with IP addresses in local computer 
-```text
+```  bash
 sudo nano /etc/hosts
 ```
 
 
 Show running process name
-```text
+```  bash
 pgrep -l sys
 pgrep -l python
 pgrep -l firefox
@@ -93,7 +93,7 @@ pgrep -l firefox
 
 
 Stop running process by name
-```text
+```  bash
 pkill python
 pkill firefox
 pkill gunicorn
@@ -103,7 +103,7 @@ killall python3
 
 
 Print or check checksums
-```text
+```  bash
 # MD5 (128-bit)
 md5sum filename
 # check

@@ -1,7 +1,7 @@
 ..sub_title..
 Installation
 
-```text
+```  bash
 pip install boto3
 pip install django-storages
 ```

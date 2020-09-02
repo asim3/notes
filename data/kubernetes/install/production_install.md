@@ -5,7 +5,7 @@
 
 
 Install kubeadm & kubelet $ conntrack
-```text
+```  bash
 kubeadm version
 kubelet --version
 sudo conntrack -S
@@ -18,7 +18,7 @@ sudo apt install socat
 
 
 initialise master node
-```text
+```  bash
 sudo kubeadm init
 sudo kubeadm init --pod-network-cidr=192.168.100.164/24
 sudo kubeadm init --pod-network-cidr=10.240.0.0/16
@@ -31,7 +31,7 @@ kubectl get pods --all-namespaces
 
 
 initialise worker node
-```text
+```  bash
 kubeadm token create --print-join-command
 
 kubeadm join --token [] --discovery-token-ca-cert-hash []

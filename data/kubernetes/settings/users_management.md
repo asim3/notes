@@ -2,11 +2,11 @@
 
 
 daemonset
-```text
+```  bash
 sudo kubectl get ds --all-namespaces
 ```
 
-```text
+```  bash
 sudo kubectl get role
 sudo kubectl get rolebinding
 sudo kubectl get clusterrole
@@ -59,7 +59,7 @@ roleRef:
 ```
 
 
-```text
+```  bash
 sudo kubectl apply -f my_cluster_role.yml
 sudo kubectl apply -f my_cluster_role_binding.yml
 ```
@@ -79,7 +79,7 @@ metadata:
 ```
 
 
-```text
+```  bash
 sudo kubectl create -f my_service_file.yml
 
 sudo kubectl get      serviceaccounts

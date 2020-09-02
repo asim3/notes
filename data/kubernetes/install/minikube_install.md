@@ -1,7 +1,7 @@
 ## Install Minikube
 
 
-```text
+```  bash
 sudo apt install conntrack
 ```
 
@@ -9,7 +9,7 @@ sudo apt install conntrack
 
 [Install Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
 
-```text
+```  bash
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
 
 chmod +x ./minikube
@@ -20,7 +20,7 @@ minikube version
 
 > don't use sudo
 
-```text
+```  bash
 minikube start -p cluster_nickname
 minikube start --nodes 2
 minikube start --nodes 2 -p cluster_nickname
@@ -37,7 +37,7 @@ minikube delete
 
 OR
 
-```text
+```  bash
 sudo minikube start --driver='none'
 sudo minikube status
 ```
