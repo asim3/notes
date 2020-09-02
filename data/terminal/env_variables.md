@@ -1,25 +1,21 @@
-..sub_title..
-environment variables
-
-
-..text..
 print all variables
-..code..
+```shell
 env
+```
 
-..text..
+
 set a new environment variable
-..code..
+```shell
 nano ~/.bashrc
 
 # ...
 export ASIM_1="AAAAAAAAAAAAAAAAA"
 export ASIM_2="bbbbbbbbbbbbbbbb"
+```
 
 
-..text..
 print variable
-..code..
+```shell
 echo $ASIM
 printenv ASIM
 
@@ -37,3 +33,4 @@ echo 'home: $HOME'
 
 echo "I am $(whoami)"
       I am asim_username
+```

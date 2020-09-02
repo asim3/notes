@@ -1,4 +1,12 @@
-..code..
+```shell
+find /var -name  asim
+find /var -name  asim*
+find /var -name *asim
+find /var -name *asim*
+```
+
+
+```shell
 sleep 3; echo done 
 # execute 1 then 2
 
@@ -7,9 +15,10 @@ sleep 3 && echo 3
 
 echo 1 || echo 3 
 # execute 1 then (if 1 is error) run 2
+```
 
 
-..code..
+```shell
 # Execute last command again
 !!
 
@@ -33,9 +42,10 @@ ls >> my.txt 2>&1
 
 # Read input from a file
 <
+```
 
 
-..code..
+```shell
 cat my.txt | head
 cat my.txt | tail
 
@@ -54,18 +64,19 @@ cat my.txt | sort -r
 cat my.txt | sort -n
 
 cat my.txt | grep '[0-9]' | sort -n
+```
 
 
-..code..
+```shell
 NAME="John"
 echo $NAME
 echo "Hello $NAME!"
 echo "${NAME}!"
+```
 
 
-..text..
-Run in Background
-..code..
+> Run in Background
+```shell
 # executes in background
 sleep 3 &
 
@@ -74,5 +85,6 @@ jobs
 
 # go to background
 fg
+```
 
 
