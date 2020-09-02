@@ -1,6 +1,7 @@
 
 ```  bash
 sudo kubectl config view
+sudo kubectl config view --raw
 ```
 
 
