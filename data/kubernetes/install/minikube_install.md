@@ -21,9 +21,9 @@ minikube version
 > don't use sudo
 
 ```shell
-minikube start
+minikube start -p cluster_nickname
 minikube start --nodes 2
-minikube start --nodes 2 -p my-demo
+minikube start --nodes 2 -p cluster_nickname
 
 minikube status
 minikube service list
