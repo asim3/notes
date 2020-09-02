@@ -1,4 +1,4 @@
-```shell
+```text
 find /var -name  asim
 find /var -name  asim*
 find /var -name *asim
@@ -6,7 +6,7 @@ find /var -name *asim*
 ```
 
 
-```shell
+```text
 sleep 3; echo done 
 # execute 1 then 2
 
@@ -18,7 +18,7 @@ echo 1 || echo 3
 ```
 
 
-```shell
+```text
 # Execute last command again
 !!
 
@@ -45,7 +45,7 @@ ls >> my.txt 2>&1
 ```
 
 
-```shell
+```text
 cat my.txt | head
 cat my.txt | tail
 
@@ -67,7 +67,7 @@ cat my.txt | grep '[0-9]' | sort -n
 ```
 
 
-```shell
+```text
 NAME="John"
 echo $NAME
 echo "Hello $NAME!"
@@ -76,7 +76,7 @@ echo "${NAME}!"
 
 
 > Run in Background
-```shell
+```text
 # executes in background
 sleep 3 &
 

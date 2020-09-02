@@ -1,5 +1,5 @@
 Get Server IP 
-```shell
+```text
 ip route
 # ... kernel scope link src 190.168.my.local.ip 
 ifconfig
@@ -10,14 +10,14 @@ ifconfig
 
 
 Login to Server
-```shell
+```text
 ssh username@server.ip
 ```
 
 
 
 Copy public key to remote server
-```shell
+```text
 ssh-copy-id username@server.ip
 
 ssh-copy-id asim@10.68.15.202
@@ -25,7 +25,7 @@ ssh-copy-id asim@10.68.15.202
 
 
 Add a New User
-```shell
+```text
 # useradd is a low level utility for adding users. 
 # sudo useradd -m my-new-user
 # On Debian, administrators should usually use adduser(8) instead.
@@ -43,7 +43,7 @@ su - my-new-user
 ```
 
 change hostname
-```shell
+```text
 hostnamectl set-hostname my-test-server
 cat /etc/hostname 
 
@@ -56,7 +56,7 @@ sudo nano /etc/hosts
 
 
 disable password and root login
-```shell
+```text
 sudo nano /etc/ssh/sshd_config 
 sudo systemctl restart sshd
 
@@ -67,7 +67,7 @@ PasswordAuthentication no
 
 
 Granting sudo Privileges to Users
-```shell
+```text
 sudo visudo
 
 # /etc/sudoers.tmp
