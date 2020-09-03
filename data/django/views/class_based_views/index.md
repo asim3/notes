@@ -1,17 +1,15 @@
-..sub_title..
 Built-in class-based views API
-..code..
+```python
 https://docs.djangoproject.com/en/2.1/ref/class-based-views/
 
-..sub_title..
 الشكل البسيط
-..code..
-path('', TemplateView.as_view(template_name="base/home.html") ),
+```
+path('', TemplateView.as_view(template_name="base/home.html") ),python
+```
 
 
-..sub_title..
 الشكل الطبيعي
-..code..
+```python
 # views.py
 from django.views.generic import TemplateView
 
@@ -26,16 +24,17 @@ class AboutView(TemplateView):
     def get(self, request, *args, **kwargs):
       # ...
       return super().get(request, *args, **kwargs)
+```
 
 
-..code..
+```python
 # urls.py
 path('about/', AboutView.as_view() ),
+```
 
 
-..sub_title..
 تخطي المعادلة
-..code..
+```python
 class ListTable(ListView):
     # queryset = Table1.objects.order_by(order_by_this)
     model = Table1
@@ -47,12 +46,12 @@ class ListTable(ListView):
         ...
 
         return super().dispatch(request, *args, **kwargs)
+```
 
 
 
-..sub_title..
 تحويل الرابط
-..code..
+```python
 from django.urls import path
 from django.views.generic.base import RedirectView
 
@@ -60,10 +59,10 @@ urlpatterns = [
   path('details/', RedirectView.as_view(url='https://djangoproject.com') ),
   path('details/', RedirectView.as_view(pattern_name='show_table') ),
 ]
+```
 
-..sub_title..
 جميع انواع الأصناف
-..code..
+```python
 TemplateView
 DetailView
 ListView
@@ -71,12 +70,12 @@ ListView
 CreateView
 UpdateView
 DeleteView
+```
 
 
 
-..sub_title..
 Base64_img
-..code..
+```python
 def get_base64_img(base64_text):
     try:
         import base64
@@ -87,3 +86,4 @@ def get_base64_img(base64_text):
         return ContentFile(base64.b64decode(base64_img), name='temp.' + ext)
     except:
         return None
+```

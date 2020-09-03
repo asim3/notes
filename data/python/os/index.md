@@ -1,4 +1,4 @@
-..code..
+```python
 import os
 
 dir = os.getcwd()
@@ -14,11 +14,11 @@ os.chdir(new_dir)
 dir = os.getcwd()
 dir_list = os.listdir(dir)
 print(dir_list)
+```
 
 
-..text..
 is file exists
-..code..
+```python
 from pathlib import Path
 
 my_file = Path("/path/to/file")
@@ -27,12 +27,11 @@ my_file.is_dir()
 my_file.exists()
 
 if os.path.isfile('test.txt'):
+```
 
 
-..text..
 Read file
-..code..
+```python
 with open('test.txt', 'r') as fff:
     file_contents = fff.read()
-
-
+```

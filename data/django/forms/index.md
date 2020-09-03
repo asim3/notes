@@ -1,6 +1,5 @@
-..sub_title..
 Form
-..code..
+```python
 from django import forms
 
 class HomeForm(forms.Form):
@@ -27,14 +26,14 @@ class HomeForm(forms.Form):
      new = forms.TypedMultipleChoiceField()
      new = forms.ComboField() # A Field whose clean() method calls multiple Field clean() methods.
      new = forms.GenericIPAddressField()
+```
 
 
-..link.. https://docs.djangoproject.com/en/2.1/ref/forms/widgets/
-widgets
+[widgets](https://docs.djangoproject.com/en/2.1/ref/forms/widgets/)
 
-..sub_title..
+
 Form from a Model
-..code..
+```python
 from django.forms import ModelForm
 from .models import Table1
 
@@ -52,11 +51,11 @@ class Table1ModelForm(ModelForm):
       if title.lower() == 'abc':
         raise forms.ValidationError("This is not a valid title")
       return title
+```
 
 
-..sub_title..
-views.py
-..code..
+`views.py`
+```python
 from django.shortcuts import render
 from .forms import Table1ModelForm
 
@@ -69,15 +68,16 @@ def test_view(request):
         'form': form,
     )
     return render(request, 'user/form.html', context)
+```
 
 
 
-..sub_title..
 تعديل واضافة على نموذج التسجيل
-..code..
+```python
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
 
 class UserRegisterForm(UserCreationForm):
    email = forms.EmailField()
+```

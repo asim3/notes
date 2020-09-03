@@ -1,36 +1,36 @@
-..sub_title..
 عرض الصفحة الرئيسية
-..code..
+```python
 from django.shortcuts import render, redirect
-..code..
+
 def showGet(request):
 	return render(request, 'index.html')
+```
 
 
-..sub_title..
 GET & POST data
-..code..
+```python
 def showGet(request):
 	if request.GET.get('title', False):
 			context['title'] = request.GET['title']
 
   if request.GET['title']: # Error if GET['title'] is not set
+```
 
 
-..code..
->>> cleaned_data['foo']
+```python
+cleaned_data['foo']
 # exception, KeyError: 'foo'
->>> cleaned_data.get('foo')
+cleaned_data.get('foo')
 # No exception, just get nothing back.
->>> cleaned_data.get('foo', "Sane Default")
-'Sane Default'
+cleaned_data.get('foo', "Sane Default")
+# 'Sane Default'
+```
 
 
 
 
-..sub_title..
 Post
-..code..
+```python
 from home.forms import HomeForm
 
 def showPost(self, request):
@@ -43,19 +43,20 @@ def showPost(self, request):
 		'form': form,
 	}
 	return render(request, 'form.html', context)
+```
 
 
-..sub_title..
 JSON
-..code..
+```python
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
-..code..
+
 def showItem(e):
    data = {"type": "group","id": "555","img": "7.jpg"}
    return JsonResponse(data, safe=False)
+```
 
 
-..code..
+```python
 from django.http import JsonResponse
 
 class CheckFontExistView(DetailView):
@@ -66,3 +67,4 @@ class CheckFontExistView(DetailView):
 	def render_to_response(self, context, **response_kwargs):
 		data = {"name": self.object.name,"src": self.object.file.url}
 		return JsonResponse(data, safe=False)
+```

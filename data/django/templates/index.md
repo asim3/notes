@@ -1,37 +1,38 @@
-..sub_title..
-استدعاء الملفات الساكنة
-..code..
+```django
 {% load static %}
 {% static 'css/main.css' %}
 {% static 'js/main.js' %}
-..text..
+```
+
 call URLs by name
-..code..
+```django
 {% url 'blog-home' %}
+```
 
 
-..sub_title..
-Master Page
-..text..
+#### Master Page
+
 in master.html
-..code..
+```django
 {% block content %}{% endblock %}
-..text..
+```
+
+
 in dependents pages
-..code..
+```django
 {% extends "app_name/master.html" %}
 
 {% block content %}{% endblock %}
+```
 
-..text..
+
 include another page
-..code..
+```django
 {% include "base/paginator.html" %}
+```
 
 
-..sub_title..
-الشرط
-..code..
+```django
 {% if aaa is not None %}
     ...
 {% elif bbb %}
@@ -41,8 +42,10 @@ include another page
 {% else %}
     ...
 {% endif %}
+```
 
-..code..
+
+```django
 {% if not aaa or bbb %}
     There are no athletes or there are some coaches.
 {% endif %}
@@ -50,16 +53,18 @@ include another page
 {% if aaa and not bbb %}
     There are some athletes and absolutely no coaches.
 {% endif %}
+```
 
-..code..
+
+```django
 {% if aaa and bbb or ccc %}
 #  if (aaa and bbb) or ccc
+```
 
 
 
-..sub_title..
 for loop
-..code..
+```django
 {% for post in posts %}
   <tr class="{% cycle '#ff0000' '#0000ff' %}">
     {{ post.author }}
@@ -68,29 +73,29 @@ for loop
 {% empty %}
   Sorry, no athletes in this list.
 {% endfor %}
+```
 
 
-..sub_title..
 عرض النموذج على شكل مختلف
-..code..
+```django
 {{ form.as_p }}
+```
 
 
-..sub_title..
 عرض اسم المستخدم
-..code..
+```django
 {% if user.is_authenticated %}
 	<h1>welcom {{ user.username }}</h1>
 	<a href="/logout/">تسجيل الخروج</a>
 {% else %}
 	<h1>please login</h1>
 {% endif %}
+```
 
 
 
-..sub_title..
 عرض الرسالة المرسلة من ملف العرض
-..code..
+```django
 {% if messages %}
   {% for message in messages %}
     <div class="alert alert-{{ message.tags }}">
@@ -98,20 +103,21 @@ for loop
     </div>
   {% endfor %}
 {% endif %}
+```
 
 
-..sub_title..
 Display Choice Value
-..code..
+```django
 object.get_aaaa_display
+```
 
-..sub_title..
 Default
-..code..
+```django
 {{ item.somefield|default_if_none:"" }}
 {{ item.somefield|default:"" }}
+```
 
-..sub_title..
 Date and Time
-..code..
+```django
 {{ object.period_start|date:"Y-m-d\\TH:m" }}
+```
