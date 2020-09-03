@@ -1,11 +1,11 @@
-```django
+```text
 {% load static %}
 {% static 'css/main.css' %}
 {% static 'js/main.js' %}
 ```
 
 call URLs by name
-```django
+```text
 {% url 'blog-home' %}
 ```
 
