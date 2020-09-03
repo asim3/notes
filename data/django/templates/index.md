@@ -107,7 +107,7 @@ for loop
 
 
 Display Choice Value
-```django
+```python
 object.get_aaaa_display
 ```
 
