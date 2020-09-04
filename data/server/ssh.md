@@ -32,6 +32,7 @@ sudo chmod 600 ~/.ssh/*
 
 
 Copy public key to remote server
+> make sure you add it to .ssh/authorized_keys file
 ```  bash
 ssh-copy-id asim@10.68.15.202
 
