@@ -5,6 +5,7 @@ mkdir ~/.ssh/
 touch ~/.ssh/authorized_keys
 chmod 700 ~/.ssh/
 chmod 600 ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/*
 
 
 # systemd
@@ -23,11 +24,10 @@ cat ~/.ssh/authorized_keys
 
 generate key
 ```bash
+cd ~/.ssh/
 ssh-keygen -t rsa -b 4096 -C "myname@example.com"
-sudo chmod 700 ~/.ssh/
-sudo chmod 600 ~/.ssh/*
 ```
-
+> if you want to change the key name make sure to put the full directory path
 
 
 
@@ -36,9 +36,18 @@ Copy public key to remote server
 ```  bash
 ssh-copy-id asim@10.68.15.202
 
-# OR 
+# OR
 
-scp ~/.ssh/id_rsa.pub username@remote.server.ip:~/.ssh/authorized_keys
+ssh asim@192.168.100.188 "echo $(cat .ssh/id_rsa.pub) >> ~/.ssh/authorized_keys"
+
+# OR window 10
+
+scp .ssh/id_rsa.pub asim_username@192.168.100.188:/tmp/new_id_rsa.pub
+ssh asim_username@192.168.100.188 "cat /tmp/new_id_rsa.pub >> ~/.ssh/authorized_keys"
+
+# OR to override all old keys
+
+scp ~/.ssh/id_rsa.pub asim@192.168.100.188:~/.ssh/authorized_keys
 ```
 > logout SSH `exit`
 
@@ -86,14 +95,12 @@ PasswordAuthentication no
 
 
 testing SSH connection
-```bash
-ssh -T git@github.com
+`ssh -T git@github.com`
 
-# if ERROR: 
-#   ssh: connect to host github.com port 22: Connection timed out
-sudo nano ~/.ssh/config
-# add to ~/.ssh/config
+> if ERROR: `ssh: connect to host github.com port 22: Connection timed out`
+`sudo nano ~/.ssh/config`
+```bash
 Host github.com
- Hostname ssh.github.com
- Port 443
+    Hostname ssh.github.com
+    Port 443
 ```
