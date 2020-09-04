@@ -1,21 +1,24 @@
 ..text..
 generate key
 ..code..
+sudo chmod 700 ~/.ssh/
+cd ~/.ssh/
 ssh-keygen -t rsa -b 4096 -C "myname@example.com"
 ssh-keygen -t rsa -b 4096
-sudo chmod 700 ~/.ssh/
 sudo chmod 600 ~/.ssh/*
 
 # Start the ssh-agent in the background
 eval "$(ssh-agent -s)"
 ssh-add ./.ssh/id_rsa
 
-# > make sure to open the SSH port
-
 
 ..text..
 Adding public key to the remote server
 ..code..
+ssh-copy-id asim@10.68.15.202
+
+# OR 
+
 ssh username@remote.server.ip 'pwd'
 ssh username@remote.server.ip 'mkdir ~/.ssh/'
 ssh username@remote.server.ip 'chmod 700 ~/.ssh/'
@@ -29,20 +32,6 @@ chown username:username .ssh/authorized_keys
 
 # logout SSH
 exit
-
-
-..sub_title..
-Install SSH Over LAN
-..code..
-sudo apt install openssh-server
-sudo systemctl status ssh
-# press >> q << to get back
-
-
-..sub_title..
-Enable SSH
-..code..
-sudo systemctl enable ssh
 
 
 ..text..

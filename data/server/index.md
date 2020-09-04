@@ -15,13 +15,28 @@ ssh username@server.ip
 ```
 
 
+Install SSH Over LAN
+```bash
+sudo apt install openssh-server
+sudo systemctl status ssh
+
+# Enable SSH
+sudo systemctl enable ssh
+```
+> make sure to open the SSH port
+
 
 Copy public key to remote server
 ```  bash
-ssh-copy-id username@server.ip
-
 ssh-copy-id asim@10.68.15.202
+
+# OR 
+
+ssh asim@192.168.100.100 'mkdir ~/.ssh/'
+ssh asim@192.168.100.100 'chmod 700 ~/.ssh/'
+scp ~/.ssh/id_rsa.pub asim@192.168.100.100:~/.ssh/authorized_keys
 ```
+> make sure you add it to .ssh/authorized_keys file
 
 
 Add a New User
