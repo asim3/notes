@@ -46,6 +46,14 @@ id
 ```
 
 
+
+copy all photo in a directory
+```bash
+find . -name \*.jpg -exec cp {} ~/my-new-jpg \;
+```
+
+
+
 add a hard link "shortcut"
 ```  bash
 ln ~/Downloads/my_file.pdf ~/Desktop/short_cut.aaaaa
