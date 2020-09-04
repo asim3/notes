@@ -17,6 +17,7 @@ ssh username@server.ip
 ssh username@remote.server.ip 'pwd'
 ssh username@remote.server.ip 'ls -al'
 ```
+> make sure you add it to .ssh/authorized_keys file
 
 
 Add a New User
