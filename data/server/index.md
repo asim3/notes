@@ -12,15 +12,10 @@ ifconfig
 Login to Server
 ```  bash
 ssh username@server.ip
-```
 
-
-
-Copy public key to remote server
-```  bash
-ssh-copy-id username@server.ip
-
-ssh-copy-id asim@10.68.15.202
+# run bash on remote server
+ssh username@remote.server.ip 'pwd'
+ssh username@remote.server.ip 'ls -al'
 ```
 
 
@@ -42,6 +37,7 @@ sudo adduser my-new-user sudo
 su - my-new-user
 ```
 
+
 change hostname
 ```  bash
 hostnamectl set-hostname my-test-server
@@ -52,17 +48,6 @@ sudo nano /etc/hosts
 127.0.0.1       localhost
 192.168.1.1     my-test-server
 192.168.100.44  my-admin-server
-```
-
-
-disable password and root login
-```  bash
-sudo nano /etc/ssh/sshd_config 
-sudo systemctl restart sshd
-
-# /etc/ssh/sshd_config
-PermitRootLogin no
-PasswordAuthentication no 
 ```
 
 
