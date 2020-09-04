@@ -10,6 +10,8 @@ sudo chmod 600 ~/.ssh/*
 eval "$(ssh-agent -s)"
 ssh-add ./.ssh/id_rsa
 
+# > make sure to open the SSH port
+
 
 ..text..
 Adding public key to the remote server
