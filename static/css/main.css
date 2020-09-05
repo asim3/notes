@@ -75,16 +75,20 @@ body
 	height: 3px;
     border-radius: 0!important;
 }
+p {
+    padding: .4rem;
+}
+.hljs {
+    padding: .4rem!important;
+}
 blockquote {
 	display: inline-block;
     position: relative;
     margin-bottom: 1rem;
-    padding: .75rem 1.25rem;
-	color: #856404;
+    color: #856404;
     background-color: #fff3cd;
-    border: 1px solid transparent;
-    border-color: #ffeeba;
-	border-radius: .25rem;
+    border: 1px solid #ffeeba;
+    border-radius: .25rem;
 }
 blockquote p {
     margin-top: 0;
