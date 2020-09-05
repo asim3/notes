@@ -19,7 +19,6 @@ minikube version
 ```
 
 > don't use sudo
-
 ```  bash
 minikube start -p cluster_nickname
 minikube start --nodes 2

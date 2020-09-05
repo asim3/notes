@@ -22,9 +22,8 @@ sudo kubectl config view | grep certificate-authority
 scp root@kmaster:/etc/kubernetes/pki/ca.{crt,key} .
 ```
 
-> if the certificate isn't in a separate file \
+> if the certificate isn't in a separate file    
 you can copy and paste the certificate text then decode it
-
 ```  bash
 sudo kubectl config view --raw | grep certificate-authority > ca.txt
 

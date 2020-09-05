@@ -23,12 +23,11 @@ cat ~/.ssh/authorized_keys
 
 
 generate key
+> if you want to change the key name make sure to put the full directory path
 ```bash
 cd ~/.ssh/
 ssh-keygen -t rsa -b 4096 -C "myname@example.com"
 ```
-> if you want to change the key name make sure to put the full directory path
-
 
 
 Copy public key to remote server
@@ -49,7 +48,6 @@ ssh asim_username@192.168.100.188 "cat /tmp/new_id_rsa.pub >> ~/.ssh/authorized_
 
 scp ~/.ssh/id_rsa.pub asim@192.168.100.188:~/.ssh/authorized_keys
 ```
-> logout SSH `exit`
 
 
 
@@ -74,6 +72,8 @@ ssh-add ./.ssh/id_rsa
 
 
 Troubleshooting
+> make sure to restart sshd    
+`sudo systemctl restart sshd`
 ```bash
 cat /etc/ssh/sshd_config
 # ...
@@ -90,14 +90,15 @@ PermitRootLogin no
 PasswordAuthentication no 
 # ...
 ```
-> make sure to restart sshd `sudo systemctl restart sshd`
 
 
+testing SSH connection    
+```bash
+ssh -T git@github.com
+```
 
-testing SSH connection
-`ssh -T git@github.com`
 
-> if ERROR: `ssh: connect to host github.com port 22: Connection timed out`
+change SSH port number 
 `sudo nano ~/.ssh/config`
 ```bash
 Host github.com

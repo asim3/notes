@@ -75,7 +75,7 @@ echo "${NAME}!"
 ```
 
 
-> Run in Background
+Run in Background
 ```  bash
 # executes in background
 sleep 3 &

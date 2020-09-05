@@ -8,8 +8,9 @@ adding **CSS** to html
 <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16">
 <link rel="stylesheet" type="text/css" href="main.css">
 ```
-> rel description: Required. Specifies the relationship between linked and document
-```
+
+> rel: Specifies the relationship between linked and document
+```text
 rel values:
     alternate
     author

@@ -1,3 +1,6 @@
+[My Public IP](https://ifconfig.co/ip)   
+
+
 Get Server IP 
 ```  bash
 ip route
@@ -6,10 +9,8 @@ ifconfig
 ```
 
 
-[My Public IP](https://ifconfig.co/ip)
-
-
 Login to Server
+> logout SSH `exit`
 ```  bash
 ssh username@server.ip
 
