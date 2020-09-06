@@ -1,17 +1,17 @@
-..text..
-show crontabs are currently running
-..code..
+## show crontabs are currently running
+```bash
 crontab -l
-..text..
-edit crontabs list 
-..code..
+```
+
+## edit crontabs list 
+```bash
 crontab -e
+```
 
 
 
-..text..
-run every minute
-..code..
+## run every minute
+```bash
 * * * * * /bin/execute/this/script.sh
 
 # minute (from 0 to 59)
@@ -19,19 +19,22 @@ run every minute
 # day of month (from 1 to 31)
 # month (from 1 to 12)
 # day of week (from 0 to 6) (0=Sunday)
+```
 
-..text..
-run every Friday 1AM
-..code..
+
+## examples
+```bash
+* * * * * echo $(date) >> ~/my-cron.txt
+```
+
+
+```bash
+# last minute of the year
+59 23 31 12 6 /bin/execute/this/script.sh
+
+# run every Friday 1AM
 0 1 * * 5 /bin/execute/this/script.sh
 
-# minute: 0
-# of hour: 1
-# of day of month: * (every day of month)
-# of month: * (every month)
-# and weekday: 5 (=Friday)
-
-..code..
 # run on workdays 1AM
 0 1 * * 1-5 /bin/execute/this/script.sh
 
@@ -42,8 +45,10 @@ run every Friday 1AM
 0,10,20,30,40,50 * * * * /bin/execute/this/script.sh
 # or
 */10 * * * * /bin/execute/this/script.sh
+```
 
-..code..
+
+```bash
 @reboot     # Run once, at startup
 @yearly     # Run once  a year     "0 0 1 1 *"
 @annually   # (same as  @yearly)
@@ -52,25 +57,26 @@ run every Friday 1AM
 @daily      # Run once  a day      "0 0 * * *"
 @midnight   # (same as  @daily)
 @hourly     # Run once  an hour    "0 * * * *"
+```
 
 
-..text..
-save output in separate logfile
-..code..
+## save output in separate logfile
+```bash
 */10 * * * * /bin/execute/this/script.sh >> /var/log/script_output.log 2>&1
 
 # 2>&1 means store errors in messages as well
 # > will overwrite the file
 # >> will append to the file
+```
 
-..text..
-Mailing the crontab output
-..code..
+## Mailing the crontab output
+```bash
 MAILTO="yourname@yourdomain.com"
+```
 
-..text..
-Trashing the crontab output
-..code..
+## Trashing the crontab output
+```bash
 */10 * * * * /bin/execute/this/script.sh > /dev/null 2>&1
 
 # /dev/null is the black hole
+```

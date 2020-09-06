@@ -1,6 +1,9 @@
 ## Install
 ```
-sudo apt install nodejs npm
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt install -y nodejs
+sudo apt install -y build-essential
+sudo apt autoremove
 
 nodejs -v
 node -v
@@ -11,11 +14,4 @@ npm -v
 ## update npm
 ```
 sudo npm install npm@latest -g
-```
-
-
-
-## Error: listen EADDRINUSE :::3000
-```
-killall -g node
 ```
