@@ -1,7 +1,7 @@
 [BASH HOW-TO](http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html)
 
 
-to run script in terminal
+## to run script in terminal
 ```bash
 bash file_name
 # or
@@ -52,7 +52,7 @@ echo "You are $(get_name)"
 ```
 
 
-Functions with arguments
+## Functions with arguments
 ```bash
 function my_function {
   echo "\$1 = $1"
@@ -71,7 +71,7 @@ my_function "asim" "bader" "ahmed"
 ```
 
 
-string replace regex
+## string replace regex
 ```bash
 echo "asim bader ahmed asim bader ahmed" | sed -e 's/asim/mohammed/'
 # mohammed bader ahmed asim bader ahmed
@@ -105,7 +105,7 @@ fi
 ```
 
 
-rename function
+## rename function
 ```bash
 #!/bin/bash
 
