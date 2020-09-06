@@ -1,6 +1,5 @@
-..text..
-Request methods
-..code..
+## Request methods
+```js
 req.hostname // Host: "example.com:3000" => 'example.com'
 req.ip
 req.ips // X-Forwarded-For is client, proxy1, proxy2 => ["client", "proxy1", "proxy2"]
@@ -26,11 +25,11 @@ req.subdomains // tobi.ferrets.example.com => ['ferrets', 'tobi']
 req.is('html')
 req.is('json')
 req.is('application/json')
+```
 
 
-..text..
-Response methods
-..code..
+## Response methods
+```js
 res.json() 	Send a JSON response.
 res.send() 	Send a response of various types.
 res.sendFile() 	Send a file as an octet stream.
@@ -45,3 +44,4 @@ res.redirect(301, 'http://example.com') // Moved Permanently
 res.sendStatus() 	Set the response status code and send its string representation as the response body.
 res.render() 	Render a view template.
 res.end() 	End the response process.
+```

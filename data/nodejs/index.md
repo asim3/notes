@@ -1,43 +1,47 @@
-#### Check Terminal
-```
-nodejs -v
-node -v
-npm -v
-```
+# new_project
 
-#### Install
-```
-sudo apt install nodejs
-sudo apt install npm
-
-# update npm
-sudo npm install npm@latest -g
+## Create JSON Package
+```js
+npm init -y
 ```
 
+## Add Express Web Framework
+```js
+npm i express
+npm install express --save
 
-#### Error: listen EADDRINUSE :::3000
-```
-killall -g node
-```
-
-
-
-#### Install node using Linux Binaries (x64) (Download)
-```
-https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-x64.tar.xz
-
-sudo mkdir -p /usr/local/lib/nodejs
-sudo tar -xJvf ~/Downloads/node-v10.16.3-linux-x64.tar.xz -C /usr/local/lib/nodejs
 ```
 
-
-#### Add node to PATH folder sudo bin link
+## run any script from package.json
+```js
+"scripts": {
+  "start": "node index.js",
+  "my_name": "echo 'running my own scripts'",
+  "div": "nodemon index"
+},
 ```
-sudo rm /usr/bin/node
-sudo rm /usr/bin/npm
-sudo rm /usr/bin/npx
 
-sudo ln -s /usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin/node /usr/bin/node
-sudo ln -s /usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin/npm /usr/bin/npm
-sudo ln -s /usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin/npx /usr/bin/npx
+## Run the script
+```js
+npm start
+npm run my_name
+npm run div
+node index.js
+node index
+```
+
+## install nodemon to restart the server after every save
+```js
+npm i -D nodemon
+```
+
+## run
+```js
+nodemon index.js
+npm run div
+```
+
+## The starting point is the "main" value in 'package.json'
+```js
+"main": "index.js",
 ```

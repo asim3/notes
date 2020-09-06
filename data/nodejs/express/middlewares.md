@@ -1,4 +1,4 @@
-..code..
+```js
 const middlewares = []
 
 middlewares.push(function(request, result, next) {
@@ -8,3 +8,4 @@ middlewares.push(function(request, result, next) {
 
 
 module.exports = middlewares
+```
