@@ -13,7 +13,7 @@ kubectl api-resources
 ```
 
 
-### GET
+## GET
 ```bash
 kubectl get all
 
@@ -42,7 +42,7 @@ kubectl delete pod asim2-pod
 ```
 
 
-### Namespace
+## Namespace
 ```  bash
 kubectl get    namespace
 kubectl get    ns
@@ -54,7 +54,7 @@ kubectl get    pods -n namespace-nickname
 ```
 
 
-### List secrets
+## List secrets
 ```bash
 kubectl get secrets
 
@@ -63,7 +63,7 @@ kubectl describe secret my-secret
 ```
 
 
-### bash to a pod
+## bash to a pod
 ```  bash
 kubectl exec -it asim2-pod -- /bin/sh
 # OR
@@ -72,7 +72,7 @@ kubectl exec asim2-pod -- ls /home -al
 ```
 
 
-### Pod logs
+## Pod logs
 ```  bash
 kubectl logs __pod_name__
 

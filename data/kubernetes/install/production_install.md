@@ -1,4 +1,4 @@
-### Install Kubernetes for production
+## Install Kubernetes for production
 
 
 [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux)

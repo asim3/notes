@@ -4,7 +4,7 @@
 
 
 
-### service account
+## service account
 ```bash
 # list all users
 kubectl get sa
@@ -13,12 +13,13 @@ kubectl get sa
 kubectl get sa default -o yaml
 ```
 
-> add a new user in the current namespace    
-  `kubectl create serviceaccount my-user`
 
+## user manifest
+add a new user in the current namespace    
+```bash
+kubectl create serviceaccount my-user
+```
 
-
-### user manifest
 write a manifest for new user    
 `nano sa-my-user.yaml`
 ```yaml
@@ -30,7 +31,7 @@ metadata:
 ```
 
 
-### add a new user
+## add a new user
 ```bash
 kubectl apply -f sa-my-user.yaml
 
@@ -42,7 +43,7 @@ kubectl describe sa my-user
 ```
 
 
-### Cluster Role Binding Manifest
+## Cluster Role Binding Manifest
 write a manifest for new Cluster Role Binding    
 `nano crb-my-user.yaml`
 ```yaml
@@ -61,7 +62,7 @@ subjects:
 ```
 
 
-### add a new Cluster Role Binding
+## add a new Cluster Role Binding
 ```bash
 kubectl apply -f crb-my-user.yaml
 
@@ -74,7 +75,7 @@ kubectl describe clusterrolebindings my-cluster-binding
 
 
 
-### view user secret
+## view user secret
 ```bash
 # list all secrets
 kubectl get secrets
@@ -85,7 +86,7 @@ kubectl describe secret my-user-token-9q5x2
 ```
 
 
-### test user connection
+## test user connection
 ```
 curl -k https://localhost:36871
 
