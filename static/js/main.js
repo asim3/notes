@@ -12,9 +12,10 @@ const highlight_code = function () {
     })
 }
 
-const set_target_for_all_links = function () {
+const set_all_links_attribute = function () {
     document.querySelectorAll('a').forEach(obj => {
         obj.setAttribute('target', '_blank')
+        obj.setAttribute('class', 'btn btn-outline-primary')
     })
 }
 
@@ -156,13 +157,15 @@ const fetch_path = function (path, back = false) {
                         get_path_init_html(path).then(function (path_init_html) {
                             document.getElementById("body").innerHTML = path_init_html + body_text
                             highlight_code()
-                            set_target_for_all_links()
+                            set_all_links_attribute()
+                            window.scrollTo(0, 0)
                             return true
                         })
                             .catch(function () {
                                 document.getElementById("body").innerHTML = body_text
                                 highlight_code()
-                                set_target_for_all_links()
+                                set_all_links_attribute()
+                                window.scrollTo(0, 0)
                                 return true
                             })
                     })
