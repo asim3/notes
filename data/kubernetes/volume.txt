@@ -1,11 +1,11 @@
 ..text..
 Persistent Volume
 ..code..
-sudo kubectl get pv
-sudo kubectl describe asim-pv
+kubectl get pv
+kubectl describe asim-pv
 
 
 ..text..
 Persistent Volume Claims
 ..code..
-sudo kubectl get pvc
+kubectl get pvc

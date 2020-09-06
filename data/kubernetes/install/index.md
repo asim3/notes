@@ -6,7 +6,7 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s http
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
-sudo kubectl version --short
+kubectl version --short
 ```
 
 

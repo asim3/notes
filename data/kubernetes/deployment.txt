@@ -13,17 +13,17 @@ spec:
 
 
 ..code..
-sudo kubectl apply  -f ./asim2-pod.yaml
-sudo kubectl create -f asim2-pod.yaml
+kubectl apply  -f ./asim2-pod.yaml
+kubectl create -f asim2-pod.yaml
 
 # Deleting resources
-sudo kubectl delete -f asim2-pod.yaml
+kubectl delete -f asim2-pod.yaml
 
 
 ..text..
 OR
 ..code..
-sudo kubectl run asim-pod --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8000
+kubectl run asim-pod --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8000
 
 
 ..text..
@@ -71,48 +71,48 @@ spec:
 ..text..
 deploy
 ..code..
-sudo kubectl apply -f my-k8s/my-first-deployment.yml
+kubectl apply -f my-k8s/my-first-deployment.yml
 
 
 ..text..
 delete
 ..code..
-sudo kubectl delete -f my-k8s/my-first-deployment.yml
+kubectl delete -f my-k8s/my-first-deployment.yml
 # OR
-sudo kubectl delete deployment my-metadata-name
+kubectl delete deployment my-metadata-name
 # OR
-sudo kubectl delete deploy my-metadata-name
+kubectl delete deploy my-metadata-name
 
 
 
 ..text..
 list
 ..code..
-sudo kubectl get deploy -o wide
-sudo kubectl get pods -o wide
+kubectl get deploy -o wide
+kubectl get pods -o wide
 
 # ReplicaSet
-sudo kubectl get rs
+kubectl get rs
 
 
 ..text..
 full deployment details
 ..code..
-sudo kubectl describe deploy my-metadata-name
-sudo kubectl describe deployment/my-metadata-name
+kubectl describe deploy my-metadata-name
+kubectl describe deployment/my-metadata-name
 
 # see updating status
-sudo kubectl rollout status deployment/my-metadata-name
+kubectl rollout status deployment/my-metadata-name
 
 
 ..text..
 update
 ..code..
-sudo kubectl apply -f my-k8s/my-first-deployment.yml
+kubectl apply -f my-k8s/my-first-deployment.yml
 # OR
-sudo kubectl edit deploy my-metadata-name
+kubectl edit deploy my-metadata-name
 # OR
-sudo kubectl set image deploy my-metadata-name nginx-container=nginx:1.9.1
+kubectl set image deploy my-metadata-name nginx-container=nginx:1.9.1
 
 
 ..text..
@@ -120,14 +120,14 @@ rollback
 ..code..
 # if rollout isn't updating
 # look for error in history
-sudo kubectl rollout history deployment/my-metadata-name
+kubectl rollout history deployment/my-metadata-name
 
 # undo the last update
-sudo kubectl rollout undo deployment/my-metadata-name
-sudo kubectl rollout status deployment/my-metadata-name
+kubectl rollout undo deployment/my-metadata-name
+kubectl rollout status deployment/my-metadata-name
 
 
 ..text..
 scaling
 ..code..
-sudo kubectl scale deploy my-metadata-name --replicas=5
+kubectl scale deploy my-metadata-name --replicas=5

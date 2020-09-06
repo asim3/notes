@@ -55,8 +55,8 @@ sudo kubeprod install generic \
   --keycloak-group "${KEYCLOAK_GROUP}"
 
 
-sudo kubectl get pods
-sudo kubectl get pods -n kubeprod
+kubectl get pods
+kubectl get pods -n kubeprod
 
 
 ..text..

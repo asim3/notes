@@ -2,80 +2,80 @@
 
 
 ```  bash
-sudo kubectl version --short --client 
-sudo kubectl version --short
+kubectl version --short --client 
+kubectl version --short
 
-sudo kubectl config view
-sudo kubectl config view --raw
+kubectl config view
+kubectl config view --raw
 
-sudo kubectl cluster-info
-sudo kubectl api-resources
+kubectl cluster-info
+kubectl api-resources
 ```
 
 
 ### GET
 ```bash
-sudo kubectl get all
+kubectl get all
 
 # List all nodes `service` in a cluster
-sudo kubectl get nodes
+kubectl get nodes
 
-sudo kubectl get deployments
+kubectl get deployments
 
 # list all pods
-sudo kubectl get pods -o wide
-sudo kubectl get pods
-sudo kubectl get pod
-sudo kubectl get po
+kubectl get pods -o wide
+kubectl get pods
+kubectl get pod
+kubectl get po
 ```
 
 
 
 ```  bash
-sudo kubectl get pod asim2-pod -o wide
-sudo kubectl get pod asim2-pod -o yaml
-sudo kubectl get pod asim2-pod -o json
+kubectl get pod asim2-pod -o wide
+kubectl get pod asim2-pod -o yaml
+kubectl get pod asim2-pod -o json
 
-sudo kubectl describe pod asim2-pod
+kubectl describe pod asim2-pod
 
-sudo kubectl delete pod asim2-pod
+kubectl delete pod asim2-pod
 ```
 
 
 ### Namespace
 ```  bash
-sudo kubectl get    namespace
-sudo kubectl get    ns
-sudo kubectl create ns         namespace-nickname
-sudo kubectl delete ns         namespace-nickname
+kubectl get    namespace
+kubectl get    ns
+kubectl create ns         namespace-nickname
+kubectl delete ns         namespace-nickname
 
-sudo kubectl get    all  -n namespace-nickname
-sudo kubectl get    pods -n namespace-nickname
+kubectl get    all  -n namespace-nickname
+kubectl get    pods -n namespace-nickname
 ```
 
 
 ### List secrets
 ```bash
-sudo kubectl get secrets
+kubectl get secrets
 
-sudo kubectl describe secret
-sudo kubectl describe secret my-secret
+kubectl describe secret
+kubectl describe secret my-secret
 ```
 
 
 ### bash to a pod
 ```  bash
-sudo kubectl exec -it asim2-pod -- /bin/sh
+kubectl exec -it asim2-pod -- /bin/sh
 # OR
-sudo kubectl exec asim2-pod -- touch /home/asim-test.txt
-sudo kubectl exec asim2-pod -- ls /home -al
+kubectl exec asim2-pod -- touch /home/asim-test.txt
+kubectl exec asim2-pod -- ls /home -al
 ```
 
 
 ### Pod logs
 ```  bash
-sudo kubectl logs __pod_name__
+kubectl logs __pod_name__
 
 # follow
-sudo kubectl logs __pod_name__ -f
+kubectl logs __pod_name__ -f
 ```

@@ -52,5 +52,5 @@ sudo helm uninstall my-test-1
 sudo helm repo add bitnami https://charts.bitnami.com/bitnami
 sudo helm install my-kubeapps bitnami/kubeapps
 
-watch 'sudo kubectl get pods'
+watch 'kubectl get pods'
 ```

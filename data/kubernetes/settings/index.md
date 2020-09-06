@@ -1,17 +1,17 @@
 # setup config file
 
 ```  bash
-sudo kubectl config view
-sudo kubectl config view --raw
+kubectl config view
+kubectl config view --raw
 ```
 
 
 ### clusters
 ```  bash
-sudo kubectl config get-clusters
-sudo kubectl config delete-cluster my-new-k3d
+kubectl config get-clusters
+kubectl config delete-cluster my-new-k3d
 
-sudo kubectl config set-cluster cluster_nickname --server=https://10.68.15.202:36871
+kubectl config set-cluster cluster_nickname --server=https://10.68.15.202:36871
     --certificate-authority=~/.kube/my-cluster/kube.ca.crt
     --insecure-skip-tls-verify=true
 ```
@@ -21,15 +21,15 @@ sudo kubectl config set-cluster cluster_nickname --server=https://10.68.15.202:3
 > link between Cluster and User Credentials
 ```  bash
 # all context
-sudo kubectl config use-context context_nickname
+kubectl config use-context context_nickname
 
-sudo kubectl config current-context
+kubectl config current-context
 
-sudo kubectl config get-contexts
+kubectl config get-contexts
 
-sudo kubectl config delete-context context_nickname
+kubectl config delete-context context_nickname
 
-sudo kubectl config set-context    context_nickname --cluster=cluster_nickname
+kubectl config set-context    context_nickname --cluster=cluster_nickname
     --user=user_nickname
     --namespace=namespace
 ```
@@ -37,7 +37,7 @@ sudo kubectl config set-context    context_nickname --cluster=cluster_nickname
 
 ### credentials
 ```  bash
-sudo kubectl config set-credentials user_nickname 
+kubectl config set-credentials user_nickname 
     --username=admin 
     --password=aaa
     --client-certificate=path/to/certfile.crt 
@@ -50,9 +50,9 @@ sudo kubectl config set-credentials user_nickname
 
 ### unset
 ```  bash
-sudo kubectl config unset current-context
-sudo kubectl config unset clusters
-sudo kubectl config unset users
-sudo kubectl config unset users.aaa
+kubectl config unset current-context
+kubectl config unset clusters
+kubectl config unset users
+kubectl config unset users.aaa
 ```
 
