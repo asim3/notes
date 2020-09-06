@@ -1,12 +1,9 @@
-..sub_title..
-Aliases (shortcut for terminal commands)
+# Aliases 
+shortcut for terminal commands
 
 
-..text..
-add to ~/.bash_aliases
-
-..code..
-
+`nano ~/.bash_aliases`
+```bash
 alias app-all="echo '
 
 app-ux
@@ -29,5 +26,5 @@ cd ~/Dropbox/Django/Developing/2019_03_21_kfupm_admission/version_06 &&
 python manage.py runserver"
 
 alias app-exit="deactivate && cd"
-
+```
 
