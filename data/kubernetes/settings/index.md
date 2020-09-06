@@ -1,3 +1,4 @@
+# setup config file
 
 ```  bash
 sudo kubectl config view
@@ -5,7 +6,7 @@ sudo kubectl config view --raw
 ```
 
 
-clusters
+### clusters
 ```  bash
 sudo kubectl config get-clusters
 sudo kubectl config delete-cluster my-new-k3d
@@ -16,7 +17,7 @@ sudo kubectl config set-cluster cluster_nickname --server=https://10.68.15.202:3
 ```
 
 
-context
+### context
 > link between Cluster and User Credentials
 ```  bash
 # all context
@@ -34,7 +35,7 @@ sudo kubectl config set-context    context_nickname --cluster=cluster_nickname
 ```
 
 
-credentials
+### credentials
 ```  bash
 sudo kubectl config set-credentials user_nickname 
     --username=admin 
@@ -47,7 +48,7 @@ sudo kubectl config set-credentials user_nickname
 ```
 
 
-unset
+### unset
 ```  bash
 sudo kubectl config unset current-context
 sudo kubectl config unset clusters

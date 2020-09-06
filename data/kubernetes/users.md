@@ -1,21 +1,25 @@
-### users management
+# users management
 [Authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
 [Creating sample user](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md)
 
 
 
-list all users
+### service account
 ```bash
-# service account
+# list all users
 kubectl get sa
 
 # view user details
 kubectl get sa default -o yaml
 ```
 
+> add a new user in the current namespace    
+  `kubectl create serviceaccount my-user`
 
 
-write a manifest for new user
+
+### user manifest
+write a manifest for new user    
 `nano sa-my-user.yaml`
 ```yaml
 apiVersion: v1
@@ -25,7 +29,8 @@ metadata:
   namespace: default
 ```
 
-add a new user
+
+### add a new user
 ```bash
 kubectl apply -f sa-my-user.yaml
 
@@ -37,7 +42,8 @@ kubectl describe sa my-user
 ```
 
 
-write a manifest for new Cluster Role Binding
+### Cluster Role Binding Manifest
+write a manifest for new Cluster Role Binding    
 `nano crb-my-user.yaml`
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -55,7 +61,7 @@ subjects:
 ```
 
 
-add a new Cluster Role Binding
+### add a new Cluster Role Binding
 ```bash
 kubectl apply -f crb-my-user.yaml
 
@@ -68,19 +74,26 @@ kubectl describe clusterrolebindings my-cluster-binding
 
 
 
-view user secret
+### view user secret
 ```bash
-list all secrets
+# list all secrets
 kubectl get secrets
-kubectl get secrets my-user-token-9q5x2
 
-kubectl describe secrets my-user-token-9q5x2
+kubectl get secret my-user-token-9q5x2 -o yaml
+
+kubectl describe secret my-user-token-9q5x2
 ```
 
 
+### test user connection
+```
+curl -k https://localhost:36871
+
+curl -u asim4:mypasswd -k https://localhost:36871
+```
+
 
 # !!!
-
 `nano my_cluster_role_binding.yml`
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1

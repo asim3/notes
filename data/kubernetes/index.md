@@ -1,3 +1,6 @@
+[Kubernetes Playground](https://www.katacoda.com/courses/kubernetes/playground)
+
+
 ```  bash
 sudo kubectl version --short --client 
 sudo kubectl version --short
@@ -10,7 +13,7 @@ sudo kubectl api-resources
 ```
 
 
-GET
+### GET
 ```bash
 sudo kubectl get all
 
@@ -39,7 +42,7 @@ sudo kubectl delete pod asim2-pod
 ```
 
 
-Namespace
+### Namespace
 ```  bash
 sudo kubectl get    namespace
 sudo kubectl get    ns
@@ -50,7 +53,8 @@ sudo kubectl get    all  -n namespace-nickname
 sudo kubectl get    pods -n namespace-nickname
 ```
 
-List secrets
+
+### List secrets
 ```bash
 sudo kubectl get secrets
 
@@ -59,7 +63,7 @@ sudo kubectl describe secret my-secret
 ```
 
 
-bash to a pod
+### bash to a pod
 ```  bash
 sudo kubectl exec -it asim2-pod -- /bin/sh
 # OR
@@ -68,7 +72,7 @@ sudo kubectl exec asim2-pod -- ls /home -al
 ```
 
 
-Pod logs
+### Pod logs
 ```  bash
 sudo kubectl logs __pod_name__
 
