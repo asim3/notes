@@ -1,6 +1,6 @@
 # Helm
 
-#### Installation
+##Installation
 ```
 sudo snap install helm --classic
 

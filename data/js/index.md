@@ -9,7 +9,7 @@ window.scrollTo({ top: 0 })
 ```
 
 
-#### Get Element
+##Get Element
 ```js
 document.querySelector('#root')
 document.getElementById('root')
@@ -18,7 +18,7 @@ document.getElementById('id').style.display = 'block'
 ```
 
 
-#### find in String
+##find in String
 ```js
 text.includes(word)
 text.replace(/( |\"|\')/g, "")
@@ -31,7 +31,7 @@ console.log(found); // Array ["quick", "lazy"]
 ```
 
 
-#### New HTML Element
+##New HTML Element
 ```js
 const btn = document.createElement("BUTTON")
 btn.innerHTML = "CLICK ME"
@@ -40,7 +40,7 @@ document.body.appendChild(btn)
 ```
 
 
-#### new head script
+##new head script
 ```js
 var head = document.getElementsByTagName('head')[0];
 var script = document.createElement('script');
@@ -51,7 +51,7 @@ head.appendChild(script);
 script.src = "https://localhost/"+ file_name +".js";
 ```
 
-#### Events
+##Events
 ```js
 document.addEventListener('click', function (event) {
 	// console.log(event.target)
@@ -62,7 +62,7 @@ document.addEventListener('click', function (event) {
 ```
 
 
-#### Time Loop
+##Time Loop
 ```js
 const func = (value, value_2) =>  console.log(value + value_2)
 setTimeout(func, 1000, 'val_1', 'val_2')

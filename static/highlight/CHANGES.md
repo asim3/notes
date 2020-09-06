@@ -1853,7 +1853,7 @@ Past weekend began with a couple of simple additions for existing languages but
 ended up in a big code refactoring bringing along nice improvements for language
 developers.
 
-### For users
+##For users
 
 - Description of C++ has got new keywords from the upcoming [C++ 0x][] standard.
 - Description of HTML has got new tags from [HTML 5][].
@@ -1875,7 +1875,7 @@ Bug fixes:
 [html 5]: http://en.wikipedia.org/wiki/HTML5
 [ik]: http://kalnitsky.org.ua/
 
-### For developers
+##For developers
 
 The most significant change is the ability to include language submodes right
 under `contains` instead of defining explicit named submodes in the main array:

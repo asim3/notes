@@ -41,7 +41,7 @@ Classes may also be prefixed with either `language-` or `lang-`.
 <pre><code class="language-html">...</code></pre>
 ```
 
-### Plaintext and Disabling Highlighting
+##Plaintext and Disabling Highlighting
 
 To style arbitrary text like code, but without any highlighting, use the
 `plaintext` class:
@@ -56,7 +56,7 @@ To disable highlighting of a tag completely, use the `nohighlight` class:
 <pre><code class="nohighlight">...</code></pre>
 ```
 
-### Supported Languages
+##Supported Languages
 
 Highlight.js supports over 180 different languages in the core library.  There are also 3rd party
 language plugins available for additional languages. You can find the full list of supported languages
@@ -191,7 +191,7 @@ example:
 r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 ```
 
-### CDN Hosted
+##CDN Hosted
 
 A prebuilt version of highlight.js bundled with many common languages is hosted by the following CDNs:
 
@@ -217,7 +217,7 @@ A prebuilt version of highlight.js bundled with many common languages is hosted 
 **Note:** *The CDN-hosted `highlight.min.js` package doesn't bundle every language.* It would be
 very large.  You can find our list "common" languages that we bundle by default on our [download page][5].
 
-### Self Hosting
+##Self Hosting
 
 The [download page][5] can quickly generate a custom bundle including only the languages you need.
 
@@ -232,14 +232,14 @@ See our [building documentation][6] for more information.
 **Note:** Building from source should always result in the smallest size builds.  The website download page is optimized for speed, not size.
 
 
-#### Prebuilt CDN assets
+##Prebuilt CDN assets
 
 You can also download and self-host the same assets we serve up via our own CDNs.  We publish those builds to the [cdn-release](https://github.com/highlightjs/cdn-release) GitHub repository.  You can easily pull individual files off the CDN endpoints with `curl`, etc; if say you only needed `highlight.min.js` and a single CSS file.
 
 There is also an npm package [@highlightjs/cdn-assets](https://www.npmjs.com/package/@highlightjs/cdn-assets) if pulling the assets in via `npm` or `yarn` would be easier for your build process.
 
 
-### NPM / Node.js server module
+##NPM / Node.js server module
 
 Highlight.js can also be used on the server. The package with all supported languages can be installed from NPM or Yarn:
 
@@ -258,7 +258,7 @@ node tools/build.js -t node
 See our [building documentation][6] for more information.
 
 
-### Source
+##Source
 
 [Current source][10] is always available on GitHub.
 

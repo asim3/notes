@@ -6,13 +6,13 @@
 sudo docker version
 ```
 
-#### List all images
+##List all images
 ```
 sudo docker images
 ```
 
 
-#### Image
+##Image
 ```
 sudo docker image build ~/Dockerfile_path/
 
@@ -22,7 +22,7 @@ sudo docker image pull __id__
 ```
 
 
-#### Containers
+##Containers
 ```
 sudo docker container run __image_name__
 
@@ -35,7 +35,7 @@ sudo docker container stats
 ```
 
 
-#### Other
+##Other
 ```
 sudo docker container pause __id__
 sudo docker container unpause __id__
@@ -48,7 +48,7 @@ sudo docker container rm __id__
 ```
 
 
-#### get into a Docker container's shell
+##get into a Docker container's shell
 ```
 sudo docker exec -it __id__ bash
 sudo docker exec -it __id__ ls -al
