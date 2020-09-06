@@ -1,3 +1,14 @@
+## change the time zone
+> To view date settings, run `timedatectl`
+```bash
+# To view all of the time zones
+tzselect
+
+sudo timedatectl set-timezone 'Asia/Riyadh'
+```
+
+
+
 ```  bash
 find /var -name  asim
 find /var -name  asim*
