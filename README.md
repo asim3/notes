@@ -1,6 +1,6 @@
-# My Notes
+# Notes
 
-Cheat sheet for javascript, python, node.js, django, react, devops, aws, heroku, regex, bootstrap and terminal
+My personal notes
 
 ---
 
