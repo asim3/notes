@@ -1,9 +1,3 @@
 # Notes
 
-My personal notes
-
----
-
-you can visit the website @ https://asim3.github.io/notes/
-
-
+My personal notes. You can visit the website [from here](https://asim3.github.io/notes/).
