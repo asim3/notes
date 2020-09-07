@@ -1,21 +1,30 @@
 # schedule a node task
-[node-html-parser](https://www.npmjs.com/package/node-html-parser)
+
+[puppeteer](https://github.com/puppeteer/puppeteer/)
+[puppeteer-api](https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#frameevalselector-pagefunction-args)
+
 
 ## start new project
 `nano app.js`
 ```js
-'use strict'
-const html_parser = require('node-html-parser');
-const getHTML = require('html-get')
- 
-getHTML('https://google.com').then(function({ url, html, stats, headers}) {
-    console.log(`time: ${stats.timing} (${stats.mode})`)
+const puppeteer = require('puppeteer');
 
-    const document = html_parser.parse(html);
-    console.log('innerHTML: ' + document.querySelectorAll('a')[0].innerHTML);
-    console.log('href: ' + document.querySelectorAll('a')[0].getAttribute('href'));
-    console.log(`url: ${url}`)
-})
+
+(async () => {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto("https://asim3.github.io/1217/");
+
+    await page.waitForSelector("iframe");
+
+    const titles = await page.$$eval("iframe", elements => {
+      return elements.map(item => item.src)
+    });
+
+    console.log(titles);
+
+    await browser.close();
+})();
 ```
 
 
@@ -24,7 +33,7 @@ getHTML('https://google.com').then(function({ url, html, stats, headers}) {
 mkdir ~/my-js-app && cd ~/my-js-app
 # `-y` : to skip walk through
 npm init -y 
-npm i node-html-parser html-get browserless
+npm install puppeteer
 ```
 
 
