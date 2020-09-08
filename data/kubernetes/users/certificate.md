@@ -15,22 +15,19 @@ openssl req -new -key asim.key -out asim.csr -subj "/CN=asim/O=my-group-name"
 ```
 
 Copy kubernetes ca.crt & ca.key from the master node
+> To locate certificate-authority    
+> `kubectl config view | grep certificate-authority`
 ```  bash
-# to locate certificate-authority
-kubectl config view | grep certificate-authority
-
 scp root@kmaster:/etc/kubernetes/pki/ca.{crt,key} .
 ```
 
-> if the certificate isn't in a separate file    
-you can copy and paste the certificate text then decode it
-```  bash
-kubectl config view --raw | grep certificate-authority > ca.txt
-
-nano ca.txt
-
-cat ca.txt | base64 --decode > ca.crt
-```
+> If the certificate isn't in a separate file    
+> you can decode the certificate
+>  ```  bash
+>  kubectl config view --raw | grep certificate-authority > ca.txt
+>  nano ca.txt
+>  cat ca.txt | base64 --decode > ca.crt
+>  ```
 
 
 Sign the certificate using certificate authority
