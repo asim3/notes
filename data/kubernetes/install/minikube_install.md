@@ -18,11 +18,11 @@ sudo mv ./minikube /usr/local/bin/minikube
 minikube version
 ```
 
-> don't use sudo
+> don't use sudo, and underscore are not allowed because of subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character.
 ```  bash
-minikube start -p cluster_nickname
+minikube start -p cluster-nickname
 minikube start --nodes 2
-minikube start --nodes 2 -p cluster_nickname
+minikube start --nodes 2 -p cluster-nickname
 
 minikube status
 minikube service list
