@@ -82,15 +82,17 @@ p {
     padding: .4rem!important;
 }
 blockquote {
-	display: inline-block;
+	display: block;
     position: relative;
-    margin-bottom: 1rem;
+	margin-bottom: 1rem;
+	padding: 1rem;
     color: #856404;
     background-color: #fff3cd;
     border: 1px solid #ffeeba;
     border-radius: .25rem;
 }
-blockquote p {
+blockquote p,
+blockquote code {
     margin-top: 0;
     margin-bottom: 0;
 }
