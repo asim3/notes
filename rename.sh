@@ -3,8 +3,8 @@ path=""
 
 function update_paths {
     for path in $1/* ; do
-        if [[ $path == *"master.txt" ]]; then
-            mv $path "$(echo "$path" | sed -e 's/master/index/')"
+        if [[ $path == *".txt" ]]; then
+            mv $path "$(echo "$path" | sed -e 's/txt/md/')"
         fi
         
         if [ -d $path ]; then

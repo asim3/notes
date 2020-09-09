@@ -14,6 +14,10 @@ find /var -name  asim
 find /var -name  asim*
 find /var -name *asim
 find /var -name *asim*
+
+find . -path "*/my-dir/*.txt" -delete
+
+find . -path "*/my-dir/*.txt" -not -name "__init__.txt" -delete
 ```
 
 
