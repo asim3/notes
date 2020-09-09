@@ -1,9 +1,9 @@
-adding **JS** to html 
-``` html
+## adding **JS** to html 
+```html
 <script src="main.js"></script>
 ```
 
-adding **CSS** to html 
+## adding **CSS** to html 
 ```html
 <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16">
 <link rel="stylesheet" type="text/css" href="main.css">
@@ -29,6 +29,7 @@ rel values:
     stylesheet
 ```
 
+
 ```html
 <a href="tel:+966500"></a>
     tel: – place a phone call
@@ -38,7 +39,7 @@ rel values:
 ```
 
 
-**CSS**
+## **CSS**
 ```css
 a[href^="mailto:"] { ... }
 a[href^="tel:"] { ... }

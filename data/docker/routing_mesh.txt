@@ -1,2 +1,0 @@
-..link.. https://docs.docker.com/engine/swarm/ingress/
-swarm routing mesh

@@ -1,13 +1,11 @@
-..sub_title..
-Installation
+## Installation
 
 ```  bash
 pip install boto3
 pip install django-storages
 ```
 
-..text..
-settings.py
+## settings.py
 
 ```python
 INSTALLED_APPS = [
@@ -18,11 +16,9 @@ INSTALLED_APPS = [
 
 
 
-..sub_title..
-public and private
+## public and private
 
-..text..
-storage_backends.py
+## storage_backends.py
 ```python
 from storages.backends.s3boto3 import S3Boto3Storage
 
@@ -45,8 +41,7 @@ class PrivateMediaStorage(S3Boto3Storage):
   signature_version = 's3v4'
 ```
 
-..text..
-settings.py
+## settings.py
 ```python
 # AWS Storage
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
@@ -68,8 +63,7 @@ DEFAULT_FILE_STORAGE = 'brandat_ux.storage_backends.PublicMediaStorage'
 ```
 
 
-..text..
-models.py
+## models.py
 ```python
 from mysite.storage_backends import PrivateMediaStorage
 
