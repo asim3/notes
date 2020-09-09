@@ -1,25 +1,22 @@
-..link.. https://www.debian.org/
-Install Debian 10 Buster
+[Install Debian 10 Buster](https://www.debian.org/)
 
 
-
-..text..
-Unpack an archive
-..code..
+## Unpack an archive
+```bash
 tar -xzf Postman.tar.gz 
+```
 
 
-..text..
-Install RPM Packages On Ubuntu
-..code..
+## Install RPM Packages On Ubuntu
+```bash
 sudo apt update
 apt show virtualbox
 sudo apt install virtualbox
+```
 
 
-..text..
-Install RPM Packages On Ubuntu
-..code..
+## Install RPM Packages On Ubuntu
+```bash
 # setup
 sudo add-apt-repository universe
 sudo apt-get update
@@ -27,34 +24,37 @@ sudo apt-get install alien
 
 # convert .rpm package to .deb
 sudo alien <name of package>.rpm
+```
 
-..text..
-Install deb Package On Ubuntu
-..code..
+
+## Install deb Package On Ubuntu
+```bash
 sudo dpkg -i <name of package>.deb
+```
 
-..text..
-Install RPM Package Directly on Ubuntu
-..code..
+
+## Install RPM Package Directly on Ubuntu
+```bash
 sudo alien -i <name of package>.rpm
+```
 
 
-..text..
-install the Java Runtime Environment (JRE)
-..code..
+## install the Java Runtime Environment (JRE)
+```bash
 sudo apt install default-jre
 java -version
 
 sudo apt install default-jdk
 javac -version
+```
 
 
-..text..
-Installing the Oracle JDK
-..code..
+## Installing the Oracle JDK
+```bash
 # ???? not working
 # add its package repository
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt update
 
 sudo apt install oracle-java8-installer
+```

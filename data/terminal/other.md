@@ -1,10 +1,10 @@
-..code..
+```bash
 watch 'ps aux | grep -i apt'
+```
 
 
-..text..
-Prepare a Drive
-..code..
+## Prepare a Drive
+```bash
 lsblk
 df -h
 
@@ -31,32 +31,32 @@ sudo fdisk /dev/sdb
 
 # Format the new partition using Ext4
 sudo mkfs.ext4 /dev/sdb1
+```
 
 
-..text..
-# Mount a new drive
-..code..
+## Mount a new drive
+```bash
 sudo mkdir /my-new-dev/
 sudo mount /dev/sdb1 /my-new-dev/
 
 df -H
 lsblk
+```
 
 
-
-..text..
-ISO Bootable USB
-..code..
+## ISO Bootable USB
+```bash
 usb-creator-gtk
+```
 
 
-..code..
+```bash
 echo "b9beac143e36226aa8a0b03fc1cbb5921cff80123866e718aaeba4edb81cfa63 *ubuntu-18.04.3-live-server-amd64.iso" | shasum -a 256 --check
+```
 
 
-..text..
-Shutdown
-..code..
+## Shutdown
+```bash
 # Log Out 
 exit
 
@@ -66,11 +66,11 @@ sudo shutdown now
 sudo shutdown -P now
 
 shutdown +30 "Leave to pickup friend!"
+```
 
 
-..text..
-fix broken packages
-..code..
+## fix broken packages
+```bash
 # fix broken packages
 sudo apt-get install -f 
 sudo dpkg --configure -a
@@ -83,14 +83,16 @@ apt autoclean
 
 # removes orphaned packages which are not longer needed
 apt autoremove
+```
 
 
-..text..
-execute a file
-..code..
+## execute a file
+```bash
 if [ -f ~/file_name ]; then
     source ~/file_name;
 fi
+```
 
-..code..
+```bash
 if [ -f ~/file_name.txt ]; then echo 333; else echo 444; fi;
+```

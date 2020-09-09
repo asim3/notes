@@ -1,39 +1,36 @@
-..sub_title..
-Info
+# Info
 
-..text..
-kernel info
-..code..
+## kernel info
+```bash
 # kernel version
 uname -a
 
 whoami
 
 cat /etc/lsb-release
+```
 
 
-
-..text..
-show processes running in memory
-..code..
+## show processes running in memory
+```bash
 ps aux
 watch 'ps aux'
+```
 
 
-..text..
-IP address
-..code..
+## IP address
+```bash
 ip rout
 hostname -I
 ip addr show
 
 # check open ports (net sockets) (tcp ports) (udp ports)
 netstat -tulpn
+```
 
 
-..text..
-Tree
-..code..
+## Tree
+```bash
 sudo apt  install tree
 
 mkdir test-tree
@@ -52,32 +49,31 @@ test-tree/
 └── file3
 
 3 directories, 2 files
+```
 
 
-
-..text..
-list all groups
-..code..
+## list all groups
+```bash
 cat /etc/group
 
 # show all my groups
 id
+```
 
 
-..text..
-Memory & CPU Info
-..code..
+## Memory & CPU Info
+```bash
 free -h
 top
 htop
 
 # full details
 cat /proc/meminfo
+```
 
 
-..text..
-Disk Info
-..code..
+## Disk Info
+```bash
 df -h
 
 # only include filesystems of a particular type
@@ -88,17 +84,17 @@ lsblk
 
 # directory size
 du -sh my_directory/
+```
 
 
-..text..
-show all commands history
-..code..
+## show all commands history
+```bash
 history
+```
 
 
-..text..
-PATH
-..code..
+## PATH
+```bash
 echo $PATH
 which sudo
 which python
@@ -106,11 +102,12 @@ which python
 # add to PATH
 PATH=/some/dir:$PATH
 PATH=$PATH:/some/dir # alert: do not do this
+```
 
 
-..text..
-Prints the location of binary files
-..code..
+## Prints the location of binary files
+```bash
 which python
 which node
 which sudo
+```
