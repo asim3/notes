@@ -1,13 +1,18 @@
-..code..
+```bash
 sudo apt-get install apache2 
 sudo apt-get install libapache2-mod-wsgi-py3
+```
 
-..code..
+
+```bash
 cd /etc/apache2/sites-available/
-sudo cp 000-default.conf django_project.conf 
+sudo cp 000-default.conf django_project.conf
 sudo nano django_project.conf 
-..code..
-# /etc/apache2/sites-available/django_project.conf 
+```
+
+
+`nano /etc/apache2/sites-available/django_project.conf `
+```xml
 <VirtualHost *:80>
     # ...
 
@@ -34,14 +39,17 @@ sudo nano django_project.conf
     WSGIProcessGroup django_app
 
 </VirtualHost>
+```
 
-..code..
+
+```bash
 sudo a2ensite django_project
 sudo a2dissite 000-default.conf
+```
 
-..text..
-file permissions
-..code..
+
+## file permissions
+```bash
 sudo chown :www-data my_django_project/
 sudo chmod 775 my_django_project/
 
@@ -52,16 +60,16 @@ sudo chown -R :www-data my_django_project/media/
 sudo chmod 775 my_django_project/media 
 
 ls -la
+```
 
 
-..sub_title..
-run server
-..code..
+## run server
+```bash
 sudo ufw delete allow 8000
 sudo ufw allow http/tcp
 sudo service apache2 restart
 # done 
+```
 
 
-..link.. https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
-Deployment checklist
+[Deployment checklist](https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/)

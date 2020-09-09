@@ -1,23 +1,23 @@
-..sub_title..
-Installing Nginx
-..code..
+# Installing Nginx
+
+```bash
 sudo apt update
 sudo apt install nginx
+```
 
 
-..text..
-Adjusting the Firewall
-..code..
+## Adjusting the Firewall
+```bash
 # check Firewall Available applications 
 sudo ufw app list
 
 sudo ufw allow 'Nginx HTTP'
 sudo ufw status
+```
 
 
-..text..
-Checking your Web Server
-..code..
+## Checking your Web Server
+```bash
 systemctl status nginx
 
 # start automatically when the server boots
@@ -29,20 +29,20 @@ sudo systemctl reload nginx
 sudo systemctl restart nginx
 sudo systemctl start nginx
 sudo systemctl stop nginx
+```
 
 
-..sub_title..
-Setting Up Server Blocks
-..code..
+## Setting Up Server Blocks
+```bash
 sudo mkdir -p /var/www/myexample.com/html
 sudo chown -R $USER:$USER /var/www/myexample.com/html
 sudo chmod -R 755 /var/www/myexample.com
 nano /var/www/myexample.com/html/index.html
+```
 
 
-..text..
-create a server block
-..code..
+## create a server block
+```bash
 sudo nano /etc/nginx/sites-available/myexample.com
 @ ...
 server {
@@ -59,16 +59,17 @@ server {
                 try_files $uri $uri/ =404;
         }
 }
+```
 
 
-..text..
-enable server block
-..code..
+## enable server block
+```bash
 sudo ln -s /etc/nginx/sites-available/myexample.com /etc/nginx/sites-enabled/
+```
 
-..text..
-avoid a possible hash bucket memory problem
-..code..
+
+## avoid a possible hash bucket memory problem
+```bash
 sudo nano /etc/nginx/nginx.conf
 @ ...
 http {
@@ -76,3 +77,4 @@ http {
 
 sudo nginx -t
 sudo systemctl restart nginx
+```

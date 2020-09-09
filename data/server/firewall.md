@@ -1,45 +1,44 @@
-..sub_title..
-Uncomplicated Firewall
+# Uncomplicated Firewall
 
-
-..code..
+```bash
 sudo apt-get update && sudo apt-get upgrade
 
 sudo apt-get install ufw 
 sudo ufw enable
 sudo ufw disable
+```
 
-# Reset to installed defaults
-sudo ufw reset
+> Reset to installed defaults
+> `sudo ufw reset`
 
 
-..text..
-Firewall status
-..code..
+## Firewall status
+```bash
 sudo ufw status
 sudo ufw status verbose
 sudo ufw status numbered
 sudo ufw app list
+```
 
 
-..text..
-set default 
-..code..
+## set default 
+```bash
 sudo ufw default allow outgoing
 sudo ufw default deny incoming
+```
 
-..text..
-open ports 
-..code..
+
+## open ports 
+```bash
 sudo ufw allow ssh
 sudo ufw allow http 
 sudo ufw allow https
 sudo ufw allow 8000
+```
 
 
-..text..
-close ports 
-..code..
+## close ports 
+```bash
 sudo ufw deny http 
 sudo ufw deny https
 sudo ufw deny 8000 
@@ -49,3 +48,4 @@ sudo ufw deny proto tcp from any to any port 80,443
 
 sudo ufw deny from 192.168.1.1
 sudo ufw deny from 192.168.1.1 to any port 22
+```
