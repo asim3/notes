@@ -1,4 +1,4 @@
-```txt
+```text
 .	Any Character
 \.	Period
 \d	Any Digit
@@ -11,7 +11,7 @@
 
 
 **repetitions**
-```txt
+```text
 *	Zero or more repetitions
 +	One or more repetitions
 ?	Optional character
@@ -19,7 +19,7 @@
 
 
 
-```txt
+```text
 [abc]	Only a, b, or c
 [^abc]	Not a, b, nor c
 [a-z]	Characters a to z
@@ -31,7 +31,7 @@
 
 
 **Groups**
-```txt
+```text
 (…)	Capture Group
 (a(bc))	Capture Sub-group
 (.*)	Capture all
