@@ -1,5 +1,5 @@
 ## Install
-``` txt
+```txt
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt install -y nodejs
 sudo apt install -y build-essential
@@ -12,6 +12,6 @@ npm -v
 
 
 ## update npm
-``` txt
+```txt
 sudo npm install npm@latest -g
 ```

@@ -89,7 +89,7 @@ kubectl describe secret my-user-token-9q5x2
 
 
 ## test user connection
-``` txt
+```txt
 curl -k https://localhost:36871
 
 curl -u asim4:mypasswd -k https://localhost:36871

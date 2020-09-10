@@ -2,7 +2,7 @@
 
 
 ## Install
-``` txt
+```txt
 pip install djangorestframework
 
 # Markdown support for the browsable API.
@@ -15,7 +15,7 @@ pip install django-filter
 
 
 ## Add to INSTALLED_APPS
-``` txt
+```py
 INSTALLED_APPS = [
     ...
     'rest_framework',
@@ -25,7 +25,7 @@ INSTALLED_APPS = [
 
 
 ##/app_name/urls.py
-``` txt
+```py
 from .routers import router
 from rest_framework.authtoken.views import ObtainAuthToken
 
@@ -52,9 +52,9 @@ urlpatterns = [
 
 
 ## Pagination size
-``` txt
+```py
 REST_FRAMEWORK = {
-    ...
+    # ...
 
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
@@ -64,9 +64,9 @@ REST_FRAMEWORK = {
 
 
 ## Default renderer classes
-``` txt
+```py
 REST_FRAMEWORK = {
-    ...
+    # ...
 
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
@@ -77,7 +77,7 @@ REST_FRAMEWORK = {
 
 
 ## Hierarchy
-``` txt
+```text
 include(router.urls)
 |
 └── router.register('url_path', UserViewSet)
