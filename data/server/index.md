@@ -2,7 +2,7 @@
 
 
 Get Server IP 
-```  bash
+```txt
 ip route
 # ... kernel scope link src 190.168.my.local.ip 
 ifconfig
@@ -11,7 +11,7 @@ ifconfig
 
 Login to Server
 > logout SSH `exit`
-```  bash
+```txt
 ssh username@server.ip
 
 # run bash on remote server
@@ -21,7 +21,7 @@ ssh username@remote.server.ip 'ls -al'
 
 
 Add a New User
-```  bash
+```txt
 # useradd is a low level utility for adding users. 
 # sudo useradd -m my-new-user
 # On Debian, administrators should usually use adduser(8) instead.
@@ -40,7 +40,7 @@ su - my-new-user
 
 
 change hostname
-```  bash
+```txt
 hostnamectl set-hostname my-test-server
 cat /etc/hostname 
 
@@ -53,7 +53,7 @@ sudo nano /etc/hosts
 
 
 Granting sudo Privileges to Users
-```  bash
+```txt
 sudo visudo
 
 # /etc/sudoers.tmp

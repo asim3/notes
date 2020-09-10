@@ -14,7 +14,7 @@ class MyThing(models.Model):
 
 
 ## copy all messages
-```bash
+```txt
 python3 manage.py makemessages -l ar
 python3 manage.py makemessages -l en
 python3 manage.py makemessages -l es
@@ -45,6 +45,6 @@ LOCALE_PATHS = (
 
 
 ## Compile all messages
-```bash
+```txt
 python3 manage.py compilemessages
 ```

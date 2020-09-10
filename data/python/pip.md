@@ -1,14 +1,14 @@
 ## إضافة ملف المتطلبات
 
 ```
-```bash
+```txt
 pip freeze
 
 pip freeze > requirements.txt
 ```
 
 ## تثبيت المتطلبات
-```bash
+```txt
 pip install -r requirements.txt
 ```
 

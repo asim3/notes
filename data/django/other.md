@@ -2,7 +2,7 @@
 
 
 ## To install psycopg2
-```bash
+```txt
 sudo apt install libpq-dev
 ```
 
@@ -25,7 +25,7 @@ with connections['other_db'].cursor() as cursor:
 
 ## Auto models
 Auto-generate the models 
-```bash
+```txt
 python manage.py inspectdb > show_me_models.py --database=other_db
 ```
 
@@ -33,7 +33,7 @@ python manage.py inspectdb > show_me_models.py --database=other_db
 
 ## Reset Migrations
 How to Reset Migrations
-```bash
+```txt
 find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
 find . -path "*/migrations/*.pyc"  -delete
 ```

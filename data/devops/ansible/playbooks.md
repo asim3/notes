@@ -21,7 +21,7 @@
 
 
 
-```bash
+```txt
 ansible-playbook -K ./nginx-install-playbook.yml --check
 ansible-playbook -K ./nginx-install-playbook.yml 
 ```

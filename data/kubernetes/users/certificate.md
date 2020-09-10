@@ -1,11 +1,11 @@
 for testing create namespace
-```  bash
+```txt
 kubectl get ns
 kubectl create ns my-test-namespace
 ```
 
 
-```  bash
+```txt
 mkdir my-new-user && cd my-new-user/
 # Generating private key
 openssl genrsa -out asim.key 4096
@@ -17,13 +17,13 @@ openssl req -new -key asim.key -out asim.csr -subj "/CN=asim/O=my-group-name"
 Copy kubernetes ca.crt & ca.key from the master node
 > To locate certificate-authority    
 > `kubectl config view | grep certificate-authority`
-```  bash
+```txt
 scp root@kmaster:/etc/kubernetes/pki/ca.{crt,key} .
 ```
 
 > If the certificate isn't in a separate file    
 > you can decode the certificate
->  ```  bash
+>  ```txt
 >  kubectl config view --raw | grep certificate-authority > ca.txt
 >  nano ca.txt
 >  cat ca.txt | base64 --decode > ca.crt
@@ -31,6 +31,6 @@ scp root@kmaster:/etc/kubernetes/pki/ca.{crt,key} .
 
 
 Sign the certificate using certificate authority
-```  bash
+```txt
 openssl x509 -req -in asim.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out asim.crt -days 365
 ```

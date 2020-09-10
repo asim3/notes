@@ -2,14 +2,14 @@
 
 
 
-```bash
+```txt
 git init
 git add .
 git commit -m "initial commit"
 git commit -m "شرح مبسط للتعديلات"
 ```
 
-```bash
+```txt
 git remote add origin https://github.com/asim3/notes.git
 git remote add origin_ssh git@github.com:asim3/notes.git
 git remote add my_origin https://github.com/asim3/notes.git
@@ -18,14 +18,14 @@ git push my_origin master
 ```
 
 
-```bash
+```txt
 git remote
 git remote -v
 ```
 
 
 ## Config
-```bash
+```txt
 git config --global user.name "ASIM_NAME"
 git config --global user.email "asim@office"
 git config --list
@@ -35,14 +35,14 @@ git config --local -e
 
 
 ## Other
-```bash
+```txt
 git status
 git log
 ```
 
 
 ## remove cached files
-```bash
+```txt
 git rm -r --cached .
 git add .
 git commit -m ".gitignore fix"

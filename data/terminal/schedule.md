@@ -2,19 +2,19 @@
 
 
 ## show crontabs are currently running
-```bash
+```txt
 crontab -l
 ```
 
 ## edit crontabs list 
-```bash
+```txt
 crontab -e
 ```
 
 
 
 ## run every minute
-```bash
+```txt
 * * * * * /bin/execute/this/script.sh
 
 # minute (from 0 to 59)
@@ -26,12 +26,12 @@ crontab -e
 
 
 ## examples
-```bash
+```txt
 * * * * * echo $(date) >> ~/my-cron.txt
 ```
 
 
-```bash
+```txt
 # last minute of the year
 59 23 31 12 6 /bin/execute/this/script.sh
 
@@ -51,7 +51,7 @@ crontab -e
 ```
 
 
-```bash
+```txt
 @reboot     # Run once, at startup
 @yearly     # Run once  a year     "0 0 1 1 *"
 @annually   # (same as  @yearly)
@@ -64,7 +64,7 @@ crontab -e
 
 
 ## save output in separate logfile
-```bash
+```txt
 */10 * * * * /bin/execute/this/script.sh >> /var/log/script_output.log 2>&1
 
 # 2>&1 means store errors in messages as well
@@ -73,12 +73,12 @@ crontab -e
 ```
 
 ## Mailing the crontab output
-```bash
+```txt
 MAILTO="yourname@yourdomain.com"
 ```
 
 ## Trashing the crontab output
-```bash
+```txt
 */10 * * * * /bin/execute/this/script.sh > /dev/null 2>&1
 
 # /dev/null is the black hole

@@ -47,7 +47,7 @@
 
 
 ## template debug
-```bash
+```txt
 pip install django-template-debug
 ```
 

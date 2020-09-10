@@ -1,10 +1,10 @@
-```bash
+```txt
 npx create-react-app my-app
 ```
 
 
 ## checks
-```bash
+```txt
 node -v # >= 8.10
 npm -v # >= 5.6
 

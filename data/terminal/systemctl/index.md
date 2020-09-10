@@ -2,7 +2,7 @@
 
 
 list all units
-```bash
+```txt
 systemctl -t service
 systemctl list-unit-files -t service 
 systemctl --failed
@@ -13,7 +13,7 @@ systemctl list-units |grep ___
 
 
 units status
-```bash
+```txt
 systemctl status ___
 sudo systemctl status ___
 systemctl is-enabled ___
@@ -24,7 +24,7 @@ systemctl is-system-running
 
 
 start units automatically when the server boots
-```bash
+```txt
 sudo systemctl enable ___
 sudo systemctl enable ___ ___ ___
 sudo systemctl disable ___
@@ -36,7 +36,7 @@ sudo systemctl enable --now ___
 
 
 controlling units
-```bash
+```txt
 sudo systemctl start ___
 sudo systemctl stop ___
 sudo systemctl reload ___
@@ -47,14 +47,14 @@ sudo systemctl -H [hostname] restart ___
 ```
 
 
-```bash
+```txt
 systemctl reboot
 systemctl poweroff
 systemctl suspend
 ```
 
 > if system has not been booted with systemd as init system (PID 1). Can't operate.
-```bash
+```txt
 service --status-all
 
  sudo service docker start
@@ -62,7 +62,7 @@ service --status-all
  
 
 show logs
-```bash
+```txt
 journalctl
 journalctl -u ___
 

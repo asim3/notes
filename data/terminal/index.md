@@ -103,7 +103,7 @@ sudo chmod 664 file.txt
 
 
 `echo $PATH`
-```bash
+```txt
 /usr/local/sbin
 /usr/local/bin
 

@@ -29,7 +29,7 @@ const puppeteer = require('puppeteer');
 
 
 ## add packages
-```bash
+```txt
 mkdir ~/my-js-app && cd ~/my-js-app
 # `-y` : to skip walk through
 npm init -y 

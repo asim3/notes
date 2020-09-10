@@ -8,20 +8,20 @@ Enterprise package is now called docker-ee
 
 
 ## Uninstall old versions
-```bash
+```txt
 sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
 
 
 ## dependency packages
-```bash
+```txt
 sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 ```
 
 
 ## Docker’s PUBLIC KEY
-```bash
+```txt
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 # Verify GPG PUBLIC KEY fingerprint
@@ -30,7 +30,7 @@ sudo apt-key fingerprint 0EBFCD88
 
 
 ## Docker stable repo
-```bash
+```txt
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
@@ -40,7 +40,7 @@ sudo add-apt-repository \
 
 ## Install 
 Docker Engine - Community
-```bash
+```txt
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 

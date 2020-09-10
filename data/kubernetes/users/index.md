@@ -5,7 +5,7 @@
 
 
 ## service account
-```bash
+```txt
 # list all users
 kubectl get sa
 
@@ -16,7 +16,7 @@ kubectl get sa default -o yaml
 
 ## user manifest
 add a new user in the current namespace    
-```bash
+```txt
 kubectl create serviceaccount my-user
 ```
 
@@ -32,7 +32,7 @@ metadata:
 
 
 ## add a new user
-```bash
+```txt
 kubectl apply -f sa-my-user.yaml
 
 # list all Service Account
@@ -65,7 +65,7 @@ subjects:
 
 ## new CRB
 new Cluster Role Binding
-```bash
+```txt
 kubectl apply -f crb-my-user.yaml
 
 # list all cluster role bindings
@@ -78,7 +78,7 @@ kubectl describe clusterrolebindings my-cluster-binding
 
 
 ## view user secret
-```bash
+```txt
 # list all secrets
 kubectl get secrets
 

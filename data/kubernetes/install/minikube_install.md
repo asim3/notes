@@ -1,7 +1,7 @@
 ## Install Minikube
 
 
-```  bash
+```txt
 sudo apt install conntrack
 ```
 
@@ -9,7 +9,7 @@ sudo apt install conntrack
 
 [Install Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
 
-```  bash
+```txt
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
 
 chmod +x ./minikube
@@ -19,7 +19,7 @@ minikube version
 ```
 
 > don't use sudo, and underscore are not allowed because of subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character.
-```  bash
+```txt
 minikube start -p cluster-nickname
 minikube start --nodes 2 -p cluster-nickname
 
@@ -35,7 +35,7 @@ minikube delete -p cluster-nickname
 
 OR
 
-```  bash
+```txt
 sudo minikube start --driver='none'
 sudo minikube status
 ```

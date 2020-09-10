@@ -1,7 +1,7 @@
 [Kubernetes Playground](https://www.katacoda.com/courses/kubernetes/playground)
 
 
-```  bash
+```txt
 kubectl version --short --client 
 kubectl version --short
 
@@ -14,7 +14,7 @@ kubectl api-resources
 
 
 ## GET
-```bash
+```txt
 kubectl get all
 
 # List all nodes `service` in a cluster
@@ -31,7 +31,7 @@ kubectl get po
 
 
 
-```  bash
+```txt
 kubectl get pod asim2-pod -o wide
 kubectl get pod asim2-pod -o yaml
 kubectl get pod asim2-pod -o json
@@ -43,7 +43,7 @@ kubectl delete pod asim2-pod
 
 
 ## Namespace
-```  bash
+```txt
 kubectl get    namespace
 kubectl get    ns
 kubectl create ns         namespace-nickname
@@ -55,7 +55,7 @@ kubectl get    pods -n namespace-nickname
 
 
 ## List secrets
-```bash
+```txt
 kubectl get secrets
 
 kubectl describe secret
@@ -64,7 +64,7 @@ kubectl describe secret my-secret
 
 
 ## bash to a pod
-```  bash
+```txt
 kubectl exec -it asim2-pod -- /bin/sh
 # OR
 kubectl exec asim2-pod -- touch /home/asim-test.txt
@@ -73,7 +73,7 @@ kubectl exec asim2-pod -- ls /home -al
 
 
 ## Pod logs
-```  bash
+```txt
 kubectl logs __pod_name__
 
 # follow

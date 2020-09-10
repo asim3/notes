@@ -2,13 +2,13 @@
 
 
 ## Unpack an archive
-```bash
+```txt
 tar -xzf Postman.tar.gz 
 ```
 
 
 ## Install RPM Packages On Ubuntu
-```bash
+```txt
 sudo apt update
 apt show virtualbox
 sudo apt install virtualbox
@@ -16,7 +16,7 @@ sudo apt install virtualbox
 
 
 ## Install RPM Packages On Ubuntu
-```bash
+```txt
 # setup
 sudo add-apt-repository universe
 sudo apt-get update
@@ -28,19 +28,19 @@ sudo alien <name of package>.rpm
 
 
 ## Install deb Package On Ubuntu
-```bash
+```txt
 sudo dpkg -i <name of package>.deb
 ```
 
 
 ## Install RPM Package Directly on Ubuntu
-```bash
+```txt
 sudo alien -i <name of package>.rpm
 ```
 
 
 ## install the Java Runtime Environment (JRE)
-```bash
+```txt
 sudo apt install default-jre
 java -version
 
@@ -50,7 +50,7 @@ javac -version
 
 
 ## Installing the Oracle JDK
-```bash
+```txt
 # ???? not working
 # add its package repository
 sudo add-apt-repository ppa:webupd8team/java

@@ -142,7 +142,7 @@ http:
 
 
 ## RUN
-```bash
+```txt
 sudo docker-compose -f test1.yaml config
 sudo docker-compose -f test2.yaml config
 

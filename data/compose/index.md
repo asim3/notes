@@ -1,4 +1,4 @@
-```bash
+```txt
 sudo docker-compose up -d --scale __name__=3
 sudo docker-compose start
 
@@ -42,7 +42,7 @@ volumes:
   
 
 # Check the validity of docker-compose.yml
-```bash
+```txt
 # cd ~/test-compose/ 
 sudo docker-compose config
 
@@ -54,7 +54,7 @@ sudo docker-compose up    --scale __id__=2
 
 
 ## OR 
-```bash
+```txt
 sudo docker-compose -f ~/test-compose/docker-compose.yml up
 
 # cd ~/test-compose/ 
@@ -66,7 +66,7 @@ sudo docker-compose -f ~/test-compose/docker-compose.yml down
 
 
 
-```bash
+```txt
 # cd ~/test-compose/ 
 sudo docker-compose ps
 

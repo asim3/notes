@@ -1,7 +1,7 @@
 # Info
 
 ## kernel info
-```bash
+```txt
 # kernel version
 uname -a
 
@@ -12,14 +12,14 @@ cat /etc/lsb-release
 
 
 ## show processes running in memory
-```bash
+```txt
 ps aux
 watch 'ps aux'
 ```
 
 
 ## IP address
-```bash
+```txt
 ip rout
 hostname -I
 ip addr show
@@ -30,7 +30,7 @@ netstat -tulpn
 
 
 ## Tree
-```bash
+```txt
 sudo apt  install tree
 
 mkdir test-tree
@@ -53,7 +53,7 @@ test-tree/
 
 
 ## list all groups
-```bash
+```txt
 cat /etc/group
 
 # show all my groups
@@ -62,7 +62,7 @@ id
 
 
 ## Memory & CPU Info
-```bash
+```txt
 free -h
 top
 htop
@@ -73,7 +73,7 @@ cat /proc/meminfo
 
 
 ## Disk Info
-```bash
+```txt
 df -h
 
 # only include filesystems of a particular type
@@ -88,13 +88,13 @@ du -sh my_directory/
 
 
 ## show all commands history
-```bash
+```txt
 history
 ```
 
 
 ## PATH
-```bash
+```txt
 echo $PATH
 which sudo
 which python
@@ -106,7 +106,7 @@ PATH=$PATH:/some/dir # alert: do not do this
 
 
 ## Prints the location of binary files
-```bash
+```txt
 which python
 which node
 which sudo

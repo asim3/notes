@@ -1,10 +1,10 @@
-```bash
+```txt
 watch 'ps aux | grep -i apt'
 ```
 
 
 ## Prepare a Drive
-```bash
+```txt
 lsblk
 df -h
 
@@ -35,7 +35,7 @@ sudo mkfs.ext4 /dev/sdb1
 
 
 ## Mount a new drive
-```bash
+```txt
 sudo mkdir /my-new-dev/
 sudo mount /dev/sdb1 /my-new-dev/
 
@@ -45,18 +45,18 @@ lsblk
 
 
 ## ISO Bootable USB
-```bash
+```txt
 usb-creator-gtk
 ```
 
 
-```bash
+```txt
 echo "b9beac143e36226aa8a0b03fc1cbb5921cff80123866e718aaeba4edb81cfa63 *ubuntu-18.04.3-live-server-amd64.iso" | shasum -a 256 --check
 ```
 
 
 ## Shutdown
-```bash
+```txt
 # Log Out 
 exit
 
@@ -70,7 +70,7 @@ shutdown +30 "Leave to pickup friend!"
 
 
 ## fix broken packages
-```bash
+```txt
 # fix broken packages
 sudo apt-get install -f 
 sudo dpkg --configure -a
@@ -87,12 +87,12 @@ apt autoremove
 
 
 ## execute a file
-```bash
+```txt
 if [ -f ~/file_name ]; then
     source ~/file_name;
 fi
 ```
 
-```bash
+```txt
 if [ -f ~/file_name.txt ]; then echo 333; else echo 444; fi;
 ```

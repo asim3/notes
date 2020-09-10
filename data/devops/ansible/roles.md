@@ -1,4 +1,4 @@
-```bash
+```txt
 mkdir -p ./roles/my-first-role/tasks
 nano     ./roles/my-first-role/tasks/main.yml
 ```

@@ -1,10 +1,10 @@
-```bash
+```txt
 sudo apt-get install apache2 
 sudo apt-get install libapache2-mod-wsgi-py3
 ```
 
 
-```bash
+```txt
 cd /etc/apache2/sites-available/
 sudo cp 000-default.conf django_project.conf
 sudo nano django_project.conf 
@@ -42,14 +42,14 @@ sudo nano django_project.conf
 ```
 
 
-```bash
+```txt
 sudo a2ensite django_project
 sudo a2dissite 000-default.conf
 ```
 
 
 ## file permissions
-```bash
+```txt
 sudo chown :www-data my_django_project/
 sudo chmod 775 my_django_project/
 
@@ -64,7 +64,7 @@ ls -la
 
 
 ## run server
-```bash
+```txt
 sudo ufw delete allow 8000
 sudo ufw allow http/tcp
 sudo service apache2 restart

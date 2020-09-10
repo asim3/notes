@@ -1,6 +1,6 @@
 ## change the time zone
 > To view date settings, run `timedatectl`
-```bash
+```txt
 # To view all of the time zones
 tzselect
 
@@ -9,7 +9,7 @@ sudo timedatectl set-timezone 'Asia/Riyadh'
 
 
 
-```  bash
+```txt
 find /var -name  asim
 find /var -name  asim*
 find /var -name *asim
@@ -21,7 +21,7 @@ find . -path "*/my-dir/*.txt" -not -name "__init__.txt" -delete
 ```
 
 
-```  bash
+```txt
 sleep 3; echo done 
 # execute 1 then 2
 
@@ -33,7 +33,7 @@ echo 1 || echo 3
 ```
 
 
-```  bash
+```txt
 # Execute last command again
 !!
 
@@ -60,7 +60,7 @@ ls >> my.txt 2>&1
 ```
 
 
-```  bash
+```txt
 cat my.txt | head
 cat my.txt | tail
 
@@ -82,7 +82,7 @@ cat my.txt | grep '[0-9]' | sort -n
 ```
 
 
-```  bash
+```txt
 NAME="John"
 echo $NAME
 echo "Hello $NAME!"
@@ -91,7 +91,7 @@ echo "${NAME}!"
 
 
 Run in Background
-```  bash
+```txt
 # executes in background
 sleep 3 &
 

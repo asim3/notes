@@ -12,7 +12,7 @@ spec:
 ```
 
 
-```bash
+```txt
 kubectl apply  -f ./asim2-pod.yaml
 kubectl create -f asim2-pod.yaml
 
@@ -22,7 +22,7 @@ kubectl delete -f asim2-pod.yaml
 
 
 ## OR
-```bash
+```txt
 kubectl run asim-pod --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8000
 ```
 
@@ -69,13 +69,13 @@ spec:
 
 
 ## deploy
-```bash
+```txt
 kubectl apply -f my-k8s/my-first-deployment.yml
 ```
 
 
 ## delete
-```bash
+```txt
 kubectl delete -f my-k8s/my-first-deployment.yml
 # OR
 kubectl delete deployment my-metadata-name
@@ -86,7 +86,7 @@ kubectl delete deploy my-metadata-name
 
 
 ## list
-```bash
+```txt
 kubectl get deploy -o wide
 kubectl get pods -o wide
 
@@ -96,7 +96,7 @@ kubectl get rs
 
 
 ## deployment details
-```bash
+```txt
 kubectl describe deploy my-metadata-name
 kubectl describe deployment/my-metadata-name
 
@@ -106,7 +106,7 @@ kubectl rollout status deployment/my-metadata-name
 
 
 ## update
-```bash
+```txt
 kubectl apply -f my-k8s/my-first-deployment.yml
 # OR
 kubectl edit deploy my-metadata-name
@@ -116,7 +116,7 @@ kubectl set image deploy my-metadata-name nginx-container=nginx:1.9.1
 
 
 ## rollback
-```bash
+```txt
 # if rollout isn't updating
 # look for error in history
 kubectl rollout history deployment/my-metadata-name
@@ -128,6 +128,6 @@ kubectl rollout status deployment/my-metadata-name
 
 
 ## scaling
-```bash
+```txt
 kubectl scale deploy my-metadata-name --replicas=5
 ```

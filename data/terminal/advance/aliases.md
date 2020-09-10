@@ -3,7 +3,7 @@ shortcut for terminal commands
 
 
 `nano ~/.bash_aliases`
-```bash
+```txt
 alias app-all="echo '
 
 app-ux

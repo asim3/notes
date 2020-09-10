@@ -2,7 +2,7 @@
 
 
 ## Files archive
-```  bash
+```txt
 # new tar file
 tar -cf my_archive.tar my_file.txt
 tar -cf dir_archive.tar ./my_dir/
@@ -21,7 +21,7 @@ tar -cvf my_archive.tar my_file.txt
 
 
 ## gzipped archive >> super small size
-```  bash
+```txt
 tar -czf my_archive.tar.gz /var/my_dir/
 tar -xzf my_archive.tar.gz
 ```
@@ -29,7 +29,7 @@ tar -xzf my_archive.tar.gz
 
 
 ## add user
-```  bash
+```txt
 sudo adduser asim
 
 # list all groups
@@ -51,14 +51,14 @@ id
 
 
 ## copy all photo in a directory
-```bash
+```txt
 find . -name \*.jpg -exec cp {} ~/my-new-jpg \;
 ```
 
 
 
 ## add a hard link "shortcut"
-```  bash
+```txt
 ln ~/Downloads/my_file.pdf ~/Desktop/short_cut.aaaaa
 sudo ln -s /usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin/node /usr/bin/node
 ```
@@ -66,14 +66,14 @@ sudo ln -s /usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin/node /usr/bin/node
 
 
 ## Edit bash init file
-```  bash
+```txt
 nano ~/.bashrc
 nano ~/.bash_profile # for macOS
 nano /etc/profile # for all users except root
 ```
 
 
-```  bash
+```txt
 # add to ~/.bashrc
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -84,19 +84,19 @@ fi
 
 ## Aliases 
 shortcut for terminal commands
-```  bash
+```txt
 # add to ~/.bash_aliases
 alias ddd="cd ~/Desktop/"
 ```
 
 
 ## connect domain names with IP addresses in local computer 
-```  bash
+```txt
 sudo nano /etc/hosts
 ```
 
 ## locate binary
-```bash
+```txt
 # Display ls command location along with man page path
 whereis nano
 whereis python
@@ -105,7 +105,7 @@ type -p nano
 type -p python
 ```
 ## Show running process name
-```  bash
+```txt
 pgrep -l sys
 pgrep -l python
 pgrep -l firefox
@@ -113,7 +113,7 @@ pgrep -l firefox
 
 
 ## Stop running process by name
-```  bash
+```txt
 pkill python
 pkill firefox
 pkill gunicorn
@@ -123,7 +123,7 @@ killall python3
 
 
 ## Print or check checksums
-```  bash
+```txt
 # MD5 (128-bit)
 md5sum filename
 # check

@@ -1,5 +1,5 @@
 ## Persistent Volume
-```bash
+```txt
 kubectl get pv
 kubectl describe asim-pv
 ```
@@ -7,6 +7,6 @@ kubectl describe asim-pv
 
 ## PVC
 Persistent Volume Claims
-```bash
+```txt
 kubectl get pvc
 ```

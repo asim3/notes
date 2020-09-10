@@ -52,7 +52,7 @@ my_password: 'asim-1234'
 ```
 
 
-```bash
+```txt
 ansible-playbook var-playbook.yml --check
 ansible-playbook var-playbook.yml
 ```

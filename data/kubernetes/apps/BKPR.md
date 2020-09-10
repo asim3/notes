@@ -5,7 +5,7 @@ Bitnami Kubernetes Production Runtime
 
 
 ## Prerequisites
-```bash
+```txt
 sudo apt install jq
 
 curl -OL https://github.com/bitnami/kubecfg/releases/download/v0.16.0/kubecfg-linux-amd64
@@ -17,7 +17,7 @@ kubecfg version
 
 
 ## Install kubeprod
-```bash
+```txt
 # set temporary environment variable
 BKPR_VERSION=$(curl --silent "https://api.github.com/repos/bitnami/kube-prod-runtime/releases/latest" | jq -r '.tag_name')
 
@@ -34,7 +34,7 @@ sudo kubeprod version
 
 ## Deploy BKPR
 `nano ~/.bashrc`
-```bash
+```txt
 export DNS_ZONE=my-domain.com
 export ADMIN_EMAIL=admin@my-domain.com
 export OAUTH_AUTHZ_DOMAIN="my-domain.com"
@@ -57,6 +57,6 @@ kubectl get pods -n kubeprod
 
 
 ## Configure domain registration records
-```bash
+```txt
 kubectl -n kubeprod get svc nginx-ingress-udp -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
 ```

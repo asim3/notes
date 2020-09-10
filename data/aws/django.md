@@ -1,6 +1,6 @@
 ## Installation
 
-```  bash
+```txt
 pip install boto3
 pip install django-storages
 ```

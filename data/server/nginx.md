@@ -1,13 +1,13 @@
 # Installing Nginx
 
-```bash
+```txt
 sudo apt update
 sudo apt install nginx
 ```
 
 
 ## Adjusting the Firewall
-```bash
+```txt
 # check Firewall Available applications 
 sudo ufw app list
 
@@ -17,7 +17,7 @@ sudo ufw status
 
 
 ## Checking your Web Server
-```bash
+```txt
 systemctl status nginx
 
 # start automatically when the server boots
@@ -33,7 +33,7 @@ sudo systemctl stop nginx
 
 
 ## Setting Up Server Blocks
-```bash
+```txt
 sudo mkdir -p /var/www/myexample.com/html
 sudo chown -R $USER:$USER /var/www/myexample.com/html
 sudo chmod -R 755 /var/www/myexample.com
@@ -42,7 +42,7 @@ nano /var/www/myexample.com/html/index.html
 
 
 ## create a server block
-```bash
+```txt
 sudo nano /etc/nginx/sites-available/myexample.com
 @ ...
 server {
@@ -63,13 +63,13 @@ server {
 
 
 ## enable server block
-```bash
+```txt
 sudo ln -s /etc/nginx/sites-available/myexample.com /etc/nginx/sites-enabled/
 ```
 
 
 ## avoid a possible hash bucket memory problem
-```bash
+```txt
 sudo nano /etc/nginx/nginx.conf
 @ ...
 http {

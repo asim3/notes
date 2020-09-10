@@ -1,5 +1,5 @@
 Install SSH
-```bash
+```txt
 sudo apt install openssh-server
 mkdir ~/.ssh/
 touch ~/.ssh/authorized_keys
@@ -16,7 +16,7 @@ sudo systemctl enable ssh
 
 
 list all authorized keys in the server
-```bash
+```txt
 cat ~/.ssh/authorized_keys 
 ```
 
@@ -24,7 +24,7 @@ cat ~/.ssh/authorized_keys
 
 generate key
 > if you want to change the key name make sure to put the full directory path
-```bash
+```txt
 cd ~/.ssh/
 ssh-keygen -t rsa -b 4096 -C "myname@example.com"
 ```
@@ -32,7 +32,7 @@ ssh-keygen -t rsa -b 4096 -C "myname@example.com"
 
 Copy public key to remote server
 > make sure you add it to .ssh/authorized_keys file
-```  bash
+```txt
 ssh-copy-id asim@10.68.15.202
 
 # OR
@@ -53,7 +53,7 @@ scp ~/.ssh/id_rsa.pub asim@192.168.100.188:~/.ssh/authorized_keys
 
 
 Copy files using SSH
-```bash
+```txt
 scp ~/local.txt username@remote.server.ip:~/remote/q
  
 # Recursively copy entire directories
@@ -74,7 +74,7 @@ ssh-add ./.ssh/id_rsa
 Troubleshooting
 > make sure to restart sshd    
 `sudo systemctl restart sshd`
-```bash
+```txt
 cat /etc/ssh/sshd_config
 # ...
 PubkeyAuthentication yes
@@ -93,14 +93,14 @@ PasswordAuthentication no
 
 
 testing SSH connection    
-```bash
+```txt
 ssh -T git@github.com
 ```
 
 
 change SSH port number 
 `sudo nano ~/.ssh/config`
-```bash
+```txt
 Host github.com
     Hostname ssh.github.com
     Port 443

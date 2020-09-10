@@ -1,6 +1,6 @@
 # Uncomplicated Firewall
 
-```bash
+```txt
 sudo apt-get update && sudo apt-get upgrade
 
 sudo apt-get install ufw 
@@ -13,7 +13,7 @@ sudo ufw disable
 
 
 ## Firewall status
-```bash
+```txt
 sudo ufw status
 sudo ufw status verbose
 sudo ufw status numbered
@@ -22,14 +22,14 @@ sudo ufw app list
 
 
 ## set default 
-```bash
+```txt
 sudo ufw default allow outgoing
 sudo ufw default deny incoming
 ```
 
 
 ## open ports 
-```bash
+```txt
 sudo ufw allow ssh
 sudo ufw allow http 
 sudo ufw allow https
@@ -38,7 +38,7 @@ sudo ufw allow 8000
 
 
 ## close ports 
-```bash
+```txt
 sudo ufw deny http 
 sudo ufw deny https
 sudo ufw deny 8000 

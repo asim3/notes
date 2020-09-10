@@ -23,7 +23,7 @@ EXPOSE 80
 
 
 ## Build docker image
-```bash
+```txt
 sudo docker image build -t my_php_test:mytag ~/test_docker_build/
 sudo docker images
 
@@ -33,7 +33,7 @@ sudo docker container run -d -p 80:80 my_php_test:mytag
 ```
 
 ## Bind mount a volume
-```bash
+```txt
 sudo docker container run -p 80:80 -v ~/test_docker_build/src/:/var/www/html/ my_php_test
 ```
 

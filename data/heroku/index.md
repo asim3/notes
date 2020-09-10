@@ -1,4 +1,4 @@
-```  bash
+```txt
 heroku -v
 heroku login
 heroku apps
@@ -10,7 +10,7 @@ heroku apps:destroy -a _
 
 
 commit changes
-```  bash
+```txt
 git init
 git add .
 
@@ -23,7 +23,7 @@ git status
 
 
 push to heroku
-```  bash
+```txt
 git push heroku master
 
 heroku open
@@ -31,20 +31,20 @@ heroku open
 
 
 database info
-```  bash
+```txt
 heroku pg:info -a _
 watch "heroku pg:info -a _"
 ```
 
 
 scale Dynos
-```  bash
+```txt
 heroku ps:scale web=1 -a _
 ```
 
 
 Run app locally
-```  bash
+```txt
 heroku local web
 
 # pg_config is in postgresql-devel 
@@ -56,6 +56,6 @@ sudo apt install libpq-dev
 
 
 other
-```  bash
+```txt
 heroku access
 ```

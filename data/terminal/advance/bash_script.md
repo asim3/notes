@@ -2,14 +2,14 @@
 
 
 ## to run script in terminal
-```bash
+```txt
 bash file_name
 # or
 . file_name
 ```
 
 
-```bash
+```txt
 #!/bin/bash
 
 echo Hello World
@@ -23,7 +23,7 @@ echo 'my name' > file.txt
 
 
 `bash file_name value1 value2`
-```bash
+```txt
 echo $@ # value1 value2
 echo "$@" # value1 value2
 echo "$1" # value1
@@ -35,7 +35,7 @@ echo "$((5 + 5))" # 10
 ```
 
 
-```bash
+```txt
 get_name() {
   echo "John"
 }
@@ -53,7 +53,7 @@ echo "You are $(get_name)"
 
 
 ## Functions with arguments
-```bash
+```txt
 function my_function {
   echo "\$1 = $1"
   echo "\$2 = $2"
@@ -72,7 +72,7 @@ my_function "asim" "bader" "ahmed"
 
 
 ## string replace regex
-```bash
+```txt
 echo "asim bader ahmed asim bader ahmed" | sed -e 's/asim/mohammed/'
 # mohammed bader ahmed asim bader ahmed
 echo "asim bader ahmed asim bader ahmed" | sed -e 's/asim/mohammed/g'
@@ -84,7 +84,7 @@ echo $(echo "$dir" | sed -e 's/.*\///' -e 's/\..*//' -e 's/_/ /');
 ```
 
 
-```bash
+```txt
 log_enabled="true"
 if [ "$1" = "1" ]; then
     echo "my name is asim 1"
@@ -94,7 +94,7 @@ fi
 ```
 
 
-```bash
+```txt
 T1="foo"
 T2="bar"
 if [ "$T1" = "$T2" ]; then
@@ -106,7 +106,7 @@ fi
 
 
 ## rename function
-```bash
+```txt
 #!/bin/bash
 
 path=""
