@@ -1,6 +1,6 @@
-```python
-mkdir ~/traefik_test_1/ && nano ~/traefik_test_1/docker-compose.yml
-
+`mkdir ~/traefik_test_1/`    
+`nano ~/traefik_test_1/docker-compose.yml`
+```yaml
 version: '3'
 
 services:
@@ -20,8 +20,8 @@ services:
 ```
 
 
-run traefik
-```python
+## run traefik
+```txt
 cd ~/traefik_test_1/
 sudo docker-compose up -d reverse-proxy
 
@@ -30,10 +30,9 @@ curl http://localhost:8080/api/rawdata | json_pp
 
 
 EDIT docker-compose.yml file and add the following at the end
-```python
-nano ~/traefik_test_1/docker-compose.yml
-# must be within the same traefik-compose file
-
+`nano ~/traefik_test_1/docker-compose.yml`
+> must be within the same traefik-compose file
+```yaml
 # ...
 
   whoami:
@@ -44,8 +43,8 @@ nano ~/traefik_test_1/docker-compose.yml
       
    
 
-run whoami
-```python
+## run whoami
+```txt
 cd ~/traefik_test_1/
 sudo docker-compose up -d whoami
 
@@ -60,8 +59,8 @@ curl -H Host:whoami.docker.localhost http://127.0.0.1
 ```
 
 
-testing
-```python
+## testing
+```txt
 sudo docker images
 sudo docker container ls
 ```
@@ -76,8 +75,8 @@ http://whoami.docker.localhost/
 ```
 
 
-network & volume
-```python
+## network & volume
+```txt
 sudo docker network create web
 sudo docker volume create --name=wordpress
 

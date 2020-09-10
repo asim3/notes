@@ -15,22 +15,22 @@ services:
       - "8080:8080" # <== :8080 is where the dashboard runs on
       - "443:443" # <== https
     command:
-    #### These are the CLI commands that will configure Traefik and tell it how to work! ####
-      ## API Settings - https://docs.traefik.io/operations/api/, endpoints - https://docs.traefik.io/operations/api/#endpoints ##
+    # These are the CLI commands that will configure Traefik and tell it how to work!
+      # API Settings - https://docs.traefik.io/operations/api/, endpoints - https://docs.traefik.io/operations/api/#endpoints
       - --api.insecure=true # <== Enabling insecure api, NOT RECOMMENDED FOR PRODUCTION
       - --api.dashboard=true # <== Enabling the dashboard to view services, middlewares, routers, etc...
       - --api.debug=true # <== Enabling additional endpoints for debugging and profiling
-      ## Log Settings (options: ERROR, DEBUG, PANIC, FATAL, WARN, INFO) - https://docs.traefik.io/observability/logs/ ##
+      # Log Settings (options: ERROR, DEBUG, PANIC, FATAL, WARN, INFO) - https://docs.traefik.io/observability/logs/
       - --log.level=DEBUG # <== Setting the level of the logs from traefik
-      ## Provider Settings - https://docs.traefik.io/providers/docker/#provider-configuration ##
+      # Provider Settings - https://docs.traefik.io/providers/docker/#provider-configuration
       - --providers.docker=true # <== Enabling docker as the provider for traefik
       - --providers.docker.exposedbydefault=false # <== Don't expose every container to traefik, only expose enabled ones
       - --providers.file.filename=/dynamic.yaml # <== Referring to a dynamic configuration file
       - --providers.docker.network=web # <== Operate on the docker network named web
-      ## Entrypoints Settings - https://docs.traefik.io/routing/entrypoints/#configuration ##
+      # Entrypoints Settings - https://docs.traefik.io/routing/entrypoints/#configuration
       - --entrypoints.web.address=:80 # <== Defining an entrypoint for port :80 named web
       - --entrypoints.web-secured.address=:443 # <== Defining an entrypoint for https on port :443 named web-secured
-      ## Certificate Settings (Let's Encrypt) -  https://docs.traefik.io/https/acme/#configuration-examples ##
+      # Certificate Settings (Let's Encrypt) -  https://docs.traefik.io/https/acme/#configuration-examples
       - --certificatesresolvers.mytlschallenge.acme.tlschallenge=true # <== Enable TLS-ALPN-01 to generate and renew ACME certs
       - --certificatesresolvers.mytlschallenge.acme.email=theafkdeveloper@gmail.com # <== Setting email for certs
       - --certificatesresolvers.mytlschallenge.acme.storage=/letsencrypt/acme.json # <== Defining acme file to store cert information
@@ -41,7 +41,7 @@ services:
     networks:
       - web # <== Placing traefik on the network named web, to access containers on this network
     labels:
-    #### Labels define the behavior and rules of the traefik proxy for this container ####
+    # Labels define the behavior and rules of the traefik proxy for this container
       - "traefik.enable=true" # <== Enable traefik on itself to view dashboard and assign subdomain to view it
       - "traefik.http.routers.api.rule=Host(`monitor.example.com`)" # <== Setting the domain for the dashboard
       - "traefik.http.routers.api.service=api@internal" # <== Enabling the api to be a service to access
@@ -57,7 +57,7 @@ networks:
 version: "3.3"
 services:
   wordpress: # <== we aren't going to open :80 here because traefik is going to serve this on entrypoint 'web'
-  ## :80 is already exposed from within the container ##
+  # :80 is already exposed from within the container
     image: wordpress
     restart: always
     container_name: wp
@@ -72,7 +72,7 @@ services:
       - web
       - backend
     labels:
-      #### Labels define the behavior and rules of the traefik proxy for this container ####
+      # Labels define the behavior and rules of the traefik proxy for this container
       - "traefik.enable=true" # <== Enable traefik to proxy this container
       - "traefik.http.routers.nginx-web.rule=Host(`example.com`)" # <== Your Domain Name goes here for the http rule
       - "traefik.http.routers.nginx-web.entrypoints=web" # <== Defining the entrypoint for http, **ref: line 30
@@ -131,8 +131,8 @@ volumes:
 
 
 `nano dynamic.yaml`
+> Setting up the middleware for redirect to https
 ```yaml
-## Setting up the middleware for redirect to https ##
 http:
   middlewares:
     redirect:
