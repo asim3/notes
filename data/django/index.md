@@ -15,7 +15,7 @@ deactivate
 ```
 
 
-```
+```txt
 django-admin startproject my_name
 python manage.py startapp app_name
 python manage.py collectstatic

@@ -39,7 +39,6 @@ card-deck
 		|-- card-subtitle mb-2 text-muted
 		|-- card-text
 		`-- card-link
-
 ```
 
 ## قائمة

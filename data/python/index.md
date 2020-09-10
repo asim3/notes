@@ -15,7 +15,7 @@ pip freeze > requirements.txt
 
 
 
-```
+```py
 data = {'a':1,'b':2,'c':3}
 data['a'] = 1
 data.update(a = 1)
@@ -23,14 +23,14 @@ data.update({'c': 3, 'd': 4})  # Updates 'c' and adds 'd'
 ```
 
 
-```
+```py
 del data[key]  # Removes specific element in a dictionary
 data.pop(key)  # Removes the key & returns the value
 data.clear()  # Clears entire dictionary
 ```
 
 
-```
+```py
 for key in data: # Iterates just through the keys, ignoring the values
 for key, value in d.items(): # Iterates through the pairs
 for key in d.keys(): # Iterates just through key, ignoring the values
@@ -38,13 +38,13 @@ for value in d.values(): # Iterates just through value, ignoring the keys
 ```
 
 
-```
+```py
 data = {k: v for k, v in (('a', 1),('b',2),('c',3))}
 ```
 
 
 ##المصفوفات
-``` txt
+```py
 len(range(10))    # 10
 list(range(10))   # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 set(range(10))    # {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
@@ -53,7 +53,7 @@ tuple(range(10))  # (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 
 
 ##المحولات
-``` txt
+```py
 str(datetime)     # '123'
 int(datetime)     # -123
 float(datetime)   # -24.45
@@ -68,7 +68,7 @@ dict(datetime)    # {'a':1,'b':2,'c':3}
 
 
 ## Date & Time
-``` txt
+```py
 from datetime import datetime
 
 date = datetime.now()
@@ -78,7 +78,7 @@ date.strftime("%d/%m/%Y %I:%M:%S %p")
 
 
 ## cut
-``` txt
+```py
 str(123456789)[1:3] 	# '23'
 str(123456789)[2:] 		# '3456789'
 str(123456789)[:2] 		# '12'
@@ -87,7 +87,7 @@ str(123456789)[-3:] 	# '789'
 ```
 
 
-```
+```py
 try:
     # ...
 

@@ -1,6 +1,6 @@
 # commandline
 
-```
+```txt
 mkdir add_new_folders
 
 rm *.pdf

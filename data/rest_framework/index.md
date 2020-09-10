@@ -89,5 +89,4 @@ include(router.urls)
               |
               ├── model = User
               └── fields = ['url', 'username']
-
 ```

@@ -8,7 +8,7 @@
 [React Motion: Draggable](https://github.com/chenglou/react-motion)
 
 
-```
+```txt
 npm start
 npm run build
 ```
@@ -18,7 +18,7 @@ npm run build
 
 
 ## Inline if with Logical && Operator 
-``` txt
+```js
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -52,6 +52,6 @@ ReactDOM.render(
 
 
 ## Elements inside the map() call need keys
-``` txt
+```js
 const todoItems = todos.map((todo) => <li key={todo.id}> {todo.text} </li> );
 ```

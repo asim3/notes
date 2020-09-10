@@ -1,7 +1,7 @@
 ## Containerization
 
 
-```
+```txt
 sudo docker version
 ```
 
