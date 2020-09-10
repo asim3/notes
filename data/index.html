@@ -1,44 +1,87 @@
-<div id="body" class="container py-4">
-    <h4>Languages</h4>
-    <div class="btn btn-primary my-1" onclick="fetch_path('html/index.md')">HTML</div>
-    <div class="btn btn-primary my-1" onclick="fetch_path('css/index.md')">CSS</div>
-    <div class="btn btn-primary my-1" onclick="fetch_path('js/index.md')">JS</div>
-    <div class="btn btn-primary my-1" onclick="fetch_path('python/index.md')">Python</div>
-    <div class="btn btn-primary my-1" onclick="fetch_path('nodejs/index.md')">Node.js</div>
-    <div class="btn btn-primary my-1" onclick="fetch_path('regex/index.md')">regex</div>
-    <br><br><br>
+<div class="d-flex flex-wrap">
+    <div class="card flex-fill m-2 bg-light">
+        <div class="card-body">
+            <h4 class="card-title">Languages</h4>
+            <div class="card-text">
+                <div class="btn btn-primary my-1" onclick="fetch_path('html/index.md')">HTML</div>
+                <div class="btn btn-primary my-1" onclick="fetch_path('css/index.md')">CSS</div>
+                <div class="btn btn-primary my-1" onclick="fetch_path('js/index.md')">JS</div>
+                <div class="btn btn-success my-1" onclick="fetch_path('python/index.md')">Python</div>
+                <div class="btn btn-primary my-1" onclick="fetch_path('nodejs/index.md')">Node.js</div>
+                <div class="btn btn-outline-secondary my-1" onclick="fetch_path('regex/index.md')">regex</div>
+            </div>
+        </div>
+    </div>
 
-    <h4>Frameworks</h4>
-    <div class="btn btn-success my-1" onclick="fetch_path('django/index.md')">Django</div>
-    <div class="btn btn-primary my-1" onclick="fetch_path('rest_framework/index.md')">REST</div>
-    <div class="btn btn-primary my-1" onclick="fetch_path('react_js/index.md')">React.js</div>
-    <br><br><br>
+    <div class="card flex-fill m-2 bg-light">
+        <div class="card-body">
+            <h4 class="card-title">Frameworks</h4>
+            <div class="card-text">
+                <div class="btn btn-success my-1" onclick="fetch_path('django/index.md')">Django</div>
+                <div class="btn btn-primary my-1" onclick="fetch_path('react_js/index.md')">React.js</div>
+                <div class="btn btn-outline-secondary my-1" onclick="fetch_path('rest_framework/index.md')">REST</div>
+            </div>
+        </div>
+    </div>
 
-    <h4>Linux Server</h4>
-    <div class="btn btn-primary my-1" onclick="fetch_path('terminal/index.md')">Terminal</div>
-    <div class="btn btn-success my-1" onclick="fetch_path('server/index.md')">Server</div>
-    <div class="btn btn-primary my-1" onclick="fetch_path('devops/index.md')">DevOps</div>
-    <br><br><br>
+    <div class="card flex-fill m-2 bg-light">
+        <div class="card-body">
+            <h4 class="card-title">Linux Server</h4>
+            <div class="card-text">
+                <div class="btn btn-primary my-1" onclick="fetch_path('terminal/index.md')">Terminal</div>
+                <div class="btn btn-success my-1" onclick="fetch_path('server/index.md')">Server</div>
+                <div class="btn btn-outline-secondary my-1" onclick="fetch_path('devops/index.md')">DevOps</div>
+            </div>
+        </div>
+    </div>
 
-    <h4>Containerization</h4>
-    <div class="btn btn-primary my-1" onclick="fetch_path('docker/index.md')">Docker</div>
-    <div class="btn btn-success my-1" onclick="fetch_path('kubernetes/index.md')">Kubernetes</div>
-    <br><br><br>
+    <div class="card flex-fill m-2 bg-light">
+        <div class="card-body">
+            <h4 class="card-title">Containerization</h4>
+            <div class="card-text">
+                <div class="btn btn-primary my-1" onclick="fetch_path('docker/index.md')">Docker</div>
+                <div class="btn btn-primary my-1" onclick="fetch_path('compose/index.md')">compose</div>
+                <div class="btn btn-success my-1" onclick="fetch_path('swarm/index.md')">swarm</div>
+                <div class="btn btn-outline-secondary my-1" onclick="fetch_path('kubernetes/index.md')">Kubernetes</div>
+            </div>
+        </div>
+    </div>
 
-    <h4>Libraries</h4>
-    <div class="btn btn-primary my-1" onclick="fetch_path('bootstrap/index.md')">Bootstrap 4</div>
-    <div class="btn btn-primary my-1" onclick="window.open('https://saleor.io/')">Saleor</div>
-    <br><br><br>
+    <div class="card flex-fill m-2 bg-light">
+        <div class="card-body">
+            <h4 class="card-title">Libraries</h4>
+            <div class="card-text">
+                <div class="btn btn-primary my-1" onclick="fetch_path('bootstrap/index.md')">Bootstrap 4</div>
+                <div class="btn btn-outline-secondary my-1" onclick="window.open('https://saleor.io/')">Saleor</div>
+            </div>
+        </div>
+    </div>
 
-    <h4>Service</h4>
-    <div class="btn btn-primary my-1" onclick="fetch_path('aws/index.md')">AWS</div>
-    <div class="btn btn-primary my-1" onclick="fetch_path('heroku/index.md')">Heroku</div>
-    <div class="btn btn-primary my-1" onclick="window.open('https://www.twilio.com/docs')">Twilio</div>
-    <div class="btn btn-primary my-1" onclick="window.open('https://www.linode.com/docs/')">Linode</div>
-    <div class="btn btn-primary my-1" onclick="window.open('https://letsencrypt.org/docs/')">LetsEncrypt</div>
-    <br><br><br>
+    <div class="card flex-fill m-2 bg-light">
+        <div class="card-body">
+            <h4 class="card-title">Service</h4>
+            <div class="card-text">
+                <div class="btn btn-primary my-1" onclick="fetch_path('aws/index.md')">AWS</div>
+                <div class="btn btn-primary my-1" onclick="fetch_path('heroku/index.md')">Heroku</div>
+                <div class="btn btn-primary my-1" onclick="window.open('https://letsencrypt.org/docs/')">LetsEncrypt
+                </div>
+                <div class="btn btn-outline-secondary my-1" onclick="window.open('https://www.twilio.com/docs')">Twilio
+                </div>
+                <div class="btn btn-outline-secondary my-1" onclick="window.open('https://www.linode.com/docs/')">Linode
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <h4>Projects</h4>
-    <div class="btn btn-primary my-1" onclick="window.open('https://meras.herokuapp.com')">Meras</div>
-    <div class="btn btn-primary my-1" onclick="window.open('https://github.com/asim3/notes')">GitHub repository</div>
+    <div class="card flex-fill m-2 bg-light">
+        <div class="card-body">
+            <h4 class="card-title">Projects</h4>
+            <div class="card-text">
+                <div class="btn btn-primary my-1" onclick="window.open('https://meras.herokuapp.com')">Meras</div>
+                <div class="btn btn-primary my-1" onclick="window.open('https://github.com/asim3/notes')">GitHub
+                    repository
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
