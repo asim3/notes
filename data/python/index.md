@@ -1,4 +1,4 @@
-##Virtual Environments
+## Virtual Environments
 ```
 sudo apt-get install python3-venv
 python3 -m venv venv
@@ -7,7 +7,7 @@ deactivate
 ```
 
 
-##packages
+## packages
 ```
 pip install -r requirements.txt
 pip freeze > requirements.txt
@@ -67,7 +67,7 @@ dict(datetime)    # {'a':1,'b':2,'c':3}
 ```
 
 
-##Date & Time
+## Date & Time
 ```
 from datetime import datetime
 
@@ -77,7 +77,7 @@ date.strftime("%d/%m/%Y %I:%M:%S %p")
 ```
 
 
-##cut
+## cut
 ```
 str(123456789)[1:3] 	# '23'
 str(123456789)[2:] 		# '3456789'

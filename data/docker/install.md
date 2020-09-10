@@ -2,7 +2,7 @@
 ## Docker Engine - Enterprise package is now called docker-ee
 
 
-[install](https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-repository)
+[install](https://docs.docker.com/engine/install/ubuntu/)
 
 
 ## Uninstall old versions

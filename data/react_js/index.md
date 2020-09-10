@@ -1,4 +1,4 @@
-##Libraries
+## Libraries
 [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
 
 
@@ -17,7 +17,7 @@ npm run build
 [Deployment Docs](https://facebook.github.io/create-react-app/docs/deployment)
 
 
-##Inline if with Logical && Operator 
+## Inline if with Logical && Operator 
 ```
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -51,7 +51,7 @@ ReactDOM.render(
 ```
 
 
-##Elements inside the map() call need keys
+## Elements inside the map() call need keys
 ```
 const todoItems = todos.map((todo) => <li key={todo.id}> {todo.text} </li> );
 ```

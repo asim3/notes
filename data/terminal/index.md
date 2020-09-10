@@ -14,7 +14,7 @@ mv rename_files.js to_other.js
 ```
 
 
-##Read and Edit
+## Read and Edit
 ```
 touch add_new_file.txt
 
@@ -26,7 +26,7 @@ gedit edit_file.txt
 ```
 
 
-##CURL
+## CURL
 ```
 curl google.com
 
@@ -57,7 +57,7 @@ curl https://jsonplaceholder.typicode.com/users | json_pp
 ```
 
 
-##Permissions
+## Permissions
 ```
 sudo chown asim:asim /www
 sudo chown myusername file.txt
@@ -79,7 +79,7 @@ sudo chmod 664 file.txt
 ```
 
 
-##Linux Directory
+## Linux Directory
 ```
 /etc     => Configuration files
 /tmp     => Temporary Files "will be deleted after reboot"

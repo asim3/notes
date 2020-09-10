@@ -1,7 +1,7 @@
 ## Django REST framework
 
 
-##Install
+## Install
 ```
 pip install djangorestframework
 
@@ -14,7 +14,7 @@ pip install django-filter
 
 
 
-##Add to INSTALLED_APPS
+## Add to INSTALLED_APPS
 ```
 INSTALLED_APPS = [
     ...
@@ -51,7 +51,7 @@ urlpatterns = [
 
 
 
-##Pagination size
+## Pagination size
 ```
 REST_FRAMEWORK = {
     ...
@@ -63,7 +63,7 @@ REST_FRAMEWORK = {
 
 
 
-##Default renderer classes
+## Default renderer classes
 ```
 REST_FRAMEWORK = {
     ...
@@ -76,7 +76,7 @@ REST_FRAMEWORK = {
 ```
 
 
-##Hierarchy
+## Hierarchy
 ```
 include(router.urls)
 |
