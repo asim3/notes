@@ -1,18 +1,3 @@
-```
-```bash
-docker-compose version
-
-
-[install](https://docs.docker.com/compose/install/#install-using-pip#install-compose-on-linux-systems)
-
-
-```bash
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
-sudo chmod +x /usr/local/bin/docker-compose
-```
-
-
 ```bash
 sudo docker-compose up -d --scale __name__=3
 sudo docker-compose start
@@ -44,7 +29,7 @@ services:
       - "5001:80"
 ```
 
-      
+
 ```yaml
 volumes:
   my_volumes_data:

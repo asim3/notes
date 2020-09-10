@@ -100,3 +100,21 @@ sudo chmod 664 file.txt
 
 /lost+found    => Misplaced Data
 ```
+
+
+`echo $PATH`
+```bash
+/usr/local/sbin
+/usr/local/bin
+
+/usr/sbin
+/usr/bin
+
+/sbin
+/bin
+
+/usr/games
+/usr/local/games
+
+/snap/bin
+```
