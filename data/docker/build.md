@@ -4,37 +4,61 @@
 # Docker Engine - Community
 
 ## making php file
-```dockerfile
-mkdir -p ~/test_docker_build/src/ 
-nano ~/test_docker_build/src/index.php
-<?php
-
-echo "Hello, World";
+`mkdir -p ~/my_docker_file/my-php/`     
+```txt
+echo "<?php echo 'Hello, World'; ?>" > ~/my_docker_file/my-php/index.php
 ```
 
 
 ## making php Dockerfile
+`nano ~/my_docker_file/Dockerfile`
 ```dockerfile
-nano ~/test_docker_build/Dockerfile
 FROM php:7.0-apache
-COPY src/ /var/www/html
+COPY my-php/ /var/www/html
 EXPOSE 80
 ```
 
 
 ## Build docker image
 ```txt
-sudo docker image build -t my_php_test:mytag ~/test_docker_build/
-sudo docker images
+sudo docker image build -t my_php_test:mytag ~/my_docker_file/
 
-sudo docker container run    -p 80:80 my_php_test:mytag
-sudo docker container run -d -p 80:80 my_php_test:mytag
-# -d for: Run container in background
+sudo docker images
+sudo docker images -a
 ```
 
-## Bind mount a volume
+
+## run
+> `-d` for: Run container in background
 ```txt
-sudo docker container run -p 80:80 -v ~/test_docker_build/src/:/var/www/html/ my_php_test
+sudo docker container run -d -p 80:80 my_php_test:mytag
+
+
+sudo docker container ls -a
+
+sudo docker container stop __id__
+sudo docker container rm __id__
+```
+
+
+## volume
+Bind mount a volume
+```txt
+sudo docker container run -p 80:80 \
+ -v ~/my_docker_file/my-php/:/var/www/html/ my_php_test:mytag
+```
+
+
+
+## Push Image
+Push Image to Docker Hub
+> `sudo apt-get install pass gnupg2`
+```txt
+sudo docker commit __id__ asim3/my-image-1:mytag
+
+sudo docker login
+
+sudo docker push asim3/my-image-1:mytag
 ```
 
 
@@ -51,16 +75,4 @@ RUN apt-get update
 
 # execute on run image
 CMD ["echo", "Hello Worldddd"]
-```
-
-
-## Dockerfile for Django 
-> !!
-```dockerfile
-FROM python:3
-ENV pythonunbuffered 1
-RUN mkdir /my_file
-WORKDIR /my_file
-COPY . /my_file/
-RUN pip install -r requirements.txt
 ```
