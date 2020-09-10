@@ -95,7 +95,7 @@ kubectl get rs
 ```
 
 
-## full deployment details
+## deployment details
 ```bash
 kubectl describe deploy my-metadata-name
 kubectl describe deployment/my-metadata-name

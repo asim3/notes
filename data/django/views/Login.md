@@ -63,7 +63,8 @@ else:
 ```
 
 
-## Functions require login
+## require login
+Functions require login
 ```python
 from django.contrib.auth.decorators import login_required
 ```

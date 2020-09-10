@@ -1,6 +1,7 @@
 ## string format
 
-## `%` formatting “Old-school”
+## `%` formatting 
+> “Old-school”
 ```python
 name = "Aaaa"
 age = 74
@@ -9,7 +10,8 @@ age = 74
 
 
 
-## f-Strings `>= python 3.6`
+## f-Strings 
+> `>= python 3.6`
 ```python
 name = "Aaaa"
 age = 74
@@ -45,7 +47,7 @@ print("{0} - {gfg} - {1}".format("Aaa", "Bbb", gfg ="Ccc"))
 ```
 
 
-## To limit the precision 
+> To limit the precision 
 ```python
 print ("my {0} is {1:.2f}%".format("GPA", 78.234876)) 
 ```

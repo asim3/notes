@@ -1,4 +1,5 @@
-## Function Components "pure functions"
+## Function Components 
+pure functions
 
 ```js
 function MyElement(props) {
@@ -7,7 +8,7 @@ function MyElement(props) {
 ```
 
 
-## prevent default in functions
+prevent default in functions
 ```js
 function ActionLink(props) {
 	let i = 0

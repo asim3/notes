@@ -1,4 +1,5 @@
-## Shows models in admin page
+## models in admin page
+Shows models in admin page
 ```python
 from django.contrib import admin
 from .models import TableName
@@ -17,7 +18,8 @@ class AdminTable1(admin.ModelAdmin):
 ```
 
 
-## Overriding admin templates
+## Overriding
+Overriding admin templates
 ```python
 # add template base "dirs" in settings
 TEMPLATES = [

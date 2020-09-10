@@ -1,7 +1,7 @@
 [modules](https://docs.ansible.com/ansible/latest/modules/modules_by_category.html)
 
 
-## Configuration Management
+## Configuration
 
 
 ## installing ansible
@@ -37,7 +37,8 @@ ansible -m ping all
 ```
 
 
-## execute shell commands "ad-hoc commands"
+## execute
+execute shell commands "ad-hoc commands"
 ```
 ansible -m shell -a 'hostname' all
 ansible -m shell -a 'whoami' all

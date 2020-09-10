@@ -43,7 +43,8 @@ kubectl describe sa my-user
 ```
 
 
-## Cluster Role Binding Manifest
+## Cluster Role Binding
+CRB Manifest
 write a manifest for new Cluster Role Binding    
 `nano crb-my-user.yaml`
 ```yaml
@@ -62,7 +63,8 @@ subjects:
 ```
 
 
-## add a new Cluster Role Binding
+## new CRB
+new Cluster Role Binding
 ```bash
 kubectl apply -f crb-my-user.yaml
 

@@ -1,6 +1,5 @@
-## Using static html in /project/templates/index.html
-
-
+## Using static html
+Using static html in /project/templates/index.html
 `nano /project/urls.py`
 ```python
 path('', TemplateView.as_view(template_name="index.html") ),

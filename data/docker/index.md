@@ -1,4 +1,3 @@
-## Docker Engine - Community
 ## Containerization
 
 
@@ -48,7 +47,8 @@ sudo docker container rm __id__
 ```
 
 
-## get into a Docker container's shell
+## execute shell commands
+get into a Docker container's shell
 ```
 sudo docker exec -it __id__ bash
 sudo docker exec -it __id__ ls -al

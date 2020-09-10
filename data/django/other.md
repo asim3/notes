@@ -23,14 +23,16 @@ with connections['other_db'].cursor() as cursor:
 
 
 
-## Auto-generate the models 
+## Auto models
+Auto-generate the models 
 ```bash
 python manage.py inspectdb > show_me_models.py --database=other_db
 ```
 
 
 
-## How to Reset Migrations
+## Reset Migrations
+How to Reset Migrations
 ```bash
 find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
 find . -path "*/migrations/*.pyc"  -delete

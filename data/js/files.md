@@ -1,4 +1,4 @@
-## POST <form> using fetch 
+## POST using fetch 
 ```js
 let myForm = document.getElementById('myForm');
 let formData = new FormData(myForm);
@@ -53,7 +53,7 @@ obj.url = URL.createObjectURL(blob)
 ```
 
 
-## fetch file then download
+## fetch file - download
 ```js
 fetch('', {method: "POST", body: edit_form}).then(response => {
     if(response.status == 200) {

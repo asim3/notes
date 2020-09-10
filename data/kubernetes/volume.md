@@ -5,7 +5,8 @@ kubectl describe asim-pv
 ```
 
 
-## Persistent Volume Claims
+## PVC
+Persistent Volume Claims
 ```bash
 kubectl get pvc
 ```

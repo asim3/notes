@@ -21,7 +21,8 @@ server.listen(port, hostname, () => {
 
 
 
-## new project with packages
+## new 
+project with packages
 ```bash
 mkdir my-project && cd my-project
 # to skip walk through: `npm init -y`

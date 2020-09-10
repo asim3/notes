@@ -56,7 +56,7 @@
 
 
 
-## جدول
+## table
 ```plaintext
 table-striped
 table-bordered
@@ -66,7 +66,8 @@ table-condensed
 ```
 
 
-## on screens less than 992px wide scroll
+## less than 992px
+on screens less than 992px wide scroll
 ```plaintext
 table-responsive
 table-responsive-sm

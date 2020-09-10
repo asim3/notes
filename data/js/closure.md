@@ -24,7 +24,8 @@ for (var j = 0; j < 3; j++) {
 ```
 
 
-## Classic solution: Closures
+## Closures
+Classic solution: Closures
 ```js
 var funcs = [];
 
@@ -57,7 +58,8 @@ for (var j = 0; j < 3; j++) {
 
 
 
-## Function.prototype.bind()
+## bind
+Function.prototype.bind()
 ```js
 var funcs = [];
 
@@ -77,7 +79,8 @@ for (var j = 0; j < 3; j++) {
 
 
 
-## Function.prototype.bind()
+## bind
+Function.prototype.bind()
 ```js
 function vv() {
   console.log(this);

@@ -63,7 +63,8 @@ console.log('uuu' in aaa) // false
 
 
 
-## Immediately Invoked Function Expression (IIFE)
+## Invoked Function
+Immediately Invoked Function Expression (IIFE)
 ```js
 (function(f) {
   console.log('first fun')

@@ -40,7 +40,7 @@ print(my_car) # this car name is impala
 
 
 
-## Meta Class >> dont use "__new__" replaels with "__init_subclass__"
+> Meta Class >> dont use `__new__` replaels with `__init_subclass__`
 ```python
 class BaseMeta(type):
     def __new__(cls, name, bases, body):
@@ -61,7 +61,7 @@ class Base(metaclass=BaseMeta):
 ```
 
 
-## __init_subclass__ !!! not working
+> `__init_subclass__` !!! not working
 ```python
 class BaseMeta(type):
     def __init_subclass__(cls, **kwargs):

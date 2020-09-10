@@ -30,7 +30,7 @@ class UserLoginForm(forms.Form):
 ```
 
 
-## نموذج تسجيل مستخدم جديد
+## new user form
 ```python
 User = get_user_model()
 

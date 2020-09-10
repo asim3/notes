@@ -18,7 +18,7 @@
 
 
 
-## Show form data and errors
+## form data and errors
 ```django
 {{ form.cleaned_data }}
 {% for err in form.errors.values %}

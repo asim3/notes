@@ -101,7 +101,8 @@ test().then(x => {console.log(x)})
 ```
 
 
-## Promise resolve & reject
+## Promise 
+resolve & reject
 ```js
 const test = new Promise(function(resolve, reject) {
 	if(1==2) {

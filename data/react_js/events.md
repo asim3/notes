@@ -1,4 +1,4 @@
-## "this" in Class methods
+## `this` in Class methods
 
 > You have to be careful about the meaning of this in JSX callbacks. 
 > In JavaScript, class methods are not bound by default. If you 

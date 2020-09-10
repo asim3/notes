@@ -102,7 +102,8 @@ Topping.objects.filter(pizza_set__name__contains='Hawaiian')
 ```
 
 
-## The following arguments are available to all field types. All are optional.
+## available arguments
+The following arguments are available to all field types. All are optional.
 ```python
 title = models.CharField(
   "العنوان",
@@ -146,7 +147,8 @@ def snippet(self):
 ```
 
 
-## File Extension Validator
+## File Validator
+File Extension Validator
 ```python
 from django.core.validators import FileExtensionValidator
 

@@ -3,7 +3,7 @@
 <script src="main.js"></script>
 ```
 
-## adding **CSS** to html 
+## adding **CSS** to html
 ```html
 <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16">
 <link rel="stylesheet" type="text/css" href="main.css">

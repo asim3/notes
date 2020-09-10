@@ -1,5 +1,7 @@
-## Docker Engine - Community package is now called docker-ce
-## Docker Engine - Enterprise package is now called docker-ee
+## Docker Engine
+Community package is now called docker-ce
+## Docker Engine
+Enterprise package is now called docker-ee
 
 
 [install](https://docs.docker.com/engine/install/ubuntu/)
@@ -11,14 +13,14 @@ sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
 
 
-## Install dependency packages
+## dependency packages
 ```bash
 sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
-
-
-## download Docker’s GPG PUBLIC KEY
 ```
+
+
+## Docker’s PUBLIC KEY
 ```bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
@@ -27,7 +29,7 @@ sudo apt-key fingerprint 0EBFCD88
 ```
 
 
-## Add Docker stable repository
+## Docker stable repo
 ```bash
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -36,7 +38,8 @@ sudo add-apt-repository \
 ```
 
 
-## Install Docker Engine - Community
+## Install 
+Docker Engine - Community
 ```bash
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
