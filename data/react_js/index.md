@@ -18,7 +18,7 @@ npm run build
 
 
 ## Inline if with Logical && Operator 
-```
+``` txt
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -52,6 +52,6 @@ ReactDOM.render(
 
 
 ## Elements inside the map() call need keys
-```
+``` txt
 const todoItems = todos.map((todo) => <li key={todo.id}> {todo.text} </li> );
 ```

@@ -1,7 +1,7 @@
 ## Virtual Environments
 
 ## add
-```
+``` txt
 sudo apt-get install python3-venv
 python3 -m venv ~/venv
 
@@ -27,7 +27,7 @@ python manage.py createsuperuser
 
 
 ## Translation
-```
+``` txt
 mkdir locale
 python3 manage.py makemessages -l ar
 ```

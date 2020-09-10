@@ -6,10 +6,10 @@ sudo docker system info
 # Swarm: inactive
 
 sudo docker swarm init
+```
 
 
 ## add a worker node to the swarm
-```
 ```txt
 # @ manager to show the command
 sudo docker swarm join-token worker

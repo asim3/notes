@@ -1,5 +1,5 @@
 ## Virtual Environments
-```
+``` txt
 sudo apt-get install python3-venv
 python3 -m venv venv
 source venv/bin/activate
@@ -8,7 +8,7 @@ deactivate
 
 
 ## packages
-```
+``` txt
 pip install -r requirements.txt
 pip freeze > requirements.txt
 ```
@@ -44,7 +44,7 @@ data = {k: v for k, v in (('a', 1),('b',2),('c',3))}
 
 
 ##المصفوفات
-```
+``` txt
 len(range(10))    # 10
 list(range(10))   # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 set(range(10))    # {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
@@ -53,7 +53,7 @@ tuple(range(10))  # (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 
 
 ##المحولات
-```
+``` txt
 str(datetime)     # '123'
 int(datetime)     # -123
 float(datetime)   # -24.45
@@ -68,7 +68,7 @@ dict(datetime)    # {'a':1,'b':2,'c':3}
 
 
 ## Date & Time
-```
+``` txt
 from datetime import datetime
 
 date = datetime.now()
@@ -78,7 +78,7 @@ date.strftime("%d/%m/%Y %I:%M:%S %p")
 
 
 ## cut
-```
+``` txt
 str(123456789)[1:3] 	# '23'
 str(123456789)[2:] 		# '3456789'
 str(123456789)[:2] 		# '12'
