@@ -1,10 +1,8 @@
-## Docker Engine
-Community package is now called docker-ce
-## Docker Engine
-Enterprise package is now called docker-ee
-
-
 [install](https://docs.docker.com/engine/install/ubuntu/)
+
+**Docker Engine**: Community package is now called docker-ce
+
+**Docker Engine**: Enterprise package is now called docker-ee
 
 
 ## Uninstall old versions
@@ -43,7 +41,6 @@ Docker Engine - Community
 ```txt
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
-
 
 sudo docker version
 
