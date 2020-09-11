@@ -12,6 +12,9 @@ Pull an image from a registry or a repository
 ```txt
 sudo docker image pull __id__
 sudo docker image rm __id__
+
+# remove unused images
+sudo docker image prune
 ```
 
 
