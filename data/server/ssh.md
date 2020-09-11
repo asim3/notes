@@ -63,7 +63,7 @@ scp -r username@192.168.100.166:/var/ /my_var/
 
 
 # !!!
-```
+```txt
 # Start the ssh-agent in the background
 eval "$(ssh-agent -s)"
 ssh-add ./.ssh/id_rsa

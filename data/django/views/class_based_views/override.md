@@ -81,4 +81,3 @@ class LoginView(views.LoginView):
         else:
             return '/staff/'
 ```
-            

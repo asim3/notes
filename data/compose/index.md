@@ -39,7 +39,7 @@ volumes:
       o: 'bind'
       device: '/var/asim-volume'
 ```
-  
+
 
 # Check the validity of docker-compose.yml
 ```txt

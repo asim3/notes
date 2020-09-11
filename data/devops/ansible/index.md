@@ -39,7 +39,7 @@ ansible -m ping all
 
 ## execute
 execute shell commands "ad-hoc commands"
-```
+```txt
 ansible -m shell -a 'hostname' all
 ansible -m shell -a 'whoami' all
 ```

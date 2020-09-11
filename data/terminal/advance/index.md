@@ -104,6 +104,8 @@ whereis python
 type -p nano
 type -p python
 ```
+
+
 ## Show running process name
 ```txt
 pgrep -l sys

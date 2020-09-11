@@ -40,8 +40,8 @@ EDIT docker-compose.yml file and add the following at the end
     labels:
       - "traefik.http.routers.whoami.rule=Host(`mmm.com`)"
 ```
-      
-   
+
+
 
 ## run whoami
 ```txt

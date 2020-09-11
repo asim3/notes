@@ -3,7 +3,7 @@ Built-in class-based views API
 https://docs.djangoproject.com/en/2.1/ref/class-based-views/
 
 الشكل البسيط
-```
+```py
 path('', TemplateView.as_view(template_name="base/home.html") ),python
 ```
 

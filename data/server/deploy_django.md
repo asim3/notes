@@ -26,8 +26,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 ```
 
 
+> test server @ `192.168.1.1:8000`
 ```txt
 python3 manage.py collectstatic
 python3 manage.py runserver 0.0.0.0:8000
 ```
-> test server @ `192.168.1.1:8000`
