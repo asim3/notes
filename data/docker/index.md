@@ -24,7 +24,7 @@ sudo docker container run __image_name__
 sudo docker container start __id__
 ```
 
-
+> `-d` for: Run container in background
 ```txt
 sudo docker container run \
  -v ~/my_file/:/container_file/    \
@@ -60,4 +60,20 @@ sudo docker exec -it __id__ whoami
 sudo docker exec -it __id__ ls -al /var/
 sudo docker exec -it __id__ mkdir ~/asim
 sudo docker exec -it __id__ touch ~/done-exec-by-docker.txt
+```
+
+
+## Prune
+```txt
+# remove unused images
+sudo docker image prune
+
+# remove all images
+sudo docker image prune -a
+
+# remove stopped containers
+sudo docker container prune
+
+# remove all images, containers, volumes, and networks
+sudo docker system prune -a
 ```
