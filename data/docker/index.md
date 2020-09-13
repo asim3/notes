@@ -21,11 +21,16 @@ sudo docker container run __image_name__
 sudo docker container start __id__
 ```
 
+
+## run
 > `-d` for: Run container in background
 ```txt
-sudo docker container run \
+sudo docker container run          \
+ -d                                \
+ -p 80:80                          \
+ -e MYKEY=my_env_var               \
  -v ~/my_file/:/container_file/    \
-  \
+ -v ~/my_logs/:/container_logs/    \
   __image_name__
 ```
 
