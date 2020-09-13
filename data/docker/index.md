@@ -23,7 +23,6 @@ sudo docker container start __id__
 
 
 ## run
-> `-d` for: Run container in background
 ```txt
 sudo docker container run -d -P containous/whoami
 
