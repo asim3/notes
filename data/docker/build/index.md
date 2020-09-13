@@ -4,8 +4,17 @@
 
 ## making php file
 `mkdir -p ~/my_docker_file/my-php/`     
-```txt
-echo "<?php echo 'from ~/my_docker_file/my-php/index.php <br>'; ?>" > ~/my_docker_file/my-php/index.php
+`nano     ~/my_docker_file/my-php/index.php`
+```php
+<?php echo 'from index.php'; ?>
+```
+
+
+`nano ~/my_docker_file/my-bash.sh`     
+```bash
+echo "<br> RUN: $(date '+%x %X') - by $(whoami) - env: $(echo $MY_ENV)" >> /var/www/html/index.php
+echo "<br> you will see this if you don't use volumes." >> /var/www/html/index.php
+echo "<br> volumes will override this file." >> /var/www/html/index.php
 ```
 
 
@@ -14,31 +23,24 @@ echo "<?php echo 'from ~/my_docker_file/my-php/index.php <br>'; ?>" > ~/my_docke
 ```dockerfile
 FROM php:7.3-apache
 MAINTAINER asim <asim@gmail.com>
+
 EXPOSE 80
+ENV MY_ENV="asim"
 
-ENV MY_ENV="my environment variables" \
-    PORT_NUMBER="443" \
-    NAME=""
-
-# Avoid ADD and use COPY instead.
-ADD  ./my-php/ /var/www/html
 COPY ./my-php/ /var/www/html
+COPY ./my-bash.sh /
 
-RUN echo "you will see this if you don't use volumes." >> /var/www/html/index.php
-RUN echo "<br>volumes will override this file." >> /var/www/html/index.php
-RUN echo "<br>RUN: $(date '+%x %X') - by $(whoami)" >> /var/www/html/index.php
+RUN chmod +x /my-bash.sh
+RUN /my-bash.sh
 
-RUN echo "runs on build only"
-# CMD echo "only one CMD can be run after every startup"
-
-# ENTRYPOINT [ "/app-entrypoint.sh" ]
-# CMD [ "httpd", "-f", "/opt/bitnami/apache/conf/httpd.conf", "-DFOREGROUND" ]
+# RUN: runs on build only.
+# CMD: only one CMD can be run after every startup.
 ```
 
 
 ## Build docker image
 ```txt
-sudo docker image build -t my_php_test:1.0 ~/my_docker_file/
+sudo docker image build -t my_php_test:1.7 ~/my_docker_file/
 
 sudo docker image build \
   -t my_php_test:mytag \

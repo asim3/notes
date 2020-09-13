@@ -2,6 +2,21 @@
 `nano ./Dockerfile`
 ```dockerfile
 FROM php:7.3-apache
-EXPOSE 80
+
+MAINTAINER asim <asim@gmail.com>
+
+# Avoid ADD and use COPY instead.
+ADD  ./my-php/ /var/www/html
+
 RUN echo "<br>RUN: $(date '+%x %X') - by $(whoami)" >> /var/www/html/index.php
+
+EXPOSE 80
+
+ENV MY_ENV="my environment variables" \
+    PORT_NUMBER="443" \
+    NAME=""
+
+ENTRYPOINT [ "/my-bash.sh" ]
+
+CMD [ "httpd", "-f", "/opt/apache/conf/httpd.conf", "-DFOREGROUND" ]
 ```
