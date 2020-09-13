@@ -25,17 +25,25 @@ sudo docker container start __id__
 ## run
 > `-d` for: Run container in background
 ```txt
-sudo docker container run -d -p 80:80 containous/whoami
+sudo docker container run -d -P containous/whoami
 
-sudo docker container run          \
- -d                                \
- -P                                \
- -p 80:80                          \
- --name my-container_name          \
- -e MYKEY=my_env_var               \
- -v ~/my_file/:/container_file/    \
- -v ~/my_logs/:/container_logs/    \
-  __image_name__
+sudo docker container run __image_name__
+
+--name my-container_name
+-e MYKEY=my_environment_variables
+
+# Run in background
+-d
+
+# Publish or expose ports
+-p 80:80
+
+# Publish all exposed ports to random ports
+-P
+
+# mount volume
+-v ~/my_file/:/container_file/
+-v ~/my_logs/:/container_logs/
 ```
 
 
