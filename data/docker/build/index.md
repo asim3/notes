@@ -40,21 +40,31 @@ RUN /my-bash.sh
 
 ## Build docker image
 ```txt
-sudo docker image build -t my_php_test:1.7 ~/my_docker_file/
+sudo docker image build -t asim3/my_php_test:1.0 ~/my_docker_file/
 
 sudo docker image build \
-  -t my_php_test:mytag \
-  -t my_php_test:1.0 \
-  -t my_php_test:latest \
+  -t asim3/my_php_test:mytag \
+  -t asim3/my_php_test:1.0 \
+  -t asim3/my_php_test:latest \
   ~/my_docker_file/
 ```
 
 
 ## run
 ```txt
-sudo docker container run -d -p 80:80   my_php_test:mytag
+sudo docker container run -d -p 80:80   asim3/my_php_test:mytag
 
 # with volumes
 sudo docker container run -d -p 80:80 \
-  -v ~/my_docker_file/my-php/:/var/www/html/   my_php_test:mytag
+  -v ~/my_docker_file/my-php/:/var/www/html/   asim3/my_php_test:mytag
+```
+
+
+## Push Image
+Push Image to Docker Hub
+> the image name must start with "docker hub username"
+```txt
+sudo docker login
+
+sudo docker push asim3/my_php_test:mytag
 ```
