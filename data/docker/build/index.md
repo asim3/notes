@@ -16,6 +16,10 @@ FROM php:7.3-apache
 MAINTAINER asim <asim@gmail.com>
 EXPOSE 80
 
+ENV MY_ENV="my environment variables" \
+    PORT_NUMBER="443" \
+    NAME=""
+
 # Avoid ADD and use COPY instead.
 ADD  ./my-php/ /var/www/html
 COPY ./my-php/ /var/www/html
@@ -26,11 +30,16 @@ RUN echo "<br>RUN: $(date '+%x %X') - by $(whoami)" >> /var/www/html/index.php
 
 RUN echo "runs on build only"
 # CMD echo "only one CMD can be run after every startup"
+
+# ENTRYPOINT [ "/app-entrypoint.sh" ]
+# CMD [ "httpd", "-f", "/opt/bitnami/apache/conf/httpd.conf", "-DFOREGROUND" ]
 ```
 
 
 ## Build docker image
 ```txt
+sudo docker image build -t my_php_test:1.0 ~/my_docker_file/
+
 sudo docker image build \
   -t my_php_test:mytag \
   -t my_php_test:1.0 \
