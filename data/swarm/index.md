@@ -2,7 +2,7 @@
 
 
 ```txt
-sudo docker system info
+sudo docker system info | grep -i "swarm"
 # Swarm: inactive
 
 sudo docker swarm init

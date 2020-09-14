@@ -1,6 +1,7 @@
 # Docker - Community
 
 ```txt
+sudo docker system info
 sudo docker version
 sudo docker image     ls -a
 sudo docker container ls -a
