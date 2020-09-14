@@ -8,7 +8,7 @@ version: "3.3"
 services:
   traefik:
     image: traefik:v2.0
-    restart: always
+    restart: unless-stopped
     container_name: traefik
     ports:
       - "80:80" # <== http
@@ -59,7 +59,7 @@ services:
   wordpress: # <== we aren't going to open :80 here because traefik is going to serve this on entrypoint 'web'
   # :80 is already exposed from within the container
     image: wordpress
-    restart: always
+    restart: unless-stopped
     container_name: wp
     environment:
       WORDPRESS_DB_HOST: db
@@ -83,7 +83,7 @@ services:
   
   db:
     image: mysql:5.7
-    restart: always
+    restart: unless-stopped
     environment:
       MYSQL_DATABASE: exampledb
       MYSQL_USER: exampleuser

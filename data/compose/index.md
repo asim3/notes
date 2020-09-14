@@ -1,13 +1,13 @@
 ## services
-`mkdir -p ~/test-compose/`
-`nano ~/test-compose/docker-compose.yml`
+`mkdir -p ~/my_compose_dir/`     
+`nano ~/my_compose_dir/docker-compose.yml`
 ```yaml
 version: '3'
 
 services:
     my-test-service:
         build: ~/test/
-        restart: always
+        restart: unless-stopped
         volumes:
           - ~/test/src/:/var/www/html
         ports:
@@ -15,7 +15,7 @@ services:
 
     my-test-website:
         image: php:apache
-        restart: always
+        restart: unless-stopped
         volumes:
           - ../test/src:/var/www/html/
         ports:
@@ -37,7 +37,7 @@ volumes:
 
 
 ## run
-`cd ~/test-compose/`
+`cd ~/my_compose_dir/`
 ```txt
 sudo docker-compose up -d --scale __name__=3
 sudo docker-compose start
@@ -51,20 +51,20 @@ sudo docker-compose down
 
 ## OR 
 ```txt
-sudo docker-compose -f ~/test-compose/docker-compose.yml   up
-sudo docker-compose -f ~/test-compose/docker-compose.yml   down
+sudo docker-compose -f ~/my_compose_dir/docker-compose.yml   up
+sudo docker-compose -f ~/my_compose_dir/docker-compose.yml   down
 ```
 
 
 
 ## check compose file
-`cd ~/test-compose/`
+`cd ~/my_compose_dir/`
 ```txt
 sudo docker-compose config
 ```
 
 
-`cd ~/test-compose/`
+`cd ~/my_compose_dir/`
 ```txt
 sudo docker-compose ps
 sudo docker-compose images
