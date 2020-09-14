@@ -4,6 +4,8 @@
 sudo docker version
 sudo docker image     ls -a
 sudo docker container ls -a
+sudo docker volume    ls
+sudo docker network   ls
 ```
 
 
@@ -43,6 +45,10 @@ sudo docker container run __image_name__
 # mount volume
 -v ~/my_file/:/container_file/
 -v ~/my_logs/:/container_logs/
+
+
+--name my-test
+--mount source=myvol2,target=/app
 ```
 
 
