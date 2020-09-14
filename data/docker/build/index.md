@@ -1,23 +1,3 @@
-[docker-cheat-sheet](https://github.com/wsargent/docker-cheat-sheet#dockerfile)
-[Environment replacement](https://docs.docker.com/engine/reference/builder/#environment-replacement)
-
-
-## making php file
-`mkdir -p ~/my_docker_file/my-php/`     
-`nano     ~/my_docker_file/my-php/index.php`
-```php
-<?php echo 'from index.php'; ?>
-```
-
-
-`nano ~/my_docker_file/my-bash.sh`     
-```bash
-echo "<br> RUN: $(date '+%x %X') - by $(whoami) - env: $(echo $MY_ENV)" >> /var/www/html/index.php
-echo "<br> you will see this if you don't use volumes." >> /var/www/html/index.php
-echo "<br> volumes will override this file." >> /var/www/html/index.php
-```
-
-
 ## making php Dockerfile
 `nano ~/my_docker_file/Dockerfile`
 ```dockerfile
@@ -35,6 +15,23 @@ RUN /my-bash.sh
 
 # RUN: runs on build only.
 # CMD: only one CMD can be run after every startup.
+```
+
+
+## making shell file
+`nano ~/my_docker_file/my-bash.sh`     
+```bash
+echo "<br> RUN: $(date '+%x %X') - by $(whoami) - env: $(echo $MY_ENV)" >> /var/www/html/index.php
+```
+
+
+## making php file
+`mkdir -p ~/my_docker_file/my-php/`     
+`nano     ~/my_docker_file/my-php/index.php`
+```html
+<?php echo 'from index.php <br>'; ?>
+<p>you will see this if you don't use volumes.</p>
+<p>volumes will override this file.</p>
 ```
 
 

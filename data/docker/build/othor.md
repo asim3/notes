@@ -1,3 +1,6 @@
+[docker-cheat-sheet](https://github.com/wsargent/docker-cheat-sheet#dockerfile)
+[Environment replacement](https://docs.docker.com/engine/reference/builder/#environment-replacement)
+
 
 `nano ./Dockerfile`
 ```dockerfile
