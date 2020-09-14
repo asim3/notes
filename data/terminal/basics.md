@@ -33,31 +33,48 @@ echo 1 || echo 3
 ```
 
 
+## Redirects stdin & stdout
+0: stdin     # input   
+1: stdout    # output   
+2: stderr    # error output    
 ```txt
-# Execute last command again
-!!
-
-# Save output to a file
+# Save stdout to a file
 ls > my.txt
-
-# Save error output to a file
-lss 2> my.txt
-
-# Save output & error output to a file
-ls &> my.txt
-
-# Append output to a file
+# Append stdout to a file
 ls >> my.txt
+```
 
-# Append error output to a file
+```txt
+# Save stderr to a file
+lss 2> my.txt
+# Append stderr to a file
 lss 2>> my.txt
 
-# Append output & error output to a file
-ls >> my.txt 2>&1
+# Save stdout-stderr to a file
+ls &> my.txt
 
-# Read input from a file
-<
+# Append stdout-stderr to a file
+ls >> my.txt 2>&1
 ```
+
+
+```txt
+# Read input from a file
+grep "eco" < my_file.txt
+
+# Read input from a file then append stdout to a file
+grep "eco" < my_file.txt >> my_file2.txt
+```
+
+
+## echo multiline
+```txt
+cat << EOF > my_file.txt
+first line
+second line
+EOF
+```
+
 
 
 ```txt
@@ -84,13 +101,15 @@ cat my.txt | grep '[0-9]' | sort -n
 
 ```txt
 NAME="John"
-echo $NAME
-echo "Hello $NAME!"
-echo "${NAME}!"
+echo $NAME                  # John
+echo 'Hello $NAME!'         # Hello $NAME!
+echo "Hello $NAME!"         # Hello John!
+echo "Hello $(echo $NAME)"  # Hello John
+echo "${NAME}!"             # John!
 ```
 
 
-Run in Background
+## Run in Background
 ```txt
 # executes in background
 sleep 3 &
