@@ -1,7 +1,7 @@
 [My Public IP](https://ifconfig.co/ip)   
 
 
-Get Server IP 
+## Get Server IP 
 ```txt
 ip route
 # ... kernel scope link src 190.168.my.local.ip 
@@ -9,7 +9,7 @@ ifconfig
 ```
 
 
-Login to Server
+## Login to Server
 > logout SSH `exit`
 ```txt
 ssh username@server.ip
@@ -20,7 +20,7 @@ ssh username@remote.server.ip 'ls -al'
 ```
 
 
-Add a New User
+## add a New User
 ```txt
 # useradd is a low level utility for adding users. 
 # sudo useradd -m my-new-user
@@ -39,7 +39,7 @@ su - my-new-user
 ```
 
 
-change hostname
+## change hostname
 ```txt
 hostnamectl set-hostname my-test-server
 cat /etc/hostname 
@@ -49,18 +49,4 @@ sudo nano /etc/hosts
 127.0.0.1       localhost
 192.168.1.1     my-test-server
 192.168.100.44  my-admin-server
-```
-
-
-Granting sudo Privileges to Users
-```txt
-sudo visudo
-
-# /etc/sudoers.tmp
-
-# after %sudo
-asim    ALL=(ALL:ALL) NOPASSWD: ALL
-asim    ALL=(ALL:ALL) NOPASSWD: /usr/bin/ansible
-
-# user hostname=(runas-user:runas-group) command
 ```
