@@ -1,6 +1,6 @@
 Install SSH
 ```txt
-sudo apt install openssh-server
+sudo apt install -y openssh-server
 mkdir ~/.ssh/
 touch ~/.ssh/authorized_keys
 chmod 700 ~/.ssh/

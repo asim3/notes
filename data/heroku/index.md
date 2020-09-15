@@ -51,7 +51,7 @@ heroku local web
 # libpq-dev in Debian/Ubuntu
 # libpq-devel on Cygwin/Babun
 
-sudo apt install libpq-dev 
+sudo apt install -y libpq-dev 
 ```
 
 

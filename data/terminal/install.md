@@ -11,7 +11,7 @@ tar -xzf Postman.tar.gz
 ```txt
 sudo apt update
 apt show virtualbox
-sudo apt install virtualbox
+sudo apt install -y virtualbox
 ```
 
 
@@ -20,7 +20,7 @@ sudo apt install virtualbox
 # setup
 sudo add-apt-repository universe
 sudo apt-get update
-sudo apt-get install alien
+sudo apt-get install -y alien
 
 # convert .rpm package to .deb
 sudo alien <name of package>.rpm
@@ -41,10 +41,10 @@ sudo alien -i <name of package>.rpm
 
 ## install the Java Runtime Environment (JRE)
 ```txt
-sudo apt install default-jre
+sudo apt install -y default-jre
 java -version
 
-sudo apt install default-jdk
+sudo apt install -y default-jdk
 javac -version
 ```
 
@@ -56,5 +56,5 @@ javac -version
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt update
 
-sudo apt install oracle-java8-installer
+sudo apt install -y oracle-java8-installer
 ```

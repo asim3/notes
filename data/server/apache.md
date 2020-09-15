@@ -1,6 +1,6 @@
 ```txt
-sudo apt-get install apache2 
-sudo apt-get install libapache2-mod-wsgi-py3
+sudo apt-get install -y apache2 
+sudo apt-get install -y libapache2-mod-wsgi-py3
 ```
 
 

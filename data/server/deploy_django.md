@@ -9,8 +9,8 @@ scp -r my_django_project username@remote.server.ip:~/
 ## from the server
 `ssh username@remote.server.ip`
 ```txt
-sudo apt-get install python3-pip
-sudo apt-get install python3-venv
+sudo apt-get install -y python3-pip
+sudo apt-get install -y python3-venv
 python3 -m venv my_django_project/venv
 cd my_django_project/
 source venv/bin/activate

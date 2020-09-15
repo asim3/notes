@@ -12,8 +12,8 @@ sudo conntrack -S
 
 sudo snap install --classic kubeadm
 sudo snap install --classic kubelet
-sudo apt install conntrack
-sudo apt install socat
+sudo apt install -y conntrack
+sudo apt install -y socat
 ```
 
 

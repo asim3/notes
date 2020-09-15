@@ -76,13 +76,13 @@ sudo apt-get install -f
 sudo dpkg --configure -a
 
 # cleans the packages and install script in /var/cache/apt/archives/
-apt clean
+sudo apt clean
 
 # cleans obsolete deb-packages, less than clean
-apt autoclean
+sudo apt autoclean
 
 # removes orphaned packages which are not longer needed
-apt autoremove
+sudo apt autoremove
 ```
 
 

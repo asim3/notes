@@ -8,7 +8,7 @@
 ```txt
 sudo add-apt-repository ppa:ansible/ansible
 sudo apt-get update
-sudo apt install ansible
+sudo apt install -y ansible
 
 ansible --version
 ```

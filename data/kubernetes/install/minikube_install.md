@@ -2,7 +2,7 @@
 
 
 ```txt
-sudo apt install conntrack
+sudo apt install -y conntrack
 ```
 
 

@@ -6,7 +6,7 @@ Bitnami Kubernetes Production Runtime
 
 ## Prerequisites
 ```txt
-sudo apt install jq
+sudo apt install -y jq
 
 curl -OL https://github.com/bitnami/kubecfg/releases/download/v0.16.0/kubecfg-linux-amd64
 chmod +x kubecfg-linux-amd64

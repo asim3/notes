@@ -3,7 +3,7 @@
 
 ## To install psycopg2
 ```txt
-sudo apt install libpq-dev
+sudo apt install -y libpq-dev
 ```
 
 
