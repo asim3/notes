@@ -2,7 +2,7 @@
 `mkdir -p my_compose_dir/`     
 `nano my_compose_dir/docker-compose.yml`
 ```yaml
-version: '3'
+version: "3.3"
 
 services:
     my_compose-service:
@@ -10,12 +10,26 @@ services:
         # OR
         # build: ./my_docker_file/
         
+        deploy:
+            reblicas:
+
         restart: unless-stopped
-        volumes:
-          - ./my-php/:/var/www/html/
-          - my_compose-volume:/var/www/html/
+        container_name: wp
+        networks:
+            - backend
         ports:
-          - "8000:80"
+            - "8000:80"
+        volumes:
+            - ./my-php/:/var/www/html/
+            - my_compose-volume:/var/www/html/
+        command: --api.insecure=true --providers.docker
+        environment:
+            MYSQL_DATABASE: exampledb
+            MYSQL_USER: exampleuser
+            MYSQL_PASSWORD: examplepass
+        labels:
+          - "traefik.enable=true"
+          - "traefik.entrypoints=web"
 ```
 
 
@@ -28,6 +42,16 @@ volumes:
             type: 'none'
             o: 'bind'
             device: '/var/asim-compose-volume'
+```
+
+
+## networks 
+```yaml
+networks:
+  web:
+    external: true
+  backend:
+    external: false
 ```
 
 

@@ -27,6 +27,12 @@ sudo docker node ls
 
 sudo docker node promote __hostname__
 sudo docker node demote __hostname__
+
+# stop a node
+sudo docker node update --availability drain __hostname__
+
+# node must be shutdown
+sudo docker node rm __hostname__
 ```
 
 ## inspect node
