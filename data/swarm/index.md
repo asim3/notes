@@ -42,9 +42,3 @@ sudo docker node ps __hostname__
 # get all node info in JSON
 sudo docker node inspect __hostname__
 ```
-
-
-## swarm Service
-```txt
-sudo docker service ls
-```

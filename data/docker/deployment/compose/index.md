@@ -59,13 +59,15 @@ networks:
 `cd my_compose_dir/`
 ```txt
 sudo docker-compose config
+sudo docker-compose ps
+sudo docker-compose images
 ```
 
 
 ## run
 `cd my_compose_dir/`
 ```txt
-sudo docker-compose up
+sudo docker-compose up -d
 sudo docker-compose up -d --scale __name__=3
 sudo docker-compose start
 
@@ -80,11 +82,4 @@ sudo docker-compose down
 ```txt
 sudo docker-compose -f my_compose_dir/docker-compose.yml   up
 sudo docker-compose -f my_compose_dir/docker-compose.yml   down
-```
-
-
-`cd my_compose_dir/`
-```txt
-sudo docker-compose ps
-sudo docker-compose images
 ```
