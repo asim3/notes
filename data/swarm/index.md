@@ -1,36 +1,44 @@
-## Docker swarm - Container Orchestration
+# Docker swarm - Container Orchestration
 
-
+## create a new swarm cluster
 ```txt
 sudo docker system info | grep -i "swarm"
 # Swarm: inactive
 
+# create a manager node
 sudo docker swarm init
 ```
 
 
-## add a worker node to the swarm
+## add a worker node to the swarm cluster
 ```txt
-# @ manager to show the command
+# manager node
+sudo docker swarm join-token manager
 sudo docker swarm join-token worker
 
-# @ other machine
-sudo docker swarm join --token SWMTKN-1-e...nnn 192.168.100.134:2377
+# worker node
+sudo docker swarm join --token SWMTKN... 192.168.100.134:2377
 ```
 
 
-## Manage Swarm nodes
+## manage swarm nodes
 ```txt
-sudo docker node ps
 sudo docker node ls
-sudo docker node ls -q
+
+sudo docker node promote __hostname__
+sudo docker node demote __hostname__
+```
+
+## inspect node
+```txt
+sudo docker node ps __hostname__
 
 # get all node info in JSON
-sudo docker node inspect __node_id__
+sudo docker node inspect __hostname__
 ```
 
 
-## Swarm Service
+## swarm Service
 ```txt
 sudo docker service ls
 ```
