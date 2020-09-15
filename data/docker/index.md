@@ -20,36 +20,34 @@ sudo docker image rm __id__
 
 ## Containers
 ```txt
-sudo docker container run __image_name__
+sudo docker container run -p 80:80 asim3/whoami:1.3
 sudo docker container start __id__
 ```
 
 
 ## run
 ```txt
-sudo docker container run -d -P containous/whoami
+sudo docker container run 
+    --name my-container_name
 
-sudo docker container run __image_name__
+    -e MYKEY=my_environment_variables
 
---name my-container_name
--e MYKEY=my_environment_variables
+    # Run in background
+    -d
 
-# Run in background
--d
+    # Publish or expose ports
+    -p 80:80
 
-# Publish or expose ports
--p 80:80
+    # Publish all exposed ports to random ports
+    -P
 
-# Publish all exposed ports to random ports
--P
+    # mount volume
+    -v ~/my_file/:/container_file/
+    -v ~/my_logs/:/container_logs/
 
-# mount volume
--v ~/my_file/:/container_file/
--v ~/my_logs/:/container_logs/
-
-
---name my-test
---mount source=myvol2,target=/app
+    --mount source=myvol2,target=/app
+    
+    asim3/whoami:1.3
 ```
 
 
