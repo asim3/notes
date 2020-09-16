@@ -15,19 +15,20 @@ sudo docker stack   ps       my-stack-name
 > **Replicated mode** : control the number of containers copies    
 > **Global mode** : one copy of the container in every node
 ```txt
-sudo docker service create --name my-service --mode global asim3/whoami:1.3
+sudo docker service create --mode global asim3/whoami:1.3
 # OR
-sudo docker service create --name my-service --replicas 2 \
-    --publish published=8080,target=80 asim3/whoami:1.3
+sudo docker service create --replicas 2 asim3/whoami:1.3
 ```
 
 
 ## update
 ```txt
-sudo docker service create --name my-DNS-nginx nginx
+# scale up or down
+sudo docker service update --replicas 4   my-service
 
-sudo docker service update --publish-add  published=8081,target=80   my-DNS-nginx
-sudo docker service update --publish-rm   published=80,target=80     my-DNS-nginx
+# port
+sudo docker service update --publish-add  published=8081,target=80   my-service
+sudo docker service update --publish-rm   published=80,target=80     my-service
 ```
 
 ## update
@@ -62,8 +63,6 @@ sudo docker service update
       --limit-memory bytes                 Limit Memory
       --reserve-cpu decimal                Reserve CPUs
       --reserve-memory bytes               Reserve Memory
-      --replicas uint                      Number of tasks
-      --replicas-max-per-node uint         Maximum number of tasks per node (default 0 = unlimited)
   -t, --tty                                Allocate a pseudo-TTY
 ```
 
@@ -105,14 +104,13 @@ sudo docker service rm    my-service
 
 ## fix ERROR
 > ERROR: "mkdir /var/lib/docker: read-only file system"
-
-remove docker from snap
 ```txt
+# remove docker from snap
 snap remove docker
-```
-then remove the docker directory, and old version
-```txt
+
+# then remove the docker directory, and old version
 rm -R /var/lib/docker
 sudo apt-get remove docker docker-engine docker.io
+
+# install official docker
 ```
-install official docker
