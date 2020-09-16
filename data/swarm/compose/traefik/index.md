@@ -1,3 +1,6 @@
+[traefik docs](https://docs.traefik.io/)
+
+
 `mkdir ~/traefik_test_1/`    
 `nano ~/traefik_test_1/docker-compose.yml`
 ```yaml
@@ -5,15 +8,13 @@ version: '3'
 
 services:
   reverse-proxy:
-    # The official v2 Traefik docker image
     image: traefik:v2.2
     # Enables the web UI and tells Traefik to listen to docker
     command: --api.insecure=true --providers.docker
     ports:
-      # The HTTP port
-      - "80:80"
       # The Web UI (enabled by --api.insecure=true)
       - "8080:8080"
+      - "80:80"
     volumes:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock

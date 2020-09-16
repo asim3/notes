@@ -11,9 +11,9 @@ services:
     restart: unless-stopped
     container_name: traefik
     ports:
-      - "80:80" # <== http
       - "8080:8080" # <== :8080 is where the dashboard runs on
-      - "443:443" # <== https
+      - "80:80"
+      - "443:443"
     command:
     # These are the CLI commands that will configure Traefik and tell it how to work!
       # API Settings - https://docs.traefik.io/operations/api/, endpoints - https://docs.traefik.io/operations/api/#endpoints
@@ -93,18 +93,6 @@ services:
       - db:/var/lib/mysql
     networks:
       - backend
-
-networks:
-  web:
-    external: true
-  backend:
-    external: false
-    
-volumes:
-  wordpress:
-    external: true
-  db:
-    external: true
 ```
 
 
