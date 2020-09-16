@@ -1,5 +1,8 @@
 ```txt
-watch 'ps aux | grep -i apt'
+watch        'ps aux | grep -i apt'
+watch -n 0.5 'ps aux | grep -i apt'
+watch -n 3   'ps aux | grep -i apt'
+watch -d     'ps aux | grep -i apt'
 ```
 
 

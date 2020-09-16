@@ -20,8 +20,9 @@ sudo docker image rm __id__
 
 ## Containers
 ```txt
-sudo docker container run -p 80:80 asim3/whoami:1.3
-sudo docker container start __id__
+sudo docker container run             hello-world
+sudo docker container run   -p 80:80  asim3/whoami:1.3
+sudo docker container start           __id__
 ```
 
 

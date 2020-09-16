@@ -38,6 +38,13 @@ sudo adduser my-new-user sudo
 su - my-new-user
 ```
 
+## add a New User
+```txt
+sudo groupadd my-group
+
+# list users
+sudo grep my-group /etc/group
+```
 
 ## change hostname
 ```txt
