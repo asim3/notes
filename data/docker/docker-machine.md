@@ -9,6 +9,7 @@ chmod +x /usr/local/bin/docker-machine
 
 ## create new machine
 ```txt
+docker-machine create my-node-1
 docker-machine create 
     --virtualbox-cpu-count "1"
     --virtualbox-memory "1024"    
