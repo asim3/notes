@@ -15,5 +15,5 @@ sudo docker stack services my-stack-name
 sudo docker stack   rm my-stack-name
 
 sudo docker stack   ps my-stack-name
-sudo docker service ps my-stack-name_my_compose-service
+sudo docker service ps my-stack-name_my-service
 ```

@@ -2,10 +2,10 @@
 > run only on a swarm manager.
 ```txt
 sudo docker service ls
-sudo docker service logs -f  my-DNS-name
-sudo docker service inspect  my-DNS-name
+sudo docker service logs -f  my-service
+sudo docker service inspect  my-service  --pretty
 
-sudo docker service ps       my-DNS-name
+sudo docker service ps       my-service
 # OR
 sudo docker stack   ps       my-stack-name 
 ```
@@ -15,9 +15,9 @@ sudo docker stack   ps       my-stack-name
 > **Replicated mode** : control the number of containers copies    
 > **Global mode** : one copy of the container in every node
 ```txt
-sudo docker service create --name my-DNS-name --mode global asim3/whoami:1.3
+sudo docker service create --name my-service --mode global asim3/whoami:1.3
 # OR
-sudo docker service create --name my-DNS-name --replicas 2 \
+sudo docker service create --name my-service --replicas 2 \
     --publish published=8080,target=80 asim3/whoami:1.3
 ```
 
@@ -75,16 +75,44 @@ sudo docker service update
       --log-opt list                       Logging driver options
 ```
 
+
+## service ps filtering
+```txt
+sudo docker service ps --no-trunc                        my-stack-name_my-service
+sudo docker service ps -f "id=8"                         my-stack-name_my-service
+sudo docker service ps -f "name=my-"                     my-stack-name_my-service
+sudo docker service ps -f "node=my-node1"                my-stack-name_my-service
+sudo docker service ps --format "{{.Name}}: {{.Image}}"  my-stack-name_my-service
+sudo docker service ps --format "{{.Name}}: {{.Error}}"  my-stack-name_my-service --no-trunc
+```
+
+
 ## rollback
 ```txt
-sudo docker service inspect   my-stack-name_my_compose-service
-sudo docker service rollback  my-stack-name_my_compose-service
-sudo docker service ps        my-stack-name_my_compose-service
+sudo docker service inspect   my-stack-name_my-service
+sudo docker service rollback  my-stack-name_my-service
+sudo docker service ps        my-stack-name_my-service
 ```
 
 
 ## manage
 ```txt
-sudo docker service scale my-DNS-name=3
-sudo docker service rm    my-DNS-name
+sudo docker service scale my-service=3
+sudo docker service rm    my-service
 ```
+
+
+
+## fix ERROR
+> ERROR: "mkdir /var/lib/docker: read-only file system"
+
+remove docker from snap
+```txt
+snap remove docker
+```
+then remove the docker directory, and old version
+```txt
+rm -R /var/lib/docker
+sudo apt-get remove docker docker-engine docker.io
+```
+install official docker
