@@ -75,11 +75,16 @@ sudo docker service update
       --log-opt list                       Logging driver options
 ```
 
+## rollback
+```txt
+sudo docker service inspect   my-stack-name_my_compose-service
+sudo docker service rollback  my-stack-name_my_compose-service
+sudo docker service ps        my-stack-name_my_compose-service
+```
+
 
 ## manage
 ```txt
 sudo docker service scale my-DNS-name=3
 sudo docker service rm    my-DNS-name
-
-#sudo docker service rollback 
 ```
