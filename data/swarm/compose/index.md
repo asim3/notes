@@ -5,7 +5,7 @@
 version: "3.3"
 
 services:
-    my_compose-service:
+    my-service:
         image: asim3/whoami:1.3
         # OR
         # build: ./my_docker_file/

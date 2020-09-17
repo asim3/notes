@@ -99,18 +99,3 @@ sudo docker service ps        my-stack-name_my-service
 sudo docker service scale my-service=3
 sudo docker service rm    my-service
 ```
-
-
-
-## fix ERROR
-> ERROR: "mkdir /var/lib/docker: read-only file system"
-```txt
-# remove docker from snap
-snap remove docker
-
-# then remove the docker directory, and old version
-rm -R /var/lib/docker
-sudo apt-get remove docker docker-engine docker.io
-
-# install official docker
-```
