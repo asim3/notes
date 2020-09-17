@@ -3,10 +3,15 @@
 ```txt
 sudo docker system info
 sudo docker version
+
 sudo docker image     ls -a
 sudo docker container ls -a
 sudo docker volume    ls
 sudo docker network   ls
+
+# swarm
+sudo docker service   ls
+sudo docker stack     ls
 ```
 
 
@@ -14,7 +19,7 @@ sudo docker network   ls
 Pull an image from a registry or a repository
 ```txt
 sudo docker image pull __id__
-sudo docker image rm __id__
+sudo docker image rm   __id__
 ```
 
 
@@ -22,50 +27,11 @@ sudo docker image rm __id__
 ```txt
 sudo docker container run             hello-world
 sudo docker container run   -p 80:80  asim3/whoami:1.3
-sudo docker container start           __id__
 ```
 
 
-## run
-```txt
-sudo docker container run 
-    --name my-container_name
-
-    -e MYKEY=my_environment_variables
-
-    # Run in background
-    -d
-
-    # Publish or expose ports
-    -p 80:80
-
-    # Publish all exposed ports to random ports
-    -P
-
-    # mount volume
-    -v ~/my_file/:/container_file/
-    -v ~/my_logs/:/container_logs/
-
-    --mount source=myvol2,target=/app
-    
-    asim3/whoami:1.3
-```
-
-
-## stop containers
-```txt
-sudo docker container pause __id__
-sudo docker container unpause __id__
-
-sudo docker container kill __id__
-sudo docker container restart __id__
-sudo docker container stop __id__
-sudo docker container rm __id__
-```
-
-
-## statistics live stream
-Display a live stream of containers resource usage statistics
+## live stream statistics
+Display a live stream of all containers statistics
 ```txt
 sudo docker container stats
 ```

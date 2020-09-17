@@ -20,7 +20,7 @@ ssh username@remote.server.ip 'ls -al'
 ```
 
 
-## add a New User
+## add a new user
 ```txt
 # useradd is a low level utility for adding users. 
 # sudo useradd -m my-new-user
@@ -38,7 +38,7 @@ sudo adduser my-new-user sudo
 su - my-new-user
 ```
 
-## add a New User
+## add a new group
 ```txt
 sudo groupadd my-group
 
