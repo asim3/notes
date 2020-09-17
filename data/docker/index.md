@@ -1,4 +1,5 @@
 # Docker - Community
+[12 factor app](https://12factor.net/)
 
 ```txt
 sudo docker system info
