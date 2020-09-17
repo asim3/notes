@@ -13,7 +13,7 @@ sudo apt-get remove docker docker-engine docker.io containerd runc
 
 ## dependency packages
 ```txt
-sudo apt-get update
+sudo apt-get update && 
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
 ```
 
@@ -29,17 +29,14 @@ sudo apt-key fingerprint 0EBFCD88
 
 ## Docker stable repo
 ```txt
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
 
 
 ## Install 
 Docker Engine - Community
 ```txt
-sudo apt-get update
+sudo apt-get update &&
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 sudo docker version
