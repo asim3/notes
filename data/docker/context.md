@@ -1,5 +1,21 @@
 # Manage contexts
 
+
+## context from env
+client configured by environment variables
+
+The URL to the Docker host.    
+`DOCKER_HOST         ="tcp://192.168.99.100:2376"`
+
+
+Verify the host against a CA certificate.    
+`DOCKER_TLS_VERIFY   ="1"`
+
+A path to a directory containing TLS certificates to use when connecting to the Docker host.    
+`DOCKER_CERT_PATH    ="/home/kfupmasim/.docker/machine/machines/my-node-1"`
+
+
+
 ## create
 Create a context
 ```txt
