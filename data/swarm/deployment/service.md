@@ -21,11 +21,16 @@ sudo docker service create --replicas 2 asim3/whoami:1.3
 ```
 
 
+## scale up or down
+```txt
+sudo docker service scale  my-service=3
+
+sudo docker service update --replicas 4   my-service
+```
+
+
 ## update
 ```txt
-# scale up or down
-sudo docker service update --replicas 4   my-service
-
 # port
 sudo docker service update --publish-add  published=8081,target=80   my-service
 sudo docker service update --publish-rm   published=80,target=80     my-service
