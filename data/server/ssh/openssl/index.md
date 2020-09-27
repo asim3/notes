@@ -17,6 +17,8 @@ openssl rsa -in my_private_key -pubout -out my_public.pub
 
 ## server stamp
 CERTIFICATE REQUEST
+> Take care of are the “Organizational Name” and the “Common Name”. 
+  These two values help verify to whom the certificate has been issued to.
 ```txt
 openssl req -new -key my_private_key -out my_stamp.csr
 ```
