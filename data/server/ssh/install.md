@@ -14,8 +14,3 @@ chmod 600 ~/.ssh/*
 sudo systemctl enable ssh
 sudo systemctl status ssh
 ```
-
-
-## Manual
-> `man ssh-keygen`
-> `man ssh_config`
