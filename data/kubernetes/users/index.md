@@ -6,11 +6,9 @@
 
 ## service account
 ```txt
-# list all users
 kubectl get sa
-
-# view user details
-kubectl get sa default -o yaml
+kubectl get sa my-user -o yaml
+kubectl describe sa my-user
 ```
 
 
@@ -20,6 +18,7 @@ add a new user in the current namespace
 kubectl create serviceaccount my-user
 ```
 
+## OR 
 write a manifest for new user    
 `nano sa-my-user.yaml`
 ```yaml
@@ -34,17 +33,20 @@ metadata:
 ## add a new user
 ```txt
 kubectl apply -f sa-my-user.yaml
-
-# list all Service Account
-kubectl get sa
-kubectl get sa my-user -o yaml
-
-kubectl describe sa my-user
 ```
 
 
 ## Cluster Role Binding
-CRB Manifest
+```txt
+# list all cluster role bindings
+kubectl get clusterrolebindings
+
+kubectl get clusterrolebindings my-cluster-binding -o yaml
+kubectl describe clusterrolebindings my-cluster-binding
+```
+
+
+## CRB Manifest
 write a manifest for new Cluster Role Binding    
 `nano crb-my-user.yaml`
 ```yaml
@@ -67,12 +69,6 @@ subjects:
 new Cluster Role Binding
 ```txt
 kubectl apply -f crb-my-user.yaml
-
-# list all cluster role bindings
-kubectl get clusterrolebindings
-kubectl get clusterrolebindings my-cluster-binding -o yaml
-
-kubectl describe clusterrolebindings my-cluster-binding
 ```
 
 
@@ -114,15 +110,4 @@ roleRef:
   kind: ClusterRole
   name: cluster-role-nickname
   apiGroup: rbac.authorization.k8s.io
-```
-
-
-
-`nano my_service_file.yml`
-```yaml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: service-nickname
-  namespace: namespace-nickname
 ```
