@@ -1,9 +1,9 @@
-## adding **JS** to html 
+## adding JS to html 
 ```html
 <script src="main.js"></script>
 ```
 
-## adding **CSS** to html
+## adding CSS to html
 ```html
 <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16">
 <link rel="stylesheet" type="text/css" href="main.css">
@@ -29,7 +29,7 @@ rel values:
     stylesheet
 ```
 
-
+## links
 ```html
 <a href="tel:+966500"></a>
     tel: – place a phone call
@@ -39,7 +39,14 @@ rel values:
 ```
 
 
-## **CSS**
+## whatsapp link
+```html
+<a target="_blank" class="mobsizer" rel="noopener noreferrer"
+   href="https://api.whatsapp.com/send?phone=966555555555"></a>
+```
+
+
+## CSS
 ```css
 a[href^="mailto:"] { ... }
 a[href^="tel:"] { ... }
