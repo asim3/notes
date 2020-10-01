@@ -1,8 +1,11 @@
 # setup config file
-
+> you can find the config file in the master server at: `/etc/kubernetes/admin.conf`
 ```txt
 kubectl config view
 kubectl config view --raw
+
+# OR
+cat ~/.kube/config
 ```
 
 
