@@ -122,15 +122,3 @@ pkill gunicorn
 
 killall python3
 ```
-
-
-## Print or check checksums
-```txt
-# MD5 (128-bit)
-md5sum filename
-# check
-md5sum -c md5sum.txt 
-
-# SHA256 (256-bit)
-sha256sum filename
-```
