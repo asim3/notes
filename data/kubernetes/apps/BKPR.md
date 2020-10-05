@@ -8,7 +8,7 @@ Bitnami Kubernetes Production Runtime
 ```txt
 sudo apt install -y jq
 
-curl -OL https://github.com/bitnami/kubecfg/releases/download/v0.16.0/kubecfg-linux-amd64
+curl -fLO https://github.com/bitnami/kubecfg/releases/download/v0.16.0/kubecfg-linux-amd64
 chmod +x kubecfg-linux-amd64
 sudo mv kubecfg-linux-amd64 /usr/local/bin/kubecfg
 
@@ -21,7 +21,7 @@ kubecfg version
 # set temporary environment variable
 BKPR_VERSION=$(curl --silent "https://api.github.com/repos/bitnami/kube-prod-runtime/releases/latest" | jq -r '.tag_name')
 
-curl -LO https://github.com/bitnami/kube-prod-runtime/releases/download/${BKPR_VERSION}/bkpr-${BKPR_VERSION}-linux-amd64.tar.gz
+curl -fLO https://github.com/bitnami/kube-prod-runtime/releases/download/${BKPR_VERSION}/bkpr-${BKPR_VERSION}-linux-amd64.tar.gz
 
 tar xf bkpr-${BKPR_VERSION}-linux-amd64.tar.gz
 

@@ -1,6 +1,8 @@
 ## Install
 ```txt
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+# TODO: fix this !!!
+# curl -fLsS https://deb.nodesource.com/setup_14.x | sudo -E bash -
+
 sudo apt install -y nodejs
 sudo apt install -y build-essential
 sudo apt autoremove

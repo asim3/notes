@@ -5,10 +5,9 @@
 
 ## install
 ```
-curl -fSL --output "/tmp/docker-app-$(uname | tr A-Z a-z).tar.gz" "https://github.com/docker/app/releases/download/v0.8.0/docker-app-$(uname | tr A-Z a-z).tar.gz"
+curl -fL https://github.com/docker/app/releases/download/v0.8.0/docker-app-linux.tar.gz -o /tmp/docker-app-linux.tar.gz
 
-# extract tar file
-tar xf "/tmp/docker-app-$(uname | tr A-Z a-z).tar.gz" -C /tmp/
+tar xf /tmp/docker-app-linux.tar.gz
 
 # install as a Docker CLI plugin
 mkdir -p ~/.docker/cli-plugins

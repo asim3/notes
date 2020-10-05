@@ -54,6 +54,9 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" https://g
 
 # CURL in readable JSON format
 curl https://jsonplaceholder.typicode.com/users | json_pp
+
+# embedded text
+curl -s https://storage.googleapis.com/kubernetes-release/`echo release`/stable.txt
 ```
 
 

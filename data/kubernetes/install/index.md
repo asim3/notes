@@ -1,7 +1,7 @@
 install kubectl 
 a v1.2 client should work with v1.1, v1.2, and v1.3 master. Using the latest version of kubectl helps avoid unforeseen issues
 ```txt
-sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl &&
+sudo curl -fLO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl &&
 sudo chmod +x ./kubectl &&
 sudo mv ./kubectl /usr/local/bin/kubectl && kubectl version
 

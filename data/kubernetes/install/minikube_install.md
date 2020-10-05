@@ -10,9 +10,14 @@ sudo apt install -y conntrack
 [Install Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
 
 ```txt
-sudo curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 &&
-sudo chmod +x minikube &&
-sudo mv ./minikube /usr/local/bin/minikube && minikube version
+curl -fLO https://github.com/kubernetes/minikube/releases/download/v1.13.1/minikube-linux-amd64
+curl -fLO https://github.com/kubernetes/minikube/releases/download/v1.13.1/minikube-linux-amd64.sha256
+
+echo "$(cat ./minikube-linux-amd64.sha256)  minikube-linux-amd64" | sha256sum -c
+rm          ./minikube-linux-amd64.sha256
+
+chmod +x ./minikube-linux-amd64 &&
+sudo mv ./minikube-linux-amd64 /usr/local/bin/minikube && minikube version
 
 minikube version
 ```
