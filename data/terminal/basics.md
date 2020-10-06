@@ -34,9 +34,9 @@ echo 1 || echo 3
 
 
 ## Redirects stdin & stdout
-0: stdin     # input   
-1: stdout    # output   
-2: stderr    # error output    
+> 0: stdin     # input   
+> 1: stdout    # output   
+> 2: stderr    # error output    
 ```txt
 # Save stdout to a file
 ls > my.txt

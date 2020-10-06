@@ -20,7 +20,6 @@ sudo k3d version
 create a new single-node cluster (= 1 container running k3s + 1 loadbalancer container)
 ```txt
 sudo k3d kubeconfig show --all
-mkdir ~/.kube && sudo k3d kubeconfig show --all > ~/.kube/config
 
 
 sudo k3d cluster list
@@ -34,4 +33,16 @@ sudo k3d cluster start  my-cluster-asim
 sudo k3d cluster stop  my-cluster-asim
 sudo k3d cluster delete my-cluster-asim
 ```
+
 > admin password location `cat /var/lib/rancher/k3s/server/cred/passwd`
+```txt
+cat <<asim >> ~/.bashrc
+
+#sudo k3d cluster delete asim-k3s &&
+#sudo k3d cluster create asim-k3s &&
+sudo k3d cluster start asim-k3s &&
+sudo k3d kubeconfig show --all > ~/.kube/config && 
+echo "Done."
+
+asim
+```
