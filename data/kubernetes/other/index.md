@@ -2,15 +2,11 @@
 
 ## DaemonSet
 
-## ReplicaSet
-
 ## Job
 
 ## CronJob
 
-## ResourceQuota
-
-## LimitRange
+---
 
 ## Service
 
