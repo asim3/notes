@@ -8,10 +8,6 @@
 
 ## CronJob
 
-## Secret
-
-## ConfigMap
-
 ## ResourceQuota
 
 ## LimitRange
@@ -23,3 +19,5 @@
 ## PodDisruptionBudget
 
 ## PodPreset
+
+## StatefulSet

@@ -32,7 +32,6 @@ kubectl apply -f sa-my-user.yaml
 
 ## view secret
 ```txt
-# list all secrets
 kubectl get secrets
 
 kubectl get secret my-user-token-9q5x2 -o yaml

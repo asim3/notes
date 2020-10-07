@@ -54,15 +54,6 @@ kubectl get    pods -n namespace-nickname
 ```
 
 
-## List secrets
-```txt
-kubectl get secrets
-
-kubectl describe secret
-kubectl describe secret my-secret
-```
-
-
 ## bash to a pod
 ```txt
 kubectl exec -it asim2-pod -- /bin/sh
