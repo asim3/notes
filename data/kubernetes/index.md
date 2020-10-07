@@ -1,4 +1,5 @@
 [Kubernetes Playground](https://www.katacoda.com/courses/kubernetes/playground)
+[youtube-yamls](https://github.com/justmeandopensource/kubernetes/tree/master/yamls)
 
 
 ```txt
