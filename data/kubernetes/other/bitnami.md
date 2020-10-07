@@ -1,7 +1,7 @@
-[Docs](https://github.com/bitnami/kube-prod-runtime/blob/master/docs/quickstart-generic.md)
-
-
+# Bitnami
 Bitnami Kubernetes Production Runtime
+
+[Docs](https://github.com/bitnami/kube-prod-runtime/blob/master/docs/quickstart-generic.md)
 
 
 ## Prerequisites
