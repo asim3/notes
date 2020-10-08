@@ -1,56 +1,36 @@
 # Helm
 
-## Installation
+## search for charts
 ```txt
-sudo snap install helm --classic
-
-sudo helm version --short
-```
-
-## Repository
-```txt
-sudo helm repo list
-
-# add new repository
-sudo helm repo add my-stable https://kubernetes-charts.storage.googleapis.com/
-
-sudo helm repo update
-sudo helm repo remove my-stable
+helm search hub  wordpress
+helm search repo wordpress
+helm search repo my-repository
 ```
 
 
-## search
+## download a chart
 ```txt
-sudo helm search repo wordpress
-
-sudo helm search repo my-stable
-sudo helm search repo bitnami
+helm pull  [chart URL] --verify --untar
+helm pull  my-repository/wordpress --untar
+helm fetch my-repository/wordpress --untar
 ```
 
 
-## list all releases
+## deploy to kubernetes
 ```txt
-sudo helm ls
-sudo helm ls -a
+helm install   my-site my-repository/wordpress
+helm install   my-site my-repository/wordpress -f       my-values.yaml
+helm install   my-site my-repository/wordpress --values my-values.yaml
 
-sudo helm status smiling-penguin
+helm uninstall my-site
 ```
 
 
-## Install Chart
+## status releases charts
 ```txt
-sudo helm install my-test-1 bitnami/wordpress
+helm ls
+helm ls   -a
+helm list -a
 
-sudo helm ls
-sudo helm uninstall my-test-1
-```
-
-
-
-## Bitnami Repository
-```txt
-sudo helm repo add bitnami https://charts.bitnami.com/bitnami
-sudo helm install my-kubeapps bitnami/kubeapps
-
-watch 'kubectl get pods'
+helm status my-site
 ```
