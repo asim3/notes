@@ -1,4 +1,9 @@
-# commandline
+# Command Line
+> `kernel` controls the `hardware`    
+> `shell`  controls the `kernel`    
+Ubuntu Operating System using `Linux kernel` and `bash shell`    
+GNU is an collection of free software like `bash`, `nano`, `grep` and `tar`
+
 
 ```txt
 mkdir add_new_folders
@@ -111,7 +116,7 @@ sudo chmod 664 file.txt
 /usr/local/bin    => Binary added manually by user
 
 /usr/sbin
-/usr/bin          => Binary installed by apt
+/usr/bin          => Binary installed by apt-get
 
 /sbin
 /bin              => kernel Binary Files
