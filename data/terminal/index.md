@@ -108,13 +108,13 @@ sudo chmod 664 file.txt
 `echo $PATH`
 ```text
 /usr/local/sbin
-/usr/local/bin
+/usr/local/bin    => Binary added manually by user
 
 /usr/sbin
-/usr/bin
+/usr/bin          => Binary installed by apt
 
 /sbin
-/bin
+/bin              => kernel Binary Files
 
 /usr/games
 /usr/local/games
