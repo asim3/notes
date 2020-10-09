@@ -1,6 +1,7 @@
 # Command Line
 > `kernel` controls the `hardware`    
-> `shell`  controls the `kernel`    
+> `shell`  controls the `kernel`
+
 Ubuntu Operating System using `Linux kernel` and `bash shell`    
 GNU is an collection of free software like `bash`, `nano`, `grep` and `tar`
 
