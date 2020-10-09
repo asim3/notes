@@ -122,3 +122,11 @@ def _():
 
 dis(_)
 ```
+
+
+## compile python to binary
+```txt
+sudo pip3 install cython
+cython test.py --embed
+gcc -Os -I /usr/include/python3.6m -o test test.c -lpython3.6m -lpthread -lm -lutil -ldl
+```
