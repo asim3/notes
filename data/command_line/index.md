@@ -1,4 +1,3 @@
-# Command Line
 > `kernel` controls the `hardware`    
 > `shell`  controls the `kernel`
 
