@@ -126,3 +126,10 @@ sudo chmod 664 file.txt
 
 /snap/bin
 ```
+
+## System Libraries
+```txt
+/lib/
+/usr/lib/
+/usr/local/lib/
+```

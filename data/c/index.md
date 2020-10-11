@@ -1,5 +1,5 @@
 `nano my_c_program.c`
-```c#
+```c
 #include <stdio.h>
 
 int main() {
@@ -27,7 +27,7 @@ tree
 
 
 ## print
-```c#
+```c
 #include <stdio.h>
 
 int main() {
