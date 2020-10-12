@@ -34,3 +34,28 @@ helm list -a
 
 helm status my-site
 ```
+
+
+## customizing the chart
+```txt
+helm show values my-repository/wordpress
+
+# override any of these settings
+helm install -f config.yaml my-repository/wordpress --generate-name
+
+helm get values my-site
+```
+
+
+## upgrade helm deployment
+```txt
+helm upgrade -f config.yaml  my-site  my-repository/wordpress
+```
+
+
+## rollback helm deployment
+```txt
+helm rollback my-site 1
+# OR
+helm rollback my-site 2
+```

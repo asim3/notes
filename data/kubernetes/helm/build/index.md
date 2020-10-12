@@ -27,6 +27,15 @@ my-first-chart
 ```
 
 
+## package helm Chart
+```txt
+# validate
+helm lint ./my-first-chart/
+# package the chart up for distribution
+helm package ./my-first-chart/
+```
+
+
 ## deploy helm Chart
 ```txt
 helm install my-nickname ./my-first-chart/
@@ -38,8 +47,10 @@ helm list
 ## update helm Chart
 ```txt
 kubectl expose deploy my-nginx --port 80 --dry-run=client -o yaml > my-first-chart/templates/service.yaml
+
 # update Chart.yaml version to 0.2.0
 nano my-first-chart/Chart.yaml
+
 tree my-first-chart
 my-first-chart
 ├── Chart.yaml
@@ -57,7 +68,7 @@ watch kubectl get service
 ```
 
 
-## upgrade helm deployment
+## rollback helm deployment
 ```txt
 helm rollback my-nickname 1
 # OR
