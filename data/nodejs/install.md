@@ -1,19 +1,26 @@
-## Install
+# Install
+
+## adding node js library
 ```txt
-# TODO: fix this !!!
-# curl -fLsS https://deb.nodesource.com/setup_14.x | sudo -E bash -
+curl -fLO https://nodejs.org/dist/v12.19.0/node-v12.19.0-linux-x64.tar.xz
+curl -fLO https://nodejs.org/dist/v12.19.0/SHASUMS256.txt.asc
 
-sudo apt install -y nodejs
-sudo apt install -y build-essential
-sudo apt autoremove
+grep node-v12.19.0-linux-x64.tar.xz SHASUMS256.txt.asc | sha256sum -c -
 
-nodejs -v
-node -v
-npm -v
+sudo tar -xJvf node-v12.19.0-linux-x64.tar.xz -C /usr/local/lib/
 ```
 
 
-## update npm
+## add node links
 ```txt
-sudo npm install npm@latest -g
+sudo ln -s /usr/local/lib/node-v12.19.0-linux-x64/bin/node /usr/local/bin/node
+sudo ln -s /usr/local/lib/node-v12.19.0-linux-x64/bin/npm /usr/local/bin/npm
+sudo ln -s /usr/local/lib/node-v12.19.0-linux-x64/bin/npx /usr/local/bin/npx
+```
+
+
+```txt
+node -v
+npm version
+npx -v
 ```
