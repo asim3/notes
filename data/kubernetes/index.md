@@ -77,4 +77,7 @@ kubectl logs __pod_name__ -f
 kubectl get ns -o jsonpath='{.kind}' && echo
 kubectl get ns -o jsonpath='{.items[].kind}' && echo
 kubectl get ns -o jsonpath='{.items[].metadata.name}' && echo
+
+# get url
+google-chrome $(kubectl get service/wordpress-1602541355 -o jsonpath='http://192.168.99.101:{.spec.ports[].nodePort}')
 ```
