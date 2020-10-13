@@ -5,6 +5,8 @@
 helm search hub  wordpress
 helm search repo wordpress
 helm search repo my-repository
+
+helm repo list
 ```
 
 
