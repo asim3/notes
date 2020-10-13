@@ -28,9 +28,9 @@ helm uninstall my-site
 
 ## status releases charts
 ```txt
-helm ls
 helm ls   -a
-helm list -a
+helm list -aA
+helm ls   -n kubeapps
 
 helm status my-site
 ```

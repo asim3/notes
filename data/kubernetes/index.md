@@ -70,3 +70,11 @@ kubectl logs __pod_name__
 # follow
 kubectl logs __pod_name__ -f
 ```
+
+
+## get data from JSON
+```txt
+kubectl get ns -o jsonpath='{.kind}' && echo
+kubectl get ns -o jsonpath='{.items[].kind}' && echo
+kubectl get ns -o jsonpath='{.items[].metadata.name}' && echo
+```
