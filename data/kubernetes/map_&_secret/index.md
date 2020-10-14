@@ -9,6 +9,9 @@ kubectl describe secret my-secret
 
 ## ConfigMap
 ```txt
+kubectl get cm
+kubectl get cm -A
+
 helm customconfigMap
 ```
 
