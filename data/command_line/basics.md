@@ -76,6 +76,20 @@ EOF
 ```
 
 
+## grep 
+```txt
+# filter
+cat my.txt | grep asim
+cat my.txt | grep " asim"
+cat my.txt | grep -v asim
+
+# show 4 lines before matches
+cat my.txt | grep -B 4 asim
+
+# show 4 lines after matches
+cat my.txt | grep -A 4 asim
+```
+
 
 ```txt
 cat my.txt | head
@@ -84,11 +98,6 @@ cat my.txt | tail
 # scroll
 cat my.txt | less
 cat my.txt | more
-
-# filter
-cat my.txt | grep asim
-cat my.txt | grep " asim"
-cat my.txt | grep -v asim
 
 cat my.txt | sort
 cat my.txt | sort -r
