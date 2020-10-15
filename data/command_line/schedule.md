@@ -83,3 +83,8 @@ MAILTO="yourname@yourdomain.com"
 
 # /dev/null is the black hole
 ```
+
+## show log
+```txt
+cat /var/log/syslog 
+```
