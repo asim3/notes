@@ -1,6 +1,7 @@
 ## Secret
 ```txt
 kubectl get secrets
+kubectl get secrets/my-secret -o yaml
 
 kubectl describe secret
 kubectl describe secret my-secret
@@ -18,6 +19,9 @@ helm customconfigMap
 
 ## secret from JSON
 ```txt
+kubectl get secrets/my-secret -o go-template='{{.data.username | base64decode}}' && echo
+
+
 kubectl get serviceaccount default -o jsonpath='{.secrets[].name}' && echo
 
 NS_NAME=default
