@@ -65,6 +65,37 @@ curl -s https://storage.googleapis.com/kubernetes-release/`echo release`/stable.
 ```
 
 
+## curl POST
+```txt
+curl --request POST \
+  --url 'http://google.com' \
+  --header 'Authorization: Bearer GUiOiJ1c2VyoX8' \
+  --header 'Content-Type: application/json' \
+  --data '{"name": "asim"}'
+
+
+# PUT
+curl --request PUT \
+  --url 'http://google.com' \
+  --header 'Authorization: Bearer GUiOiJ1c2VyoX8' \
+  --header 'Content-Type: application/json'
+
+
+# DELETE
+curl --request DELETE \
+  --url 'http://google.com' \
+  --header 'Authorization: Bearer GUiOiJ1c2VyoX8' \
+  --header 'Content-Type: application/json'
+
+
+# GET
+curl --request GET \
+  --url 'http://google.com' \
+  --header 'Authorization: Bearer GUiOiJ1c2VyoX8' \
+  --header 'Content-Type: application/json'
+```
+
+
 ## Permissions
 ```txt
 sudo chown asim:asim /www
