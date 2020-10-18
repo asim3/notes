@@ -1,3 +1,11 @@
+## system logs
+```txt
+ls /var/log/
+
+cat /var/log/syslog 
+```
+
+
 ```txt
 watch        'ps aux | grep -i apt'
 watch -n 0.5 'ps aux | grep -i apt'
