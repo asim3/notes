@@ -81,3 +81,8 @@ kubectl get ns -o jsonpath='{.items[].metadata.name}' && echo
 # get url
 google-chrome $(kubectl get service/wordpress-1602541355 -o jsonpath='http://192.168.99.100:{.spec.ports[].nodePort}')
 ```
+
+
+```txt
+kubectl get events
+```

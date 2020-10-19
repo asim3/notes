@@ -13,7 +13,6 @@ kubectl top pod
 
 
 
-## DaemonSet
 
 ## Job
 

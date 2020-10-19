@@ -1,6 +1,6 @@
 ## Creating objects
+`nano asim2-pod.yaml`
 ```yaml
-nano asim2-pod.yaml
 apiVersion: v1
 kind: Pod
 metadata:
