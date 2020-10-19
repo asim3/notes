@@ -10,8 +10,9 @@ kubectl describe secret my-secret
 
 ## show secret
 ```txt
-kubectl get secrets/my-secret -o yaml
+kubectl get secret/my-secret -o yaml
 kubectl get secrets/my-secret -o go-template='{{.data.username | base64decode}}' && echo
+kubectl get secrets/my-secret -o go-template='{{index .data "ca.crt" | base64decode}}'
 ```
 
 

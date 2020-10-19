@@ -26,7 +26,7 @@ kubectl get deployments
 kubectl get pods -o wide
 kubectl get pods
 kubectl get pod
-kubectl get po
+kubectl get po -l my-label=by-asim
 ```
 
 
@@ -37,8 +37,13 @@ kubectl get pod asim2-pod -o yaml
 kubectl get pod asim2-pod -o json
 
 kubectl describe pod asim2-pod
+```
 
+## delete
+```txt
 kubectl delete pod asim2-pod
+
+kubectl delete pod,service,replicaset,deployment -l my-label=by-asim
 ```
 
 
