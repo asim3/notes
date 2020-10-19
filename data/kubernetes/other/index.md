@@ -11,13 +11,6 @@ kubectl top node
 kubectl top pod
 ```
 
-
-
-
-## Job
-
-## CronJob
-
 ---
 
 ## Service
