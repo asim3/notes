@@ -13,6 +13,12 @@ kubectl port-forward service/kubeapps 8080:80
 ```
 
 
+## update
+```txt
+kubectl expose deployment my-nginx --type NodePort --port 80
+```
+
+
 ## ClusterIP
 Exposes the Service on a cluster-internal IP. Choosing this value makes the Service only reachable from within the cluster. This is the default ServiceType.
 
