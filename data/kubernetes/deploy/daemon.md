@@ -1,14 +1,22 @@
 ## DaemonSet
 `nano my-daemon.yaml`
 ```yaml
-apiVersion: v1
+apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: my-daemon-pod
 spec:
-  containers:
-  - name: my-daemon-container
-    image: nginx
+  selector:
+      matchLabels:
+        name: my-label
+  template:
+    metadata:
+      labels:
+        name: my-label
+    spec:
+      containers:
+      - name: my-daemon-container
+        image: nginx
 ```
 
 ```txt
