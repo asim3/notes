@@ -31,6 +31,15 @@ kubectl apply -f my-k8s/my-first-deployment.yml
 ```
 
 
+## list
+```txt
+kubectl get deploy
+kubectl get deployment
+
+kubectl get pods
+```
+
+
 ## delete
 ```txt
 kubectl delete -f my-k8s/my-first-deployment.yml
@@ -41,17 +50,9 @@ kubectl delete deploy my-metadata-name
 ```
 
 
-
-## list
-```txt
-kubectl get deploy -o wide
-kubectl get pods   -o wide
-```
-
-
 ## deployment details
 ```txt
-kubectl describe deploy my-metadata-name
+kubectl describe deploy     my-metadata-name
 kubectl describe deployment/my-metadata-name
 ```
 

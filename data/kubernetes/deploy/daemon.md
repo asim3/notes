@@ -22,6 +22,9 @@ spec:
 ```txt
 kubectl apply  -f ./my-daemon.yaml
 
+kubectl get ds
+kubectl get daemonset
+
 kubectl get daemonset/my-daemon-pod -o yaml
 kubectl describe daemonset/my-daemon-pod
 

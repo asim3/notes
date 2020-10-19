@@ -1,13 +1,20 @@
 ## init container
 runs a temp container before the main container
+`nano my-init.yaml`
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-nginx
+  name: my-init-nginx
 spec:
   replicas: 1
+  selector:
+      matchLabels:
+        my-name: my-label
   template:
+    metadata:
+      labels:
+        my-name: my-label
     spec:
       initContainers:
       - image: busybox
@@ -21,6 +28,8 @@ spec:
       containers:
       - image: nginx
         name: nginx
+        ports:
+        - containerPort: 80
         volumeMounts:
         - name: my-shared-volume
           mountPath: /usr/share/nginx/html
@@ -28,4 +37,9 @@ spec:
       volumes:
       - name: my-shared-volume
         emptyDir: {}
+```
+
+
+```txt
+kubectl apply -f ./my-init.yaml
 ```

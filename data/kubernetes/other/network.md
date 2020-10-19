@@ -1,21 +1,30 @@
 ## list all 
 ```txt
+kubectl get svc
 kubectl get services
-kubectl get services/kubernetes -o yaml
 
-kubectl describe services/kubernetes
+kubectl get ep
+kubectl get endpoints
+
+
+kubectl describe svc
+kubectl describe ep
 ```
 
 
-## update
+## expose port
+by adding new service
+```txt
+kubectl get    deployment
+kubectl expose deployment/my-metadata-name --type NodePort --port 80
+
+kubectl get service
+```
+
+
+## update service
 ```txt
 kubectl port-forward service/kubeapps 8080:80
-```
-
-
-## update
-```txt
-kubectl expose deployment my-nginx --type NodePort --port 80
 ```
 
 
