@@ -1,47 +1,4 @@
-## Creating objects
-`nano asim2-pod.yaml`
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: asim2-pod
-spec:
-  containers:
-  - name: asim2-container
-    image: nginx
-```
-
-
-```txt
-kubectl apply  -f ./asim2-pod.yaml
-kubectl create -f asim2-pod.yaml
-
-# Deleting resources
-kubectl delete -f asim2-pod.yaml
-```
-
-
-## OR
-```txt
-kubectl run asim-pod --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8000
-```
-
-
-## select a namespace
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: pod-nickname
-  namespace: namespace-nickname # <<<<<< 
-spec: 
-  serviceAccountName: service-nickname 
-  containers:
-  - # ...
-```
-
-
-## Manifest file
+## Deployment Manifest
 `nano my-k8s/my-first-deployment.yml`
 ```yaml
 apiVersion: apps/v1
@@ -88,7 +45,7 @@ kubectl delete deploy my-metadata-name
 ## list
 ```txt
 kubectl get deploy -o wide
-kubectl get pods -o wide
+kubectl get pods   -o wide
 ```
 
 
@@ -96,7 +53,10 @@ kubectl get pods -o wide
 ```txt
 kubectl describe deploy my-metadata-name
 kubectl describe deployment/my-metadata-name
+```
+
 
 # see updating status
+```txt
 kubectl rollout status deployment/my-metadata-name
 ```
