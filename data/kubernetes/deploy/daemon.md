@@ -32,7 +32,6 @@ kubectl delete -f ./my-daemon.yaml
 ```
 
 
-
 ## add service
 `nano my-daemon-port.yaml`
 ```yaml

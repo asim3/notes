@@ -40,13 +40,16 @@ kubectl describe pod asim2-pod
 
 ## delete
 ```txt
-kubectl delete pod/asim2-pod
+kubectl delete all --all
+
 kubectl delete pod           --all
 kubectl delete service       --all
 kubectl delete deployment    --all
+kubectl delete deployment,pod,service,replicaset --all
 
+kubectl delete pod/asim2-pod
 
-kubectl delete pod,service,replicaset,deployment -l my-label=by-asim
+kubectl delete pod -l my-label=by-asim
 ```
 
 
