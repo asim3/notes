@@ -24,7 +24,6 @@ kubectl get deployments
 
 # list all pods
 kubectl get pods -o wide
-kubectl get pods
 kubectl get pod
 kubectl get po -l my-label=by-asim
 ```
@@ -74,17 +73,6 @@ kubectl logs __pod_name__
 
 # follow
 kubectl logs __pod_name__ -f
-```
-
-
-## get data from JSON
-```txt
-kubectl get ns -o jsonpath='{.kind}' && echo
-kubectl get ns -o jsonpath='{.items[].kind}' && echo
-kubectl get ns -o jsonpath='{.items[].metadata.name}' && echo
-
-# get url
-google-chrome $(kubectl get service/wordpress-1602541355 -o jsonpath='http://192.168.99.100:{.spec.ports[].nodePort}')
 ```
 
 
