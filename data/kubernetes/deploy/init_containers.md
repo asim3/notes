@@ -1,5 +1,5 @@
 ## init container
-runs a temp container before the main container
+runs a temp container before the main container    
 `nano my-init.yaml`
 ```yaml
 apiVersion: apps/v1
@@ -28,8 +28,6 @@ spec:
       containers:
       - image: nginx
         name: nginx
-        ports:
-        - containerPort: 80
         volumeMounts:
         - name: my-shared-volume
           mountPath: /usr/share/nginx/html
@@ -43,3 +41,16 @@ spec:
 ```txt
 kubectl apply -f ./my-init.yaml
 ```
+
+
+## add service
+```txt
+kubectl expose deploy/my-init-nginx --type NodePort --port 80
+```
+
+
+## get node port
+```txt
+kubectl get service/my-init-nginx -o jsonpath='{.spec.ports[].nodePort}' && echo
+```
+
