@@ -67,7 +67,8 @@ kubectl get    pods -n namespace-nickname
 
 ## bash to a pod
 ```txt
-kubectl exec -it asim2-pod -- /bin/sh
+kubectl exec -it           pod/my-pod -- /bin/sh
+kubectl exec --stdin --tty pod/my-pod -- /bin/bash
 # OR
 kubectl exec asim2-pod -- touch /home/asim-test.txt
 kubectl exec asim2-pod -- ls /home -al
