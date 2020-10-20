@@ -1,10 +1,10 @@
 ## list all 
 ```txt
 kubectl get svc
-kubectl get services
+kubectl get services --show-labels
 
 kubectl get ep
-kubectl get endpoints
+kubectl get endpoints --show-labels
 
 
 kubectl describe svc
@@ -12,28 +12,18 @@ kubectl describe ep
 ```
 
 
-## expose port
-by adding new service
+## print URL
 ```txt
-kubectl get    deployment
-kubectl expose deployment/my-metadata-name --type NodePort --port 80
-
-kubectl get service
+echo http://$(kubectl get ep/kubernetes -o jsonpath='{.subsets[].addresses[].ip}'):$(kubectl get svc/my-deploy-name -o jsonpath='{.spec.ports[].nodePort}')
 ```
-
-
-## update service
-```txt
-kubectl port-forward service/kubeapps 8080:80
-```
-
-
-## ClusterIP
-Exposes the Service on a cluster-internal IP. Choosing this value makes the Service only reachable from within the cluster. This is the default ServiceType.
 
 
 ## NodePort
 Exposes the Service on each Node's IP at a static port (the NodePort). A ClusterIP Service, to which the NodePort Service routes, is automatically created. You'll be able to contact the NodePort Service, from outside the cluster, by requesting <NodeIP>:<NodePort>.
+
+
+## ClusterIP
+Exposes the Service on a cluster-internal IP. Choosing this value makes the Service only reachable from within the cluster. This is the default ServiceType.
 
 
 ## LoadBalancer

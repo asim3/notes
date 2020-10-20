@@ -13,13 +13,12 @@ spec:
   template:
     metadata:
       labels:
+        # also used to link service
         my-labels: my-template-label
     spec:
       containers:
       - name: my-nginx-container
         image: nginx:1.7.9
-        ports:
-        - containerPort: 80
   replicas: 2
 ```
 
@@ -30,8 +29,11 @@ spec:
 ```txt
 kubectl apply -f ./my-deployment.yaml
 
-# print url
+kubectl expose deploy/my-deploy-name --type NodePort --port 80
 
+
+# print url
+echo http://$(kubectl get ep/kubernetes -o jsonpath='{.subsets[].addresses[].ip}'):$(kubectl get svc/my-deploy-name -o jsonpath='{.spec.ports[].nodePort}')
 ```
 
 
@@ -40,7 +42,7 @@ kubectl apply -f ./my-deployment.yaml
 kubectl get deploy
 kubectl get deployment
 
-kubectl get pods
+kubectl get pods --show-labels
 ```
 
 
