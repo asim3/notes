@@ -35,13 +35,10 @@ kubectl get secrets/my-secret -o go-template='{{index .data "ca.crt" | base64dec
 ```
 
 
-
 ## get url
 ```txt
 google-chrome $(kubectl get service/wordpress-1602541355 -o jsonpath='http://192.168.99.100:{.spec.ports[].nodePort}')
 ```
-
-
 
 
 ## system info
@@ -56,6 +53,16 @@ kubectl describe nodes/cluster-nickname
 kubectl top node
 kubectl top pod
 ```
+
+
+# Kubernetes limits
+At v1.19
+- No more than 100 pods per node
+- No more than 5000 nodes
+- No more than 150000 total pods
+- No more than 300000 total containers
+
+[details](https://kubernetes.io/docs/setup/best-practices/cluster-large/)
 
 ---
 
