@@ -23,8 +23,4 @@ spec:
 kubectl apply -f my-pvc.yaml
 
 kubectl get persistentvolumeclaim  my-pvc-claim
-kubectl get persistentvolume       my-pv-hostpath
-
-# NAME             STATUS      CLAIM
-# my-pv-hostpath   Bound       default/my-pvc-claim
 ```

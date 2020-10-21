@@ -20,10 +20,6 @@ kind: Pod
 metadata:
   name: my-busybox
 spec:
-  volumes:
-  - name: my-volume
-    persistentVolumeClaim:
-      claimName: my-pvc-claim
   containers:
   - image: busybox
     name: my-busybox
@@ -32,7 +28,13 @@ spec:
     volumeMounts:
     - name: my-volume
       mountPath: /my-data-in-container
+  volumes:
+  - name: my-volume
+    # PVC
+    persistentVolumeClaim:
+      claimName: my-pvc-claim
 ```
+
 
 ```txt
 kubectl describe po/my-busybox
