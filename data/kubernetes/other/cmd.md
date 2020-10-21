@@ -8,6 +8,7 @@ metadata:
   labels:
     my-pod: my-cmd-pod
 spec:
+  restartPolicy: Never # <<<
   containers:
   - name: my-container
     image: busybox
@@ -15,9 +16,18 @@ spec:
     ##  CMD  ##
     ###########
     # command: override the default image ENTRYPOINT
-    command: ["/bin/sh", "-c"]
+    command: 
+      - /bin/sh
+      - -c
     # args: override the default image CMD
-    args:    ["echo hi from cmd && echo 'I am Asim' && ls -al /var;"]
+    args: 
+      - echo 111;echo 222 && echo 333;
+      - echo not loged
+
+# $ kubectl logs pod/my-pod
+# 111
+# 222
+# 333
 ```
 
 ```txt
@@ -43,37 +53,32 @@ metadata:
 spec:
   selector:
     matchLabels:
-      my-labels: my-nginx-cmd
+      my-labels: my-busybox-label
   template:
     metadata:
       labels:
-        my-labels: my-nginx-cmd
+        my-labels: my-busybox-label
     spec:
       containers:
-      - name: my-nginx
-        image: nginx
-        command: ["cat /docker-entrypoint.sh"]
-        args: ["nginx", "-g", "daemon off && echo '<h1>Hello By CMD</h1>' > /usr/share/nginx/html/index.html"]
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-cmd-port
-spec:
-  type: NodePort
-  selector:
-    my-labels: my-nginx-cmd
-  ports:
-  - port: 1234
-    targetPort: 80
-    nodePort: 32100
+      - name: my-busybox
+        image: busybox
+        ###########
+        ##  CMD  ##
+        ###########
+        command: 
+        - echo
+        - Hello
+        args: 
+        - World
+        - from 
+        - busybox   
+        - CMD
 ```
 
 
 ```txt
 kubectl apply -f ./cmd-deploy.yaml
 
-kubectl logs deploy/my-cmd-deploy -c my-nginx
-
-kubectl exec --stdin --tty deploy/my-cmd-deploy -- /bin/bash
+kubectl logs deploy/my-cmd-deploy -c my-busybox
+# Hello World from busybox CMD
 ```
