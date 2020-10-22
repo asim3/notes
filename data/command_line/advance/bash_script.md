@@ -95,11 +95,17 @@ fi
 
 if [ "$1" = "1" ]; then
     echo "1"
-elif [ $1 = "test" ]; then
+elif [ "$1" = "test" ]; then
     echo "2 test"
 else
     echo "other"
 fi
+
+# run.sh test >> "$1" = "test"
+# run.sh test >>  $1  = "test"
+
+# run.sh      >> "$1" = ""
+# run.sh      >>  $1  = ERROR
 ```
 
 
