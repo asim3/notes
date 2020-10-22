@@ -120,6 +120,28 @@ fi
 ```
 
 
+## No such file or directory; 
+```txt
+if [ -d my-directory ]; then 
+  echo found the directory; 
+elif [ -f my-file ]; then 
+  echo found the file; 
+else
+  echo ok;
+fi;
+
+###############
+
+if [ ! -d my-directory ]; then 
+  echo No such directory; 
+elif [ ! -f my-file ]; then 
+  echo No such file; 
+else
+  echo found file and directory;
+fi;
+```
+
+
 ## rename function
 ```txt
 #!/bin/bash
