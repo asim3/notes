@@ -34,15 +34,29 @@ os.path.exists(file.name)
 
 ## OR using with
 ```py
-import os, 
+import os
 from tempfile import NamedTemporaryFile
 
-with NamedTemporaryFile(suffix=".yaml") as file:
+
+with NamedTemporaryFile(prefix="my-", suffix=".yaml") as file:
     print("Name:", file.name)
+    # Name: /tmp/my-v047zhe8.yaml
     print("Mode:", file.mode)
-    file.write(b'\nNamedTemporaryFile: delete=False \n\n') 
+    # Mode: rb+
+    file.write(b'my name is asim')
+    file.seek(0)
+    file.read()
+    # b'my name is asim'
+    os.path.exists(file.name)
+    # True
 
+file.name
+# '/tmp/my-v047zhe8.yaml'
+file.read()
+# ValueError: read of closed file
 
+os.path.exists(file.name)
+# False
 ```
 
 
