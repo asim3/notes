@@ -74,6 +74,7 @@ first line
 second line
 EOF
 ```
+> or use Ctrl-D (i.e. EOF) to exit
 
 
 ## grep 
