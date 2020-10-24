@@ -120,22 +120,25 @@ sudo chmod 664 file.txt
 
 ## Linux Directory
 ```text
-/etc     => Configuration files
-/tmp     => Temporary Files "will be deleted after reboot"
-/var     => Variable Files
-/usr     => User Installed Programs 
+/etc           => Configuration files
+/var           => Variable Files
+/usr           => User Installed Programs 
 
-/bin     => User Binary Files
-/sbin    => Root Binary Files
-/root    => Root Home Directory
+/tmp           => Temporary Files "will be deleted after reboot"
+/var/tmp/
+/usr/tmp/
 
-/dev     => All devices that are connected
-/lib     => System Libraries
-/media   => Mount point for removable media
-/mnt     => Mount point for temporary file systems
-/opt     => Optional Add-on applications
-/srv     => systemctl Files !!
-/proc    => Process Information
+/bin           => User Binary Files
+/sbin          => Root Binary Files
+/root          => Root Home Directory
+
+/dev           => All devices that are connected
+/lib           => System Libraries
+/media         => Mount point for removable media
+/mnt           => Mount point for temporary file systems
+/opt           => Optional Add-on applications
+/srv           => systemctl Files !!
+/proc          => Process Information
 
 /lost+found    => Misplaced Data
 ```
