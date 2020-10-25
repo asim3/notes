@@ -1,23 +1,36 @@
-```python
+## current working dir
+```py
 import os
 
-dir = os.getcwd()
-dir_list = os.listdir(dir)
-print(dir_list)
+my_dir = os.getcwd()
+os.listdir(my_dir)
 
-my_new_dirname = 'my_new_dirname'
-new_dir = os.path.join(dir, my_new_dirname)
-if not my_new_dirname in dir_list:
-  os.mkdir(new_dir)
-os.chdir(new_dir)
+# cd ./my_new_dirname
+os.chdir("/tmp/")
 
-dir = os.getcwd()
-dir_list = os.listdir(dir)
-print(dir_list)
+# rm /tmp/test 
+os.rmdir("/tmp/test")
+# empty dir only
 ```
 
 
-is file exists
+## mkdir
+```py
+import os
+
+my_new_dirname = os.path.join(os.getcwd(), 'my_new_dirname')
+
+os.mkdir(my_new_dirname)
+
+# cd ./my_new_dirname
+os.chdir(my_new_dirname)
+
+# ls
+print(os.listdir(os.getcwd()))
+```
+
+
+## is file exists
 ```python
 from pathlib import Path
 
@@ -27,11 +40,4 @@ my_file.is_dir()
 my_file.exists()
 
 if os.path.isfile('test.txt'):
-```
-
-
-Read file
-```python
-with open('test.txt', 'r') as fff:
-    file_contents = fff.read()
 ```

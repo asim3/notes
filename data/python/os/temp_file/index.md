@@ -1,110 +1,20 @@
-## Named Temporary File
-```py
-import os, tempfile
-
-
-file = tempfile.NamedTemporaryFile(delete=False)
-file.name
-# '/tmp/tmptez_t4u0'
-file.write(b'NamedTemporaryFile: delete=False \n\n')
-file.mode
-# 'rb+'
-file.seek(0)
-file.read(3)
-# b'Nam'
-file.read()
-# b'edTemporaryFile: delete=False \n\n'
-
-file.delete
-# False
-file.close()
-file.read()
-# ValueError: read of closed file
-
-file.name
-# '/tmp/tmptez_t4u0'
-# file still exist, because (delete=False)
-
-# delete file using os
-os.unlink(file.name)
-os.path.exists(file.name)
-# False
-```
-
-
-## OR using with
-```py
-import os
-from tempfile import NamedTemporaryFile
-
-
-with NamedTemporaryFile(prefix="my-", suffix=".yaml") as file:
-    print("Name:", file.name)
-    # Name: /tmp/my-v047zhe8.yaml
-    print("Mode:", file.mode)
-    # Mode: rb+
-    file.write(b'my name is asim')
-    file.seek(0)
-    file.read()
-    # b'my name is asim'
-    os.path.exists(file.name)
-    # True
-
-file.name
-# '/tmp/my-v047zhe8.yaml'
-file.read()
-# ValueError: read of closed file
-
-os.path.exists(file.name)
-# False
-```
-
-
-## Temporary Directory
-```py
-import os, tempfile
-
-
-mydir =  tempfile.TemporaryDirectory()
-mydir.name
-# '/tmp/tmp1ann640p'
-os.path.exists(mydir.name)
-# True
-
-mydir.cleanup()
-os.path.exists(mydir.name)
-# False
-```
-
-
-## OR using with
-```py
-import os, tempfile
-
-
-with tempfile.TemporaryDirectory() as mydir:
-    print(mydir)
-    # /tmp/tmphxdnu672
-    print('os.path.exists:', os.path.exists(mydir))
-    # os.path.exists: True
-
-os.path.exists(mydir)
-# False
-```
-
-
 # Temporary File
+> `NamedTemporaryFile()`, `mkstemp()`, and `mkdtemp()`, which should 
+  eliminate all remaining need to use the **insecure** `mktemp()` function.
+
+## temp file without directory
 ```py
-import tempfile
+from tempfile import TemporaryFile
 
 
-file = tempfile.TemporaryFile()
+file = TemporaryFile(mode='w+b', suffix='', prefix='tmp')
 
 file.write(b'Hello world!\n\n') 
 file.mode
 # 'rb+'
 
-# set "cursor position" to the first letter in the file
+# set the "file pointer" to the first letter in the file
+# The file pointer is placed at the beginning of the file
 file.seek(0)
 # read next 3 letters, then set "cursor position" after 3 letters
 file.read(3) 
@@ -116,6 +26,10 @@ file.read()
 # ValueError: read of closed file
 ```
 
+> On POSIX systems `os.name`, you can unlink a file while you still 
+  have a file handle. Your process can read and write to the file, 
+  but no other process can access it because the directory entry has 
+  already been removed. 
 
 ## OR using with
 ```py
@@ -134,9 +48,12 @@ file.mode
 ```
 
 
-## aaa
+## file mode
 ```py
-
+r   for reading
+w   for writing
+a   for appending
+r+  for both reading and writing
 ```
 
 
