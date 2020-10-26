@@ -1,4 +1,10 @@
-## Translation
+## copy all messages
+```txt
+mkdir locale
+python3 manage.py makemessages -l ar
+python3 manage.py makemessages -l en
+python3 manage.py makemessages -l es
+```
 
 
 ## view.py
@@ -9,15 +15,6 @@ from django.utils.translation import gettext_lazy as _
 
 class MyThing(models.Model):
     name = models.CharField(help_text=_('This is the help text'))
-```
-
-
-
-## copy all messages
-```txt
-python3 manage.py makemessages -l ar
-python3 manage.py makemessages -l en
-python3 manage.py makemessages -l es
 ```
 
 

@@ -1,3 +1,14 @@
+## import settings
+```python
+from django.conf import settings
+
+settings.DEBUG
+settings.STATIC_URL
+settings.NEWS_API_KEY
+```
+
+
+## settings
 ```python
 STATIC_URL = '/static/'
 
@@ -41,14 +52,6 @@ DATETIME_FORMAT = 'Y / m / d P'
 ```python
 import django_heroku
 django_heroku.settings(locals())
-```
-
-
-## import settings
-```python
-from django.conf import settings
-
-settings.NEWS_API_KEY
 ```
 
 

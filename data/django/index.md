@@ -1,27 +1,20 @@
-## Virtual Environments
-
-## add
+## django manage
 ```txt
-sudo apt-get install -y python3-venv
-python3 -m venv ~/venv
+django-admin startproject my_name
 
-# run 
-source ~/venv/bin/activate
+python manage.py startapp app_name
 
-pip3 install Django
-pip3 install -r requirements.txt
+python manage.py makemigrations && python manage.py migrate
+python manage.py collectstatic
 
-deactivate
+python manage.py runserver
 ```
 
 
-```txt
-django-admin startproject my_name
-python manage.py startapp app_name
-python manage.py collectstatic
-python manage.py runserver
 
-python manage.py makemigrations && python manage.py migrate
+
+## super user
+```txt
 python manage.py createsuperuser
 ```
 
