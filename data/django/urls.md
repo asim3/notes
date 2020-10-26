@@ -1,20 +1,14 @@
-## Using static html
-Using static html in /project/templates/index.html
-`nano /project/urls.py`
+## static files
 ```python
-path('', TemplateView.as_view(template_name="index.html") ),
-```
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-
-`nano /project/settings.py`
-```python
-TEMPLATES = [
-    {
-        # ...
-        'DIRS': [os.path.join(os.path.dirname(__file__), 'templates')],
-        # ...
-    },
+urlpatterns = [
+    # ...
+    *staticfiles_urlpatterns(),
 ]
+
+# OR
+urlpatterns += staticfiles_urlpatterns()
 ```
 
 
@@ -34,31 +28,10 @@ urlpatterns = [
 ```
 
 
-## static files
-```python
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
-urlpatterns += staticfiles_urlpatterns()
-```
-
-
-
-```python
-from django.conf import settings
-from django.conf.urls.static import static
-
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-# Note that request.FILES will only contain data if the request method
-# was POST and the <form> that posted the request has the attribute
-# enctype="multipart/form-data". Otherwise, request.FILES will be empty.
-```
-
-
 ## Get URL by URL name
 ```python
 from django.shortcuts import resolve_url
+
 reverse('url_name', kwargs={'pk': self.object.id})
 ```
 
@@ -66,21 +39,27 @@ reverse('url_name', kwargs={'pk': self.object.id})
 ## or
 ```python
 from django.urls import reverse
+
 reverse('url_name', kwargs={'pk': self.object.id})
 ```
 
 
-## http response redirect
+## Redirects
 ```python
-from django.shortcuts import redirect
-return redirect('arch-summary', args=[1945])
-# or 
+from django.urls import reverse
+from django.http import HttpResponseRedirect
+
 return HttpResponseRedirect(reverse('arch-summary', args=[1945]))
+# OR
+
+from django.shortcuts import redirect
+
+return redirect('arch-summary', args=[1945])
 ```
 
 
 ## Class Based Views
-`nano urls.py`
+`urls.py`
 ```python
 from django.views.generic import TemplateView
 
@@ -90,28 +69,12 @@ urlpatterns = [
 ```
 
 
-## App Name
+## get url from templates
 > in templates `{{ url 'myappname:home' }}`
 ```python
 app_name = 'myappname'
+
 urlpatterns = [
   path('home/', views.index, name='home'),
-  # ...
 ]
-```
-
-
-## Django Redirects
-```python
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-
-HttpResponseRedirect(reverse('status'))
-```
-
-## or 
-```python
-from django.shortcuts import redirect
-
-redirect('status')
 ```
