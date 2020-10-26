@@ -1,31 +1,74 @@
 
-## Read file
-```python
+## Write file
+```py
 import os
-
-print("asim".encode())
-# b'asim'
 
 os.chdir("/tmp/")
 print(os.getcwd())
 
 # not os.open
 my_file = open('my_new_file.txt', 'rb+')
+# FileNotFoundError: No such file or directory: 'my_new_file.txt'
+
+my_file = open('my_new_file.txt', 'w+')
 my_file.writable()
 # True
-my_file.writ("AsIm".encode())
+my_file.write("Asim")
+```
 
 
-print(my_file.read())
+## write using bytes
+```py
+import os
 
-# set the "file pointer" to the first letter in the file
-my_file.seek(0)
-# The file pointer is placed at the beginning of the file
+os.chdir("/tmp/")
+print("Asim".encode())
+# b'Asim'
 
+my_bytes = open('my_bytes_file.txt', 'wb+')
+my_bytes.write("Asim".encode())
+```
+
+
+## rename and delete
+```py
 os.rename( "my_new_file.txt", "my_old_file.txt" )
 
 os.remove("my_old_file.txt")
 ```
+
+## read a file
+```py
+import os
+
+os.chdir("/tmp/")
+
+my_file = open('my_file_file.txt', 'w+')
+my_file.write("123456789\nMy Name: Asim")
+
+# The file pointer is placed at the beginning of the file
+my_file.seek(0)
+
+# read first 5 letters
+print(my_file.read(5))
+# 12345
+
+# read the next 6 letters
+print(my_file.read(6))
+# 6789
+# M
+
+# read until the end
+print(my_file.read())
+# y Name: Asim
+
+
+# set the pointer at the beginning 
+my_file.seek(0)
+print(list(my_file))
+# ['123456789\n', 'My Name: Asim']
+```
+
 
 
 ## OR using with
@@ -34,20 +77,12 @@ import os
 
 os.chdir("/tmp/")
 
-# not os.open
-with open('my_new_file.txt', 'rb+') as my_file:
-    my_file.writable()
-    # True
-    my_file.writ("AsIm".encode())
+with open('my_new_file.txt', 'wb+') as my_file:
+    my_file.write("Asim".encode())
+    my_file.seek(0)
     print(my_file.read())
 ```
 
-
-## !!
-```py
-with open('my_new_file.txt') as my_file:
-    my_list = list(my_file)
-```
 
 ## Access Mode:
 ```text
