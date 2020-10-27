@@ -17,4 +17,11 @@ class SignUpTestCase(TestCase):
         form = UserRegisterForm(data=self.data)
         print(form.errors.items())
         self.assertTrue(form.is_valid())
+
+    def test_form_error(self):
+        form = UserRegisterForm(data=self.data_error)
+        self.assertFalse(form.is_valid())
+        # errors
+        msg_email = ['Enter a valid email address.']
+        self.assertEqual(form.errors.get("email"), msg_email)
 ```
