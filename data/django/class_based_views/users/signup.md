@@ -1,8 +1,29 @@
-## forms
+## views
 ```py
-from django import forms
+from django.views.generic.edit import CreateView
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
+from .forms import UserRegisterForm
+
+
+class RegisterView(SuccessMessageMixin, CreateView):
+    template_name = 'users/register.html'
+    success_url = reverse_lazy('my-home')
+    form_class = UserRegisterForm
+    success_message = "Your profile was created successfully"
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        print("user id:", self.object.id)
+        return response
+```
+
+
+## forms whith email
+```py
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django import forms
 
 
 class UserRegisterForm(UserCreationForm):
@@ -14,33 +35,15 @@ class UserRegisterForm(UserCreationForm):
 ```
 
 
-## views
+## forms whith password2
 ```py
-from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView
-from django.contrib.messages.views import SuccessMessageMixin
-from .forms import UserRegisterForm
+from django.contrib.auth.forms import UserCreationForm
 
 
-class SignUpView(SuccessMessageMixin, CreateView):
-    template_name = 'users/register.html'
-    success_url = reverse_lazy('my-home')
-    form_class = UserRegisterForm
-    success_message = "Your profile was created successfully"
+class UserRegisterForm(UserCreationForm):
+    password2 = None
+
+    def clean_password2(self):
+        return self.cleaned_data.get("password1")
+
 ```
-
-
-## template
-```html
-{% load static %}
-<html>
-<body>
-    <form method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" />
-    </form>
-</body>
-</html>
-```
-

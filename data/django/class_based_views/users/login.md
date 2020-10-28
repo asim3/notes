@@ -1,34 +1,36 @@
-[@GitHub](https://github.com/django/django/blob/master/django/contrib/auth/views.py)
-
 ## Redirect Login View
 ```py
 from django.contrib.auth.views import LoginView
-from django.http import HttpResponseRedirect, HttpResponseBadRequest
-from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.urls import reverse_lazy
+from .forms import UserRegisterForm, UserLoginForm
+
 
 class UserLoginView(LoginView):
+    template_name = 'users/login.html'
+    form_class = UserLoginForm
     redirect_authenticated_user = True
-    
-    @method_decorator(ensure_csrf_cookie)
-    def get(self, request, *args, **kwargs):
-        return HttpResponseRedirect(self.get_redirect_url())
 
-    def form_invalid(self, form):
-        return HttpResponseBadRequest(
-            '{"username": "cc"}',
-            content_type="application/json"
-        )
-
-    def get_redirect_url(self):
-        return "/api/auth/"
+    def form_valid(self, form):
+        """If the form is valid, """
+        response = super().form_valid(form)
+        print("user id:", self.request.user.id)
+        return response
 ```
 
 
-## Redirect Logout View
+## form
 ```py
-from django.contrib.auth.views import LogoutView
+from django.contrib.auth.forms import AuthenticationForm
 
-class UserLogoutView(LogoutView):
-    next_page = "/api/auth/"
+
+class UserLoginForm(AuthenticationForm):
+    pass
+
+```
+
+
+## settings
+to redirect_authenticated_user
+```py
+LOGIN_REDIRECT_URL = "/users/home/"
 ```
