@@ -72,6 +72,7 @@ grep "eco" < my_file.txt >> my_file2.txt
 cat << EOF > my_file.txt
 first line
 second line
+end of file
 EOF
 ```
 > or use Ctrl-D (i.e. EOF) to exit
