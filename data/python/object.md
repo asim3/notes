@@ -7,7 +7,7 @@ hasattr()       # returns true if an object has the given named attribute and fa
 setattr(object, name, value) # sets the value of given attribute of an object
 ```
 
-
+## Class
 ```python
 class Person:
     name = 'Adam'
@@ -38,6 +38,34 @@ my_car = Car('impala')
 print(my_car) # this car name is impala
 ```
 
+## object TypeError
+```py
+class My_Class:
+    def get_items(self):
+        print(self.__dir__(), "\nok")
+
+ee = My_Class()
+ee.get_items()
+# ['__module__', ...] 
+# ok
+xx = My_Class(name_0="11")
+# TypeError: object() takes no parameters
+```
+
+## class init
+```py
+class My_Class:
+    def __init__(self, **kwargs):
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+
+my_cls = My_Class(name_1="aaa",name_2="bbb",name_3="ccc")
+
+my_cls.name_1
+# aaa
+my_cls.name_3
+# ccc
+```
 
 
 > Meta Class >> dont use `__new__` replaels with `__init_subclass__`

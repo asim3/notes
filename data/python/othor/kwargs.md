@@ -1,20 +1,51 @@
 ```python
-def test(**kwargs):
-    data = {
-        'aaa': '111',
-        'bbb': '222',
-        'ccc': '333'
-    }
-    data.update(kwargs)
-    print(data)
+def test(*args, **kwargs):
+    print(args)
+    print(kwargs)
 
-kwargs =                      {'aaa': '444',               'ccc': '555'}
-test()                      # {'aaa': '111', 'bbb': '222', 'ccc': '333'}
-test(**kwargs)              # {'aaa': '444', 'bbb': '222', 'ccc': '555'}
-test(aaa='777', ccc='888')  # {'aaa': '777', 'bbb': '222', 'ccc': '888'}
+test()
+# {}
+
+data = {"A":'one', "B":'two'}
+test(*data)
+# ('A', 'B')
+# {}
+
+test(*data.values())
+# ('one', 'two')
+# {}
+
+test(**data)
+# ()
+# {'A': 'one', 'B': 'two'}
+
+test(C="3", D=4)
+# ()
+# {'C': '3', 'D': 4}
+
+test(6, 7, 8)
+# (6, 7, 8)
+# {}
+
+test(6, data, 8)
+# (6, {'A': 'one', 'B': 'two'}, 8)
+# {}
+
+test(data)
+# ({'A': 'one', 'B': 'two'},)
+# {}
+
+test(6, *data, 8)
+# (6, 'A', 'B', 8)
+# {}
+test(6, {**data}, 8)
+# (6, {'A': 'one', 'B': 'two'}, 8)
+# {}
 ```
 
 
+
+# !!
 ```python
 def some_args(arg_1, arg_2, arg_3):
     print("arg_1:", arg_1)
