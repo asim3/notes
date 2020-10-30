@@ -5,39 +5,68 @@ from django.test import TestCase
 
 class AsimTestCase(TestCase):
     def test_my_data(self):
+        self.assertFalse()
+        self.assertTrue()
+
+        # Equal
         self.assertEqual(self.data, "asim")
         self.assertNotEqual()
 
-        self.assertFalse()
-        self.assertTrue()
+        # Equal(s)
+        self.assertEquals()
+        self.assertNotEquals()
+        self.assertAlmostEquals()
+        self.assertNotAlmostEquals()
+
+        # Equal other
+        self.assertAlmostEqual()
+        self.assertNotAlmostEqual()
+        
+        self.assertDictEqual()
+        self.assertListEqual()
+        self.assertTupleEqual()
+        self.assertSetEqual()
+        
+        self.assertQuerysetEqual()
+        self.assertSequenceEqual()
+        self.assertCountEqual()
+        self.assertMultiLineEqual()
 
         # Is
         self.assertIs()
         self.assertIsNot()
         self.assertIsNone()
         self.assertIsNotNone()
+        
+        # In
+        self.assertIn()
+        self.assertNotIn()
+        
+        # Instance
         self.assertIsInstance()
         self.assertNotIsInstance()
 
+        # web
+        self.assertURLEqual()
+        self.assertInHTML()
+        self.assertHTMLEqual()
+        self.assertHTMLNotEqual()
+        self.assertXMLEqual()
+        self.assertXMLNotEqual()
+
         # JSON
         self.assertJSONEqual()
-        self.assertDictEqual()
+        self.assertJSONNotEqual()
 
         # Greater
         self.assertLess()
         self.assertLessEqual()
         self.assertGreater()
         self.assertGreaterEqual()
-        
-        # In
-        self.assertIn()
-        self.assertNotIn()
 
         # other
-        self.assertQuerysetEqual()
         self.assertNumQueries()
         self.assertRedirects()
-        self.assertURLEqual()
         self.assertContains()
         self.assertNotContains()
         self.assertFormError()
@@ -47,30 +76,10 @@ class AsimTestCase(TestCase):
         self.assertRaisesMessage()
         self.assertWarnsMessage()
         self.assertFieldOutput()
-        self.assertHTMLEqual()
-        self.assertHTMLNotEqual()
-        self.assertInHTML()
-        self.assertJSONNotEqual()
-        self.assertXMLEqual()
-        self.assertXMLNotEqual()
         self.assertRaises()
         self.assertWarns()
         self.assertLogs()
-        self.assertAlmostEqual()
-        self.assertNotAlmostEqual()
-        self.assertSequenceEqual()
-        self.assertListEqual()
-        self.assertTupleEqual()
-        self.assertSetEqual()
         self.assertDictContainsSubset()
-        self.assertCountEqual()
-        self.assertMultiLineEqual()
-
-        # Equals
-        self.assertEquals()
-        self.assertNotEquals()
-        self.assertAlmostEquals()
-        self.assertNotAlmostEquals()
 
         # Regex
         self.assertRaisesRegex()
@@ -82,13 +91,15 @@ class AsimTestCase(TestCase):
         self.assertNotRegexpMatches()
 
         # fail
-        self.failUnlessEqual()
-        self.failIfEqual()
-        self.failUnlessAlmostEqual()
-        self.failIfAlmostEqual()
-        self.failUnless()
-        self.failUnlessRaises()
         self.failIf()
+        self.failUnless()
+        self.failIfEqual()
+        self.failUnlessEqual()
+        self.failIfAlmostEqual()
+        self.failUnlessAlmostEqual()
+        
+        # fail unless raises
+        self.failUnlessRaises()
 
         # default
         self.defaultTestResult()
