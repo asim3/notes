@@ -1,7 +1,7 @@
 name: my-env-actions
 on: [push]
 jobs:
-  update-init.html:
+  update-init_html:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
