@@ -1,5 +1,5 @@
 git checkout -b production
-git pull --force origin master
+git fetch --force origin master
 
 ./update.sh
 
