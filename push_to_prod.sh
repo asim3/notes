@@ -1,5 +1,5 @@
 git checkout -b production
-git fetch --force origin master
+git branch -a
 
 ./update.sh
 
@@ -10,5 +10,4 @@ git config --global user.email "asim3"
 
 git commit -m "auto update init.html"
 
-git push origin production
-
+git push --force origin production
