@@ -1,5 +1,5 @@
 git checkout -b production
-git reset --hard origin/master
+git pull --force origin master
 
 ./update.sh
 
@@ -11,4 +11,3 @@ git config --global user.email "asim3"
 git commit -m "auto update init.html"
 
 git push origin production
-
