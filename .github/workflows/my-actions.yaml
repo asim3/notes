@@ -5,10 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: git config remote.origin.url
+      - run: git checkout -b production
       - name: BASH update init.html
         run: /home/runner/work/notes/notes/update.sh
       - run: git add .
-      - run: git config --global user.email "you@example.com"
+      # - run: git config --global user.email "you@example.com"
       - run: git config --global user.name "asim3"
       - run: git commit -m "auto update init.html"
       - run: git push origin master
