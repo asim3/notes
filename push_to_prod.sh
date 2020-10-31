@@ -1,4 +1,4 @@
-git switch production
+git checkout -b production
 git reset --hard origin/master
 
 ./update.sh
