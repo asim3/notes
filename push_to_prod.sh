@@ -1,5 +1,5 @@
-git checkout -b production
 git branch -a
+git checkout -b production
 
 ./update.sh
 
