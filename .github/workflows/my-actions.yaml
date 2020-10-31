@@ -13,4 +13,4 @@ jobs:
       - run: ls -al /home/runner/work/
       - run: ls -al /home/runner/work/notes/
       - run: ls -al /home/runner/work/notes/notes/
-      - run: ./home/runner/work/notes/notes/update.sh
+      - run: /bin/sh -c "./home/runner/work/notes/notes/update.sh"
