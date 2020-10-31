@@ -1,4 +1,3 @@
-git branch -a
 git checkout -b production
 
 ./update.sh
