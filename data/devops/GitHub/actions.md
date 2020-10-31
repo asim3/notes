@@ -50,7 +50,8 @@ jobs:
           FIRST_NAME: Mona
           middle_name: The
           Last_Name: Octocat
+        # Hello world Mona The Octocat!
 
       - name: print env from GitHub
-        run: echo added from GitHub $MY_NEW_SECRET
+        run: echo added from GitHub ${{ secrets.MY_NEW_SECRET }}
 ```

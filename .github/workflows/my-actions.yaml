@@ -1,5 +1,4 @@
-name: my-first-actions
-# run on push
+name: my-env-actions
 on: [push]
 jobs:
   my-env-job:
@@ -11,12 +10,7 @@ jobs:
           FIRST_NAME: Mona
           middle_name: The
           Last_Name: Octocat
-        
-      - name: print env from GitHub
-        run: echo added from GitHub $MY_NEW_SECRET
+        # Hello world Mona The Octocat!
 
-  execute-bash-script:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: /home/runner/work/notes/notes/update.sh
+      - name: print env from GitHub
+        run: echo added from GitHub ${{ secrets.MY_NEW_SECRET }}
