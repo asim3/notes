@@ -7,12 +7,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: BASH update init.html
         run: /home/runner/work/notes/notes/update.sh
-
-      - name: push to prod
-        run: ls -al
-        run: cd /home/runner/work/notes/notes/
-        run: ls -al
-        run: git add .
-        run: git commit -m "auto update init.html"
+      - run: ls -al
+      - run: cd /home/runner/work/notes/notes/
+      - run: ls -al
+      - run: git add .
+      - run: git commit -m "auto update init.html"
         env:
           MY_ENV: ${{ secrets.MY_NEW_SECRET }}
