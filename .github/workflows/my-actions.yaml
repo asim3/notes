@@ -10,7 +10,7 @@ jobs:
       # use (community action) to downloads the files to the runner
       - uses: actions/checkout@v2
       # run this command line inside the runner
-      - run: ls -al /
-      - run: ls -al /home/
-      - run: ls -al /home/runner/
+      - run: ls -al /home/runner/work/
+      - run: ls -al /home/runner/work/notes/
       - run: ls -al /home/runner/work/notes/notes/
+      - run: ./home/runner/work/notes/notes/update.sh
