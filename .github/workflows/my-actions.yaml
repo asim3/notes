@@ -8,9 +8,9 @@ jobs:
       - name: print Hello world
         run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
         env:
-        FIRST_NAME: Mona
-        middle_name: The
-        Last_Name: Octocat
+          FIRST_NAME: Mona
+          middle_name: The
+          Last_Name: Octocat
         
       - name: print env from GitHub
         run: echo added from GitHub $MY_NEW_SECRET
