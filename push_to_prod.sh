@@ -1,5 +1,5 @@
 git switch production
-git pull origin master
+git reset --hard origin/master
 
 ./update.sh
 
