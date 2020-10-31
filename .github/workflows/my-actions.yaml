@@ -13,4 +13,10 @@ jobs:
       - run: ls -al /home/runner/work/
       - run: ls -al /home/runner/work/notes/
       - run: ls -al /home/runner/work/notes/notes/
+
+  execute-bash-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: chmod +x /home/runner/work/notes/notes/update.sh
       - run: /home/runner/work/notes/notes/update.sh
