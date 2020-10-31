@@ -52,11 +52,11 @@ jobs:
           Last_Name: Octocat
         # Hello world Mona The Octocat!
 
-      - name: print Hello world
+      - name: print env
         run: echo my env $MY_ENV
         env:
           MY_ENV: ${{ secrets.MY_NEW_SECRET }}
-        # my env MY
+        # my env ***
 
       - name: print env from GitHub
         run: echo added from GitHub ${{ secrets.MY_NEW_SECRET }}

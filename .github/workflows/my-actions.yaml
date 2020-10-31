@@ -1,23 +1,18 @@
 name: my-env-actions
 on: [push]
 jobs:
-  my-env-job:
+  update-init.html:
     runs-on: ubuntu-latest
     steps:
-      - name: print Hello world
-        run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
-        env:
-          FIRST_NAME: Mona
-          middle_name: The
-          Last_Name: Octocat
-        # Hello world Mona The Octocat!
+      - uses: actions/checkout@v2
+      - name: BASH update init.html
+        run: /home/runner/work/notes/notes/update.sh
 
-      - name: print Hello world
-        run: echo my env $MY_ENV
+      - name: push to prod
+        run: ls -al
+        run: cd /home/runner/work/notes/notes/
+        run: ls -al
+        run: git add .
+        run: git commit -m "auto update init.html"
         env:
           MY_ENV: ${{ secrets.MY_NEW_SECRET }}
-        # my env MY
-
-      - name: print env from GitHub
-        run: echo added from GitHub ${{ secrets.MY_NEW_SECRET }}
-        # added from GitHub ***
