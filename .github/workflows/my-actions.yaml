@@ -7,10 +7,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: BASH update init.html
         run: /home/runner/work/notes/notes/update.sh
-      - run: ls -al
-      - run: cd /home/runner/work/notes/notes/
-      - run: ls -al
       - run: git add .
+      - run: git config --global user.email "you@example.com"
+      - run: git config --global user.name "asim3"
       - run: git commit -m "auto update init.html"
+      - run: git push origin master
         env:
           MY_ENV: ${{ secrets.MY_NEW_SECRET }}
