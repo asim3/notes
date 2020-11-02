@@ -1,91 +1,103 @@
-## Executing Shell command
+## sub process
 This module is used for dealing with external commands, intended to be 
 a replacement to the old os.system and the like.
 
-[doc](https://dzone.com/articles/ever-useful-and-neat)
 
+## Timing
 ```python
-import os
+from subprocess import run, Popen
 
-os.system("echo Hello from bash!")
-# Hello from bash!
+shell = run(["sleep", "2"])
+print("will wait for subprocess")
 
-home_dir = os.system("cd ~")
-print("home_dir: %d \n\n" % home_dir)
-# home_dir: 0
+shell = Popen(["sleep", "10"])
+print("will not wait. return code:", shell.returncode)
+# will not wait. return code: None
 
-unknown_dir = os.system("cd does_not_exist")
-print("unknown_dir: %d" % unknown_dir)
-# sh: 1: cd: can't cd to does_not_exist
-# unknown_dir: 512
+shell.wait()
+print("will wait. return code:", shell.returncode)
+# will wait. return code: 0
 ```
 
 
-
-## SubProcess
-```python
-import subprocess
-
-subprocess.run(["echo", "my", "name", "is", "asim"])
-subprocess.run(["/bin/sh", "-c","echo asim && echo bader"])
-
-sub_pro = subprocess.run(["ls", "-al", "/etc/apt/"])
-print(sub_pro.returncode) # 0
-
-sub_pro = subprocess.run(["ls", "/etc/apt/"], stderr=subprocess.PIPE, stdout=subprocess.PIPE)
-print(sub_pro.returncode)    # 0
-print(sub_pro.stdout)        # b'apt.conf.d\nauth.conf.d\n'
-print(sub_pro.stderr)        # b''
-
-
-try:
-  failed_command = subprocess.run(["false"], check=True)
-  print("this will not work, because of check=True")
-except subprocess.CalledProcessError as err:
-  print("this will be printed")
-  print(err)
-```
-
-
-Older API
-=========
-`call(...)`: Runs a command, waits for it to complete, then returns
-    the return code.
-
-`check_call(...)`: Same as call() but raises CalledProcessError()
-    if return code is not 0
-
-`check_output(...)`: Same as check_call() but returns the contents of
-    stdout instead of a return code
-
-`getoutput(...)`: Runs a command in the shell, waits for it to complete,
-    then returns the output
-    
-`getstatusoutput(...)`: Runs a command in the shell, waits for it to complete,
-    then returns a (exitcode, output) tuple
-
+## Timeout Expired
 ```py
-import subprocess
- 
-subprocess.call(['sleep', '3', 'echo', 'done'], check=True)
-# print stderr only (No raise Error)
+from subprocess import run, TimeoutExpired
 
-subprocess.check_output(['ls', '-l'])
-# check_call raises a CalledProcessError if the return code is non-zero
-
-subprocess.check_output(['sleep', '3', 'echo', 'done'])
-# sleep: invalid time interval ‘echo’
-# sleep: invalid time interval ‘done’
-# subprocess.CalledProcessError:
-
-subprocess.call(['ls', '-l'], shell=True)
-# is similar to $ /bin/sh -c ls -l
+run("sleep 33", shell=True, timeout=3)
+# TimeoutExpired: Command 'sleep 33' timed out after 3 seconds
 ```
 
 
-## run capture output
+## run
 ```python
-cmd = subprocess.run(["ls", "-l", "/dev/null"], capture_output=True)
+from subprocess import run
+
+process = run(["echo", "my", "name", "is", "asim"])
+# my name is asim
+
+process = run(["/bin/sh", "-c","echo asim && echo bader"])
+# asim
+# bader
+
+process = run("echo asim && echo bader", shell=True)
+# asim
+# bader
+
+
+
+run("echo 'asim';", shell=True)
+# CompletedProcess(args="echo 'asim';", returncode=0)
+
+run("sleep 3 && xecho 'asim';", shell=True)
+# CompletedProcess(args="sleep 3 && xecho 'asim';", returncode=127)
+```
+
+
+## run Errors
+```py
+from subprocess import run, PIPE, CalledProcessError
+
+
+process = run("sleep 3 && xecho 'asim';", shell=True)
+# /bin/sh: 1: xecho: not found
+
+process.check_returncode()
+# CalledProcessError: returned non-zero exit status 127
+```
+
+
+## stderr & stdout
+```py
+from subprocess import run, PIPE, DEVNULL
+
+sub_pro = run(["ls", "-al", "/etc/apt/"])
+print(sub_pro.stdout)
+# None
+print(sub_pro.stderr)
+# None
+
+
+sub_pro = run(["ls", "/etc/apt/"], stdout=DEVNULL, stderr=DEVNULL)
+print(sub_pro.stdout)
+# None
+print(sub_pro.stderr)
+# None
+
+
+sub_pro = run(["ls", "/etc/apt/"], stdout=PIPE, stderr=PIPE)
+sub_pro.stdout.decode()
+# 'apt.conf.d\nauth.conf.d\n...'
+sub_pro.stderr.decode()
+# ''
+```
+
+
+## capture_output
+```python
+from subprocess import run
+
+cmd = run(["ls", "-l", "/dev/null"], capture_output=True)
 print(
   "\nargs:\t\t ", cmd.args,  
   "\nstdout:\t\t ", cmd.stdout,
@@ -96,18 +108,24 @@ print(
 ```
 
 
-## Popen
-```python
-import subprocess
+---
 
-sub_pro = subprocess.Popen(["sleep", "5"])
+
+## Popen
+The recommended approach to invoking subprocesses is to use the 
+run() function for all use cases it can handle. For more advanced 
+use cases, the underlying Popen interface can be used directly.
+
+```python
+from subprocess import Popen
+
+sub_pro = Popen(["sleep", "5"])
 print("will not wait")
 
 # check if bash finished
 print(sub_pro.poll()) # None
 print(sub_pro.poll()) # None
-print(sub_pro.poll()) # None
-print(sub_pro.poll()) # None
+# ...
 print(sub_pro.poll()) # 0
 ```
 
@@ -122,24 +140,7 @@ with Popen(["echo", "my name"], stdout=PIPE) as process:
 ```
 
 
-## Timing
-```python
-import os
-import subprocess
-
-os.system("sleep 2")
-print("will wait for process")
-
-sub_pro = subprocess.run(["sleep", "2"])
-print("will wait for subprocess")
-
-sub_pro = subprocess.Popen(["sleep", "10"])
-print("will not wait")
-sub_pro.wait()
-print("will wait")
-```
-
-
+## PIPE stdout 
 ```py
 from subprocess import Popen, PIPE
 
@@ -150,8 +151,10 @@ cat_my_text.wait()
 
 
 sub_pro = Popen(["ls", "/"])
+sub_pro.returncode
 sub_pro.poll()
 sub_pro.wait()
+sub_pro.returncode
 
 stdout, stderr = sub_pro.communicate()
 
@@ -178,10 +181,13 @@ sub_pro.send_signal()
 ```
 
 
+## TimeoutExpired
 ```py
 from subprocess import Popen, TimeoutExpired
 
+
 proc = Popen(["sleep", "10"])
+
 try:
     stdout, stderr = proc.communicate(timeout=5)
 except TimeoutExpired:
@@ -193,6 +199,7 @@ except TimeoutExpired:
 > Warning Use communicate() rather than .stdin.write, .stdout.read 
   or .stderr.read to avoid deadlocks due to any of the other OS pipe 
   buffers filling up and blocking the child process.
+
 
 ## shell pipeline
 ```py
