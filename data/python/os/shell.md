@@ -21,6 +21,10 @@ print("will wait. return code:", shell.returncode)
 
 
 ## Timeout Expired
+> If the timeout expires, the child process will be killed 
+> and waited for. The TimeoutExpired exception will be re-raised 
+> after the child process has terminated.
+
 ```py
 from subprocess import run, TimeoutExpired
 
