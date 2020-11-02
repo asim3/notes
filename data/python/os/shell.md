@@ -1,5 +1,8 @@
 ## Executing Shell command
+This module is used for dealing with external commands, intended to be 
+a replacement to the old os.system and the like.
 
+[doc](https://dzone.com/articles/ever-useful-and-neat)
 
 ```python
 import os
@@ -41,6 +44,42 @@ try:
 except subprocess.CalledProcessError as err:
   print("this will be printed")
   print(err)
+```
+
+
+Older API
+=========
+`call(...)`: Runs a command, waits for it to complete, then returns
+    the return code.
+
+`check_call(...)`: Same as call() but raises CalledProcessError()
+    if return code is not 0
+
+`check_output(...)`: Same as check_call() but returns the contents of
+    stdout instead of a return code
+
+`getoutput(...)`: Runs a command in the shell, waits for it to complete,
+    then returns the output
+    
+`getstatusoutput(...)`: Runs a command in the shell, waits for it to complete,
+    then returns a (exitcode, output) tuple
+
+```py
+import subprocess
+ 
+subprocess.call(['sleep', '3', 'echo', 'done'], check=True)
+# print stderr only (No raise Error)
+
+subprocess.check_output(['ls', '-l'])
+# check_call raises a CalledProcessError if the return code is non-zero
+
+subprocess.check_output(['sleep', '3', 'echo', 'done'])
+# sleep: invalid time interval ‘echo’
+# sleep: invalid time interval ‘done’
+# subprocess.CalledProcessError:
+
+subprocess.call(['ls', '-l'], shell=True)
+# is similar to $ /bin/sh -c ls -l
 ```
 
 
