@@ -1,7 +1,4 @@
 ## Django REST framework
-
-
-## Install
 ```txt
 pip install djangorestframework
 
@@ -12,7 +9,7 @@ pip install markdown
 pip install django-filter  
 ```
 
-
+[doc](https://www.django-rest-framework.org/)
 
 ## Add to INSTALLED_APPS
 ```py
