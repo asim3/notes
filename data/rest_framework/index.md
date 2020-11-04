@@ -8,7 +8,7 @@ pip install djangorestframework
 ```
 
 
-## Add to INSTALLED APPS
+## settings
 ```py
 INSTALLED_APPS = [
     # ...
@@ -16,6 +16,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 ]
 ```
+> Make sure to run `manage.py migrate` after changing your settings. 
+> The `rest_framework.authtoken` app provides Django database migrations.
 
 
 ## Obtain Auth Token

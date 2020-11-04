@@ -1,10 +1,12 @@
 ## Authentication
+[docs](https://www.django-rest-framework.org/api-guide/authentication/)
+[GitHub](https://github.com/encode/django-rest-framework/blob/master/rest_framework/authentication.py)
+
 
 `nano settings.py`
 ```python
 REST_FRAMEWORK = {
     # ...
-
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
@@ -13,7 +15,6 @@ REST_FRAMEWORK = {
 }
 ```
 
-[GitHub](https://github.com/encode/django-rest-framework/blob/master/rest_framework/authentication.py)
 
 
 ## BasicAuthentication
