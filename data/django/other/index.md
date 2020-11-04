@@ -36,4 +36,8 @@ How to Reset Migrations
 ```txt
 find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
 find . -path "*/migrations/*.pyc"  -delete
+
+cd appname
+find . -path "*/__pycache__/*" -delete
+find . -path "*/__pycache__" -delete
 ```

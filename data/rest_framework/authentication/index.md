@@ -3,8 +3,14 @@
 [GitHub](https://github.com/encode/django-rest-framework/blob/master/rest_framework/authentication.py)
 
 
-`nano settings.py`
-```python
+## settings
+```py
+INSTALLED_APPS = [
+    # ...
+    'rest_framework',
+    'rest_framework.authtoken',
+]
+
 REST_FRAMEWORK = {
     # ...
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -14,7 +20,20 @@ REST_FRAMEWORK = {
     ),
 }
 ```
+> Make sure to run `manage.py migrate` after changing your settings. 
+> The `rest_framework.authtoken` app provides Django database migrations.
 
+
+## Obtain Auth Token
+```py
+from rest_framework.authtoken.views import ObtainAuthToken
+
+
+urlpatterns = [
+    # ...
+    path('api_auth_token/', ObtainAuthToken.as_view()),
+]
+```
 
 
 ## BasicAuthentication
