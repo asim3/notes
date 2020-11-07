@@ -64,24 +64,6 @@ sudo ln -s /usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin/node /usr/bin/node
 ```
 
 
-
-## Edit bash init file
-```txt
-nano ~/.bashrc
-nano ~/.bash_profile # for macOS
-nano /etc/profile # for all users except root
-```
-
-
-```txt
-# add to ~/.bashrc
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-```
-
-
-
 ## Aliases 
 shortcut for terminal commands
 ```txt
