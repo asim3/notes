@@ -1,10 +1,10 @@
-print all variables
+## print all variables
 ```txt
 env
 ```
 
 
-set a new environment variable
+## new env variable
 ```txt
 nano ~/.bashrc
 
@@ -14,7 +14,7 @@ export ASIM_2="bbbbbbbbbbbbbbbb"
 ```
 
 
-print variable
+# print variable
 ```txt
 echo $ASIM
 printenv ASIM

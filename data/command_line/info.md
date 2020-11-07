@@ -120,6 +120,10 @@ htop
 cat /proc/meminfo
 ```
 
+## process
+```txt
+pstree
+```
 
 ## Disk Info
 ```txt
