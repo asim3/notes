@@ -1,12 +1,12 @@
 ## Edit bash init file
-```txt
+```bash
 nano ~/.bashrc
 nano ~/.bash_profile # for macOS
 nano /etc/profile # for all users except root
 ```
 
 
-```txt
+```bash
 # add to ~/.bashrc
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases

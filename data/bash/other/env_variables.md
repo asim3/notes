@@ -1,36 +1,38 @@
-## print all variables
-```txt
+## print all
+```bash
 env
+export
 ```
 
 
 ## new env variable
-```txt
-nano ~/.bashrc
+```bash
+MY_ENV="Asim"
 
-# ...
-export ASIM_1="AAAAAAAAAAAAAAAAA"
-export ASIM_2="bbbbbbbbbbbbbbbb"
+echo $MY_ENV
+# Asim
+
+printenv MY_ENV
+# ----
+
+export MY_ENV
+printenv MY_ENV
+# Asim
 ```
 
 
-# print variable
-```txt
-echo $ASIM
-printenv ASIM
-
+```bash
 echo "my home dir is $HOME and my shell is $SHELL"
 
-
 echo "home: ${HOME}"
-      home: /home/asim_username
+# home: /home/asim_username
 
 echo "home: $HOME"
-      home: /home/asim_username
+# home: /home/asim_username
 
 echo 'home: $HOME'
-      home: $HOME
+# home: $HOME
 
 echo "I am $(whoami)"
-      I am asim_username
+# I am asim_username
 ```
