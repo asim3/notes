@@ -1,57 +1,117 @@
 ## IF
 ```bash
-log_enabled="true"
-if [ "$1" = "1" ]; then
-    echo "my name is asim 1"
-else
-    echo "my name is asim 2"
-fi
+if whoami; then echo "true"; else echo "false"; fi;
+# asim
+# true
+
+if false.sh; then echo "true"; else echo "false"; fi;
+# false.sh: command not found
+# false
+
+if [ $(false) ]; then echo "true"; else echo "false"; fi;
+# false
+
+if [ $(false.sh) ]; then echo "true"; else echo "false"; fi;
+# false.sh: command not found
+# false
+
+if [[ $(whoami) == 'asim' ]]; then echo "true"; else echo "false"; fi;
+# true
+```
 
 
-if [ "$1" = "1" ]; then
-    echo "1"
-elif [ "$1" = "test" ]; then
-    echo "2 test"
+## error
+```bash
+if [ false ]; then echo "true"; else echo "false"; fi;
+# true
+
+if [ ./false.sh ]; then echo "true"; else echo "false"; fi;
+# true
+```
+
+
+## if variables
+> If you use [ ... ], you always need to remember to double quote variables
+
+`nano my_prog.sh`
+```bash
+#!/bin/bash
+
+if [[ $MY_VAR = "asim" ]]; then
+    echo "asim var"
+
+elif [ "$1" = "asim" ]; then
+    echo "asim 1"
+
+elif [[ $2 == "asim" ]]; then
+    echo "asim 2"
+
 else
     echo "other"
 fi
-
-# run.sh test >> "$1" = "test"
-# run.sh test >>  $1  = "test"
-
-# run.sh      >> "$1" = ""
-# run.sh      >>  $1  = ERROR
 ```
 
 
+## run
 ```bash
-T1="foo"
-T2="bar"
-if [ "$T1" = "$T2" ]; then
-    echo expression evaluated as true
+chmod +x my_prog.sh
+
+./my_prog.sh asim
+# asim 1
+
+./my_prog.sh bader asim
+# asim 2
+
+MY_VAR='asim'
+./my_prog.sh
+# other
+
+export MY_VAR
+./my_prog.sh
+# asim var
+```
+
+
+## if directory
+```bash
+if [ -d /tmp/my-directory ]; then 
+  echo "found the directory"
+fi;
+```
+
+
+## if file
+```bash
+if [ -f my-file ]; then 
+  echo "found the regular file"
+elif [ -w my-file ]; then
+  echo "FILE exists and is writable"
+elif [ -x my-file ]; then
+  echo "FILE exists and is executable"
+fi;
+```
+
+
+## if not
+```bash
+#!/bin/bash
+
+if [ ! "$1" = "asim" ]; then
+    echo "1 not asim"
+
+elif [[ ! $2 == "asim" ]]; then
+    echo "2 not asim"
+
 else
-    echo expression evaluated as false
+    echo "other"
 fi
 ```
 
-
-## No such file or directory; 
+## short if
 ```bash
-if [ -d my-directory ]; then 
-  echo found the directory; 
-elif [ -f my-file ]; then 
-  echo found the file; 
-else
-  echo ok;
-fi;
+[[ $(whoami) == 'asim' ]] && (echo "true";)
+# true
 
-###############
-
-if [ ! -d my-directory ]; then 
-  echo No such directory; 
-elif [ ! -f my-file ]; then 
-  echo No such file; 
-else
-  echo found file and directory;
-fi;
+test $(whoami) == 'asim' && (echo "true";)
+# true
 ```
