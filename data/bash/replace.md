@@ -9,4 +9,3 @@ echo "asim bader ahmed asim bader ahmed" | sed -e 's/asim/mohammed/g'
 dir="aaa/bbb/ccc/ddd_eee.txt"
 echo $(echo "$dir" | sed -e 's/.*\///' -e 's/\..*//' -e 's/_/ /');
 ```
-

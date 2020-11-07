@@ -5,7 +5,6 @@
 
 
 ## overwrite
-Save redirect to a file
 ```bash
 # stdout
 ls -al > my_file.txt
@@ -22,7 +21,6 @@ ls -al &> my_file.txt
 
 
 ## Append
-append redirect to a file
 ```bash
 # stdout
 ls -al >> my_file.txt
@@ -45,6 +43,12 @@ grep "eco" < my_file.txt
 
 # Read input from a file then append stdout to a file
 grep "eco" < my_file.txt >> my_file2.txt
+```
+
+
+## stderr redirect to stdout
+```bash
+ls -al 2>&1
 ```
 
 

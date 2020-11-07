@@ -1,22 +1,33 @@
 ## Functions
 ```bash
-get_name() {
+my_func() {
   echo "John"
 }
 
+# OR
 function my_function {
   echo "asim"
 }
+```
 
-get_name
+## call functions
+```bash
+my_func
+# John
 
 my_function
+# asim
 
-echo "You are $(get_name)"
+echo "You are $(my_func)"
+# You are John
+
+VAR=$(my_func)
+echo $VAR
+# John
 ```
 
 
-## Functions with arguments
+## arguments
 ```bash
 function my_function {
   echo "\$1 = $1"
@@ -27,9 +38,21 @@ function my_function {
   echo "\$* = $*"
 }
 
+
 my_function "asim"
-echo "-------------------"
-my_function "asim" "bader"
-echo "-------------------"
+# $1 = asim
+# $2 = 
+# $3 = 
+# $# = 1
+# $@ = asim
+# $* = asim
+
+
 my_function "asim" "bader" "ahmed"
+# $1 = asim
+# $2 = bader
+# $3 = ahmed
+# $# = 3
+# $@ = asim bader ahmed
+# $* = asim bader ahmed
 ```
