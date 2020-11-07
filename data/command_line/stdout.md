@@ -57,13 +57,3 @@ end of file
 EOF
 ```
 > or use Ctrl-D (i.e. EOF) to exit
-
-
-## exec
-```bash
-exec > my_file.txt
-date
-whoami
-exit
-cat my_file.txt
-```
