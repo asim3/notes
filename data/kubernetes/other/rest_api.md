@@ -1,4 +1,4 @@
-[API Resource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/)
+[API Resource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/)
 
 ## REST API
 ```txt
