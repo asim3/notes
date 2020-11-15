@@ -1,14 +1,14 @@
-Built-in class-based views API
-```python
-https://docs.djangoproject.com/en/2.1/ref/class-based-views/
+[docs](https://ccbv.co.uk/)
+[Built-in class-based views API](https://docs.djangoproject.com/en/2.1/ref/class-based-views/)
 
-الشكل البسيط
+
+## الشكل البسيط
 ```py
 path('', TemplateView.as_view(template_name="base/home.html") ),python
 ```
 
 
-الشكل الطبيعي
+## الشكل الطبيعي
 ```python
 # views.py
 from django.views.generic import TemplateView
