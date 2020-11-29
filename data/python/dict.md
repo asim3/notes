@@ -1,4 +1,43 @@
 ## Dictionary
+
+```py
+data = {'a':1,'b':2,'c':3}
+
+data['a'] = 10
+data.update(a = 11)
+
+data.update({'c': 33, 'd': 44})
+
+del data['b']
+# Removes the key & returns the value
+data.pop('c')
+# Clears entire dictionary
+data.clear()
+```
+
+
+## for
+```py
+for key in data: 
+    # Iterates just through the keys, ignoring the values
+
+for key, value in d.items(): 
+    # Iterates through the pairs
+
+for key in d.keys(): 
+    # Iterates just through key, ignoring the values
+
+for value in d.values(): 
+    # Iterates just through value, ignoring the keys
+```
+
+
+## for in
+```py
+data = {k: v for k, v in (('a', 1),('b',2),('c',3))}
+```
+
+
 ```python
 person = {'name': 'Phill', 'age': 22}
 
