@@ -53,6 +53,13 @@ kubectl describe deployment/my-deploy-name
 ```
 
 
+## deployment Logs
+```txt
+kubectl logs deploy/my-deploy-name
+kubectl logs deployment/my-deploy-name
+```
+
+
 # see updating status
 ```txt
 kubectl rollout status deployment/my-deploy-name
