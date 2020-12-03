@@ -84,6 +84,8 @@ kubectl logs __pod_name__ -f
 ```
 
 
+## TroubleShooting
 ```txt
 kubectl get events
+kubectl get event
 ```
