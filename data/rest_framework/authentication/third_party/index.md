@@ -2,7 +2,8 @@
 The Django OAuth Toolkit package provides OAuth 2.0 support and works 
 with Python 3.4+. The package is maintained by Evonove and uses the 
 excellent OAuthLib. The package is well documented, and well supported 
-and is currently our **recommended package** for OAuth 2.0 support.
+and is currently the `Django REST framework` recommended package for 
+OAuth 2.0 support.
 
 
 
