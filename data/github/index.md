@@ -34,10 +34,11 @@ git config --local -e
 ```
 
 
-## Other
+## Status & Logs
 ```txt
 git status
 git log
+git log --all --oneline --graph
 ```
 
 
