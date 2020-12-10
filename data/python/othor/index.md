@@ -16,8 +16,8 @@ assert False # error: Traceback (most recent call last): AssertionError
 
 
 ## Read excel file
+`pip install xlrd`
 ```python
-pip install xlrd
 import xlrd 
 
 file = xlrd.open_workbook("sample.xlsx") 
