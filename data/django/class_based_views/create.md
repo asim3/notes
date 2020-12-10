@@ -5,6 +5,7 @@ from django.views.generic import (
     UpdateView, DeleteView
 )
 from django.urls import reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 class CreateNew(CreateView):

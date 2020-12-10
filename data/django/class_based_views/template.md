@@ -2,6 +2,7 @@
 ```python
 from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
+from django.contrib.messages.views import SuccessMessageMixin
 
 class OnPostRedirectView(TemplateView):
     template_name = "id_login.html"
