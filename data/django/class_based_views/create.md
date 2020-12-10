@@ -4,12 +4,15 @@ from django.views.generic import (
     CreateView, DetailView, ListView,
     UpdateView, DeleteView
 )
+from django.urls import reverse_lazy
 
 
 class CreateNew(CreateView):
     template_name = 'edit_table/create_new.html'
 
     success_url = '/show/' # or Table1.get_absolute_url >> in model.py
+    # or
+    success_url = reverse_lazy('home')
     # or
     def get_success_url(self):
         return reverse('user_details', kwargs={'pk': self.object.id})
