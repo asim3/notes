@@ -10,7 +10,7 @@ git branch -a
 
 ## switch between branches
 > moves the HEAD pointer
-```shell
+```bash
 git checkout deploy
 git checkout main
 
@@ -31,7 +31,7 @@ git checkout -b production
 
 ## print graph
 print full graph and locate the HEAD pointer
-```shell
+```bash
 git log --all --oneline --graph
 ```
 
@@ -39,7 +39,7 @@ git log --all --oneline --graph
 # merge
 ## fast-forward merge
 `git diff _from_.._to_`
-```shell
+```bash
 git diff deploy..main
 
 # Fast-forward from deploy to main
@@ -52,7 +52,7 @@ git log --all --oneline --graph
 
 
 ## push
-```shell
+```bash
 # add remote
 git remote add production https://github.com/asim3/notes.git
 
@@ -64,7 +64,7 @@ git push origin production
 
 
 ## 3-Way merge
-```shell
+```bash
 git status
 git diff deploy..main
 
