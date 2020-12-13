@@ -1,4 +1,14 @@
 ```django
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    
+    <input type="submit" value="update" />
+</form>
+```
+
+
+```django
 {% load static %}
 {% static 'css/main.css' %}
 {% static 'js/main.js' %}
