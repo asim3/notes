@@ -39,7 +39,6 @@ from .models import Table1
 
 class Table1ModelForm(ModelForm):
     email = forms.EmailField()
-    next = forms.URLField()
     next = forms.URLField(required=False)
 
     class Meta:
@@ -68,16 +67,4 @@ def test_view(request):
         'form': form,
     )
     return render(request, 'user/form.html', context)
-```
-
-
-
-تعديل واضافة على نموذج التسجيل
-```python
-from django import forms
-from django.contrib.auth.forms import UserCreationForm
-
-
-class UserRegisterForm(UserCreationForm):
-   email = forms.EmailField()
 ```
