@@ -16,28 +16,23 @@ assert False # error: Traceback (most recent call last): AssertionError
 
 
 ## Read excel file
-`pip install xlrd`
+[excel](http://www.python-excel.org/)
+
+`pip install openpyxl`
 ```python
-import xlrd 
+from openpyxl import load_workbook
 
-file = xlrd.open_workbook("sample.xlsx") 
-sheet = file.sheet_by_index(0) 
 
-# return value of row 0 and column 1 
-sheet.cell_value(0, 1) 
+e_file = load_workbook(self.object.post_file.path) 
+# OR
+e_file = load_workbook("full_path") 
 
-# number of rows 
-print(sheet.nrows) 
-
-# number of columns 
-print(sheet.ncols) 
-
-# all columns name
-for i in range(sheet.ncols): 
-    print(sheet.cell_value(0, i)) 
-
-# all row values in a list 
-print(sheet.row_values(1))
+for sheet in e_file.sheetnames:
+    print(sheet.lower(), '\n')
+    print(sheet.title(), '\n')
+    for row in e_file[sheet].rows:
+        for cell in row:
+            print('\n', cell.value)
 ```
 
 
