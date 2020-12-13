@@ -1,5 +1,18 @@
 ## Views
+```py
+from rest_framework.generics import CreateAPIView
+from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListCreateAPIView
 
+from rest_framework.generics import UpdateAPIView
+from rest_framework.generics import DestroyAPIView
+
+from rest_framework.generics import RetrieveAPIView
+from rest_framework.generics import RetrieveUpdateAPIView
+from rest_framework.generics import RetrieveDestroyAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView
+
+```
 
 ## /app_name/views.py
 ```python
