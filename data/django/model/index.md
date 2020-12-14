@@ -2,25 +2,36 @@
 from django.utils import timezone
 
 class TableName(models.Model):
+
+    class AcademicStatus:
+        CONDITION = 'S'
+        FINAL = 'D1'
+        DISMISS = 'D'
+
+        @classmethod
+        def choices(cls):
+            return (
+                (cls.CONDITION, _('condition')),
+                (cls.FINAL, _('final')),
+                (cls.DISMISS, _('dismiss')),
+            )
+
   my_id = models.IntegerField()
   or_id = models.IntegerField(blank=True,null=True)
   title = models.CharField("العنوان", max_length=100)
+  is_new = models.BooleanField(blank=True, null=True)
   desc = models.TextField()
 
   year = models.DateField()
   date = models.DateTimeField(default=timezone.now)
-  date = models.DateTimeField(auto_now=True) # update every time the object is saved
-  date = models.DateTimeField(auto_now_add=True) #  set to now when the object is first created
-  kfupm_gpa = models.DecimalField(
-        "المعدل التراكمي", max_digits=3, decimal_places=2,
-        blank=True, null=True
-        )
-    academic_status = models.CharField(
-        "وضع الطالب الأكاديمي", max_length=10,
-        choices=( ('Suspended', 'موقوف عن الدراسة'), ('Withdrawn', 'منسحب'), ),
-        )
-  fk_student = models.ForeignKey(StudentModel, on_delete=models.CASCADE)
-  is_there_reports = models.BooleanField("هل لديك تقارير؟", blank=True, null=True)
+  # update every time the object is saved
+  date = models.DateTimeField(auto_now=True) 
+  #  set to now when the object is first created
+  date = models.DateTimeField(auto_now_add=True) 
+  
+  kfupm_gpa = models.DecimalField(max_digits=3, decimal_places=2)
+  academic_status = models.CharField(
+      max_length=10, choices=AcademicStatus.choices(),)
 ```
 
 
@@ -31,22 +42,6 @@ upload = models.FileField(upload_to='uploads/') # MEDIA_ROOT/uploads
 upload = models.FileField(upload_to='uploads/%Y/%m/%d/') # MEDIA_ROOT/uploads/2015/01/30
 
 upload = models.FilePathField(path="/home/images", match="foo.*", recursive=True)
-```
-
-
-## Foreign Key
-```python
-staff_member = models.ForeignKey(
-  User,
-  on_delete=models.CASCADE,
-  limit_choices_to={'is_staff': True},
-)
-```
-
-
-```python
-friends = models.ManyToManyField("self", symmetrical=False)
-current_user = models.ForeignKey(User, related_name='owner')
 ```
 
 
@@ -62,14 +57,21 @@ supervisor = models.OneToOneField(
 ## Foreign Key
 ```python
 from django.contrib.auth.models import User
-  user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
-  com = models.ForeignKey(_t2_ , on_delete=models.CASCADE)
-  class = models.ManyToManyField(_t3_)
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+
+    current_user = ForeignKey(User, related_name='owner')
+
+    staff_member = ForeignKey(
+        User, on_delete=CASCADE, limit_choices_to={'is_staff': True},)
 ```
 
 
 ## Many To Many
 ```python
+friends = models.ManyToManyField("self", symmetrical=False)
+
+
 class Pizza(models.Model):
   name = models.CharField(max_length=30)
   toppings = models.ManyToManyField('Topping', related_name='pizza_set')
@@ -125,25 +127,29 @@ title = models.CharField(
 
 ## models functions
 ```python
-def __str__(self):
-  return self.title
-```
-
-
-```python
 from django.urls import reverse
 
-def get_absolute_url(self):
-  # return f"/show/{self.id}/"
-  # or
-  return reverse("url_name", kwargs={"pk": self.id})
-  # to display in templates {{ obj.get_absolute_url }}
-```
 
+class MyThing(models.Model):
 
-```python
-def snippet(self):
-  return self.title[:50] + '...'
+    class Meta:
+        ordering = ["title"]
+        verbose_name = _('Pledge')
+        verbose_name_plural = _("Pledge's")
+
+    def __str__(self):
+        return self.title
+    
+
+    def get_absolute_url(self):
+        # return f"/show/{self.id}/"
+        # OR
+        return reverse("url_name", kwargs={"pk": self.id})
+        # to display in templates {{ obj.get_absolute_url }}
+
+    def snippet(self):
+        # limit title to 50 chars
+        return self.title[:50] + '...'
 ```
 
 
@@ -162,5 +168,5 @@ from django.core.validators import FileExtensionValidator
 from django.utils.translation import gettext_lazy as _
 
 class MyThing(models.Model):
-    name = models.CharField(help_text=_('This is the help text'))
+    name = models.CharField(_('Name'))
 ```
