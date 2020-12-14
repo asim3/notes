@@ -12,9 +12,9 @@ settings.NEWS_API_KEY
 ```python
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static_collect_folder")
+STATIC_ROOT = os.path.join(BASE_DIR, "static_root_folder")
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR , 'static_root_folder'), )
+STATICFILES_DIRS = (os.path.join(BASE_DIR , 'copy_this_dir_to_root_folder'), )
 
 MEDIA_URL = '/media/'
 
@@ -26,24 +26,31 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root_folder')
 LOGIN_REDIRECT_URL = '/home/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-TIME_ZONE = 'Asia/Riyadh'
 ```
 
 
 
 ## LANGUAGES
 ```python
-LANGUAGE_CODE = 'en-us'
+from django.utils.translation import gettext_lazy as _
+
 LANGUAGE_CODE = 'ar-sa'
-LANGUAGES = [('ar',)]
-TIME_ZONE = 'Asia/Riyadh'
+
+LANGUAGE_CODE = 'en-us'
+
+LANGUAGES = [
+    ('ar', _('Arabic')),
+    ('en', _('English')),
+]
 ```
 
 
 ## TIME
 ```python
+TIME_ZONE = 'Asia/Riyadh'
+
 DATE_FORMAT = 'Y / m / d'
+
 DATETIME_FORMAT = 'Y / m / d P'
 ```
 
@@ -60,7 +67,7 @@ django_heroku.settings(locals())
 try:
     from .local_settings import *
 except:
-    print("\nlocal_settings not found!\n")
+    print("local_settings not found!")
 ```
 
 
