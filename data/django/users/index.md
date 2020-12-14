@@ -11,5 +11,5 @@ login(request, user, backend=None)
 
 logout(request)
 
-User.create_user(username, f'{username}@my.com', passwd, first_name=name)
+User.objects.create_user(username, f'{username}@my.com', passwd, first_name=name)
 ```

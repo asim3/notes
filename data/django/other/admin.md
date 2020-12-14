@@ -1,5 +1,35 @@
 ## models in admin page
 Shows models in admin page
+`nano admin.py`
+```py
+from django.contrib.admin import register, ModelAdmin
+from .models import Students
+from .forms import StudentsForm
+
+
+@register(Students)
+class StudentsAdmin(ModelAdmin):
+    list_display = ('student', 'gpa', 'date_update', 'phone',)
+    search_fields = ('student', 'phone', 'phone_guardian')
+    ordering = ('date_update',)
+    form = StudentsForm
+    add_form = StudentsForm
+```
+
+
+`nano apps.py`
+```py
+from django.apps import AppConfig
+from django.utils.translation import gettext_lazy as _
+
+
+class AdministrationConfig(AppConfig):
+    name = 'administration'
+    verbose_name = _("aaaaaaaa")
+```
+
+
+## OR
 ```python
 from django.contrib import admin
 from .models import TableName
@@ -8,17 +38,7 @@ admin.site.register(TableName)
 ```
 
 
-```python
-from django.contrib import admin
-from .models import Table1
-
-@admin.register(Table1)
-class AdminTable1(admin.ModelAdmin):
-    list_display = ('title', 'desc', 'year', 'date', 'age', 'ser')
-```
-
-
-## Overriding
+## Overriding !!!
 Overriding admin templates
 ```python
 # add template base "dirs" in settings

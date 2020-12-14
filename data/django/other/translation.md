@@ -9,8 +9,6 @@ python3 manage.py makemessages -l es
 
 ## view.py
 ```python
-from django.utils.translation import gettext as _
-# or
 from django.utils.translation import gettext_lazy as _
 
 class MyThing(models.Model):
