@@ -1,70 +1,89 @@
-عرض الصفحة الرئيسية
-```python
-from django.shortcuts import render, redirect
+[docs](https://ccbv.co.uk/)
+[Built-in class-based views API](https://docs.djangoproject.com/en/2.1/ref/class-based-views/)
 
-def showGet(request):
-	return render(request, 'index.html')
+
+## الشكل البسيط
+```py
+path('', TemplateView.as_view(template_name="base/home.html") ),python
 ```
 
 
-GET & POST data
+## الشكل الطبيعي
 ```python
-def showGet(request):
-	if request.GET.get('title', False):
-			context['title'] = request.GET['title']
+# views.py
+from django.views.generic import TemplateView
 
-  if request.GET['title']: # Error if GET['title'] is not set
-```
+class AboutView(TemplateView):
+    template_name = "about.html"
+    extra_context = None
 
+    def dispatch(self, request, *args, **kwargs):
+      # ...
+      return super().dispatch(request, *args, **kwargs)
 
-```python
-cleaned_data['foo']
-# exception, KeyError: 'foo'
-cleaned_data.get('foo')
-# No exception, just get nothing back.
-cleaned_data.get('foo', "Sane Default")
-# 'Sane Default'
-```
-
-
-
-
-Post
-```python
-from home.forms import HomeForm
-
-def showPost(self, request):
-	form = HomeForm(request.POST or None, initial=dict, instance=obj)
-	# if request.method == 'POST':
-	if form.is_valid():
-		username = form.cleaned_data.get('username')
-		# ...
-	context = {
-		'form': form,
-	}
-	return render(request, 'form.html', context)
-```
-
-
-JSON
-```python
-from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
-
-def showItem(e):
-   data = {"type": "group","id": "555","img": "7.jpg"}
-   return JsonResponse(data, safe=False)
+    def get(self, request, *args, **kwargs):
+      # ...
+      return super().get(request, *args, **kwargs)
 ```
 
 
 ```python
-from django.http import JsonResponse
+# urls.py
+path('about/', AboutView.as_view() ),
+```
 
-class CheckFontExistView(DetailView):
-	model = Font
-	slug_field = 'name'
-	fields = ['name', 'file']
 
-	def render_to_response(self, context, **response_kwargs):
-		data = {"name": self.object.name,"src": self.object.file.url}
-		return JsonResponse(data, safe=False)
+تخطي المعادلة
+```python
+class ListTable(ListView):
+    # queryset = Table1.objects.order_by(order_by_this)
+    model = Table1
+    paginate_by= 10
+    template_name = 'show_table/show_table.html'
+    ordering = 'id'
+
+    def dispatch(self, request, *args, **kwargs):
+        ...
+
+        return super().dispatch(request, *args, **kwargs)
+```
+
+
+
+تحويل الرابط
+```python
+from django.urls import path
+from django.views.generic.base import RedirectView
+
+urlpatterns = [
+  path('details/', RedirectView.as_view(url='https://djangoproject.com') ),
+  path('details/', RedirectView.as_view(pattern_name='show_table') ),
+]
+```
+
+جميع انواع الأصناف
+```python
+TemplateView
+DetailView
+ListView
+
+CreateView
+UpdateView
+DeleteView
+```
+
+
+
+Base64_img
+```python
+def get_base64_img(base64_text):
+    try:
+        import base64
+        from django.core.files.base import ContentFile
+
+        format, base64_img = base64_text.split(';base64,')
+        ext = format.split('/')[-1]
+        return ContentFile(base64.b64decode(base64_img), name='temp.' + ext)
+    except:
+        return None
 ```
