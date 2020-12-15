@@ -13,12 +13,12 @@ urlpatterns += staticfiles_urlpatterns()
 
 # OR
 
-from django.conf.settings import STATIC_URL, STATIC_ROOT, MEDIA_URL, MEDIA_ROOT
+from django.conf import settings
 from django.conf.urls.static import static
 
 # Return a URL pattern for serving files in debug mode only.
-urlpatterns += static(STATIC_URL, document_root=STATIC_ROOT)
-urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 
 
