@@ -131,6 +131,7 @@ from django.urls import reverse
 
 
 class MyThing(models.Model):
+    title = models.CharField(max_length=100)
 
     class Meta:
         ordering = ["title"]
@@ -150,6 +151,19 @@ class MyThing(models.Model):
     def snippet(self):
         # limit title to 50 chars
         return self.title[:50] + '...'
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        print('\n\n', self.title, '\n\n')
+
+    def clean(self):
+        """
+        Hook for doing any extra model-wide validation after clean() has been
+        called on every field by self.clean_fields. Any ValidationError raised
+        by this method will not be associated with a particular field; it will
+        have a special-case association with the field defined by NON_FIELD_ERRORS.
+        """
+        pass
 ```
 
 

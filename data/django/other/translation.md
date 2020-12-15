@@ -17,6 +17,7 @@ class MyThing(models.Model):
 
 
 ## settings.py
+> Important: add the middleware to auto redirect the root url to the active language 
 ```python
 MIDDLEWARE = [
     # . . . 
