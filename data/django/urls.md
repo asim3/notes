@@ -8,7 +8,17 @@ urlpatterns = [
 ]
 
 # OR
+
 urlpatterns += staticfiles_urlpatterns()
+
+# OR
+
+from django.conf.settings import STATIC_URL, STATIC_ROOT, MEDIA_URL, MEDIA_ROOT
+from django.conf.urls.static import static
+
+# Return a URL pattern for serving files in debug mode only.
+urlpatterns += static(STATIC_URL, document_root=STATIC_ROOT)
+urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
 ```
 
 
@@ -77,4 +87,16 @@ app_name = 'myappname'
 urlpatterns = [
   path('home/', views.index, name='home'),
 ]
+```
+
+
+## Translation
+```py
+from django.conf.urls.i18n import i18n_patterns
+
+
+urlpatterns = i18n_patterns(
+    # ...
+    path('admin/', admin.site.urls),
+)
 ```
