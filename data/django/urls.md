@@ -38,6 +38,16 @@ urlpatterns = [
 ```
 
 
+## reverse lazy Admin
+```python
+from django.urls import reverse_lazy
+
+
+reverse_lazy('admin:index')
+# '/ar/admin/'
+```
+
+
 ## Get URL by URL name
 ```python
 from django.shortcuts import resolve_url
