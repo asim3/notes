@@ -39,15 +39,27 @@ admin.site.register(TableName)
 ```
 
 
-## Overriding !!!
-Overriding admin templates
+## Overriding
 ```python
-# add template base "dirs" in settings
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['base/templates'],
-        # ...
-    },
+from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
+
+
+admin.site.site_header = _("Site Header")
+admin.site.site_title = _("site title")
+admin.site.site_url = _("https://www.google.com") or "/site-url/"
+admin.site.index_title = "index title"
+admin.site.empty_value_display = _("empty_value_display")
+
+# admin.site.login_form = AuthenticationForm
+
+# admin.site.index_template = "admin/base.html"
+# admin.site.app_index_template = "admin/base.html"
+# admin.site.login_template = "admin/base.html"
+# admin.site.logout_template = "admin/base.html"
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
 ]
 ```
