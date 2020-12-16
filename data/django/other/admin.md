@@ -10,6 +10,7 @@ from .forms import StudentsForm
 @register(Students)
 class StudentsAdmin(ModelAdmin):
     list_display = ('student', 'gpa', 'date_update', 'phone',)
+    list_filter = ("gpa",)
     search_fields = ('student', 'phone', 'phone_guardian')
     ordering = ('date_update',)
     form = StudentsForm
