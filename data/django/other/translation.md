@@ -44,3 +44,12 @@ LOCALE_PATHS = (
 ```txt
 python3 manage.py compilemessages
 ```
+
+
+## template tag
+```django
+{% load i18n %}
+
+<title>{% translate "This is the title." %}</title>
+<title>{% translate myvar %}</title>
+```

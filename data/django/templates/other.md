@@ -1,23 +1,3 @@
-## Translation
-```django
-{% load i18n %}
-<p>{% trans "Welcome to our page" %}</p>
-
-
-{% get_current_language as LANGUAGE_CODE %}
-<!-- Current language: {{ LANGUAGE_CODE }} -->
-
-
-{% get_available_languages as languages %}
-{% for lang_code, lang_name in languages %}
-    {% language lang_code %}
-        <a href="{% url 'category' slug=category.slug %}">{{ lang_name }}</a>
-    {% endlanguage %}
-{% endfor %}
-```
-
-
-
 ## form data and errors
 ```django
 {{ form.cleaned_data }}

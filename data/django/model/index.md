@@ -164,6 +164,11 @@ class MyThing(models.Model):
         have a special-case association with the field defined by NON_FIELD_ERRORS.
         """
         pass
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        form.base_fields["title"].label = "title my get_form label:"
+        return form
 ```
 
 
