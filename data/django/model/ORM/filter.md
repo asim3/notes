@@ -42,3 +42,8 @@ table1.objects.filter(date__lt='1990-01-01')
 ```python
 table1.objects.filter(title__in=['asim', 'bader', 'ahmed'])
 ```
+
+## foreign key relationship
+```python
+table1.objects.table2_set.order_by('-id').first()
+```
