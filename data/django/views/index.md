@@ -1,5 +1,5 @@
 [docs](https://ccbv.co.uk/)
-[Built-in class-based views API](https://docs.djangoproject.com/en/2.1/ref/class-based-views/)
+[Built-in class-based views API](https://docs.djangoproject.com/en/dev/ref/class-based-views/)
 
 
 ## الشكل البسيط

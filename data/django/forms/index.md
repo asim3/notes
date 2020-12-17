@@ -1,4 +1,4 @@
-Form
+## Form
 ```python
 from django import forms
 
@@ -10,29 +10,27 @@ class HomeForm(forms.Form):
      message = forms.CharField(label='Your name', required=False)
      message = forms.EmailField(label='E-Mail')
      dropBox = forms.ChoiceField(choices=[('type1', 'Type 1'), ('type2', 'Type 2')])
-     textarea = forms.CharField(widget=forms.Textarea(attrs={"rows":2, "style": "color:red;"})) # set the style of <textarea >
-
-     new = forms.IntegerField()
-     new = forms.FloatField()
-     new = forms.DateField()
-     new = forms.TimeField()
-     new = forms.DateTimeField()
-     new = forms.FileField()
-     new = forms.ImageField()
-     new = forms.BooleanField()
-     new = forms.NullBooleanField()
-     new = forms.TypedChoiceField()
-     new = forms.MultipleChoiceField()
-     new = forms.TypedMultipleChoiceField()
-     new = forms.ComboField() # A Field whose clean() method calls multiple Field clean() methods.
-     new = forms.GenericIPAddressField()
 ```
 
 
-[widgets](https://docs.djangoproject.com/en/2.1/ref/forms/widgets/)
+## Form style
+```python
+from django import forms
+
+class HomeForm(forms.Form):
+    textarea = forms.CharField(
+        widget=forms.Textarea(
+            attrs={
+                'class': 'special',
+                "style": "color:red;",
+                "rows":2, 
+            }
+        )
+    ) 
+```
 
 
-Form from a Model
+## Form from a Model
 ```python
 from django.forms import ModelForm
 from .models import Table1
