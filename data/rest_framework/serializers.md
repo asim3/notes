@@ -7,28 +7,60 @@ class CommentSerializer(serializers.Serializer):
     content = serializers.CharField(max_length=200)
 
 
-comment = {'email': 'leila@example.com', 'content': 'foo bar'}
+comment = {'email': 'asim@example.com', 'content': 'foo bar'}
 
-serializer = CommentSerializer(comment)
+serializer = CommentSerializer(data=comment)
+serializer.initial_data
+# {'email': 'asim@example.com', 'content': 'foo bar'}
+
+serializer.data
+# AssertionError: You should call `.is_valid()` first
+
+serializer.instance
+# None
+
+serializer.validated_data
+# AssertionError: You must call `.is_valid()` before accessing `.validated_data`.
+
 serializer.is_valid()
 # True
+
 serializer.validated_data
+# OrderedDict([('email', 'asim@example.com'), ('content', 'foo bar')])
+
 # !!!
+serializer.save()
+# AssertionError: You cannot call `.save()` after accessing `serializer.data`
+```
 
-# You cannot call `.save()` after accessing `serializer.data`
-serializer.data
-# {'email': 'leila@example.com', 'content': 'foo bar'}
+## save
+```py
+comment = {'email': 'asim@example.com', 'content': 'foo bar'}
 
-# ---------
+serializer = CommentSerializer(data=comment)
+serializer.save()
+# AssertionError: You must call `.is_valid()` before calling `.save()`
 
-serializer = CommentSerializer(data={'email': 'foobar', 'content': 'baz'})
+serializer.is_valid()
+# True
+
+serializer.save()
+# NotImplementedError: `create()` must be implemented
+```
+
+## errors
+```py
+comment = {'email': 'asim', 'content': 'foo bar'}
+
+serializer = CommentSerializer(data=comment)
 serializer.is_valid()
 # False
-serializer.errors
-# {'email': ['Enter a valid e-mail address.']}
-
-# Return a 400 response if the data was invalid.
 serializer.is_valid(raise_exception=True)
+# rest_framework.exceptions.ValidationError: 
+# {'email': [ErrorDetail(string='Enter a valid email address.', code='invalid')]}
+ 
+serializer.errors
+# {'email': [ErrorDetail(string='Enter a valid email address.', code='invalid')]}
 ```
 
 
@@ -43,6 +75,14 @@ class CommentSerializer(serializers.Serializer):
         required=False, write_only=True,
         help_text='Required. 150 characters')
 
+    def save(self, **kwargs):
+        validated_data = {**self.validated_data, **kwargs}
+        if self.instance is not None:
+            self.instance = self.update(self.instance, validated_data)
+        else:
+            self.instance = self.create(validated_data)
+        return self.instance
+
     def create(self, validated_data):
         return Comment.objects.create(**validated_data)
 
@@ -53,16 +93,6 @@ class CommentSerializer(serializers.Serializer):
         instance.created = validated_data.get('created', instance.created)
         instance.save()
         return instance
-
-    def save(self, **kwargs):
-        validated_data = {**self.validated_data, **kwargs}
-
-        if self.instance is not None:
-            self.instance = self.update(self.instance, validated_data)
-        else:
-            self.instance = self.create(validated_data)
-
-        return self.instance
 
 
 # .save() will create a new instance.
