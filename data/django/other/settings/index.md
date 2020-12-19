@@ -88,6 +88,14 @@ DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 ## environment variables
 ```python
 import os
+from django.core.management.utils import get_random_secret_key
+
 
 os.environ.get('HOME')
+
+os.getenv('HOME', 'my home')
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_secret_key())
+
+DEBUG = os.getenv('DJANGO_DEBUG', False) in (True, 'True')
 ```
