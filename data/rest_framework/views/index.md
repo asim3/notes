@@ -1,20 +1,7 @@
 ## Views
-```py
-from rest_framework.generics import CreateAPIView
-from rest_framework.generics import ListAPIView
-from rest_framework.generics import ListCreateAPIView
 
-from rest_framework.generics import UpdateAPIView
-from rest_framework.generics import DestroyAPIView
 
-from rest_framework.generics import RetrieveAPIView
-from rest_framework.generics import RetrieveUpdateAPIView
-from rest_framework.generics import RetrieveDestroyAPIView
-from rest_framework.generics import RetrieveUpdateDestroyAPIView
-
-```
-
-## /app_name/views.py
+## views.py
 ```python
 from django.contrib.auth.models import User, Group
 from rest_framework.viewsets import ModelViewSet
@@ -78,52 +65,6 @@ class ModelViewSet(CreateModelMixin,
         instance = self.get_object()
         ...
         return Response(status=status.HTTP_204_NO_CONTENT)
-```
-
-
-
-## Model View Set Hierarchy
-```text
-ModelViewSet
- |
- ├── mixins.UpdateModelMixin
- |     └── instance = self.get_object()
- |   
- ├── mixins.ListModelMixin
- |     └── queryset = self.filter_queryset(self.get_queryset())
- |   
- └── GenericViewSet
-      |
-      ├── ViewSetMixin
-      └── generics.GenericAPIView
-           |
-           ├── views.APIView
-           |     |
-           |     ├── django.views.generic.View
-           |     ├── authentication_classes = api_settings.DEFAULT_AUTHENTICATION_CLASSES
-           |     ├── permission_classes = api_settings.DEFAULT_PERMISSION_CLASSES
-           |     └── as_view()
-           |
-           ├── queryset = None
-           ├── lookup_field = 'pk'
-           └── get_object(self)
-               |
-               └── self.check_object_permissions(self.request, obj)
-```
-
-
-
-## View Set Hierarchy
-```text
-ViewSet
-|
-├── ViewSetMixin
-└── views.APIView
-     |
-     ├── django.views.generic.View
-     ├── authentication_classes = api_settings.DEFAULT_AUTHENTICATION_CLASSES
-     ├── permission_classes = api_settings.DEFAULT_PERMISSION_CLASSES
-     └── as_view()
 ```
 
 

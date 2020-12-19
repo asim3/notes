@@ -18,19 +18,3 @@ REST_FRAMEWORK = {
     ),
 }
 ```
-
-
-## Hierarchy
-```text
-include(router.urls)
-|
-└── router.register('url_path', UserViewSet)
-     |
-     └── UserViewSet
-          |
-          ├── queryset = User.objects.all()
-          └── serializer_class = UserSerializer
-              |
-              ├── model = User
-              └── fields = ['url', 'username']
-```
