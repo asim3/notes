@@ -77,13 +77,13 @@ from django.contrib.auth.models import User
 from alzod.permissions import ReadOnly
 from .serializers import AuthSerializer
 
+
 class AuthUserView(ReadOnlyModelViewSet):
     permission_classes = (ReadOnly,)
     serializer_class = AuthSerializer
     queryset = User.objects.all()
     
     def get_object(self):
-        print("\n\n\nnnnn\n\n\n")
         return User.objects.first()
 
     def list(self, request, *args, **kwargs):
