@@ -9,20 +9,13 @@ heroku apps:destroy -a _
 ```
 
 
-commit changes
+## Run app locally
 ```txt
-git init
-git add .
-
-git commit -m "init commit"
-
-git push heroku master
-
-git status
+heroku local web
 ```
 
 
-push to heroku
+## push to heroku
 ```txt
 git push heroku master
 
@@ -30,32 +23,30 @@ heroku open
 ```
 
 
-database info
+## database info
 ```txt
 heroku pg:info -a _
 watch "heroku pg:info -a _"
 ```
 
 
-scale Dynos
+## scale Dynos
 ```txt
 heroku ps:scale web=1 -a _
 ```
 
-
-Run app locally
+## Run
 ```txt
-heroku local web
+heroku run python manage.py makemigrations
+heroku run python manage.py migrate -a _
 
-# pg_config is in postgresql-devel 
-# libpq-dev in Debian/Ubuntu
-# libpq-devel on Cygwin/Babun
-
-sudo apt install -y libpq-dev 
+heroku run python manage.py createsuperuser -a _
+heroku run python manage.py shell -a _
+heroku run python manage.py collectstatic -a _
 ```
 
 
-other
+## other
 ```txt
 heroku access
 ```
