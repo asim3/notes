@@ -48,6 +48,12 @@ class Table1ModelForm(ModelForm):
       if title.lower() == 'abc':
         raise forms.ValidationError("This is not a valid title")
       return title
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        instance.approved_date = datetime.now()
+        instance.save()
+        return instance
 ```
 
 

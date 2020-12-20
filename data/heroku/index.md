@@ -48,5 +48,5 @@ heroku run python manage.py collectstatic -a _
 
 ## other
 ```txt
-heroku access
+heroku access -a kfupm-pledge
 ```
