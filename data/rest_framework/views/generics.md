@@ -64,6 +64,12 @@ class MyView(CreateAPIView):
     # OR
     def get_queryset(self):
         return self.queryset
+    # OR
+    def get_queryset(self):
+        return (
+            {"name": "test1", "app_type": "my-1-app"},
+            {"name": "test1", "app_type": "my-2-app"},
+        )
 
     lookup_field = 'pk'
     # OR
