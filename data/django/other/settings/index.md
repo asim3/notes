@@ -21,11 +21,13 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root_folder')
 ```
 
-
+## Login Logout
 ```python
-LOGIN_REDIRECT_URL = '/home/'
+LOGIN_URL = reverse_lazy('login')
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = reverse_lazy('pledge')
+
+LOGOUT_REDIRECT_URL = reverse_lazy('home')
 ```
 
 
@@ -42,6 +44,10 @@ LANGUAGES = [
     ('ar', _('Arabic')),
     ('en', _('English')),
 ]
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 ```
 
 
@@ -58,6 +64,10 @@ DATETIME_FORMAT = 'Y / m / d P'
 ## Heroku
 ```python
 import django_heroku
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 django_heroku.settings(locals())
 ```
 
