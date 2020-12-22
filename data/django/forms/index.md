@@ -41,7 +41,20 @@ class Table1ModelForm(ModelForm):
 
     class Meta:
         model = Table1
+        fields = '__all__'
         fields = ['id', 'title']
+        exclude = ['title']
+        labels = {'email': _('Writer'),}
+        help_texts = {'email': _('Some useful help text.'),}
+        error_messages = {
+            'email': {
+                'max_length': _("This writer's name is too long."),
+            },
+        }
+        widgets = {'email': Textarea(
+            attrs={'class': "mx-4", 'cols': 80, 'rows': 2}),
+        }
+        field_classes = {'slug': MySlugFormField,}
 
     def clean_title(self):
       title = self.cleaned_data.get('title')
