@@ -1,4 +1,5 @@
 ## K8s Python Client
+[docs](https://github.com/kubernetes-client/python/tree/master/kubernetes)
 
 
 ## version
