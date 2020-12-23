@@ -8,8 +8,9 @@ kubectl version --short
 kubectl config view
 kubectl config view --raw
 
-kubectl cluster-info
+kubectl api-versions
 kubectl api-resources
+kubectl cluster-info
 ```
 
 
