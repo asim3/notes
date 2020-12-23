@@ -7,6 +7,7 @@ hasattr()       # returns true if an object has the given named attribute and fa
 setattr(object, name, value) # sets the value of given attribute of an object
 ```
 
+
 ## Class
 ```python
 class Person:
@@ -38,6 +39,7 @@ my_car = Car('impala')
 print(my_car) # this car name is impala
 ```
 
+
 ## object TypeError
 ```py
 class My_Class:
@@ -51,6 +53,7 @@ ee.get_items()
 xx = My_Class(name_0="11")
 # TypeError: object() takes no parameters
 ```
+
 
 ## class init
 ```py
@@ -68,41 +71,39 @@ my_cls.name_3
 ```
 
 
-> Meta Class >> dont use `__new__` replaels with `__init_subclass__`
+## class return init
 ```python
-class BaseMeta(type):
-    def __new__(cls, name, bases, body):
-        print('new\n\n\n')
-        if not 'bar' in body:
-            # check if this function exist before returning the class
-            raise TypeError(f'bar function is not in {name}')
-        return super().__new__(cls, name, bases, body)
+class MyClass1:
+    name = "asim"
+    
+class MyClass2:
+    name = "asim"
 
+    def __new__(cls):
+        return "My name is %s" % cls.name
 
-class Base(metaclass=BaseMeta):
-    def foo(self):
-        return self.bar()
+MyClass1()
+# <__main__.MyClass1 object at 0x7f89f4374430>
 
-    # write a function named 'bar' to remove the error
-    # def bar(self):
-    #     print('done')
+MyClass2()
+# 'My name is asim'
 ```
 
 
-> `__init_subclass__` !!! not working
+## init_subclass !!!
 ```python
-class BaseMeta(type):
+class MyClass1:
+    name = "asim"
+    
+class MyClass2:
+    name = "asim"
+
     def __init_subclass__(cls, **kwargs):
-        print(dir(cls), '\n\n')
-        assert hasattr(dir(cls), 'bar') , f'bar function is not in {cls.__name__}'
-        super().__init_subclass__(**kwargs)
+        return "My name is %s" % cls.name
 
+MyClass1()
+# <__main__.MyClass1 object at 0x7f89f4374430>
 
-class Base(BaseMeta):
-    def foo(self):
-        return self.bar()
-
-    # write a function named 'bar' to remove the error
-    def bar(self):
-        print('done')
+MyClass2()
+# <__main__.MyClass2 object at 0x7f89f42369d0>
 ```
