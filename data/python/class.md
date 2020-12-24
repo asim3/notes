@@ -23,35 +23,46 @@ print('After modification:', p.name)
 ```
 
 
+## class representation
+repr() built-in function to compute the “official” string representation
 [Data model](https://docs.python.org/3/reference/datamodel.html#object.__repr__)
-
-
 ```python
-class Car:
-    def __init__(self, *cccc):
-        self.car_name = cccc[0]
+class MyClass1:
+    name = "asim"
 
     def __repr__(self):
-        return f'this car name is {self.car_name}'
+        # return self.__str__()
+        return '__repr__: my name is %s' % self.name
+        
+    def __str__(self):
+        # import pprint
+        # return pprint.pformat(self.to_dict())
+        return '__str__: my name is %s' % self.name
+
+    def to_dict(self):
+        return {'to_dict': self.name}
+
+class MyClass2:
+    name = "asim"
+    
+    def __repr__(self):
+        return '__repr__: my name is %s' % self.name
+
+# {'class': {'to_dict': 'asim'}}
 
 
-my_car = Car('impala')
-print(my_car) # this car name is impala
-```
+print(MyClass1())
+# __str__: my name is asim
+print(MyClass2())
+# __repr__: my name is asim
 
+my_class = MyClass1()
 
-## object TypeError
-```py
-class My_Class:
-    def get_items(self):
-        print(self.__dir__(), "\nok")
+print(my_class) 
+# __str__: my name is asim
 
-ee = My_Class()
-ee.get_items()
-# ['__module__', ...] 
-# ok
-xx = My_Class(name_0="11")
-# TypeError: object() takes no parameters
+print({'class': MyClass1()})
+# {'class': __repr__: my name is asim}
 ```
 
 
@@ -71,7 +82,7 @@ my_cls.name_3
 ```
 
 
-## class return init
+## class return after init
 ```python
 class MyClass1:
     name = "asim"
@@ -87,6 +98,21 @@ MyClass1()
 
 MyClass2()
 # 'My name is asim'
+```
+
+
+## TypeError
+```py
+class My_Class:
+    def get_items(self):
+        print(self.__dir__(), "\nok")
+
+ee = My_Class()
+ee.get_items()
+# ['__module__', ...] 
+# ok
+xx = My_Class(name_0="11")
+# TypeError: object() takes no parameters
 ```
 
 
