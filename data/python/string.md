@@ -15,6 +15,13 @@ str(123456789)[-3:] 	# '789'
 name = "Asim"
 age = 74
 "Hello, %s. You are %d." % (name, age)
+
+'%(cls)s - %(bound)s   %(valid)s, %(fields)s' % {
+        'cls': "aaa",
+        'bound': "bbb",
+        'valid': "eee",
+        'fields': "ddd",
+    }
 ```
 
 
