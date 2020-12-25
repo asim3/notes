@@ -12,9 +12,10 @@ settings.NEWS_API_KEY
 ```python
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static_root_folder")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "my_collect_static")
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR , 'copy_this_dir_to_root_folder'), )
+STATICFILES_DIRS = (os.path.join(BASE_DIR , 'copy_all_to_STATIC_ROOT'), )
 
 MEDIA_URL = '/media/'
 

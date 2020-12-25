@@ -170,6 +170,15 @@ class MyThing(models.Model):
         form = super().get_form(request, obj, **kwargs)
         form.base_fields["title"].label = "title my get_form label:"
         return form
+    
+    def _do_insert(self, *args, **kwargs):
+        return super()._do_insert(*args, **kwargs)
+
+    def _do_update(self, *args, **kwargs):
+        return super()._do_update(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        return super().delete(*args, **kwargs)
 ```
 
 
