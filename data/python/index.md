@@ -13,6 +13,16 @@ pip install -r requirements.txt
 pip freeze > requirements.txt
 ```
 
+## IF Else
+```py
+if force_insert and (force_update or update_fields):
+    raise ValueError("Cannot force both insert and updating in model saving.")
+elif i > 5:
+    print("2")
+else:
+    print("3")
+```
+
 
 ## Closure 1
 ```py
