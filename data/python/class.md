@@ -1,4 +1,4 @@
-## Object
+
 ```python
 getattr(person, "age") # getattr(person, "age") === person.age
 getattr(person, 'age', '21') # get 'age' or return the default <21>
@@ -132,4 +132,61 @@ MyClass1()
 
 MyClass2()
 # <__main__.MyClass2 object at 0x7f89f42369d0>
+```
+
+
+## Underscores
+```txt
+_     : the variable is temporary or insignificant.
+var_  : used to avoid naming conflicts with Python keywords.
+__var : used to prevent accidental modification
+_var  : is intended for internal use (not public).    
+    from my_module import *  will not import this, 
+    unless you define an `__all__` list.
+
+`__var__`  : reserved for special use in the language.
+```
+
+## __var Test
+```py
+class ManglingTest:
+    def __init__(self):
+        self.__mangled = 'hello'
+
+    def get_mangled(self):
+        return self.__mangled
+
+ManglingTest().get_mangled()
+# 'hello'
+ManglingTest().__mangled
+# AttributeError: "'ManglingTest' object has no attribute '__mangled'"
+```
+
+
+## __var Method
+```py
+class MangledMethod:
+    def __method(self):
+        return 42
+
+    def call_it(self):
+        return self.__method()
+
+MangledMethod().__method()
+# AttributeError: "'MangledMethod' object has no attribute '__method'"
+MangledMethod().call_it()
+# 42
+```
+
+
+## Global
+```py
+_MangledGlobal__mangled = 23
+
+class MangledGlobal:
+    def test(self):
+        return __mangled
+
+MangledGlobal().test()
+# 23
 ```
