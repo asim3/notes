@@ -3,35 +3,33 @@ from django.utils import timezone
 
 class TableName(models.Model):
 
-    class AcademicStatus:
-        CONDITION = 'S'
-        FINAL = 'D1'
-        DISMISS = 'D'
+    class YearInSchool(models.TextChoices):
+        FRESHMAN = 'FR', _('Freshman')
+        SOPHOMORE = 'SO', _('Sophomore')
+        JUNIOR = 'JR', _('Junior')
+        SENIOR = 'SR', _('Senior')
+        GRADUATE = 'GR', _('Graduate')
 
-        @classmethod
-        def choices(cls):
-            return (
-                (cls.CONDITION, _('condition')),
-                (cls.FINAL, _('final')),
-                (cls.DISMISS, _('dismiss')),
-            )
+    year_in_school = models.CharField(
+        max_length=2,
+        choices=YearInSchool.choices,
+        default=YearInSchool.FRESHMAN,
+    )
 
-  my_id = models.IntegerField()
-  or_id = models.IntegerField(blank=True,null=True)
-  title = models.CharField("العنوان", max_length=100)
-  is_new = models.BooleanField(blank=True, null=True)
-  desc = models.TextField()
+    my_id = models.IntegerField()
+    or_id = models.IntegerField(blank=True,null=True)
+    title = models.CharField("العنوان", max_length=100)
+    is_new = models.BooleanField(blank=True, null=True)
+    desc = models.TextField()
 
-  year = models.DateField()
-  date = models.DateTimeField(default=timezone.now)
-  # update every time the object is saved
-  date = models.DateTimeField(auto_now=True) 
-  #  set to now when the object is first created
-  date = models.DateTimeField(auto_now_add=True) 
-  
-  kfupm_gpa = models.DecimalField(max_digits=3, decimal_places=2)
-  academic_status = models.CharField(
-      max_length=10, choices=AcademicStatus.choices(),)
+    year = models.DateField()
+    date = models.DateTimeField(default=timezone.now)
+    # update every time the object is saved
+    date = models.DateTimeField(auto_now=True) 
+    #  set to now when the object is first created
+    date = models.DateTimeField(auto_now_add=True) 
+    
+    kfupm_gpa = models.DecimalField(max_digits=3, decimal_places=2)
 ```
 
 
@@ -99,8 +97,11 @@ Topping.objects.filter(pizza_set__name__contains='Hawaiian')
 
 ## Drop down box
 ```python
-  list_items = ( ('1','item 1'),  ('2','item 2'), )
-  list = models.CharField(max_length=100, choices= list_items)
+list_items = ( 
+    ('1','item 1'),  
+    ('2','item 2'), 
+)
+list = models.CharField(max_length=100, choices= list_items)
 ```
 
 
