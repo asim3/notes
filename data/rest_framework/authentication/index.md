@@ -18,6 +18,14 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'rest_framework.permissions.IsAdminUser',
+        'rest_framework.permissions.DjangoModelPermissions',
+        'rest_framework.permissions.DjangoObjectPermissions',
+    ),
 }
 ```
 > Make sure to run `manage.py migrate` after changing your settings. 
@@ -61,10 +69,14 @@ class RegisterSerializer(Serializer):
 
 # views.py
 from rest_framework.generics import CreateAPIView
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import AllowAny
 
 
 class RegisterView(CreateAPIView):
     serializer_class = RegisterSerializer
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [AllowAny] # default
 
 
 # urls.py

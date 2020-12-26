@@ -76,6 +76,13 @@ class MyView(CreateAPIView):
     def get_object(self):
         obj = get_object_or_404(self.get_queryset())
         return obj
+```
+
+
+## advance
+```py
+class MyView(APIView):
+    serializer_class = MySerializer
 
     @classmethod
     def as_view(cls, **initkwargs):
@@ -88,7 +95,43 @@ class MyView(CreateAPIView):
         view.cls = cls
         view.initkwargs = initkwargs
 
-        # Note: session based authentication is explicitly CSRF validated,
+        # (session) based authentication is explicitly CSRF validated,
         # all other authentication is CSRF exempt.
         return csrf_exempt(view)
+
+    # dispatch() -> initial() -> check_permissions()
+    def check_permissions(self, request):
+        for permission in self.get_permissions():
+            if not permission.has_permission(request, self):
+                self.permission_denied(
+                    request,
+                    message=getattr(permission, 'message', None),
+                    code=getattr(permission, 'code', None)
+                )
+
+    def get_permissions(self):
+        return [permission() for permission in self.permission_classes]
+```
+
+
+## auth & permissions
+```py
+from rest_framework.generics import ListCreateAPIView
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+
+from .serializers import MySerializer
+
+
+class MyView(ListCreateAPIView):
+    serializer_class = MySerializer
+    
+    authentication_classes = api_settings.DEFAULT_AUTHENTICATION_CLASSES
+    permission_classes = api_settings.DEFAULT_PERMISSION_CLASSES
+    
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return self.request.user.mymodel_set.all()
 ```
