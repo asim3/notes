@@ -30,3 +30,16 @@ LOGIN_REDIRECT_URL = reverse_lazy('pledge')
     def get_object(self):
         return self.request.user.mymodel_set.order_by('-id').first()
 ```
+
+
+## add method to Class
+```py
+from django.contrib.auth.models import User
+
+
+def get_namespace(self):
+    return 'user-%d-space' % self.pk
+
+
+User.add_to_class('get_namespace', get_namespace)
+```
