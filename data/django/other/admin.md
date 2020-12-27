@@ -15,6 +15,23 @@ class StudentsAdmin(ModelAdmin):
     ordering = ('date_update',)
     form = StudentsForm
     add_form = StudentsForm
+
+    
+    def my_action(self, request, queryset):
+        print('\n\nadmin\n\n', queryset)
+        # queryset.update(status='p')
+        
+        # return done massage
+        from django.contrib import messages
+        from django.utils.translation import ngettext
+        self.message_user(request, ngettext(
+            '%d story was successfully marked as published.',
+            '%d stories were successfully marked as published.',
+            updated,
+        ) % updated, messages.SUCCESS)
+
+    actions = ['my_action']
+    my_action.short_description = "My action text"
 ```
 
 
@@ -39,7 +56,7 @@ admin.site.register(TableName)
 ```
 
 
-## Overriding
+## Admin Site Title
 ```python
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
