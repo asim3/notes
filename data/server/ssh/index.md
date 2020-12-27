@@ -40,3 +40,16 @@ scp ~/local.txt username@remote.server.ip:~/remote/q
 scp -r /my_var/ username@192.168.100.166:/var/
 scp -r username@192.168.100.166:/var/ /my_var/
 ```
+
+
+## settings
+> make sure to restart sshd `sudo systemctl restart sshd`
+
+`sudo nano /etc/ssh/sshd_config`
+```bash
+# ...
+PubkeyAuthentication yes
+# PermitRootLogin [no|yes|prohibit-password|without-password]
+# PasswordAuthentication yes 
+# ...
+```
