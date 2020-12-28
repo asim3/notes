@@ -1,11 +1,16 @@
 # setup config file
 > you can find the config file in the master server at: `/etc/kubernetes/admin.conf`
-```txt
+```bash
 kubectl config view
 kubectl config view --raw
 
 # OR
 cat ~/.kube/config
+
+# OR
+export KUBECONFIG="$(pwd)/kubeconfig.yaml"
+echo $KUBECONFIG
+# /home/asim/kubeconfig.yaml
 ```
 
 

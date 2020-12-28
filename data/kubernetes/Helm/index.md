@@ -49,6 +49,12 @@ helm get values my-site
 ```
 
 
+## dry run
+```txt
+helm install my-site my-bitnami/wordpress --dry-run --debug
+```
+
+
 ## upgrade helm deployment
 ```txt
 helm upgrade -f config.yaml  my-site  my-repository/wordpress
