@@ -1,6 +1,8 @@
 git checkout -b production
 
-./update.sh
+git merge master
+
+source ./update.sh
 
 git add .
 
@@ -9,4 +11,4 @@ git config --global user.email "asim3"
 
 git commit -m "auto update init.html"
 
-git push --force origin production
+git push origin production
