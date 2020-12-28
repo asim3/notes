@@ -9,6 +9,6 @@ source ./update.sh
 
 git add .
 
-git commit -m "auto update init.html"
+git commit -m "auto update.sh init.html"
 
 git push origin production
