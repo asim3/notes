@@ -76,6 +76,7 @@ git log --all --oneline --graph
 
 
 ## delete branch
+> use `git merge --abort` to abort the merge
 ```bash
 # delete branch locally
 git branch -d production
