@@ -3,6 +3,8 @@ git config --global user.email "asim3"
 
 git checkout -b production
 
+git pull
+
 git merge master
 
 source ./update.sh
