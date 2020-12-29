@@ -71,6 +71,9 @@ class StudentsAdmin(ModelAdmin):
         # return done massage. 
         # for plural use translation.ngettext
         self.message_user(request, 'update done.', messages.SUCCESS)
+        self.message_user(request, 'ERROR', messages.ERROR)
+        self.message_user(request, 'INFO', messages.INFO)
+        self.message_user(request, 'WARNING', messages.WARNING)
         # OR
         return HttpResponseRedirect('https://google.com')
         # OR return file
