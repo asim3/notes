@@ -77,25 +77,9 @@ class StudentsAdmin(ModelAdmin):
         # OR
         return HttpResponseRedirect('https://google.com')
         # OR return file
-        filename = 'my-file.txt'
         data = 'ABcd 1234\n1\n\t2\n\t\t3\n\n'
-        
-        # MIME types:
-        content_type = 'text/plain'
-        # content_type = 'image/jpeg'
-        # content_type = 'image/png'
-        # content_type = 'audio/*'
-        # content_type = 'audio/mp3'
-        # content_type = 'video/mp4'
-        # content_type = 'application/*'
-        # content_type = 'application/json'
-        # content_type = 'application/octet-stream'
-        # content_type = 'application/zip'
-        # content_type = 'application/pdf'
-        # content_type = 'application/vnd.ms-excel'
-        # content_type = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-
-        response = HttpResponse(data, content_type=content_type)
+        response = HttpResponse(data, content_type='text/plain')
+        filename = 'my-file.txt'
         response['Content-Disposition'] = 'attachment; filename="%s"' % filename
         return response
 
