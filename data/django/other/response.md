@@ -38,6 +38,36 @@ def view():
     response = HttpResponse(data, content_type=content_type)
     
     filename = 'my-file.txt'
+    filename = 'pledge-%s.pdf' % datetime.now().strftime('%s')
+    response['Content-Disposition'] = 'attachment; filename="%s"' % filename
+    return response
+```
+
+
+# response zip file
+```py
+from django.http import HttpResponse
+from io import BytesIO 
+from zipfile import ZipFile
+
+
+def view():
+    temporary_file = BytesIO()
+    zip = ZipFile(temporary_file, "a")
+    zip.writestr("test.txt", "My Test Text")
+            
+    # fix for Linux zip files read in Windows
+    for file in zip.filelist:
+        file.create_system = 0
+    zip.close()
+
+    temporary_file.seek(0)    
+    zip_bytes = temporary_file.read()
+    temporary_file.close()
+
+    content_type = 'application/zip'
+    filename = 'pledge-%s.zip' % datetime.now().strftime('%s')
+    response = HttpResponse(zip_bytes, content_type=content_type)
     response['Content-Disposition'] = 'attachment; filename="%s"' % filename
     return response
 ```
