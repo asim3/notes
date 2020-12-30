@@ -26,6 +26,8 @@ def template_to_pdf(template_name, context=None):
 ## response PDF
 ```py
 from django.http import HttpResponse
+from .utils import template_to_pdf
+
 
 data = template_to_pdf('student/pledge.html')
 filename = 'pledge.pdf'
