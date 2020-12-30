@@ -9,7 +9,7 @@ from io import BytesIO
 from .utils import get_absolute_path
 
 
-def template_to_pdf(template_name, context):
+def template_to_pdf(template_name, context=None):
     template = get_template(template_name)
 
     html = template.render(context or {})  
@@ -18,7 +18,8 @@ def template_to_pdf(template_name, context):
 
     pisa.CreatePDF(html.encode("UTF-8"), data , encoding='UTF-8',
         link_callback=get_absolute_path)
-    return data.seek(0)
+    data.seek(0)
+    return data
 ```
 
 
