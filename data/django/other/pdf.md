@@ -88,3 +88,72 @@ def get_absolute_path(uri, rel):
                                 settings.MEDIA_URL, settings.STATIC_URL))
     return path
 ```
+
+
+## Supported CSS properties
+xhtml2pdf supports the following standard CSS properties
+```css
+body {
+    background-color
+    border-bottom-color
+    border-bottom-style
+    border-bottom-width
+    border-left-color
+    border-left-style
+    border-left-width
+    border-right-color
+    border-right-style
+    border-right-width
+    border-top-color
+    border-top-style
+    border-top-width
+
+    colordisplay
+
+    font-family
+    font-size
+    font-style
+    font-weight
+
+    height
+    line-height
+    list-style-type
+
+    margin-bottom
+    margin-left
+    margin-right
+    margin-top
+
+    padding-bottom
+    padding-left
+    padding-right
+    padding-top
+
+    page-break-after
+    page-break-before
+
+    size
+    text-align
+    text-decoration
+    text-indent
+    vertical-align
+    white-space
+    width
+    zoom
+}
+```
+
+
+## properties
+xhtml2pdf adds the following vendor-specific properties:
+```txt
+-pdf-frame-border
+-pdf-frame-break
+-pdf-frame-content
+-pdf-keep-with-next
+-pdf-next-page
+-pdf-outline
+-pdf-outline-level
+-pdf-outline-open
+-pdf-page-break
+```
