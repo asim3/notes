@@ -58,7 +58,7 @@ def get_absolute_path(uri, rel):
     `uri` is the href attribute from the html link element.
     `rel` gives a relative path, but it's not used here.
     
-    source: xhtml2pdf.django-xhtml2pdf.django_xhtml2pdf.utils.py
+    source: https://github.com/xhtml2pdf/django-xhtml2pdf/tree/master/django_xhtml2pdf/utils.py
     """
 
     if uri.startswith("http://") or uri.startswith("https://"):
