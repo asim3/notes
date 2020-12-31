@@ -1,27 +1,58 @@
-## cut
+## capitalize
 ```py
-str(123456789)[1:3] 	# '23'
-str(123456789)[2:] 		# '3456789'
-str(123456789)[:2] 		# '12'
-str(123456789)[:-3] 	# '123456'
-str(123456789)[-3:] 	# '789'
+my_string = 'aBcDeFG aBcDeFG aBcDeFG'
+
+my_string.capitalize()
+# 'Abcdefg abcdefg abcdefg'
+my_string.lower()
+# 'abcdefg abcdefg abcdefg'
+my_string.upper()
+# 'ABCDEFG ABCDEFG ABCDEFG'
 ```
 
 
-## string format
+## split & replace
+```py
+my_string = 'aBcDeFG aBcDeFG aBbbbbb \n QwErTy QwErTy QwErTy \n '
+
+my_string.split()
+# ['aBcDeFG', 'aBcDeFG', 'aBbbbbb', 'QwErTy', 'QwErTy', 'QwErTy']
+my_string.splitlines()
+# ['aBcDeFG aBcDeFG aBbbbbb ', ' QwErTy QwErTy QwErTy ', ' ']
+my_string.strip()
+# 'aBcDeFG aBcDeFG aBbbbbb \n QwErTy QwErTy QwErTy'
+
+my_string.replace('aBbbbbb', 'ccccccc')
+# 'aBcDeFG aBcDeFG ccccccc \n QwErTy QwErTy QwErTy \n '
+my_string.find('QwErTy')
+# 26
+```
+
+
+## cut
+```py
+my_string = str(123456789)
+my_string[1:3]  # '23'
+my_string[2:]   # '3456789'
+my_string[:2]   # '12'
+my_string[:-3]  # '123456'
+my_string[-3:]  # '789'
+```
+
 
 ## `%` - Old-school
 ```python
-name = "Asim"
-age = 74
-"Hello, %s. You are %d." % (name, age)
+'Hello, %s. You are %d.' % ('asim', 77)
+# 'Hello, asim. You are 77.'
 
-'%(cls)s - %(bound)s   %(valid)s, %(fields)s' % {
-        'cls': "aaa",
-        'bound': "bbb",
-        'valid': "eee",
-        'fields': "ddd",
-    }
+kwargs = {
+    'cls': "aaa",
+    'bound': "bbb",
+    'valid': "eee",
+    'fields': "ddd",
+    'error': "rrr",
+}
+'%(cls)s - %(bound)s   %(valid)s, %(fields)s' % kwargs
 ```
 
 
@@ -58,7 +89,6 @@ f"{2 * 37}"
 ```
 
 
-
 ```python
 message = (
     f"3 * 6 = {3 * 6}. "
@@ -72,4 +102,30 @@ message = f"5 * 6 = {5 * 6}" \
 
 print(message)
 # 3 * 6 = 18. 3 * 7 = 21. 3 * 8 = 24. 
+```
+
+
+## other
+```py
+my_string = 'aBcDeFG aBcDeFG aBbbbbb \n QwErTy QwErTy QwErTy \n '
+
+
+my_string.encode("UTF-8")
+# b'aBcDeFG aBcDeFG aBbbbbb \n QwErTy QwErTy QwErTy \n '
+my_string.startswith('aBc')
+# True
+my_string.startswith('abc')
+# False
+my_string.endswith('\n ')
+# True
+
+'123.5'.isnumeric()
+# False
+'123.5'.isdigit()
+# False
+
+'123'.isnumeric()
+# True
+'123'.isdigit()
+# True
 ```
