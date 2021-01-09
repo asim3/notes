@@ -17,7 +17,12 @@ file.read()
 
 file.delete
 # False
+os.path.exists(file.name)
+# True
+
 file.close()
+os.path.exists(file.name)
+# True
 file.read()
 # ValueError: read of closed file
 
@@ -60,3 +65,20 @@ os.path.exists(file.name)
 ```
 
 
+## delete
+```py
+import os, tempfile
+
+file = tempfile.NamedTemporaryFile()
+os.path.exists(file.name)
+# True
+
+file.delete
+# True
+os.path.exists(file.name)
+# True
+
+file.close()
+os.path.exists(file.name)
+# False
+```
