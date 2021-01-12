@@ -1,26 +1,49 @@
+## System Logs
+```txt
+cat /var/log/syslog | tail -n 3
+```
+
+
+## show all commands history
+```txt
+history
+```
+
+
 ## Linux Directory
 ```text
-/etc           => Configuration files
-/var           => Variable Files
-/usr           => User Installed Programs 
-
-/tmp           => Temporary Files "will be deleted after reboot"
-/var/tmp/
-/usr/tmp/
-
-/bin           => User Binary Files
-/sbin          => Root Binary Files
 /root          => Root Home Directory
+/tmp           => Temporary Files "will be deleted after reboot"
 
-/dev           => All devices that are connected
-/lib           => System Libraries
-/media         => Mount point for removable media
-/mnt           => Mount point for temporary file systems
-/opt           => Optional Add-on applications
-/srv           => systemctl Files !!
+/opt           => Optional folder: manually installed applications
+/etc           => Etcetera folder: system wide configuration files
+
+/usr           => unix system resource
+/usr/bin/      => basic users applications
+/usr/sbin/     => system users applications
+/usr/local/    => applications installed from source code
+/usr/share/    => large applications installed from source code
+
+/var           => Variable Files: files and directory expected to grow in size
+/var/log/
+/var/crash/ 
+/var/tmp/
+
+/lib           => Libraries: functions that applications can use 
+/srv           => Service directory: web server or ftp server files
+/mnt           => other mount drives mounted manually
+/media         => other mount drives mounted by OS
+
+
+# don't touch
+/boot          => operating system bootloaders 
+/dev           => System Hardware: All devices that are connected
+/run           => Temporary Process Files "will be deleted after reboot"
+/sys           => System folder: to interact with kernel "will be deleted after reboot"
 /proc          => Process Information
 
-/lost+found    => Misplaced Data
+/bin           => basic Linux applications
+/sbin          => system administrator applications
 ```
 
 
@@ -41,11 +64,12 @@
 /snap/bin
 ```
 
-## System Libraries
+
+## Prints the location of binary files
 ```txt
-/lib/
-/usr/lib/
-/usr/local/lib/
+which python
+which node
+which sudo
 ```
 
 
@@ -57,36 +81,6 @@ uname -a
 whoami
 
 cat /etc/lsb-release
-```
-
-
-## show processes
-show all processes running in memory
-```bash
-ps aux
-# a: Show processes for all users
-# u: Display the user who is using the process
-# x: Show all processes. (Without this, ps won’t show GUI processes)
-
-ps aux | grep python
-```
-
-
-## Killing processes
-```bash
-kill <PID>
-kill 98095
-
-killall firefox
-# kill a process that has been running for more than 30 minutes
-killall -o 30m <process-name>
-# kill a process that has been running for less than 30 minutes
-killall -y 30m <process-name>
-
-# p-grep: search for all processes that contain
-pgrep fox
-# kill processes based on partial matches
-pkill firefox
 ```
 
 
@@ -128,7 +122,7 @@ test-tree/
 ```txt
 cat /etc/group
 
-# show all my groups
+# show user groups
 id
 ```
 
@@ -141,11 +135,6 @@ htop
 
 # full details
 cat /proc/meminfo
-```
-
-## process
-```txt
-pstree
 ```
 
 ## Disk Info
@@ -163,12 +152,6 @@ du -sh my_directory/
 ```
 
 
-## show all commands history
-```txt
-history
-```
-
-
 ## PATH
 ```txt
 echo $PATH
@@ -178,12 +161,4 @@ which python
 # add to PATH
 PATH=/some/dir:$PATH
 PATH=$PATH:/some/dir # alert: do not do this
-```
-
-
-## Prints the location of binary files
-```txt
-which python
-which node
-which sudo
 ```

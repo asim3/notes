@@ -1,7 +1,7 @@
 # Docker - Community
 [12 factor app](https://12factor.net/)
 
-```txt
+```bash
 sudo docker system info
 sudo docker version
 
@@ -18,29 +18,41 @@ sudo docker stack     ls
 
 ## Images
 Pull an image from a registry or a repository
-```txt
+```bash
 sudo docker image pull __id__
 sudo docker image rm   __id__
 ```
 
 
 ## Containers
-```txt
-sudo docker container run             hello-world
-sudo docker container run   -p 80:80  asim3/whoami:1.3
+```bash
+sudo docker container run     hello-world
+# access command line
+sudo docker container run -it hello-world
+
+# Overwrite the default ENTRYPOINT of the image
+sudo docker container run -it --entrypoint=/bin/sh   alpine
+sudo docker container run -it --entrypoint=/bin/ls   alpine
+
+# set environment
+sudo docker container run -e ASIM_ENV=my_name_is_asim  hello-world
+
+# link to a port
+sudo docker container run -p 80:80  asim3/whoami:1.3
+
 ```
 
 
 ## live stream statistics
 Display a live stream of all containers statistics
-```txt
+```bash
 sudo docker container stats
 ```
 
 
 ## execute shell commands
 get into a Docker container's shell
-```txt
+```bash
 sudo docker exec -it __id__ bash
 sudo docker exec -it __id__ whoami
 sudo docker exec -it __id__ ls -al /var/
@@ -49,8 +61,15 @@ sudo docker exec -it __id__ touch ~/done-exec-by-docker.txt
 ```
 
 
+## Logs
+```bash
+sudo docker logs    __id__
+sudo docker inspect __id__
+```
+
+
 ## Prune
-```txt
+```bash
 # remove unused images
 sudo docker image prune
 
