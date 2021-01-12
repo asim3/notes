@@ -7,7 +7,15 @@ tar -xzf Postman.tar.gz
 ```
 
 
-## Install RPM Packages On Ubuntu
+## Temporary Install
+delete all 18 packages installed with the first command
+```txt
+sudo apk add --virtual .asim-package gcc vim
+sudo apk del .asim-package
+```
+
+
+## Install virtualbox
 ```txt
 sudo apt update
 apt show virtualbox
