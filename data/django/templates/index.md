@@ -20,8 +20,20 @@ call URLs by name
 ```
 
 
-## Master Page
+## render template
+```py
+from django.template.loader import get_template
 
+def get_template_as_string():
+  template_name = "my-app/my-template.yaml"
+  context = {}
+
+  template = get_template(template_name)
+  return template.render(context)
+```
+
+
+## Master Page
 in master.html
 ```django
 {% block content %}{% endblock %}
