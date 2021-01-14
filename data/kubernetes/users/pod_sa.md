@@ -84,6 +84,12 @@ kubectl get events
 ## bind SA with a role
 `nano my-deploy.yaml`
 ```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: my-user
+  namespace: default
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -98,6 +104,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: my-clus-binding
+  namespace: default
 subjects:
 - kind: ServiceAccount
   name: my-user
@@ -111,6 +118,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-sa-test
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -131,7 +139,6 @@ spec:
 
 
 ```bash
-kubectl create serviceaccount my-user
 kubectl apply -f ./my-deploy.yaml
 
 kubectl logs deploy/my-sa-test
