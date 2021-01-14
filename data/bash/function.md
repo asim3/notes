@@ -56,3 +56,18 @@ my_function "asim" "bader" "ahmed"
 # $@ = asim bader ahmed
 # $* = asim bader ahmed
 ```
+
+
+```bash
+is_dry_run() { if [ "$DRY_RUN" == "1" ]; then return 1; else return 0; fi }
+
+DRY_RUN=0
+if is_dry_run; then
+  printf 'yes it is a dry run \n'
+fi
+
+DRY_RUN=1
+if ! is_dry_run; then
+  echo 'not a dry run'
+fi
+```

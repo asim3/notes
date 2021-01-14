@@ -72,6 +72,33 @@ export MY_VAR
 ```
 
 
+##  Integer Comparison 
+```bash
+a=1
+b=2
+
+if [ "$a" -eq 1    ]; then echo "is equal to"; fi
+if [ "$a" -ne "$b" ]; then echo "is not equal to"; fi
+if [ "$b" -gt "$a" ]; then echo "is greater than"; fi
+if [ "$b" -ge "$a" ]; then echo "is greater than or equal to"; fi
+if [ "$a" -lt "$b" ]; then echo "is less than"; fi
+if [ "$a" -le "$b" ]; then echo "is less than or equal to"; fi
+```
+
+
+##  String Comparison 
+```bash
+s=asim
+if [ "$s" == "asim" ]; then echo "is not equal to"; fi
+if [ -z "$ss" ]; then echo "that is, has zero length"; fi
+if [ -n "$s" ]; then echo "string is not null"; fi
+
+# double-brackets
+if [[ $s == as* ]]; then echo "True if $s starts with an 'as'"; fi
+if [[ $s != z* ]]; then echo "True if not $s starts with an 'z'"; fi
+```
+
+
 ## if directory
 ```bash
 if [ -d /tmp/my-directory ]; then 
@@ -109,9 +136,36 @@ fi
 
 ## short if
 ```bash
-[[ $(whoami) == 'asim' ]] && (echo "true";)
-# true
-
 test $(whoami) == 'asim' && (echo "true";)
 # true
+
+[[ $(whoami) == 'asim' ]] && (echo "true";)
+# true
+```
+
+
+```bash
+DRY_RUN=0
+if "$DRY_RUN"; then
+  printf 'yes it is a dry run \n'
+fi
+
+DRY_RUN=1
+if ! $DRY_RUN; then
+  echo 'not a dry run'
+fi
+```
+
+
+```bash
+set +e
+lsb_release -a -u > /dev/null 2>&1
+lsb_release_exit_code=$?
+set -e
+
+if [ "$lsb_release_exit_code" = "0" ]; then
+  echo "1. lsb_release_exit_code = $lsb_release_exit_code"
+else
+  echo "2. lsb_release_exit_code = $lsb_release_exit_code"
+fi
 ```
