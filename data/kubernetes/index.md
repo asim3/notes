@@ -77,11 +77,26 @@ kubectl exec asim2-pod -- ls /home -al
 
 
 ## Pod logs
-```txt
+```bash
 kubectl logs __pod_name__
 
 # follow
 kubectl logs __pod_name__ -f
+```
+
+
+## Pod Info
+```bash
+kubectl describe pod __pod_name__
+# Events:
+#   Type     Reason       Age                    From               Message
+#   ----     ------       ----                   ----               -------
+#   Normal   Scheduled    54m                    default-scheduler  Successfully assigned test/deploy-metadata to minikube
+#   Warning  FailedMount  54m                    kubelet            MountVolume.SetUp failed for volume 
+#   Normal   Pulled       52m (x5 over 54m)      kubelet            Container image "deploywebapps:1" already present on machine
+#   Normal   Created      52m (x5 over 54m)      kubelet            Created container my-deploy-apps-container
+#   Normal   Started      52m (x5 over 54m)      kubelet            Started container my-deploy-apps-container
+#   Warning  BackOff      4m33s (x227 over 54m)  kubelet            Back-off restarting failed container
 ```
 
 
