@@ -4,6 +4,9 @@
 kubectl config view
 kubectl config view --raw
 
+# self-contained output
+kubectl config view --raw --flatten
+
 # OR
 cat ~/.kube/config
 
@@ -11,6 +14,9 @@ cat ~/.kube/config
 export KUBECONFIG="$(pwd)/kubeconfig.yaml"
 echo $KUBECONFIG
 # /home/asim/kubeconfig.yaml
+
+# OR
+KUBECONFIG="$(kubectl config view --raw --flatten)"
 ```
 
 

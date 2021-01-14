@@ -90,3 +90,14 @@ kubectl logs __pod_name__ -f
 kubectl get events
 kubectl get event
 ```
+
+
+## Lables
+```py
+kubectl get pods -A -l my-label=by-asim,my-label=by-bader
+
+# using set-based requirements
+kubectl get pods -l 'environment in (production),tier in (frontend)'
+kubectl get pods -l 'environment in (production, qa)'
+kubectl get pods -l 'environment,environment notin (frontend)'
+```
