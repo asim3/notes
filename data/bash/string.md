@@ -113,6 +113,23 @@ NR
 NF
 ```
 
+```bash
+echo "asim:bader:ahmed" | awk -F ":" '{print $3}'
+# ahmed
+echo "asim:bader:ahmed" | awk -F ":" '{print $2}'
+# bader
+```
+
+
+```bash
+echo 3 | awk '{ print 2+3 }'
+# 5
+echo 3 | awk '{ print $1+3 }'
+# 6
+echo 3.2 | awk '{ print $1+3.5 }'
+# 6.7
+```
+
 
 ```bash
 ls -l | awk 'BEGIN {sum=0} {sum=sum+$5} END {print sum}'
