@@ -40,6 +40,17 @@ grep -l "boo" *
 ```
 
 
+## cut
+stream editor
+```bash
+echo "abcdefghi" | cut -c2-6
+# bcdef
+
+echo "birthday-091216-pics" | cut -d'-' -f 2
+# 091216
+```
+
+
 ## replace regex
 stream editor
 ```bash
