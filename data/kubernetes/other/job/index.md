@@ -15,15 +15,19 @@ spec:
         command: ["echo", "Hello Kubernetes!!!"]
         # command: ["sleep", "60"]
       restartPolicy: Never
-  # runs 2 time.
-  # will start the 2nd after the 1st complete.
-  completions: 2
-  # will start 2 pods at the same time.
-  parallelism: 2
+      
+  # run job 5 times
+  completions: 5
+
+  # allow 3 pods to run at the same time
+  parallelism: 3
+
   # number of retries after pod is fail. (Error: backoffLimitExceeded)
   backoffLimit: 2
-  # number of seconds to wait if no response from the pod before termination.
-  activeDeadlineSeconds: 10
+
+  # number of seconds to wait if no response from the pod before termination
+  # "no response" limit in seconds (SuccessfulDelete)
+  activeDeadlineSeconds: 
 ```
 
 
