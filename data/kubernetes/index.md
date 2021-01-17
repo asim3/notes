@@ -108,11 +108,18 @@ kubectl get event
 
 
 ## Lables
-```py
+```bash
 kubectl get pods -A -l my-label=by-asim,my-label=by-bader
 
 # using set-based requirements
 kubectl get pods -l 'environment in (production),tier in (frontend)'
 kubectl get pods -l 'environment in (production, qa)'
 kubectl get pods -l 'environment,environment notin (frontend)'
+```
+
+## JSONPath
+```bash
+kubectl get po --sort-by='{.firstTimestamp}'
+
+kubectl get pods --sort-by=.metadata.creationTimestamp
 ```
