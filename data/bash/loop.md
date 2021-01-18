@@ -4,8 +4,12 @@ for i in {1..7}; do echo $i; done;
 
 for i in 1 2 3 6 8; 
 do 
-    echo $i; 
+   echo $i; 
 done
+
+for appname in 'main' 'blue' 'green'; do
+   echo $appname
+done;
 ```
 
 
