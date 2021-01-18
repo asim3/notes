@@ -25,10 +25,14 @@ spec:
   ports:
   - name: my-http
     protocol: TCP
-    # the desired port inside the Pod
+    
+    # port inside the Pod (required)
     port: 123
-    # the desired port inside the container
+    
+    # if none will default to port "above"
+    # port inside the container pod
     targetPort: 80
+    
     # you can access through the hosted node IP
     nodePort: 30000 # range 30000 - 32767
 ```
