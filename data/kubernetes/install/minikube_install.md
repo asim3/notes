@@ -1,6 +1,4 @@
 ## Install Minikube
-
-
 ```txt
 sudo apt install -y conntrack
 ```

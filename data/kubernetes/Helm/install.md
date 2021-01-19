@@ -12,14 +12,16 @@ echo Done.
 
 
 ## OR
-```txt
-cd /tmp &&
-curl -fLO https://get.helm.sh/helm-v3.3.4-linux-amd64.tar.gz &&
-curl -fLO https://get.helm.sh/helm-v3.3.4-linux-amd64.tar.gz.sha256sum &&
-sha256sum -c helm-v3.3.4-linux-amd64.tar.gz.sha256sum &&
-tar -zxvf helm-v3.3.4-linux-amd64.tar.gz &&
-sudo mv linux-amd64/helm /usr/local/bin/helm &&
-cd ~/ &&
-helm version &&
-echo Done.
+```bash
+helm_version='v3.3.4'
+
+cd /tmp/ \
+&& sudo echo 'update helm to ' $helm_version \
+&& sudo curl -fLO https://get.helm.sh/helm-$helm_version-linux-amd64.tar.gz \
+&& curl -fLO https://get.helm.sh/helm-$helm_version-linux-amd64.tar.gz.sha256sum \
+&& sha256sum -c helm-$helm_version-linux-amd64.tar.gz.sha256sum \
+&& tar -zxvf helm-$helm_version-linux-amd64.tar.gz \
+&& sudo mv linux-amd64/helm /usr/local/bin/helm \
+&& helm version \
+&& echo 'done updating helm'
 ```
