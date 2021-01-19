@@ -1,5 +1,21 @@
 # Helm
 
+## Add Repository
+```txt
+helm repo add my-repository https://kubernetes-charts.storage.googleapis.com/
+helm repo add    bitnami    https://charts.bitnami.com/bitnami
+helm repo remove bitnami
+
+helm repo list
+```
+
+
+## update a repo
+```txt
+helm repo update
+```
+
+
 ## search for charts
 ```txt
 helm search hub  wordpress

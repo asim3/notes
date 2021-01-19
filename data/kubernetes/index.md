@@ -102,8 +102,7 @@ kubectl describe pod __pod_name__
 
 ## TroubleShooting
 ```txt
-kubectl get events
-kubectl get event
+kubectl get events --sort-by=.metadata.creationTimestamp
 ```
 
 

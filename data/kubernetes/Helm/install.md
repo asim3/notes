@@ -23,15 +23,3 @@ cd ~/ &&
 helm version &&
 echo Done.
 ```
-
-
-## Adding Repository
-```txt
-helm repo list
-helm repo update
-
-helm repo add my-repository https://kubernetes-charts.storage.googleapis.com/
-
-helm repo add    my-bitnami https://charts.bitnami.com/bitnami
-helm repo remove my-bitnami
-```
