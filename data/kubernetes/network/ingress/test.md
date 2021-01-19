@@ -5,7 +5,10 @@ kubectl apply -f - <<EOF
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-whoami-$appname-deploy
+  name: test-ingress-$appname
+  namespace: default
+  labels:
+    my-labels: test-ingress
 spec:
   selector:
     matchLabels:
@@ -18,8 +21,30 @@ spec:
       containers:
       - name: my-whoami-container
         image: containous/whoami
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-ingress-$appname
+  namespace: default
+  labels:
+    my-labels: test-ingress
+spec:
+  type: ClusterIP
+  selector:
+    my-labels: my-whoami-$appname
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
 EOF
 done;
+```
+
+
+## list
+```bash
+kubectl get deploy -l my-labels=my-whoami-test-ingress
 ```
 
 
