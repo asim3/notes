@@ -106,7 +106,32 @@ kubectl get events --sort-by=.metadata.creationTimestamp
 ```
 
 
-## Lables
+## recommended labels
+```yaml
+
+kind: Deployment
+metadata:
+  name: my-wordpress
+  labels:
+    app.kubernetes.io/name: wordpress
+    app.kubernetes.io/instance: wordpress-abcxzy
+    app.kubernetes.io/version: "4.9.4"
+    app.kubernetes.io/managed-by: helm
+    app.kubernetes.io/component: server
+    app.kubernetes.io/part-of: wordpress
+# OR
+metadata:
+  name: my-database
+  labels:
+    app.kubernetes.io/name: mysql
+    app.kubernetes.io/instance: mysql-abcde # A unique name to identifying
+    app.kubernetes.io/version: "5.7.21"
+    app.kubernetes.io/managed-by: helm
+    app.kubernetes.io/component: database
+    app.kubernetes.io/part-of: wordpress
+```
+
+## get by labels
 ```bash
 kubectl get pods -A -l my-label=by-asim,my-label=by-bader
 
