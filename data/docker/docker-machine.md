@@ -1,12 +1,17 @@
 ## install docker-machine
-```txt
-curl -fLO https://github.com/docker/machine/releases/download/v0.16.2/docker-machine-Linux-x86_64
-curl -fLO https://github.com/docker/machine/releases/download/v0.16.2/sha256sum.txt
+```bash
+docker_machine_v='v0.16.2'
 
-sha256sum --ignore-missing -c ./sha256sum.txt &&
-rm                            ./sha256sum.txt &&
-chmod +x ./docker-machine-Linux-x86_64 &&
-sudo mv ./docker-machine-Linux-x86_64 /usr/local/bin/docker-machine && docker-machine version
+cd /tmp/ \
+&& sudo echo 'update docker-machine to ' $docker_machine_v \
+&& curl -fLO https://github.com/docker/machine/releases/download/$docker_machine_v/docker-machine-Linux-x86_64 \
+&& curl -fLO https://github.com/docker/machine/releases/download/$docker_machine_v/sha256sum.txt \
+&& sha256sum --ignore-missing -c ./sha256sum.txt \
+&& chmod +x ./docker-machine-Linux-x86_64 \
+&& sudo mv ./docker-machine-Linux-x86_64 /usr/local/bin/docker-machine \
+&& echo 'done updating docker-machine'
+
+docker-machine version
 ```
 
 

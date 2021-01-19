@@ -13,17 +13,17 @@ app-kfupm
 app-exit
 '"
 
-alias app-ux="source ~/.venv_ux/bin/activate &&
-cd ~/Dropbox/Django/Developing/2019_03_31_brandat_ux/version_06 &&
-python manage.py runserver"
+alias app-ux="source ~/.venv_ux/bin/activate \
+&& cd ~/Dropbox/Django/Developing/2019_03_31_brandat_ux/version_06 \
+&& python manage.py runserver"
 
-alias app-alzod="source ~/.venv_alzod/bin/activate &&
-cd ~/Dropbox/Django/Developing/alzod/version_01 &&
-python manage.py runserver"
+alias app-alzod="source ~/.venv_alzod/bin/activate \
+&& cd ~/Dropbox/Django/Developing/alzod/version_01 \
+&& python manage.py runserver"
 
-alias app-kfupm="source ~/.venv_kfupm/bin/activate &&
-cd ~/Dropbox/Django/Developing/2019_03_21_kfupm_admission/version_06 &&
-python manage.py runserver"
+alias app-kfupm="source ~/.venv_kfupm/bin/activate \
+&& cd ~/Dropbox/Django/Developing/2019_03_21_kfupm_admission/version_06 \
+&& python manage.py runserver"
 
 alias app-exit="deactivate && cd"
 ```

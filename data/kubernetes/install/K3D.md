@@ -26,10 +26,11 @@ sudo k3d cluster delete my-cluster-asim
 > admin password location `cat /var/lib/rancher/k3s/server/cred/passwd`
 ```bash
 cat <<EOF >> ~/.bashrc
-#sudo k3d cluster delete asim-k3s &&
-#sudo k3d cluster create asim-k3s &&
-sudo k3d cluster start asim-k3s &&
-sudo k3d kubeconfig show --all > ~/.kube/config && 
-echo "Done."
+# sudo k3d cluster delete asim-k3s \
+# && sudo k3d cluster create asim-k3s
+
+sudo k3d cluster start asim-k3s \
+&& sudo k3d kubeconfig show --all > ~/.kube/config \
+&& echo "Done."
 EOF
 ```

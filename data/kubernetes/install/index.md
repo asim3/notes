@@ -29,3 +29,10 @@ cd /tmp/ \
 
 minikube version
 ```
+
+
+## !!!
+```bash
+curl -LO https://github.com/kubernetes/minikube/releases/download/$minikube_version/minikube-linux-amd64.sha256 \
+&& echo "$(cat ./minikube-linux-amd64.sha256) minikube-linux-amd64" | sha256sum -c
+```
