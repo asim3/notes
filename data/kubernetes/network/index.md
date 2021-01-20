@@ -16,10 +16,26 @@ kubectl describe ep
 
 ## localhost
 ```bash
-kubectl port-forward service/my-init-nginx 8080:80
+kubectl port-forward service/my-init-nginx 8000:80
+# Forwarding from 127.0.0.1:8000 -> 80
 
+kubectl port-forward deployment/my-init-nginx 8080:80
+# Forwarding from 127.0.0.1:8000 -> 80
+
+sudo kubectl port-forward service/my-init-nginx 80:80
+# Forwarding from 127.0.0.1:80   -> 80
+
+# test:
 curl localhost:8080
 # <h1>Hello Kubernetes by asim. test port forward</h1>
+
+
+# Errors:
+kubectl port-forward service/my-init-nginx 80:80
+# Unable to listen on port 80: permission denied
+
+kubectl port-forward service my-init-nginx 8080:80
+# Error from server (NotFound): pods "my-init-nginx" not found
 ```
 
 
