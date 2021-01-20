@@ -14,17 +14,28 @@ kubectl describe ep
 ```
 
 
-## expose port
-```txt
-kubectl expose deploy/my-deploy-name --port 80
-kubectl expose deploy/my-deploy-name --port 443
-kubectl expose deploy/my-deploy-name --port 8000 --type NodePort
+## localhost
+```bash
+kubectl port-forward service/my-init-nginx 8080:80
+
+curl localhost:8080
+# <h1>Hello Kubernetes by asim. test port forward</h1>
 ```
 
 
-## port forward !!!
-```txt
-kubectl port-forward service/kubeapps 8080:80
+## expose port
+```bash
+kubectl expose deploy/my-deploy-name --port 80
+# NAME                     TYPE        PORT(S)    AGE
+# service/my-deploy-name   ClusterIP   80/TCP     10s
+
+kubectl expose deploy/my-deploy-name --port 443
+# NAME                     TYPE        PORT(S)   AGE
+# service/my-deploy-name   ClusterIP   443/TCP   4s
+
+kubectl expose deploy/my-deploy-name --port 8000 --type NodePort
+# NAME                     TYPE        PORT(S)
+# service/my-deploy-name   NodePort    8000:32413/TCP
 ```
 
 

@@ -47,26 +47,36 @@ kubectl get svc/my-whoami-node-port -o jsonpath='{.spec.ports[].nodePort}'
 
 
 ```bash
-curl -s 192.168.99.100:32001 | grep Hostname
+curl   192.168.99.100:32001
 # Hostname: my-whoami-deploy-7b89cf6475-75lx2
-curl -s 192.168.99.100:32001 | grep Hostname
+
+curl   192.168.99.100:32001
 # Hostname: my-whoami-deploy-7b89cf6475-kngtz
-curl -s 192.168.99.100:32001 | grep Hostname
+
+curl   192.168.99.100:32001
 # Hostname: my-whoami-deploy-7b89cf6475-kngtz
-curl -s 192.168.99.100:32001 | grep Hostname
+
+curl   192.168.99.100:32001
 # Hostname: my-whoami-deploy-7b89cf6475-nw2qz
-curl -s 192.168.99.100:32001 | grep Hostname
+
+curl   192.168.99.100:32001
 # Hostname: my-whoami-deploy-7b89cf6475-sv66n
-curl -s 192.168.99.100:32001 | grep Hostname
+
+curl   192.168.99.100:32001
 # Hostname: my-whoami-deploy-7b89cf6475-kngtz
-curl -s 192.168.99.100:32001 | grep Hostname
+
+curl   192.168.99.100:32001
 # Hostname: my-whoami-deploy-7b89cf6475-sv66n
-curl -s 192.168.99.100:32001 | grep Hostname
+
+curl   192.168.99.100:32001
 # Hostname: my-whoami-deploy-7b89cf6475-kngtz
-curl -s 192.168.99.100:32001 | grep Hostname
+
+curl   192.168.99.100:32001
 # Hostname: my-whoami-deploy-7b89cf6475-kngtz
-curl -s 192.168.99.100:32001 | grep Hostname
+
+curl   192.168.99.100:32001
 # Hostname: my-whoami-deploy-7b89cf6475-75lx2
-curl -s 192.168.99.100:32001 | grep Hostname
+
+curl   192.168.99.100:32001
 # Hostname: my-whoami-deploy-7b89cf6475-sv66n
 ```
