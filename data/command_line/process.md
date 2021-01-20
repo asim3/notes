@@ -1,3 +1,16 @@
+## show processes
+show all processes running in memory
+```bash
+ps aux | grep python
+ps aux | grep 'kubectl port-forward'
+
+ps aux
+# a: Show processes for all users
+# u: Display the user who is using the process
+# x: Show all processes. (Without this, ps won’t show GUI processes)
+```
+
+
 ## process
 ```bash
 ls  /proc
@@ -6,18 +19,6 @@ cat /proc/uptime
 
 # display a tree of processes
 pstree
-```
-
-
-## show processes
-show all processes running in memory
-```bash
-ps aux
-# a: Show processes for all users
-# u: Display the user who is using the process
-# x: Show all processes. (Without this, ps won’t show GUI processes)
-
-ps aux | grep python
 ```
 
 
