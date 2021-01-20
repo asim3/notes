@@ -14,37 +14,12 @@ helm ls
 
 
 kubectl get service -l app.kubernetes.io/name=nginx-ingress-controller
-# Bare Metal
-# EXTERNAL-IP 
-# <pending>
+# NAME                                    TYPE           EXTERNAL-IP   PORT(S)                   
+# nginx-ingress-nginx-ingress-controller  LoadBalancer   <pending>     80:31277/TCP,443:31764/TCP
 ```
 
-> LoadBalancer running on a `Bare Metal Cluster` needs a !!! 
 
-
-## list all
+## run on localhost
 ```bash
-clear \
-&& kubectl get service -l app.kubernetes.io/name=nginx-ingress-controller \
-&& printf "\n---------------------------------\nservice account\n\n" \
-&& kubectl get serviceaccount nginx-ingress-nginx-ingress-controller \
-&& printf "\n--------------------------------\ncluster role bindings\n\n" \
-&& kubectl get clusterrolebindings nginx-ingress-nginx-ingress-controller \
-&& printf "\n---------------------------------\ncluster role\n\n" \
-&& kubectl get clusterrole nginx-ingress-nginx-ingress-controller \
-&& printf "\n--------------------------------\nconfig maps\n\n" \
-&& kubectl get configmap nginx-ingress-nginx-ingress-controller
-```
-
-
-## logs
-```bash
-clear && \
-kubectl logs -l app.kubernetes.io/name=nginx-ingress-controller -f
-```
-
-
-## TroubleShooting
-```txt
-kubectl get svc -l my-labels=my-whoami-test-ingress
+sudo kubectl port-forward deployment/nginx-ingress-nginx-ingress-controller 80:80
 ```

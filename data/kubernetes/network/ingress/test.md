@@ -50,11 +50,9 @@ kubectl get deploy -l my-labels=my-whoami-test-ingress
 
 ## set local hostname
 ```bash
-kube_ip=$(kubectl get ep/kubernetes -o jsonpath='{.subsets[].addresses[].ip}')
-
 cat <<EOF | sudo tee -a /etc/hosts
-$kube_ip whoami.example.com
-$kube_ip blue.whoami.example.com
-$kube_ip green.whoami.example.com
+127.0.0.1 whoami.example.com
+127.0.0.1 blue.whoami.example.com
+127.0.0.1 green.whoami.example.com
 EOF
 ```

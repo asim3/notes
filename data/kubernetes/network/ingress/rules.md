@@ -123,6 +123,7 @@ kubectl get      ingress
 kubectl describe ingress
 ```
 
+
 ## test
 ```bash
 kubectl get ep/kubernetes -o jsonpath='{.subsets[].addresses[].ip}'
