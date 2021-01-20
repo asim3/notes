@@ -1,10 +1,3 @@
-## NodePort
-Exposes the Service on each Node's IP at a static port (the NodePort). 
-A ClusterIP Service, to which the NodePort Service routes, is 
-automatically created. You'll be able to contact the NodePort Service, 
-from outside the cluster, by requesting `<Node ip>:<Node port>`.
-
-
 `nano ./my-node-port.yaml`
 ```yaml
 apiVersion: apps/v1
