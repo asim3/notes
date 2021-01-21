@@ -27,13 +27,16 @@ kubectl port-forward deployment/nginx-ingress-nginx-ingress-controller 8000:80
 # Testing
 ## deploy 3 Deployments
 ```bash
-kubectl run test-ingress-main  --image=containous/whoami --labels="my=test-ingress"
-kubectl run test-ingress-blue  --image=containous/whoami --labels="my=test-ingress"
-kubectl run test-ingress-green --image=containous/whoami --labels="my=test-ingress"
+kubectl run test-ingress-main  --image=containous/whoami --labels="my=test-ingress,type=main"
+kubectl run test-ingress-blue  --image=containous/whoami --labels="my=test-ingress,type=blue"
+kubectl run test-ingress-green --image=containous/whoami --labels="my=test-ingress,type=green"
 
 kubectl expose pod/test-ingress-main  --port 80 --labels="my=test-ingress"
 kubectl expose pod/test-ingress-blue  --port 80 --labels="my=test-ingress"
 kubectl expose pod/test-ingress-green --port 80 --labels="my=test-ingress"
+
+
+kubectl get all -l my=test-ingress
 ```
 
 
@@ -53,11 +56,4 @@ cat <<EOF | sudo tee -a /etc/hosts
 127.0.0.1 blue.whoami.example.com
 127.0.0.1 green.whoami.example.com
 EOF
-```
-
-
-## list
-```bash
-kubectl get pod -l my=test-ingress
-kubectl get svc -l my=test-ingress
 ```
