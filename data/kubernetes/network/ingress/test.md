@@ -44,7 +44,7 @@ done;
 
 ## list
 ```bash
-kubectl get deploy -l my-labels=my-whoami-test-ingress
+kubectl get deploy -l my-labels=test-ingress
 ```
 
 
