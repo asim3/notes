@@ -39,7 +39,7 @@ kubectl port-forward service my-init-nginx 8080:80
 ```
 
 
-## expose port
+## add service
 ```bash
 kubectl expose deploy/my-deploy-name --port 80
 # NAME                     TYPE        PORT(S)    AGE

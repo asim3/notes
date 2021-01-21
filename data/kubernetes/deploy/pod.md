@@ -1,4 +1,10 @@
 ## Creating objects
+```txt
+kubectl run asim-pod --image=nginx --port=80
+```
+
+## OR
+
 `nano asim2-pod.yaml`
 ```yaml
 apiVersion: v1
@@ -14,16 +20,10 @@ spec:
 
 ```txt
 kubectl apply  -f ./asim2-pod.yaml
-kubectl create -f asim2-pod.yaml
+kubectl create -f   asim2-pod.yaml
 
 # Deleting resources
 kubectl delete -f asim2-pod.yaml
-```
-
-
-## OR
-```txt
-kubectl run asim-pod --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8000
 ```
 
 
