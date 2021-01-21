@@ -9,6 +9,7 @@ Ingress may provide load balancing, SSL termination and name-based virtual hosti
 ## install by helm
 ```bash
 helm install   nginx-ingress bitnami/nginx-ingress-controller # --set rbac.create=true
+
 helm uninstall nginx-ingress
 helm ls
 

@@ -55,4 +55,12 @@ cat <<EOF | sudo tee -a /etc/hosts
 127.0.0.1 blue.whoami.example.com
 127.0.0.1 green.whoami.example.com
 EOF
+
+# OR
+
+cat <<EOF | sudo tee -a /etc/hosts
+192.168.99.100 whoami.example.com
+192.168.99.100 blue.whoami.example.com
+192.168.99.100 green.whoami.example.com
+EOF
 ```
