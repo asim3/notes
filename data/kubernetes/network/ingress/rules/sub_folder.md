@@ -1,5 +1,5 @@
 ## sub directory ingress
-`nano sub-folder-ingress-rule.yaml`
+`kubectl apply -f - <<eof`
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress

@@ -1,40 +1,60 @@
-## Install Minikube
-```txt
-sudo apt install -y conntrack
-```
-
-
-[Install Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+## add new cluster
+don't use sudo
 ```bash
-curl -fLO https://github.com/kubernetes/minikube/releases/download/v1.13.1/minikube-linux-amd64
-curl -fLO https://github.com/kubernetes/minikube/releases/download/v1.13.1/minikube-linux-amd64.sha256
-
-echo "$(cat ./minikube-linux-amd64.sha256)  minikube-linux-amd64" | sha256sum -c
-rm          ./minikube-linux-amd64.sha256
-
-chmod +x ./minikube-linux-amd64 \
-&& sudo mv ./minikube-linux-amd64 /usr/local/bin/minikube \
-&& minikube version
-```
-
-
-> don't use sudo, and underscore are not allowed because of subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character.
-```txt
+minikube start
 minikube start -p cluster-nickname
-minikube start --nodes 2 -p cluster-nickname
+minikube start -p cluster-nickname --nodes 2
 
+
+minikube status
 minikube status -p cluster-nickname
-minikube service list -p cluster-nickname
+```
+> underscore are not allowed because of subdomain
 
-minikube dashboard -p cluster-nickname
-minikube ssh -p cluster-nickname
 
-minikube stop -p cluster-nickname
-minikube delete -p cluster-nickname
+## Add ons
+```txt
+minikube addons list
+
+minikube addons enable ingress
+minikube addons enable ingress-dns
+minikube addons enable metallb
+minikube addons enable storage-provisioner
 ```
 
-## OR
+
+## k8s state metrics
 ```txt
-sudo minikube start --driver='none'
-sudo minikube status
+minikube dashboard
+
+minikube addons enable metrics-server
+```
+
+
+## service
+```bash
+minikube service list
+# |-------------|--------------------|--------------|-----|
+# |  NAMESPACE  |        NAME        | TARGET PORT  | URL |
+# |-------------|--------------------|--------------|-----|
+# | default     | kubernetes         | No node port |
+# | default     | test-ingress-blue  | No node port |
+# | default     | test-ingress-green | No node port |
+# | default     | test-ingress-main  | No node port |
+# | kube-system | kube-dns           | No node port |
+# |-------------|--------------------|--------------|-----|
+```
+
+
+
+## delete
+```bash
+minikube delete -p cluster-nickname
+minikube stop   -p cluster-nickname
+```
+
+
+## ssh
+```bash
+minikube ssh
 ```

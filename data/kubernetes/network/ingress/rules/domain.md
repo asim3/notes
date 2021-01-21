@@ -1,5 +1,5 @@
 ## domain ingress
-`nano domain-ingress-rule.yaml`
+`kubectl apply -f - <<eof`
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -44,7 +44,7 @@ curl -s http://whoami.example.com:8000/
 
 
 ## sub domain ingress
-`nano sub-domain-ingress-rule.yaml`
+`kubectl apply -f - <<eof`
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress

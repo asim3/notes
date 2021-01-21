@@ -6,59 +6,58 @@ Ingress may provide load balancing, SSL termination and name-based virtual hosti
 [Nginx Ingress](https://github.com/nginxinc/kubernetes-ingress)
 
 
-## install by helm
-```bash
-helm install   nginx-ingress bitnami/nginx-ingress-controller # --set rbac.create=true
-
-helm uninstall nginx-ingress
-helm ls
-
-
-kubectl get service -l app.kubernetes.io/name=nginx-ingress-controller
-# NAME                                    TYPE           EXTERNAL-IP   PORT(S)                   
-# nginx-ingress-nginx-ingress-controller  LoadBalancer   <pending>     80:31277/TCP,443:31764/TCP
+# install
+## by minikube
+```text
+minikube addons enable ingress
 ```
 
 
-## run on localhost
+## or by helm
 ```bash
-sudo kubectl port-forward deployment/nginx-ingress-nginx-ingress-controller 80:80
+helm install nginx-ingress bitnami/nginx-ingress-controller # --set rbac.create=true
+
+# access ingress through localhost
+kubectl port-forward deployment/nginx-ingress-nginx-ingress-controller 8000:80
+# OR
+# install metallb
 ```
 
 
-# For testing
+# Testing
 ## deploy 3 Deployments
 ```bash
-kubectl run test-ingress-main  --image=containous/whoami --labels="my-labels=test-ingress"
-kubectl run test-ingress-blue  --image=containous/whoami --labels="my-labels=test-ingress"
-kubectl run test-ingress-green --image=containous/whoami --labels="my-labels=test-ingress"
+kubectl run test-ingress-main  --image=containous/whoami --labels="my=test-ingress"
+kubectl run test-ingress-blue  --image=containous/whoami --labels="my=test-ingress"
+kubectl run test-ingress-green --image=containous/whoami --labels="my=test-ingress"
 
-kubectl expose pod/test-ingress-main  --port 80
-kubectl expose pod/test-ingress-blue  --port 80
-kubectl expose pod/test-ingress-green --port 80
-```
-
-
-## list
-```bash
-kubectl get pod -l my-labels=test-ingress
-kubectl get svc -l my-labels=test-ingress
+kubectl expose pod/test-ingress-main  --port 80 --labels="my=test-ingress"
+kubectl expose pod/test-ingress-blue  --port 80 --labels="my=test-ingress"
+kubectl expose pod/test-ingress-green --port 80 --labels="my=test-ingress"
 ```
 
 
 ## set local hostname
 ```bash
+# with minikube addons enable ingress
+cat <<EOF | sudo tee -a /etc/hosts
+$(minikube ip) whoami.example.com
+$(minikube ip) blue.whoami.example.com
+$(minikube ip) green.whoami.example.com
+EOF
+
+
+# with kubectl port-forward
 cat <<EOF | sudo tee -a /etc/hosts
 127.0.0.1 whoami.example.com
 127.0.0.1 blue.whoami.example.com
 127.0.0.1 green.whoami.example.com
 EOF
+```
 
-# OR
 
-cat <<EOF | sudo tee -a /etc/hosts
-192.168.99.100 whoami.example.com
-192.168.99.100 blue.whoami.example.com
-192.168.99.100 green.whoami.example.com
-EOF
+## list
+```bash
+kubectl get pod -l my=test-ingress
+kubectl get svc -l my=test-ingress
 ```

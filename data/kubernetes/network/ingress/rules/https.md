@@ -1,5 +1,5 @@
 ## domain ingress
-`nano domain-ingress-rule.yaml`
+`kubectl apply -f - <<eof`
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress

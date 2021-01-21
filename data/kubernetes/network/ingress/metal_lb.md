@@ -26,13 +26,16 @@ kubectl apply -f - -n kube-system
 > install MetalLB to balance load between `nodes` on a `Bare Metal Cluster`
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/namespace.yaml
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/metallb.yaml
 
 # On first install only
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/metallb.yaml
+
 # list
 kubectl get all -n metallb-system
+
+kubectl get node -o wide
 ```
 > The memberlist secret contains the secretkey to encrypt the 
 > communication between speakers for the fast dead node detection.
@@ -52,7 +55,7 @@ data:
     - name: default
       protocol: layer2
       addresses:
-      - 192.168.99.100-192.168.99.105
+      - 192.168.99.100-192.168.99.125
 ```
 
 > After creating the following ConfigMap, MetalLB takes ownership 
