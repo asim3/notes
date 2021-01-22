@@ -1,5 +1,21 @@
 [docs](https://www-users.york.ac.uk/~mijp1/teaching/2nd_year_Comp_Lab/guides/grep_awk_sed.pdf)
 
+
+## progress bar
+```bash
+#  -n     do not output the trailing newline
+#  -e     enable interpretation of backslash escapes
+
+
+echo -e  '\n\n echo -e  '; \
+echo -ne '###############                                           (33%)\r'; \
+sleep 1; \
+echo -ne '###################################                       (66%)\r'; \
+sleep 1; \
+echo -ne '#######################################################   (100%)\r';
+```
+
+
 # grep
 global regular expression print
 ```bash
