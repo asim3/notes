@@ -56,3 +56,13 @@ do
    sudo apk add "$p"
 done
 ```
+
+
+## break loop
+```bash
+for i in {1..100}; do 
+   sleep 1
+   echo $i
+   if [ $i == "5" ]; then break; fi;
+done
+```
