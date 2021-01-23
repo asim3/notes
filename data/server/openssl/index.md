@@ -37,16 +37,22 @@ openssl genrsa -out my_private.key 4096
 
 
 ## server stamp
-check a Certificate Signing Request (CSR)
+> Certificate Signing Request (CSR): holds the company informations 
 ```bash
 openssl req -new \
   -key my_private.key \
   -out my_stamp.csr
 
-# Take care of are the “Organizational Name” and the “Common Name”. 
-# These two values help verify to whom the certificate has been issued to.
+#            C = SA
+#           ST = Province
+#            L = Dammam
+#            O = Company *important
+#           OU = Section
+#           CN = Common Name *important
+# emailAddress = my@mail.co
+
+# ** These two values help verify to whom the certificate has been issued to.
 ```
-> Certificate request: holds the company informations 
 
 
 ## public https certificate
