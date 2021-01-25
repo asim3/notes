@@ -1,4 +1,36 @@
-[Install Debian 10 Buster](https://www.debian.org/)
+[Debian 10 Buster](https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/)
+
+```bash
+mkdir /tmp/debian
+cd /tmp/debian
+curl -LO https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/SHA256SUMS
+
+# cinnamon
+curl -LO https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.7.0-amd64-cinnamon.iso
+
+# gnome
+curl -LO https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.7.0-amd64-gnome.iso
+
+grep amd64-cinnamon.iso SHA256SUMS | sha256sum -c
+grep amd64-gnome.iso SHA256SUMS | sha256sum -c
+```
+
+
+## setting up Debian
+```bash
+# open software & updates
+# then enable downloadable from the internet
+
+sudo apt install -y gnome-tweaks
+# then enable tweaks > extensions > applications menu
+
+# theme
+sudo apt install -y numix-gtk-theme numix-icon-theme
+# then open tweaks > appearance > themes > applications
+
+sudo apt install -y gnome-shell-extension-dashtodock
+# then enable tweaks > extensions > Dash to Dock
+```
 
 
 ## Unpack an archive
@@ -65,22 +97,4 @@ sudo add-apt-repository ppa:webupd8team/java
 sudo apt update
 
 sudo apt install -y oracle-java8-installer
-```
-
-
-[Install Debian 10](https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/)
-
-```bash
-mkdir /tmp/debian
-cd /tmp/debian
-curl -LO https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/SHA256SUMS
-
-# cinnamon
-curl -LO https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.7.0-amd64-cinnamon.iso
-
-# gnome
-curl -LO https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.7.0-amd64-gnome.iso
-
-grep amd64-cinnamon.iso SHA256SUMS | sha256sum -c
-grep amd64-gnome.iso SHA256SUMS | sha256sum -c
 ```
