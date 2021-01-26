@@ -24,9 +24,11 @@ grep amd64-gnome.iso SHA256SUMS | sha256sum -c
 sudo apt install -y gnome-tweaks
 # then enable tweaks > extensions > applications menu
 
-# theme
-sudo apt install -y numix-gtk-theme numix-icon-theme
-# then open tweaks > appearance > themes > applications
+# Theme
+sudo apt install -y dmz-cursor-theme humanity-icon-theme
+# then open tweaks > appearance > themes > applications > Adwaita-dark
+# then open tweaks > appearance > themes > cursor       > DMZ-White
+# then open tweaks > appearance > themes > icons        > Humanity
 
 sudo apt install -y gnome-shell-extension-dashtodock
 # then enable tweaks > extensions > Dash to Dock
