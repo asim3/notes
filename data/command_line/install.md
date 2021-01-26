@@ -41,10 +41,7 @@ grep amd64-gnome.iso SHA256SUMS | sha256sum -c
 # open software & updates
 # then enable downloadable from the internet
 
-/bin/sh <<EOF
-sudo apt install -y bash-completion curl
-sudo apt install -y gnome-tweaks
-sudo apt install -y git-hub
+sudo apt install -y bash-completion curl gnome-tweaks git-hub
 
 # Navigation Dock
 sudo apt install -y gnome-shell-extension-dashtodock
@@ -52,10 +49,6 @@ sudo apt install -y gnome-shell-extension-dashtodock
 # Theme
 sudo apt install -y dmz-cursor-theme moka-icon-theme
 
-EOF
-```
-
-```txt
 # then enable tweaks > extensions > Dash to Dock
 # then open   tweaks > appearance > themes > applications > Adwaita-dark
 # then open   tweaks > appearance > themes > cursor       > DMZ-White
