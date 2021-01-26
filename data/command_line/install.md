@@ -1,5 +1,25 @@
-[Debian 10 Buster](https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/)
+## Install deb Package
+```txt
+sudo dpkg -i <name of package>.deb
+```
 
+
+## Unpack an archive
+```txt
+tar -xzf Postman.tar.gz 
+```
+
+
+## Temporary Install
+delete all 18 packages installed with the first command
+```txt
+sudo apk add --virtual .asim-package gcc vim
+sudo apk del .asim-package
+```
+
+
+## install Debian
+[Debian 10 Buster](https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/)
 ```bash
 mkdir /tmp/debian
 cd /tmp/debian
@@ -21,65 +41,45 @@ grep amd64-gnome.iso SHA256SUMS | sha256sum -c
 # open software & updates
 # then enable downloadable from the internet
 
-sudo apt install -y bash-completion
+/bin/sh <<EOF
+sudo apt install -y bash-completion curl
+sudo apt install -y gnome-tweaks
+sudo apt install -y git-hub
 
-sudo apt install -y gnome-tweaks 
-# then enable tweaks > extensions > applications menu
+# Navigation Dock
+sudo apt install -y gnome-shell-extension-dashtodock
 
 # Theme
-sudo apt install -y dmz-cursor-theme humanity-icon-theme
-# then open tweaks > appearance > themes > applications > Adwaita-dark
-# then open tweaks > appearance > themes > cursor       > DMZ-White
-# then open tweaks > appearance > themes > icons        > Humanity
+sudo apt install -y dmz-cursor-theme moka-icon-theme
 
-sudo apt install -y gnome-shell-extension-dashtodock
+EOF
+```
+
+```txt
 # then enable tweaks > extensions > Dash to Dock
+# then open   tweaks > appearance > themes > applications > Adwaita-dark
+# then open   tweaks > appearance > themes > cursor       > DMZ-White
+# then open   tweaks > appearance > themes > icons        > Humanity
 ```
 
+[Install virtualbox](https://www.virtualbox.org/wiki/Linux_Downloads)
 
-## Unpack an archive
+
+
+## Install RPM Package Directly on Ubuntu
 ```txt
-tar -xzf Postman.tar.gz 
-```
-
-
-## Temporary Install
-delete all 18 packages installed with the first command
-```txt
-sudo apk add --virtual .asim-package gcc vim
-sudo apk del .asim-package
-```
-
-
-## Install virtualbox
-```txt
-sudo apt update
-apt show virtualbox
-sudo apt install -y virtualbox
+sudo alien -i <name of package>.rpm
 ```
 
 
 ## Install RPM Packages On Ubuntu
 ```txt
-# setup
 sudo add-apt-repository universe
 sudo apt-get update
 sudo apt-get install -y alien
 
 # convert .rpm package to .deb
 sudo alien <name of package>.rpm
-```
-
-
-## Install deb Package On Ubuntu
-```txt
-sudo dpkg -i <name of package>.deb
-```
-
-
-## Install RPM Package Directly on Ubuntu
-```txt
-sudo alien -i <name of package>.rpm
 ```
 
 
@@ -90,15 +90,4 @@ java -version
 
 sudo apt install -y default-jdk
 javac -version
-```
-
-
-## Installing the Oracle JDK
-```txt
-# ???? not working
-# add its package repository
-sudo add-apt-repository ppa:webupd8team/java
-sudo apt update
-
-sudo apt install -y oracle-java8-installer
 ```
