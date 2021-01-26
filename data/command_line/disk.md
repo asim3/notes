@@ -26,6 +26,20 @@ sudo apt install gnome-disk-utility
 ```
 
 
+## iso to usb
+```bash
+sudo apt install gddrescue
+
+ddrescue -V
+
+sudo ddrescue path/to/my.iso /dev/sdx --force -D
+
+lsblk | grep sd
+
+sudo ddrescue ./Downloads/iso/debian-live-10.7.0-amd64-gnome.iso /dev/sdb1
+```
+
+
 ## edit a drive
 ```txt
 lsblk
