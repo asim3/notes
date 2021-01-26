@@ -20,6 +20,9 @@ sudo fdisk /dev/sda
 
 # OR graphical
 sudo apt install gparted
+
+# GNOME Disks a.k.a (GNOME Disks Utility)
+sudo apt install gnome-disk-utility
 ```
 
 
