@@ -21,7 +21,9 @@ grep amd64-gnome.iso SHA256SUMS | sha256sum -c
 # open software & updates
 # then enable downloadable from the internet
 
-sudo apt install -y gnome-tweaks
+sudo apt install -y bash-completion
+
+sudo apt install -y gnome-tweaks 
 # then enable tweaks > extensions > applications menu
 
 # Theme
