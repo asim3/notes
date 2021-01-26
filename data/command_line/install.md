@@ -65,6 +65,11 @@ EOF
 [Install virtualbox](https://www.virtualbox.org/wiki/Linux_Downloads)
 
 
+## Automatic suspend
+```bash
+sudo nano /etc/gdm3/greeter.dconf-defaults
+```
+
 
 ## Install RPM Package Directly on Ubuntu
 ```txt
