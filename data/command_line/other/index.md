@@ -39,53 +39,6 @@ shutdown +30 "Leave to pickup friend!"
 ```
 
 
-## Prepare a Drive
-```txt
-lsblk
-df -h
-
-# unmount a drive
-sync
-sudo umount /dev/sdb1
-
-# edit
-sudo fdisk /dev/sdb
-   i   print information about a partition
-   d   delete a partition
-   F   list free unpartitioned space
-   n   add a new partition
-       p   primary (0 primary, 0 extended, 4 free)
-       1   partition number
-           enter for default
-           enter for default
-           
-   t   change a partition type
-       83  for Linux
-
-   p   print the partition table
-   w   write table to disk and exit
-
-# Format the new partition using Ext4
-sudo mkfs.ext4 /dev/sdb1
-```
-
-
-## Mount a new drive
-```txt
-sudo mkdir /my-new-dev/
-sudo mount /dev/sdb1 /my-new-dev/
-
-df -H
-lsblk
-```
-
-
-## ISO Bootable USB
-```txt
-usb-creator-gtk
-```
-
-
 ```txt
 echo "b9beac143e36226aa8a0b03fc1cbb5921cff80123866e718aaeba4edb81cfa63 *ubuntu-18.04.3-live-server-amd64.iso" | shasum -a 256 --check
 ```
