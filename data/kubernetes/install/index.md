@@ -25,5 +25,7 @@ cd /tmp/ \
 && sudo mv minikube-linux-amd64 /usr/local/bin/minikube \
 && echo 'done updating minikube'
 
+sudo docker swarm init
+
 minikube version
 ```
