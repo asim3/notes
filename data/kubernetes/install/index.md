@@ -18,21 +18,12 @@ kubectl version --short
 ## Install Minikube
 [releases](https://github.com/kubernetes/minikube/releases)
 ```bash
-minikube_version='v1.16.0'
-
 cd /tmp/ \
-&& sudo echo 'update minikube to ' $minikube_version \
-&& curl -LO https://github.com/kubernetes/minikube/releases/download/$minikube_version/minikube-linux-amd64 \
+&& sudo echo 'update minikube to latest' \
+&& curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
 && chmod +x minikube-linux-amd64 \
 && sudo mv minikube-linux-amd64 /usr/local/bin/minikube \
 && echo 'done updating minikube'
 
 minikube version
-```
-
-
-## !!!
-```bash
-curl -LO https://github.com/kubernetes/minikube/releases/download/$minikube_version/minikube-linux-amd64.sha256 \
-&& echo "$(cat ./minikube-linux-amd64.sha256) minikube-linux-amd64" | sha256sum -c
 ```
