@@ -62,6 +62,19 @@ cd /tmp/ \
 ```
 
 
+
+## install VS Code
+```bash
+cd /tmp/ \
+&& sudo echo 'install VS Code' \
+&& curl -L 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -o /tmp/linux-deb-x64.deb \
+&& sudo dpkg -i linux-deb-x64.deb \
+&& echo Done.
+```
+
+
+
+
 ## Install RPM Package Directly on Debian
 ```txt
 sudo alien -i <name of package>.rpm
