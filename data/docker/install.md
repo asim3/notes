@@ -7,13 +7,15 @@
 
 ## Install
 ```bash
-sudo apt-get -y remove docker docker-engine docker.io containerd runc \
+distributor=$(lsb_release -is)
+
+sudo apt-get -y remove docker docker-engine docker.io runc \
 && sudo apt-get -y update \
 && sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common \
-&& curl -Lf https://download.docker.com/linux/ubuntu/gpg -o /tmp/gpg \
+&& curl -Lf https://download.docker.com/linux/${distributor,,}/gpg -o /tmp/gpg \
 && sudo apt-key add /tmp/gpg \
 && sudo apt-key fingerprint 0EBFCD88 \
-&& sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+&& sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/${distributor,,} $(lsb_release -cs) stable" \
 && sudo apt-get -y update \
 && sudo apt-get install -y docker-ce docker-ce-cli containerd.io \
 && echo "done installing docker $(sudo docker version --format='{{.Client.Version}}')"
@@ -38,7 +40,9 @@ sudo apt-get update \
 
 ## Docker’s PUBLIC KEY
 ```txt
-curl -Lf https://download.docker.com/linux/ubuntu/gpg -o /tmp/gpg
+distributor=$(lsb_release -is)
+
+curl -Lf https://download.docker.com/linux/${distributor,,}/gpg -o /tmp/gpg
 sudo apt-key add /tmp/gpg
 
 # Verify GPG PUBLIC KEY fingerprint
