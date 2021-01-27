@@ -16,6 +16,12 @@ echo ${my_name^^}
 
 echo ${my_name,,}
 # asim
+
+distributor=$(lsb_release -is)
+echo ${distributor}
+Debian
+echo ${distributor,,}
+debian
 ```
 
 
