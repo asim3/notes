@@ -1,16 +1,9 @@
 ## ISO Bootable USB
 ```txt
-usb-creator-gtk
-```
-
-
-# Format
-Format the new partition using Ext4
-```bash
-# list block devices
 lsblk
+df -h
 
-sudo mkfs.ext4 /dev/sdb1
+usb-creator-gtk
 ```
 
 
@@ -42,9 +35,6 @@ sudo ddrescue ./Downloads/iso/debian-live-10.7.0-amd64-gnome.iso /dev/sdb1
 
 ## edit a drive
 ```txt
-lsblk
-df -h
-
 # unmount a drive
 sync
 sudo umount /dev/sdb1
@@ -70,9 +60,17 @@ sudo fdisk /dev/sdb
 
 ## Mount a new drive
 ```txt
-sudo mkdir /my-new-dev/
-sudo mount /dev/sdb1 /my-new-dev/
+lsblk | grep sd
 
-df -H
+sudo mount /dev/sdb1 /my-new-dev/
+```
+
+
+# Format
+> WARNING: Format the new partition using Ext4
+```bash
+# list block devices
 lsblk
+
+sudo mkfs.ext4 /dev/sdb1
 ```

@@ -14,25 +14,19 @@ tar -xzf Postman.tar.gz
 delete all 18 packages installed with the first command
 ```txt
 sudo apk add --virtual .asim-package gcc vim
-sudo apk del .asim-package
+
+sudo apk del           .asim-package
 ```
 
 
 ## install Debian
 [Debian 10 Buster](https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/)
 ```bash
-mkdir /tmp/debian
-cd /tmp/debian
 curl -LO https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/SHA256SUMS
 
-# cinnamon
-curl -LO https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.7.0-amd64-cinnamon.iso
-
-# gnome
 curl -LO https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.7.0-amd64-gnome.iso
 
-grep amd64-cinnamon.iso SHA256SUMS | sha256sum -c
-grep amd64-gnome.iso SHA256SUMS | sha256sum -c
+sha256sum -c --ignore-missing SHA256SUMS
 ```
 
 
@@ -57,20 +51,13 @@ sudo apt install -y dmz-cursor-theme moka-icon-theme
 
 [Install virtualbox](https://www.virtualbox.org/wiki/Linux_Downloads)
 
-
-## Automatic suspend
-```bash
-sudo nano /etc/gdm3/greeter.dconf-defaults
-```
-
-
-## Install RPM Package Directly on Ubuntu
+## Install RPM Package Directly on Debian
 ```txt
 sudo alien -i <name of package>.rpm
 ```
 
 
-## Install RPM Packages On Ubuntu
+## Install RPM Packages On Debian
 ```txt
 sudo add-apt-repository universe
 sudo apt-get update
@@ -83,9 +70,8 @@ sudo alien <name of package>.rpm
 
 ## install the Java Runtime Environment (JRE)
 ```txt
-sudo apt install -y default-jre
-java -version
+sudo apt install -y default-jre default-jdk
 
-sudo apt install -y default-jdk
+java  -version
 javac -version
 ```
