@@ -1,5 +1,23 @@
 [docs](https://www-users.york.ac.uk/~mijp1/teaching/2nd_year_Comp_Lab/guides/grep_awk_sed.pdf)
 
+## lower & uppercase
+```bash
+my_name=aSim
+# aSim
+
+echo $my_name
+# aSim
+
+echo ${my_name^}
+# ASim
+
+echo ${my_name^^}
+# ASIM
+
+echo ${my_name,,}
+# asim
+```
+
 
 ## progress bar
 ```bash
