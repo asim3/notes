@@ -49,7 +49,18 @@ sudo apt install -y dmz-cursor-theme moka-icon-theme
 # then open   tweaks > appearance > themes > icons        > Humanity
 ```
 
-[Install virtualbox](https://www.virtualbox.org/wiki/Linux_Downloads)
+
+## install Virtual Box
+[Downloads](https://www.virtualbox.org/wiki/Linux_Downloads)
+```bash
+cd /tmp/ \
+&& sudo echo 'install Virtual Box' \
+&& sudo apt install -y libsdl1.2debian \
+&& curl -LO https://download.virtualbox.org/virtualbox/6.1.18/virtualbox-6.1_6.1.18-142142~Debian~buster_amd64.deb \
+&& sudo dpkg -i virtualbox-6.1_6.1.18-142142~Debian~buster_amd64.deb \
+&& echo Done.
+```
+
 
 ## Install RPM Package Directly on Debian
 ```txt
