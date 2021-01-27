@@ -75,12 +75,28 @@ which sudo
 
 ## kernel info
 ```txt
-# kernel version
 uname -a
+# Linux home-main 4.19.0-13-amd64 #1 SMP Debian 4.19.160-2 (2020-11-28) x86_64 GNU/Linux
 
-whoami
 
-cat /etc/lsb-release
+lsb_release -a
+# Distributor ID:	Debian
+# Description:	Debian GNU/Linux 10 (buster)
+# Release:	10
+# Codename:	buster
+
+
+lsb_release -is
+# Debian
+
+
+lsb_release -cs
+# buster
+
+
+distributor=$(lsb_release -is)
+echo ${distributor,,}
+debian
 ```
 
 
@@ -124,6 +140,8 @@ cat /etc/group
 
 # show user groups
 id
+
+whoami
 ```
 
 
