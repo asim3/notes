@@ -1,10 +1,17 @@
-## Install SSH
+## install ssh server
 ```txt
 sudo apt install -y openssh-server
+
+sudo systemctl status ssh
+```
+
+
+## setup ssh
+```txt
 mkdir ~/.ssh/
-touch ~/.ssh/authorized_keys
 chmod 700 ~/.ssh/
-chmod 600 ~/.ssh/authorized_keys
+
+touch ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/*
 ```
 
