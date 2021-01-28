@@ -4,9 +4,13 @@ sudo dpkg -i <name of package>.deb
 ```
 
 
-## Unpack an archive
+## Extract tar file
 ```txt
-tar -xzf Postman.tar.gz 
+tar -xf  my_archive.tar
+tar -xzf my_archive.tar.gz
+
+# print all files verbosely
+tar -xvf my_archive.tar 
 ```
 
 
@@ -35,18 +39,20 @@ sha256sum -c --ignore-missing SHA256SUMS
 # open software & updates
 # then enable downloadable from the internet
 
-sudo apt install -y bash-completion curl gnome-tweaks git-hub
+sudo apt install -y \
+  bash-completion \
+  curl \
+  gnome-tweaks \
+  git-hub \
+  gnome-shell-extension-dashtodock \
+  dmz-cursor-theme \
+  moka-icon-theme
 
-# Navigation Dock
-sudo apt install -y gnome-shell-extension-dashtodock
-
-# Theme
-sudo apt install -y dmz-cursor-theme moka-icon-theme
-
-# then enable tweaks > extensions > Dash to Dock
-# then open   tweaks > appearance > themes > applications > Adwaita-dark
-# then open   tweaks > appearance > themes > cursor       > DMZ-White
-# then open   tweaks > appearance > themes > icons        > Humanity
+# enable tweaks   > extensions > Dash to Dock
+# add    settings > devices    > keyboard > switch windows = Alt+Tab
+# open   tweaks   > appearance > themes   > applications > Adwaita-dark
+# open   tweaks   > appearance > themes   > cursor       > DMZ-White
+# open   tweaks   > appearance > themes   > icons        > Humanity
 ```
 
 
@@ -56,7 +62,7 @@ sudo apt install -y dmz-cursor-theme moka-icon-theme
 cd /tmp/ \
 && sudo echo 'install Virtual Box' \
 && sudo apt install -y libsdl1.2debian \
-&& curl -LO https://download.virtualbox.org/virtualbox/6.1.18/virtualbox-6.1_6.1.18-142142~Debian~buster_amd64.deb \
+&& curl -LO 'https://download.virtualbox.org/virtualbox/6.1.18/virtualbox-6.1_6.1.18-142142~Debian~buster_amd64.deb' \
 && sudo dpkg -i virtualbox-6.1_6.1.18-142142~Debian~buster_amd64.deb \
 && echo Done.
 ```
@@ -71,8 +77,6 @@ cd /tmp/ \
 && sudo dpkg -i linux-deb-x64.deb \
 && echo Done.
 ```
-
-
 
 
 ## Install RPM Package Directly on Debian
