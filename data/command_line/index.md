@@ -5,7 +5,7 @@ Ubuntu Operating System using `Linux kernel` and `bash shell`
 GNU is an collection of free software like `bash`, `nano`, `grep` and `tar`
 
 
-```txt
+```bash
 mkdir add_new_folders
 
 rm *.pdf
@@ -20,7 +20,7 @@ mv rename_files.js to_other.js
 
 
 ## Read and Edit
-```txt
+```bash
 touch add_new_file.txt
 
 cat read_file_in_terminal.txt
@@ -32,7 +32,7 @@ gedit edit_file.txt
 
 
 ## CURL
-```txt
+```bash
 curl google.com
 
 # Follow redirects
@@ -62,11 +62,14 @@ curl https://jsonplaceholder.typicode.com/users | json_pp
 
 # embedded text
 curl -s https://storage.googleapis.com/kubernetes-release/`echo release`/stable.txt
+
+# get Header only
+curl -sSL -D - alzod.com -o /dev/null
 ```
 
 
 ## curl POST
-```txt
+```bash
 curl --request POST \
   --url 'http://google.com' \
   --header 'Authorization: Bearer GUiOiJ1c2VyoX8' \
@@ -97,7 +100,7 @@ curl --request GET \
 
 
 ## Permissions
-```txt
+```bash
 sudo chown asim:asim /www
 sudo chown myusername file.txt
 
