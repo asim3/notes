@@ -25,6 +25,12 @@ sudo docker version --format='{{.Client.Version}}'
 ```
 
 
+## run docker as user
+```bash
+sudo usermod -aG docker $USER
+```
+
+
 ## Uninstall old versions
 ```txt
 sudo apt-get remove docker docker-engine docker.io containerd runc

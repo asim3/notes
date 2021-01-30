@@ -2,7 +2,7 @@
 
 
 ## Files archive
-```txt
+```bash
 # new tar file
 tar -cf my_archive.tar my_file.txt
 tar -cf dir_archive.tar ./my_dir/
@@ -21,22 +21,28 @@ tar -cvf my_archive.tar my_file.txt
 
 
 ## gzipped archive >> super small size
-```txt
+```bash
 tar -czf my_archive.tar.gz /var/my_dir/
 tar -xzf my_archive.tar.gz
 ```
 
 
-
 ## add user
-```txt
+```bash
 sudo adduser asim
-
-# list all groups
-cat /etc/group
 
 # set a password
 sudo passwd my-new-user
+```
+
+
+## add user to group
+```bash
+# show all my groups
+id
+
+# list all groups
+cat /etc/group
 
 # add user to sudo group
 sudo adduser asim sudo
@@ -44,21 +50,20 @@ sudo adduser asim sudo
 # add asim to my_group
 sudo adduser asim my_group
 
-# show all my groups
-id
+# OR
+
+sudo usermod -aG my_group asim
 ```
 
 
-
 ## copy all photo in a directory
-```txt
+```bash
 find . -name \*.jpg -exec cp {} ~/my-new-jpg \;
 ```
 
 
-
 ## add a hard link "shortcut"
-```txt
+```bash
 ln ~/Downloads/my_file.pdf ~/Desktop/short_cut.aaaaa
 sudo ln -s /usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin/node /usr/bin/node
 ```
@@ -66,19 +71,20 @@ sudo ln -s /usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin/node /usr/bin/node
 
 ## Aliases 
 shortcut for terminal commands
-```txt
+```bash
 # add to ~/.bash_aliases
 alias ddd="cd ~/Desktop/"
 ```
 
 
 ## connect domain names with IP addresses in local computer 
-```txt
+```bash
 sudo nano /etc/hosts
 ```
 
+
 ## locate binary
-```txt
+```bash
 # Display ls command location along with man page path
 whereis nano
 whereis python
@@ -89,7 +95,7 @@ type -p python
 
 
 ## Show running process name
-```txt
+```bash
 pgrep -l sys
 pgrep -l python
 pgrep -l firefox
@@ -97,7 +103,7 @@ pgrep -l firefox
 
 
 ## Stop running process by name
-```txt
+```bash
 pkill python
 pkill firefox
 pkill gunicorn
