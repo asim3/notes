@@ -1,11 +1,12 @@
 ## System Logs
-```txt
+```bash
 cat /var/log/syslog | tail -n 3
 ```
 
 
-## show all commands history
-```txt
+## History
+show all commands history
+```bash
 history
 ```
 
@@ -65,16 +66,42 @@ history
 ```
 
 
-## Prints the location of binary files
-```txt
+## binary location
+Prints the location of binary files
+```bash
 which python
 which node
 which sudo
 ```
 
+ 
+## dynamic libraries
+Prints the location of dynamic libraries of a binary
+```bash
+ldd /usr/bin/nodejs 
+# linux-vdso.so.1 (0x00007ffcce5c8000)
+# libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f068770c000)
+# libstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f0687383000)
+# libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f0686fe5000)
+# libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f0686dcd000)
+# libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f0686bae000)
+# libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f06867bd000)
+# /lib64/ld-linux-x86-64.so.2 (0x00007f0687910000)
+ldd /usr/bin/python3
+# linux-vdso.so.1 (0x00007ffe9ff2d000)
+# libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f434d68f000)
+# libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f434d470000)
+# libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f434d26c000)
+# libutil.so.1 => /lib/x86_64-linux-gnu/libutil.so.1 (0x00007f434d069000)
+# libexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007f434ce37000)
+# libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f434cc1a000)
+# libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f434c87c000)
+# /lib64/ld-linux-x86-64.so.2 (0x00007f434da80000)
+```
+
 
 ## kernel info
-```txt
+```bash
 uname -a
 # Linux home-main 4.19.0-13-amd64 #1 SMP Debian 4.19.160-2 (2020-11-28) x86_64 GNU/Linux
 
@@ -101,7 +128,7 @@ debian
 
 
 ## IP address
-```txt
+```bash
 ip rout
 hostname -I
 ip addr show
@@ -112,7 +139,7 @@ netstat -tulpn
 
 
 ## Tree
-```txt
+```bash
 sudo apt  install tree
 
 mkdir test-tree
@@ -135,7 +162,7 @@ test-tree/
 
 
 ## list all groups
-```txt
+```bash
 cat /etc/group
 
 # show user groups
@@ -146,7 +173,7 @@ whoami
 
 
 ## Memory & CPU Info
-```txt
+```bash
 free -h
 top
 htop
@@ -156,7 +183,7 @@ cat /proc/meminfo
 ```
 
 ## Disk Info
-```txt
+```bash
 df -h
 
 # only include filesystems of a particular type
@@ -171,7 +198,7 @@ du -sh my_directory/
 
 
 ## PATH
-```txt
+```bash
 echo $PATH
 which sudo
 which python
