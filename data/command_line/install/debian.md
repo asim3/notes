@@ -29,3 +29,42 @@ sudo apt install -y \
 # open   tweaks   > appearance > themes   > cursor       > DMZ-White
 # open   tweaks   > appearance > themes   > icons        > Moka
 ```
+
+
+## setting up Ubuntu
+```bash
+sudo apt install -y \
+  gnome-tweaks \
+  moka-icon-theme \
+  curl \
+  git
+
+# add    settings > devices    > keyboard > switch windows = Alt+Tab
+# open   tweaks   > appearance > themes   > applications > Adwaita-dark
+# open   tweaks   > appearance > themes   > cursor       > DMZ-White
+# open   tweaks   > appearance > themes   > icons        > Moka
+```
+
+
+`nano ~/.gitconfig`
+```text
+[user]
+	email = asim@gmail.com
+	name = asim3
+```
+
+
+## alias
+```bash
+cat <<EOF >> ~/.bashrc
+
+  alias ls='ls --color=auto'
+  alias ll='ls -alF'
+  alias la='ls -A'
+  alias l='ls -CF'
+
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+EOF
+```
