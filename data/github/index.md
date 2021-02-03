@@ -48,3 +48,12 @@ git rm -r --cached .
 git add .
 git commit -m ".gitignore fix"
 ```
+
+
+## SSH port number 
+`sudo nano ~/.ssh/config`
+```txt
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+```
