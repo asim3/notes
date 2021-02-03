@@ -36,6 +36,17 @@ lss    2>> my_file.txt 1>> my_file.txt
 ls -al  >> my_file.txt 2>&1
 ```
 
+
+## sudo append
+```bash
+cat <<EOF | sudo tee -a ~/.ssh/config
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+EOF
+```
+
+
 # stdin
 ```bash
 # Read input from a file

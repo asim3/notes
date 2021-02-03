@@ -59,12 +59,23 @@ sudo apt install -y \
 cat <<EOF >> ~/.bashrc
 
   alias ls='ls --color=auto'
-  alias ll='ls -alF'
+  alias ll='ls -alhF'
+  alias lll='ls -lhF'
   alias la='ls -A'
   alias l='ls -CF'
 
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
+EOF
+```
+
+
+## github SSH port
+```bash
+cat <<EOF | sudo tee -a ~/.ssh/config
+Host github.com
+    Hostname ssh.github.com
+    Port 443
 EOF
 ```
