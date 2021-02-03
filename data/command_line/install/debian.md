@@ -3,7 +3,11 @@
 ```bash
 curl -LO https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/SHA256SUMS
 
+# gnome
 curl -LO https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.7.0-amd64-gnome.iso
+
+# standard
+curl -LO https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.7.0-amd64-standard.iso
 
 sha256sum -c --ignore-missing SHA256SUMS
 ```
@@ -46,14 +50,6 @@ sudo apt install -y \
 ```
 
 
-`nano ~/.gitconfig`
-```text
-[user]
-	email = asim@gmail.com
-	name = asim3
-```
-
-
 ## alias
 ```bash
 cat <<EOF >> ~/.bashrc
@@ -77,5 +73,11 @@ cat <<EOF | sudo tee -a ~/.ssh/config
 Host github.com
     Hostname ssh.github.com
     Port 443
+EOF
+
+cat <<EOF >> ~/.gitconfig`
+[user]
+	email = asim@gmail.com
+	name = asim3
 EOF
 ```
