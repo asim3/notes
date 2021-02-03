@@ -82,7 +82,7 @@ const parse_tags = function (text) {
 
 const get_full_path_links = function (path) {
     const path_list = path.split("/")
-    const title = path_list[0].replace(/_/g, ' ').replace("index.html", "asim notes")
+    const title = path_list[0].replace(/_/g, ' ').replace("index.html", "Quick reference guide")
     let full_path_links = ` 
         <div id="jumbotron" class="jumbotron pt-4 pb-0">
             <h1 class="capitalize">${title}</h1>
