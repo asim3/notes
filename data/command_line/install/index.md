@@ -1,3 +1,14 @@
+## update all
+```bash
+sudo apt -y update \
+  && sudo apt -y upgrade \
+  && sudo apt -y autoremove \
+  && sudo apt -y autoclean \
+  && sudo apt-get --fix-broken autoremove \
+  && echo Done.
+```
+
+
 ## Install deb Package
 ```txt
 sudo dpkg -i <name of package>.deb
