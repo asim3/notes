@@ -1,3 +1,8 @@
-# Notes
+# Quick reference guide
 
-My personal notes. You can visit the website [from here](https://asim3.github.io/notes/).
+
+Quick reference guide for Python, Django, Docker, Kubernetes, 
+JavaScript, GitHub, Bash, Bootstrap and much more. 
+
+
+[You can visit the website from here](https://asim3.github.io/notes/).
