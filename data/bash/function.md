@@ -58,16 +58,22 @@ my_function "asim" "bader" "ahmed"
 ```
 
 
+## remove arguments
 ```bash
-is_dry_run() { if [ "$DRY_RUN" == "1" ]; then return 1; else return 0; fi }
+my_func() {
+  echo $@
+  shift;
+  echo $@
+  shift;
+  echo $@
+  shift;
+  echo $@
+}
 
-DRY_RUN=0
-if is_dry_run; then
-  printf 'yes it is a dry run \n'
-fi
 
-DRY_RUN=1
-if ! is_dry_run; then
-  echo 'not a dry run'
-fi
+my_func a b c d e f g
+# a b c d e f g
+# b c d e f g
+# c d e f g
+# d e f g
 ```

@@ -1,4 +1,6 @@
+[docs](https://www.shellscript.sh/index.html)
 [BASH HOW-TO](http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html)
+
 
 ## to run script in terminal
 ```bash
