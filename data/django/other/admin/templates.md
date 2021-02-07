@@ -1,0 +1,7 @@
+## custom
+```django
+{% extends "admin/base_site.html" %}
+{% block title %}
+    Test page
+{% endblock %}
+```
