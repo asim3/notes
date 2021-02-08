@@ -1,4 +1,46 @@
 ## IF
+`nano my-test.sh && chmod +x my-test.sh`
+```bash
+echo "11" \
+  && echo "22" \
+  && echo "33" \
+  || echo "44" \
+  && echo "55" \
+  || echo "66" \
+  && echo "77" \
+  || echo "88" \
+  && echo "99"
+
+# 11
+# 22
+# 33
+# 55
+# 77
+# 99
+```
+
+
+```bash
+echo "11" \
+  && false \
+  && echo "22" \
+  && echo "33" \
+  || echo "44" \
+  && echo "55" \
+  || echo "66" \
+  && echo "77" \
+  || echo "88" \
+  && echo "99"
+
+# 11
+# 44
+# 55
+# 77
+# 99
+```
+
+
+## IF
 ```bash
 if whoami; then echo "true"; else echo "false"; fi;
 # asim
