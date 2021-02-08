@@ -2,15 +2,22 @@
 [Built-in class-based views API](https://docs.djangoproject.com/en/dev/ref/class-based-views/)
 
 
-## الشكل البسيط
+## Template
+`urls.py`
 ```py
-path('', TemplateView.as_view(template_name="base/home.html") ),python
+from django.views.generic import TemplateView
+
+
+urlpatterns = [
+    path('', TemplateView.as_view(template_name="base/home.html") ),
+    # ...
+]
 ```
 
 
-## الشكل الطبيعي
+# OR
+`views.py`
 ```python
-# views.py
 from django.views.generic import TemplateView
 
 class AboutView(TemplateView):
@@ -27,13 +34,12 @@ class AboutView(TemplateView):
 ```
 
 
+`nano urls.py`
 ```python
-# urls.py
 path('about/', AboutView.as_view() ),
 ```
 
 
-تخطي المعادلة
 ```python
 class ListTable(ListView):
     # queryset = Table1.objects.order_by(order_by_this)
@@ -43,14 +49,12 @@ class ListTable(ListView):
     ordering = 'id'
 
     def dispatch(self, request, *args, **kwargs):
-        ...
-
+        # ...
         return super().dispatch(request, *args, **kwargs)
 ```
 
 
-
-تحويل الرابط
+# Redirect
 ```python
 from django.urls import path
 from django.views.generic.base import RedirectView
@@ -60,18 +64,6 @@ urlpatterns = [
   path('details/', RedirectView.as_view(pattern_name='show_table') ),
 ]
 ```
-
-جميع انواع الأصناف
-```python
-TemplateView
-DetailView
-ListView
-
-CreateView
-UpdateView
-DeleteView
-```
-
 
 
 ## Base64 img

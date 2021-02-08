@@ -1,3 +1,12 @@
+## start
+```
+python3 -m venv .venv \
+  && source ./.venv/bin/activate \
+  && pip install django \
+  && django-admin startproject my_name
+```
+
+
 ## django manage
 ```txt
 django-admin startproject my_name
