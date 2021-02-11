@@ -68,3 +68,40 @@ TEMPLATES = [
 
 {% block bodyclass %}bg-info{% endblock %}
 ```
+
+
+## override object-tools
+`nano admin.py`
+```py
+from django.contrib.admin import register, ModelAdmin
+from .models import Students
+
+
+@register(Students)
+class StudentsAdmin(ModelAdmin):
+    # ...
+    change_list_template = 'students/tools.html'
+```
+
+
+`nano students/tools.html`
+```django
+{% extends "admin/change_list.html" %}
+
+{% block object-tools-items %}
+  <li>
+    <a href="#your_action_url" class="addlink">
+        Upload file
+    </a>
+  </li>
+  {{ block.super }}
+{% endblock %}
+```
+
+
+## override templates
+To `override` the admin template, move `"django.contrib.admin"` 
+in your `INSTALLED_APPS` to the end of `INSTALLED_APPS`.
+```text
+nano <your_app>/templates/admin/<your_app>/<your_model>/change_list.html
+```
