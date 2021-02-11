@@ -90,8 +90,18 @@ class StudentsAdmin(ModelAdmin):
 
 {% block object-tools-items %}
   <li>
+    <a href="#your_action_url" class="viewlink">
+      reports
+    </a>
+  </li>
+  <li>
     <a href="#your_action_url" class="addlink">
-        Upload file
+      add new
+    </a>
+  </li>
+  <li>
+    <a href="#your_action_url" class="changelink">
+      manage reports
     </a>
   </li>
   {{ block.super }}
