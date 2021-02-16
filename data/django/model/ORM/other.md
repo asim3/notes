@@ -1,4 +1,4 @@
-## تنفيذ أمر مباشر
+## run sql
 ```python
 from django.db import connection
 connection.cursor().execute("UPDATE myapp_table1 SET title = 'xxx'")
