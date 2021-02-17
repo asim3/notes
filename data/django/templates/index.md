@@ -14,9 +14,22 @@
 {% static 'js/main.js' %}
 ```
 
-call URLs by name
+## URLs by name
 ```django
 {% url 'blog-home' %}
+
+<a href="{% url 'admin:index' %}"  >index</a>
+<a href="{% url 'admin:login' %}"  >login</a>
+<a href="{% url 'admin:logout' %}" >logout</a>
+
+<a href="{% url 'admin:app_list' 'myapp' %}">Application index page</a>
+<a href="{% url 'admin:myapp_mymodel_changelist' %}"  >Model Home</a>
+
+<a href="{% url 'admin:myapp_mymodel_changelist' %}"  >Changelist</a>
+<a href="{% url 'admin:myapp_mymodel_add' %}"         >Add</a>
+<a href="{% url 'admin:myapp_mymodel_history' '1' %}" >History</a>
+<a href="{% url 'admin:myapp_mymodel_delete' '1' %}"  >Delete</a>
+<a href="{% url 'admin:myapp_mymodel_change' '1' %}"  >Change</a>
 ```
 
 

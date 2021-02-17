@@ -44,7 +44,27 @@ from django.urls import reverse_lazy
 
 
 reverse_lazy('admin:index')
-# '/ar/admin/'
+# index
+reverse_lazy('admin:login')
+# login
+reverse_lazy('admin:logout')
+# logout
+
+reverse_lazy('admin:app_list' 'myapp')
+# Application index page
+reverse_lazy('admin:myapp_mymodel_changelist')
+# Model Home
+reverse_lazy('admin:myapp_mymodel_changelist')
+# Changelist
+reverse_lazy('admin:myapp_mymodel_add')
+# Add
+
+reverse_lazy('admin:myapp_mymodel_history', args=(obj.id,))
+# istory
+reverse_lazy('admin:myapp_mymodel_delete', args=(obj.id,))
+# Delete
+reverse_lazy('admin:myapp_mymodel_change', args=(obj.id,))
+# Change
 ```
 
 
