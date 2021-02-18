@@ -44,15 +44,19 @@ func_return_2 || [ "$?" -eq "2" ] && echo "Done 2"
 ```
 
 
-## return
+## exit vs return
 ```bash
 is_dry_run() { 
-  if [ "$DRY_RUN" = "1" ]; then 
-    return 1; 
-  else 
-    return 0; 
-  fi 
+  if [ "$DRY_RUN" = "2" ]; then
+    echo 'will shut off the program';
+    exit 2;
+  elif [ "$DRY_RUN" = "1" ]; then
+    return 1;
+  else
+    return 0;
+  fi
 }
+
 
 DRY_RUN=0
 if is_dry_run; then
@@ -72,7 +76,7 @@ is_dry_run \
   && echo "Done"
 # No
 # Done
-  
+
 
 DRY_RUN=0
 is_dry_run \
@@ -81,6 +85,14 @@ is_dry_run \
   && echo "Done"
 # yes
 # Done
+
+# exit vs return
+DRY_RUN=2
+is_dry_run \
+  && echo "yes" \
+  || echo "No" \
+  && echo "Done"
+# will shut off the program
 ```
 
 
