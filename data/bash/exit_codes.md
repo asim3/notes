@@ -14,44 +14,40 @@ fi
 #!/bin/sh
 
 func_return_0() { 
-  echo 'AAA'
+  echo 'AA0'
   return 0; 
-  echo 'BBB'
+  echo 'XX0'
 }
 
 func_return_1() { 
-  echo 'AAA'
+  echo 'AA1'
   return 1; 
-  echo 'BBB'
+  echo 'XX1'
 }
 
 func_return_2() { 
-  echo 'AAA'
+  echo 'AA2'
   return 2; 
-  echo 'BBB'
+  echo 'XX2'
 }
 
-func_return_0
-# func_return_1
-# func_return_2
-RETURN_CODE=$?
-if [ "$RETURN_CODE" -eq "0" ]; then
-  echo "Done func_return_0"
-elif [ "$RETURN_CODE" -eq "1" ]; then
-  echo "Done func_return_1"
-elif [ "$RETURN_CODE" -eq "2" ]; then
-  echo "Done func_return_2"
-else
-  echo "Error"
-fi
+
+func_return_0 && [ "$?" -eq "0" ] && echo "Done 0"
+# AA0
+# Done 0
+func_return_1 || [ "$?" -eq "1" ] && echo "Done 1"
+# AA1
+# Done 1
+func_return_2 || [ "$?" -eq "2" ] && echo "Done 2"
+# AA2
+# Done 2
 ```
-> You have to save `$?`, because as soon as you run another 
-> command, such as `if`, its value will be replaced.
 
 
+## return
 ```bash
 is_dry_run() { 
-  if [ "$DRY_RUN" == "1" ]; then 
+  if [ "$DRY_RUN" = "1" ]; then 
     return 1; 
   else 
     return 0; 
@@ -67,10 +63,30 @@ DRY_RUN=1
 if ! is_dry_run; then
   echo 'not a dry run'
 fi
+
+# OR
+
+is_dry_run \
+  && echo "yes" \
+  || echo "No" \
+  && echo "Done"
+# No
+# Done
+  
+
+DRY_RUN=0
+is_dry_run \
+  && echo "yes" \
+  || echo "No" \
+  && echo "Done"
+# yes
+# Done
 ```
 
 
 ## exit codes
+> You have to save `$?`, because as soon as you run another 
+> command, such as `if`, its value will be replaced.
 ```bash
 echo 'asim' | grep 'asim'
 # asim
@@ -94,6 +110,10 @@ echo $?
 /bin/sh -c "exit 3"
 echo $?
 # 3
+
+/bin/bash -c "exit 4"
+echo $?
+# 4
 ```
 
 
