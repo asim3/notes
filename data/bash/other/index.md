@@ -1,3 +1,5 @@
+[testing](https://github.com/sstephenson/bats)
+
 ## debug
 ```bash
 export PS4='+AAAA+'
