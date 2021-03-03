@@ -1,8 +1,52 @@
+## Official Images
+[node](https://hub.docker.com/_/node)
+[busybox](https://hub.docker.com/_/busybox)
+[alpine](https://hub.docker.com/_/alpine)
+[django](https://hub.docker.com/_/django)
+[php](https://hub.docker.com/_/php)
+[wordpress](https://hub.docker.com/_/wordpress)
+[debian](https://hub.docker.com/_/debian)
+[python](https://hub.docker.com/_/python)
+[docker](https://hub.docker.com/_/docker)
+[httpd](https://hub.docker.com/_/httpd)
+[ubuntu](https://hub.docker.com/_/ubuntu)
+
+
+## Dockerfile
+`nano Dockerfile`
+```dockerfile
+FROM debian:latest
+
+
+COPY ./deployer.deb /
+COPY ./tests/ /tests/
+
+
+RUN apt-get -y update \
+    && apt-get -y install git dpkg python3-venv \
+    && git clone --depth 1 https://github.com/sstephenson/bats.git \
+    && /bats/install.sh /usr/local \
+    && dpkg --install /deployer.deb
+
+
+ENTRYPOINT [ "/bin/sh", "-c" ]
+CMD [ "bats -t /tests " ]
+```
+
+
 ## making php Dockerfile
 `nano ~/my_docker_file/Dockerfile`
 ```dockerfile
-FROM php:7.3-apache
-MAINTAINER asim <asim@gmail.com>
+FROM busybox:latest
+FROM alpine:latest
+
+FROM php:latest
+FROM python:latest
+FROM httpd:latest
+
+FROM debian:latest
+FROM ubuntu:latest
+
 
 EXPOSE 80
 ENV MY_ENV="asim"
