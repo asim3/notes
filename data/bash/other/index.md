@@ -1,5 +1,9 @@
 ## debug
 ```bash
+export PS4='+AAAA+'
+# OR
+export PS4='+($(basename ${BASH_SOURCE[0]}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+
 /bin/bash -x my_bash
 ```
 
