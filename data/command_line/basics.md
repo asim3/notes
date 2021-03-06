@@ -23,8 +23,13 @@ find ./ -type f -executable
 find ./ -type f -executable -print
 
 
-find ./ -type f -readable
-find ./ -type f -writable
+find . -type f -readable
+find . -type f -writable
+
+
+# exclude/ignore hidden files and directories
+find . -not -path '*/\.*'
+find . -not -path '*/\.*' -name __init__.py
 ```
 
 

@@ -17,6 +17,9 @@
 ```dockerfile
 FROM debian:latest
 
+LABEL multi.label1="value1" multi.label2="value2" other="value3"
+
+ENV MY_ENV="asim"
 
 COPY ./deployer.deb /
 COPY ./tests/ /tests/
@@ -28,6 +31,10 @@ RUN apt-get -y update \
     && /bats/install.sh /usr/local \
     && dpkg --install /deployer.deb
 
+USER 1000
+USER asim
+
+WORKDIR /path/to/workdir
 
 ENTRYPOINT [ "/bin/sh", "-c" ]
 CMD [ "bats -t /tests " ]
