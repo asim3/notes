@@ -1,5 +1,11 @@
 [testing](https://github.com/sstephenson/bats)
 
+
+```bash
+BASE_DIR="$(basename ${BASH_SOURCE[0]})"
+```
+
+
 ## debug
 ```bash
 export PS4='+AAAA+'
