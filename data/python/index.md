@@ -24,6 +24,22 @@ else:
 ```
 
 
+## return if
+```py
+def aaa():
+   return True if 1 else False
+ 
+def bbb():
+   return True if 0 else False
+ 
+aaa()
+# True
+
+bbb()
+# False
+```
+
+
 ## Closure 1
 ```py
 my_global = 1
