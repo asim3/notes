@@ -13,6 +13,11 @@ class SignUpTestCase(TestCase):
         "password2": "my-test1",
     }
 
+    def test_client(self):
+        response = self.client.post(reverse('my-form'), self.data)
+        form_errors = response.context.get('form').errors
+        self.assertEqual(form_errors['__all__'][0], _("Not registration time"))
+
     def test_forms(self):
         form = UserRegisterForm(data=self.data)
         print(form.errors.items())
