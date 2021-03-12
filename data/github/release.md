@@ -2,10 +2,10 @@
 ```bash
 git tag
 
-git tag -l "v0.0*"
+git tag -l "v0.*"
 
-git show v0.01
-git show v0.02
+git show v0.1.0
+git show v0.2.0
 ```
 
 
@@ -20,19 +20,19 @@ git describe --abbrev=0
 
 ## add tag
 ```bash
-git tag v0.01
+git tag v0.1.0
 
 # with message
-git tag -a v0.01 -m "my version 0.02"
+git tag -a v0.1.0 -m "my version 0.1.0"
 
 # Make a GPG-signed tag
-git tag -s v0.03 -m "my version 0.03"
+git tag -s v0.3.0 -m "my version 0.3.0"
 ```
 
 
 ## push tag
 ```bash
-git push origin v0.01 
+git push origin v0.1.0 
 
 git push origin --tags
 
@@ -42,62 +42,32 @@ git push --tags
 
 ## delete tag
 ```bash
-git tag -d v0.01
-git tag --delete v0.01
+git tag -d v0.1.0
+git tag --delete v0.1.0
 
-git push origin -d v0.01 
-git push origin --delete v0.01 
+git push origin -d v0.1.0 
+git push origin --delete v0.1.0 
 ```
 
 
 ## CHANGELOG.md
+`nano CHANGELOG.md`
 ```md
 # Release Notes
 
 
-## Version 1.18.1 - 2021-03-04
+## Version 0.2.0 - 2021-03-12
+
+Bug fixes:
+
+* Fix a typo
 
 
-Features:
+## Version 0.1.0 - 2021-03-04
 
-* kvm2 driver: Add flag 
+Initial release.
 
-Minor Improvements:
+Added:
 
-* Spanish translations 
-
-Bug Fixes:
-
-* Remove WSLENV empty check from IsMicrosoftWSL 
-* Added WaitGroups to prevent stderr/stdout from 
-
-Version changes:
-
-* Restore kube-cross build image 
+* Readme
 ```
-
-
-## 
-```bash
-```
-
-
-## 
-```bash
-```
-
-
-## 
-```bash
-```
-
-
-## 
-```bash
-```
-
-
-## 
-```bash
-```
-
