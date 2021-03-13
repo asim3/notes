@@ -26,13 +26,18 @@ COPY ./tests/ /tests/
 
 
 RUN apt-get -y update \
-    && apt-get -y install git dpkg python3-venv \
+    && apt-get -y install git dpkg curl sudo python3-venv lsb-release \
     && git clone --depth 1 https://github.com/sstephenson/bats.git \
     && /bats/install.sh /usr/local \
     && dpkg --install /deployer.deb
 
+
+RUN groupadd -r myuser \
+    && useradd --no-log-init -r -g myuser -G sudo myuser \
+    && echo "myuser ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/myuser
+USER myuser
+
 USER 1000
-USER asim
 
 WORKDIR /path/to/workdir
 
