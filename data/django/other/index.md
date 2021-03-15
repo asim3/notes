@@ -1,6 +1,27 @@
 [accounting app](https://django-hordak.readthedocs.io/en/stable/accounting-for-developers.html)
 
 
+## Time
+```py
+from django.utils import timezone
+
+
+date = timezone.now()
+date.strftime("%d/%m/%Y %H:%M:%S")
+# '15/03/2021 13:59:57'
+date.strftime("%d/%m/%Y %I:%M:%S %p")
+# '15/03/2021 01:59:57 PM'
+
+
+next_hour = timezone.now() + timezone.timedelta(hours=5)
+next_hour.strftime("%d/%m/%Y %H:%M:%S")
+
+
+next_day = timezone.now() + timezone.timedelta(days=1)
+next_day.strftime("%d/%m/%Y %H:%M:%S")
+```
+
+
 ## To install psycopg2
 ```txt
 sudo apt install -y libpq-dev
