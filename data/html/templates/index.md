@@ -1,5 +1,7 @@
 ```sh
 mkdir -p static/css static/fonts static/images static/js
+
+mkdir -p dist src/static/css src/static/images src/static/js
 ```
 
 
