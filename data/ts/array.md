@@ -1,15 +1,15 @@
 ## array
 ```ts
-let my_array: boolean[]
-let my_array: number[]
-let my_array: string[]
+let my_booleans: boolean[]
+let my_numbers: number[]
+let my_strings: string[]
 
 // or
-let my_value: Array<string>
-let my_value: Array<number>
+let my_numbers_2: Array<number>
+let my_strings_2: Array<string>
 
 
-my_array = ["Hello", "World"]
+my_strings = ["Hello", "World"]
 ```
 
 
@@ -19,25 +19,32 @@ with specific lengths and element types.
 ```ts
 let my_value: [number, number] 
 my_value = [1, 2];
-my_value = [1, "hello"];
-// error
 
-let my_value: [string, number]
-my_value = ["hello", 42, true];
-my_value = ["hello", 42, true, 55, 99, "world"];
+my_value = [1];
+// Error: target requires 2
+
+my_value = [1, 2, 3];
+// Error: target allows only 2.
+
+my_value = [1, "hello"];
+// Error: Type 'string' is not assignable to type 'number'.
+```
+
+
+```ts
+// either one or two strings.
+let my_value: [number, number?] 
+my_value = [1, 2];
+my_value = [1];
 // ok
 ```
 
 
-## Tuple
+## two or more
 ```ts
-// either one or two strings.
-let c: [string, string?] = ["hello"];
+let my_value: [number, number, ...boolean[] ];
 
-// two or more
-let e: [string, string, ...boolean[]];
-
-e = ["hello", "world"];
-e = ["hello", "world", false];
-e = ["hello", "world", true, false, true];
+my_value = [1, 2];
+my_value = [1, 2, false];
+my_value = [1, 2, true, false, true];
 ```

@@ -7,22 +7,22 @@ my_value = "Hello" + " " + "World";
 
 ## capitalize
 ```ts
-let name = "aSim"
+let my_name = "aSim"
 
-name.toLowerCase()
-name.toUpperCase()
+my_name.toLowerCase()
+my_name.toUpperCase()
 
-name.charAt(0).toUpperCase()
+my_name.charAt(0).toUpperCase()
 ```
 
 
 ## split & replace
 ```ts
-my_value.slice(0, 3)
 
 ```
 
 
 ## cut
 ```ts
+my_name.slice(0, 3)
 ```

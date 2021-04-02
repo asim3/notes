@@ -16,40 +16,26 @@ class User {
         this.name = name;
         this.email = email;
         this.age = age;
+        this.pass = name;
 
         console.log("User Added: " + this.name)
     }
 
     get_email() {
-        console.log("ok protected only from outside: " + this.email)
+        console.log("ok " + this.email)
     }
 
     get_pass() {
-        console.log("error because it is private: " + this.pass)
+        console.log("ok " + this.pass)
     }
 
     private get_age() {
-        console.log("error because the method is private: " + this.age)
+        console.log("ok " + this.age)
     }
 }
 
 let john = new User("John", "m@il.co", 1)
 // User Added: John
-
-john.age
-// 1
-
-john.email
-// error
-
-john.get_email()
-// ok protected only from outside
-
-john.get_pass()
-// error: private
-
-john.get_age()
-// error: private
 ```
 
 
@@ -73,9 +59,10 @@ class Member extends User {
     }
 }
 
-let john = new User("John", "m@il.co", 1)
+
+let john = new Member("John", "m@il.co", 1, 12)
 
 john.get_email()
 // ok from subclass
-// ok protected only from outside
+// ok m@il.co
 ```
