@@ -10,14 +10,11 @@ sudo npm install -g typescript
 `mkdir -p dist src/static/css src/static/images src/static/js`
 ```sh
 tsc --init
-
-# or
-
-npm init
 ```
 
 
 ## config
+`nano tsconfig.json`
 ```ts
 {
   "compilerOptions": {

@@ -37,7 +37,7 @@ sudo apt install nodejs npm
 ## version
 ```txt
 node -v
-npm version
+npm -v
 npx -v
 ```
 

@@ -29,9 +29,10 @@ const puppeteer = require('puppeteer');
 
 
 ## add packages
-```txt
-mkdir ~/my-js-app && cd ~/my-js-app
-# `-y` : to skip walk through
+```sh
+mkdir ~/my-js-app
+cd    ~/my-js-app
+
 npm init -y 
 npm install puppeteer
 ```

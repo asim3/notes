@@ -1,5 +1,23 @@
-# new project
-> to run nodejs script `node my-app.js`
+## add ./package.json
+```sh
+npm init -y
+```
+
+
+## install packages
+```sh
+npm install express
+```
+
+
+# run nodejs 
+```sh
+node my-app.js
+# or 
+
+npm start
+```
+
 
 `nano my-app.js`
 ```js
@@ -18,47 +36,3 @@ server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
 ```
-
-
-
-## new 
-project with packages
-```txt
-mkdir my-project && cd my-project
-# to skip walk through: `npm init -y`
-npm init
-
-# add express framework
-npm i express
-
-# remove express framework
-npm un express
-```
-
-
-## install nodemon
-to restart the server after every save
-```js
-// `-D` for installing in "dev Dependencies"
-npm i -D nodemon
-
-// run
-nodemon index.js
-// or
-npm run div
-```
-
-
-> The starting file is the value of "main" in 'package.json'
-```json
-{
-  // ...
-  "main": "index.js",
-  // ...
-}
-```
-
-
-
-> Error: listen EADDRINUSE :::3000    
-  `killall -g node`
