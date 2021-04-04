@@ -3,12 +3,10 @@ console.log(__dirname)
 ```
 
 
-
 ```js
 const path = require('path');
 path.join(__dirname, 'static')
 ```
-
 
 
 ```js

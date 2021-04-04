@@ -14,6 +14,10 @@ const obj = {
 }
 
 module.exports = obj
+
+// or 
+// module.exports.name = 'Bader'
+// module.exports.email = 'b@der'
 ```
 
 
@@ -21,5 +25,6 @@ module.exports = obj
 ```js
 const other_file = require('./other_file')
 
-console.log(other_file.name, other_file.email)
+console.log(other_file.name)
+console.log(other_file.email)
 ```
