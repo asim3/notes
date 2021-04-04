@@ -1,3 +1,11 @@
+## require
+```js
+const { v4: my_func } = require('uuid');
+
+console.log(my_func())
+```
+
+
 `nano other_file.js`
 ```js
 const obj = {
@@ -7,7 +15,6 @@ const obj = {
 
 module.exports = obj
 ```
-
 
 
 `nano index.js`

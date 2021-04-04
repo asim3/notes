@@ -58,9 +58,9 @@ tw.on('tweet', (tweet) => {
 
 [uuid](https://www.npmjs.com/package/uuid)
 ```js
-import { v4 as uuidv4 } from 'uuid';
+const { v4: my_func } = require('uuid');
 
-uuidv4(); 
+console.log(my_func())
 // '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 ```
 
@@ -73,4 +73,14 @@ classNames('foo', 'bar');
 
 classNames('foo', { bar: true, duck: false }, 'baz', { quux: true }) 
 // 'foo bar baz quux'
+```
+
+[json web token](https://www.npmjs.com/package/jsonwebtoken)
+```js
+var jwt = require('jsonwebtoken');
+
+var token = jwt.sign({ foo: 'bar' }, 'shhhhh');
+
+console.log(token)
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJpYXQiOjE2MTc1Njg5NzF9.jmx018orxqGdvxf6GqqfilZRUL_PhCDW2noP3dRMTpI
 ```
