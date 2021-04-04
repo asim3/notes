@@ -40,8 +40,9 @@ req.params: { "genus": "Prunus", "species": "persica" }
 ```
 
 
-> To have more control over the exact string that can be matched by a route parameter, you can append a regular expression in parentheses `(())`:
-be sure to escape any `\` characters, for example `\\d+`.
+> To have more control over the exact string that can be matched 
+> by a route parameter, you can append a regular expression 
+> in parentheses `(())`: be sure to escape any `\` characters, for example `\\d+`.
 ```js
 Route path: /user/:userId(\d+)
 // Request URL: http://localhost:3000/user/42
