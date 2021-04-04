@@ -2,11 +2,21 @@
 to restart the server after every save
 ```sh
 npm install --save-dev nodemon
+```
+
+## add script
+```json
+{ 
+  "scripts": {
+    "my_div": "nodemon index.js"
+  },
+  // ...
+} 
+```
+
 
 # run
-npm run div
-#  or
-nodemon index.js
+npm run my_div
 ```
 
 

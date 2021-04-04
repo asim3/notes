@@ -1,25 +1,4 @@
-## add ./package.json
-```sh
-npm init -y
-```
-
-
-## install packages
-```sh
-npm install express
-```
-
-
-# run nodejs 
-```sh
-node my-app.js
-# or 
-
-npm start
-```
-
-
-`nano my-app.js`
+`nano my_app.js`
 ```js
 const http = require('http');
 
@@ -35,4 +14,17 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
+```
+
+
+## install packages
+```sh
+npm init -y # to add ./package.json
+npm install express
+```
+
+
+# run nodejs 
+```sh
+node my_app.js
 ```
