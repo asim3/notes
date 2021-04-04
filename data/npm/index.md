@@ -30,7 +30,7 @@ npm i
 -P | --save-prod # default
 -D | --save-dev
 -O | --save-optional
--g | --global
+-g | --global    # @ /usr/lib/node_modules/
      --no-save
 ```
 
