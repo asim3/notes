@@ -24,7 +24,21 @@ npm install express
 ```
 
 
+`nano package.json`
+```json
+{
+  // ...
+  "scripts": {
+    "start": "node main.js",
+  }
+}
+```
+
+
 # run nodejs 
 ```sh
+npm start
+
+# or 
 node my_app.js
 ```

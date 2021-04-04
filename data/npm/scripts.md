@@ -7,6 +7,7 @@
     "premy_script": "echo This is pre my script",
     "postmy_script": "echo This is post my script",
 
+    "start": "node main.js",
     
     "test": "echo this is test",
     "pretest": "echo this is pre test",
