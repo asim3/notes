@@ -6,64 +6,78 @@ Ingress may provide load balancing, SSL termination and name-based virtual hosti
 [Nginx Ingress](https://github.com/nginxinc/kubernetes-ingress)
 
 
-# install
-## by minikube
-```text
-minikube addons enable ingress
-```
+1- deploy pods with `labels`    
+2- deploy service with same `labels`    
+3- deploy ingress linked with this service    
+4- check the domain from outside    
 
 
-## or by helm
-```bash
-helm install nginx-ingress stable/nginx-ingress --set controller.publishService.enabled=true
-
-helm install nginx-ingress bitnami/nginx-ingress-controller --set rbac.create=true
-
-# access ingress through localhost
-kubectl port-forward deployment/nginx-ingress-nginx-ingress-controller 8000:80
-# OR
-# install metallb
-```
-
-
-## or by github
-```bash
-ingress_V='v0.34.1'
-
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-$ingress_V/deploy/static/provider/do/deploy.yaml
-```
-
-
-# Testing
-## deploy 3 Deployments
+## deploy 3 pods
 ```bash
 kubectl run test-ingress-main  --image=containous/whoami --labels="my=test-ingress,type=main"
-kubectl run test-ingress-blue  --image=containous/whoami --labels="my=test-ingress,type=blue"
-kubectl run test-ingress-green --image=containous/whoami --labels="my=test-ingress,type=green"
 
 kubectl expose pod/test-ingress-main  --port 80 --labels="my=test-ingress"
-kubectl expose pod/test-ingress-blue  --port 80 --labels="my=test-ingress"
-kubectl expose pod/test-ingress-green --port 80 --labels="my=test-ingress"
 
 
 kubectl get all -l my=test-ingress
+kubectl get pods
+kubectl get service
 ```
 
 
 ## set local hostname
+> with minikube addons enable ingress
 ```bash
-# with minikube addons enable ingress
-cat <<EOF | sudo tee -a /etc/hosts
-$(minikube ip) whoami.example.com
-$(minikube ip) blue.whoami.example.com
-$(minikube ip) green.whoami.example.com
-EOF
+echo "$(minikube ip) whoami.example.com" | sudo tee -a /etc/hosts
+```
 
 
-# with kubectl port-forward
-cat <<EOF | sudo tee -a /etc/hosts
-127.0.0.1 whoami.example.com
-127.0.0.1 blue.whoami.example.com
-127.0.0.1 green.whoami.example.com
-EOF
+## apply ingress
+`kubectl apply -f - <<eof`
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress-resource
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: whoami.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: test-ingress-main
+            port: 
+              number: 80
+```
+
+
+## list ingress rules
+```bash
+kubectl get ingress
+```
+
+
+## check
+```bash
+curl -s http://whoami.example.com/
+# Hostname: test-ingress-main
+# IP: 127.0.0.1
+# IP: 172.17.0.4
+# RemoteAddr: 172.17.0.3:45424
+# GET / HTTP/1.1
+# Host: whoami.example.com
+# User-Agent: curl/7.68.0
+# Accept: */*
+# X-Forwarded-For: 192.168.99.1
+# X-Forwarded-Host: whoami.example.com
+# X-Forwarded-Port: 80
+# X-Forwarded-Proto: http
+# X-Real-Ip: 192.168.99.1
+# X-Request-Id: 9665abe18dea6bbe405304902276806c
+# X-Scheme: http
 ```
