@@ -8,7 +8,7 @@ Ingress may provide load balancing, SSL termination and name-based virtual hosti
 
 1- deploy pods with `labels`    
 2- deploy service with same `labels`    
-3- deploy ingress linked with this service    
+3- deploy ingress linked to this service    
 4- check the domain from outside    
 
 
