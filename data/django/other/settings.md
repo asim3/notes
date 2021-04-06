@@ -9,13 +9,17 @@ settings.NEWS_API_KEY
 
 
 ## settings
+> when you run `collectstatic`, django will 
+> copy all files in `STATICFILES_DIRS` to `STATIC_ROOT`
 ```python
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATIC_ROOT = os.path.join(BASE_DIR, "my_collect_static")
+STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR , 'copy_all_to_STATIC_ROOT'), )
+STATIC_ROOT = BASE_DIR / "static"
+
+STATICFILES_DIRS = [ BASE_DIR / "copy_all_files_to_STATIC_ROOT" ]
+STATICFILES_DIRS = [ BASE_DIR / "static_files" ]
 
 MEDIA_URL = '/media/'
 
