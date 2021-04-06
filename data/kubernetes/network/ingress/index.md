@@ -12,16 +12,12 @@ Ingress may provide load balancing, SSL termination and name-based virtual hosti
 4- check the domain from outside    
 
 
-## deploy 3 pods
+## list 
 ```bash
-kubectl run test-ingress-main  --image=containous/whoami --labels="my=test-ingress,type=main"
-
-kubectl expose pod/test-ingress-main  --port 80 --labels="my=test-ingress"
-
-
 kubectl get all -l my=test-ingress
 kubectl get pods
 kubectl get service
+kubectl get ingress
 ```
 
 
@@ -35,6 +31,36 @@ echo "$(minikube ip) whoami.example.com" | sudo tee -a /etc/hosts
 ## apply ingress
 `kubectl apply -f - <<eof`
 ```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apppppp-name
+  namespace: default
+  labels:
+    my: test-ingress
+    type: main
+spec:
+  containers:
+  - image: containous/whoami
+    name: apppppp-name
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apppppp-name
+  namespace: default
+  labels:
+    my: test-ingress
+spec:
+  type: ClusterIP
+  selector:
+    my: test-ingress
+    type: main
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -50,34 +76,32 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: test-ingress-main
+            name: apppppp-name
             port: 
               number: 80
-```
-
-
-## list ingress rules
-```bash
-kubectl get ingress
 ```
 
 
 ## check
 ```bash
 curl -s http://whoami.example.com/
-# Hostname: test-ingress-main
+# Hostname: apppppp-name
 # IP: 127.0.0.1
-# IP: 172.17.0.4
-# RemoteAddr: 172.17.0.3:45424
+# IP: 172.17.0.3
+# RemoteAddr: 172.17.0.5:36350
 # GET / HTTP/1.1
 # Host: whoami.example.com
-# User-Agent: curl/7.68.0
-# Accept: */*
+# User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
+# Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+# Accept-Encoding: gzip, deflate
+# Accept-Language: en-US,en;q=0.5
+# Cache-Control: max-age=0
+# Upgrade-Insecure-Requests: 1
 # X-Forwarded-For: 192.168.99.1
 # X-Forwarded-Host: whoami.example.com
 # X-Forwarded-Port: 80
 # X-Forwarded-Proto: http
 # X-Real-Ip: 192.168.99.1
-# X-Request-Id: 9665abe18dea6bbe405304902276806c
+# X-Request-Id: 4c97c40cc722aa7756c14f6e646ec637
 # X-Scheme: http
 ```
