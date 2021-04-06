@@ -20,6 +20,7 @@ STATIC_ROOT = BASE_DIR / "static"
 
 STATICFILES_DIRS = [ BASE_DIR / "copy_all_files_to_STATIC_ROOT" ]
 STATICFILES_DIRS = [ BASE_DIR / "static_files" ]
+STATICFILES_DIRS = [ BASE_DIR / "templates/static" ]
 
 MEDIA_URL = '/media/'
 
