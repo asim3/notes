@@ -3,6 +3,9 @@ CommandError: Can't find msguniq. Make sure you have GNU gettext tools 0.15 or n
 ```sh
 sudo apt install gettext
 
+# alpine
+apk add gettext
+
 # add Locale Middleware
 
 # add LOCALE_PATHS

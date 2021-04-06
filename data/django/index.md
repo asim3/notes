@@ -1,5 +1,5 @@
 ## start
-```
+```sh
 python3 -m venv .venv \
   && source ./.venv/bin/activate \
   && pip install django \
@@ -20,8 +20,6 @@ python manage.py runserver
 ```
 
 
-
-
 ## super user
 ```txt
 python manage.py createsuperuser
@@ -30,6 +28,5 @@ python manage.py createsuperuser
 
 ## Translation
 ```txt
-mkdir locale
 python3 manage.py makemessages -l ar
 ```
