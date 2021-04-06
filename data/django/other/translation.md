@@ -1,3 +1,14 @@
+## setup
+CommandError: Can't find msguniq. Make sure you have GNU gettext tools 0.15 or newer installed.
+```sh
+sudo apt install gettext
+
+# add Locale Middleware
+
+# add LOCALE_PATHS
+```
+
+
 ## copy all messages
 ```txt
 mkdir locale
@@ -7,12 +18,9 @@ python3 manage.py makemessages -l es
 ```
 
 
-## view.py
-```python
-from django.utils.translation import gettext_lazy as _
-
-class MyThing(models.Model):
-    name = models.CharField(help_text=_('This is the help text'))
+## Compile all messages
+```txt
+python3 manage.py compilemessages
 ```
 
 
@@ -27,7 +35,7 @@ MIDDLEWARE = [
     # . . . 
 ]
 
-LANGUAGE_CODE = 'ar'
+LANGUAGE_CODE = 'ar-sa'
 
 LANGUAGES = [
     ('ar', _('Arabic')),
@@ -35,14 +43,17 @@ LANGUAGES = [
 ]
 
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
+    BASE_DIR / 'locale',
 )
 ```
 
 
-## Compile all messages
-```txt
-python3 manage.py compilemessages
+## view.py
+```python
+from django.utils.translation import gettext_lazy as _
+
+class MyThing(models.Model):
+    name = models.CharField(help_text=_('This is the help text'))
 ```
 
 
