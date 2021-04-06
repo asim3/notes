@@ -141,6 +141,11 @@ class MyThing(models.Model):
 
     def __str__(self):
         return self.title
+
+    # choices text
+    def __str__(self):
+        semester = dict(self.YearInSchool.choices()).get(str(self.year_in_school))
+        return "%s %s" % (self.year, semester)
     
 
     def get_absolute_url(self):
