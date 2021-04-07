@@ -8,8 +8,9 @@ Ingress may provide load balancing, SSL termination and name-based virtual hosti
 
 1- deploy pods with `labels`    
 2- deploy service with same `labels`    
-3- deploy ingress linked to this service    
-4- check the domain from outside    
+3- install ingress controller    
+4- deploy ingress linked to this service    
+5- check the domain from outside    
 
 
 ## list 
@@ -64,9 +65,10 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  # name: must be a valid DNS subdomain name
   name: my-ingress-resource
   annotations:
-    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - host: whoami.example.com
