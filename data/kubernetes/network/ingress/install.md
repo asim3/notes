@@ -47,7 +47,3 @@ POD_NAME=$(kubectl get pods -n $POD_NAMESPACE -l app.kubernetes.io/name=ingress-
 
 kubectl exec -it $POD_NAME -n $POD_NAMESPACE -- /nginx-ingress-controller --version
 ```
-
-
-# Certificate Controller
-[docs](https://cert-manager.io/docs)
