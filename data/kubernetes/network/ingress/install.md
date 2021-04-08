@@ -15,12 +15,12 @@ minikube addons enable ingress
 
 
 ## Digital Ocean
-install `Ingress Controllers` for Digital Ocean
+install `Ingress Controllers` for Digital Ocean    
+[releases](https://github.com/kubernetes/ingress-nginx/tags)
 ```bash
-# https://github.com/kubernetes/ingress-nginx/blob/master/Changelog.md
-ingress_V='v0.34.1'
+version='0.34.1'
 
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-$ingress_V/deploy/static/provider/do/deploy.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v${version}/deploy/static/provider/do/deploy.yaml
 ```
 
 
