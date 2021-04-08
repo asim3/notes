@@ -3,6 +3,7 @@ An API object that manages external access to the services in a cluster, typical
 Ingress may provide load balancing, SSL termination and name-based virtual hosting.
 
 
+[docs](https://kubernetes.io/docs/concepts/services-networking/ingress)
 [Nginx Ingress](https://github.com/nginxinc/kubernetes-ingress)
 
 
