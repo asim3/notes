@@ -44,7 +44,9 @@ spec:
   containers:
   - image: containous/whoami
     name: apppppp-name
+
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -61,7 +63,9 @@ spec:
   - port: 80
     protocol: TCP
     targetPort: 80
+
 ---
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
