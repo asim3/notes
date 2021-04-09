@@ -1,6 +1,53 @@
-## apply ingress
+## add certificate authorities
+```bash
+openssl req -sha256 -nodes -x509 -days 365 \
+  -newkey rsa:4096 \
+  -keyout /tmp/my_private.key \
+  -out    /tmp/my_https.crt
+```
+
+
+## Issuer
 `kubectl apply -f - <<eof`
 ```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-ca-key-pair
+  namespace: default
+  # namespace: not required for ClusterIssuers
+data:
+  tls.crt: $(cat /tmp/my_https.crt | base64 -w0)
+  tls.key: $(cat /tmp/my_private.key | base64 -w0)
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: my-ca-issuer
+  namespace: default
+spec:
+  ca:
+    secretName: my-ca-key-pair
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: my-certificate-name
+spec:
+  secretName: my-new-certificate 
+  # secretName: will be added automaticly 
+  issuerRef:
+    name: my-ca-issuer
+  dnsNames:
+    - whoami.example.com
+  commonName: example.com
+
+---
+
 apiVersion: v1
 kind: Pod
 metadata:
@@ -33,18 +80,6 @@ spec:
 
 ---
 
-apiVersion: v1
-kind: Secret
-metadata:
-  name: my-test-secret-tls
-  namespace: default
-data:
-  tls.crt: $(cat /tmp/my_https.crt | base64 -w0)
-  tls.key: $(cat /tmp/my_private.key | base64 -w0)
-type: kubernetes.io/tls
-
----
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -57,7 +92,7 @@ spec:
   # hosts: need to explicitly match spec.rules.host
   - hosts:
       - whoami.example.com
-    secretName: my-test-secret-tls
+    secretName: my-new-certificate
   rules:
   - host: whoami.example.com
     http:
@@ -69,27 +104,4 @@ spec:
             name: apppppp-name
             port: 
               number: 80
-```
-> traffic to the `Service` and its `Pods` is in plaintext
-
-
-
-## using cert-manager
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: my-ingress-resource
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-spec:
-  tls:
-  - hosts:
-    - whoami.example.com
-    - blue.whoami.example.com
-    - green.whoami.example.com
-    secretName: my-ingress-resource-tls
-  rules:
-  # ...
 ```
