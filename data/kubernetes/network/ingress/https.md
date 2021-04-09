@@ -39,8 +39,8 @@ metadata:
   name: my-test-secret-tls
   namespace: default
 data:
-  tls.crt: "YmFzZTY0IGVuY29kZWQgY2VydAo=" # base64 encoded cert
-  tls.key: "YmFzZTY0IGVuY29kZWQga2V5Cg==" # base64 encoded key
+  tls.crt: $(cat /tmp/my_https.crt | base64 -w0)
+  tls.key: $(cat /tmp/my_private.key | base64 -w0)
 type: kubernetes.io/tls
 
 ---
