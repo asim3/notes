@@ -38,7 +38,7 @@ kind: Certificate
 metadata:
   name: my-certificate-name
 spec:
-  secretName: my-new-certificate 
+  secretName: my-secret-added-by-certificate 
   # secretName: will be added automaticly 
   issuerRef:
     name: my-ca-issuer
@@ -90,7 +90,7 @@ spec:
   # hosts: need to explicitly match spec.rules.host
   - hosts:
       - whoami.example.com
-    secretName: my-new-certificate
+    secretName: my-secret-added-by-certificate
   rules:
   - host: whoami.example.com
     http:
@@ -115,7 +115,7 @@ kubectl describe cert my-certificate-name
 ## debugging
 ```bash
 kubectl describe cr
-# Error: IssuerNotReady: Referenced issuer does not have a Ready status condition
+# Error: Referenced issuer does not have a Ready status condition
 
 kubectl describe issuer
 # Error: Error getting keypair for CA issuer: secret "my-issuer-certificate-authorities-key" not found
