@@ -13,7 +13,7 @@ openssl req -sha256 -nodes -x509 -days 365 \
 apiVersion: v1
 kind: Secret
 metadata:
-  name: my-ca-key-pair
+  name: my-issuer-certificate-authorities-key
   namespace: default
   # namespace: not required for ClusterIssuers
 data:
@@ -29,7 +29,7 @@ metadata:
   namespace: default
 spec:
   ca:
-    secretName: my-ca-key-pair
+    secretName: my-issuer-certificate-authorities-key
 
 ---
 
@@ -85,8 +85,6 @@ kind: Ingress
 metadata:
   # name: must be a valid DNS subdomain name
   name: my-ingress-resource
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
   # hosts: need to explicitly match spec.rules.host
@@ -104,4 +102,21 @@ spec:
             name: apppppp-name
             port: 
               number: 80
+```
+
+
+## Status
+```bash
+kubectl get      cert my-certificate-name
+kubectl describe cert my-certificate-name
+```
+
+
+## debugging
+```bash
+kubectl describe cr
+# Error: IssuerNotReady: Referenced issuer does not have a Ready status condition
+
+kubectl describe issuer
+# Error: Error getting keypair for CA issuer: secret "my-issuer-certificate-authorities-key" not found
 ```

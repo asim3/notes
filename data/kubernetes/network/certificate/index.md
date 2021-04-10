@@ -33,10 +33,19 @@ kubectl get certificaterequest
 ```
 
 
+# other (acme)
+```bash
+kubectl get clusterissuers
+kubectl get order
+kubectl get challenge
+```
+
+
 ## check the certificate
 > The certificate will be issued automatically as a `secret`.
 ```bash
-cert_as_base64=$(kubectl get secret my-new-certificate -o jsonpath="{.data.tls\.crt}")
+secret_name="my-new-certificate"
+cert_as_base64=$(kubectl get secret ${secret_name} -o jsonpath="{.data.tls\.crt}")
 
 echo $cert_as_base64 | base64 -d | openssl x509 -text -noout -in -
 ```
