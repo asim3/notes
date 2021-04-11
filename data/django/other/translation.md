@@ -5,17 +5,20 @@ sudo apt install gettext
 
 # alpine
 apk add gettext
-
-# add Locale Middleware
-
-# add LOCALE_PATHS
 ```
+
+
+## Steps
+> 1- add Locale Middleware    
+> 2- add LOCALE_PATHS    
+> 3- add URL Patterns
 
 
 ## copy all messages
 ```txt
 mkdir locale
 python3 manage.py makemessages -l ar
+python3 manage.py makemessages -l ar_sa
 python3 manage.py makemessages -l en
 python3 manage.py makemessages -l es
 ```
@@ -40,13 +43,27 @@ MIDDLEWARE = [
 
 LANGUAGE_CODE = 'ar-sa'
 
+# LANGUAGES: used by i18n_patterns to determine the languages
 LANGUAGES = [
     ('ar', _('Arabic')),
+    ('ar-sa', _('Arabic')),
     ('en', _('English')),
 ]
 
 LOCALE_PATHS = (
     BASE_DIR / 'locale',
+)
+```
+
+
+## URLs
+```py
+from django.conf.urls.i18n import i18n_patterns
+
+
+urlpatterns = i18n_patterns(
+    # ...
+    path('admin/', admin.site.urls),
 )
 ```
 

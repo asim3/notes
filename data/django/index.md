@@ -29,4 +29,5 @@ python manage.py createsuperuser
 ## Translation
 ```txt
 python3 manage.py makemessages -l ar
+python3 manage.py compilemessages
 ```
