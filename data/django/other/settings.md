@@ -135,6 +135,9 @@ from .rest_framework import *
 from .aws import *
 from .other import *
 
+# go up one directory
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_secret_key())
 
