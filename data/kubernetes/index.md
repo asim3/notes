@@ -100,6 +100,15 @@ kubectl describe pod __pod_name__
 ```
 
 
+## List all Container images
+```bash
+kubectl get pods -A -o jsonpath="{..image}" \
+  | tr -s '[[:space:]]' '\n' \
+  | sort \
+  | uniq -c
+```
+
+
 ## TroubleShooting
 ```txt
 kubectl get events --sort-by=.metadata.creationTimestamp
