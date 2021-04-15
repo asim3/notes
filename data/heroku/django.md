@@ -34,17 +34,20 @@ STATIC_ROOT = os.path.join(BASE_DIR, "heroku_static")
 
 
 ## Run
-```txt
-heroku run "cd _ && python manage.py migrate" -a _
-heroku run "cd _ && python manage.py createsuperuser" -a _
-heroku run "cd _ && python manage.py compilemessages" -a _
-heroku run "cd _ && python manage.py shell" -a _
-cd _ && 
-
+```bash
 heroku run " \
-    cd _ && \
+    cd __name__ && \
     python manage.py migrate && \
     python manage.py createsuperuser && \
     python manage.py compilemessages \
-    " -a _
+    " -a __name__
+```
+
+
+## OR
+```bash
+heroku run "cd __name__ && python manage.py migrate" -a _
+heroku run "cd __name__ && python manage.py createsuperuser" -a _
+heroku run "cd __name__ && python manage.py compilemessages" -a _
+heroku run "cd __name__ && python manage.py shell" -a _
 ```
