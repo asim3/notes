@@ -36,3 +36,16 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 SECURE_HSTS_PRELOAD = True
 ```
+
+
+## other
+```py
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# for older browsers
+SECURE_BROWSER_XSS_FILTER = True
+
+SECURE_REFERRER_POLICY = 'same-origin'
+
+# SECURE_SSL_HOST = "www.example.com"
+```
