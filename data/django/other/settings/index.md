@@ -27,6 +27,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root_folder')
 ```
 
+
 ## Login Logout
 ```python
 LOGIN_URL = reverse_lazy('login')
@@ -35,7 +36,6 @@ LOGIN_REDIRECT_URL = reverse_lazy('pledge')
 
 LOGOUT_REDIRECT_URL = reverse_lazy('home')
 ```
-
 
 
 ## LANGUAGES
@@ -67,40 +67,6 @@ DATETIME_FORMAT = 'Y / m / d P'
 ```
 
 
-## Heroku
-```python
-import django_heroku
-
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-django_heroku.settings(locals())
-```
-
-
-## local_settings
-```python
-try:
-    from .local_settings import *
-except:
-    print("local_settings not found!")
-```
-
-
-## local_settings.py
-```python
-DEBUG = True
-
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-
-STATIC_URL = '/static/'
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-```
-
-
 ## environment variables
 ```python
 import os
@@ -112,34 +78,12 @@ os.getenv('HOME', 'my home')
 ```
 
 
-## best practices
-```bash
-cd __project__
-mkdir settings    
-mv settings.py settings/base.py
-
-echo 'from .development import *' >  ./settings/__init__.py
-
-echo 'from .base import *' > ./settings/test.py
-echo 'from .base import *' > ./settings/development.py
-echo 'from .base import *' > ./settings/production.py
-```
+## Heroku
+```python
+import django_heroku
 
 
-`settings/base.py`
-```py
-import os
-from django.core.management.utils import get_random_secret_key
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-from .rest_framework import *
-from .aws import *
-from .other import *
-
-# go up one directory
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-
-
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_secret_key())
-
-DEBUG = os.getenv('DJANGO_DEBUG', False) in (True, 'True')
+django_heroku.settings(locals())
 ```
