@@ -182,6 +182,21 @@ htop
 cat /proc/meminfo
 ```
 
+
+## CPU Info
+```bash
+lscpu
+lscpu -p
+
+nproc --all
+# OR
+lscpu | egrep '^CPU\(s\):' | awk -F " " '{print $2}'
+
+cat /proc/cpuinfo
+
+getconf -a
+```
+
 ## Disk Info
 ```bash
 df -h

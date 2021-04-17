@@ -35,9 +35,12 @@ python3 manage.py compilemessages
 
 ## gunicorn
 ```bash
+workers=$(nproc --all | awk -F " " '{print $1 * 2 + 1 }')
+
 # 3 workers "pid"
 gunicorn --chdir my_project --workers 3 --bind 0.0.0.0:8000 wsgi
-# OR threads
+
+# threads lightweight (less memory consumption)
 gunicorn --chdir my_project --threads 3 --bind 0.0.0.0:8000 wsgi
 
 
@@ -45,4 +48,18 @@ gunicorn --chdir my_project --threads 3 --bind 0.0.0.0:8000 wsgi
 gunicorn --chdir my_project --bind 0.0.0.0:8000 wsgi
 
 gunicorn --chdir my_project wsgi
+```
+
+
+## gunicorn sync
+```text
+workers = (2 * cpu) + 1
+worker_class = sync
+```
+
+## gunicorn async `gevent`
+```text
+workers = 1
+worker_class = gevent
+worker_connections = a value (lets say 2000)
 ```
