@@ -1,14 +1,28 @@
 [docs](https://devcenter.heroku.com/articles/build-docker-images-heroku-yml)
 
-## Building Dockerfile 
-Build your Docker images with heroku.yml
+## remote build
+Build your Docker images with heroku.yml after 
+pushing you code to Heroku Container Registry
 
 
-## setup
+## copy `hello world`
 ```bash
 heroku create asim4-docker --region eu
 
-# set app stack to container
+git clone https://github.com/heroku/alpinehelloworld.git && cd alpinehelloworld
+|
+├── Dockerfile
+└── webapp
+    ├── app.py
+    ├── requirements.txt
+    ├── tests.py
+    └── wsgi.py
+```
+
+
+## set stack
+set app stack to container
+```bash
 heroku stack:set container -a asim4-docker
 ```
 
