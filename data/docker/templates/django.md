@@ -32,6 +32,8 @@ RUN adduser -D myuser
 USER myuser
 
 CMD gunicorn --chdir my_project --workers 3 --bind 0.0.0.0:5000 wsgi 
+# OR
+CMD gunicorn --bind 0.0.0.0:5000 my_project.wsgi:application
 ```
 
 
