@@ -20,6 +20,12 @@ python manage.py runserver
 ```
 
 
+## deploy
+```bash
+python manage.py check --deploy
+```
+
+
 ## super user
 ```txt
 python manage.py createsuperuser
@@ -34,7 +40,14 @@ python3 manage.py compilemessages
 
 
 ## gunicorn
+robust web server that is built to handle production levels of traffic.
 ```bash
+gunicorn my_project.wsgi
+
+gunicorn --workers 3 --bind 0.0.0.0:8000 my_project.wsgi
+
+
+# workers
 workers=$(nproc --all | awk -F " " '{print $1 * 2 + 1 }')
 
 # 3 workers "pid"
@@ -46,8 +59,6 @@ gunicorn --chdir my_project --threads 3 --bind 0.0.0.0:8000 wsgi
 
 # 1 worker
 gunicorn --chdir my_project --bind 0.0.0.0:8000 wsgi
-
-gunicorn --chdir my_project wsgi
 ```
 
 
