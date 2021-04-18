@@ -1,26 +1,14 @@
-# Overview
+# Configuring
 `nano  heroku.yml`
 
-## setup
+# !!!
+
+## add-ons
 ```yaml
 setup:
   addons:
-    - plan: heroku-postgresql
-      as: DATABASE
-  config:
-    S3_BUCKET: my-example-bucket
-```
-
-
-## build
-```yaml
-build:
-  docker:
-    web: Dockerfile
-    worker: worker/Dockerfile
-  config:
-    RAILS_ENV: development
-    FOO: bar
+  - plan: heroku-postgresql
+    as: DATABASE
 ```
 
 
