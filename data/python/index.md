@@ -9,7 +9,10 @@ deactivate
 
 ## packages
 ```txt
+pip install django gunicorn
+
 pip install -r requirements.txt
+
 pip freeze > requirements.txt
 ```
 
