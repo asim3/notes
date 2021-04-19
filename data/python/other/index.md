@@ -1,3 +1,17 @@
+[Built-in Functions](https://docs.python.org/3/library/functions.html)
+
+## read from command line
+`echo -e 'asim \nmypass' > /tmp/data.txt; python3 /tmp/my_file.py < /tmp/data.txt`
+```py
+username = input('Enter your name: ')
+password = input('Enter your pass: ')
+
+print()
+print(username, password)
+# asim 
+```
+
+
 ## command line args
 `python3 /tmp/my_file.py  aa bb cc dd ee 11 22 33`
 ```py
@@ -6,6 +20,11 @@ import sys
 print( sys.argv )
 
 ['/tmp/aaa.py', 'aa', 'bb', 'cc', 'dd', 'ee', '11', '22', '33']
+
+
+sys.exit()
+sys.exit(1)
+sys.exit(255)
 ```
 
 
