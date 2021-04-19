@@ -67,6 +67,21 @@ DATETIME_FORMAT = 'Y / m / d P'
 ```
 
 
+## database
+```py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'my_database',
+        'USER': 'postgres',
+        'PASSWORD': 'topsecret',
+        'HOST': '127.0.0.1',
+        'PORT': '8001',
+    }
+}
+```
+
+
 ## environment variables
 ```python
 import os

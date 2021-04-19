@@ -17,7 +17,15 @@ django-admin startproject my_project
 ```dockerfile
 FROM alpine:latest
 
-RUN apk add --no-cache --update bash python3 py3-pip gettext postgresql-client
+RUN apk add --no-cache --update bash python3 py3-pip gettext
+
+# pip install psycopg2
+RUN apk add --no-cache --update postgresql-dev gcc musl-dev python3-dev
+# gcc            : GNU C compiler
+# musl-dev       : standard C library development files
+# python3-dev    : header files and a static library for Python (default)
+# postgresql-dev : 
+
 
 COPY ./my_project /opt/my_project/
 
@@ -46,4 +54,10 @@ docker image build -t asim3/django_test .
 docker run -p 8000:5000 asim3/django_test
 
 curl http://localhost:8000
+```
+
+
+## run postgres
+```bash
+docker run -e POSTGRES_PASSWORD=topsecret -p 8001:5432 postgres
 ```
