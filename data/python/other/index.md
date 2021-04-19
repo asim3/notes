@@ -1,10 +1,20 @@
+## command line args
+`python3 /tmp/my_file.py  aa bb cc dd ee 11 22 33`
+```py
+import sys
+
+print( sys.argv )
+
+['/tmp/aaa.py', 'aa', 'bb', 'cc', 'dd', 'ee', '11', '22', '33']
+```
+
+
 ## environment variables
 ```python
 import os
 
 os.environ.get('HOME')
 ```
-
 
 
 ```python
