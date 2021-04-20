@@ -6,7 +6,7 @@ my_list[1][2] # 6
 my_list[1][-2] # 4
 ```
 
-
+## split
 ```python
 "aaa- bbccc- ddd".split("- ") # ['aaa', 'bbccc', 'ddd']
 ```
@@ -28,6 +28,23 @@ my_list.append(7)    # >>> [1, 2, 3, 7]
 my_list.extend([10, 20, 30])    # >>> [1, 2, 3, 10, 20, 30]
 
 ["re"] * 3    # >>> ["re", "re", "re"]
+```
+
+## iterate twice
+```py
+aaaa = [1,2,3,4]
+
+zzzz = reversed(aaaa)
+list(zzzz)
+# [4, 3, 2, 1]
+list(zzzz)
+# []
+
+yyyy = list(aaaa)
+list()
+# [4, 3, 2, 1]
+list()
+# [4, 3, 2, 1]
 ```
 
 
