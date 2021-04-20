@@ -11,6 +11,34 @@ date: 2020
 my_obj = yaml.safe_load(my_yaml)
 print(my_obj)
 ```
+# multy YAML to dict
+```py
+import yaml
+
+my_yaml = """
+---
+name: Asim 1
+date: 2020
+---
+name: Asim 2
+date: 2021
+---
+name: Asim 3
+date: 2022
+"""
+
+my_obj_all = yaml.safe_load_all(my_yaml)
+print(my_obj_all)
+# <generator object load_all at 0x>
+
+for my_obj in my_obj_all:
+  print(my_obj)
+
+# {'name': 'Asim 1', 'date': 2020}
+# {'name': 'Asim 2', 'date': 2021}
+# {'name': 'Asim 3', 'date': 2022}
+```
+
 
 ## dict to yaml
 ```py
