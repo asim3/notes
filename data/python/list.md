@@ -35,15 +35,18 @@ my_list.extend([10, 20, 30])    # >>> [1, 2, 3, 10, 20, 30]
 aaaa = [1,2,3,4]
 
 zzzz = reversed(aaaa)
+yyyy = list(reversed(aaaa))
+
 list(zzzz)
 # [4, 3, 2, 1]
 list(zzzz)
 # []
 
-yyyy = list(aaaa)
-list()
+list(yyyy)
 # [4, 3, 2, 1]
-list()
+list(yyyy)
+# [4, 3, 2, 1]
+list(yyyy)
 # [4, 3, 2, 1]
 ```
 
