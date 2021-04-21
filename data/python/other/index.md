@@ -1,5 +1,15 @@
 [Built-in Functions](https://docs.python.org/3/library/functions.html)
 
+## print __dir__
+```py
+aa = []
+
+dd = [name for name in aa.__dir__() if not name.startswith('_')]
+
+print(dd)
+```
+
+
 ## read from command line
 `echo -e 'asim \nmypass' > /tmp/data.txt; python3 /tmp/my_file.py < /tmp/data.txt`
 ```py
