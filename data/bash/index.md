@@ -14,6 +14,9 @@ chmod +x file_name.sh
 
 
 `nano file_name.sh`
+> first line will be read by the loader, which has special logic
+> that interperts the first two characters `#!` as "launch the program
+> coming next, and pass the contents into it". 
 ```bash
 #!/bin/bash
 
@@ -23,6 +26,10 @@ echo "This is a shell script"
 VAR='Hello World'
 echo $VAR
 ```
+
+
+> Running a command through `#!/usr/bin/env bash` has the benefit of
+> looking for the program path automatically in your current system.
 
 
 `bash file_name.sh value1 value2`
