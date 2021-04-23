@@ -26,6 +26,12 @@ helm repo list
 ```
 
 
+## view chart values
+```txt
+helm show values bitnami/wordpress
+```
+
+
 ## download a chart
 ```txt
 helm pull  [chart URL] --verify --untar
