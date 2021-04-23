@@ -6,6 +6,13 @@ class TestOne(TestCase):
     def setUp(self):
         pass
         # self.fish_tank = FishTank()
+
+    def tearDown(self):
+        """
+        If setUp() succeeded, tearDown() will be run whether 
+        the test method succeeded or not.
+        """
+        # self.widget.dispose()
         
     def test_one(self):
         actual = True
@@ -29,7 +36,15 @@ if __name__ == '__main__':
 ```
 
 
-## OR !!!
-```bash
-python -m unittest /tmp/my_test.py
+## OR
+```py
+from pathlib import Path
+from unittest import TestLoader, TextTestRunner
+
+
+BASE_DIR = Path(__file__).resolve().parent
+
+
+loader = TestLoader().discover(BASE_DIR / "tests")
+TextTestRunner().run(loader)
 ```

@@ -2,7 +2,13 @@
 
 
 ```bash
-BASE_DIR="$(basename ${BASH_SOURCE[0]})"
+#!/bin/bash
+
+FILE_NAME="$(basename ${BASH_SOURCE[0]})"
+
+BASE_DIR="$(dirname ${BASH_SOURCE[0]})"
+
+PARENT_DIR="$(dirname ${BASE_DIR})"
 ```
 
 
