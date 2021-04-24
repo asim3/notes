@@ -43,6 +43,30 @@ bbb()
 ```
 
 
+## loop
+```python
+my_list = [1, 3, 5, 7, 9]
+
+
+for i, val in enumerate(my_list):
+    print (i, ",",val)
+# 0 , 1
+# 1 , 3
+# 2 , 5
+# 3 , 7
+# 4 , 9
+
+
+[print(i) for i in my_list]
+# 1
+# 3
+# 5
+# 7
+# 9
+# [None, None, None, None, None]
+```
+
+
 ## Closure 1
 ```py
 my_global = 1
