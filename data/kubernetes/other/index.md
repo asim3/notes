@@ -2,7 +2,7 @@
 ```txt
 kubectl delete --all all
 
-kubectl delete --all pod,svc,sts,ing,deploy
+kubectl delete --all pod,svc,sts,ing,deploy,secret,persistentvolumeclaim
 ```
 
 
