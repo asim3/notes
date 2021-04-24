@@ -1,6 +1,8 @@
 ## delete all
 ```txt
-kubectl delete --all pod,svc,statefulset
+kubectl delete --all all
+
+kubectl delete --all pod,svc,sts,ing,deploy
 ```
 
 

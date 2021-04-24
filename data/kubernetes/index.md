@@ -17,6 +17,8 @@ kubectl cluster-info
 ## GET
 ```txt
 kubectl get all
+kubectl get all,pod,svc,sts,ing,deploy
+
 
 # List all nodes `service` in a cluster
 kubectl get nodes
