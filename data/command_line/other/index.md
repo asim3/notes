@@ -9,6 +9,16 @@ set -ex
 ```
 
 
+## random
+```bash
+head -c 32 /dev/urandom | base64
+
+head -c 400 /dev/urandom | base64
+
+head -c 1024 /dev/urandom | base64
+```
+
+
 ## system logs
 ```txt
 ls /var/log/
