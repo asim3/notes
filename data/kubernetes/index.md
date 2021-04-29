@@ -1,3 +1,4 @@
+[docs](https://kubernetes.io/docs/tasks/administer-cluster)
 [Kubernetes Playground](https://www.katacoda.com/courses/kubernetes/playground)
 
 
