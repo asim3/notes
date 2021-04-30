@@ -57,4 +57,8 @@ minikube stop   -p cluster-nickname
 ## ssh
 ```bash
 minikube ssh
+
+# OR
+
+ssh -i ~/.minikube/machines/minikube/id_rsa docker@$(minikube ip)
 ```
