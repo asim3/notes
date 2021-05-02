@@ -7,13 +7,17 @@ kubectl exec -it wp1 -- nslookup kubernetes.default
 
 <service-name>.<namespace>.svc.cluster.local:<service-port>
 
-wh1.default.svc.minikube.local:80
-curl dj1.default.svc.minikube.local:80
+my-pod.default.svc.cluster.local:80
+
+curl my-pod.default.svc.cluster.local:80
 ```
+
 
 ## find DNS
 ```bash
-kubectl exec -i -t dnsutils -- nslookup my-pod.default
+kubectl exec -i -t my-pod -- nslookup my-pod.default
+
+kubectl exec -i -t my-pod -- nslookup dnsu-123-tils.default
 ```
 
 
@@ -38,8 +42,9 @@ spec:
 
 
 ```bash
-kubectl exec -it dnsutils -- nslookup kubernetes.default
 kubectl exec -it my-pod   -- nslookup kubernetes.default
+kubectl exec -it my-pod   -- nslookup my-pod.default
+kubectl exec -it my-pod   -- nslookup dnsu-123-tils.default
 
 kubectl exec -ti my-pod -- cat /etc/resolv.conf
 
