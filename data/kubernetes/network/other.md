@@ -1,23 +1,25 @@
 ## service URL
+`curl <service-name>.<namespace>.svc`
 ```bash
-# get cluster name
-kubectl config get-contexts | awk {'print $2'}
+kubectl get endpoints
 
-kubectl exec -it wp1 -- nslookup kubernetes.default
 
+curl my-service
+curl my-service.default
+curl my-service.default.svc
+curl my-service.default.svc.cluster
+curl my-service.default.svc.cluster.local
+
+
+<service-name>.<namespace>.svc:<service-port>
+# or 
 <service-name>.<namespace>.svc.cluster.local:<service-port>
-
-my-pod.default.svc.cluster.local:80
-
-curl my-pod.default.svc.cluster.local:80
 ```
 
 
-## find DNS
+## resolv debugging
 ```bash
-kubectl exec -i -t my-pod -- nslookup my-pod.default
-
-kubectl exec -i -t my-pod -- nslookup dnsu-123-tils.default
+kubectl exec -ti my-pod -- cat /etc/resolv.conf
 ```
 
 
@@ -27,11 +29,11 @@ kubectl exec -i -t my-pod -- nslookup dnsu-123-tils.default
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-pod
+  name: my-dns-utils
   namespace: default
 spec:
   containers:
-  - name: dnsu-123-tils
+  - name: dnsutils
     image: gcr.io/kubernetes-e2e-test-images/dnsutils:1.3
     command:
       - sleep
@@ -42,13 +44,18 @@ spec:
 
 
 ```bash
-kubectl exec -it my-pod   -- nslookup kubernetes.default
-kubectl exec -it my-pod   -- nslookup my-pod.default
-kubectl exec -it my-pod   -- nslookup dnsu-123-tils.default
+kubectl exec -it my-dns-utils   -- nslookup kubernetes.default
 
-kubectl exec -ti my-pod -- cat /etc/resolv.conf
+kubectl exec -it my-dns-utils   -- nslookup my-service
+kubectl exec -it my-dns-utils   -- nslookup my-service.default
+kubectl exec -it my-dns-utils   -- nslookup my-service.default.svc
+kubectl exec -it my-dns-utils   -- nslookup my-service.default.svc.cluster # ERROR
+kubectl exec -it my-dns-utils   -- nslookup my-service.default.svc.cluster.local
+```
 
-# check CoreDNS add-on
+
+## check CoreDNS add-on
+```bash
 kubectl get pods --namespace=kube-system -l k8s-app=kube-dns
 kubectl logs -f  --namespace=kube-system -l k8s-app=kube-dns
 
