@@ -6,7 +6,7 @@ source .venv/bin/activate
 
 pip install django gunicorn
 
-echo -e "wheel \nDjango==3.2 \ngunicorn==20.1.0" > ./requirements.txt
+echo -e "wheel \nDjango==3.2 \ngunicorn==20.1.0 \npsycopg2-binary>=2.8" > ./requirements.txt
 
 nano my_project/my_project/settings.py
 # ALLOWED_HOSTS = ["*"]
