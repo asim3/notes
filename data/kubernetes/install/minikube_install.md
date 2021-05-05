@@ -5,12 +5,19 @@ minikube start
 minikube start -p cluster-nickname
 minikube start -p cluster-nickname --nodes 2
 
+minikube start --driver='virtualbox'
 
 minikube status
 minikube status -p cluster-nickname
 ```
 > underscore are not allowed because of subdomain
 
+```bash
+minikube delete \
+  && minikube start --driver='virtualbox' \
+  || minikube start --driver='virtualbox' \
+  && minikube addons enable ingress
+```
 
 ## Add ons
 ```txt
@@ -57,4 +64,8 @@ minikube stop   -p cluster-nickname
 ## ssh
 ```bash
 minikube ssh
+
+# OR
+
+ssh -i ~/.minikube/machines/minikube/id_rsa docker@$(minikube ip)
 ```

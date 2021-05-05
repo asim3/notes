@@ -4,6 +4,16 @@ cat /var/log/syslog | tail -n 3
 ```
 
 
+## find largest file
+```bash
+du -a /var/         | sort -n -r | head -n 20
+
+du -a / 2>/dev/null | sort -n -r | head -n 20
+
+sudo du -a / 2>/dev/null | sort -n -r | head -n 20
+```
+
+
 ## History
 show all commands history
 ```bash

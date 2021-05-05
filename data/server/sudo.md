@@ -1,5 +1,5 @@
 ## Granting sudo Privileges to Users
-```txt
+```bash
 sudo visudo
 
 # /etc/sudoers.tmp
@@ -13,7 +13,20 @@ asim    ALL=(ALL:ALL) NOPASSWD: /usr/bin/docker
 ```
 
 
+## Granting sudo Privileges to Groups
+```bash
+# Allow members of group my-group to execute any command
+%my-group   ALL=(ALL:ALL) ALL
+
+# execute any command with no password
+%my-group   ALL=(ALL:ALL) NOPASSWD: ALL
+
+# execute docker command with no password
+%my-group   ALL=(ALL:ALL) NOPASSWD: /usr/bin/docker
+```
+
+
 ## add User to sudo
-```txt
+```bash
 sudo adduser my-new-user sudo
 ```
