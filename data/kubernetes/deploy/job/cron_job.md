@@ -1,6 +1,6 @@
 ## CronJob: scheduled job
 
-`nano my-cron-job.yaml`
+`kubectl apply -f - <<eof`
 ```yaml
 apiVersion: batch/v1beta1
 kind: CronJob
@@ -17,21 +17,14 @@ spec:
           containers:
           - name: busybox
             image: busybox
-            command: ["echo", "Hello Kubernetes!!!"]
-          restartPolicy: Never
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailure
+          # restartPolicy: Never
 ```
 
-
-## deploy
-```txt
-kubectl apply -f ./my-cron-job.yaml
-```
-
-
-## deploy
-```txt
-kubectl apply -f ./my-cron-job.yaml
-```
 
 ## patch
 ```txt
@@ -45,4 +38,3 @@ kubectl describe cronjob/my-cron-job
 
 kubectl delete   cronjob/my-cron-job
 ```
-

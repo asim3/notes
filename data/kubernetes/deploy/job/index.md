@@ -1,6 +1,5 @@
 ## Job: run once
-
-`nano my-job.yaml`
+`kubectl apply -f - <<eof`
 ```yaml
 apiVersion: batch/v1
 kind: Job
@@ -31,19 +30,9 @@ spec:
 ```
 
 
-## deploy
 ```txt
-kubectl apply -f ./my-job.yaml
-```
+kubectl logs     pod/my-job-q4gram
 
-## show logs
-```txt
-kubectl logs pod/my-job-q4gram
-```
-
-
-## describe 
-```txt
 kubectl describe job/my-job
 
 kubectl delete   job/my-job
