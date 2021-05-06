@@ -1,11 +1,13 @@
 ## Deployment Manifest
-`nano ./my-deployment.yaml`
 ```yaml
+kubectl apply -f - <<eof
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-deploy-name
 spec:
+  replicas: 3
   selector:
     # required field
     matchLabels:
@@ -17,58 +19,60 @@ spec:
         my-labels: my-template-label
     spec:
       containers:
-      - name: my-nginx-container
-        image: nginx:1.7.9
-  replicas: 2
-```
+      - name: my-container
+        image: busybox
+        command:
+        - /bin/sh
+        - -c
+        - sleep 3000
 
-> you can not update selector once deployment is created.
-
-
-## deploy
-```txt
-kubectl apply -f ./my-deployment.yaml
-
-kubectl expose deploy/my-deploy-name --type NodePort --port 80
-
-
-# print url
-echo http://$(kubectl get ep/kubernetes -o jsonpath='{.subsets[].addresses[].ip}'):$(kubectl get svc/my-deploy-name -o jsonpath='{.spec.ports[].nodePort}')
+eof
 ```
 
 
-## list
-```txt
-kubectl get deploy
-kubectl get deployment
-
-kubectl get pods --show-labels
+## pods
+```bash
+kubectl get pods
+# NAME                              READY   STATUS              RESTARTS   AGE
+# my-deploy-name-5c8596ccd5-84xjg   0/1     ContainerCreating   0          11s
+# my-deploy-name-5c8596ccd5-8zjw6   0/1     ContainerCreating   0          11s
+# my-deploy-name-5c8596ccd5-nwbjm   0/1     ContainerCreating   0          11s
 ```
 
 
-## deployment details
-```txt
-kubectl describe deploy     my-deploy-name
-kubectl describe deployment/my-deploy-name
+## ReplicaSet
+```bash
+kubectl get rs
+# NAME                        DESIRED   CURRENT   READY   AGE
+# my-deploy-name-5c8596ccd5   3         3         3       105s
 ```
 
 
-## deployment Logs
-```txt
-kubectl logs deploy/my-deploy-name
+## Logs
+```bash
 kubectl logs deployment/my-deploy-name
+
+kubectl describe deploy my-deploy-name
+kubectl scale deploy my-deploy-name --replicas=5
 ```
 
 
 # see updating status
-```txt
+```bash
 kubectl rollout status deployment/my-deploy-name
+# Waiting for deployment "my-deploy-name" rollout to finish: 1 out of 3 new replicas have been updated...
+# Waiting for deployment "my-deploy-name" rollout to finish: 1 out of 3 new replicas have been updated...
+# Waiting for deployment "my-deploy-name" rollout to finish: 1 out of 3 new replicas have been updated...
+# Waiting for deployment "my-deploy-name" rollout to finish: 2 out of 3 new replicas have been updated...
+# Waiting for deployment "my-deploy-name" rollout to finish: 2 out of 3 new replicas have been updated...
+# Waiting for deployment "my-deploy-name" rollout to finish: 2 old replicas are pending termination...
+# Waiting for deployment "my-deploy-name" rollout to finish: 1 old replicas are pending termination...
+# Waiting for deployment "my-deploy-name" rollout to finish: 1 old replicas are pending termination...
+# deployment "my-deploy-name" successfully rolled out
 ```
 
 
 ## delete
-```txt
-kubectl delete -f ./my-deployment.yaml
-# OR
+```bash
 kubectl delete deployment my-deploy-name
 ```
