@@ -14,7 +14,8 @@ spec:
       - "-c"
       - "sleep 3600"
 
-    # if failed 3 times: restart the server
+    # if failed: restart the server
+    # if failed 3 times: CrashLoopBackOff
     livenessProbe:
       failureThreshold: 3
       initialDelaySeconds: 30
@@ -75,7 +76,8 @@ spec:
   - image: nginx
     name: ready-test-2
 
-    # if failed 3 times: restart the server
+    # if failed: restart the server
+    # if failed 3 times: CrashLoopBackOff
     livenessProbe:
       failureThreshold: 3
       httpGet:
