@@ -1,6 +1,7 @@
 ## DaemonSet
-`nano my-daemon.yaml`
 ```yaml
+kubectl apply -f - <<eof
+
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -8,47 +9,22 @@ metadata:
 spec:
   selector:
       matchLabels:
-        name: my-daemon-label
+        app.kubernetes.io/instance: my-daemon-159
   template:
     metadata:
       labels:
-        name: my-daemon-label
+        app.kubernetes.io/instance: my-daemon-159
     spec:
       containers:
       - name: my-daemon-container
         image: nginx
+
+eof
 ```
+
 
 ```txt
-kubectl apply  -f ./my-daemon.yaml
+kubectl describe ds my-daemon-pod
 
-kubectl get ds
-kubectl get daemonset
-
-kubectl get daemonset/my-daemon-pod -o yaml
-kubectl describe daemonset/my-daemon-pod
-
-kubectl delete -f ./my-daemon.yaml
-```
-
-
-## add service
-`nano my-daemon-port.yaml`
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-daemon-port
-spec:
-  type: NodePort
-  selector:
-    name: my-daemon-label
-  ports:
-  - port: 123
-    targetPort: 80
-    nodePort: 30000
-```
-
-```txt
-kubectl apply  -f ./my-daemon-port.yaml
+kubectl delete ds my-daemon-pod
 ```
