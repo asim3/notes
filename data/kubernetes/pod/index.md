@@ -1,11 +1,10 @@
-## Creating objects
+## add pod object
 ```txt
 kubectl run asim-pod --image=nginx --port=80
 ```
 
 ## OR
-
-`nano asim2-pod.yaml`
+`kubectl apply -f - <<eof`
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -18,12 +17,9 @@ spec:
 ```
 
 
+# delete
 ```txt
-kubectl apply  -f ./asim2-pod.yaml
-kubectl create -f   asim2-pod.yaml
-
-# Deleting resources
-kubectl delete -f asim2-pod.yaml
+kubectl delete asim2-pod
 ```
 
 
