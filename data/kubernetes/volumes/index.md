@@ -97,6 +97,7 @@ kubectl exec test-2 -- ls /my-volume-data
 # my-file.txt
 ```
 
+
 ## delete
 ```bash
 kubectl delete pv my-persistent-volume
@@ -108,7 +109,6 @@ kubectl delete pvc my-claim-1
 kubectl delete po test-1
 
 
-minikube ssh
 ssh -i ~/.minikube/machines/minikube/id_rsa docker@$(minikube ip) "ls -al /my/persistent/dir/"
 # drwxr-xr-x 2 root root 60 May  7 06:08 .
 # drwxr-xr-x 3 root root 60 May  7 06:04 ..
