@@ -2,37 +2,6 @@
 Manage WordPress through the command-line.
 
 
-## Theme status
-```bash
-wp theme status __theme__
-
-wp theme activate __theme__
-wp theme disable  __theme__ [--network]
-wp theme enable   __theme__ [--network] [--activate]
-
-
-wp theme update __theme__ --all --dry-run
-wp theme delete __theme__ --all --force
-```
-
-
-## Theme install
-```bash
-wp theme install <theme|zip|url> --activate --version=1.23
-
-wp theme search
-
-wp theme list
-# +-----------------+----------+--------+---------+
-# | name            | status   | update | version |
-# +-----------------+----------+--------+---------+
-# | twentynineteen  | inactive | none   | 2.0     |
-# | twentytwenty    | inactive | none   | 1.7     |
-# | twentytwentyone | active   | none   | 1.3     |
-# +-----------------+----------+--------+---------+
-```
-
-
 ## info
 ```bash
 wp cli info
@@ -53,27 +22,6 @@ wp option list
 wp package list
 ```
 
-
-## plugin
-```bash
-wp plugin list
-
-# +--------------------------------+----------+-----------+---------+
-# | name                           | status   | update    | version |
-# +--------------------------------+----------+-----------+---------+
-# | akismet                        | inactive | none      | 4.1.9   |
-# | all-in-one-wp-migration        | inactive | none      | 7.43    |
-# | all-in-one-seo-pack            | inactive | none      | 4.1.0.2 |
-# | amp                            | inactive | available | 2.1.1   |
-# | amazon-polly                   | inactive | none      | 4.3.1   |
-# | google-analytics-for-wordpress | inactive | none      | 7.17.0  |
-# | hello                          | inactive | none      | 1.7.2   |
-# | jetpack                        | inactive | none      | 9.7     |
-# | simple-tags                    | inactive | available | 2.5.7   |
-# | w3-total-cache                 | inactive | none      | 2.1.2   |
-# | wp-mail-smtp                   | inactive | none      | 2.8.0   |
-# +--------------------------------+----------+-----------+---------+
-```
 
 ## post
 ```bash
