@@ -42,4 +42,6 @@ wp plugin update --all
 ## activate
 ```bash
 wp plugin activate woocommerce
+
+wp plugin deactivate woocommerce
 ```
