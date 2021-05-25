@@ -41,21 +41,7 @@ make family
 # echo "hello family"
 # hello family
 ```
-
-## Variables
-`nano makefile`
-```makefile
-my-family = asim bader
-
-asim:
-	echo "hello Asim"
-
-bader:
-	echo "hello bader"
-
-family: ${my-family}
-	echo "hello family ${my-family}"
-```
+> each command is run in a new shell
 
 
 ## clean
@@ -84,4 +70,47 @@ make
 
 make clean
 # rm -f one two three
+```
+
+
+## Bash
+```makefile
+# The default shell is /bin/sh
+
+SHELL=/bin/bash
+
+test:
+	if [[ "asim" == "asim" ]]; then echo "asim 1"; else echo "other"; fi;
+
+test2:
+	if [[ "asim" == "asim" ]]; then \
+		echo "asim 2"; \
+	else \
+		echo "other"; \
+	fi;
+
+test3:
+	if [[ "asim" == "asim" ]]; then 
+		echo "asim 2"; 
+	else 
+		echo "other"; 
+	fi;
+```
+
+
+```bash
+make
+# asim 1
+
+make test
+# asim 1
+
+make test2
+# asim 2
+
+make test3
+# if [[ "asim" == "asim" ]]; then 
+# /bin/bash: -c: line 1: syntax error: unexpected end of file
+# makefile:19: recipe for target 'test3' failed
+# make: *** [test3] Error 1
 ```
