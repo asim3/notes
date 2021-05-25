@@ -114,3 +114,50 @@ make test3
 # makefile:19: recipe for target 'test3' failed
 # make: *** [test3] Error 1
 ```
+
+
+## exit code
+```makefile
+run:
+	whoami
+	echo ok
+
+
+run-error:
+	whoami
+	exit 52
+	echo "not ok"
+
+
+ignore-error:
+	whoami
+	- exit 52
+	echo ok
+```
+
+
+```bash
+make 
+# whoami
+# asim
+# echo ok
+# ok
+
+
+make run-error
+# whoami
+# asim
+# exit 52
+# makefile:8: recipe for target 'run-error' failed
+# make: *** [run-error] Error 52
+
+
+make ignore-error
+# whoami
+# asim
+# exit 52
+# makefile:13: recipe for target 'ignore-error' failed
+# make: [ignore-error] Error 52 (ignored)
+# echo ok
+# ok
+```
