@@ -82,6 +82,14 @@ Prints the location of binary files
 which python
 which node
 which sudo
+
+
+# Display ls command location along with man page path
+whereis nano
+whereis python
+
+type -p nano
+type -p python
 ```
 
  

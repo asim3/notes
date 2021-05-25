@@ -38,3 +38,21 @@ pgrep fox
 # kill processes based on partial matches
 pkill firefox
 ```
+
+
+## Show running process name
+```bash
+pgrep -l sys
+pgrep -l python
+pgrep -l firefox
+```
+
+
+## Stop running process by name
+```bash
+pkill python
+pkill firefox
+pkill gunicorn
+
+killall python3
+```

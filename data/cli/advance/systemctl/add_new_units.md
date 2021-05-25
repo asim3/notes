@@ -1,11 +1,11 @@
-```txt
+```bash
 touch my_service.sh
 chmod +x my_service.sh
 nano my_service.sh
 ```
 
 
-```txt
+```bash
 #!/bin/bash
 
 while true
@@ -16,20 +16,20 @@ done
 ```
 
 
-```txt
+```bash
 # do not add or change /usr/ directory
 sudo mkdir /etc/systemd/system/asim.service.d/
 sudo nano /etc/systemd/system/asim.service.d/my_service.service
 ```
 
 
-```txt
+```ini
 [Service]
 ExecStart=/home/asim/my_service.sh
 ```
 
 
-```txt
+```bash
 sudo systemctl daemon-reload
 # or
 sudo systemctl start my_service
@@ -42,12 +42,13 @@ tail /var/log/syslog
 
 
 ## for more options
-```txt
+```bash
 man systemd.service
+```
 
 
 ## for editing my_service.service
-```txt
+```bash
 sudo systemctl edit my_service
 
 # create a copy of the original unit file
@@ -55,7 +56,7 @@ sudo systemctl edit my_service --full
 ```
 
 
-```txt
+```ini
 [Unit]
 Description=My my_service Service
 After=network.target
@@ -78,4 +79,3 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
-

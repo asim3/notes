@@ -1,3 +1,6 @@
+[lists of official GNU packages](http://www.gnu.org/manual/manual.html)
+
+
 ## change time zone
 > To view date settings, run `timedatectl`
 ```bash

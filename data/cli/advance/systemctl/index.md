@@ -1,8 +1,8 @@
 [cockpit](https://cockpit-project.org/)
 
 
-list all units
-```txt
+## list all units
+```bash
 systemctl -t service
 systemctl list-unit-files -t service 
 systemctl --failed
@@ -12,8 +12,8 @@ systemctl list-units |grep ___
 ```
 
 
-units status
-```txt
+## units status
+```bash
 systemctl status ___
 sudo systemctl status ___
 systemctl is-enabled ___
@@ -23,8 +23,8 @@ systemctl is-system-running
 ```
 
 
-start units automatically when the server boots
-```txt
+## start units automatically when the server boots
+```bash
 sudo systemctl enable ___
 sudo systemctl enable ___ ___ ___
 sudo systemctl disable ___
@@ -35,8 +35,8 @@ sudo systemctl enable --now ___
 
 
 
-controlling units
-```txt
+## controlling units
+```bash
 sudo systemctl start ___
 sudo systemctl stop ___
 sudo systemctl reload ___
@@ -47,22 +47,22 @@ sudo systemctl -H [hostname] restart ___
 ```
 
 
-```txt
+```bash
 systemctl reboot
 systemctl poweroff
 systemctl suspend
 ```
 
 > if system has not been booted with systemd as init system (PID 1). Can't operate.
-```txt
+```bash
 service --status-all
 
  sudo service docker start
 ```
  
 
-show logs
-```txt
+## show logs
+```bash
 journalctl
 journalctl -u ___
 
