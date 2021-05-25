@@ -4,34 +4,46 @@
 ```makefile
 SHELL=/bin/bash
 
-CD=cd my-project
+ACTIVATE=source ./venv/bin/activate;
+
+CD=${ACTIVATE} cd my-project;
 
 
 venv:
-	if [ ! -d ./venv ]; then 
-		python3 -m venv ./venv
-	fi;
+	if [ ! -d ./venv ]; then python3 -m venv ./venv; fi;
 
 
-activate: 
-	source ./venv/bin/activate
-
-
-install: venv activate
-	pip3 install -r ./requirements.txt
+install: venv
+	${ACTIVATE} pip3 install -r ./requirements.txt
 	${CD} python3 manage.py makemigrations
 	${CD} python3 manage.py migrate
 	${CD} python3 manage.py collectstatic --noinput
 
 
-test: activate
-	${CD} python3 manage.py test $2;
+# make test args=my_app
+test:
+	${CD} python3 manage.py test ${args};
 
 
-run: activate
+# make new args=my_app
+new:
+	${CD} python3 manage.py startapp ${args};
+
+
+user:
+	${CD} python3 manage.py createsuperuser;
+
+
+tra:
+	${CD} if [ ! -d ./locale ]; then mkdir locale; fi;
+	${CD} python3 manage.py makemessages -l ar;
+	${CD} python3 manage.py compilemessages;
+
+
+run:
 	${CD} python3 manage.py runserver
 
 
-shell: activate
+shell:
 	${CD} python3 manage.py shell
 ```
