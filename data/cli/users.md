@@ -25,3 +25,14 @@ sudo adduser asim my_group
 
 sudo usermod -aG my_group asim
 ```
+
+
+## list all groups
+```bash
+cat /etc/group
+
+# show user groups
+id
+
+whoami
+```

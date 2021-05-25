@@ -1,3 +1,18 @@
+## Disk Info
+```bash
+df -h
+
+# only include filesystems of a particular type
+df -ht ext4
+
+# list all drives
+lsblk
+
+# directory size
+du -sh my_directory/
+```
+
+
 ## ISO Bootable USB
 ```txt
 lsblk

@@ -8,12 +8,20 @@ set -ex
 #   +x  Do not ...
 ```
 
-
-## system logs
-```txt
-ls /var/log/
+## System Logs
+```bash
+cat /var/log/syslog | tail -n 30
 
 cat /var/log/syslog 
+
+ls /var/log/
+```
+
+
+## History
+show all commands history
+```bash
+history
 ```
 
 
@@ -28,6 +36,16 @@ sudo shutdown now
 sudo shutdown -P now
 
 shutdown +30 "Leave to pickup friend!"
+```
+
+
+## find largest file
+```bash
+du -a /var/         | sort -n -r | head -n 20
+
+du -a / 2>/dev/null | sort -n -r | head -n 20
+
+sudo du -a / 2>/dev/null | sort -n -r | head -n 20
 ```
 
 
