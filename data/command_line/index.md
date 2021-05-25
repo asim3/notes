@@ -1,7 +1,7 @@
-> `kernel` controls the `hardware`    
-> `shell`  controls the `kernel`
+Ubuntu Operating System using the `bash shell` to control the `Linux kernel`
 
-Ubuntu Operating System using `Linux kernel` and `bash shell`    
+The `Linux kernel` main job is to control the `hardware`
+
 GNU is an collection of free software like `bash`, `nano`, `grep` and `tar`
 
 
