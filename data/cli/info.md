@@ -148,29 +148,6 @@ netstat -tulpn
 ```
 
 
-## Tree
-```bash
-sudo apt  install tree
-
-mkdir test-tree
-mkdir test-tree/file1
-mkdir test-tree/file2
-mkdir test-tree/file3
-touch test-tree/file1/file1.txt
-touch test-tree/file1/file2.txt
-
-tree test-tree/
-test-tree/
-├── file1
-│   ├── file1.txt
-│   └── file2.txt
-├── file2
-└── file3
-
-3 directories, 2 files
-```
-
-
 ## list all groups
 ```bash
 cat /etc/group
