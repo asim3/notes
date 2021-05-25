@@ -16,17 +16,3 @@ ll
 # lrwxrwxrwx 1 asim asim   18 Feb 14 23:28 s-link-2 -> /tmp/dir1/file1
 # lrwxrwxrwx 1 asim asim   12 Feb 14 23:29 sr-link-3 ->  ../dir1/file1
 ```
-
-
-## copy all photo in a directory
-```bash
-find . -name \*.jpg -exec cp {} ~/my-new-jpg \;
-```
-
-
-## Aliases 
-shortcut for terminal commands
-```bash
-# add to ~/.bash_aliases
-alias ddd="cd ~/Desktop/"
-```

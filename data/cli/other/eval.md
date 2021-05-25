@@ -1,28 +1,19 @@
 ## evaluate
 ```bash
-my_var=125
+eval "echo Hello, World"
+# Hello, World
 
-eval my_eval='$my_var'
-
-echo $my_eval 
-# 125
-```
-
-
-```bash
-c="echo"; 
-a1="Hello, "; 
-a2="World!"; 
-
-eval $c $a1 $a2
-```
-
-```bash
 cmd1="cmd2"; 
-cmd2="echo Hi!"; 
+cmd2="echo Asim"; 
 
-# the backslash escapes the dollar sign
-eval \${$cmd1}
+eval "$"cmd2
+# Asim
+
+eval "\$c"md2
+# Asim
+
+eval "\$$cmd1"
+# Asim
 ```
 
 

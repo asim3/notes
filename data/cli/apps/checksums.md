@@ -50,7 +50,15 @@ touch my-file.txt
 md5sum my-file.txt > my-file.md5sum
 ```
 
+
 ## check md5sum
 ```bash
 md5sum -c my-file.md5sum
+```
+
+
+## stdin
+```bash
+echo "b9beac143e36226aa8a0b04edb81cfa63 *ubuntu-18.04.3-live-server-amd64.iso" \
+  | shasum -a 256 --check
 ```

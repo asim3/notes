@@ -9,29 +9,11 @@ set -ex
 ```
 
 
-## random
-```bash
-head -c 32 /dev/urandom | base64
-
-head -c 400 /dev/urandom | base64
-
-head -c 1024 /dev/urandom | base64
-```
-
-
 ## system logs
 ```txt
 ls /var/log/
 
 cat /var/log/syslog 
-```
-
-
-## watch
-```txt
-watch        'ps aux | grep -i apt'
-watch -n 0.1 'ps aux | grep -i apt'
-watch -d     'ps aux | grep -i apt'
 ```
 
 
@@ -46,11 +28,6 @@ sudo shutdown now
 sudo shutdown -P now
 
 shutdown +30 "Leave to pickup friend!"
-```
-
-
-```txt
-echo "b9beac143e36226aa8a0b03fc1cbb5921cff80123866e718aaeba4edb81cfa63 *ubuntu-18.04.3-live-server-amd64.iso" | shasum -a 256 --check
 ```
 
 
@@ -69,3 +46,12 @@ sudo apt autoclean
 # removes orphaned packages which are not longer needed
 sudo apt autoremove
 ```
+
+
+# exec
+Destroy the current shell and replace it with a new process.
+```bash
+exec > output.txt
+
+```
+[docs](https://www.computerhope.com/unix/bash/exec.htm)

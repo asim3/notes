@@ -29,3 +29,10 @@ find ./ -path "*/my-dir/*.txt" -delete
 
 find ./ -path "*/my-dir/*.txt" -not -name "__init__.txt" -delete
 ```
+
+
+## exec
+copy all photo in a directory
+```bash
+find . -name \*.jpg -exec cp {} ~/my-new-jpg \;
+```
