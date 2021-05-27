@@ -161,3 +161,23 @@ make ignore-error
 # echo ok
 # ok
 ```
+
+
+## $$
+```makefile
+run:
+	whoami
+	echo $$(whoami)
+	echo "$$(whoami)"
+```
+
+
+```bash
+make run
+# whoami
+# asim
+# echo $(whoami)
+# asim
+# echo "$(whoami)"
+# asim
+```
