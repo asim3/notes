@@ -6,7 +6,6 @@ name: my-secrets-actions
 on: [ push ]
 
 jobs:
-
   my-env-job:
     runs-on: ubuntu-latest
     steps:
