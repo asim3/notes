@@ -4,7 +4,7 @@ pull:
 	git checkout -b production
 
 update:
-	./update.sh
+	./scripts/update.sh
 
 commit:
 	git config user.name "asim3 from runner"
