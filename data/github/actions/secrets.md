@@ -1,7 +1,7 @@
 ## secrets
-[GitHub secrets](https://github.com/asim3/notes/settings/secrets)
+`nano .github/workflows/my-secrets.yaml`
 ```yaml
-name: my-env-actions
+name: my-secrets-actions
 
 on: [ push ]
 
@@ -20,3 +20,7 @@ jobs:
       - run: echo Name  ${{ secrets.MY_NEW_SECRET }}
       # Name ***
 ```
+
+[notes secrets](https://github.com/asim3/notes/settings/secrets)
+
+[test_actions secrets](https://github.com/asim3/test_actions/settings/secrets/actions)

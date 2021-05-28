@@ -1,6 +1,7 @@
 ## Triggers
+`nano .github/workflows/my-triggers.yaml`
 ```yaml
-name: my-first-actions
+name: my-triggers-actions
 
 on: [ push ]
 

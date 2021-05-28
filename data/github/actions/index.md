@@ -54,12 +54,33 @@ jobs:
       - uses: actions/checkout@v2
 
       - run: ls -al /home/runner/work/
+        # drwxr-xr-x  6 runner root   4096 May 28 13:47 .
+        # drwxrwxrwx 11 runner docker 4096 May 28 13:47 ..
+        # drwxr-xr-x  3 runner docker 4096 May 28 13:47 _PipelineMapping
+        # drwxr-xr-x  3 runner docker 4096 May 28 13:47 _actions
+        # drwxr-xr-x  4 runner docker 4096 May 28 13:47 _temp
+        # drwxr-xr-x  3 runner docker 4096 May 28 13:47 test_actions
+
       - run: ls -al /home/runner/work/test_actions/
+        # drwxr-xr-x 3 runner docker 4096 May 28 13:47 .
+        # drwxr-xr-x 6 runner root   4096 May 28 13:47 ..
+        # drwxr-xr-x 4 runner docker 4096 May 28 13:47 test_actions
+
       - run: ls -al /home/runner/work/test_actions/test_actions/
+        # drwxr-xr-x 4 runner docker 4096 May 28 13:47 .
+        # drwxr-xr-x 3 runner docker 4096 May 28 13:47 ..
+        # drwxr-xr-x 8 runner docker 4096 May 28 13:47 .git
+        # drwxr-xr-x 3 runner docker 4096 May 28 13:47 .github
+        # -rw-r--r-- 1 runner docker   68 May 28 13:47 index.html
+        # -rw-r--r-- 1 runner docker  273 May 28 13:47 makefile
+      
       - run: |
           uname
           whoami
           echo "Done"
+        # Linux
+        # runner
+        # Done
 
 
   my-second-job:
@@ -86,10 +107,12 @@ jobs:
       - run: echo $MY_NAME
         env:
           MY_NAME: Asim
+        # Asim
 
       - run: echo $NAME_1 $name_2 $Name_3
         env:
           NAME_1: asim
           name_2: bader
           Name_3: Ahmed
+        # asim bader Ahmed
 ```
