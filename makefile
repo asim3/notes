@@ -11,7 +11,7 @@ commit:
 	git add .
 	git config user.name "asim3 from runner"
 	git config user.email "asim3"
-	git commit -m "auto update by $$(whoami)"
+	git commit -m "auto update by $$(whoami) "
 
 push:
 	git push origin production
