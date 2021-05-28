@@ -25,6 +25,17 @@ debian
 ```
 
 
+```bash
+MY_DIR=aaa/bbb/ccc/zzz/eee/fff/zzz/hhh/iii/jjj/kkk
+
+echo ${MY_DIR##*/}
+# kkk
+
+echo ${MY_DIR##*zz}
+# /hhh/iii/jjj/kkk
+```
+
+
 ## JSON
 ```bash
 sudo apt install jq

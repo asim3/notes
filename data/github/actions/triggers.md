@@ -23,12 +23,16 @@ jobs:
         # v0.0.1
 
       - run: |
-          if [ "${GITHUB_REF##*/}" = "master" ]; then
-            echo OK
+          GET_TAGS=$(echo $GITHUB_REF | awk -F "/" '{print $2}')
+          if [ "$GET_TAGS" = "tags" ]; then
+            echo OK: TAG
+          elif [ "${GITHUB_REF##*/}" = "master" ]; then
+            echo OK: Master
           else
-            echo Tag
+            echo "Error: $GET_TAGS"
           fi
-      
+        # OK: Master
+        # OK: TAG
 
       - run: echo ${GITHUB_WORKSPACE}
         # /home/runner/work/test_actions/test_actions
@@ -51,7 +55,7 @@ jobs:
 
       - run: echo ${RUNNER_WORKSPACE}
         # /home/runner/work/test_actions
-        
+
       - run: echo ${RUNNER_PERFLOG}
         # /home/runner/perflog
 ```
