@@ -1,4 +1,8 @@
-all: pull update_init_html commit push
+all: config pull update_init_html commit push
+
+config:
+	git config user.name "asim3 from runner"
+	git config user.email "asim3"
 
 pull:
 	git pull origin production
@@ -10,8 +14,6 @@ update_init_html:
 
 commit:
 	git add .
-	git config user.name "asim3 from runner"
-	git config user.email "asim3"
 	git commit -m "auto update by $$(whoami) "
 
 push:
