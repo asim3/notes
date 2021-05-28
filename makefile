@@ -1,7 +1,7 @@
 all: info config pull update_init_html commit push
 
 info:
-	git branch
+	git branch -a
 
 
 config:
@@ -9,9 +9,8 @@ config:
 	git config user.email "asim3"
 
 pull:
-	git pull origin production
-	# git checkout production
-	# git pull origin master
+	git checkout production
+	git pull origin master
 
 update_init_html:
 	./update.sh
