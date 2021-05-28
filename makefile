@@ -1,22 +1,16 @@
-all: info config pull update_init_html commit push
-
-info:
-	git branch -a
-
-
-config:
-	git config user.name "asim3 from runner"
-	git config user.email "asim3"
+all: pull update commit push
 
 pull:
-	git pull origin master
+	git checkout -b production
 
-update_init_html:
+update:
 	./update.sh
 
 commit:
+	git config user.name "asim3 from runner"
+	git config user.email "asim3"
 	git add .
 	git commit -m "auto update by $$(whoami) "
 
 push:
-	git push origin production
+	git push --force origin production
