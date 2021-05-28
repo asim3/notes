@@ -1,6 +1,7 @@
 all: pull update_init_html commit push
 
 pull:
+	git pull origin production
 	git checkout production
 	git pull origin master
 
