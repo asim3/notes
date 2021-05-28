@@ -7,8 +7,15 @@ on:
   push:
     branches:
       - master
+      - main
     tags:
       - v\d+\.\d+\.\d+
+      - my_tag
+
+  schedule:
+    - cron:  '0,15,30,45 * * * *'
+      # https://crontab.guru
+
 
 jobs:
   my-first-job:
@@ -58,4 +65,37 @@ jobs:
 
       - run: echo ${RUNNER_PERFLOG}
         # /home/runner/perflog
+      
+      - run: ls -al /home/runner/work/test_actions
+      - run: ls -al /home/runner/perflog
+```
+
+
+## after workflow
+`nano .github/workflows/my-after-complete.yaml`
+```yaml
+name: my-after-complete-actions
+
+
+on:
+  workflow_run:
+    workflows: ["my-triggers-actions"]
+    types: [completed]
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - run: echo Done
+      - run: echo ${GITHUB_REF}
+        # refs/heads/master
+        # refs/heads/master
+
+
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo Error
 ```
