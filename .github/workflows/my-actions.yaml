@@ -1,10 +1,26 @@
-name: my-env-actions
-on: [push]
+name: Update init.html
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    tags:
+      - v\d+\.\d+\.\d+
+
+
 jobs:
   update-init_html:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: BASH update init.html
-        run: /home/runner/work/notes/notes/push_to_prod.sh
-        
+      - run: make
+      - run: |
+          GET_TAGS=$(echo $GITHUB_REF | awk -F "/" '{print $2}')
+          if [ "$GET_TAGS" = "tags" ]; then
+            echo OK: TAG
+          elif [ "${GITHUB_REF##*/}" = "master" ]; then
+            echo OK: Master
+          else
+            echo "Error: $GET_TAGS"
+          fi
