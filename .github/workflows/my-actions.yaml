@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: production
       - run: make
       - run: |
           GET_TAGS=$(echo $GITHUB_REF | awk -F "/" '{print $2}')

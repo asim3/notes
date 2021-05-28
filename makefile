@@ -9,7 +9,6 @@ config:
 	git config user.email "asim3"
 
 pull:
-	git checkout production
 	git pull origin master
 
 update_init_html:
