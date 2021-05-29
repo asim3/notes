@@ -12,10 +12,6 @@ on:
       - v\d+\.\d+\.\d+
       - my_tag
 
-  schedule:
-    - cron:  '0,15,30,45 * * * *'
-      # https://crontab.guru
-
 
 jobs:
   my-first-job:
@@ -37,6 +33,7 @@ jobs:
             echo OK: Master
           else
             echo "Error: $GET_TAGS"
+            export MY_ENV="you cannot export env. every step has its own env"
           fi
         # OK: Master
         # OK: TAG
@@ -56,22 +53,33 @@ jobs:
       - run: echo ${GITHUB_REPOSITORY}
         # asim3/test_actions
 
-      - run: echo ${GITHUB_ACTION_REF}
       - run: echo ${GITHUB_HEAD_REF}
+        # Only set for pull request events. The name of the head branch.
+
       - run: echo ${GITHUB_BASE_REF}
+        # Only set for pull request events. The name of the head branch.
 
       - run: echo ${RUNNER_WORKSPACE}
         # /home/runner/work/test_actions
 
       - run: echo ${RUNNER_PERFLOG}
         # /home/runner/perflog
-      
-      - run: ls -al /home/runner/work/test_actions
+
       - run: ls -al /home/runner/perflog
+        # -rw-r--r--  1 runner docker  405 May 29 10:17 Runner.perf
+        # -rw-r--r--  1 runner docker  390 May 29 10:17 Worker.perf
+
+      - run: ls -al ${GITHUB_WORKSPACE}/
+        # drwxr-xr-x 2 runner docker 4096 May 29 10:23 .
+        # drwxr-xr-x 3 runner docker 4096 May 29 10:23 ..
+
+      - run: ls -al ${RUNNER_WORKSPACE}/test_actions
+        # drwxr-xr-x 2 runner docker 4096 May 29 10:23 .
+        # drwxr-xr-x 3 runner docker 4096 May 29 10:23 ..
 ```
 
 
-## after workflow
+## run IF ${{ case }}
 `nano .github/workflows/my-after-complete.yaml`
 ```yaml
 name: my-after-complete-actions
@@ -98,4 +106,29 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
       - run: echo Error
+        # Error
+```
+
+
+## schedule
+`nano .github/workflows/my-schedule.yaml`
+```yaml
+name: my-schedule-actions
+
+# https://crontab.guru
+
+on:
+  schedule:
+    - cron:  '0,15,30,45 * * * *'
+
+
+jobs:
+  my-first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${GITHUB_REF}
+        # refs/heads/master
+
+      - run: echo ${GITHUB_REF##*/}
+        # master
 ```

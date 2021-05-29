@@ -8,6 +8,8 @@ on: [ push ]
 jobs:
   my-env-job:
     runs-on: ubuntu-latest
+    env:
+      NAME_0: Moath
     steps:
       - run: echo $NAME_1 $name_2 $Name_3
         env:
