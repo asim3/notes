@@ -90,7 +90,8 @@ jobs:
 
   my-second-job:
     runs-on: ubuntu-latest
-
+    needs: my-first-job
+    
     steps:
       - uses: actions/checkout@v2
       - run: pwd # /home/runner/work/test_actions/test_actions
