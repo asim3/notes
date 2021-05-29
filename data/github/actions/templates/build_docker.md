@@ -13,6 +13,12 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: asim3/added-by-github-actions
+
       - name: Login to DockerHub
         uses: docker/login-action@v1 
         with:
@@ -26,11 +32,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: |
-            asim3/added-by-github-actions:latest
-            asim3/added-by-github-actions:1.3.3
-            asim3/added-by-github-actions:1.3.4
-
-      - name: Image digest
-        run: echo "Image hash:" ${{ steps.docker_build.outputs.digest }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 ```
