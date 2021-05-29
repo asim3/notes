@@ -19,9 +19,11 @@ pull:
     git pull origin master
 
 commit:
+    if [ -n "\${GITHUB_ACTOR}" ]; then \
+      git config user.name github-actions; \
+      git config user.email github-actions@github.com; \
+    fi
     git add .
-    git config user.name "asim3 from runner"
-    git config user.email "asim3"
     git commit -m "commit by \$\$(whoami) @ \$\$(date +%R)"
 
 push:
