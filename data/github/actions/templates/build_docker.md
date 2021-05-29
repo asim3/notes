@@ -16,6 +16,7 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1 
         with:
+          registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           # https://hub.docker.com/settings/security
@@ -27,8 +28,8 @@ jobs:
           push: true
           tags: |
             asim3/added-by-github-actions:latest
-            asim3/added-by-github-actions:1.5.3
-            asim3/added-by-github-actions:1.5.4
+            asim3/added-by-github-actions:1.3.3
+            asim3/added-by-github-actions:1.3.4
 
       - name: Image digest
         run: echo "Image hash:" ${{ steps.docker_build.outputs.digest }}
