@@ -13,25 +13,28 @@ cat <<EOF > ./makefile
 all: pull add commit push
 
 add:
-  echo "\$\$(date): by \$\$(whoami)" >> ./index.html
+    echo "\$\$(date): by \$\$(whoami)" >> ./index.html
 
 pull:
-  git pull origin master
+    git pull origin master
 
 commit:
-  git add .
-  git config user.name "asim3 from runner"
-  git config user.email "asim3"
-  git commit -m "commit by \$\$(whoami) @ \$\$(date +%R)"
+    git add .
+    git config user.name "asim3 from runner"
+    git config user.email "asim3"
+    git commit -m "commit by \$\$(whoami) @ \$\$(date +%R)"
 
 push:
-  git push origin master
+    git push origin master
 EOF
 
+# replace spaces with taps
+sed -i -e 's/    /\t/' ./makefile
+
 echo "first commit: test_actions" >> index.html
-git add .
-git commit -m "first commit"
-git push origin master
+
+make commit
+make push
 ```
 
 

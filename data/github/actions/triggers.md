@@ -12,6 +12,15 @@ on:
       - v\d+\.\d+\.\d+
       - my_tag
 
+  pull_request:
+    branches:
+      - master
+      - main
+
+  release:
+    types: 
+      - created
+
 
 jobs:
   my-first-job:
