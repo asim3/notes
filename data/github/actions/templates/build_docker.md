@@ -12,6 +12,7 @@ jobs:
       
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
+        # checkout will be done by buildkit
       
       - name: Docker meta
         id: meta
