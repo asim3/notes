@@ -15,8 +15,21 @@ jobs:
 
       - id: tag_name
         run: echo "::set-output name=value::${GITHUB_REF##*/}"
-
       - run: echo ${{ steps.tag_name.outputs.value }}
         # master
+        # v1.2.4
+      
+
+      - id: get_version
+        run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
+      - run: echo ${{ steps.get_version.outputs.VERSION }}
+        # master
+        # v1.2.4
+
+
+      - id: get_tag
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      - run: echo ${{ steps.get_tag.outputs.VERSION }}
+        # refs/heads/master
         # v1.2.4
 ```
