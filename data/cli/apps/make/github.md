@@ -1,4 +1,5 @@
 # github
+`nano makefile`
 ```makefile
 all: pull commit push
 
