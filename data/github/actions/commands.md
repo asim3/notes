@@ -12,6 +12,8 @@ jobs:
         run: echo "::set-output name=MY_NAME::my name is Asim"
 
       - run: echo ${{ steps.my_step_id.outputs.MY_NAME }}
+        # my name is Asim
+
 
       - id: tag_name
         run: echo "::set-output name=value::${GITHUB_REF##*/}"
