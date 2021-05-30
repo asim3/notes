@@ -59,3 +59,43 @@ jobs:
           #   "max-parallel": 6
           # }
 ```
+
+
+## context
+`nano .github/workflows/my-context.yaml`
+```yaml
+name: my-context-actions
+on: [ push ]
+jobs:
+  my-env-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo github.actor = ${{ github.actor }}
+      - run: echo github.event_name = ${{ github.event_name }}
+      - run: echo event.run_id = ${{ event.run_id }}
+
+
+      - run: MY_NEW_ENV="Asim"
+
+      - run: echo "env $AS_JSON"
+        env:
+          AS_JSON: ${{ toJSON(env) }}
+
+
+      - run: echo "github.event $AS_JSON"
+        env:
+          AS_JSON: ${{ toJSON(github.event) }}
+
+
+      - run: echo "runner $AS_JSON"
+        env:
+          AS_JSON: ${{ toJSON(runner) }}
+
+
+      - run: echo "needs $AS_JSON"
+        env:
+          AS_JSON: ${{ toJSON(needs) }}
+
+
+      - run: echo env.MY_NEW_ENV ${{ env.MY_NEW_ENV }}
+```
