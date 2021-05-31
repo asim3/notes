@@ -92,7 +92,7 @@ echo "<br> RUN: $(date '+%x %X') - by $(whoami) - env: $(echo $MY_ENV)" >> /var/
 
 
 ## Build docker image
-```txt
+```bash
 sudo docker image build -t asim3/my_php_test:1.0 ~/my_docker_file/
 
 sudo docker image build \
@@ -100,11 +100,17 @@ sudo docker image build \
   -t asim3/my_php_test:1.0 \
   -t asim3/my_php_test:latest \
   ~/my_docker_file/
+
+# OR
+
+docker image build -t asim3/my_new_image:mytag .
+
+docker push asim3/my_new_image:mytag
 ```
 
 
 ## run
-```txt
+```bash
 sudo docker container run -d -p 80:80   asim3/my_php_test:mytag
 
 # with volumes
@@ -120,4 +126,12 @@ Push Image to Docker Hub
 sudo docker login
 
 sudo docker push asim3/my_php_test:mytag
+```
+
+
+## Build then Push
+```txt
+docker image build -t asim3/my_new_image:latest .
+
+docker push asim3/my_new_image:latest
 ```

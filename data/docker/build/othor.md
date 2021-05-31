@@ -2,6 +2,12 @@
 [Environment replacement](https://docs.docker.com/engine/reference/builder/#environment-replacement)
 
 
+## tag
+```bash
+docker tag my_new_image:mytag asim3/my_new_image
+```
+
+
 `nano ./Dockerfile`
 ```dockerfile
 FROM php:7.3-apache
