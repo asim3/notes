@@ -25,6 +25,8 @@ cd /tmp/ \
 && sudo mv minikube-linux-amd64 /usr/local/bin/minikube \
 && echo 'done updating minikube'
 
+minikube config set driver virtualbox
+
 sudo docker swarm init
 
 minikube version
