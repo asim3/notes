@@ -69,8 +69,8 @@ COPY ./my-bash.sh /
 RUN chmod +x /my-bash.sh
 RUN /my-bash.sh
 
-# RUN: runs on build only.
-# CMD: only one CMD can be run after every startup.
+# RUN >>> runs on build only.
+# CMD >>> only one CMD can be run after every startup.
 ```
 
 

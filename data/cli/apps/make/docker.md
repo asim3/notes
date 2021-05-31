@@ -1,8 +1,10 @@
-## Django
-
+## Docker
 `nano makefile`
 ```makefile
 SHELL=/bin/bash
+
+DOCKER_IMAGE=asim3/my-project-name
+DOCKER_TAG=latest
 
 main: version build shell
 
@@ -12,13 +14,14 @@ version:
 
 
 build:
-	docker image build -t asim3/my_php_test:v1.0.2 .
-
-
-push:
-	docker push asim3/my_php_test:v1.0.2
+	docker image build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .
 
 
 shell:
-	docker container run -it --entrypoint=/bin/sh   alpine
+	docker container run -it --entrypoint=/bin/sh   ${DOCKER_IMAGE}:${DOCKER_TAG}
+
+
+# make push DOCKER_TAG=v1.2.3
+push: build
+	docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
 ```
