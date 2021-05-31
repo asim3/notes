@@ -4,9 +4,9 @@
 ```makefile
 SHELL=/bin/bash
 
-ACTIVATE=source ./.venv/bin/activate;
+ACTIVATE=source ./.venv/bin/activate &&
 
-CD=${ACTIVATE} cd ./my-project-name;
+CD=${ACTIVATE} cd ./my-project-name &&
 
 
 main: run
@@ -15,13 +15,6 @@ main: run
 venv:
 	if [ ! -d ./.venv ]; then python3 -m venv ./.venv; fi;
 
-
-# make init name=my_app
-init: venv
-	${ACTIVATE} pip3 install django gunicorn
-	${ACTIVATE} django-admin startproject ${name};
-	${ACTIVATE} pip3 freeze > ./requirements.txt
-	sed -i -e 's/my-project-name/${name}/' makefile
 
 install: venv
 	${ACTIVATE} pip3 install -r ./requirements.txt
