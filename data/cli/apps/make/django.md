@@ -57,3 +57,4 @@ run:
 shell:
 	${CD} python3 manage.py shell
 ```
+`sed -i -e 's/    /\t/' ./makefile`

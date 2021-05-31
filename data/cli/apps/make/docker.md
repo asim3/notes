@@ -25,3 +25,4 @@ shell:
 push: build
 	docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
 ```
+`sed -i -e 's/    /\t/' ./makefile`
