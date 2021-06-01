@@ -24,16 +24,35 @@ next_day.strftime("%d/%m/%Y %H:%M:%S")
 
 ## To install psycopg2
 ```bash
-sudo apt install -y gcc musl-dev
-sudo apt install -y python3-dev
+sudo apt install -y gcc python3-dev libpq-dev
 # gcc            : GNU C compiler
-# musl-dev       : standard C library development files
 # python3-dev    : header files and a static library for Python (default)
 
 
-# sudo apt install -y python3-psycopg2
+# sudo apt install -y musl-dev
+# musl-dev       : standard C library development files
 
-# sudo apt install -y libpq-dev
+
+# sudo apt install -y python3-psycopg2
+```
+
+
+## install with docker
+```bash
+docker container run -it ubuntu  /bin/bash
+
+
+apt-get update -y 
+
+
+apt-get install -y python3 python3-venv \
+  && python3 -m venv .venv \
+  && source .venv/bin/activate
+
+
+apt install -y gcc python3-dev libpq-dev # musl-dev
+
+pip install psycopg2
 ```
 
 
