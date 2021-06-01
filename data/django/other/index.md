@@ -23,8 +23,17 @@ next_day.strftime("%d/%m/%Y %H:%M:%S")
 
 
 ## To install psycopg2
-```txt
-sudo apt install -y libpq-dev
+```bash
+sudo apt install -y gcc musl-dev
+sudo apt install -y python3-dev
+# gcc            : GNU C compiler
+# musl-dev       : standard C library development files
+# python3-dev    : header files and a static library for Python (default)
+
+
+# sudo apt install -y python3-psycopg2
+
+# sudo apt install -y libpq-dev
 ```
 
 
