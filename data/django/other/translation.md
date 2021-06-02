@@ -2,9 +2,12 @@
 CommandError: Can't find msguniq. Make sure you have GNU gettext tools 0.15 or newer installed.
 ```sh
 sudo apt install gettext
+```
 
-# alpine
-apk add gettext
+
+## alpine
+```dockerfile
+RUN apk add --no-cache --update gettext
 ```
 
 
