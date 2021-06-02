@@ -1,4 +1,7 @@
 [install](https://docs.docker.com/compose/install)
+```bash
+sudo apt  install docker-compose
+```
 
 
 ```bash
