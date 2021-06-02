@@ -1,3 +1,4 @@
+[yaml-docs](https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started)
 # YAML to dict
 ```py
 import yaml
