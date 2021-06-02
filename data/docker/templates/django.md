@@ -18,19 +18,18 @@ django-admin startproject my_project
 ## Dockerfile
 `nano Dockerfile`
 ```dockerfile
-FROM alpine:latest
+FROM python:3-alpine
 
-RUN apk add --no-cache --update python3 py3-pip
-
-# RUN apk add --no-cache --update gettext
-
-# pip install psycopg2
-# RUN apk add --no-cache --update postgresql-dev gcc musl-dev python3-dev
-# gcc            : GNU C compiler
-# musl-dev       : standard C library development files
-# python3-dev    : header files and a static library for Python (default)
-# postgresql-dev : 
-
+RUN apk add --no-cache \
+    gcc \
+    postgresql-dev \
+    musl-dev \
+    libffi-dev \
+    jpeg-dev \
+    gettext \
+    zlib-dev \
+    linux-headers \
+    ca-certificates
 
 COPY ./requirements.txt /tmp/requirements.txt
 

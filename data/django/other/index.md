@@ -27,6 +27,7 @@ next_day.strftime("%d/%m/%Y %H:%M:%S")
 sudo apt install -y gcc python3-dev libpq-dev
 # gcc            : GNU C compiler
 # python3-dev    : header files and a static library for Python (default)
+# libpq-dev      : header files for libpq5 (PostgreSQL library)
 
 
 # sudo apt install -y musl-dev
@@ -53,6 +54,14 @@ apt-get install -y python3 python3-venv \
 apt install -y gcc python3-dev libpq-dev # musl-dev
 
 pip install psycopg2
+```
+
+
+## install with alpine
+```dockerfile
+RUN apk add --no-cache --update gcc musl-dev postgresql-dev
+# gcc            : GNU C compiler
+# musl-dev       : standard C library development files
 ```
 
 
