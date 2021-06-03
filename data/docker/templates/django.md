@@ -38,9 +38,6 @@ RUN apk add --no-cache \
     ca-certificates \
     cairo
 
-RUN adduser -D django_user
-
-
 COPY ./brandat /opt/brandat/
 
 WORKDIR /opt/brandat
@@ -53,6 +50,8 @@ RUN python3 manage.py migrate
 # RUN python3 manage.py collectstatic
 
 RUN python3 manage.py compilemessages
+
+RUN adduser -D django_user
 
 USER django_user
 
