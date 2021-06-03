@@ -16,7 +16,7 @@ build:
 	@ docker image build -t ${DOCKER_USER}/${DOCKER_IMAGE}:${DOCKER_TAG} .
 
 
-shell:
+build-shell: build
 	@ docker container run -it --entrypoint=/bin/sh ${DOCKER_USER}/${DOCKER_IMAGE}:${DOCKER_TAG}
 
 

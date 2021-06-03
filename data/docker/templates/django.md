@@ -29,27 +29,50 @@ RUN apk add --no-cache \
     gettext \
     zlib-dev \
     linux-headers \
-    ca-certificates
+    ca-certificates \
+    cairo
 
-COPY ./requirements.txt /tmp/requirements.txt
+RUN adduser -D django_user
 
-RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
+USER django_user
 
-COPY ./my_project /opt/my_project/
+COPY ./brandat /opt/brandat/
 
-WORKDIR /opt/my_project
+WORKDIR /opt/brandat
 
-# RUN python3 manage.py migrate
+RUN pip3 install --no-cache-dir --quiet gunicorn
+RUN pip3 install --no-cache-dir -r ./requirements.txt
+
+RUN python3 manage.py migrate
 
 # RUN python3 manage.py collectstatic
 
-# RUN python3 manage.py compilemessages
+RUN python3 manage.py compilemessages
 
-RUN adduser -D djangouser
+# CMD ["/bin/sh","-c","gunicorn --workers 3 --bind 0.0.0.0:8000 brandat.wsgi"]
 
-USER djangouser
+CMD ["/bin/sh","-c","python3 manage.py runserver 0.0.0.0:8000"]
+```
 
-CMD gunicorn --workers 3 --bind 0.0.0.0:8000 my_project.wsgi
+
+## Dockerfile
+`nano .dockerignore`
+```txt
+*/*.log
+*/*.pot
+*/*.pyc
+*/__pycache__
+
+*/staticfiles
+*/static_collected
+
+*/media
+*/MEDIA_ROOT
+
+*/local_settings.py
+*/db.sqlite3
+
+*/.venv
 ```
 
 
