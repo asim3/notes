@@ -20,6 +20,12 @@ django-admin startproject my_project
 ```dockerfile
 FROM python:3-alpine
 
+ENV VIRTUAL_ENV=/opt/venv
+
+RUN python3 -m venv $VIRTUAL_ENV
+
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
 RUN apk add --no-cache \
     gcc \
     postgresql-dev \
@@ -34,7 +40,6 @@ RUN apk add --no-cache \
 
 RUN adduser -D django_user
 
-USER django_user
 
 COPY ./brandat /opt/brandat/
 
@@ -48,6 +53,8 @@ RUN python3 manage.py migrate
 # RUN python3 manage.py collectstatic
 
 RUN python3 manage.py compilemessages
+
+USER django_user
 
 # CMD ["/bin/sh","-c","gunicorn --workers 3 --bind 0.0.0.0:8000 brandat.wsgi"]
 
