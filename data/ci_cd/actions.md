@@ -1,8 +1,19 @@
 ## build and push
-[docks](https://github.com/marketplace/actions/build-and-push-docker-images)
+[docs](https://github.com/marketplace/actions/build-and-push-docker-images)
+
+`nano .github/workflows/docker_build_and_push.yaml`
 ```yaml
-name: ci
-on: [ push ]
+name: docker build and push
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    tags:
+      - v\d+\.\d+\.\d+
+
+
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -13,12 +24,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
         # checkout will be done by buildkit
-      
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v3
-        with:
-          images: asim3/added-by-github-actions
 
       - name: Login to DockerHub
         uses: docker/login-action@v1 
@@ -26,13 +31,14 @@ jobs:
           registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          # https://hub.docker.com/settings/security
+
+      - id: tag_name
+        run: echo "::set-output name=value::${GITHUB_REF##*/}"
 
       - name: Build and push
-        id: docker_build
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.tag_name.outputs.value }}
+          labels: ${{ steps.tag_name.outputs.value }}
 ```
