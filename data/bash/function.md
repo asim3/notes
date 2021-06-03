@@ -36,6 +36,9 @@ function my_function {
   echo "\$# = $#"
   echo "\$@ = $@"
   echo "\$* = $*"
+  echo "\$*:2 = ${*:2}"
+  echo "\$@:2 = ${@:2}"
+  echo "\$*:2:1 = ${*:2:1}"
 }
 
 
@@ -46,6 +49,9 @@ my_function "asim"
 # $# = 1
 # $@ = asim
 # $* = asim
+# $*:2 = 
+# $@:2 = 
+# $*:2:1 = 
 
 
 my_function "asim" "bader" "ahmed"
@@ -55,6 +61,9 @@ my_function "asim" "bader" "ahmed"
 # $# = 3
 # $@ = asim bader ahmed
 # $* = asim bader ahmed
+# $*:2 = bader ahmed
+# $@:2 = bader ahmed
+# $*:2:1 = bader
 ```
 
 
