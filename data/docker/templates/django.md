@@ -49,7 +49,7 @@ RUN python3 manage.py migrate
 
 # RUN python3 manage.py collectstatic
 
-RUN python3 manage.py compilemessages
+# RUN python3 manage.py compilemessages
 
 RUN adduser -D django_user
 
