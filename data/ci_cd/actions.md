@@ -1,6 +1,4 @@
 ## build and push
-[docs](https://github.com/marketplace/actions/build-and-push-docker-images)
-
 `nano .github/workflows/docker_build_and_push.yaml`
 ```yaml
 name: docker build and push

@@ -122,7 +122,7 @@ sudo docker container run -d -p 80:80 \
 ## Push Image
 Push Image to Docker Hub
 > the image name must start with "docker hub username"
-```txt
+```bash
 sudo docker login
 
 sudo docker push asim3/my_php_test:mytag
@@ -130,7 +130,7 @@ sudo docker push asim3/my_php_test:mytag
 
 
 ## Build then Push
-```txt
+```bash
 docker image build -t asim3/my_new_image:latest .
 
 docker push asim3/my_new_image:latest

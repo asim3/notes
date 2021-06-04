@@ -10,6 +10,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
+    
+    name: OS ${{ matrix.os }} sample
 
     steps:
       # use (community action) to downloads the repo files
@@ -34,6 +36,7 @@ jobs:
       matrix:
         my-name: ["Bader", "Ahmed"]
         my_order: [1, 2, 3]
+    name: Name ${{ matrix.my-name }} ${{ matrix.my_order }} sample
     steps:
       - run: echo ${{ matrix.my-name }}
       

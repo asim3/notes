@@ -41,3 +41,24 @@ USER django_user
 
 CMD ["/bin/sh","-c","python3 manage.py runserver 0.0.0.0:8000"]
 ```
+
+
+## ignore
+`nano .dockerignore`
+```txt
+*/*.log
+*/*.pot
+*/*.pyc
+*/__pycache__
+
+*/staticfiles
+*/static_collected
+
+*/media
+*/MEDIA_ROOT
+
+*/local_settings.py
+*/db.sqlite3
+
+*/.venv
+```
