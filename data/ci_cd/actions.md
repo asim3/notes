@@ -2,6 +2,9 @@
 `nano .github/workflows/docker_build_and_push.yaml`
 ```yaml
 name: docker build and push
+# secrets.DOCKERHUB_USERNAME
+# secrets.DOCKERHUB_TOKEN
+# secrets.DOCKERHUB_IMAGE
 
 on:
   push:
@@ -31,12 +34,16 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - id: tag_name
-        run: echo "::set-output name=value::${GITHUB_REF##*/}"
+        run: |
+          if [[ ${GITHUB_REF%/*} = "refs/tags" ]]; then
+            echo "::set-output name=value::${GITHUB_REF##*/}"
+          else
+            echo "::set-output name=value::latest"
+          fi
 
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ steps.tag_name.outputs.value }}
-          labels: ${{ steps.tag_name.outputs.value }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}:${{ steps.tag_name.outputs.value }}
 ```
