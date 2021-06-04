@@ -1,8 +1,4 @@
-## community action
-[community actions](https://github.com/actions)
-[checkout](https://github.com/actions/checkout/blob/main/action.yml)
-```yaml
-name: my-first-actions
+name: Ttttttttttttest py
 on: [ push ]
 jobs:
   copy-different-repository:
@@ -32,4 +28,3 @@ jobs:
       - run: python -V
       
       - run: ls -al
-```
