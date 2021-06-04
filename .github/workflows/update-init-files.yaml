@@ -1,4 +1,4 @@
-name: Update init.html
+name: Update all init files
 
 on:
   push:

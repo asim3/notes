@@ -12,7 +12,7 @@ jobs:
         with:
             path: my-branch
 
-      - run: echo Done
+      - run: ls -al
     
     
   setup-python:
@@ -30,6 +30,25 @@ jobs:
           architecture: 'x64' # [x64 or x86] Defaults to x64
           
       - run: python -V
-      
+        # 3.x == 3.9.5
+        # 3.6 == 3.6.13
+        # 3.7 == 3.7.10
+        # 3.8 == 3.8.10
+        # 3.9 == 3.9.5
+
+
       - run: ls -al
+        # drwxr-xr-x  7 runner docker 4096 Jun  4 11:21 .
+        # drwxr-xr-x  3 runner docker 4096 Jun  4 11:21 ..
+        # drwxr-xr-x  8 runner docker 4096 Jun  4 11:21 .git
+        # drwxr-xr-x  3 runner docker 4096 Jun  4 11:21 .github
+        # -rw-r--r--  1 runner docker    1 Jun  4 11:21 .nojekyll
+        # -rw-r--r--  1 runner docker 1073 Jun  4 11:21 LICENSE
+        # -rw-r--r--  1 runner docker  232 Jun  4 11:21 README.md
+        # drwxr-xr-x 32 runner docker 4096 Jun  4 11:21 data
+        # -rw-r--r--  1 runner docker 1150 Jun  4 11:21 favicon.ico
+        # -rw-r--r--  1 runner docker  940 Jun  4 11:21 index.html
+        # -rw-r--r--  1 runner docker  274 Jun  4 11:21 makefile
+        # drwxr-xr-x  2 runner docker 4096 Jun  4 11:21 scripts
+        # drwxr-xr-x  7 runner docker 4096 Jun  4 11:21 static
 ```
