@@ -110,3 +110,33 @@ jobs:
       - run: echo ${GITHUB_REF##*/}
         # master
 ```
+
+
+## success or failure
+`nano .github/workflows/my-after-complete.yaml`
+```yaml
+name: my-after-complete-actions
+
+on:
+  workflow_run:
+    workflows: ["my-triggers-actions"]
+    types: [completed]
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - run: echo Done
+      - run: echo ${GITHUB_REF}
+        # refs/heads/master
+        # refs/heads/master
+
+
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo Error
+        # Error
+```
