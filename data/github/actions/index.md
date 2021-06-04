@@ -123,3 +123,55 @@ jobs:
           Name_3: Ahmed
         # asim bader Ahmed
 ```
+
+
+## PWD
+```yaml
+name: My jobs
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    tags:
+      - v\d+\.\d+\.\d+
+
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ls -al $(pwd)
+        # drwxr-xr-x 2 runner docker 4096 Jun  4 16:27 .
+        # drwxr-xr-x 3 runner docker 4096 Jun  4 16:27 ..
+      - uses: actions/checkout@v2
+      # - run: exit 2
+      - run: ls -al $(pwd)
+        # drwxr-xr-x 4 runner docker 4096 Jun  4 16:27 .
+        # drwxr-xr-x 3 runner docker 4096 Jun  4 16:27 ..
+        # drwxr-xr-x 8 runner docker 4096 Jun  4 16:27 .git
+        # drwxr-xr-x 3 runner docker 4096 Jun  4 16:27 .github
+        # -rw-r--r-- 1 runner docker    7 Jun  4 16:27 .gitignore
+        # -rw-r--r-- 1 runner docker  437 Jun  4 16:27 index.html
+        # -rw-r--r-- 1 runner docker  355 Jun  4 16:27 makefile
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${GITHUB_REF##*/}
+      - run: ls -al $(pwd)
+        # drwxr-xr-x 2 runner docker 4096 Jun  4 16:27 .
+        # drwxr-xr-x 3 runner docker 4096 Jun  4 16:27 ..
+
+
+  job3:
+    needs: job2
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${GITHUB_REF##*/}
+      - run: ls -al $(pwd)
+        # drwxr-xr-x 2 runner docker 4096 Jun  4 16:27 .
+        # drwxr-xr-x 3 runner docker 4096 Jun  4 16:27 ..
+```
