@@ -23,9 +23,15 @@ spec:
 
 
 ## show quota
-```txt
+```bash
 kubectl create ns my-namespace
 kubectl apply  -f ./my-quota.yaml
+
+
+kubectl -n abc-123 get quota
+# NAME            AGE     REQUEST   LIMIT
+# default-abc12   3h37m             limits.cpu: 500m/1, limits.memory: 500Mi/1Gi
+
 
 kubectl get quota -A
 kubectl get resourcequota
