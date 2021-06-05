@@ -16,7 +16,7 @@ on:
 
 
 jobs:
-  set_up_docker:
+  build_and_push:
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
@@ -41,10 +41,6 @@ jobs:
             echo "::set-output name=value::latest"
           fi
 
-  build_and_push:
-    needs: set_up_docker
-    runs-on: ubuntu-latest
-    steps:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
