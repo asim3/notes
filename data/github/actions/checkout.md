@@ -2,9 +2,44 @@
 [community actions](https://github.com/actions)
 [checkout](https://github.com/actions/checkout/blob/main/action.yml)
 ```yaml
-name: my-first-actions
+name: my-checkout-actions
 on: [ push ]
 jobs:
+  my-first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pwd
+        # /home/runner/work/test_actions/test_actions
+
+      - run: ls -al /home/runner/work/test_actions/test_actions
+        # drwxr-xr-x 2 runner docker 4096 Jun  5 00:08 .
+        # drwxr-xr-x 3 runner docker 4096 Jun  5 00:08 ..
+
+      - uses: actions/checkout@v2
+        # use (community action) to downloads the repo files
+
+      - run: ls -al /home/runner/work/test_actions/test_actions
+        # drwxr-xr-x 4 runner docker 4096 May 28 13:47 .
+        # drwxr-xr-x 3 runner docker 4096 May 28 13:47 ..
+        # drwxr-xr-x 8 runner docker 4096 May 28 13:47 .git
+        # drwxr-xr-x 3 runner docker 4096 May 28 13:47 .github
+        # -rw-r--r-- 1 runner docker   68 May 28 13:47 index.html
+        # -rw-r--r-- 1 runner docker  273 May 28 13:47 makefile
+
+      - run: ls -al /home/runner/work/test_actions/
+        # drwxr-xr-x 3 runner docker 4096 May 28 13:47 .
+        # drwxr-xr-x 6 runner root   4096 May 28 13:47 ..
+        # drwxr-xr-x 4 runner docker 4096 May 28 13:47 test_actions
+
+      - run: ls -al /home/runner/work/
+        # drwxr-xr-x  6 runner root   4096 May 28 13:47 .
+        # drwxrwxrwx 11 runner docker 4096 May 28 13:47 ..
+        # drwxr-xr-x  3 runner docker 4096 May 28 13:47 _PipelineMapping
+        # drwxr-xr-x  3 runner docker 4096 May 28 13:47 _actions
+        # drwxr-xr-x  4 runner docker 4096 May 28 13:47 _temp
+        # drwxr-xr-x  3 runner docker 4096 May 28 13:47 test_actions
+
+
   copy-different-repository:
     runs-on: ubuntu-latest
     steps:
@@ -13,6 +48,8 @@ jobs:
             path: my-branch
 
       - run: ls -al
+
+      - run: ls -al /home/runner/work/test_actions/
     
     
   setup-python:
