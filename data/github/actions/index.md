@@ -49,15 +49,45 @@ name: my-first-actions
 on: [ push ]
 
 jobs:
-  my-first-job:
-    
+  my-job:
     runs-on: ubuntu-latest
     # runs-on: windows-latest
     # runs-on: macos-latest
-
     steps:
-      # use (community action) to downloads the repo files
+      - run: |
+          uname
+          whoami
+          echo "Done"
+        # Linux
+        # runner
+        # Done
+
+
+  my-first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pwd
+        # /home/runner/work/test_actions/test_actions
+
+      - run: ls -al /home/runner/work/test_actions/test_actions
+        # drwxr-xr-x 2 runner docker 4096 Jun  5 00:08 .
+        # drwxr-xr-x 3 runner docker 4096 Jun  5 00:08 ..
+
       - uses: actions/checkout@v2
+        # use (community action) to downloads the repo files
+
+      - run: ls -al /home/runner/work/test_actions/test_actions
+        # drwxr-xr-x 4 runner docker 4096 May 28 13:47 .
+        # drwxr-xr-x 3 runner docker 4096 May 28 13:47 ..
+        # drwxr-xr-x 8 runner docker 4096 May 28 13:47 .git
+        # drwxr-xr-x 3 runner docker 4096 May 28 13:47 .github
+        # -rw-r--r-- 1 runner docker   68 May 28 13:47 index.html
+        # -rw-r--r-- 1 runner docker  273 May 28 13:47 makefile
+
+      - run: ls -al /home/runner/work/test_actions/
+        # drwxr-xr-x 3 runner docker 4096 May 28 13:47 .
+        # drwxr-xr-x 6 runner root   4096 May 28 13:47 ..
+        # drwxr-xr-x 4 runner docker 4096 May 28 13:47 test_actions
 
       - run: ls -al /home/runner/work/
         # drwxr-xr-x  6 runner root   4096 May 28 13:47 .
@@ -67,19 +97,6 @@ jobs:
         # drwxr-xr-x  4 runner docker 4096 May 28 13:47 _temp
         # drwxr-xr-x  3 runner docker 4096 May 28 13:47 test_actions
 
-      - run: ls -al /home/runner/work/test_actions/
-        # drwxr-xr-x 3 runner docker 4096 May 28 13:47 .
-        # drwxr-xr-x 6 runner root   4096 May 28 13:47 ..
-        # drwxr-xr-x 4 runner docker 4096 May 28 13:47 test_actions
-
-      - run: ls -al /home/runner/work/test_actions/test_actions/
-        # drwxr-xr-x 4 runner docker 4096 May 28 13:47 .
-        # drwxr-xr-x 3 runner docker 4096 May 28 13:47 ..
-        # drwxr-xr-x 8 runner docker 4096 May 28 13:47 .git
-        # drwxr-xr-x 3 runner docker 4096 May 28 13:47 .github
-        # -rw-r--r-- 1 runner docker   68 May 28 13:47 index.html
-        # -rw-r--r-- 1 runner docker  273 May 28 13:47 makefile
-      
       - run: |
           uname
           whoami
@@ -90,10 +107,11 @@ jobs:
 
 
   my-second-job:
-    runs-on: ubuntu-latest
     needs: my-first-job
-    
+    runs-on: ubuntu-latest
     steps:
+      - run: pwd # /home/runner/work/test_actions/test_actions
+      - run: ls -al /home/runner/work/test_actions/test_actions/
       - uses: actions/checkout@v2
       - run: pwd # /home/runner/work/test_actions/test_actions
       - run: cd /tmp/
@@ -102,7 +120,6 @@ jobs:
 
   my-third-job:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - run: make all
