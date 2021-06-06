@@ -2,16 +2,6 @@
 Continuous integration and continuous deployment
 
 
-## agile methodology
-```text
-```
-
-
-## waterfall methodology
-```text
-```
-
-
 ## Example
 ```bash
 echo -e "<h1> version 1 </h1>" > ./index.html
@@ -59,4 +49,14 @@ spec:
             memory: 200Mi
   replicas: 1
 EOF
+```
+
+
+## agile methodology
+```text
+```
+
+
+## waterfall methodology
+```text
 ```
