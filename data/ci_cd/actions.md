@@ -21,10 +21,19 @@ on:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.x', '3.6', '3.7', '3.8', '3.9']
+    name: Test on Python ${{ matrix.python-version }}
     steps:
       - uses: actions/checkout@v2
-      - run: ls -al /home/runner/work/
-      # - run: exit 2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+          
+      - run: cd my_name && pip install -r requirements.txt
+      - run: cd my_name && python manage.py test
 
 
   build_and_push:
