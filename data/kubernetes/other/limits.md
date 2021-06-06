@@ -1,8 +1,16 @@
 ## ResourceQuota
 > ResourceQuota applies to a namespace, not to the entire cluster
+```bash
+kubectl -n my-namespace get quota
+# NAME            AGE     REQUEST   LIMIT
+# default-abc12   3h37m             limits.cpu: 500m/1, limits.memory: 500Mi/1Gi
+```
+
 
 `nano my-quota.yaml`
 ```yaml
+kubectl create ns my-namespace && kubectl apply  -f - <<EOF
+
 apiVersion: v1
 kind: ResourceQuota
 metadata:
@@ -10,21 +18,21 @@ metadata:
   namespace: my-namespace
 spec:
   hard:
-    pods: 2
-    configmaps: 1
+    pods: 3
+    configmaps: 4
+
+    requests.memory: 512Mi
+    requests.cpu: 2000m
 
     # for the entire cluster
-    limits.memory: 530Mi
-    limits.cpu: 830m
-
-    requests.memory: 130Mi
-    requests.cpu: 330m
+    limits.memory: 2Gi
+    limits.cpu: 3
+EOF
 ```
 
 
 ## show quota
 ```bash
-kubectl create ns my-namespace
 kubectl apply  -f ./my-quota.yaml
 
 

@@ -42,8 +42,9 @@ spec:
         image: asim3/ci-cd-example:latest
         resources:
           limits: 
-            cpu: 500m
-            memory: 500Mi
+            cpu: 2
+            # cpu: 2000m
+            memory: 2Gi
           requests:
             cpu: 200m
             memory: 200Mi
