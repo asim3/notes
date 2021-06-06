@@ -6,35 +6,44 @@ kubectl describe sa my-user
 ```
 
 
-## user manifest
-add a new user in the current namespace    
+## add a new user
 ```txt
-kubectl create serviceaccount my-user
+kubectl -n default create serviceaccount my-user
 ```
 
+
 ## OR 
-write a manifest for new user    
-`nano sa-my-user.yaml`
 ```yaml
+kubectl apply -f - <<EOF
+
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: my-user
   namespace: default
+EOF
 ```
 
 
-## add a new user
-```txt
-kubectl apply -f sa-my-user.yaml
+## add user to config
+```bash
+CLUSTER_NAME=free-spot-namespaces
+CLUSTER_NAMESPACE=default
+
+
+kubectl config set-credentials my-new-user \
+    --token=$(kubectl -n ${CLUSTER_NAMESPACE} get secrets/my-user-token-9q5x2  -o jsonpath='{.data.token}')
+
+
+kubectl config set-context context_nickname \
+  --user=my-new-user \
+  --cluster=free-spot-namespaces-csky08
 ```
 
 
 ## view secret
 ```txt
-kubectl get secrets
-
 kubectl get secret my-user-token-9q5x2 -o yaml
 
-kubectl describe secret my-user-token-9q5x2
+kubectl get secret my-user-token-9q5x2 -o jsonpath='{.data.token}'
 ```

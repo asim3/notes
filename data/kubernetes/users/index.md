@@ -4,6 +4,9 @@
 
 
 ## Authenticate
+```bash
+kubectl get secrets
+```
 Any user that presents a valid certificate signed by the cluster's 
 certificate authority (CA) is considered authenticated. Kubernetes 
 determines the username from the common name field in the 'subject' 
@@ -11,11 +14,18 @@ of the cert (e.g., "/CN=asim").
 
 
 ## Authorize
+```bash
+kubectl get role
+```
 The role based access control (RBAC) sub-system determine whether 
 the user is authorized to perform a specific operation on a resource.
 
 
-## service
+## service account
+```bash
+kubectl get serviceaccount
+kubectl get rolebindings
+```
 service accounts are users managed by the Kubernetes API. They are bound 
 to specific namespaces, and created automatically by the API server or 
 manually through API calls. Service accounts are tied to a set of 

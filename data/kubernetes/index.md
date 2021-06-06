@@ -12,6 +12,9 @@ kubectl config view --raw
 kubectl api-versions
 kubectl api-resources
 kubectl cluster-info
+
+
+kubectl -n my-namespace get cs,cm,ep,ev,limits,ns,no,pvc,pv,po,rc,quota,sa,svc,crd,crds,ds,deploy,rs,sts,hpa,cj,csr,config,ev,ing,ing,netpol,pdb,psp,pc,sc
 ```
 
 
