@@ -1,10 +1,10 @@
 ## update all
 ```bash
 sudo apt -y update \
+  && sudo apt-get -y --fix-broken autoremove \
   && sudo apt -y upgrade \
   && sudo apt -y autoremove \
   && sudo apt -y autoclean \
-  && sudo apt-get --fix-broken autoremove \
   && echo Done.
 ```
 
