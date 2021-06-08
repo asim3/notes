@@ -58,6 +58,8 @@ kubectl expose deploy/my-deploy-name --port 8000 --type NodePort
 ## print URL
 ```bash
 # ip
+kubectl config view -o jsonpath='{.clusters[*].cluster.server}'
+# OR
 kubectl get ep/kubernetes -o jsonpath='{.subsets[].addresses[].ip}'
 # port
 kubectl get svc/my-deploy-name -o jsonpath='{.spec.ports[].nodePort}'
