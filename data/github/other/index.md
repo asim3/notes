@@ -1,3 +1,9 @@
+## install Mercurial
+```bash
+sudo apt-get install mercurial
+```
+
+
 ## detached HEAD
 ```shell
 git log
