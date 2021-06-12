@@ -18,7 +18,7 @@ bbb.ns.cloudflare.com
 
 
 ## Website records
-A records
+A records IPv4 - AAAA records IPv6
 ```bash
 123.456.678.910      asim.com
 123.456.678.911   aa.asim.com
@@ -27,12 +27,12 @@ A records
 ```
 
 
-## CName records
-An `alias` or `redirect`
+## Canonical name records
+CName is An `alias` or `redirect`
 ```text
 Name              Destination
 www.asim.com      asim.com
-www.asim.com      @
+ftp.asim.com      @
 mail.asim.com     mail1.asim.com
 email.asim.com    mail1.asim.com
 
