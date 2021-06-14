@@ -11,7 +11,7 @@
 ```sh
 value_1='{"alg": "HS256", "typ": "JWT"}'
 value_2='{"id": "4560", "name": "Asim", "expiry_date": 987}'
-secret_key='my-256-bit-secret'
+secret_key='my-secret-key-shared-among-my-servers'
 
 base64_1="$(echo -n $value_1 | base64)"
 base64_2="$(echo -n $value_2 | base64)"
@@ -22,16 +22,4 @@ echo -n "${base64_1}.${base64_2}" \
 
 
 JWT = $base64_1 + '.' + $base64_2 + '.' + base64_openssl
-```
-
-
-[json web token](https://www.npmjs.com/package/jsonwebtoken)    
-> you need to share the secret key among your servers
-```js
-var jwt = require('jsonwebtoken');
-
-var token = jwt.sign({ foo: 'bar' }, 'secret_key');
-
-console.log(token)
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJpYXQiOjE2MTc1Njg5NzF9.jmx018orxqGdvxf6GqqfilZRUL_PhCDW2noP3dRMTpI
 ```

@@ -75,10 +75,11 @@ classNames('foo', { bar: true, duck: false }, 'baz', { quux: true })
 ```
 
 [json web token](https://www.npmjs.com/package/jsonwebtoken)
+> you need to share the secret key among your servers
 ```js
 var jwt = require('jsonwebtoken');
 
-var token = jwt.sign({ foo: 'bar' }, 'shhhhh');
+var token = jwt.sign({ foo: 'bar' }, 'secret_key');
 
 console.log(token)
 // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJpYXQiOjE2MTc1Njg5NzF9.jmx018orxqGdvxf6GqqfilZRUL_PhCDW2noP3dRMTpI

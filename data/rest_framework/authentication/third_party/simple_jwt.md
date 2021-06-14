@@ -43,9 +43,7 @@ urlpatterns = [
 
 ## obtain token
 ```txt
-curl \
-  -X POST \
-  -H "Content-Type: application/json" \
-  -d '{"username": "asim", "password": "*******"}' \
+curl -X POST -H "Content-Type: application/json" \
+  -d '{"username": "asim", "password": "my-password"}' \
   http://localhost:8000/api/token/
 ```
