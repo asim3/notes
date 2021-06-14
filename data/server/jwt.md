@@ -1,25 +1,30 @@
-[playground](https://jwt.io/)
-
-1- POST /user/login {email, pass}   
-2- respond with JWT `if request {email, pass} valid`    
-3- POST with JWT  
-4- respond `if request JWT valid`    
+[JWT.io](https://jwt.io/)
 
 
 ## how it works
-> not working, only to understand the general idea
-```sh
-value_1='{"alg": "HS256", "typ": "JWT"}'
-value_2='{"id": "4560", "name": "Asim", "expiry_date": 987}'
+```bash
+#!/bin/bash
+
 secret_key='my-secret-key-shared-among-my-servers'
 
-base64_1="$(echo -n $value_1 | base64)"
-base64_2="$(echo -n $value_2 | base64)"
+# remove spaces
+JWT_HEADER='{"alg":"HS256","typ":"JWT"}'
+JWT_PAYLOAD='{"id":"123","name":"Asim Bader"}'
 
-echo -n "${base64_1}.${base64_2}" \
- | openssl dgst -sha256 -hmac "$secret_key" -binary \
- | base64
+BASE64_HEADER="$(echo -n "${JWT_HEADER}" | base64 | tr -d '=' | tr '/+' '_-' | tr -d '\n')"
+BASE64_PAYLOAD="$(echo -n "${JWT_PAYLOAD}" | base64 | tr -d '=' | tr '/+' '_-' | tr -d '\n')"
+
+JWT_HASH=$(echo -n "${BASE64_HEADER}.${BASE64_PAYLOAD}" \
+ | openssl dgst -binary -sha256 -hmac "${secret_key}" \
+ | base64 | tr -d '=' | tr '/+' '_-' | tr -d '\n')
 
 
-JWT = $base64_1 + '.' + $base64_2 + '.' + base64_openssl
+JWT="${BASE64_HEADER}.${BASE64_PAYLOAD}.${JWT_HASH}"
+
+JWT_IO="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMyIsIm5hbWUiOiJBc2ltIEJhZGVyIn0.pHLWWSQ9tuu1RRvdCLw8tZpFQzCOEMjog9T80bdasSA"
+
+echo "JWT : ${JWT}"
+
+[ "${JWT}" = "${JWT_IO}" ] && echo "Matching the jwt.io results" || echo "not matching!!!"
+# Matching the jwt.io results
 ```
