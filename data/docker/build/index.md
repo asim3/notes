@@ -93,7 +93,10 @@ echo "<br> RUN: $(date '+%x %X') - by $(whoami) - env: $(echo $MY_ENV)" >> /var/
 
 ## Build docker image
 ```bash
-sudo docker image build -t asim3/my_php_test:1.0 ~/my_docker_file/
+docker image build -t asim3/my_image:latest .
+
+
+sudo docker image build -t asim3/my_php_test:latest ~/my_docker_file/
 
 sudo docker image build \
   -t asim3/my_php_test:mytag \

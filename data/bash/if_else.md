@@ -151,6 +151,9 @@ fi;
 
 ## if file
 ```bash
+[ -f my-file ] && echo "found the regular file" || echo 'not a file'
+
+
 if [ -f my-file ]; then 
   echo "found the regular file"
 elif [ -w my-file ]; then

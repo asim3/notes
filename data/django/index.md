@@ -3,13 +3,13 @@
 python3 -m venv .venv \
   && source ./.venv/bin/activate \
   && pip install django gunicorn \
-  && django-admin startproject my_name
+  && django-admin startproject my_project
 ```
 
 
 ## django manage
 ```txt
-django-admin startproject my_name
+django-admin startproject my_project
 
 python manage.py startapp app_name
 

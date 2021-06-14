@@ -20,12 +20,19 @@ RUN apk add --no-cache \
     linux-headers \
     ca-certificates
 
-COPY ./brandat /opt/brandat/
+COPY ./my_project /opt/my_project/
 
-WORKDIR /opt/brandat
+WORKDIR /opt/my_project
+
+RUN python3 -m pip install --upgrade pip
 
 RUN pip3 install --no-cache-dir --quiet gunicorn
-RUN pip3 install --no-cache-dir -r ./requirements.txt
+
+RUN if [ -f ./requirements.txt ]; then \
+      pip3 install --no-cache-dir -r ./requirements.txt; \
+    else \
+      pip3 install --no-cache-dir --quiet django; \
+    fi;
 
 RUN python3 manage.py migrate
 
