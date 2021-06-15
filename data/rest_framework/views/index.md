@@ -5,12 +5,12 @@
 ```python
 from django.contrib.auth.models import User, Group
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.viewsets import (
-    ViewSet, ModelViewSet, GenericViewSet, ReadOnlyModelViewSet,)
-
-from .serializers import UserSerializer, GroupSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+# from rest_framework.viewsets import (
+#     ViewSet, ModelViewSet, GenericViewSet, ReadOnlyModelViewSet,)
+
+from .serializers import UserSerializer, GroupSerializer
 
 
 class UserViewSet(ModelViewSet):
