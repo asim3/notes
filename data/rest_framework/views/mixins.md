@@ -3,6 +3,44 @@ We don't bind behaviour to http method handlers yet,
 which allows mixin classes to be composed in interesting ways.
 
 
+```python
+from rest_framework.mixins import (CreateModelMixin, RetrieveModelMixin, 
+    UpdateModelMixin, DestroyModelMixin, ListModelMixin)
+
+class ModelViewSet(CreateModelMixin,
+                   RetrieveModelMixin,
+                   UpdateModelMixin,
+                   DestroyModelMixin,
+                   ListModelMixin,
+                   GenericViewSet):
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        ...
+        return Response(serializer.data)
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        ...
+        return Response(serializer.data)
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        ...
+        return Response(serializer.data)
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        ...
+        return Response(serializer.data)
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        ...
+        return Response(status=status.HTTP_204_NO_CONTENT)
+```
+
+
 ```py
 from rest_framework import status
 from rest_framework.response import Response
