@@ -8,6 +8,7 @@
 > configuration throughout.
 
 
+## Model ViewSet
 `nano views.py`
 ```py
 from django.contrib.auth.models import User

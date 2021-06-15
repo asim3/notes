@@ -1,33 +1,12 @@
-## Model Serializer
-`nano serializers.py`
-```python
-from rest_framework.serializers import (
-    Serializer,
-    ListSerializer,
-    ModelSerializer,
-    HyperlinkedModelSerializer,
-)
-from django.contrib.auth.models import User, Group
-
-
-class UserSerializer(HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ['username', 'password', 'name']
-        # fields = '__all__'
-        # exclude = ['username', 'password']
-        # read_only_fields = ['username', 'password']
-        extra_kwargs = {'password': {'write_only': True}}
-        depth = 1
-```
-
-
-## Saving instances
+## Serializer
 ```py
-class CommentSerializer(serializers.Serializer):
-    email = serializers.EmailField()
-    content = serializers.CharField(max_length=200)
-    created = serializers.DateTimeField()
+from rest_framework.serializers import Serializer, CharField, EmailField, DateTimeField
+
+class CommentSerializer(Serializer):
+    email = EmailField()
+    content = CharField(max_length=200)
+    created = DateTimeField()
+    
     url = CharField(source='get_absolute_url', read_only=True)
     name = CharField(label='Your Name:', allow_blank=True, max_length=150, 
         required=False, write_only=True,
@@ -51,11 +30,39 @@ class CommentSerializer(serializers.Serializer):
         instance.created = validated_data.get('created', instance.created)
         instance.save()
         return instance
+```
 
 
+## Saving instances
+```py
+from .serializers import CommentSerializer
 # .save() will create a new instance.
 serializer = CommentSerializer(data=data)
 
 # .save() will update the existing `comment` instance.
 serializer = CommentSerializer(comment, data=data)
+```
+
+
+## Model Serializer
+`nano serializers.py`
+```python
+from rest_framework.serializers import (
+    Serializer,
+    ListSerializer,
+    ModelSerializer,
+    HyperlinkedModelSerializer,
+)
+from django.contrib.auth.models import User, Group
+
+
+class UserSerializer(HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'name']
+        # fields = '__all__'
+        # exclude = ['username', 'password']
+        # read_only_fields = ['username', 'password']
+        extra_kwargs = {'password': {'write_only': True}}
+        depth = 1
 ```
