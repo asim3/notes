@@ -6,10 +6,19 @@ SHELL=/bin/bash
 
 ACTIVATE=source ./.venv/bin/activate &&
 
-CD=${ACTIVATE} cd ./my-project-name &&
+CD=${ACTIVATE} cd ./my_project_name &&
 
 
 main: run
+
+
+# make init name=my_project_name
+init:
+	python3 -m venv .venv
+	${ACTIVATE} pip3 install django
+	${ACTIVATE} django-admin startproject ${name}
+	cd ${name} && echo 'django' > ./requirements.txt
+	sed -i -e 's/my_project_name/${name}/' ./Makefile
 
 
 venv:
@@ -17,7 +26,7 @@ venv:
 
 
 install: venv
-	${ACTIVATE} pip3 install -r ./requirements.txt
+	${CD} pip3 install -r ./requirements.txt
 	${CD} python3 manage.py makemigrations
 	${CD} python3 manage.py migrate
 	- ${CD} python3 manage.py collectstatic --noinput
@@ -28,9 +37,9 @@ test:
 	${CD} python3 manage.py test ${args};
 
 
-# make new name=my_app
+# make new app=my_app
 new:
-	${CD} python3 manage.py startapp ${name};
+	${CD} python3 manage.py startapp ${app};
 
 
 user:
