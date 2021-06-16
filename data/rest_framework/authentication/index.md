@@ -4,10 +4,15 @@
 
 [Django OAuth docs](https://django-oauth-toolkit.readthedocs.io/en/latest/rest-framework/getting_started.html)
 
+[Simple JWT docs](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/)
+
 ## install
 ```bash
 # Django OAuth Toolkit
 pip install django-oauth-toolkit
+
+# Simple JWT
+pip install djangorestframework_simplejwt
 ```
 
 
@@ -21,7 +26,6 @@ INSTALLED_APPS = [
 
     # Django OAuth Toolkit
     'oauth2_provider',
-
 ]
 
 REST_FRAMEWORK = {
@@ -33,6 +37,9 @@ REST_FRAMEWORK = {
         
         # Django OAuth Toolkit
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        
+        # Simple JWT
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.AllowAny',
