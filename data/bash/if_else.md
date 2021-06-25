@@ -69,6 +69,20 @@ if [ false ]; then echo "true"; else echo "false"; fi;
 
 if [ ./false.sh ]; then echo "true"; else echo "false"; fi;
 # true
+
+
+if  docker image ls -a ; then echo "true"; else echo "false"; fi;
+# REPOSITORY     TAG        IMAGE ID       CREATED       SIZE
+# asim3/django   latest     aa3556e2640f   12 days ago   445MB
+# asim3/django   v1.0.0     7670fa797668   12 days ago   445MB
+# python         3-alpine   2d64a2341b7c   4 weeks ago   45MB
+# true
+
+
+if  docker image ls -err ; then echo "true"; else echo "false"; fi;
+# unknown shorthand flag: 'e' in -err
+# See 'docker image ls --help'.
+# false
 ```
 
 
