@@ -9,17 +9,33 @@ setattr(object, name, value) # sets the value of given attribute of an object
 
 
 ## Class
+`touch /tmp/pycls.py && chmod +x /tmp/pycls.py && nano /tmp/pycls.py `
 ```python
-class Person:
-    name = 'Adam'
+class Main:
+    name = '111'
 
-p = Person()
-print('Before modification:', p.name)
+one = Main()
+two = Main()
 
-# setting name to 'John'
-setattr(p, 'name', 'John')
+print('one.name:', one.name)
 
-print('After modification:', p.name)
+setattr(one, 'name', '222')
+
+print('setattr one: ', one.name)
+
+setattr(Main, 'name', '333')
+
+print('setattr Main: one.name: ', one.name)
+print('setattr Main: two.name: ', two.name)
+print('setattr Main: Main.name: ', Main.name)
+
+# one.name: 111
+
+# setattr one:  222
+
+# setattr Main: one.name:  222
+# setattr Main: two.name:  333
+# setattr Main: Main.name:  333
 ```
 
 
@@ -69,16 +85,31 @@ print({'class': MyClass1()})
 ## class init
 ```py
 class My_Class:
+    name_1="ZZZ"
+    name_2="ZZZ"
+    name_3="ZZZ"
+
     def __init__(self, **kwargs):
         for key, value in kwargs.items():
             setattr(self, key, value)
 
-my_cls = My_Class(name_1="aaa",name_2="bbb",name_3="ccc")
 
-my_cls.name_1
-# aaa
-my_cls.name_3
-# ccc
+one = My_Class(name_1="aaa",name_2="bbb",name_3="ccc")
+
+print('one.name_1: ', one.name_1)
+print('one.name_3: ', one.name_3)
+
+
+two = My_Class(name_2="bbb")
+
+print('two.name_1: ', two.name_1)
+print('two.name_3: ', two.name_3)
+
+# one.name_1:  aaa
+# one.name_3:  ccc
+
+# two.name_1:  ZZZ
+# two.name_3:  ZZZ
 ```
 
 
