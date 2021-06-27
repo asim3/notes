@@ -53,6 +53,10 @@ sudo docker container stats
 ## execute shell commands
 get into a Docker container's shell
 ```bash
+docker run -it __image_name__ bash
+docker run -it gitlab/gitlab-runner bash
+
+
 sudo docker exec -it __id__ bash
 sudo docker exec -it __id__ whoami
 sudo docker exec -it __id__ ls -al /var/
