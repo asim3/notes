@@ -27,6 +27,10 @@ class TestOne(TestCase):
 
 
 ## run
+`python -m unittest discover --catch -s ./tests`
+
+## OR
+
 ```py
 from unittest import main as unit_test_main
 
