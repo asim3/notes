@@ -58,3 +58,16 @@ test_data = TextTestRunner().run(loader)
 if not test_data.wasSuccessful():
     exit(44)
 ```
+
+
+## filter warnings
+```py
+import warnings
+from unittest import TestCase
+
+
+class TestOne(TestCase):
+    def setUp(self):
+        warnings.filterwarnings(
+            'ignore', message='Unverified HTTPS request')
+```
