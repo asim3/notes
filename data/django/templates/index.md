@@ -156,3 +156,11 @@ Date and Time
 ```django
 {{ object.period_start|date:"Y-m-d\\TH:m" }}
 ```
+
+
+## yes no
+```django
+{% load i18n %}
+
+{% some_tag _("Page not found") value|yesno:_("yes,no") %}
+```
