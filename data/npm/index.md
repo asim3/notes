@@ -1,63 +1,44 @@
 [npm package](https://www.npmjs.com)
-```sh
-npm -v
-npm version
+## update npm
+```bash
+sudo npm install --global npm
+npm audit fix
 
+npm -v
 npm -l
 ```
 
 
 ## new
-```sh 
+```bash 
 npm init
 npm init --yes
-#or 
+
+# or 
+
 npm create
 ```
 
 
-## install 
-> will install all modules listed as dependencies in package.json
-```sh
-npm install
-npm add
+## install package.json
+install all dependencies in package.json
+```bash
 npm i
-```
+npm add
+npm install
+npm install -P | --save-prod # default
+npm install -g | --global    # @ /usr/lib/node_modules/
+npm install -D | --save-dev
 
 
-## install options
-```sh
--P | --save-prod # default
--D | --save-dev
--O | --save-optional
--g | --global    # @ /usr/lib/node_modules/
-     --no-save
-```
-
-
-## uninstall 
-```sh
+# uninstall 
 npm uninstall
-npm unlink
-npm un
-
 npm remove
 npm rm
-npm r
 ```
 
 
-## config
-```sh
-npm config set <key> <value>
-npm config get [<key>]
-npm config delete <key>
-
-npm config list
-npm config ls -l
-```
-
-
+## main file
 > The starting file is the value of "main" in 'package.json'
 ```json
 {
