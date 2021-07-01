@@ -68,11 +68,3 @@ The available tags to use:
     {% variables %}
 </pre>
 ```
-
-
-
-## show python object
-```django
-{% if object_list %}
-	{{ object_list|join:" - " }}
-```
