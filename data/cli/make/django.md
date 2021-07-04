@@ -9,6 +9,15 @@ ACTIVATE=source ./.venv/bin/activate &&
 CD=${ACTIVATE} cd ./my_project_name &&
 
 
+export DJANGO_SECRET_KEY="top-secret"
+export DJANGO_DEBUG="True"
+export DJANGO_ALLOWED_HOSTS="*"
+
+# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+# DEBUG = os.getenv('DJANGO_DEBUG', False) in (True, 'True')
+# ALLOWED_HOSTS = [os.environ.get('DJANGO_ALLOWED_HOSTS')]
+
+
 main: run
 
 
