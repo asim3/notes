@@ -14,17 +14,14 @@ settings.NEWS_API_KEY
 ```python
 STATIC_URL = '/static/'
 
-STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
 
-STATIC_ROOT = BASE_DIR / "static"
-
+STATICFILES_DIRS = [ BASE_DIR / 'static_resources' ]
 STATICFILES_DIRS = [ BASE_DIR / "copy_all_files_to_STATIC_ROOT" ]
-STATICFILES_DIRS = [ BASE_DIR / "static_files" ]
-STATICFILES_DIRS = [ BASE_DIR / "templates/static" ]
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root_folder')
+MEDIA_ROOT = [ BASE_DIR / 'media' ]
 ```
 
 
@@ -40,19 +37,17 @@ LOGOUT_REDIRECT_URL = reverse_lazy('home')
 
 ## LANGUAGES
 ```python
-from django.utils.translation import gettext_lazy as _
-
 LANGUAGE_CODE = 'ar-sa'
 
 LANGUAGE_CODE = 'en-us'
 
 LANGUAGES = [
-    ('ar', _('Arabic')),
-    ('en', _('English')),
+    ('ar', 'العربية'),
+    ('en', 'English'),
 ]
 
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
+    ( BASE_DIR / 'locale' ),
 )
 ```
 
@@ -97,8 +92,6 @@ os.getenv('HOME', 'my home')
 ```python
 import django_heroku
 
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 django_heroku.settings(locals())
 ```
