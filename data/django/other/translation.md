@@ -80,10 +80,71 @@ class MyThing(models.Model):
 ```
 
 
-## template tag
+## format
+```py
+from django.utils.text import format_lazy
+from django.utils.translation import gettext_lazy as _
+
+
+format_lazy(_("Aaaa Bbbb cccc"), name="Asim", age=1234)
+format_lazy(_("Aaaa {name} Bbbb cccc"), name="Asim", age=1234)
+format_lazy(_("Aaaa {name} Bbbb {age} cccc"), name="Asim", age=1234)
+
+# Error
+format_lazy(_("Aaaa {name} Bbbb {age} cccc {time} dddd"), name="Asim", age=1234)
+```
+
+
+## Template tag
 ```django
 {% load i18n %}
 
-<title>{% translate "This is the title." %}</title>
-<title>{% translate myvar %}</title>
+<title>{% trans "This is the title." %}</title>
+<title>{% trans myvar %}</title>
+
+
+<p>{% trans "Welcome to our page" %}</p>
+
+
+{% get_current_language as LANGUAGE_CODE %}
+
+<!-- Current language: {{ LANGUAGE_CODE }} -->
+
+
+{% get_available_languages as languages %}
+
+{% for lang_code, lang_name in languages %}
+    {% language lang_code %}
+        <a href="{% url 'category' slug=category.slug %}">{{ lang_name }}</a>
+    {% endlanguage %}
+{% endfor %}
+```
+
+
+## retrieve only
+```django
+{% load i18n %}
+
+{% translate "starting point" as start %}
+{% translate "end point" as end %}
+{% translate "La Grande Boucle" as race %}
+
+<h1>
+  <a href="/" title="{% blocktranslate %}Back to '{{ race }}' homepage{% endblocktranslate %}">{{ race }}</a>
+</h1>
+
+<p>
+    {% for stage in tour_stages %}
+        {% cycle start end %}: {{ stage }}{% if forloop.counter|divisibleby:2 %}<br>{% else %}, {% endif %}
+    {% endfor %}
+</p>
+```
+
+
+## blocktranslate
+[docs](https://docs.djangoproject.com/en/dev/topics/i18n/translation/#blocktranslate-template-tag)
+```django
+{% load i18n %}
+
+{% blocktranslate %}This string will have {{ value }} inside.{% endblocktranslate %}
 ```

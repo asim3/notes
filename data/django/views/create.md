@@ -39,6 +39,12 @@ class CreateNew(CreateView):
         obj.fk_student = Table1.objects.get(id=self.kwargs.get('id'))
         return super().form_valid(form)
 
+    def form_valid(self, form):
+        form = super().form_valid(form)
+        self.object.request_status = Readmission.RequestStatus.NEW
+        self.object.save()
+        return form
+
     def dispatch(self, request, *args, **kwargs):
         form = self.get_form()
         old_form = {}
