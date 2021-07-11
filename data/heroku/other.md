@@ -6,25 +6,14 @@ heroku local web
 
 ## database info
 ```txt
-heroku pg:info -a _
-watch "heroku pg:info -a _"
+heroku pg:info -a __app__
+watch "heroku pg:info -a __app__"
 ```
 
 
 ## scale Dynos
 ```txt
-heroku ps:scale web=1 -a _
-```
-
-
-## Run
-```txt
-heroku run python manage.py makemigrations
-heroku run python manage.py migrate -a _
-
-heroku run python manage.py createsuperuser -a _
-heroku run python manage.py shell -a _
-heroku run python manage.py collectstatic -a _
+heroku ps:scale web=1 -a __app__
 ```
 
 

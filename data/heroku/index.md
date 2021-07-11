@@ -4,12 +4,12 @@ heroku login
 ```
 
 
-## add new server
+## add
 > Name must start with a letter, end with a letter or digit
 > and can only contain lowercase letters, digits, and dashes.
 ```bash
-heroku create __my-app__ 
-heroku create __my-app__ --region eu
+heroku create __app__ 
+heroku create __app__ --region eu
 ```
 
 
@@ -21,8 +21,8 @@ heroku apps
 
 ## copy
 ```bash
-heroku git:clone -a __my-app__
-heroku git:remote -a __my-app__
+heroku git:clone -a __app__
+heroku git:remote -a __app__
 ```
 
 
@@ -36,7 +36,7 @@ heroku open
 
 ## delete
 ```bash
-heroku apps:destroy -a __my-app__ 
+heroku apps:destroy -a __app__ 
 
-heroku apps:destroy -a __my-app__ --confirm __my-app__
+heroku apps:destroy -a __app__ --confirm __app__
 ```
