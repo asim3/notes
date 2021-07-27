@@ -65,9 +65,9 @@ Background Centered
 ```
 
 
-svg viewBox
+## svg viewBox
 ```xml
-<svg viewBox="0 0 300 300" height="210" width="500">
+<svg fill="currentColor" viewBox="0 0 300 300" height="210" width="500" xmlns="http://www.w3.org/2000/svg">
     <polygon points="200,10 250,190 160,210" 
         style="fill:lime;stroke:purple;stroke-width:1"></polygon>
 </svg>
