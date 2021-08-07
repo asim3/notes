@@ -86,3 +86,35 @@ heroku addons:destroy
 
 heroku addons:rename
 ```
+
+
+## Backup Postgres
+```bash
+heroku pg:backups -a barqalramay-staging
+# === Backups
+# No backups. Capture one with heroku pg:backups:capture
+
+# === Restores
+# No restores found. Use heroku pg:backups:restore to restore a backup
+
+# === Copies
+# ID    Started at   Status                Size     From       To
+# ────  ───────────  ────────────────────  ───────  ─────────  ───────────
+# c001  2021-08-02   Completed 2021-08-02  38.65KB  From Name  Target Name
+
+
+heroku pg:backups:capture -a barqalramay-staging
+
+BACKUP_URL=$(heroku pg:backups:url -a barqalramay-production)
+
+heroku pg:backups:restore ${BACKUP_URL} -a barqalramay-staging
+
+heroku pg:backups -a barqalramay-staging
+```
+
+
+
+## download Postgres
+```bash
+heroku pg:backups:download -a barqalramay-staging --output=barqalramay-staging.db.dump
+```

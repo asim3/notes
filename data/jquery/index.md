@@ -8,6 +8,8 @@ window.addEventListener('load', function (event) {
 ## value
 ```js
 $('#value').val()
+$('#value').text()
+$('#value').html()
 ```
 
 
