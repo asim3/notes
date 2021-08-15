@@ -41,11 +41,35 @@ class SendEmailRecordAdmin(ModelAdmin):
 
     {{ block.super }}
 
-    <h3>
-        {% translate "إضافة حقل جديد" %}
-    </h3>
+    <div id="content-main" style="padding-top: 3rem;">
+        <h1>
+            {% translate "إضافة من ملف إكسل" %}
+        </h1>
 
-{% endblock %} 
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <fieldset class="module aligned ">
+                <div class="form-row field-excel">
+                    <div>
+                        <label class="required" for="id_excel">ملف إكسل:</label>
+                        <input type="file" name="excel" required="" id="id_excel">
+                    </div>
+                </div>
+            </fieldset>
+            
+            
+            <div class="submit-row">
+
+                <input type="submit" value="{% trans 'احفظ' %}" class="default" name="_save">
+
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}
 ```
 
 
