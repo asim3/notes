@@ -6,48 +6,68 @@ from .models import table1, table2, table3
 ## add to database
 ```python
 from .models import Table1
-Table1(title="hello, world",type="title",img="11.jpg").save()
 
-x = table1()
-x.title = 'hello, world'
-x.save()
+
+Table1(title="hello, world").save()
+
+# OR
+
+instance = Table1()
+instance.title = 'hello, world'
+instance.save()
 ```
 
 
-## Select
+## select
 ```python
-table1.objects.get(id=8)
-table1.objects.filter(id__isnull=False) # all
-table1.objects.filter(id__isnull=True) # null
+from .models import Table1
 
-table1.objects.exclude(id__isnull=True) # all
-table1.objects.exclude(id__isnull=False) # null
 
-table1.objects.exclude(title__isnull=True).values("first_name", "last_name")
-table1.objects.exclude(title__isnull=True).only("first_name", "last_name")
+try:
+    Table1.objects.get(id=8)
+except Table1.DoesNotExist:
+    pass
+
+
+Table1.objects.all()
+
+Table1.objects.values('id')
+
+Table1.objects.values('id').distinct()
+
+Table1.objects.values_list("id")
+
+list(Table1.objects.values_list("id", flat=True))
+```
+
+
+## filter
+```python
+Table1.objects.filter(id__isnull=False) # all
+Table1.objects.filter(id__isnull=True) # null
+
+Table1.objects.exclude(id__isnull=True) # all
+Table1.objects.exclude(id__isnull=False) # null
+
+Table1.objects.exclude(title__isnull=True).values("first_name", "last_name")
+Table1.objects.exclude(title__isnull=True).only("first_name", "last_name")
 ```
 
 ## Count
 ```python
-table1.objects.count()
-table1.objects.all().count()
+Table1.objects.count()
+Table1.objects.all().count()
 ```
 
 ## Limit
 ```python
-table1.objects.all()[:1] 	# limit ?
-table1.objects.all()[:5] 	# limit 5
-table1.objects.all()[15:20] 	# start after 15
+Table1.objects.all()[:1] 	# limit ?
+Table1.objects.all()[:5] 	# limit 5
+Table1.objects.all()[15:20] 	# start after 15
 ```
 
 ## Order By
 ```python
-table1.objects.all().order_by('name')
-table1.objects.all().order_by('-name')
-```
-
-
-## Unique
-```py
-Pledge.objects.values('next_tearm').order_by('next_tearm').distinct()
+Table1.objects.all().order_by('name')
+Table1.objects.all().order_by('-name')
 ```
