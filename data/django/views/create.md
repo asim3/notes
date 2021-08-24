@@ -20,11 +20,15 @@ class CreateNew(CreateView):
 
     model = Table1
     fields = ['title', 'desc', 'year', 'age', 'ser']
+    
     # or
+
     form_class = Table1ModelForm
-    # or
+    # and
     queryset = Table1.objects.all()
+    
     # or
+    
     def get_object(self):
       id_ = self.kwargs.get("id")
       return get_object_or_404(Table1, id=id_)

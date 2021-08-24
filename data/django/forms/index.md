@@ -32,7 +32,7 @@ class HomeForm(forms.Form):
 
 ## Form from a Model
 ```python
-from django.forms import ModelForm
+from django.forms import ModelForm, TextInput, HiddenInput, ValidationError, EmailInput
 from .models import Table1
 
 class Table1ModelForm(ModelForm):
@@ -51,10 +51,16 @@ class Table1ModelForm(ModelForm):
                 'max_length': _("This writer's name is too long."),
             },
         }
-        widgets = {'email': Textarea(
-            attrs={'class': "mx-4", 'cols': 80, 'rows': 2}),
-        }
         field_classes = {'slug': MySlugFormField,}
+
+        widgets = {
+            'name' : TextInput(attrs={'placeholder': _("الاسم")}),
+            'phone': TextInput(attrs={'placeholder': _("رقم الجوال")}),
+            'email': EmailInput(attrs={'placeholder': _("البريد الإلكتروني")}),
+            'text' : Textarea(attrs={'class': "mx-4", 'cols': 80, 'rows': 2}),
+            'advertisement': HiddenInput(),
+        }
+        
 
     def clean_title(self):
       title = self.cleaned_data.get('title')

@@ -4,11 +4,11 @@ from django.utils import timezone
 class TableName(models.Model):
 
     class YearInSchool(models.TextChoices):
-        FRESHMAN = 'FR', _('Freshman')
+        FRESHMAN  = 'FR', _('Freshman')
         SOPHOMORE = 'SO', _('Sophomore')
-        JUNIOR = 'JR', _('Junior')
-        SENIOR = 'SR', _('Senior')
-        GRADUATE = 'GR', _('Graduate')
+        JUNIOR    = 'JR', _('Junior')
+        SENIOR    = 'SR', _('Senior')
+        GRADUATE  = 'GR', _('Graduate')
 
     year_in_school = models.CharField(
         max_length=2,
@@ -138,6 +138,9 @@ class MyThing(models.Model):
         ordering = ["title"]
         verbose_name = _('Pledge')
         verbose_name_plural = _("Pledge's")
+        permissions = [
+            ("export_to_excel", "Can export data to excel file"),
+        ]
 
     def __str__(self):
         return self.title
