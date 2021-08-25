@@ -45,9 +45,3 @@ class HomePage(Page):
     {{ page.body|richtext }}
 {% endblock %}
 ```
-
-
-## Add new App
-```sh
-python manage.py startapp new_app
-```
