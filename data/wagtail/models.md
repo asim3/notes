@@ -35,16 +35,3 @@ class HomePage(Page):
         FieldPanel('my_text_field', classname="title"),
     ]
 ```
-
-
-
-```py
-class BlogIndexPage(Page):
-    """templates/my_new_blog/blog_index_page.html"""
-
-    my_text_field = RichTextField(blank=True)
-
-    content_panels = Page.content_panels + [
-        FieldPanel('my_text_field', classname="full")
-    ]
-```
