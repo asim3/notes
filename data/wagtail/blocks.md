@@ -47,7 +47,8 @@ class HomePage(Page):
         ('heading', blocks.CharBlock(form_classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
         ('image', ImageChooserBlock()),
-    ])
+    ],
+    blank=True, null=True,)
 
     content_panels = Page.content_panels + [
         FieldPanel('my_name'),
