@@ -22,28 +22,29 @@
 ```
 
 
-
+## page children
 ```jinja
 {% extends "base.html" %}
 {% load wagtailcore_tags %}
 
 
-
 {% block content %}
-    <h1>{{ page.title }}</h1>
-
-    <hr>
-
-
-    <div class="intro">{{ page.intro|richtext }}</div>
-
 
     {% for post in page.get_children %}
-        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
-        {{ post.specific.intro }}
-        {{ post.specific.body|richtext }}
-    {% endfor %}
+        
+        <a href="{% pageurl post %}">
+            {{ post.title }}
+        </a>
+        
+        <br />
 
+        {{ post.specific.my_title }}    <br />
+
+        {{ post.specific.gpa }}         <br />
+        
+        <br />
+
+    {% endfor %}
 
 {% endblock %}
 ```

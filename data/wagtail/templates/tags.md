@@ -5,8 +5,7 @@
 
 {% block content %}
     
-    {{ page.body|richtext }}
-    
+
     Back to index
     {% pageurl page.get_parent %}
     {% pageurl page.other_page fallback='coming_soon' %}
@@ -18,20 +17,24 @@
 ```
 
 
-## admin Bar
+
+## admin options button 
 ```jinja
 {% load wagtailuserbar %}
 
 
-<body>
+{% block content %}
+
     {% wagtailuserbar %}
 
     {% wagtailuserbar 'top-left' %}
     {% wagtailuserbar 'top-right' %}
     {% wagtailuserbar 'bottom-left' %}
     {% wagtailuserbar 'bottom-right' %}
-</body>
+
+{% endblock %}
 ```
+
 
 
 ## Pixel & Analytics
