@@ -57,7 +57,7 @@ cat <<EOF >> ~/.bashrc
   # By Asim
   alias uuu='set -x && sudo apt -y update && sudo apt-get -y --fix-broken autoremove && sudo apt -y upgrade && sudo apt -y autoremove && sudo apt -y autoclean && echo Done. && set +x;'
 
-  alias ttt='rm /tmp/asim-tmp-file/ 2> /dev/null; mkdir /tmp/asim-tmp-file/ && cd /tmp/asim-tmp-file/'
+  alias ttt='rm -rf /tmp/asim-tmp-file/ 2> /dev/null; mkdir /tmp/asim-tmp-file/ && cd /tmp/asim-tmp-file/'
 
   alias ls='ls --color=auto'
   alias ll='ls -alhF'
