@@ -22,6 +22,21 @@
 ```
 
 
+
+## page parent
+```jinja
+{% load wagtailcore_tags %}
+
+
+{% block content %}
+
+    <a href="{% pageurl page.get_parent %}">Back to index</a>
+
+{% endblock content %}
+```
+
+
+
 ## page children
 ```jinja
 {% extends "base.html" %}
