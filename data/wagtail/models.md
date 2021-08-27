@@ -15,6 +15,12 @@ class HomePage(Page):
 
     my_text_field = RichTextField("My RichText", blank=True)
 
+    # parent
+    max_count = 3
+    max_count_per_parent = 2
+    
+    parent_page_types = [Home1Page]
+
 
     content_panels = Page.content_panels + [
         FieldPanel('my_id'),
