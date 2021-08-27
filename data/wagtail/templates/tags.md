@@ -5,13 +5,23 @@
 
 {% block content %}
     
-
     Back to index
     {% pageurl page.get_parent %}
     {% pageurl page.other_page fallback='coming_soon' %}
 
-    {% slugurl 'news' %}
+{% endblock %}
+```
 
+
+
+## slug URL
+```jinja
+{% load wagtailcore_tags %}
+
+
+{% block content %}
+    
+    {% slugurl 'news' %}
 
 {% endblock %}
 ```

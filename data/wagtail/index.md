@@ -25,9 +25,6 @@ pip install wagtail
 ```py
 
 INSTALLED_APPS = [
-    'home',
-    'search',
-
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
@@ -43,12 +40,7 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
 
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    # ...
 ]
 
 

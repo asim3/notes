@@ -44,6 +44,21 @@ class HomePage(Page):
 
 
 
+## Context
+```py
+class BlogIndexPage(Page):
+    # ...
+
+    def get_context(self, request):
+        context = super().get_context(request)
+        context['blog_entries'] = BlogPage.objects.child_of(self).live()
+        context['managed_by'] = BlogPage.objects.filter(managed_by=request.user)
+        context['blog_public'] = BlogPage.objects.live().public().order_by("-first_published_at")
+        return context
+```
+
+
+
 ## admin panels
 ```py
 from django.db import models
