@@ -1,51 +1,48 @@
 ## admin
 ```py
-from django.db import models
-from wagtail.core.models import Page
-from wagtail.admin.edit_handlers import FieldPanel
-
-
-class HomePage(Page):
-    my_title = models.CharField("العنوان", max_length=100, null=True)
-
-
-    content_panels = Page.content_panels + [
-        FieldPanel('my_title'),
-    ]
-
-
-    promote_panels = Page.promote_panels + [
-        FieldPanel('my_title'),
-    ]
-
-    
-    settings_panels = Page.settings_panels + [
-        FieldPanel('my_title'),
-    ]
+INSTALLED_APPS = [
+   ...
+   'wagtail.contrib.modeladmin',
+]
 ```
 
 
 
-## Multi Field Panel
+## hooks
+`nano wagtail_hooks.py`
 ```py
-from django.db import models
-from wagtail.core.models import Page
-from wagtail.admin.edit_handlers import MultiFieldPanel, FieldPanel
+from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
+
+from .models import HomePage
 
 
-class HomePage(Page):
-    first_name = models.CharField(max_length=100, null=True)
-    last_name = models.CharField(max_length=100, null=True)
-    address = models.TextField(null=True)
+class HomePageAdmin(ModelAdmin):
+    model = HomePage
+    list_display = ("title", "live", "owner", "first_published_at",)
+    list_filter = ("owner", "content_type",)
+    search_fields = ("title", "slug",)
 
-    content_panels = Page.content_panels + [
-        MultiFieldPanel(
-            [
-                FieldPanel('first_name'),
-                FieldPanel('last_name'),
-                FieldPanel('address'),
-            ],
-            heading="My Address",
-        ),
-    ]
+    # main sidebar
+    exclude_from_explorer = False
+    # Settings sub-menu
+    add_to_settings_menu = False
+    menu_order = 200  # 1st : 000 - 2nd: 100
+    menu_label = 'HomePage'  # else model.verbose_name_plural
+    # menu_icon = 'folder-inverse'
+    # menu_icon = 'folder-open-inverse'
+    # menu_icon = 'folder-open-1'
+    # menu_icon = 'folder'
+    # menu_icon = 'group'
+    # menu_icon = 'home'
+    # menu_icon = 'user'
+    menu_icon = 'list-ul'
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        # Only show people managed by the current user
+        # return queryset.filter(managed_by=request.user)
+        return queryset.live().public().order_by("-first_published_at")
+
+
+modeladmin_register(HomePageAdmin)
 ```
