@@ -1,8 +1,8 @@
 ## admin
 ```py
 INSTALLED_APPS = [
-   ...
-   'wagtail.contrib.modeladmin',
+   # ...
+    'wagtail.contrib.modeladmin',
 ]
 ```
 
