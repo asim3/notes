@@ -14,6 +14,8 @@ class HomePage(Page):
 
 
 class MyTodo(Orderable):
+    id = models.AutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=30)
     page = ParentalKey(
         HomePage,
