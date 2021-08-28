@@ -1,4 +1,5 @@
 ## models
+[docs](https://docs.wagtail.io/en/stable/reference/pages/model_reference.html)
 ```py
 from django.db import models
 from wagtail.core.models import Page
@@ -18,8 +19,9 @@ class HomePage(Page):
     # parent
     max_count = 3
     max_count_per_parent = 2
-    
-    parent_page_types = [Home1Page]
+
+    parent_page_types = ['my_site.HomePage', 'my_site.BlogArchivePage']
+    subpage_types = ['my_site.BlogPage', 'my_site.BlogArchivePage']
 
 
     content_panels = Page.content_panels + [
