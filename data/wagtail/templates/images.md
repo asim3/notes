@@ -31,3 +31,14 @@
 
 {% endblock %}
 ```
+
+
+
+## as URL
+```jinja
+{% image object.specific.image max-200x200 bgcolor-FFF format-jpeg as tmp_photo %}
+
+<a href="{% pageurl object %}" class="brand">
+    <div style="background-image: url({{ tmp_photo.url }})"></div>
+</a>
+```

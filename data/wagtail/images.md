@@ -39,8 +39,10 @@ class HomePage(Page):
 ## Image as orderable
 ```py
 from django.db import models
-from wagtail.core.models import Page
+from wagtail.core.models import Page, Orderable
 from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.admin.edit_handlers import InlinePanel
+from modelcluster.fields import ParentalKey
 
 
 class HomePage(Page):
