@@ -80,3 +80,21 @@
     My Home Title
 {% endblock %}
 ```
+
+
+
+## Admin user bar
+`templates/wagtailadmin/userbar/base.html`
+```jinja
+{% extends "wagtailadmin/userbar/base.html" %}
+{% load static %}
+
+
+{% block branding_logo %}
+    <div
+        style="width: 3.5em;height: 3.5em;background-image: url({% static 'img/logo-sm-colored.svg' %});background-position: center;background-repeat: no-repeat;background-size: contain;"
+        aria-hidden="true"
+        focusable="false">
+    </div>
+{% endblock %}
+```
