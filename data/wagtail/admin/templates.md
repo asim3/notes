@@ -18,24 +18,21 @@
 
 
 
-## Admin Favicon
-`templates/wagtailadmin/base.html`
+## Favicon & Title & CSS
+`templates/wagtailadmin/admin_base.html`
 ```jinja
+{% extends "wagtailadmin/admin_base.html" %}
+{% load static %}
+
+
 {% block branding_favicon %}
-
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
-
 {% endblock %}
 
 
 {% block branding_title %}My Favicon Title{% endblock %}
-```
 
 
-
-## Admin CSS
-`templates/wagtailadmin/base.html`
-```jinja
 {% block extra_css %}
 
     <style>
@@ -58,8 +55,12 @@
 
 
 ## Admin JS
-`templates/wagtailadmin/base.html`
+`templates/wagtailadmin/admin_base.html`
 ```jinja
+{% extends "wagtailadmin/admin_base.html" %}
+{% load static %}
+
+
 {% block extra_js %}
 
     <script type="text/javascript" charset="UTF-8" src="{% static 'js/wagtail_admin.js' %}"></script>
