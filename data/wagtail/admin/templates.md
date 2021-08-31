@@ -74,10 +74,25 @@
 `templates/wagtailadmin/home.html`
 ```jinja
 {% extends "wagtailadmin/home.html" %}
+{% load i18n %}
 
 
 {% block branding_welcome %}
-    My Home Title
+    {% trans "My Home Title" %}
+{% endblock %}
+```
+
+
+
+## Admin Login
+`templates/wagtailadmin/login.html`
+```jinja
+{% extends "wagtailadmin/login.html" %}
+{% load i18n %}
+
+
+{% block branding_login %}
+    {% trans "Login to My Home Title" %}
 {% endblock %}
 ```
 
