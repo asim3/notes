@@ -10,14 +10,20 @@ class MyCardBlock(StructBlock):
     my_image = ImageChooserBlock()
 
     class Meta:
-        template = "my_home/card_block.html"
-        icon = "edit"
+        template = "wagtail/blocks/card_block.html"
         label = "My Card Label"
+        icon = "edit"
+        # icon = 'folder-inverse'
+        # icon = 'folder-open-inverse'
+        # icon = 'group'
+        # icon = 'home'
+        # icon = 'user'
 ```
 
 
+
 ## template
-`my_home/card_block.html`
+`templates/wagtail/blocks/card_block.html`
 ```jinja
 {% load wagtailimages_tags %}
 
@@ -26,6 +32,7 @@ class MyCardBlock(StructBlock):
 {{ self.text }} <br>
 {% image self.my_image width-350 format-jpeg %}
 ```
+
 
 
 ## model
@@ -41,14 +48,13 @@ from .blocks import MyCardBlock
 
 
 class HomePage(Page):
-    my_name = models.CharField(max_length=255)
+    my_name = models.CharField(max_length=255, null=True)
     my_body = StreamField([
         ("my_card", MyCardBlock()),
         ('heading', blocks.CharBlock(form_classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
         ('image', ImageChooserBlock()),
-    ],
-    blank=True, null=True,)
+    ], blank=True, null=True,)
 
     content_panels = Page.content_panels + [
         FieldPanel('my_name'),
