@@ -10,7 +10,7 @@ class MyCardBlock(StructBlock):
     my_image = ImageChooserBlock()
 
     class Meta:
-        template = "wagtail/blocks/card_block.html"
+        template = "home/blocks/card_block.html"
         label = "My Card Label"
         icon = "edit"
         # icon = 'folder-inverse'
@@ -23,7 +23,7 @@ class MyCardBlock(StructBlock):
 
 
 ## template
-`templates/wagtail/blocks/card_block.html`
+`templates/home/blocks/card_block.html`
 ```jinja
 {% load wagtailimages_tags %}
 
@@ -31,61 +31,4 @@ class MyCardBlock(StructBlock):
 {{ self.title }} <br>
 {{ self.text }} <br>
 {% image self.my_image width-350 format-jpeg %}
-```
-
-
-
-## model
-```py
-from django.db import models
-from wagtail.core import blocks
-from wagtail.core.models import Page
-from wagtail.core.fields import StreamField
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
-from wagtail.images.blocks import ImageChooserBlock
-
-from .blocks import MyCardBlock
-
-
-class HomePage(Page):
-    my_name = models.CharField(max_length=255, null=True)
-    my_body = StreamField([
-        ("my_card", MyCardBlock()),
-        ('heading', blocks.CharBlock(form_classname="full title")),
-        ('paragraph', blocks.RichTextBlock()),
-        ('image', ImageChooserBlock()),
-    ], blank=True, null=True,)
-
-    content_panels = Page.content_panels + [
-        FieldPanel('my_name'),
-        StreamFieldPanel('my_body'),
-    ]
-```
-
-
-
-## template
-```jinja
-{% extends "base.html" %}
-{% load wagtailcore_tags wagtailimages_tags %}
-
-
-{% block content %}
-
-    {% for block in page.my_body %}
-
-        {% if block.block_type == 'image' %}
-        
-            {% image block.value height-480 %}
-        
-        {% else %}
-            
-            {% include_block block %}
-        
-        {% endif %}
-
-        <br />
-    {% endfor %}
-
-{% endblock content %}
 ```
