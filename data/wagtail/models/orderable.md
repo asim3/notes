@@ -10,6 +10,8 @@ from modelcluster.fields import ParentalKey
 class HomePage(Page):
     content_panels = Page.content_panels + [
         InlinePanel("my_todo", label="My TODO's"),
+        # OR
+        InlinePanel("my_todo", label="My TODO's", min_num=1, max_num=5,),
     ]
 
 

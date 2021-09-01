@@ -46,6 +46,29 @@ class HomePage(Page):
 
 
 
+## Multi Field Panel
+```py
+from django.db import models
+from wagtail.core.models import Page
+from wagtail.admin.edit_handlers import MultiFieldPanel, FieldPanel
+
+
+class HomePage(Page):
+    first_name = models.CharField(max_length=100, null=True)
+    last_name = models.CharField(max_length=100, null=True)
+    address = models.TextField(null=True)
+
+    content_panels = Page.content_panels + [
+        MultiFieldPanel([
+            FieldPanel('first_name'),
+            FieldPanel('last_name'),
+            FieldPanel('address'),
+        ], heading="My Address"),
+    ]
+```
+
+
+
 ## Context
 ```py
 class BlogIndexPage(Page):
@@ -84,31 +107,5 @@ class HomePage(Page):
     
     settings_panels = Page.settings_panels + [
         FieldPanel('my_title'),
-    ]
-```
-
-
-
-## Multi Field Panel
-```py
-from django.db import models
-from wagtail.core.models import Page
-from wagtail.admin.edit_handlers import MultiFieldPanel, FieldPanel
-
-
-class HomePage(Page):
-    first_name = models.CharField(max_length=100, null=True)
-    last_name = models.CharField(max_length=100, null=True)
-    address = models.TextField(null=True)
-
-    content_panels = Page.content_panels + [
-        MultiFieldPanel(
-            [
-                FieldPanel('first_name'),
-                FieldPanel('last_name'),
-                FieldPanel('address'),
-            ],
-            heading="My Address",
-        ),
     ]
 ```
