@@ -32,3 +32,40 @@ class MyCardBlock(StructBlock):
 {{ self.text }} <br>
 {% image self.my_image width-350 format-jpeg %}
 ```
+
+
+
+
+## video blocks
+```py
+from wagtail.core.blocks import StructBlock
+from wagtail.documents.blocks import DocumentChooserBlock
+
+
+class VideoBlock(StructBlock):
+    video = DocumentChooserBlock()
+
+    class Meta:
+        template = "home/blocks/video_block.html"
+        icon = "media"
+        label = "Video"
+```
+
+
+`templates/home/blocks/video_block.html`
+```jinja
+<div class="container text-center">
+    <video
+        class="w-100"
+        controls=""
+        controlslist="nodownload"
+        crossorigin="anonymous"
+        playsinline=""
+        poster="{{ self.video.url }}"
+        preload="metadata"
+        type="video/mp4"
+        src="{{ self.video.url }}"
+    >
+    </video>
+</div>
+```

@@ -13,7 +13,7 @@ from .blocks import MyCardBlock
 class RegularPage(Page):
     template = "home/regular_page.html"
     my_name = models.CharField(max_length=255, null=True)
-    my_body = StreamField([
+    my_body_as_html = StreamField([
         ("my_card", MyCardBlock()),
         ('heading', blocks.CharBlock(form_classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
@@ -22,7 +22,7 @@ class RegularPage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel('my_name'),
-        StreamFieldPanel('my_body'),
+        StreamFieldPanel('my_body_as_html'),
     ]
 ```
 
