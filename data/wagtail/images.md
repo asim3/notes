@@ -52,18 +52,17 @@ class HomePage(Page):
 
 
 class MyImages(Orderable):
-    id = models.AutoField(primary_key=True)
-    page = ParentalKey(
-        HomePage,
-        on_delete=models.CASCADE,
-        related_name="my_Images")
-
     my_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+')
+
+    page = ParentalKey(
+        HomePage,
+        on_delete=models.CASCADE,
+        related_name="my_Images")
 
     panels = [
         ImageChooserPanel("my_image"),
