@@ -9,15 +9,11 @@ from modelcluster.fields import ParentalKey
 
 class HomePage(Page):
     content_panels = Page.content_panels + [
-        InlinePanel("my_todo", label="My TODO's"),
-        # OR
-        InlinePanel("my_todo", label="My TODO's", min_num=1, max_num=5,),
+        InlinePanel("my_todo", label="My TODO's", min_num=3, max_num=5,),
     ]
 
 
 class MyTodo(Orderable):
-    id = models.AutoField(primary_key=True)
-    # id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=30)
     page = ParentalKey(
         HomePage,
@@ -28,6 +24,8 @@ class MyTodo(Orderable):
         FieldPanel("name"),
     ]
 ```
+
+> `DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"` @ **`settings.py`**
 
 
 

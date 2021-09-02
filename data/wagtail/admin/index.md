@@ -46,3 +46,14 @@ class HomePageAdmin(ModelAdmin):
 
 modeladmin_register(HomePageAdmin)
 ```
+
+
+
+## register
+```py
+from django.contrib import admin
+from wagtail.core.models import Page
+
+
+admin.site.register({Page})
+```
