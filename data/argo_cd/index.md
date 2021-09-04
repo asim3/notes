@@ -4,13 +4,11 @@
 > `minikube delete && minikube start`
 
 
-## install
+## install core
 ```bash
 kubectl create namespace argocd
 
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-
-kubectl apply -n argocd -f https://github.com/argoproj/argo-cd/blob/master/manifests/ha/install.yaml
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
 
 
 # new custom resource definition
@@ -32,29 +30,41 @@ argocd version
 
 ## Access API Server
 ```bash
-kubectl port-forward svc/argocd-server -n argocd 8000:443
+argocd login --core
 
-# user name: admin
-# API password
-kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
+argocd admin dashboard
 
-# delete
-kubectl -n argocd delete secret argocd-initial-admin-secret
-
-
-
-argocd login localhost:8000
-
-# Change the password
-argocd account update-password
+# fix: FATA[0000] configmap "argocd-cm" not found 
+kubectl config set-context --current --namespace=argocd
 ```
 
 
 ## adde new app
 ```bash
-argocd app create my-guestbook \
+argocd app create my-new-app \
     --repo https://github.com/argoproj/argocd-example-apps.git \
     --path guestbook \
     --dest-server https://kubernetes.default.svc \
     --dest-namespace default
+```
+
+
+## OR
+```yaml
+cat <<EOF | kubectl apply -f -
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-new-app
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  source:
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: HEAD
+    path: guestbook
+EOF
 ```
