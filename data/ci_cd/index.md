@@ -14,6 +14,8 @@ git remote add origin git@github.com:asim3/ci-cd-example.git
 git push origin master
 ```
 
+> `kubectl config set-context --current --namespace=abc-123`
+
 
 ## apply the example
 [kubernautic](https://kubernautic.com)

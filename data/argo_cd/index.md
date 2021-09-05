@@ -36,6 +36,13 @@ argocd admin dashboard
 
 # fix: FATA[0000] configmap "argocd-cm" not found 
 kubectl config set-context --current --namespace=argocd
+
+
+kubectl config get-contexts
+CURRENT   NAME       CLUSTER    AUTHINFO   NAMESPACE
+*         minikube   minikube   minikube   default
+# kubectl config set-context --current --namespace=argocd
+*         minikube   minikube   minikube   argocd
 ```
 
 
