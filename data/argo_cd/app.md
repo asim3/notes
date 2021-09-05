@@ -4,28 +4,6 @@ kubectl get app,appproj -A
 ```
 
 
-
-```yaml
-cat <<EOF | kubectl apply -f -
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: my-new-app
-  namespace: default
-spec:
-  project: default
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: default
-  source:
-    repoURL: https://github.com/argoproj/argocd-example-apps.git
-    targetRevision: HEAD
-    path: guestbook
-EOF
-```
-
-
-
 ## automated
 ```yaml
 cat <<EOF | kubectl apply -f -
@@ -43,6 +21,14 @@ spec:
     repoURL: https://github.com/argoproj/argocd-example-apps.git
     targetRevision: HEAD
     path: guestbook
+
+
+    # dir -r
+    directory:
+      recurse: true
+      jsonnet: {}
+
+
   # AUTO
   syncPolicy:
     automated:
