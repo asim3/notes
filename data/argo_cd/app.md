@@ -45,7 +45,9 @@ spec:
     path: guestbook
   # AUTO
   syncPolicy:
-    automated: {}
+    automated:
+      selfHeal: true
+      prune: true
 EOF
 ```
 
@@ -65,7 +67,9 @@ spec:
     server: https://kubernetes.default.svc
     namespace: default
   syncPolicy:
-    automated: {}
+    automated:
+      selfHeal: true
+      prune: true
   source:
     chart: wordpress
     helm:
@@ -93,7 +97,9 @@ spec:
     server: https://kubernetes.default.svc
     namespace: default
   syncPolicy:
-    automated: {}
+    automated:
+      selfHeal: true
+      prune: true
   source:
     repoURL: https://charts.bitnami.com/bitnami/
     chart: wordpress
