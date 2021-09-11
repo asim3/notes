@@ -6,10 +6,11 @@ kind: Ingress
 metadata:
   name: ingress-resource-3
   annotations:
-    kubernetes.io/ingress.class: nginx
-    # !!!
+    # old school
+    # kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - host: whoami.example.com
     http:

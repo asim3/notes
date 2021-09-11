@@ -75,6 +75,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - host: whoami.example.com
     http:

@@ -77,6 +77,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
     cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
+  ingressClassName: nginx
   tls:
   # hosts: need to explicitly match spec.rules.host
   - hosts:

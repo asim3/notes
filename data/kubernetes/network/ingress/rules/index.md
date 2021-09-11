@@ -6,8 +6,10 @@ kind: Ingress
 metadata:
   name: ingress-resource-2
   annotations:
+    # old school
     kubernetes.io/ingress.class: nginx
 spec:
+  ingressClassName: nginx
   rules:
   - host: whoami.example.com
     http:

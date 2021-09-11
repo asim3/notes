@@ -54,6 +54,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
+  ingressClassName: nginx
   # hosts: need to explicitly match spec.rules.host
   - hosts:
       - whoami.example.com
@@ -81,9 +82,9 @@ kind: Ingress
 metadata:
   name: my-ingress-resource
   annotations:
-    kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - whoami.example.com

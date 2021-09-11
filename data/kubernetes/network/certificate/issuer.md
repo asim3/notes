@@ -86,6 +86,7 @@ metadata:
   # name: must be a valid DNS subdomain name
   name: my-ingress-resource
 spec:
+  ingressClassName: nginx
   tls:
   # hosts: need to explicitly match spec.rules.host
   - hosts:
