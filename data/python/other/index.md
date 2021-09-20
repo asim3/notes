@@ -1,4 +1,6 @@
 [Built-in Functions](https://docs.python.org/3/library/functions.html)
+`__builtins__.__dir__()`
+
 
 ## print __dir__
 ```py
