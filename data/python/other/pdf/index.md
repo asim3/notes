@@ -55,8 +55,18 @@ my_pdf.cell(width, height, 'Hello World!')
 
 
 my_pdf.output('My-first PDF.pdf', 'F')
+"""
+I or D: write the document to sys.stdout. default if no file name is given.
+F: save to a local file with the given name (may include a path). default if a file name is given.
+S: return the document as a byte string.
+"""
 ```
 
+
+## return byte string
+```py
+byte_data = my_pdf.output(dest="S")
+```
 
 
 ## modify only
