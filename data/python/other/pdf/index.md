@@ -54,6 +54,11 @@ height = 50  # default = 0
 my_pdf.cell(width, height, 'Hello World!')
 
 
+
+my_pdf.write(50, 'Visit ')
+my_pdf.write(50, 'www.fpdf.org', 'http://www.fpdf.org')
+
+
 my_pdf.output('My-first PDF.pdf', 'F')
 """
 I or D: write the document to sys.stdout. default if no file name is given.
