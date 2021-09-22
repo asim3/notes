@@ -11,7 +11,7 @@ web: gunicorn myproject.wsgi
 ## pre compile
 `nano bin/pre_compile`
 ```bash
-#!/bin/bah
+#!/bin/bash
 
 echo "pre compile"
 ```
@@ -20,7 +20,7 @@ echo "pre compile"
 ## post compile
 `nano bin/post_compile`
 ```bash
-#!/bin/bah
+#!/bin/bash
 
 echo "post compile"
 ```
