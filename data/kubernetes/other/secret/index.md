@@ -22,6 +22,9 @@ kubectl get secret my-secret-1 -o yaml | grep "data:" -A 4
 
 kubectl get secrets my-secret-1 -o go-template='{{.data.my_username | base64decode}}'
 # Asim
+
+
+kubectl get secrets my-secret-1 -o go-template='{{index .data "my.username" | base64decode}}'
 ```
 
 
