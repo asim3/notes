@@ -46,6 +46,8 @@ kubeseal --fetch-cert > my-bitnami-sealed-cert.pem
 
 # OR
 
+kubectl get secrets -n kube-system -o name | grep sealed-secrets-controller
+
 kubectl get secrets sealed-secrets-keyjfrth -n kube-system \
     -o go-template='{{index .data "tls.crt" | base64decode}}' \
     > my-bitnami-sealed-cert.pem
