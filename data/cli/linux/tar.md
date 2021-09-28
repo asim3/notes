@@ -22,3 +22,11 @@ tar -cvf my_archive.tar my_file.txt
 tar -czf my_archive.tar.gz /var/my_dir/
 tar -xzf my_archive.tar.gz
 ```
+
+
+## zip
+```bash
+zip -r FILE.zip DIRECTORY/
+
+unzip FILE.zip
+```
