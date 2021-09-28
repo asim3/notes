@@ -59,6 +59,9 @@ terraform apply
 # Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 
+terraform show
+
+
 terraform destroy
 # kubernetes_namespace.my_tf_example will be destroyed
 ```
