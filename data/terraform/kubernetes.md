@@ -1,6 +1,6 @@
 ## kubernetes
 `nano configuration.tf`
-```tr
+```ini
 terraform {
   required_providers {
     kubernetes = {
@@ -21,7 +21,7 @@ provider "kubernetes" {
 
 ## kubernetes
 `nano namespace.tf`
-```tr
+```ini
 resource "kubernetes_namespace" "my_1_example" {
   metadata {
     name = "my-1-namespace"

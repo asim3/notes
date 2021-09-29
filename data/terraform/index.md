@@ -17,7 +17,7 @@ terraform version
 
 ## configuration
 `nano main.tf`
-```tr
+```ini
 terraform {
   required_providers {
     kubernetes = {

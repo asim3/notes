@@ -10,7 +10,7 @@ variable "my_namespace" {
 
 
 `nano namespace.tf`
-```tr
+```ini
 resource "kubernetes_namespace" "my_3_example" {
   metadata {
     name = var.my_namespace
