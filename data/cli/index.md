@@ -133,3 +133,17 @@ jobs
 # go to background
 fg
 ```
+
+
+## curl
+```bash
+app_version=v1.6.3
+app_link="https://github.com/releases/download/app-${app_version}-amd64.tar.gz"
+
+
+mkdir -p /tmp/my_app \
+    && curl -Lo /tmp/my_app/my_app.tar.gz ${app_link} \
+    && cd /tmp/my_app/ \
+    && tar -xvf ./my_app.tar.gz \
+    && sudo mv ./app-${app_version}-amd64.tar.gz/my_app /usr/local/bin/my_app
+```
