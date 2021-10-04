@@ -1,4 +1,5 @@
 [docs](https://www.postgresql.org/docs/14/index.html)
+[tutorial](https://www.postgresqltutorial.com/postgresql-administration/)
 
 
 ## install

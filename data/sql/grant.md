@@ -1,3 +1,13 @@
+[tutorial](https://www.postgresqltutorial.com/postgresql-administration/postgresql-grant/)
+
+
+
+## privileges
+```sql
+GRANT USAGE ON SCHEMA my_schema TO my_user;
+```
+
+
 ## add users
 ```sql
 create USER my_user_3 with encrypted password 'pass';
