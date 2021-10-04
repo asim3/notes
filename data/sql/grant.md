@@ -2,24 +2,6 @@
 
 
 
-## privileges
-```sql
-GRANT USAGE ON SCHEMA my_schema TO my_user;
-```
-
-
-## add users
-```sql
-create USER my_user_3 with encrypted password 'pass';
-create user my_user_4 with encrypted password 'pass';
-create user my_user_5 with encrypted password 'pass';
-
-
-create database my_db_3;
-create database my_db_4;
-create database my_db_5;
-```
-
 
 ## all privileges
 ```sql

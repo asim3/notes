@@ -1,4 +1,62 @@
+## add db & users
+```sql
+create database my_db_1;
+create database my_db_2;
+create database my_db_3;
+
+create schema my_schema_1;
+create schema my_schema_2;
+create schema my_schema_3;
+
+create user my_user_1 with encrypted password 'pass';
+create user my_user_2 with encrypted password 'pass';
+create user my_user_3 with encrypted password 'pass';
+```
+
+
+## login
+```bash
+psql my_db_1 -U my_user_1
+# done. OK
+
+
+\l
+#                                   List of databases
+#    Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+# -----------+----------+----------+-------------+-------------+-----------------------
+#  my_db_1   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+#  my_db_2   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+#  my_db_3   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+
+
+
+CREATE TABLE MyTable (Name varchar(255), Age int);
+# CREATE TABLE
+
+
+\dt
+#           List of relations
+#  Schema |  Name   | Type  |   Owner   
+# --------+---------+-------+-----------
+#  public | mytable | table | my_user_1
+
+
+\c my_db_2
+# You are now connected to database "my_db_2" as user "my_user_1".
+
+
+\dt
+# Did not find any relations.
+```
+
+
+
 ## privileges
+```sql
+GRANT USAGE ON SCHEMA my_schema TO my_user;
+```
+
+
 ```txt
 SELECT   
     Allows SELECT from any column of the specified table, view, or sequence. 
