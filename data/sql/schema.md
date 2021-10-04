@@ -44,8 +44,6 @@ CREATE TABLE public.my_table (Name varchar(255), Age int);
 ```sql
 CREATE SCHEMA my_schema;
 -- CREATE SCHEMA
-CREATE SCHEMA sales;
--- CREATE SCHEMA
 
 
 \dn
@@ -54,7 +52,6 @@ CREATE SCHEMA sales;
 -- -----------+----------
 --  my_schema | postgres
 --  public    | postgres
---  sales     | postgres
 
 
 SELECT current_schema();
@@ -73,6 +70,53 @@ CREATE TABLE public.my_table_2 (Name varchar(255), Age int);
 ```
 
 
+## database & schema
+```sql
+create database my_db_1;
+
+
+create schema my_schema_1;
+create schema my_schema_2;
+create schema my_schema_3;
+
+
+\dn
+--       List of schemas
+--     Name     |  Owner   
+-- -------------+----------
+--  my_schema_1 | postgres
+--  my_schema_2 | postgres
+--  my_schema_3 | postgres
+--  public      | postgres
+
+
+\c my_db_1
+-- You are now connected to database "my_db_1" as user "postgres".
+
+
+\dn
+--   List of schemas
+--   Name  |  Owner   
+-- --------+----------
+--  public | postgres
+
+
+\c postgres
+-- You are now connected to database "postgres" as user "postgres".
+
+
+\dn
+--     List of schemas
+--     Name     |  Owner   
+-- -------------+----------
+--  my_schema   | postgres
+--  my_schema_1 | postgres
+--  my_schema_2 | postgres
+--  my_schema_3 | postgres
+--  public      | postgres
+```
+
+
 
 ## settings
 ```sql
@@ -85,9 +129,32 @@ SHOW search_path;
 SELECT current_schema();
 -- public
 
-SET search_path TO sales, public;
+SET search_path TO my_schema, public;
 -- SET
 
 SELECT current_schema();
--- sales
+-- my_schema
+```
+
+
+
+## reset
+```sql
+SET search_path TO my_schema, public;
+-- SET
+
+SHOW search_path;
+--     search_path    
+-- -------------------
+--  my_schema, public
+
+
+\c postgres
+-- You are now connected to database "postgres" as user "postgres".
+
+
+SHOW search_path;
+--    search_path   
+-- -----------------
+--  "$user", public
 ```
