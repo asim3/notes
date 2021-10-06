@@ -1,6 +1,13 @@
+[docs](https://www.postgresql.org/docs/11/ddl-schemas.html)
+
+
 > PostgreSQL automatically creates a `public schema` for every new database. 
 > A database can contain `one or multiple` schemas and each schema belongs to 
 > only one database. Two schemas can have different objects that share the same name.
+> There is nothing special about the public schema except that it exists 
+> by default. It can be dropped, too.
+
+
 ```sql
 create database my_db ;
 
