@@ -1,20 +1,54 @@
+[tutorial](https://www.postgresqltutorial.com/postgresql-administration/postgresql-grant/)
+
+
+## Schemas and Privileges
+By default, users cannot access any objects in schemas they do not own. To 
+allow that, the owner of the schema must grant the USAGE privilege on the 
+schema. To allow users to make use of the objects in the schema, additional 
+privileges might need to be granted, as appropriate for the object.
+
+A user can also be allowed to create objects in someone else's schema. To 
+allow that, the CREATE privilege on the schema needs to be granted. Note that
+by default, everyone has CREATE and USAGE privileges on the schema public. 
+This allows all users that are able to connect to a given database to create 
+objects in its public schema. Some usage patterns call for revoking that 
+privilege:
+
+- `REVOKE CREATE ON SCHEMA public FROM PUBLIC;`
+
+(The first “public” is the schema, the second “public” means “every user”. 
+In the first sense it is an identifier, in the second sense it is a key word, 
+hence the different capitalization; recall the guidelines from Section 4.1.1.)
+
+
 ## add db & users
 ```sql
 create database my_db_1;
 create database my_db_2;
 create database my_db_3;
 
-create schema my_schema_1;
-create schema my_schema_2;
-create schema my_schema_3;
+
+\c my_db_1
+
+CREATE TABLE MyPublicTable (Name varchar(255), Age int);
+
+
+create schema my_db_1_schema_1;
+create schema my_db_1_schema_2;
+create schema my_db_1_schema_3;
+
 
 create user my_user_1 with encrypted password 'pass';
 create user my_user_2 with encrypted password 'pass';
 create user my_user_3 with encrypted password 'pass';
 ```
+> After creating a role with the LOGIN attribute, the role can log in to the 
+> PostgreSQL database server. However, it cannot do anything to the database
+> objects like tables, views, functions, etc.
 
 
-## login
+
+## login to public schema
 ```bash
 psql my_db_1 -U my_user_1
 # done. OK
@@ -52,9 +86,19 @@ CREATE TABLE MyTable (Name varchar(255), Age int);
 
 
 ## privileges
+`psql my_db_1 -U my_user_1`
 ```sql
-GRANT USAGE ON SCHEMA my_schema TO my_user;
+GRANT USAGE ON SCHEMA my_db_1_schema_1 TO my_user_1;
+
+REVOKE CREATE ON SCHEMA public FROM PUBLIC;
+
+
+
+GRANT ALL                                      ON SCHEMA my_db_1_schema_1 TO my_user_1;
+GRANT SELECT, INSERT, UPDATE, DELETE, TRUNCATE ON SCHEMA my_db_1_schema_1 TO my_user_1;
 ```
+> By default, users cannot access any objects in schemas they do not own.
+
 
 
 ```txt
