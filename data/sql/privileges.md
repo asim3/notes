@@ -32,6 +32,11 @@ create database my_db_3;
 
 CREATE TABLE MyPublicTable (Name varchar(255), Age int);
 
+INSERT INTO MyPublicTable (Name, Age)
+VALUES 
+('Asim', 1),
+('Bader', 2),
+('Ahmed', 3);
 
 create schema my_db_1_schema_1;
 create schema my_db_1_schema_2;
@@ -49,41 +54,103 @@ create user my_user_3 with encrypted password 'pass';
 
 
 ## login to public schema
-```bash
-psql my_db_1 -U my_user_1
-# done. OK
+`psql my_db_1 -U my_user_1`
+```sql
+select * from MyPublicTable;
+-- ERROR:  permission denied for table mypublictable
 
 
 \l
-#                                   List of databases
-#    Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
-# -----------+----------+----------+-------------+-------------+-----------------------
-#  my_db_1   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
-#  my_db_2   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
-#  my_db_3   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+--                                   List of databases
+--    Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+-- -----------+----------+----------+-------------+-------------+-----------------------
+--  my_db_1   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+--  my_db_2   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+--  my_db_3   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
 
 
 
 CREATE TABLE MyTable (Name varchar(255), Age int);
-# CREATE TABLE
+-- CREATE TABLE
 
 
 \dt
-#           List of relations
-#  Schema |  Name   | Type  |   Owner   
-# --------+---------+-------+-----------
-#  public | mytable | table | my_user_1
+--              List of relations
+--  Schema |     Name      | Type  |   Owner   
+-- --------+---------------+-------+-----------
+--  public | mypublictable | table | postgres
+--  public | mytable       | table | my_user_1
 
 
 \c my_db_2
-# You are now connected to database "my_db_2" as user "my_user_1".
+-- You are now connected to database "my_db_2" as user "my_user_1".
 
 
 \dt
-# Did not find any relations.
+-- Did not find any relations.
 ```
 
 
+## check database
+```sql
+select * from pg_user;
+select * from pg_group;
+
+
+select has_database_privilege('my_user_1', 'my_db_1', 'TEMPORARY');
+-- t
+select has_database_privilege('my_user_1', 'my_db_1', 'TEMP');
+-- t
+select has_database_privilege('my_user_1', 'my_db_1', 'CREATE');
+-- f
+```
+
+
+## check schema
+```sql
+select * from pg_namespace;
+
+
+select has_schema_privilege('my_user_1', 'public', 'CREATE');
+-- t
+select has_schema_privilege('my_user_1', 'public', 'USAGE');
+-- t
+
+
+select has_schema_privilege('my_user_1', 'my_db_1_schema_1', 'create');
+-- f
+select has_schema_privilege('my_user_1', 'my_db_1_schema_1', 'usage');
+-- f
+```
+
+
+## check table
+```sql
+select has_table_privilege('my_user_1', 'mypublictable', 'SELECT');
+-- f
+select has_table_privilege('my_user_1', 'mypublictable', 'INSERT');
+-- f
+select has_table_privilege('my_user_1', 'mypublictable', 'UPDATE');
+-- f
+select has_table_privilege('my_user_1', 'mypublictable', 'DELETE');
+-- f
+select has_table_privilege('my_user_1', 'mypublictable', 'REFERENCES');
+-- f
+
+
+select has_table_privilege('my_user_1', 'mytable', 'SELECT');
+-- t
+select has_table_privilege('my_user_1', 'mytable', 'INSERT');
+-- t
+select has_table_privilege('my_user_1', 'mytable', 'UPDATE');
+-- t
+select has_table_privilege('my_user_1', 'mytable', 'DELETE');
+-- t
+select has_table_privilege('my_user_1', 'mytable', 'REFERENCES');
+-- t
+```
+
+# !!!
 
 ## privileges
 `psql my_db_1 -U my_user_1`
