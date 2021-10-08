@@ -16,7 +16,7 @@ cd /tmp/java_jdk/ \
   && tar -xzf /tmp/java_jdk/jdk.tar.gz \
   && sudo mkdir -p /usr/lib/java \
   && sudo tar --extract --file "/tmp/java_jdk/jdk.tar.gz" --directory "/usr/lib/java" --strip-components 1 \
-  && sudo ln -s /usr/lib/java/bin/java /usr/lib/bin/java
+  && sudo ln -s /usr/lib/java/bin/java /usr/bin/java
 
 
 java --version
