@@ -8,7 +8,7 @@ docker container prune -f
 
 docker run \
     --name my_postgresql_container \
-    -e POSTGRESQL_PASSWORD=my_pass \
+    -e POSTGRESQL_PASSWORD=admin \
     -d bitnami/postgresql:latest
 
 
@@ -23,9 +23,9 @@ psql
 # psql: local user with ID 1001 does not exist
 
 
+psql -U postgres
 psql --username=postgres
-psql -U         postgres
-# Password for user postgres: my_pass
+# Password for user postgres: admin
 ```
 
 

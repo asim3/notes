@@ -53,7 +53,7 @@ create user my_user_3 with encrypted password 'pass';
 
 
 
-## login to public schema
+## login to user 1
 `psql my_db_1 -U my_user_1`
 ```sql
 select * from MyPublicTable;
@@ -70,8 +70,7 @@ select * from MyPublicTable;
 
 
 
-CREATE TABLE MyTable (Name varchar(255), Age int);
--- CREATE TABLE
+CREATE TABLE user_1_table (Name varchar(255), Age int);
 
 
 \dt
@@ -79,7 +78,7 @@ CREATE TABLE MyTable (Name varchar(255), Age int);
 --  Schema |     Name      | Type  |   Owner   
 -- --------+---------------+-------+-----------
 --  public | mypublictable | table | postgres
---  public | mytable       | table | my_user_1
+--  public | user_1_table  | table | my_user_1
 
 
 \c my_db_2
@@ -88,6 +87,43 @@ CREATE TABLE MyTable (Name varchar(255), Age int);
 
 \dt
 -- Did not find any relations.
+```
+
+
+
+## login to user 2
+`psql my_db_1 -U my_user_2`
+```sql
+\dt
+--              List of relations
+--  Schema |     Name      | Type  |   Owner   
+-- --------+---------------+-------+-----------
+--  public | mypublictable | table | postgres
+--  public | user_1_table  | table | my_user_1
+
+
+select * from MyPublicTable;
+-- ERROR:  permission denied for table mypublictable
+
+
+
+select * from user_1_table;
+-- ERROR:  permission denied for table user_1_table
+
+
+
+CREATE TABLE user_2_table (Name varchar(255), Age int);
+-- CREATE TABLE
+
+
+
+\dt
+            --  List of relations
+--  Schema |     Name      | Type  |   Owner   
+-- --------+---------------+-------+-----------
+--  public | mypublictable | table | postgres
+--  public | user_1_table  | table | my_user_1
+--  public | user_2_table  | table | my_user_2
 ```
 
 
