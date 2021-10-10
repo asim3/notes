@@ -42,3 +42,18 @@
     <div style="background-image: url({{ tmp_photo.url }})"></div>
 </a>
 ```
+
+
+
+## loop
+```jinja
+<div class="row justify-content-evenly partners-logo">
+    {% for image in self.images %}
+
+        {% image image.value max-300x300 as main_image %}
+
+        <div style='background-image: url("{{ main_image.url }}");'></div>
+
+    {% endfor %}
+</div>
+```
