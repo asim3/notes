@@ -5,17 +5,17 @@
 
 
 ## installing ansible
-```txt
-sudo add-apt-repository ppa:ansible/ansible
-sudo apt-get update
-sudo apt install -y ansible
+```bash
+sudo add-apt-repository ppa:ansible/ansible -y \
+    && sudo apt-get update \
+    && sudo apt install -y ansible
 
 ansible --version
 ```
 
 
 ## configurations
-```txt
+```bash
 sudo adduser admin_ansible
 sudo chown -R admin_ansible:admin_ansible /etc/ansible
 sudo apt upgrade python python3 aptitude
@@ -23,29 +23,29 @@ sudo apt upgrade python python3 aptitude
 
 
 ## inventory
-```txt
+```bash
 sudo mkdir /etc/ansible
 sudo nano /etc/ansible/hosts
-192.168.100.147    ansible_user=asim_username
-192.168.100.148   ansible_user=asim_username
+# 192.168.100.147   ansible_user=asim_username
+# 192.168.100.148   ansible_user=asim_username
 ```
 
 
 ## test connection
-```txt
+```bash
 ansible -m ping all
 ```
 
 
 ## execute
 execute shell commands "ad-hoc commands"
-```txt
+```bash
 ansible -m shell -a 'hostname' all
 ansible -m shell -a 'whoami' all
 ```
 
 ## become sudo
-```txt
+```bash
 ansible -m shell -b -a 'whoami' all 
 # Missing sudo password
 
