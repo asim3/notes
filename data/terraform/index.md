@@ -6,9 +6,11 @@
 
 ## install
 ```bash
-curl -SL -o /tmp/terraform_tmp.zip https://releases.hashicorp.com/terraform/1.0.7/terraform_1.0.7_linux_amd64.zip \
-    && unzip /tmp/terraform_tmp.zip \
-    && sudo mv /tmp/terraform /usr/local/bin/terraform \
+mkdir -p /tmp/terraform_tmp \
+    && cd /tmp/terraform_tmp \
+    && curl -SL -o ./terraform_tmp.zip https://releases.hashicorp.com/terraform/1.0.9/terraform_1.0.9_linux_amd64.zip \
+    && unzip ./terraform_tmp.zip \
+    && sudo mv ./terraform /usr/local/bin/terraform \
     && sudo chmod +x /usr/local/bin/terraform
 
 terraform version
