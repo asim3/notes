@@ -35,6 +35,15 @@ EOF
     my_env_var_1: my test 1
     my_env_var_2: my test 2
 
+  vars_prompt:
+    - name: my_var_username
+      prompt: Your username
+      private: no
+
+    - name: my_var_password
+      prompt: Your password
+      private: yes
+
   tasks:
     - name: add new file
       copy:
