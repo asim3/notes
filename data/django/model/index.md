@@ -1,5 +1,6 @@
 ```python
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 class TableName(models.Model):
 
@@ -18,7 +19,7 @@ class TableName(models.Model):
 
     my_id = models.IntegerField()
     or_id = models.IntegerField(blank=True,null=True)
-    title = models.CharField("العنوان", max_length=100)
+    title = models.CharField(_("العنوان"), max_length=100)
     is_new = models.BooleanField(blank=True, null=True)
     desc = models.TextField()
 
@@ -29,10 +30,11 @@ class TableName(models.Model):
     #  set to now when the object is first created
     date = models.DateTimeField(auto_now_add=True) 
     
-    kfupm_gpa = models.DecimalField(max_digits=3, decimal_places=2)
+    gpa = models.DecimalField(max_digits=3, decimal_places=2)
 ```
 
 
+## File
 ```python
 profile = models.ImageField(upload_to=get_image_path, blank=True, null=True)
 
@@ -43,6 +45,19 @@ upload = models.FilePathField(path="/home/images", match="foo.*", recursive=True
 ```
 
 
+## file upload_to
+```py
+import os
+def get_upload_path(instance, filename):
+    user = "user_%d" % instance.owner.id
+    return os.path.join(user, filename)
+
+
+upload = models.FileField(upload_to=get_upload_path)
+```
+
+
+## One To One
 ```python
 supervisor = models.OneToOneField(
     settings.AUTH_USER_MODEL,
@@ -93,6 +108,7 @@ Topping.objects.filter(pizza_set__name__contains='Hawaiian')
 
 [Tips for Using M2M Field]
 (https://www.revsys.com/tidbits/tips-using-djangos-manytomanyfield/)
+
 
 
 ## Drop down box
@@ -197,13 +213,4 @@ from django.core.validators import FileExtensionValidator
 
   file = models.FileField(upload_to='font/', blank=True, null=True,
     validators=[FileExtensionValidator(allowed_extensions=['xml', 'ttp', 'svg'])])
-```
-
-
-## Translation
-```python
-from django.utils.translation import gettext_lazy as _
-
-class MyThing(models.Model):
-    name = models.CharField(_('Name'))
 ```
