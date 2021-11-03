@@ -66,3 +66,31 @@ class UserSerializer(HyperlinkedModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
         depth = 1
 ```
+
+
+## 2021
+```py
+from rest_framework.serializers import Serializer, CharField, ImageField, SlugField
+
+from django.contrib.auth.models import User
+
+
+class MySerializer(Serializer):
+    title = CharField(max_length=100)
+    logo = ImageField(required=False)
+    domain = SlugField(max_length=50, required=False)
+    description = CharField(max_length=250, required=False)
+    analytics = CharField(max_length=50, required=False)
+
+    def save(self, user):
+        if self.instance is not None:
+            self.instance = self.update()
+        else:
+            self.instance = User.objects.create(**self.validated_data)
+        return self.instance
+
+    def update(self):
+        for attr, value in self.validated_data.items():
+            setattr(self.instance, attr, value)
+        return self.instance.save()
+```
