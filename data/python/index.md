@@ -120,6 +120,26 @@ date.strftime("%d/%m/%Y %I:%M:%S %p")
 ```
 
 
+
+## convert string to datetime
+```py
+from datetime import datetime
+
+
+date_string_1 = "21 June, 2018"
+
+datetime.strptime(date_string_1, "%d %B, %Y")
+# datetime.datetime(2018, 6, 21, 0, 0)
+
+
+date_string_2 = "27-01-2021 11:00:00 PM"
+
+datetime.strptime(date_string_2, "%d-%m-%Y %I:%M:%S %p")
+# datetime.datetime(2021, 1, 27, 23, 0)
+```
+
+
+
 ## range
 ```py
 list(range(10))   # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
