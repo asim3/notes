@@ -70,7 +70,7 @@ class UserSerializer(HyperlinkedModelSerializer):
 
 ## 2021
 ```py
-from rest_framework.serializers import Serializer, CharField, ImageField, SlugField
+from rest_framework.serializers import Serializer, CharField, ImageField, SlugField, SerializerMethodField
 
 from django.contrib.auth.models import User
 
@@ -81,6 +81,7 @@ class MySerializer(Serializer):
     domain = SlugField(max_length=50, required=False)
     description = CharField(max_length=250, required=False)
     analytics = CharField(max_length=50, required=False)
+    my_extra_data = SerializerMethodField(read_only=True, method_name="my_extra_data")
 
     def save(self, user):
         if self.instance is not None:
@@ -93,4 +94,31 @@ class MySerializer(Serializer):
         for attr, value in self.validated_data.items():
             setattr(self.instance, attr, value)
         return self.instance.save()
+
+    def my_extra_data(self, obj):
+        return 123
+    
+
+class MyListSerializer(ModelSerializer):
+    my_url = SerializerMethodField()
+
+    class Meta:
+        model = MyModel
+        fields = [
+            "id",
+            "title",
+            "logo",
+            "url", # auto reverse("mymodel-detail")
+            "my_url",
+        ]
+        read_only_fields = ["my_url", ]
+
+    def save(self, **kwargs):
+        user = self.context.get("request").user
+        return super().save(user=user, **kwargs)
+
+    def get_my_url(self, object):
+        url = f"/home/{object.id}/"
+        path = self.context.get("request").build_absolute_uri(url)
+        return path
 ```
