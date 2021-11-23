@@ -1,10 +1,20 @@
-## UI Kits
-[Native Base](https://nativebase.io/)
-[react native elements](https://reactnativeelements.com/)
-[kitten](https://akveo.github.io/react-native-ui-kitten/)
+[docs](https://reactnative.dev/docs/intro-react)
 
 
-## init
+## new App
+```bash
+npx react-native init MyApp
+
+cd MyApp
+
+npx react-native run-android
+```
+
+
+# OR
+
+
+## new App with Expo
 ```bash
 expo init my-project
 
