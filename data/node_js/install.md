@@ -29,8 +29,13 @@ sudo apt install nodejs npm
 ## version
 ```bash
 node -v
+# v16.13.0
+
 npm -v
+# 8.1.4
+
 npx -v
+# 8.1.4
 ```
 
 
