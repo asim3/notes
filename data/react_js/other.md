@@ -1,3 +1,10 @@
+## Libraries
+[React Reveal: Fade Effect](https://www.react-reveal.com/)
+
+[React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+[React Motion: Draggable](https://github.com/chenglou/react-motion)
+
+
 ## Class Components
 
 ```js

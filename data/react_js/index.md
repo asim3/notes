@@ -1,20 +1,26 @@
-## Libraries
-[React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+[docs](https://create-react-app.dev/docs/getting-started)
+[npm run build docs](https://facebook.github.io/create-react-app/docs/deployment)
+[tests docs](https://create-react-app.dev/docs/running-tests)
 
+## new App
+```bash
+npx create-react-app my-app
 
+cd my-app 
+code .
 
-[Swiper](https://kidjp85.github.io/example/pagination/)
-[React Reveal: Fade Effect](https://www.react-reveal.com/)
-[React Motion: Draggable](https://github.com/chenglou/react-motion)
-
-
-```txt
+# Starts the development server.
 npm start
+
+# Bundles the app into static files for production.
 npm run build
+
+
+ll build/
+# -rw-rw-r-- 1 asim asim 3870 Nov 24 18:29 favicon.ico
+# -rw-rw-r-- 1 asim asim 3020 Nov 24 18:29 index.html
+# drwxrwxr-x 5 asim asim 4096 Nov 24 18:29 static/
 ```
-
-
-[Deployment Docs](https://facebook.github.io/create-react-app/docs/deployment)
 
 
 ## Inline if with Logical && Operator 
