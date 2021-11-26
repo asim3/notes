@@ -4,9 +4,16 @@
 
 ## new App
 ```bash
-npx create-react-app my-app
+npx create-react-app my_react_app
 
-cd my-app 
+npx create-react-app my-react-app
+
+npx create-react-app MyReactApp
+# error name can no longer contain capital letters
+
+
+cd my_react_app 
+
 code .
 
 # Starts the development server.
