@@ -44,8 +44,12 @@ npm -v
 sudo npm install --global expo-cli yarn
 #  yarn is recommended Tools by expo.io
 
+
 yarn --version
+# 1.22.17
+
 expo --version
+# 4.13.0
 ```
 
 
