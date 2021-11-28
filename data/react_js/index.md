@@ -62,15 +62,42 @@ import About from './components/About'
 
 
 function App() {
-  return (
-    <div className="App">
-      <Home />
-      <About />
-    </div>
-  );
+    return (
+        <div className="App">
+            <Home />
+            <About />
+        </div>
+    );
 }
 
 export default App;
+```
+
+
+## data
+```jsx
+const my_text = "ABCD abcd."
+const my_array = ["a", 1, 2, 3, "Z"]
+
+
+function About() {
+    return (
+        <div>
+            {my_text}
+            <br />
+            {my_array}
+        </div>
+    );
+}
+
+// <div>
+//     ABCD abcd.
+//     <br />
+//     a123Z
+// </div>
+
+
+export default About;
 ```
 
 
@@ -98,4 +125,30 @@ function Home() {
 }
 
 export default Home;
+```
+
+
+## props
+```jsx
+function Welcome(props) {
+    return (
+        <h1>
+            Hello, {props.my_text}
+        </h1>
+    );
+}
+
+
+function User(props) {
+    return (
+        <>
+            <Welcome my_text="Asim" />
+        </>
+    );
+}
+
+// Hello, Asim
+
+
+export default User;
 ```
