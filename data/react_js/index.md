@@ -30,41 +30,72 @@ ll build/
 ```
 
 
-## Inline if with Logical && Operator 
-```js
-import React from 'react';
-import ReactDOM from 'react-dom';
+## components
+```bash
+mkdir -p ./my_react_app/src/components/Home
+mkdir -p ./my_react_app/src/components/About
 
-
-function MyElement(props) {
-  return <h1>Hello!</h1>
+cat <<EOF > ./my_react_app/src/components/Home/index.js
+function Home() {
+    return <h2>Home</h2>;
 }
 
-function Mailbox(props) {
-  return (
-    <div>
-      <MyElement />
-      { 
-        props.new_messages.length > 0 && 
-        <h2>length: {props.new_messages.length}</h2>
-      }
-      {
-        props.new_messages.map(mes => <h1>{mes}</h1>)
-      }
-    </div>
-  )
+export default Home;
+EOF
+
+
+cat <<EOF > ./my_react_app/src/components/About/index.js
+function About() {
+    return <h2>About</h2>;
 }
 
-const messages = ['Aaaa', 'Bbbb', 'Cccc']
-
-ReactDOM.render(
-  <Mailbox new_messages={messages} />,
-  document.getElementById('root')
-)
+export default About;
+EOF
 ```
 
 
-## Elements inside the map() call need keys
+## App.js
+`nano ./my_react_app/src/App.js`
 ```js
-const todoItems = todos.map((todo) => <li key={todo.id}> {todo.text} </li> );
+import Home from './components/Home'
+import About from './components/About'
+
+
+function App() {
+  return (
+    <div className="App">
+      <Home />
+      <About />
+    </div>
+  );
+}
+
+export default App;
+```
+
+
+## Error
+```js
+// Adjacent JSX elements must be wrapped in an enclosing tag
+function Home() {
+    return (
+        <h2>Home 1</h2>
+        <h2>Home 2</h2>
+        <h2>Home 3</h2>
+    );
+}
+
+
+// OK
+function Home() {
+    return (
+        <>
+            <h2>Home 1</h2>
+            <h2>Home 2</h2>
+            <h2>Home 3</h2>
+        </>
+    );
+}
+
+export default Home;
 ```
