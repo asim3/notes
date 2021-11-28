@@ -152,3 +152,33 @@ function User(props) {
 
 export default User;
 ```
+
+
+## State Hook
+```jsx
+import React, { useState } from 'react';
+
+
+function About() {
+    const [my_count, set_my__count] = useState(0);
+
+
+    function my_function() {
+        return set_my__count(my_count + 1)
+    }
+
+
+    return (
+        <div>
+            <span>my_count = {my_count}</span>
+            
+            <br />
+
+            <button onClick={my_function}>Click</button>
+        </div>
+    );
+}
+
+
+export default About;
+```
