@@ -1,71 +1,54 @@
-## Hook
+## Hooks
 
-## State
-```js
+## useState
+```jsx
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 
-function MyLinks(props) {
-  const [i, i_value] = useState(20);
-	const [links, add_link] = useState([{index: i, href:"#", text:"Click Me"}]);
-  function on_click(e) {
-    e.preventDefault()
-    const j = i + 1
-    i_value(j)
-    add_link([...links, {index: j, href:"#", text:"Click Me"}])
-  }
+function App() {
+    const [my_count, set_my__count] = useState(0);
 
-  return links.map((obj, i) => (
-    <div key={i}>
-      <a 
-        href={obj.href}
-        onClick={on_click}>
-        {obj.text + " - " + obj.index}
-      </a>
-    </div>
-  ))
+    function my_function() {
+        return set_my__count(my_count + 1)
+    }
+
+    return (
+        <div>
+            <span>my_count = {my_count}</span>
+            <br />
+            <button onClick={my_function}>Click</button>
+        </div>
+    );
 }
 
-ReactDOM.render(
-	<MyLinks />,
-  document.getElementById('root')
-)
+export default App;
 ```
 
 
 
-## Effect "run's after render"
-```js
+## useEffect
+Similar to `componentDidMount` and `componentDidUpdate`:  
+```jsx
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 
-function Example() {
-  const [obj, update_obj] = useState({id: 123});
-  const random_no = Math.floor(Math.random() * 300)
+function App() {
+    const [my_count, set_my__count] = useState(0);
 
-  async function on_click() {
-    update_obj({id: "loading..."})
-    const href = "https://jsonplaceholder.typicode.com/todos/" + random_no
-    const fetched_obj = await fetch(href)
-      .then(res => res.ok ? res.json() : { id: "not found"})
-      .catch(err => ({id: err}))
-    update_obj(fetched_obj)
-  }
+    useEffect(() => {
+        document.title = `You clicked ${my_count} times`;
+    });
 
-  useEffect(function after_render() {
-    document.title = obj.id
-  })
+    function my_function() {
+        return set_my__count(my_count + 1)
+    }
 
-  return (
-    <div>
-      <pre>{JSON.stringify(obj, null, 3)}</pre>
-      <button onClick={on_click}>show: {random_no}</button>
-    </div>
-  );
+    return (
+        <div>
+            <span>my_count = {my_count}</span>
+            <br />
+            <button onClick={my_function}>Click</button>
+        </div>
+    );
 }
 
-ReactDOM.render(
-	<Example />,
-  document.getElementById('root')
-)
+export default App;
 ```
