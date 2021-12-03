@@ -40,20 +40,49 @@ i18n
     });
 
 
+function change_language(language) {
+    return () => i18n.changeLanguage(language)
+}
+
+
+function get_current_language() {
+    return i18n.language
+}
+
+function set_body_dir() {
+    const body_dir = i18n.language === "ar" ? "rtl" : "ltr";
+    document.body.dir = body_dir
+}
+
 export default useTranslation;
+export { change_language, get_current_language, set_body_dir };
 ```
 
 
 ## useTranslation
 `nano src/App.js`
 ```js
-import useTranslation from './i18n'
+import { useEffect } from 'react';
+import useTranslation, { change_language, get_current_language, set_body_dir } from './i18n'
 
 
 export function App() {
     const { t, i18n } = useTranslation();
 
-    return <p>{t('my text')}</p>
+
+    useEffect(set_body_dir);
+
+
+    return (
+        <div>
+            <p>{t('my text')}</p>
+
+            <p>{get_current_language()}</p>
+
+            <button onClick={change_language("ar")} >عربي</button>
+            <button onClick={change_language("en")} >English</button>
+        </div>
+    )
 }
 
 export default App;
