@@ -38,3 +38,21 @@ function About() {
 
 export default About;
 ```
+
+
+## style
+```js
+export function App() {
+    return (
+        <div>
+            <p style={{ background: "red" }}>my red bg</p>
+            <p style={{ background: "blue" }}>my blue bg</p>
+            <p style={{ fontWeight: "bold" }}>my opacity</p>
+            <p style={{ opacity: 0.5 }}>my opacity</p>
+            <p style={{ opacity: true === false ? 1 : 0.2 }}>my if opacity</p>
+        </div>
+    )
+}
+
+export default App;
+```
