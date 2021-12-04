@@ -2,7 +2,24 @@
 [cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet)
 [jest docs](https://jestjs.io/docs/expect)
 
+## App
+`nano App.js`
+```js
+export function App() {
+    return (
+        <div>
+            <p data-testid="my_p">my text</p>
 
+            <button data-testid="my_button" value="my_value">My Button</button>
+        </div>
+    )
+}
+
+export default App;
+```
+
+
+## to Be
 `nano App.test.js`
 ```js
 test('My test name', () => {
@@ -34,22 +51,6 @@ test('My error test', () => {
 
 
 ## test components
-`nano App.js`
-```js
-export function App() {
-    return (
-        <div>
-            <p data-testid="my_p">my text</p>
-
-            <button data-testid="my_button" onClick={() => alert("my text")}>My Button</button>
-        </div>
-    )
-}
-
-export default App;
-```
-
-
 `nano App.test.js`
 ```js
 import { render, screen } from '@testing-library/react';
@@ -76,5 +77,6 @@ test('my content 2', () => {
     const { getByTestId } = render(<App />);
     const my_button = getByTestId("my_button")
     expect(my_button.textContent).toBe("My Button");
+    expect(my_button.value).toBe("my_value");
 });
 ```
