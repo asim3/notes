@@ -13,6 +13,8 @@ function App() {
         <div>
             <span data-testid="my_text">my_count = {my_count}</span>
             <br />
+            <input data-testid="my_textbox" name="my_name" type="textbox" />
+            <br />
             <button data-testid="my_button" onClick={my_function}>Click</button>
         </div>
     );
@@ -42,5 +44,23 @@ test('Test My Function', () => {
     fireEvent.click(my_button)
 
     expect(my_text.textContent).toBe("my_count = 2");
+});
+```
+
+
+## change textbox
+```js
+import { render, fireEvent } from '@testing-library/react';
+import App from './App';
+
+test('Test Change Input', () => {
+    const { getByTestId } = render(<App />);
+    const my_textbox = getByTestId("my_textbox")
+
+    expect(my_textbox.value).toBe("");
+
+    fireEvent.change(my_textbox, { target: { value: "My new text" } })
+
+    expect(my_textbox.value).toBe("My new text");
 });
 ```
