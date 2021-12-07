@@ -17,6 +17,13 @@ class AsimTestCase(TestCase):
 from django.test import TestCase
 
 
+class UserTests(TestCase):
+    def setUp(self):
+        User.objects.create_superuser("admin", "admin@test.com", "password")
+        self.client.login(username="admin", password="password")
+
+
+
 class AsimTestCase(TestCase):
     data = "asim"
 
