@@ -80,3 +80,21 @@ test('my content 2', () => {
     expect(my_button.value).toBe("my_value");
 });
 ```
+
+
+## async
+`nano my_async.test.js`
+```js
+test('test fetch response', async () => {
+    const response = await fetch("https://swapi.dev/api/films/")
+    expect(response.status).toBe(200)
+
+    const data = await response.json()
+
+    expect(data.count).toBe(6)
+    expect(data.next).toBe(null)
+    expect(data.previous).toBe(null)
+
+    expect(data.results.length).toBe(6)
+});
+```
