@@ -49,3 +49,18 @@ class BannerAPITests(TestCase):
         with self.assertRaisesMessage(ValidationError, error_massage):
             raise ValidationError('aaa')
 ```
+
+
+## test list
+```py
+from django.test import TestCase
+
+
+class MyListTestCase(TestCase):
+    
+    def test_my_lists(self):
+        my_list_1 = sorted(response_list, key=lambda i: i['first_name'])
+        my_list_2 = sorted(my__data_list, key=lambda i: i['first_name'])
+
+        self.assertListEqual(my_list_1, my_list_2)
+```
