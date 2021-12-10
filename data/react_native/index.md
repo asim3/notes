@@ -1,26 +1,3 @@
-[docs](https://reactnative.dev/docs/intro-react)
-
-
-## new App
-```bash
-npx react-native init my_app
-
-npx react-native init MyApp
-
-npx react-native init my-app
-# error "my-app" is not a valid name for a project.
-
-cd my_app
-
-cd MyApp
-
-npx react-native run-android
-```
-
-
-# OR
-
-
 ## new App with Expo
 ```bash
 expo init my-project
@@ -39,4 +16,24 @@ yarn web
 
 yarn android
 yarn ios # requires an iOS device or macOS for access to an iOS simulator
+```
+
+
+[docs](https://reactnative.dev/docs/intro-react)
+
+
+## new App (Manual)
+```bash
+npx react-native init my_app
+
+npx react-native init MyApp
+
+npx react-native init my-app
+# error "my-app" is not a valid name for a project.
+
+cd my_app
+
+cd MyApp
+
+npx react-native run-android
 ```
