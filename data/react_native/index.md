@@ -43,26 +43,39 @@ expo publish
 
 ## Safe Area View
 ```js
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView, Platform, KeyboardAvoidingView } from 'react-native';
+import MyComponent from "./components/MyComponent"
 
 
 export default function App() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text>السلام عليكم</Text>
-      <StatusBar style="auto" />
-    </SafeAreaView>
-  );
+    return (
+        <SafeAreaView style={styles.container}>
+
+            <KeyboardAvoidingView
+                behavior={Platform.OS === "ios" ? "padding" : "height"}
+                style={styles.Keyboard_view}>
+
+                <MyComponent />
+
+
+            </KeyboardAvoidingView>
+        </SafeAreaView>
+    );
 }
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#26a8f7',
-  },
+    container: {
+        flex: 1,
+        padding: 40,
+        backgroundColor: 'red',
+    },
+    Keyboard_view: {
+        flex: 1,
+        padding: 20,
+        backgroundColor: 'green',
+    },
 });
 ```
 
