@@ -44,7 +44,7 @@ expo publish
 ## Safe Area View
 ```js
 import React from 'react';
-import { StyleSheet, SafeAreaView, Platform, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, SafeAreaView, KeyboardAvoidingView, Platform, StatusBar } from 'react-native';
 import MyComponent from "./components/MyComponent"
 
 
@@ -68,7 +68,7 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 40,
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
         backgroundColor: 'red',
     },
     Keyboard_view: {

@@ -67,11 +67,7 @@ export default styles;
 ```js
 import React from 'react';
 import styles from "./style"
-import {
-    ScrollView, View, Text,
-    Platform,
-    KeyboardAvoidingView, TextInput
-} from 'react-native';
+import { ScrollView, View, Text, TextInput } from 'react-native';
 
 
 export default function MyComponent() {
