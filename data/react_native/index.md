@@ -24,6 +24,49 @@ expo start --tunnel
 ```
 
 
+## publish
+[Expo signup](https://expo.dev/signup)
+```bash
+expo publish
+# The expected package.json path: /home/asim/package.json does not exist
+
+cd my_project
+expo publish
+# An Expo user account is required to proceed.
+# ✔ How would you like to authenticate? › Log in with an existing Expo account
+# ✔ Username/Email Address: … asim3
+# ✔ Password: 
+
+# Success. You are now logged in as asim3.
+```
+
+
+## Safe Area View
+```js
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+
+
+export default function App() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text>السلام عليكم</Text>
+      <StatusBar style="auto" />
+    </SafeAreaView>
+  );
+}
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#26a8f7',
+  },
+});
+```
+
+
 ## new App (Manual)
 [docs](https://reactnative.dev/docs/intro-react)
 ```bash
