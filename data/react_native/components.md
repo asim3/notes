@@ -16,7 +16,7 @@
 ## styles
 `nano ./components/MyComponent/style.js`
 ```js
-import { StyleSheet, StatusBar, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 
 const styles = StyleSheet.create({
@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 20,
         backgroundColor: 'yellow',
-        paddingTop: StatusBar.currentHeight,
     },
     scroll_view: {
         padding: 20,
@@ -37,20 +36,22 @@ const styles = StyleSheet.create({
     },
     my_text: {
         textAlign: "center",
-        marginVertical: 8,
-        paddingVertical: 100,
-        marginHorizontal: 16,
+        marginHorizontal: "10%",
+        width: "70%",
+        height: 50,
         fontSize: 32,
     },
     input_1: {
         textAlign: "center",
         marginVertical: 200,
+        fontSize: 25,
         backgroundColor: "#f3f",
         borderColor: "green"
 
     },
     input_2: {
         textAlign: "center",
+        fontSize: 20,
         marginVertical: 200,
         backgroundColor: "#3ff",
 
@@ -67,7 +68,10 @@ export default styles;
 ```js
 import React from 'react';
 import styles from "./style"
-import { ScrollView, View, Text, TextInput } from 'react-native';
+import {
+    ScrollView, View, Text, TextInput,
+    Platform, StatusBar, Dimensions,
+} from 'react-native';
 
 
 export default function MyComponent() {
@@ -80,13 +84,22 @@ export default function MyComponent() {
 
             <ScrollView style={styles.scroll_view}>
 
-
                 <Text numberOfLines={1}>
                     my long text my long text my long text my long text my long text my long text
                     111
                     222
                     333
                 </Text>
+
+
+                <Text>StatusBar.currentHeight = {StatusBar.currentHeight}</Text>
+
+                <Text>Platform.OS = {Platform.OS}</Text>
+
+                <Text>screen width = {Dimensions.get("screen").width}</Text>
+                <Text>screen height = {Dimensions.get("screen").height}</Text>
+                <Text>screen fontScale = {Dimensions.get("screen").fontScale}</Text>
+                <Text>screen scale = {Dimensions.get("screen").scale}</Text>
 
 
                 <Text style={styles.my_text}>My Text 111</Text>
