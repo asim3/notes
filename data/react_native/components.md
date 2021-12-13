@@ -14,12 +14,12 @@
 
 
 ## styles
-`nano ./components/MyComponent/style.js`
+`nano ./components/MyComponent/styles.js`
 ```js
 import { StyleSheet } from 'react-native';
 
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
@@ -57,9 +57,6 @@ const styles = StyleSheet.create({
 
     },
 });
-
-
-export default styles;
 ```
 
 
@@ -67,7 +64,7 @@ export default styles;
 `nano ./components/MyComponent/index.js`
 ```js
 import React from 'react';
-import styles from "./style"
+import styles from "./styles"
 import {
     ScrollView, View, Text, TextInput,
     Platform, StatusBar, Dimensions,
