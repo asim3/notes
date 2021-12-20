@@ -15,6 +15,8 @@ class AsimTestCase(TestCase):
 ## test with setUp
 ```py
 from django.test import TestCase
+from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class UserTests(TestCase):
@@ -22,16 +24,19 @@ class UserTests(TestCase):
         User.objects.create_superuser("admin", "admin@test.com", "password")
         self.client.login(username="admin", password="password")
 
+    def test_get_admin_page(self):
+        response = self.client.get(reverse("admin:index"))
+        self.assertEqual(response.status_code, 200)
 
 
-class AsimTestCase(TestCase):
-    data = "asim"
+class MySetUpTestCase(TestCase):
+    data = "my_name_1"
 
     def setUp(self):
-        self.data = "asim"
+        self.data = "my_name_2"
 
     def test_my_data(self):
-        self.assertEqual(123, "asim")
+        self.assertEqual(self.data, "my_name_2")
         self.assertNotEqual(11, 22)
 ```
 

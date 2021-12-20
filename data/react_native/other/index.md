@@ -3,6 +3,18 @@
 [Native Base](https://nativebase.io/)
 
 
+## Debug
+```js
+export default function App(props) {
+    return (
+        <View>
+            {Object.keys(props).map((i) => <Text>{i}</Text>)}
+        </View>
+    );
+}
+```
+
+
 ## platform
 ```js
 import React from 'react';
