@@ -1,14 +1,28 @@
 ## basic test
 ```py
 from django.test import TestCase
+from django.contrib.auth.models import User
+from django.urls import reverse
 
 
-class AsimTestCase(TestCase):
-    data = "asim"
+class My__TestCase(TestCase):
+    def test_school_url(self):
+        expected = "/ar/school/my-ID/"
+        actual = reverse("school", kwargs={"school": "my-ID"})
+        self.assertEqual(expected, actual)
 
-    def test_my_data(self):
-        self.assertEqual(self.data, "asim")
-        self.assertIsInstance(self.data, str)
+    def test_school_context(self):
+        url = reverse("school", kwargs={"school": "my-ID"})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context.get("school"), "my-ID")
+    
+    # cookie
+    def test_school_cookie(self):
+        url = reverse("school", kwargs={"school": "my-ID"})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(self.client.cookies["school"].value, "my-ID")
 ```
 
 
