@@ -21,7 +21,8 @@ class My__TestCase(TestCase):
     def test_school_cookie(self):
         url = reverse("school", kwargs={"school": "my-ID"})
         response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
+
+        self.assertIn("school", self.client.cookies.keys())
         self.assertEqual(self.client.cookies["school"].value, "my-ID")
 ```
 
