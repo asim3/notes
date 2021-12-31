@@ -1,3 +1,6 @@
+[docs](https://docs.okd.io/latest/welcome/index.html)
+
+
 ## Install Minishift
 ```bash
 minishift_version=1.34.3
