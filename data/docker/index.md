@@ -39,7 +39,17 @@ sudo docker container run -e ASIM_ENV=my_name_is_asim  hello-world
 
 # link to a port
 sudo docker container run -p 80:80  asim3/whoami:1.3
+```
 
+
+## run ubuntu cli
+```bash
+mkdir /tmp/my_docker_home/
+cd /tmp/my_docker_home/
+
+docker run --rm \
+  -v "/tmp/my_docker_home:/home" \
+  -it ubuntu:latest  bash
 ```
 
 
