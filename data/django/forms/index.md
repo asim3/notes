@@ -102,3 +102,35 @@ def test_view(request):
     )
     return render(request, 'user/form.html', context)
 ```
+
+
+## template as list
+```jinja
+<form method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    {% for form_input in form %}
+        {% if not form_input.is_hidden %}
+
+            <div class="form-group pb-3">
+                <h5 class="px-2">{{ form_input.label }}:</h5>
+                
+                {{ form_input.label_tag }}
+                {{ form_input.as_widget }}
+                
+                <p>help: {{ form_input.help_text }}</p>
+                <p>errors: {{ form_input.errors }}</p>
+            </div>
+        
+        {% endif %}
+    {% endfor %}
+
+    <div id="phone_validation_message" class="alert alert-danger py-3" style="display: none;">
+        {% trans 'الرجاء التأكد من صحة رقم الجوال' %}
+    </div>
+
+    <input id="main_submit" class="main-button" type="submit" value="{% trans 'أرسل معلومات التواصل' %}">
+
+</form>
+```
