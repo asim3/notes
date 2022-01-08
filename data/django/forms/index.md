@@ -119,8 +119,12 @@ def test_view(request):
                 {{ form_input.label_tag }}
                 {{ form_input.as_widget }}
                 
-                <p>help: {{ form_input.help_text }}</p>
-                <p>errors: {{ form_input.errors }}</p>
+                <p>
+                    help: {{ form_input.help_text }}
+                </p>
+                
+                {{ form_input.errors }}
+
             </div>
         
         {% endif %}
