@@ -1,33 +1,37 @@
-## basic test
+## setup
+```bash
+python3 -m venv .venv \
+  && source ./.venv/bin/activate \
+  && pip install django gunicorn \
+  && django-admin startproject my_project \
+  && code . \
+  && cd my_project \
+  && ./manage.py startapp test_context 
+```
+
+
+## test URL & context
 ```py
 from django.test import TestCase
 from django.contrib.auth.models import User
 from django.urls import reverse
 
 
-class My__TestCase(TestCase):
-    def test_school_url(self):
+class MyTestCase(TestCase):
+    def test_url(self):
         expected = "/ar/school/my-ID/"
         actual = reverse("school", kwargs={"school": "my-ID"})
         self.assertEqual(expected, actual)
 
-    def test_school_context(self):
+    def test_context(self):
         url = reverse("school", kwargs={"school": "my-ID"})
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context.get("school"), "my-ID")
-    
-    # cookie
-    def test_school_cookie(self):
-        url = reverse("school", kwargs={"school": "my-ID"})
-        response = self.client.get(url)
-
-        self.assertIn("school", self.client.cookies.keys())
-        self.assertEqual(self.client.cookies["school"].value, "my-ID")
 ```
 
 
-## test with setUp
+## setUp Super User
 ```py
 from django.test import TestCase
 from django.contrib.auth.models import User
@@ -42,21 +46,96 @@ class UserTests(TestCase):
     def test_get_admin_page(self):
         response = self.client.get(reverse("admin:index"))
         self.assertEqual(response.status_code, 200)
-
-
-class MySetUpTestCase(TestCase):
-    data = "my_name_1"
-
-    def setUp(self):
-        self.data = "my_name_2"
-
-    def test_my_data(self):
-        self.assertEqual(self.data, "my_name_2")
-        self.assertNotEqual(11, 22)
 ```
 
 
-## test Errors
+## test post
+```py
+from django.test import TestCase
+from django.urls import reverse
+from django.contrib.staticfiles import finders
+from io import BytesIO
+
+
+class LoginTestCase(TestCase):
+
+    def test_post_empty(self):
+        response = self.client.post(
+            reverse("admin:login"), username="", password="")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("username", response.context.get('form').errors)
+        self.assertIn("password", response.context.get('form').errors)
+
+    def test_post_file(self):
+        my_file = BytesIO(b'bbbbbbbbbbbb')
+        my_file.name = 'my-excel.xlsx'
+        response = self.client.post(
+            reverse("control"), data={"file": my_file})
+        self.assertEqual(response.status_code, 302)
+
+    def test_post_static_file(self):
+        file_path = finders.find('admin/css/rtl.css')
+        with open(file_path, "rb") as my_file:
+            response = self.client.post(
+                reverse("control"), data={"file": my_file})
+            self.assertEqual(response.status_code, 302)
+```
+
+
+## test form
+```py
+from django.test import TestCase
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+
+class FormTestCase(TestCase):
+
+    def test_empty(self):
+        form = UserCreationForm(data={})
+        self.assertIn("username", form.errors)
+        self.assertIn("password1", form.errors)
+        self.assertIn("password2", form.errors)
+
+        self.assertFalse(form.is_valid())
+
+        user_error_list = ['This field is required.']
+        self.assertEqual(form.errors.get("username"), user_error_list)
+
+    def test_save(self):
+        form = UserCreationForm(data={
+            "username": "aaaaaaaaaaaa",
+            "password1": "@BcD37J0",
+            "password2": "@BcD37J0",
+        })
+
+        self.assertTrue(form.is_valid())
+        self.assertEqual(User.objects.count(), 0)
+
+        self.assertTrue(form.save())
+        self.assertEqual(User.objects.count(), 1)
+```
+
+
+## test cookie
+```py
+from django.test import TestCase
+from django.urls import reverse
+
+
+class CookieTestCase(TestCase):
+
+    def test_cookie(self):
+        response = self.client.get(reverse("admin:login"))
+        self.assertIn("csrftoken", self.client.cookies.keys())
+
+        expected = "my-ID"
+        actual = self.client.cookies["csrftoken"].value
+        self.assertEqual(expected, actual)
+```
+
+
+## test Raised Errors
 ```py
 from django.utils.translation import gettext as _
 from django.urls import reverse
@@ -71,7 +150,8 @@ class BannerAPITests(TestCase):
 ```
 
 
-## test list
+## fix test list
+fix test list by sorting all the lists
 ```py
 from django.test import TestCase
 
