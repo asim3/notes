@@ -22,6 +22,18 @@ next_day.strftime("%d/%m/%Y %H:%M:%S")
 ```
 
 
+## get static path
+```py
+from django.contrib.staticfiles import finders
+
+
+result = finders.find('img/my_photo.jpg')
+
+print(result)
+# /home/asim3/webapps/control/static/img/my_photo.jpg
+```
+
+
 ## To install psycopg2
 ```bash
 sudo apt install -y gcc python3-dev libpq-dev
