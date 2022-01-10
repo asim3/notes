@@ -1,25 +1,34 @@
-## الاساس
-```python
-class View:
+## messages
+```py
+from django.contrib import messages
 
-  def as_view(cls, **initkwargs):
-    def view(request, *args, **kwargs):
-      self = cls(**initkwargs) # !!!
-      return self.dispatch(request, *args, **kwargs)
-    return view
 
-  def dispatch(self, request, *args, **kwargs):
-    # get() or post()
-    handler = getattr(self, request.method.lower())
-    return handler(request, *args, **kwargs)
+messages.debug(request, '%s SQL statements were executed.' % count)
+messages.info(request, 'Three credits remain in your account.')
+messages.success(request, 'Profile details updated.')
+messages.warning(request, 'Your account expires in three days.')
+messages.error(request, 'Document deleted.')
 ```
 
 
-## إضافة حقول الى الصفحة
-```python
-class ContextMixin:
-  extra_context = None
+## messages template
+```jinja
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+```
 
-  def get_context_data(self, **kwargs):
-    return self.extra_context
+
+## messages test
+```py
+
+    def test_messages(self):
+        response = self.client.get(reverse("control"))
+        messages = list(response.context['messages'])
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(str(messages[0]), _('Students details has been updated.'))
 ```

@@ -41,3 +41,12 @@ my_file.exists()
 
 if os.path.isfile('test.txt'):
 ```
+
+
+## make Bytes IO file
+```py
+from io import BytesIO
+
+excel = BytesIO(b'mybinarydata')
+excel.name = 'my-excel.xlsx'
+```

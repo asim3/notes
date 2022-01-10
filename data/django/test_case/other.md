@@ -47,6 +47,22 @@ class AsimTestCase(TestCase):
 ```
 
 
+## Headers
+```py
+from django.test import TestCase
+from django.urls import reverse
+
+
+class MyTestCase(TestCase):
+    def test_get_headers(self):
+        response = self.client.get(
+            reverse("list-add"),
+            CONTENT_TYPE='application/json',
+            HTTP_SSL_CLIENT_CERT="aaa",
+            HTTP_AUTHORIZATION='Token 0b5aaaaaa')
+```
+
+
 ## tag
 ```py
 from django.test import tag
