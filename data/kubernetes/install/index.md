@@ -1,6 +1,4 @@
-install kubectl 
-> a v1.2 client should work with v1.1, v1.2, and v1.3 master.    
-Using the latest version of kubectl helps avoid unforeseen issues
+## install kubectl 
 ```bash
 kubectl_version=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
 
@@ -13,6 +11,9 @@ cd /tmp/ \
 
 kubectl version --short
 ```
+
+> a v1.2 client should work with v1.1, v1.2, and v1.3 master.    
+
 
 
 ## Install Minikube
