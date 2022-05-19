@@ -1,3 +1,29 @@
+[Simple JWT docs](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/)
+
+## install
+```bash
+pip install djangorestframework-simplejwt
+```
+
+
+## settings
+> Make sure to run `manage.py migrate` after changing your settings.
+```py
+INSTALLED_APPS = [
+    # ...
+    'rest_framework',
+    'rest_framework_simplejwt',
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        # ...
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+```
+
+
 # Sinup
 `nano views.py`
 ```py

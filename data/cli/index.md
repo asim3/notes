@@ -101,6 +101,16 @@ cat my.txt | grep '[0-9]' | sort -n
 ```
 
 
+## append
+```bash
+ls -al  >      my_file_1.txt
+ls -al  |  tee my_file_2.txt
+
+# append
+ls -al >> my_file_1.txt
+ls -al  |  tee -a my_file_2.txt
+```
+
 
 ```bash
 NAME="John"

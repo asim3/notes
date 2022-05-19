@@ -54,6 +54,16 @@ from django.utils.translation import gettext_lazy as _
 class AdministrationConfig(AppConfig):
     name = 'administration'
     verbose_name = _("aaaaaaaa")
+
+
+# @ app/model.py
+class Company(Model):
+    name = CharField(_("Name"), max_length=100)
+
+    class Meta:
+        ordering = ["name"]
+        verbose_name = _('Company')
+        verbose_name_plural = _("Companies")
 ```
 
 

@@ -28,7 +28,12 @@ messages.error(request, 'Document deleted.')
 
     def test_messages(self):
         response = self.client.get(reverse("control"))
-        messages = list(response.context['messages'])
-        self.assertEqual(len(messages), 1)
-        self.assertEqual(str(messages[0]), _('Students details has been updated.'))
+        self.assertEqual(response.status_code, 200)
+        messages = []
+        for msg in list(response.context['messages']):
+            messages.append(str(msg))
+
+        self.assertEqual(len(messages), 2)
+        self.assertIn(_('site settings has been reset'), messages)
+        self.assertIn(_('Students details has been updated.'), messages)
 ```

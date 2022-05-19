@@ -1,32 +1,25 @@
-## templatet ags
+## template tags
+
 `nano django_app/templatetags/__init__.py`
-`nano django_app/templatetags/asim.py`
+`nano django_app/templatetags/custom_tags.py`
 ```py
 from django import template
-from django import template
+
+def get_key(context, key):
+    if type(context) == dict:
+        return context.get(key, "")
+    return ""
 
 
 register = template.Library()
+register.filter('get_key', get_key)
+```
 
 
-@register.simple_tag(takes_context=True)
-def replace_args(context, *args, **kwargs):
-    print(context, args, kwargs)
-    print("="*88)
-    print(args)
-    print("="*88)
-    print(kwargs)
-    return 55
+## template
+```jinja
+{% load i18n custom_tags %}
 
 
-# [{'True': True, 'False': False, 'None': None}, {'csrf_token': ..... (1, 2, 3) {'aa': 44}
-# ========================================================================================
-# (1, 2, 3)
-# ========================================================================================
-# {'aa': 44}
-
-
-# {% load asim %}
-# {% replace_args 1 2 3 aa=44 %}
-# 55
+{{ students_gpa|get_key:student.id }}
 ```

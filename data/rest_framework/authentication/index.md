@@ -2,19 +2,6 @@
 [docs](https://www.django-rest-framework.org/api-guide/authentication/)
 [GitHub](https://github.com/encode/django-rest-framework/blob/master/rest_framework/authentication.py)
 
-[Django OAuth docs](https://django-oauth-toolkit.readthedocs.io/en/latest/rest-framework/getting_started.html)
-
-[Simple JWT docs](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/)
-
-## install
-```bash
-# Django OAuth Toolkit
-pip install django-oauth-toolkit
-
-# Simple JWT
-pip install djangorestframework_simplejwt
-```
-
 
 ## settings
 > Make sure to run `manage.py migrate` after changing your settings.
@@ -23,9 +10,6 @@ INSTALLED_APPS = [
     # ...
     'rest_framework',
     'rest_framework.authtoken',
-
-    # Django OAuth Toolkit
-    'oauth2_provider',
 ]
 
 REST_FRAMEWORK = {
@@ -33,13 +17,6 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
-        
-        # Django OAuth Toolkit
-        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
-        
-        # Simple JWT
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.AllowAny',
@@ -69,7 +46,7 @@ allows you to delegate authentication to your web server,
 which sets the REMOTE_USER environment variable.
 
 
-# third party
+# Third party
 ## Django OAuth Toolkit
 The Django OAuth Toolkit package provides OAuth 2.0 support and works 
 with Python 3.4+. The package is maintained by Evonove and uses the 
@@ -77,8 +54,9 @@ excellent OAuthLib. The package is well documented, and well supported
 and is currently the `Django REST framework` recommended package for 
 OAuth 2.0 support.
 
+> OAuth (Open Authorization) is an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords. This mechanism is used by companies such as `Amazon`, `Google`, `Facebook`, `Microsoft`, and `Twitter` to permit the users to share information about their accounts with third-party applications or websites. 
 
-# third party
+
 ## Simple JWT
 JSON Web Token is a fairly new standard which can be used for token-based
 authentication. Unlike the built-in TokenAuthentication scheme, JWT 
