@@ -1,10 +1,9 @@
 # Production
 
+[CI/CD Pipelines by Tanzu](https://tanzu.vmware.com/developer/guides/cnbp-knative-argocd/)
 
-[native repository](https://goharbor.io/)
+[deploy a production cluster using ansible playbook](https://kubespray.io/)
 
-[Event Driven Applications](https://knative.dev/docs/)
+[Harbor: repository](https://goharbor.io/)
 
-[CI/CD](https://tanzu.vmware.com/developer/guides/cnbp-knative-argocd/)
-
-[Deploy a Production Ready Kubernetes Cluster](https://kubespray.io/)
+[Knative](https://knative.dev/docs/)
