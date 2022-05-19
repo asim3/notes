@@ -32,3 +32,9 @@ sudo adduser asim my_group
 # OR
 sudo usermod -aG my_group asim
 ```
+
+
+## become root user
+```shellscript
+sudo -i
+```
