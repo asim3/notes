@@ -1,7 +1,10 @@
 ## generate key
 > if you want to change the key name make sure to put the full directory path
-```txt
+```bash
 cd ~/.ssh/
+ssh-keygen -t ecdsa -b 521 -C "argocd@asimt.sa"
+
+# old
 ssh-keygen -t rsa -b 4096 -C "myname@example.com"
 ```
 

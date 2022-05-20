@@ -108,3 +108,47 @@ class DownloadExcelView(PermissionRequiredMixin, View):
         response['Content-Disposition'] = 'attachment; filename="%s"' % filename
         return response
 ```
+
+
+## Download View
+```py
+from django.views.generic.base import TemplateView
+
+
+class DownloadView(TemplateView):
+    template_name = 'my_app/my-file.yaml'
+    # content_type = "text/plain"
+
+    # content_type = "image/png"
+
+    # content_type = "application/pdf"
+    # content_type = "application/json"
+    # content_type = "application/zip"
+
+    # content_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+
+    # other ???
+    # content_type = "application/xml"
+    # content_type = "application/xhtml+xml"
+    # content_type = "application/x-www-form-urlencoded"
+    # content_type = "application/vnd.android.package-archive"
+    # content_type = "application/vnd.oasis.opendocument.text"
+    # content_type = "application/vnd.oasis.opendocument.spreadsheet"
+    # content_type = "application/vnd.oasis.opendocument.presentation"
+    # content_type = "application/vnd.oasis.opendocument.graphics"
+    # content_type = "application/vnd.ms-excel"
+    # content_type = "application/vnd.ms-powerpoint"
+    # content_type = "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+    # content_type = "application/msword"
+    # content_type = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    # content_type = "application/vnd.mozilla.xul+xml"
+
+    def render_to_response(self, context, **response_kwargs):
+        Content_Disposition = f'attachment; filename="{self.get_file_name()}"'
+        headers = {"Content-Disposition": Content_Disposition}
+        response_kwargs.update({"headers": headers})
+        return super().render_to_response(context, **response_kwargs)
+
+    def get_file_name(self):
+        return "my-file-name.txt"
+```

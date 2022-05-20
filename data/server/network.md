@@ -113,4 +113,5 @@ netcat  8.8.8.8    80
 traceroute
 
 ifconfig
+ip/ifconfig
 ```
