@@ -149,3 +149,40 @@ kubectl -n default get imgs tutorial-image
 # show kpack schedule a new build
 kubectl -n default get builds
 ```
+
+
+## Debugging
+```bash
+kubectl -n default get secret tutorial-registry-credentials
+
+kubectl -n default describe sa tutorial-service-account
+# Name:                tutorial-service-account
+# Namespace:           default
+# Image pull secrets:  tutorial-registry-credentials (not found)
+
+
+kubectl -n default describe builder my-builder
+# Status:
+#   Conditions:
+#     Message:               secrets "tutorial-registry-credentials" not found
+#     Status:                False
+#     Type:                  Ready
+
+
+kubectl -n default describe img tutorial-image
+# Status:
+#   Conditions:
+#     Status:                Unknown
+#     Type:                  Ready
+#     Message:               Builder my-builder is not ready
+#     Reason:                BuilderNotReady
+#     Status:                False
+#     Type:                  BuilderReady
+
+
+kubectl -n default describe SourceResolver tutorial-image-source
+# Status:
+#   Conditions:
+#     Status:                False
+#     Type:                  ActivePolling
+```
