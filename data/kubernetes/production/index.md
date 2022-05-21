@@ -7,3 +7,7 @@
 [Harbor: repository](https://goharbor.io/)
 
 [Knative](https://knative.dev/docs/)
+
+[kpack Tutorial](https://github.com/pivotal/kpack/blob/main/docs/tutorial.md)
+
+[buildpacks: from code to images](https://buildpacks.io/)
