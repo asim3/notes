@@ -19,6 +19,15 @@ curl -Lo /tmp/kpack-install.yaml https://github.com/pivotal/kpack/releases/downl
 
 ## add docker registry secret
 ```bash
+docker login
+cat ~/.docker/config.json
+cat /home/asim/.docker/config.json
+
+kubectl create secret generic tutorial-registry-credentials \
+    --from-file=.dockerconfigjson=/home/asim/.docker/config.json \
+    --type=kubernetes.io/dockerconfigjson
+
+# OR
 kubectl create secret docker-registry tutorial-registry-credentials \
     --docker-username=asim \
     --docker-password=my-password \
@@ -100,7 +109,9 @@ metadata:
   namespace: default
 spec:
   serviceAccountName: tutorial-service-account
-  tag: my-test-tag/builder
+  tag: docker-repo-username/app-name
+#   tag:        asim3/ci-cd-example
+  # docker pull asim3/ci-cd-example
   stack:
     name: base
     kind: ClusterStack
@@ -167,6 +178,11 @@ kubectl -n default describe builder my-builder
 #     Message:               secrets "tutorial-registry-credentials" not found
 #     Status:                False
 #     Type:                  Ready
+#     ------------------------------
+#     Message:               GET https://auth.docker.io: unexpected status code 401 
+#                            Unauthorized: incorrect username or password
+#     Status:             False
+#     Type:               Ready
 
 
 kubectl -n default describe img tutorial-image
