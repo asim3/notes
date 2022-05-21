@@ -3,6 +3,16 @@
 [docs](https://github.com/pivotal/kpack/blob/main/docs/image.md)
 
 
+## list kpack images
+```bash
+kubectl -n default get img
+kubectl -n default get imgs
+kubectl -n default get cnbimage
+kubectl -n default get cnbimages
+kubectl -n default get images.kpack.io
+```
+
+
 ## Apply a kpack image resource
 ```yaml
 kubectl apply -f - <<EOF

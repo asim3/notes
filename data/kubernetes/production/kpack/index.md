@@ -139,6 +139,13 @@ EOF
 ```
 
 
-## 
+## list kpack images
 ```bash
+kubectl -n default get img
+
+kubectl -n default get img tutorial-image
+kubectl -n default get imgs tutorial-image
+
+# show kpack schedule a new build
+kubectl -n default get builds
 ```
