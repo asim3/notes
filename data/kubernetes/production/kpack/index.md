@@ -196,9 +196,7 @@ kubectl -n default describe img tutorial-image
 #     Type:                  BuilderReady
 
 
-kubectl -n default describe SourceResolver tutorial-image-source
-# Status:
-#   Conditions:
-#     Status:                False
-#     Type:                  ActivePolling
+kubectl describe po tutorial-image-build-1-build-pod
+# secret-volume-tutorial-registry-credentials
+# object "default"/"tutorial-registry-credentials" not registered
 ```
