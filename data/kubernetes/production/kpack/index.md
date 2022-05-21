@@ -137,7 +137,8 @@ metadata:
   name: tutorial-image
   namespace: default
 spec:
-  tag: my-test-tag/image
+  tag: asim3/ci-cd-example
+  # docker pull asim3/ci-cd-example
   serviceAccountName: tutorial-service-account
   builder:
     name: my-builder
