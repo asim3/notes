@@ -75,3 +75,9 @@ spec:
     path: guestbook
 EOF
 ```
+
+
+## login password
+```bash
+kubectl get secret argocd-initial-admin-secret -n argocd -o go-template='{{.data.password | base64decode}}' ; echo 
+```
