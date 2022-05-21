@@ -110,7 +110,7 @@ metadata:
 spec:
   serviceAccountName: tutorial-service-account
   tag: docker-repo-username/app-name
-#   tag:        asim3/ci-cd-example
+  # tag:        asim3/ci-cd-example
   # docker pull asim3/ci-cd-example
   stack:
     name: base
