@@ -25,7 +25,8 @@ cat /home/asim/.docker/config.json
 
 kubectl create secret generic tutorial-registry-credentials \
     --from-file=.dockerconfigjson=/home/asim/.docker/config.json \
-    --type=kubernetes.io/dockerconfigjson
+    --type=kubernetes.io/dockerconfigjson \
+    --namespace default
 
 # OR
 kubectl create secret docker-registry tutorial-registry-credentials \
