@@ -114,6 +114,10 @@ dict(datetime)    # {'a':1,'b':2,'c':3}
 ```py
 from datetime import datetime
 
+
+now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+
+
 date = datetime.now()
 date.strftime("%d/%m/%Y %H:%M:%S")
 date.strftime("%d/%m/%Y %I:%M:%S %p")
