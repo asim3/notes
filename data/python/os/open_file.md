@@ -69,6 +69,29 @@ print(list(my_file))
 # ['123456789\n', 'My Name: Asim']
 ```
 
+## read multiple lines
+```py
+try:
+    my_file = open('example.txt', 'r')
+    print(my_file.readline())  # Read first line
+    print(my_file.readline())  # Read second line
+    print(my_file.readline())  # Read third line
+
+    # OR
+
+    lines = my_file.readlines()
+    print(lines)
+    
+    # OR 
+
+    lines = my_file.read().splitlines()
+    print(lines)
+
+except IOError:
+    print('There was an error opening the file!')
+    return
+```
+
 
 
 ## OR using with
