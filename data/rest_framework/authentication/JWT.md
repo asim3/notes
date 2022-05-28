@@ -100,3 +100,36 @@ urlpatterns = [
     path('verify/', TokenVerifyView.as_view(), name='token_verify'),
 ]
 ```
+
+
+## get token value
+```py
+from django.contrib.auth.models import User
+from rest_framework_simplejwt.tokens import RefreshToken, AccessToken
+from rest_framework_simplejwt.exceptions import TokenError
+
+
+user = User.objects.create(username='my-user')
+
+
+refresh = RefreshToken.for_user(user)
+refresh.get("user_id")
+# 1
+
+token_refresh = str(refresh)
+# eyJ0eXAi.Nlcl9pZCI6MX0.L5OuS2nXvzyKit
+token_access = str(refresh.access_token)
+# eyJ0eXAi.iwidXNlclCI6M.KoghCL7rz96qwF
+
+
+refresh_verify = RefreshToken(token_refresh)
+refresh_verify.get("user_id")
+# 1
+
+access_verify = AccessToken(token_access)
+access_verify.get("user_id")
+# 1
+
+AccessToken("eyJ0eX.dXNlclCI.ghCL7rz96q")
+# raise TokenError(_("Token is invalid or expired"))
+```
