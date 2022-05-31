@@ -2,77 +2,91 @@
 [Built-in class-based views API](https://docs.djangoproject.com/en/dev/ref/class-based-views/)
 
 
-## Template
-`urls.py`
+## Http Response
 ```py
-from django.views.generic import TemplateView
+from django.urls import path
+from django.http import HttpResponse
+
+
+def my_home_view(request, user_id):
+    return HttpResponse("You're looking at user %s." % user_id)
 
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="base/home.html") ),
-    # ...
+    path('home/<int:user_id>/', my_home_view, name="my-home"),
 ]
 ```
 
 
-# OR
-`views.py`
-```python
-from django.views.generic import TemplateView
-
-class AboutView(TemplateView):
-    template_name = "about.html"
-    extra_context = None
-
-    def dispatch(self, request, *args, **kwargs):
-      # ...
-      return super().dispatch(request, *args, **kwargs)
-
-    def get(self, request, *args, **kwargs):
-      # ...
-      return super().get(request, *args, **kwargs)
-```
-
-
-`nano urls.py`
-```python
-path('about/', AboutView.as_view() ),
-```
-
-
-```python
-class ListTable(ListView):
-    # queryset = Table1.objects.order_by(order_by_this)
-    model = Table1
-    paginate_by= 10
-    template_name = 'show_table/show_table.html'
-    ordering = 'id'
-
-    def dispatch(self, request, *args, **kwargs):
-        # ...
-        return super().dispatch(request, *args, **kwargs)
-```
-
-
-# Redirect
-```python
+## Json Response
+```py
 from django.urls import path
-from django.views.generic.base import RedirectView
+from django.http import JsonResponse, HttpResponse
+
+
+def my_home_view(request):
+    data = {"user_id": 123}
+    return JsonResponse(data, safe=False)
+    # {"user_id": 123}
+
 
 urlpatterns = [
-  path('details/', RedirectView.as_view(url='https://djangoproject.com') ),
-  path('details/', RedirectView.as_view(pattern_name='show_table') ),
+    path('home/', my_home_view, name="my-home"),
+]
+```
+
+
+## render template
+```py
+from django.urls import path
+from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
+
+
+def my_home_view(request):
+    context = {"user_id": 123}
+    return render(request, 'base/about.html', context)
+    # Good day 123
+
+
+urlpatterns = [
+    path('home/', my_home_view, name="my-home"),
+]
+
+
+# cat my_project/app_name/templates/base/about.html
+# Good day {{ user_id }}
+```
+
+
+## Template View
+`urls.py`
+```py
+from django.urls import path
+from django.views.generic import TemplateView, RedirectView
+
+
+class AboutView(TemplateView):
+    template_name = "base/about.html"
+    extra_context = None
+
+
+urlpatterns = [
+    path('', TemplateView.as_view(template_name="base/home.html")),
+    path('about/', AboutView.as_view(), name="my-about"),
+    path('redirect/', RedirectView.as_view(pattern_name='my-about')),
+    path('redirect-url/', RedirectView.as_view(url='https://djangoproject.com')),
 ]
 ```
 
 
 ## Base64 img
 ```python
+from django.core.files.base import ContentFile
+import base64
+
+
 def get_base64_img(base64_text):
     try:
-        import base64
-        from django.core.files.base import ContentFile
-
         format, base64_img = base64_text.split(';base64,')
         ext = format.split('/')[-1]
         return ContentFile(base64.b64decode(base64_img), name='temp.' + ext)
