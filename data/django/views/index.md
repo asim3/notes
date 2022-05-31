@@ -36,6 +36,27 @@ urlpatterns = [
 ```
 
 
+## File Response
+```py
+from django.urls import path
+from django.http import FileResponse
+
+
+def my_home_view(request):
+    binary_content = open("/home/asim/Downloads/my-file", "rb")
+    binary_content = open("/home/asim/Downloads/my-file.xlsx", "rb")
+    binary_content = open("/home/asim/Downloads/my-file.iso", "rb")
+    binary_content = open("/home/asim/Downloads/my-file.pdf", "rb")
+    filename = "my-file-name.pdf"
+    return FileResponse(binary_content, as_attachment=False, filename=filename)
+
+
+urlpatterns = [
+    path('home/', my_home_view, name="my-home"),
+]
+```
+
+
 ## render template
 ```py
 from django.urls import path
