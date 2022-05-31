@@ -2,8 +2,11 @@
 ```sh
 python3 -m venv .venv \
   && source ./.venv/bin/activate \
-  && pip install django gunicorn \
-  && django-admin startproject my_project
+  && pip install django==3.2 \
+  && django-admin startproject my_project \
+  && code . \
+  && cd ./my_project \
+  && python ./manage.py startapp my_new_app
 ```
 
 
