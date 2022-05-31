@@ -124,15 +124,17 @@ urlpatterns = [
 
 ## Download View
 ```py
+from django.urls import path
+from django.utils import timezone
+from django.http import FileResponse
 from django.views.generic.base import TemplateView
 
 
 class DownloadView(TemplateView):
-    template_name = 'my_app/my-file.yaml'
+    file_name = None
+    is_attachment = True
     # content_type = "text/plain"
-
     # content_type = "image/png"
-
     # content_type = "application/pdf"
     # content_type = "application/json"
     # content_type = "application/zip"
@@ -156,11 +158,27 @@ class DownloadView(TemplateView):
     # content_type = "application/vnd.mozilla.xul+xml"
 
     def render_to_response(self, context, **response_kwargs):
-        Content_Disposition = f'attachment; filename="{self.get_file_name()}"'
-        headers = {"Content-Disposition": Content_Disposition}
-        response_kwargs.update({"headers": headers})
-        return super().render_to_response(context, **response_kwargs)
+        response_kwargs.setdefault('content_type', self.content_type)
+        return FileResponse(
+            streaming_content=self.get_binary_content(context),
+            as_attachment=self.is_attachment,
+            filename=self.get_file_name(),
+            **response_kwargs)
 
     def get_file_name(self):
-        return "my-file-name.txt"
+        if self.file_name:
+            return self.file_name
+        return "my-file-%s.pdf" % timezone.now().strftime("%d-%m-%Y-%H-%M-%S")
+
+    def get_binary_content(self, context):
+        binary_content = open("/home/asim/Downloads/my-file", "rb")
+        binary_content = open("/home/asim/Downloads/my-file.xlsx", "rb")
+        binary_content = open("/home/asim/Downloads/my-file.iso", "rb")
+        binary_content = open("/home/asim/Downloads/my-file.pdf", "rb")
+        return binary_content
+
+
+urlpatterns = [
+    path('', DownloadView.as_view(), name="my-home"),
+]
 ```
