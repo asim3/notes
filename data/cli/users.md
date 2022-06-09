@@ -7,6 +7,14 @@ sudo passwd my-new-user
 ```
 
 
+## list users
+```bash
+cat /etc/passwd
+
+grep 'asim' /etc/passwd
+```
+
+
 ## list group
 ```bash
 cat /etc/group
@@ -35,6 +43,18 @@ sudo usermod -aG my_group asim
 
 
 ## become root user
-```shellscript
+```bash
 sudo -i
+```
+
+
+## rename user
+```bash
+sudo -i
+
+usermod -l new-name old-name
+
+# or only update UID from 1000 to 1002
+
+usermod -u 1002 old-name
 ```
