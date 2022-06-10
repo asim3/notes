@@ -13,3 +13,15 @@ mkdir -p /tmp/my_kali_linux \
     | shasum -a 256 --check \
     && echo OK
 ```
+
+
+## Access
+[Download your connection pack](https://www.hackthebox.com/home/htb/access)
+```bash
+# setup openVBN
+sudo openvpn asim3.ovpn
+sudo openvpn academy-regular.ovpn
+```
+
+> Have fun! Find IP addresses of attackable machines on 
+> the [Active Machines](https://www.hackthebox.com/home/machines) page.
