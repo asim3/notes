@@ -30,8 +30,9 @@ sudo openvpn academy-regular.ovpn
 ## Attack Machines
 ```bash
 cat /etc/passwd
-cat /etc/passwd
 
+
+# flag location
 cat ~/user.txt 
 cat /root/root.txt 
 ```
@@ -45,6 +46,12 @@ nmap 10.10.11.143
 # 80/tcp   open     http
 # 443/tcp  open     https
 # 5033/tcp filtered jtnetd-server
+
+
+nmap -sC -sV 10.10.11.148
+
+# -oA <basename>: Output in the three major formats at once
+nmap -sC -sV -oA ./nmap-result 10.10.11.148
 ```
 
 
@@ -53,4 +60,18 @@ nmap 10.10.11.143
 ```bash
 # WordPress Security Scanner
 wpscan --url http://office.paper/ --enumerate u,ap
+```
+
+
+## apk
+```bash
+# Android in a box
+sudo apt install anbox
+
+# Android Debug Bridge
+sudo apt install adb
+
+
+# install apk
+adb install RouterSpace.apk
 ```
