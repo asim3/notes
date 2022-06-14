@@ -112,7 +112,7 @@ dict(datetime)    # {'a':1,'b':2,'c':3}
 
 ## Date & Time
 ```py
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
@@ -121,6 +121,12 @@ now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 date = datetime.now()
 date.strftime("%d/%m/%Y %H:%M:%S")
 date.strftime("%d/%m/%Y %I:%M:%S %p")
+
+
+datetime.now() 
+datetime.now() - timedelta(minutes=10)
+# datetime.datetime(2022, 6, 14, 10, 38, 0, 152986)
+# datetime.datetime(2022, 6, 14, 10, 28, 0, 153026)
 ```
 
 
