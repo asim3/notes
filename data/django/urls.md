@@ -1,3 +1,7 @@
+[what is SEO](https://digitalmarketinginstitute.com/blog/what-is-seo)
+[how SEO works](https://studiohawk.com.au/blog/how-seo-works/)
+
+
 ## Path
 ```python
 from django.urls import path
@@ -23,10 +27,15 @@ urlpatterns = [
     # com/print/21811a91-9997-4d3b-8770-76808919dddf/
     path('print/<uuid:my_uuid>/', my_print_view, name="my-print"),
 
-    # ASCII letters , numbers , - , _
+    # ASCII letters = abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+    # numbers = 0123456789
+    # dashes = - 
+    # underscore = _
+
     # com/print/My_sluG-1197/
     path('print/<slug:my_slug>/', my_print_view, name="my-print"),
 
+    # com/print/my.user/
     # com/print/My_str~!@$%&*()_+=99/
     path('print/<str:my_user>/', my_print_view, name="my-print"),
     path('print/<my_str>/', my_print_view, name="my-print"),
