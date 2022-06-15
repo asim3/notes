@@ -1,37 +1,3 @@
-## mock
-```py
-from django.test import TestCase
-from django.urls import reverse
-from unittest.mock import patch
-
-
-def mocked_my_reverse(*args, **kwargs):
-    return "my fake data"
-
-
-class MyMockTests(TestCase):
-    def test_reverse(self):
-        expected = "/admin/"
-        actual = reverse("admin:index")
-        self.assertEqual(expected, actual)
-
-    @patch("my_app.tests.reverse", return_value="my fake return")
-    def test_reverse_return(self, my_new_mock_func):
-        expected = "my fake return"
-        actual = reverse("admin:index")
-        self.assertEqual(expected, actual)
-
-        print(my_new_mock_func)
-        # <MagicMock name='reverse' id='140683979259664'>
-
-    @patch("my_app.tests.reverse", mocked_my_reverse)
-    def test_reverse_func(self):
-        expected = "my fake data"
-        actual = reverse("admin:index")
-        self.assertEqual(expected, actual)
-```
-
-
 ## skip
 ```py
 from unittest import skip
