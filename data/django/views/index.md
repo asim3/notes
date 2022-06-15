@@ -182,3 +182,23 @@ urlpatterns = [
     path('', DownloadView.as_view(), name="my-home"),
 ]
 ```
+
+
+## save response to file
+```py
+from django.views.generic import TemplateView
+
+
+class HomeView(TemplateView):
+    template_name = "home/home.html"
+
+    def render_to_response(self, context, **response_kwargs):
+        response = super().render_to_response(context, **response_kwargs)
+        if response.status_code == 200:
+            self.save_html_to_file(response.render().content)
+        return response
+
+    def save_html_to_file(self, html_as_bytes):
+        with open('/home/asim/Desktop/my_new_page.html', 'wb') as new_file:
+            new_file.write(html_as_bytes)
+```
