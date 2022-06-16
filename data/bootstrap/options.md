@@ -1,4 +1,3 @@
-## المساحات
 ```plaintext
 m 		>> margin
 p 		>> padding
@@ -6,7 +5,6 @@ h 		>> height
 w 		>> width
 ```
 
-## الجهه
 ```plaintext
 t 			>> margin-top or padding-top
 b 			>> margin-bottom or padding-bottom
@@ -17,7 +15,6 @@ y 			>> both *-top and *-bottom
 blank 	>> a margin or padding on all 4 sides of the element
 ```
 
-## الطول
 ```plaintext
 0 		-  margin or padding 	= 0
 1 		-  margin or padding 	= $spacer * .25
@@ -29,7 +26,6 @@ auto 	-  margin 				  	= auto
 ```
 
 
-## الألوان
 ```   html
 <div class='bg-primary'> text-primary </div> <hr>
 <div class='bg-secondary'> bg-secondary </div> <hr>

@@ -1,4 +1,3 @@
-## تحديد عرض حقل التنقل
 ```plaintext
 navbar navbar-expand
 navbar navbar-expand-sm
@@ -6,13 +5,11 @@ navbar navbar-expand-md
 navbar navbar-expand{-sm|-md|-lg|-xl}
 ```
 
-## لون الخط
 ```plaintext
 navbar-dark
 navbar-light bg-light
 ```
 
-## التثبيت
 ```plaintext
 fixed-top
 fixed-bottom
@@ -20,7 +17,6 @@ sticky-top
 ```
 
 
-## التسلسل الهرمي
 ```plaintext
 navbar
  |
@@ -49,7 +45,6 @@ navbar
 ```
 
 
-## قائمة افقية
 ```html
 <nav class="nav">
   <a class="nav-item nav-link active" href="#">Active</a>
@@ -61,7 +56,6 @@ navbar
 
 
 
-## المحاذاة الافقية
 ```plaintext
 nav justify-content-center
 nav justify-content-end
@@ -69,7 +63,6 @@ nav flex-column
 ```
 
 
-## طريقة العرض
 ```plaintext
 nav nav-tabs
 nav nav-pills
@@ -78,11 +71,10 @@ nav nav-pills nav-justified
 ```
 
 
-## النموذج 1
 ```html
 <div class="navbar navbar-expand-md navbar-light bg-light">
   <div class="container">
-    <div class="navbar-brand">إسم الشركة</div>
+    <div class="navbar-brand">Brand Name</div>
     <div class="navbar-toggler">
       <span class="navbar-toggler-icon"></span>
     </div>
@@ -109,7 +101,6 @@ nav nav-pills nav-justified
 
 
 
-## نموذج 2
 ```html
 <ul class="nav nav-tabs">
   <li class="nav-item">

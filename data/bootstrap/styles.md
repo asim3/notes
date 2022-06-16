@@ -1,4 +1,3 @@
-## الموقع
 ```plaintext
 position-static
 position-relative
@@ -6,7 +5,6 @@ position-absolute
 ```
 
 
-## العرض والإخفاء
 ```plaintext
 d-block
 d-none
@@ -18,14 +16,12 @@ overflow-auto
 overflow-hidden
 ```
 
-## عرض عند الطباعة
 ```plaintext
 d-print-none
 d-print-block
 ```
 
 
-## الاطار و الظل
 ```plaintext
 rounded
 border-primary
@@ -91,7 +87,6 @@ shadow-lg
 ```
 
 
-## النصوص <p>
 ```plaintext
 text-justify
 text-left
@@ -125,7 +120,6 @@ pre-scrollable
 ```
 
 
-## المحاذاة الأفقية
 ```plaintext
 mx-auto
 float-right
@@ -139,7 +133,6 @@ align-self-center
 ```
 
 
-## المحاذاة العامودية
 ```plaintext
 align-baseline
 align-top

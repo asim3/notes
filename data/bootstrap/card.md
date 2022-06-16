@@ -1,4 +1,3 @@
-## بطاقة
 ```html
 <div class="card" style="width: 18rem;">
   <img src="..." class="card-img-top" alt="...">
@@ -14,18 +13,15 @@
 
 
 
-## بطاقات متلاصقات
 ```plaintext
 card-group
 ```
 
 
-## بطاقات متباعدات
 ```plaintext
 card-deck
 ```
 
-## المحتوى
 ```plaintext
 (card-group, card-deck)
  |
@@ -41,7 +37,6 @@ card-deck
 		`-- card-link
 ```
 
-## قائمة
 ```html
 <div class="card" style="width: 18rem;">
   <ul class="list-group list-group-flush">
@@ -53,7 +48,6 @@ card-deck
 ```
 
 
-## 
 ```html
 <div class="card" style="width: 18rem;">
   <img src="..." class="card-img-top" alt="...">
@@ -75,7 +69,6 @@ card-deck
 
 
 
-## 
 ```html
 <div class="card">
   <h5 class="card-header">Featured</h5>

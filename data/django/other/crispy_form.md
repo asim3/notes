@@ -1,4 +1,4 @@
-## التثبيت
+## install
 ```python
 pip install --upgrade django-crispy-forms
 ```
@@ -11,7 +11,7 @@ pip install --upgrade django-crispy-forms
 
 ```python
 INSTALLED_APPS = (
-    ...
+    # ...
     'crispy_forms',
 )
 
@@ -19,7 +19,7 @@ INSTALLED_APPS = (
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 ```
 
-## إضافة الى النماذج
+
 ```django
 {% load crispy_forms_tags %}
 
