@@ -119,9 +119,9 @@ def test_view(request):
                 {{ form_input.label_tag }}
                 {{ form_input.as_widget }}
                 
-                <p>
-                    help: {{ form_input.help_text }}
-                </p>
+                {% if form_input.help_text %}
+                    <p>{% trans 'help' %}: {{ form_input.help_text }}</p>
+                {% endif %}
                 
                 {{ form_input.errors }}
 
@@ -130,11 +130,7 @@ def test_view(request):
         {% endif %}
     {% endfor %}
 
-    <div id="phone_validation_message" class="alert alert-danger py-3" style="display: none;">
-        {% trans 'الرجاء التأكد من صحة رقم الجوال' %}
-    </div>
-
-    <input id="main_submit" class="main-button" type="submit" value="{% trans 'أرسل معلومات التواصل' %}">
+    <input id="main_submit" class="main-button" type="submit" value="{% trans 'send' %}">
 
 </form>
 ```
