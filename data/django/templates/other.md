@@ -19,7 +19,6 @@
 ```
 
 
-## عرض جميع بيانات متغير
 ```django
 {% for key, value in json.items %}
   <li>{{key}} - {{value}}</li>

@@ -1,4 +1,18 @@
-```django
+## render a template
+```py
+from django.template.loader import render_to_string
+from django.contrib.sites.shortcuts import get_current_site
+
+
+current_site = get_current_site(request)
+template_name = "my-app/my-template.yaml"
+context = {"domain": current_site.domain}
+
+html = render_to_string(template_name, context)
+```
+
+
+```jinja
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
@@ -8,14 +22,14 @@
 ```
 
 
-```django
+```jinja
 {% load static %}
 {% static 'css/main.css' %}
 {% static 'js/main.js' %}
 ```
 
 ## URLs by name
-```django
+```jinja
 {% url 'blog-home' %}
 
 <a href="{% url 'admin:index' %}"  >index</a>
@@ -48,13 +62,13 @@ def get_template_as_string():
 
 ## Master Page
 in master.html
-```django
+```jinja
 {% block content %}{% endblock %}
 ```
 
 
 in dependents pages
-```django
+```jinja
 {% extends "app_name/master.html" %}
 
 {% block content %}{% endblock %}
@@ -62,12 +76,12 @@ in dependents pages
 
 
 include another page
-```django
+```jinja
 {% include "base/paginator.html" %}
 ```
 
 
-```django
+```jinja
 {% if aaa is not None %}
     ...
 {% elif bbb %}
@@ -80,7 +94,7 @@ include another page
 ```
 
 
-```django
+```jinja
 {% if not aaa or bbb %}
     There are no athletes or there are some coaches.
 {% endif %}
@@ -91,7 +105,7 @@ include another page
 ```
 
 
-```django
+```jinja
 {% if aaa and bbb or ccc %}
 #  if (aaa and bbb) or ccc
 ```
@@ -99,7 +113,7 @@ include another page
 
 
 for loop
-```django
+```jinja
 {% for post in posts %}
   <tr class="{% cycle '#ff0000' '#0000ff' %}">
     {{ post.author }}
@@ -112,13 +126,13 @@ for loop
 
 
 عرض النموذج على شكل مختلف
-```django
+```jinja
 {{ form.as_p }}
 ```
 
 
 عرض اسم المستخدم
-```django
+```jinja
 {% if user.is_authenticated %}
 	<h1>welcom {{ user.username }}</h1>
 	<a href="/logout/">تسجيل الخروج</a>
@@ -130,7 +144,7 @@ for loop
 
 
 عرض الرسالة المرسلة من ملف العرض
-```django
+```jinja
 {% if messages %}
   {% for message in messages %}
     <div class="alert alert-{{ message.tags }}">
