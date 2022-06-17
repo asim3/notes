@@ -104,7 +104,7 @@ def test_view(request):
 ```
 
 
-## template as list
+## template
 ```jinja
 <form method="POST" enctype="multipart/form-data">
 
@@ -133,4 +133,60 @@ def test_view(request):
     <input id="main_submit" class="main-button" type="submit" value="{% trans 'send' %}">
 
 </form>
+```
+
+
+## template as card
+```jinja
+<div class="card" style="border-radius: 1rem;">
+    <div class="card-body p-5 text-center">
+
+
+        <h2 class="fw-bold mb-2 text-uppercase">
+            {% trans 'Login'%}
+        </h2>
+
+
+        {{ form.non_field_errors }}
+
+        
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {% for form_input in form %}
+                {% if not form_input.is_hidden %}
+
+                    <div class="form-group pb-4">
+                        <h5>{{ form_input.label }}:</h5>
+
+                        {{ form_input.as_widget }}
+
+                        {{ form_input.errors }}
+
+                    </div>
+
+                {% endif %}
+            {% endfor %}
+
+
+            <p class="small my-4">
+                <a href="{% url "user-register" %}">{% trans 'Forgot password?'%}</a>
+            </p>
+
+
+            <button class="btn btn-outline-primary btn-lg px-5" type="submit">
+                {% trans 'Login'%}
+            </button>
+
+        </form>
+
+
+        <div class="mt-5">
+            {% trans "Don't have an account?" %}
+            <a href="{% url "user-register" %}" class="text-black-50 fw-bold">{% trans 'Sign Up'%}</a>
+        </div>
+
+    </div>
+</div>
 ```
