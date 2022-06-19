@@ -117,6 +117,22 @@ class FormTestCase(TestCase):
 ```
 
 
+## test email
+```py
+EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+
+# =========
+
+from django.core import mail
+
+
+self.assertEqual(len(mail.outbox), 1)
+self.assertEqual(_("Password reset on"), mail.outbox[0].subject)
+self.assertEqual("info@gmail.com", mail.outbox[0].from_email)
+self.assertEqual(['test@user.com'], mail.outbox[0].recipients())
+```
+
+
 ## test cookie
 ```py
 from django.test import TestCase
