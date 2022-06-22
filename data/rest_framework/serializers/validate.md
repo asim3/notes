@@ -25,4 +25,10 @@ class RegisterSerializer(serializers.Serializer):
         if data['username'] != data['name']:
             raise ValidationError("username != name")
         return data
+        
+    def create(self, validated_data):
+        if True:
+            raise ValidationError({"errors": [_("SMS error")]})
+        return Comment.objects.create(**validated_data)
+
 ```
