@@ -31,3 +31,36 @@ use IP address authentication.
 - authentication, enter your complete Gmail address and password
 
 > Sending limits: 2,000 messages per day
+
+
+## App Passwords
+
+- Go to your `Google Account`.
+- Select [Security](https://myaccount.google.com/security?hl=ar)
+- Under `Signing in to Google` select `App Passwords`. 
+
+> If you don’t have this option `App Passwords`, it might be because:
+>    - 2-Step Verification is not set up for your account.
+>    - 2-Step Verification is only set up for security keys.
+>    - You turned on Advanced Protection.
+
+
+
+## test email
+```py
+from django.core import mail
+
+connection = mail.get_connection()
+connection.open()
+# Traceback (most recent call last):
+#   File "<console>", line 1, in <module>
+#   File "/app/.heroku/python/lib/python3.9/site-packages/django/core/mail/backends/smtp.py", line 69, in open
+#     self.connection.login(self.username, self.password)
+#   File "/app/.heroku/python/lib/python3.9/smtplib.py", line 750, in login
+#     raise last_exception
+#   File "/app/.heroku/python/lib/python3.9/smtplib.py", line 739, in login
+#     (code, resp) = self.auth(
+#   File "/app/.heroku/python/lib/python3.9/smtplib.py", line 662, in auth
+#     raise SMTPAuthenticationError(code, resp)
+# smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials i6-20020a05600c354600b003974a00697esm5184568wmq.38 - gsmtp')
+```
