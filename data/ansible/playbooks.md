@@ -25,3 +25,19 @@
 ansible-playbook -K ./nginx-install-playbook.yml --check
 ansible-playbook -K ./nginx-install-playbook.yml 
 ```
+
+
+## Print output
+```yaml
+    - name: Fix broken packages
+      ansible.builtin.apt:
+        state: fixed
+        autoremove: yes
+      become: yes
+      become_user: root
+      register: my_fix_output
+    
+    - name: Print output
+      debug:
+        var: my_fix_output.stdout_lines
+```
