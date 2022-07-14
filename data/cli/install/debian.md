@@ -86,3 +86,14 @@ cat <<EOF >> ~/.gitconfig`
 	name = asim3
 EOF
 ```
+
+
+## install Debian
+```bash
+sudo apt install thunderbird
+# version 1:91.9.1+build1-0ubuntu0.20.04.1
+
+
+sudo snap install thunderbird
+# version 91.9.0
+```

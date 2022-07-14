@@ -38,23 +38,6 @@ cat /root/root.txt
 ```
 
 
-## nmap
-```bash
-nmap 10.10.11.143
-# PORT     STATE    SERVICE
-# 22/tcp   open     ssh
-# 80/tcp   open     http
-# 443/tcp  open     https
-# 5033/tcp filtered jtnetd-server
-
-
-nmap -sC -sV 10.10.11.148
-
-# -oA <basename>: Output in the three major formats at once
-nmap -sC -sV -oA ./nmap-result 10.10.11.148
-```
-
-
 ## WordPress
 [wp vulnerability](https://wpscan.com/vulnerability/3413b879-785f-4c9f-aa8a-5a4a1d5e0ba2)
 ```bash
