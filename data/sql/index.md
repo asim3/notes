@@ -2,52 +2,86 @@
 [tutorial](https://www.postgresqltutorial.com/postgresql-administration/)
 
 
+## delete old
+```bash
+docker container stop my_postgresql_container
+docker container prune -f
+docker container ls -a
+```
+
+
 ## install
 ```bash
-docker container prune -f
-
 docker run \
     --name my_postgresql_container \
     -e POSTGRESQL_PASSWORD=admin \
     -d bitnami/postgresql:latest
 
-
 docker exec -it my_postgresql_container bash
 
 
-id
-# uid=1001 gid=0(root) groups=0(root)
-
-
-psql
-# psql: local user with ID 1001 does not exist
-
-
-psql -U postgres
 psql --username=postgres
+psql -U postgres
+psql -U postgres -d my_database
 # Password for user postgres: admin
 ```
 
 
-## list db
-> `\l`
-```sql
-\l
-
---                                   List of databases
---    Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
--- -----------+----------+----------+-------------+-------------+-----------------------
---  postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
---  template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
---            |          |          |             |             | postgres=CTc/postgres
---  template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
---            |          |          |             |             | postgres=CTc/postgres
--- (3 rows)
+## add new user
+Create a new role by executing the createuser command. With the options 
+below, the new role will not be a superuser and will not have privileges 
+for creating new databases or new roles (this is usually the default 
+for the createuser command).
+```bash
+createuser -U postgres my_new_sql_user -S -D -R -P
+# Enter password for new role: my-new-pass
+# Enter it again: my-new-pass
+# Password: admin
 ```
 
 
+## list users `\dg`
+```txt
+                                      List of roles
+    Role name    |                         Attributes                         | Member of 
+-----------------+------------------------------------------------------------+-----------
+ my_new_sql_user |                                                            | {}
+ postgres        | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+```
 
-## help
+
+## add new db
+```bash
+createdb -U postgres my_new_sql_db -O my_new_sql_user
+# Password: admin
+```
+
+
+## list db `\l`
+```txt
+                                       List of databases
+     Name      |      Owner      | Encoding |   Collate   |    Ctype    |   Access privileges   
+---------------+-----------------+----------+-------------+-------------+-----------------------
+ my_database   | postgres        | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ my_new_sql_db | my_new_sql_user | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ postgres      | postgres        | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0     | postgres        | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+               |                 |          |             |             | postgres=CTc/postgres
+ template1     | postgres        | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+               |                 |          |             |             | postgres=CTc/postgres
+(5 rows)
+```
+
+
+## cli
+```bash
+psql -U postgres -c 'CREATE DATABASE my_database_4;'
+
+psql -U postgres -d my_database_4 -c 'SELECT * FROM mytable'
+```
+
+
+## psql functions
 ```txt
 General
   \copyright             show PostgreSQL usage and distribution terms

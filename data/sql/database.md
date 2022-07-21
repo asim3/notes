@@ -1,7 +1,10 @@
-## add new database
+## Database
 ```sql
 create database my_db_1 ;
 create database my_db_2 ;
+
+CREATE DATABASE my_database;
+DROP   DATABASE my_database;
 
 \l
 --                                   List of databases

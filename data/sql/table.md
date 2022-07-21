@@ -1,10 +1,11 @@
 ## add table
+`psql -U postgres -d my_database`
 ```sql
-CREATE TABLE Persons (
+CREATE TABLE Person (
     ID int NOT NULL,
     PersonID int,
-    LastName varchar(255) NOT NULL,
     FirstName varchar(255),
+    LastName varchar(255) NOT NULL,
     Address varchar(255),
     City varchar(255),
     Age int,
@@ -13,13 +14,35 @@ CREATE TABLE Persons (
 );
 
 
-CREATE TABLE Orders (
+CREATE TABLE Order (
     OrderID int NOT NULL,
     OrderNumber int NOT NULL,
     PersonID int,
     PRIMARY KEY (OrderID),
     FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
 ); 
+```
+
+
+## INSERT
+```sql
+INSERT INTO Person (ID, FirstName, LastName) 
+VALUES (1, 'test1', 'test1'); 
+
+INSERT INTO Person (ID, FirstName, LastName) VALUES 
+(12, 'test2', 'test2'), 
+(44, 'test3', 'test3'), 
+(86, 'test4', 'test4'); 
+
+
+SELECT * FROM Person;
+--  id | personid | firstname | lastname | address | city | age 
+-- ----+----------+-----------+----------+---------+------+-----
+--   1 |          | test1     | test1    |         |      |    
+--  12 |          | test2     | test2    |         |      |    
+--  44 |          | test3     | test3    |         |      |    
+--  86 |          | test4     | test4    |         |      |    
+-- (4 rows)
 ```
 
 
