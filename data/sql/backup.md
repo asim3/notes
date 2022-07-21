@@ -16,36 +16,29 @@ psql -U postgres -d my_database_2 -c 'SELECT count(*) FROM Person'
 ```
 
 
-## Restore .TAR !!!
+## Restore .GZ
 ```bash
 createdb -U postgres my_database_5
 
-pg_restore -U postgres -d my_database_5 -Ft /tmp/my_database_backup_1M.tar
+gzip -dck /tmp/my_tar_backup.gz | psql -U postgres -d my_database_5
 
 psql -U postgres -d my_database_5 -c 'SELECT count(*) FROM Person'
 ```
 
 
-## SQL
-```sql
+## insert 1M data
+```bash
 cat  <<EOF > /tmp/my_backup.sql
 CREATE TABLE Person (ID int, FirstName varchar(255), LastName varchar(255), Age int);
 INSERT INTO Person (ID, FirstName, LastName) VALUES 
-(12, 'test2', 'test2'), 
-(44, 'test3', 'test3'), 
-(44, 'test3', 'test3'), 
-(44, 'test3', 'test3'), 
-(44, 'test3', 'test3'), 
-(44, 'test3', 'test3'), 
-(44, 'test3', 'test3'), 
-(44, 'test3', 'test3'), 
-(44, 'test3', 'test3'), 
-(44, 'test3', 'test3'), 
-(44, 'test3', 'test3'), 
-(44, 'test3', 'test3'), 
-(44, 'test3', 'test3'), 
-(86, 'test4', 'test4');
 EOF
+
+for i in {1..1000000}; 
+do 
+  echo "($i, 'First Name $i', 'Last Name $i')," >> /tmp/my_backup.sql
+done;
+
+echo "(999999999, 'First Name End', 'Last Name End');" >> /tmp/my_backup.sql
 ```
 
 

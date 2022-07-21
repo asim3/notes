@@ -19,8 +19,16 @@ tar -cvf my_archive.tar my_file.txt
 
 ## gzipped archive >> super small size
 ```bash
+# -z: use gzip compress
 tar -czf my_archive.tar.gz /var/my_dir/
 tar -xzf my_archive.tar.gz
+
+# OR
+
+gzip -k /tmp/my_backup.sql
+
+gzip -kd /tmp/my_backup.sql.gz
+gunzip /tmp/my_backup.sql.gz
 ```
 
 
