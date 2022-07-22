@@ -1,8 +1,18 @@
 ## Backup
 ```bash
+pg_dump -U postgres -d my_database > /tmp/my_dump_backup.sql
+
+
+# gzip
 pg_dump -U postgres -d my_database | gzip -c > /tmp/my_tar_backup.gz
 
-pg_dump -U postgres -d my_database > /tmp/my_dump_backup.sql
+pg_dump -U postgres -d my_database -h hostname  -p port | gzip -c > /tmp/my_tar_backup.gz
+
+pg_dump -U postgres -d my_database -h localhost -p 5432 | gzip -c > /tmp/my_tar_backup.gz
+
+
+# URI
+pg_dump postgresql://postgres:admin@localhost:5432/my_database | gzip -c > /tmp/my_tar_backup.gz
 ```
 
 
