@@ -12,10 +12,22 @@ docker container ls -a
 
 ## install
 ```bash
+# Setting the root password on first run
 docker run \
     --name my_postgresql_container \
     -e POSTGRESQL_PASSWORD=admin \
-    -d bitnami/postgresql:latest
+    -d bitnami/postgresql:13
+
+# OR
+
+# Creating a database user on first run
+# User "postgres" has no password assigned.
+docker run \
+    --name my_postgresql_container \
+    -e POSTGRESQL_USERNAME=my_user \
+    -e POSTGRESQL_PASSWORD=my_password \
+    -e POSTGRESQL_DATABASE=my_database \
+    -d bitnami/postgresql:13
 
 docker exec -it my_postgresql_container bash
 ```
@@ -23,10 +35,9 @@ docker exec -it my_postgresql_container bash
 
 ## connect to database
 ```bash
-export PGPASSWORD=admin
+export PGPASSWORD=my_password
 
-
-psql -U username
+psql -U my_user -d my_database
 
 psql -U postgres -d my_database
 
