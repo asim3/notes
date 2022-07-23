@@ -1,3 +1,6 @@
+[raw SQL queries](https://docs.djangoproject.com/en/3.2/topics/db/sql/)
+
+
 ## DecimalField vs FloatField
 > Always use `DecimalField` for money. 
 
