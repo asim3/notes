@@ -151,20 +151,20 @@ SELECT * FROM MyLoop;
 ## ancestors
 ```sql
 WITH RECURSIVE MyLoop AS (
-  SELECT Employee.ID, Employee.FirstName, Employee.LastName, Employee.Manager 
+  SELECT Employee.ID, Employee.FirstName, Employee.LastName, Employee.Manager, 1 AS H_Level 
   FROM Employee WHERE ID = 3009
   UNION ALL
-  SELECT Employee.ID, Employee.FirstName, Employee.LastName, Employee.Manager 
+  SELECT Employee.ID, Employee.FirstName, Employee.LastName, Employee.Manager, MyLoop.H_Level + 1 AS H_Level  
   FROM MyLoop
   JOIN Employee ON MyLoop.Manager = Employee.ID
 )
 SELECT * FROM MyLoop;
 
---   id  |    firstname    |    lastname    | manager 
--- ------+-----------------+----------------+---------
---  3009 | First Name 3009 | Last Name 3009 |     300
---   300 | First Name 300  | Last Name 300  |      30
---    30 | First Name 30   | Last Name 30   |       3
---     3 | First Name 3    | Last Name 3    |        
+--   id  |    firstname    |    lastname    | manager | h_level 
+-- ------+-----------------+----------------+---------+---------
+--  3009 | First Name 3009 | Last Name 3009 |     300 |       1
+--   300 | First Name 300  | Last Name 300  |      30 |       2
+--    30 | First Name 30   | Last Name 30   |       3 |       3
+--     3 | First Name 3    | Last Name 3    |         |       4
 -- (4 rows)
 ```
