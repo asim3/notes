@@ -2,7 +2,7 @@
 ```sh
 python3 -m venv .venv \
   && source ./.venv/bin/activate \
-  && pip install django==3.2 \
+  && pip install django==3.2 autopep8 \
   && django-admin startproject my_project \
   && code . \
   && cd ./my_project \
