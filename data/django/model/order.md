@@ -19,28 +19,47 @@ class Answer(models.Model):
 
 ## get order
 ```py
-obj = Question.objects.first()
+from my_new_app.models import Question, Answer
 
-obj.get_answer_order().count()
+
+q1, _ = Question.objects.get_or_create(text="Question 1")
+q2, _ = Question.objects.get_or_create(text="Question 2")
+a1, _ = Answer.objects.get_or_create(text="Answer 1", question=q1)
+a2, _ = Answer.objects.get_or_create(text="Answer 2", question=q1)
+a3, _ = Answer.objects.get_or_create(text="Answer 3", question=q1)
+
+
+q1.get_answer_order().count()
 # 3
 
-type(obj.get_answer_order().first())
+q2.get_answer_order().count()
+# 0
+
+type(q1.get_answer_order().first())
 # <class 'int'>
 
-obj.get_answer_order()
+q1.get_answer_order()
 # <QuerySet [1, 2, 3]>
 ```
 
 
 ## set order
 ```py
-obj = Question.objects.first()
-
-obj.get_answer_order()
-# <QuerySet [1, 2, 3]>
-
-obj.set_answer_order([2, 1, 3])
-
-obj.get_answer_order()
+q1.set_answer_order([2, 1, 3])
+q1.get_answer_order()
 # <QuerySet [2, 1, 3]>
+
+q1.set_answer_order([3, 2, 4, 1, 5, ])
+q1.get_answer_order()
+# <QuerySet [3, 2, 1]>
+
+
+q1.set_answer_order([1, ])
+q1.get_answer_order()
+# <QuerySet [1, 3, 2]>
+
+# Q2
+q2.set_answer_order([2, 1, 3])
+q2.get_answer_order()
+# <QuerySet []>
 ```
