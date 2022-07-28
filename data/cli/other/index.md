@@ -39,6 +39,44 @@ shutdown +30 "Leave to pickup friend!"
 ```
 
 
+## Math
+```bash
+# Addition
+expr 7 + 1
+# 2
+
+
+# Subtraction
+expr 10 - 1
+# 9
+
+
+# Division
+expr 10 / 3
+# 3
+
+
+# Multiplication
+expr 9 \* 3
+# 27
+
+
+expr 10 / 3 | expr 
+
+#   ARG1 | ARG2       ARG1 if it is neither null nor 0, otherwise ARG2
+#   ARG1 & ARG2       ARG1 if neither argument is null or 0, otherwise 0
+
+#   ARG1 < ARG2       ARG1 is less than ARG2
+#   ARG1 <= ARG2      ARG1 is less than or equal to ARG2
+#   ARG1 = ARG2       ARG1 is equal to ARG2
+#   ARG1 != ARG2      ARG1 is unequal to ARG2
+#   ARG1 >= ARG2      ARG1 is greater than or equal to ARG2
+#   ARG1 > ARG2       ARG1 is greater than ARG2
+
+#   ARG1 % ARG2       arithmetic remainder of ARG1 divided by ARG2
+```
+
+
 ## find largest file
 ```bash
 du -a /var/         | sort -n -r | head -n 20

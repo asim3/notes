@@ -66,8 +66,11 @@ gunicorn --chdir my_project --bind 0.0.0.0:8000 wsgi
 
 
 ## gunicorn sync
-```text
+```bash
 workers = (2 * cpu) + 1
+
+export WORKERS=$(expr 2 \* $(nproc --all) + 1)
+
 worker_class = sync
 ```
 
