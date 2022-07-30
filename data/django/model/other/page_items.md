@@ -6,7 +6,19 @@ from django.template.loader import render_to_string
 
 
 class Page(models.Model):
+
+    class TemplateType(models.TextChoices):
+        LANDING = 'landing.html', _('Landing')
+        ARTICLE = 'article.html', _('Article')
+        GALLERY = 'gallery.html', _('Gallery')
+        CART = 'cart.html', _('Cart')
+
     title = models.CharField(_("Page Title"), max_length=100)
+    template_type = models.CharField(
+        _("Template Type"),
+        max_length=20,
+        default=TemplateType.LANDING,
+        choices=TemplateType.choices)
     parent_page = models.ForeignKey(
         "self",
         on_delete=models.CASCADE,
@@ -23,7 +35,7 @@ class Page(models.Model):
     def get_html(self):
         # self.set_item_order([1, 2, 3, 4, 5, 6, ])
         self.set_item_order([5, 6, 2, 3, 4, 1, ])
-        return render_to_string("root.html", context=self.get_context())
+        return render_to_string(self.template_type, context=self.get_context())
 
     def get_context(self):
         return {
@@ -74,7 +86,7 @@ def my_home(request, page=None, *args, **kwargs):
 ```
 
 
-## templates/root.html
+## templates/landing.html
 ```jinja
 <!DOCTYPE html>
 <html>
