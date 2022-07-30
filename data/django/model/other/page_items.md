@@ -7,24 +7,32 @@ from django.template.loader import render_to_string
 
 class Page(models.Model):
     title = models.CharField(_("Page Title"), max_length=100)
+    parent_page = models.ForeignKey(
+        "self",
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name="descendants")
+
+    class Meta:
+        order_with_respect_to = 'parent_page'
 
     def __str__(self):
         return self.title
 
     def get_html(self):
         # self.set_item_order([1, 2, 3, 4, 5, 6, ])
-        # self.set_item_order([5, 6, 2, 3, 4, 1, ])
+        self.set_item_order([5, 6, 2, 3, 4, 1, ])
         return render_to_string("root.html", context=self.get_context())
 
     def get_context(self):
         return {
-            "page_title": self.title,
-            "items": self.get_items(),
-            "items_order": list(self.get_item_order()),
+            "object": self,
+            "navigation": self.descendants.all(),
+            "items": self.page_items.all(),
+            "navigation_order": self.get_page_order(),
+            "items_order": self.get_item_order(),
         }
-
-    def get_items(self):
-        return self.page_items.all()
 
 
 class Item(models.Model):
@@ -57,8 +65,11 @@ from django.shortcuts import HttpResponse
 from .models import Page
 
 
-def my_home(request, *args, **kwargs):
-    p1, _ = Page.objects.get_or_create(title="My Views.py Title")
+def my_home(request, page=None, *args, **kwargs):
+    if page:
+        p1 = Page.objects.get(id=page)
+    else:
+        p1, _ = Page.objects.get_or_create(title="My Views.py Title")
     return HttpResponse(p1.get_html())
 ```
 
@@ -69,10 +80,24 @@ def my_home(request, *args, **kwargs):
 <html>
 
 <head>
-    <title>{{ page_title }}</title>
+    <title>{{ object.page_title }}</title>
+    <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16">
 </head>
 
 <body>
+
+    <nav>
+
+        {% if object.parent_page.id %}
+            <a href="/p/{{ object.parent_page.id }}">Back</a>
+        {% endif %}
+
+
+        {% for nav in navigation %}
+            <a href="/p/{{ nav.id }}">{{ nav.title }}</a>
+        {% endfor %}
+    
+    </nav> 
     
     {% for item in items %}
         
@@ -80,7 +105,10 @@ def my_home(request, *args, **kwargs):
 
     {% endfor %}
     
-    <h1>Order: {{ items_order }}</h1>
+    <hr>
+
+    <h4>Navigation Order: {{ navigation_order }}</h4>
+    <h4>Order: {{ items_order }}</h4>
 </body>
 
 </html>
@@ -95,7 +123,7 @@ def my_home(request, *args, **kwargs):
 
 ## templates/paragraph.html
 ```jinja
-<p>{{ item_object.text }}</p>
+<pre>{{ item_object.text }}</pre>
 ```
 
 
