@@ -80,7 +80,7 @@ def my_home(request, page=None, *args, **kwargs):
 <html>
 
 <head>
-    <title>{{ object.page_title }}</title>
+    <title>{{ object.title }}</title>
     <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16">
 </head>
 
