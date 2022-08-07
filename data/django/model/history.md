@@ -18,6 +18,12 @@ MIDDLEWARE = [
     # 'django.contrib.messages.middleware.MessageMiddleware',
     "simple_history.middleware.HistoryRequestMiddleware",
 ]
+
+SIMPLE_HISTORY_REVERT_DISABLED = True
+
+SIMPLE_HISTORY_HISTORY_CHANGE_REASON_USE_TEXT_FIELD = True
+
+# SIMPLE_HISTORY_HISTORY_ID_USE_UUID = True
 ```
 
 
@@ -58,6 +64,20 @@ for story in my_object.history.all():
     print(story.history_type)
     # +
     # + for create, ~ for update, and - for delete
+```
+
+
+## admin.py
+```py
+from django.contrib.admin import register
+from simple_history.admin import SimpleHistoryAdmin
+from .models import MyTableName
+
+
+@register(MyTableName)
+class MyTableNameHistoryAdmin(SimpleHistoryAdmin):
+    list_display = ["id", "title", ]
+    search_fields = ["id", "title", ]
 ```
 
 
@@ -150,4 +170,26 @@ for story in my_history:
 # date 2022-08-07 17:07:35.376949+00:00
 # history_date 2022-08-07 17:07:35.414371+00:00
 # ========================================================================================
+```
+
+
+## Reverting
+```py
+my_object = MyTableName.objects.get(id=30)
+
+my_object
+# <MyTableName: update by me 2>
+
+my_object.history.earliest()
+# <HistoricalMyTableName: with h as of 2022-08-07 17:07:35.414371+00:00>
+
+my_object.history.earliest().instance
+# <MyTableName: with h>
+
+my_object.history.earliest().instance.save()
+
+my_object.refresh_from_db()
+
+my_object
+# <MyTableName: with h>
 ```
