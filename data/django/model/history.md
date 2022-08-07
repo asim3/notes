@@ -21,7 +21,7 @@ MIDDLEWARE = [
 
 SIMPLE_HISTORY_REVERT_DISABLED = True
 
-SIMPLE_HISTORY_HISTORY_CHANGE_REASON_USE_TEXT_FIELD = True
+# SIMPLE_HISTORY_HISTORY_CHANGE_REASON_USE_TEXT_FIELD = True
 
 # SIMPLE_HISTORY_HISTORY_ID_USE_UUID = True
 ```
@@ -192,4 +192,28 @@ my_object.refresh_from_db()
 
 my_object
 # <MyTableName: with h>
+```
+
+
+## Change Reason
+```py
+from my_new_app.models import MyTableName
+
+
+my_object = MyTableName.objects.get(id=31)
+
+my_object
+# <MyTableName: update by me 1>
+
+my_object.title = "shell update 2"
+my_object._change_reason = "my reason 1"
+my_object.save()
+
+my_object.history.count()
+# 3
+
+obj = my_object.history.earliest()
+obj = my_object.history.latest()
+obj.history_change_reason
+# 'my reason 1'
 ```
