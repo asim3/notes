@@ -43,7 +43,13 @@ Binary       01001000  01100101  01101100  01101100  01101111
 
 
 ## UTF-8 conversion
+[Youtube](https://www.youtube.com/watch?v=uTJoJtNYcaQ)
 ```txt
+  if code <   128 (            1000 0000)
+elif code <  2048 (       1000 0000 0000)
+elif code < 65536 (1 0000 0000 0000 0000)
+ 
+
 First code point  Last code point  Byte 1    Byte 2   Byte 3   Byte 4
 U+0000            U+007F           0xxxxxxx
 U+0080            U+07FF           110xxxxx  10xxxxxx
