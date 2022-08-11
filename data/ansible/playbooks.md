@@ -45,3 +45,32 @@ ansible-playbook -K ./nginx-install-playbook.yml
       debug:
         var: my_fix_output.stdout_lines
 ```
+
+
+## Whoami
+```yaml
+- name: Whoami = root
+  ansible.builtin.shell: whoami
+  become: yes
+  become_user: root
+  register: my_output
+
+- debug:
+    var: my_output.stdout_lines
+    
+- name: Whoami = asim
+  ansible.builtin.shell: whoami
+  register: my_output
+
+- name: Print output
+  debug:
+    var: my_output.stdout_lines
+
+- name: Whoami = postgres
+  ansible.builtin.shell: sudo -u postgres whoami
+  register: my_output
+
+- name: Print output
+  debug:
+    var: my_output.stdout_lines
+```
