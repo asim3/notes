@@ -42,16 +42,21 @@ sudo usermod -aG my_group asim
 ```
 
 
-## become root user
+## become other user
 ```bash
 sudo -i
+# OR
+sudo -u root -s /bin/bash
+
+sudo -u other-user -s /bin/bash
+
+sudo -u other-user -s whoami
+# other-user
 ```
 
 
 ## rename user
 ```bash
-sudo -i
-
 usermod -l new-name old-name
 
 # or only update UID from 1000 to 1002
