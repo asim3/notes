@@ -3,6 +3,17 @@
 
 [tutorial](https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms)
 
+## configuration file
+- `nano /etc/nginx/nginx.conf`
+- `nano /usr/local/nginx/conf/nginx.conf`
+- `nano /usr/local/etc/nginx/nginx.conf`
+
+
+## Serving Static
+```nginx
+
+```
+
 
 ## red server block
 `sudo nano /etc/nginx/sites-available/red.example.com`
