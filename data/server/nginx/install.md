@@ -1,0 +1,31 @@
+## install
+```txt
+sudo apt update
+sudo apt install -y nginx
+```
+
+
+## Adjusting the Firewall
+```txt
+# check Firewall Available applications 
+sudo ufw app list
+
+sudo ufw allow 'Nginx HTTP'
+sudo ufw status
+```
+
+
+## Checking your Web Server
+```txt
+systemctl status nginx
+
+# start automatically when the server boots
+sudo systemctl enable nginx
+sudo systemctl disable nginx
+
+# Managing the Nginx Process
+sudo systemctl reload nginx
+sudo systemctl restart nginx
+sudo systemctl start nginx
+sudo systemctl stop nginx
+```
