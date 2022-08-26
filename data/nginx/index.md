@@ -3,62 +3,91 @@
 
 [tutorial](https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms)
 
+[default server](https://nginx.org/en/docs/http/request_processing.html)
+
+
 ## configuration file
 - `nano /etc/nginx/nginx.conf`
 - `nano /usr/local/nginx/conf/nginx.conf`
 - `nano /usr/local/etc/nginx/nginx.conf`
 
 
+## set local hostname
+```bash
+cat <<EOF | sudo tee -a /etc/hosts
+192.168.1.106 asimt.com
+192.168.1.106 www.asimt.com
+192.168.1.106 blue.asimt.com
+192.168.1.106 green.asimt.com
+192.168.1.106 yellow.asimt.com
+192.168.1.106 red.asimt.com
+EOF
+```
+
+
+## add Static files
+```bash
+mkdir -p /home/asim/my-www
+echo  "example page" > /home/asim/my-www/index.html
+echo "www example page" > /home/asim/my-www/home.html
+echo "blue example page" > /home/asim/my-www/blue.html
+echo "green example page" > /home/asim/my-www/green.html
+echo "yellow example page" > /home/asim/my-www/yellow.html
+echo "red example page" > /home/asim/my-www/red.html
+```
+
+
 ## Serving Static
+`nano /etc/nginx/nginx.conf`
 ```nginx
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
 
-```
-
-
-## red server block
-`sudo nano /etc/nginx/sites-available/red.example.com`
-```txt
-server {
-    server_name red.example.com www.example.com;
-    listen 80;
-
-    root /var/www/myexample.com/html;
+events {
+	worker_connections 768;
+	# multi_accept on;
 }
-```
 
-
-## green server block
-`sudo nano /etc/nginx/sites-available/green.example.com`
-```txt
-server {
-    server_name green.example.com
-    listen 80;
-
-    root /var/www/myexample.com/html;
-}
-```
-
-
-
-## blue server block
-`sudo nano /etc/nginx/sites-available/blue.example.com`
-```txt
-server {
-    server_name blue.example.com
-    listen 80;    listen 80;
-
-    root /var/www/myexample.com/html;
-}
-```
-
-
-## avoid a possible hash bucket memory problem
-```txt
-sudo nano /etc/nginx/nginx.conf
-@ ...
 http {
-        server_names_hash_bucket_size 64;
+    server {
+        location / {
+            root /home/asim/my-www/;
+        }
+    }
+}
+```
 
-sudo nginx -t
-sudo systemctl restart nginx
+> test configuration: `sudo nginx -t`
+> restart nginx : `sudo systemctl restart nginx`
+
+
+## test
+```bash
+curl asimt.com
+# example page
+
+curl www.asimt.com
+# example page
+
+curl red.asimt.com
+# example page
+
+curl red.asimt.com/red.html
+# red example page
+
+curl red.asimt.com/blue.html
+# blue example page
+
+curl red.asimt.com/x.html
+# <html>
+# <head>
+#   <title>404 Not Found</title>
+# </head>
+# <body>
+#   <center><h1>404 Not Found</h1></center>
+#   <hr><center>nginx/1.18.0 (Ubuntu)</center>
+# </body>
+# </html>
 ```
