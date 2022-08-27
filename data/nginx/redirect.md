@@ -41,6 +41,8 @@ http {
             return 307 /blue;
             # 307 Temporary Redirect
         }
+        
+        rewrite /green /red;
     }
 }
 ```
@@ -68,7 +70,16 @@ curl asimt.com/yellow
 # HTTP request sent, awaiting response... 200 OK
 # blue location
 
-curl asimt.com/green/
+wget asimt.com/green/
+# --2022-08-27 23:42:23--  http://asimt.com/green
+# HTTP request sent, awaiting response... 301 Moved Permanently
+# --2022-08-27 23:42:23--  http://asimt.com/red/
+# HTTP request sent, awaiting response... 200 OK
+# red location
+
 curl asimt.com/x/
+# <head><title>404 Not Found</title></head>
+
 curl 192.168.1.106
+# main location
 ```
