@@ -1,5 +1,5 @@
 ## Setting Up Server Blocks
-```txt
+```bash
 sudo mkdir -p /var/www/myexample.com/html
 sudo chown -R $USER:$USER /var/www/myexample.com/html
 sudo chmod -R 755 /var/www/myexample.com
@@ -8,7 +8,7 @@ nano /var/www/myexample.com/html/index.html
 
 
 ## create a server block
-```txt
+```nginx
 sudo nano /etc/nginx/sites-available/myexample.com
 @ ...
 server {
@@ -29,6 +29,6 @@ server {
 
 
 ## enable server block
-```txt
+```bash
 sudo ln -s /etc/nginx/sites-available/myexample.com /etc/nginx/sites-enabled/
 ```

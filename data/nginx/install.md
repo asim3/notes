@@ -1,12 +1,12 @@
 ## install
-```txt
+```bash
 sudo apt update
 sudo apt install -y nginx
 ```
 
 
 ## Adjusting the Firewall
-```txt
+```bash
 # check Firewall Available applications 
 sudo ufw app list
 
@@ -16,7 +16,7 @@ sudo ufw status
 
 
 ## Checking your Web Server
-```txt
+```bash
 systemctl status nginx
 
 # start automatically when the server boots

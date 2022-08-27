@@ -40,15 +40,7 @@ echo "red example page" > /home/asim/my-www/red.html
 ## Serving Static
 `nano /etc/nginx/nginx.conf`
 ```nginx
-user www-data;
-worker_processes auto;
-pid /run/nginx.pid;
-include /etc/nginx/modules-enabled/*.conf;
-
-events {
-	worker_connections 768;
-	# multi_accept on;
-}
+events {}
 
 http {
     server {
