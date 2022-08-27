@@ -40,7 +40,7 @@ http {
     }
 
     server {
-        listen 80;
+        listen 80 default_server;
         server_name blue.asimt.com;
         location / {
             root /home/asim/blue-server/;
@@ -66,7 +66,7 @@ curl asimt.com
 curl www.asimt.com
 # main index server
 
-curl www.asimt.com/home.html
+curl asimt.com/home.html
 # www index server
 
 curl blue.asimt.com
@@ -76,12 +76,21 @@ curl red.asimt.com
 # red index server
 
 curl yellow.asimt.com
-# main index server
+# blue index server
 
-curl yellow.asimt.com/home.html
-# www index server
+curl 192.168.1.106
+# blue index server
 
-curl red.asimt.com/home.html
+curl asimt.com/x.html
+# <html>
+# <head><title>404 Not Found</title></head>
+# <body>
+# <center><h1>404 Not Found</h1></center>
+# <hr><center>nginx/1.18.0 (Ubuntu)</center>
+# </body>
+# </html>
+
+curl asimt.com/x
 # <html>
 # <head><title>404 Not Found</title></head>
 # <body>
