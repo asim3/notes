@@ -1,6 +1,8 @@
 # Installing Nginx
 [docs](https://nginx.org/en/docs/beginners_guide.html)
 
+[core module](https://nginx.org/en/docs/http/ngx_http_core_module.html)
+
 [tutorial](https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms)
 
 [default server](https://nginx.org/en/docs/http/request_processing.html)
