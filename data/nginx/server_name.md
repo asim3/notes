@@ -20,15 +20,7 @@ echo "red index server"    > /home/asim/red-server/index.html
 ## conf
 `sudo nano /etc/nginx/nginx.conf`
 ```nginx
-user www-data;
-worker_processes auto;
-pid /run/nginx.pid;
-include /etc/nginx/modules-enabled/*.conf;
-
-events {
-	worker_connections 768;
-	# multi_accept on;
-}
+events {}
 
 http {
     server {
