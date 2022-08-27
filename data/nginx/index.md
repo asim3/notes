@@ -6,6 +6,13 @@
 [default server](https://nginx.org/en/docs/http/request_processing.html)
 
 
+## logs files
+- `tail -f /var/log/nginx/access.log`
+- `tail -f /var/log/nginx/error.log`
+- `cat /var/log/nginx/access.log`
+- `cat /var/log/nginx/error.log`
+
+
 ## configuration file
 - `nano /etc/nginx/nginx.conf`
 - `nano /usr/local/nginx/conf/nginx.conf`
