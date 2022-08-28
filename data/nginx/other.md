@@ -1,12 +1,44 @@
+## log off
+```nginx
+server {
+    listen 80;
+
+    location = /favicon.ico { 
+        access_log off;
+		log_not_found off;
+    }
+}
+```
+
+
+## proxy params
+```nginx
+server {
+    listen 80;
+
+    location / {
+        include proxy_params;
+		# cat /etc/nginx/proxy_params
+        
+		proxy_pass http://127.0.0.1:8001/;
+    }
+}
+
+
+cat /etc/nginx/proxy_params
+# proxy_set_header Host $http_host;
+# proxy_set_header X-Real-IP $remote_addr;
+# proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+# proxy_set_header X-Forwarded-Proto $scheme;
+```
+
+
 ## avoid a possible hash bucket memory problem
-```txt
-sudo nano /etc/nginx/nginx.conf
-@ ...
+`sudo nano /etc/nginx/nginx.conf`
+```nginx
 http {
         server_names_hash_bucket_size 64;
-
-sudo nginx -t
-sudo systemctl restart nginx
+}
 ```
 
 
