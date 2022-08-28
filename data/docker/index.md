@@ -38,7 +38,12 @@ sudo docker container run -it --entrypoint=/bin/ls   alpine
 sudo docker container run -e ASIM_ENV=my_name_is_asim  hello-world
 
 # link to a port
-sudo docker container run -p 80:80  asim3/whoami:1.3
+sudo docker container run -p 8000:80 asim3/whoami:1.3
+
+wget localhost:8000
+# Connecting to localhost (localhost)|127.0.0.1|:8000... connected.
+# HTTP request sent, awaiting response... 200 OK
+# Length: 1332 (1.3K) [text/html]
 ```
 
 
