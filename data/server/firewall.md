@@ -13,11 +13,22 @@ sudo ufw disable
 
 
 ## Firewall status
-```txt
+```bash
 sudo ufw status
+# Status: inactive
+
 sudo ufw status verbose
+# Status: inactive
+
 sudo ufw status numbered
+# Status: inactive
+
 sudo ufw app list
+# Available applications:
+#   Nginx Full
+#   Nginx HTTP
+#   Nginx HTTPS
+#   OpenSSH
 ```
 
 

@@ -7,11 +7,13 @@ sudo apt install -y nginx
 
 ## Adjusting the Firewall
 ```bash
-# check Firewall Available applications 
-sudo ufw app list
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
+sudo ufw allow ssh
+sudo ufw enable
 
-sudo ufw allow 'Nginx HTTP'
-sudo ufw status
+
+sudo ufw status verbose
 ```
 
 
