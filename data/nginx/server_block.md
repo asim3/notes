@@ -67,7 +67,6 @@ server {
         index index.html index.htm;
 
         location / {
-                # rewrite ^/$ AR/ redirect;
                 try_files $uri $uri/ =404;
         }
 }
