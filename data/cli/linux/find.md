@@ -35,4 +35,7 @@ find ./ -path "*/my-dir/*.txt" -not -name "__init__.txt" -delete
 copy all photo in a directory
 ```bash
 find . -name \*.jpg -exec cp {} ~/my-new-jpg \;
+
+sudo find /var/www/my-site.com -type d -exec chmod 755 {} +
+sudo find /var/www/my-site.com -type f -exec chmod 644 -- {} +
 ```
