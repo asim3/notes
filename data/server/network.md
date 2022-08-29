@@ -1,6 +1,19 @@
 [network scan](shodan.io)
 
 
+## list all listening sockets
+Another utility to investigate sockets
+```bash
+ss -ltup
+
+#    -l, --listening     display listening sockets
+#    -p, --processes     show process using socket
+#    -t, --tcp           display only TCP sockets
+#    -u, --udp           display only UDP sockets
+#    -x, --unix          display only Unix domain sockets
+```
+
+
 ## ns lookup
 ```bash
 nslookup asim3.com
@@ -93,18 +106,6 @@ ip route
 # 0.0.0.0/24 dev  wlp0s4     proto   kernel   scope    link src 1.1.1.1 metric    600 
 # 0.0.0.0/16 dev  docker     proto   kernel   scope    link src 1.1.1.1 linkdown 
 # 0.0.0.0/24 dev  vboxnet    proto   kernel   scope    link src 1.1.1.1 
-```
-
-
-## netcat
-port listening
-```bash
-nc      asim3.com  80
-# !!!
-
-
-netcat  8.8.8.8    80
-# !!!
 ```
 
 
