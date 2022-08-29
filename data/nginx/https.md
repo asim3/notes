@@ -71,10 +71,24 @@ sudo nginx -t && sudo systemctl restart nginx.service
 sudo apt install certbot python3-certbot-nginx
 
 # obtain new certificates
-sudo certbot --nginx -d asim-docker.com -d www.asim-docker.com --agree-tos
+sudo certbot --nginx \
+  -d asim-docker.com \
+  -d www.asim-docker.com \
+  --email asim@asim.com \
+  --agree-tos \
+  --no-eff-email \
+  --redirect
+  
+
+  --no-verify-ssl
+  --staging
+
 
 # Test auto-renewal
 sudo certbot renew --dry-run
+
+# List all certificates
+sudo certbot certificates
 
 
 # Manual
