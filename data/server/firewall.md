@@ -8,8 +8,16 @@ sudo ufw enable
 sudo ufw disable
 ```
 
-> Reset to installed defaults
-> `sudo ufw reset`
+
+## Reset
+Resetting all rules to installed defaults
+```bash
+sudo ufw reset
+```
+
+
+## configuration file
+- `nano /etc/default/ufw`
 
 
 ## Firewall status
@@ -33,9 +41,9 @@ sudo ufw app list
 
 
 ## set default 
-```txt
-sudo ufw default allow outgoing
+```bash
 sudo ufw default deny incoming
+sudo ufw default allow outgoing
 ```
 
 
