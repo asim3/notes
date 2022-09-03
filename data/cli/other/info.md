@@ -4,7 +4,10 @@
 /tmp           => Temporary Files "will be deleted after reboot"
 
 /opt           => Optional folder: manually installed applications
+
 /etc           => Etcetera folder: system wide configuration files
+/etc/passwd    => plain text database of all user accounts 
+/etc/shadow    => plain text database of all user passwords 
 
 /usr           => unix system resource
 /usr/bin/      => basic users applications

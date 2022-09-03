@@ -1,3 +1,6 @@
+[Snyk: scan your own code](https://snyk.io/plans/)
+
+
 ## Hack The Box
 [machines](https://app.hackthebox.com/machines)
 [academy](https://academy.hackthebox.com/dashboard)
