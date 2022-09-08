@@ -34,17 +34,6 @@ cat ~/.ssh/authorized_keys
 ```
 
 
-
-Copy files using SSH
-```txt
-scp ~/local.txt username@remote.server.ip:~/remote/q
- 
-# Recursively copy entire directories
-scp -r /my_var/ username@192.168.100.166:/var/
-scp -r username@192.168.100.166:/var/ /my_var/
-```
-
-
 ## settings
 > make sure to restart sshd `sudo systemctl restart sshd`
 
@@ -55,4 +44,14 @@ PubkeyAuthentication yes
 # PermitRootLogin [no|yes|prohibit-password|without-password]
 # PasswordAuthentication yes 
 # ...
+```
+
+
+## Copy files
+```bash
+scp ~/local.txt username@remote.server.ip:~/remote/q
+ 
+# Recursively copy entire directories
+scp -r /my_var/ username@192.168.100.166:/var/
+scp -r username@192.168.100.166:/var/ /my_var/
 ```
