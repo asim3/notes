@@ -27,11 +27,13 @@
 ## echo type
 ```php
 <?php
-  var_dump('Hello');
-  // string(5) "Hello"
-  
-  var_dump("Hello");
-  // string(5) "Hello"
+  $my_name = "Asim";
+
+  var_dump('Hello $my_name');
+  // string(14) "Hello $my_name" 
+
+  var_dump("Hello $my_name");
+  // string(10) "Hello Asim" 
   
   var_dump(true);
   // bool(true)
