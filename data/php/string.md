@@ -6,8 +6,12 @@
   <br />
 
 <?php
+  $my_name = "Asim";
 
-  echo 'Hello Asim';
+  echo 'Hello ' . $my_name;
+  // Hello Asim
+
+  echo "Hello ${my_name}";
   // Hello Asim
     
   echo 123, 54.321, 'Hello';

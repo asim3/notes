@@ -48,15 +48,41 @@
 ```
 
 
-## 
+## math
 ```php
+<?php
 
+  echo 5 + 5;
+  // 10
+
+  echo '5' + '5';
+  // 10
+
+  echo 10 - 5;
+  // 5
+
+  echo 5 * 6;
+  // 30
+
+  echo 10 / 2;
+  // 5
+
+  echo 10 % 3;
+  // 1
 ```
 
 
-## 
+## global variable
 ```php
+<?php
 
+  define('MY_VALUE', 'my global variable');
+  
+  echo MY_VALUE;
+  // my global variable
+  
+  var_dump(MY_VALUE);
+  // string(18) "my global variable"
 ```
 
 
