@@ -43,3 +43,31 @@ while($x < 10) {
     $x++;
 }
 ```
+
+
+## foreach
+```php
+$my_array_1 = [1, 2, 3, 4, 5];
+
+
+foreach($my_array_1 as $my_value){
+  echo $my_value . "<br />";
+}
+
+
+foreach($my_array_1 as $i => $my_value){
+  echo $i . '- ' . $my_value . "<br />";
+}
+
+
+$hex = [
+  'red' => '#ff0000',
+  'green' => '#00ff00',
+  'blue' => '#0000ff',
+];
+
+
+foreach($hex as $key => $value){
+  echo $key . '- ' . $value . "<br />";
+}
+```
