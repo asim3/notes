@@ -28,3 +28,18 @@ $hex = [
 echo $hex['green'];
 // #00ff00
 ```
+
+
+## loops
+```php
+for($i=0; $i<10; $i++) {
+    echo $i . '<br />';
+}
+
+
+$x = 1;
+while($x < 10) {
+    echo $x . '<br />';
+    $x++;
+}
+```
