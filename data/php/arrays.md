@@ -22,6 +22,55 @@
 ```
 
 
+## map
+```php
+$arr1 = range(1, 3);
+
+print_r($arr1);
+// Array ( [0] => 1 [1] => 2 [2] => 3 ) 
+
+
+$arr2 = array_map(function($x) {
+  return $x + 5;
+}, $arr1);
+
+print_r($arr2);
+// Array ( [0] => 6 [1] => 7 [2] => 8 ) 
+```
+
+
+## filter
+```php
+$arr1 = range(1, 5);
+
+print_r($arr1);
+// Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 )
+
+$arr2 = array_filter($arr1, function($x) {
+  return $x <= 3;
+});
+
+print_r($arr2);
+// Array ( [0] => 1 [1] => 2 [2] => 3 ) 
+```
+
+
+## reduce
+```php
+$arr1 = range(1, 4);
+
+print_r($arr1);
+// Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 ) 
+
+$arr2 = array_reduce($arr1, function($carry, $x) {
+  return $carry + $x;
+});
+
+print_r($arr2);
+// 10
+```
+
+
 ## add to an array
 ```php
 $my_array_1 = [1, 2, 3];
@@ -129,4 +178,27 @@ $hex = [
 foreach($hex as $key => $value){
   echo $key . '- ' . $value . "<br />";
 }
+```
+
+
+## keys
+```php
+$arr1 = ['red', 'green', 'blue'];
+
+$arr2 = ['#ff0000', '#00ff00', '#0000ff'];
+
+
+$arr3 = array_combine($arr1, $arr2);
+print_r($arr3);
+// Array ( [red] => #ff0000 [green] => #00ff00 [blue] => #0000ff ) 
+
+
+$arr4 = array_keys($arr3);
+print_r($arr4);
+// Array ( [0] => red [1] => green [2] => blue ) 
+
+
+$arr5 = array_flip($arr3);
+print_r($arr5);
+// Array ( [#ff0000] => red [#00ff00] => green [#0000ff] => blue ) 
 ```
