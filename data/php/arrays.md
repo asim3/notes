@@ -13,6 +13,65 @@
 
   echo $my_array_1[1];
   // 2
+
+  echo count($my_array_1);
+  // 3
+
+  echo in_array(2, $my_array_1);
+  // bool(true)
+```
+
+
+## add to an array
+```php
+$my_array_1 = [1, 2, 3];
+
+$my_array_1[] = 5;
+
+print_r($my_array_1);
+// Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 5 ) 
+
+array_push($my_array_1, 7);
+
+print_r($my_array_1);
+// Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 5 [4] => 7 ) 
+
+array_unshift($my_array_1, 9);
+
+print_r($my_array_1);
+// Array ( [0] => 9 [1] => 1 [2] => 2 [3] => 3 [4] => 5 [5] => 7 ) 
+
+
+# Remove
+array_pop($my_array_1);
+print_r($my_array_1);
+// Array ( [0] => 9 [1] => 1 [2] => 2 [3] => 3 [4] => 5 ) 
+
+array_shift($my_array_1);
+print_r($my_array_1);
+// Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 5 ) 
+
+
+unset($my_array_1[2]);
+print_r($my_array_1);
+// Array ( [0] => 1 [1] => 2 [3] => 5 ) 
+// Array (          [1]      [3]      ) 
+```
+
+
+## merge array
+```php
+$arr1 = [1, 2, 3];
+$arr2 = [4, 5, 6];
+
+$arr3 = array_merge($arr1, $arr2);
+$arr4 = [...$arr1, ...$arr2];
+
+print_r($arr3);
+// Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 [5] => 6 ) 
+
+print_r($arr3);
+// Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 [5] => 6 ) 
 ```
 
 
