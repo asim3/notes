@@ -72,37 +72,7 @@
 ```
 
 
-## global variable
+## Redirect to another page
 ```php
-<?php
-
-  define('MY_VALUE', 'my global variable');
-  
-  echo MY_VALUE;
-  // my global variable
-  
-  var_dump(MY_VALUE);
-  // string(18) "my global variable"
-```
-
-
-## cookie
-> Warning: Cannot modify header information - headers already sent
-```php
-<?php
-setcookie('name', 'Asim', time() + 86400 * 30); // 86400 = 1 day
-
-// delete
-setcookie('name', ''    , time() - 86400);
-
-
-if (isset($_COOKIE['name'])) {
-  echo $_COOKIE['name'];
-}
-```
-
-
-## 
-```php
-
+header('Location: /home.php');
 ```
