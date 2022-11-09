@@ -43,3 +43,68 @@ w+   - Open a file for read/write. Erases the contents of the file or creates a 
 a+   - Open a file for read/write. The existing data in file is preserved. File pointer starts at the end of the file. Creates a new file if the file doesn't exist
 x+   - Creates a new file for read/write. Returns FALSE and an error if file already exists
 ```
+
+
+## File upload
+```php
+<?php
+
+    if(isset($_POST['submit'])) {
+        if(!empty($_FILES['upload']['name'])) {
+            $file_name = $_FILES['upload']['name'];
+            $file_size = $_FILES['upload']['size'];
+            $file_tmp = $_FILES['upload']['tmp_name'];
+            
+            $file_extension = explode('.', $file_name);
+            $file_extension = strtolower(end($file_extension));
+            echo "file_extension: ${file_extension} <br>"; 
+            // file_extension: jpg 
+            
+            $target_dir = "/var/www/html/uploads/${file_name}";
+            // mkdir /var/www/html/uploads/
+
+            $allowed_extension = array('png', 'jpg', 'jpeg', 'gif');
+
+            if(in_array($file_extension, $allowed_extension)) {
+                if($file_size <= 1000000) { // 1000000 bytes = 1MB
+
+                    move_uploaded_file($file_tmp, $target_dir);
+
+                    echo '<p style="color: green;">File uploaded!</p>';
+                } 
+                else {
+                    echo '<p style="color: red;">File too large!</p>';
+                }
+            } 
+            else {
+                $message = '<p style="color: red;">Invalid file type!</p>';
+            }
+        } 
+        else {
+            $message = '<p style="color: red;">Please choose a file</p>';
+        }
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+</head>
+<body>
+    <?php echo $message ?? null; ?>
+    <form 
+        action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" 
+        method="post" 
+        enctype="multipart/form-data">
+        
+        Select image to upload:
+        <input type="file" name="upload">
+        <input type="submit" value="Submit" name="submit">
+    </form>
+</body>
+</html>
+```
