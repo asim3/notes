@@ -87,7 +87,7 @@ array(36) {
     ["QUERY_STRING"]                 * => string(11) "my_var=asim" 
     ["REQUEST_URI"]                  * => string(13) "/?my_var=asim" 
     ["SCRIPT_NAME"]                    => string(10) "/index.php" 
-    ["PHP_SELF"]                       => string(10) "/index.php" 
+    ["PHP_SELF"]                     * => string(10) "/index.php" 
     ["REQUEST_TIME_FLOAT"]             => float(1667974453.4699) 
     ["REQUEST_TIME"]                   => int(1667974453) 
     ["argv"]                         * => array(1) { [0]=> string(11) "my_var=asim" } 
