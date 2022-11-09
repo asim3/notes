@@ -86,9 +86,19 @@
 ```
 
 
-## 
+## cookie
+> Warning: Cannot modify header information - headers already sent
 ```php
+<?php
+setcookie('name', 'Asim', time() + 86400 * 30); // 86400 = 1 day
 
+// delete
+setcookie('name', ''    , time() - 86400);
+
+
+if (isset($_COOKIE['name'])) {
+  echo $_COOKIE['name'];
+}
 ```
 
 

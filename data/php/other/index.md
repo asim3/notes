@@ -42,6 +42,7 @@ $GLOBALS['_REQUEST'];
 Contains information about variables passed through a cookie.
 ```php
 array(0) { } 
+array(1) { ["name"]=> string(4) "Asim" }
 ```
 
 
