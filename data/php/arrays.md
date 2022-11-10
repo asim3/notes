@@ -181,6 +181,16 @@ foreach($hex as $key => $value){
 ```
 
 
+## loop in HTML
+```php
+<?php foreach(range(1, 7) as $aa): ?>
+  <h3>
+    HI
+  </h3>
+<?php endforeach; ?>
+```
+
+
 ## keys
 ```php
 $arr1 = ['red', 'green', 'blue'];
