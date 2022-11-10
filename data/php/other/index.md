@@ -40,6 +40,9 @@ Must be called before accessing any session data
 
     if (isset($_SESSION['username'])) {
         echo $_SESSION['username'];
+
+        // delete all _SESSION
+        session_destroy();
     }
 ?>
 <!DOCTYPE html>

@@ -20,9 +20,15 @@ fclose($handle);
 $file_path = 'my_file.txt';
 
 if(file_exists($file_path)) {
+    var_dump(readfile($file_path));
+    // Asim Bader Ahmed Samiint(21)
+    
+    // OR
+
     $handle = fopen($file_path, 'r');
     $contents = fread($handle, filesize($file_path));
     fclose($handle);
+    
     var_dump($contents);
     // string(21) "Asim Bader Ahmed Sami" 
 }
