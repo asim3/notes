@@ -76,3 +76,13 @@
 ```php
 header('Location: /home.php');
 ```
+
+
+## include
+```php
+<?php include 'my/dir/header.php'; ?> // Warning if no such file
+
+<?php require 'my/dir/header.php'; ?> // Error   if no such file
+
+<?php require_once 'my/dir/header.php'; ?> // Error   if no such file
+```

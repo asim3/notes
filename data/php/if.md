@@ -14,6 +14,15 @@ else {
 ```
 
 
+```php
+<?php if(true): ?>
+    <h3> 
+      Hi
+    </h3> 
+<?php endif; ?>
+```
+
+
 ## or
 ```php
 if(empty($posts)) {
