@@ -7,6 +7,12 @@ namespace My_Namespace_1;
 class MyClass {
     public function __construct() {
         echo "Hi from dir 1 <br>";
+        
+        $my_date = new DateTime();
+        // Fatal error: Uncaught Error: Class 'My_Namespace_1\DateTime' not found 
+
+        $my_date = new \DateTime();
+        echo $my_date->format('d/m/Y') . "<br>";
     }
 }
 ```
@@ -49,3 +55,19 @@ $my_user = new My_Namespace_2\MyClass();
 // Hi from dir 2
 ```
 
+
+## OR
+`nano src/home.php`
+```php
+<?php
+
+require_once "./dir_1/MyClass.php";
+require_once "./dir_2/MyClass.php";
+
+use My_Namespace_1\MyClass;
+
+echo "Hi from home <br>";
+
+$my_user = new MyClass();
+// Hi from dir 1
+```
