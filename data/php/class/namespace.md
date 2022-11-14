@@ -15,6 +15,12 @@ class MyClass {
         echo $my_date->format('d/m/Y') . "<br>";
     }
 }
+
+class MyClass_1 {
+    public function __construct() {
+        echo "Hi from dir 1.1 <br>";
+    }
+}
 ```
 
 
@@ -64,10 +70,18 @@ $my_user = new My_Namespace_2\MyClass();
 require_once "./dir_1/MyClass.php";
 require_once "./dir_2/MyClass.php";
 
-use My_Namespace_1\MyClass;
+use My_Namespace_1\{MyClass, MyClass_1};
+use My_Namespace_2\MyClass as MyClass_2;
 
 echo "Hi from home <br>";
 
 $my_user = new MyClass();
 // Hi from dir 1
+// 14/11/2022
+
+$my_user = new MyClass_1();
+// Hi from dir 1.1
+
+$my_user = new MyClass_2();
+// Hi from dir 2
 ```
