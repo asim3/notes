@@ -1,16 +1,13 @@
 ## Installation
 
-## composer
-```php
-docker pull composer:2.3
-```
-
 
 ## laravel installer
 ```bash
-composer global require laravel/installer
+docker container run -it --entrypoint=/bin/bash composer:2.3
 
-laravel new my_project
+# composer global require laravel/installer
+
+# laravel new my_project
 ```
 
 
