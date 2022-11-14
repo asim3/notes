@@ -23,16 +23,28 @@ composer init \
 composer require symfony/dom-crawler
 
 composer require symfony/css-selector
+
+composer require ramsey/uuid
+
+
+ls -al ./vendor/
+# -rw-r--r-- 1 root root  427 Nov 14 10:35 autoload.php
+# drwxr-xr-x 2 root root 4096 Nov 14 10:36 composer
+# drwxr-xr-x 4 root root 4096 Nov 14 10:36 ramsey
+# drwxr-xr-x 7 root root 4096 Nov 14 10:36 symfony
 ```
 
 
 ## composer
 ```bash
+# Install dependencies from lock file
+composer install
+composer install composer.json
+
+
 composer update
 composer update vendor-name/package-name
 
-composer install
-composer install composer.json
 
 composer outdated
 
@@ -46,4 +58,17 @@ composer show
 composer remove vendor-name/package-name
 
 composer dump-autoload
+```
+
+
+## index.php
+```php
+<?php
+
+require __DIR__ . './vendor/autoload.php';
+
+// ramsey/uuid
+$my_uuid = new \Ramsey\Uuid\UuidFactory();
+
+echo $uuid->uuid4();
 ```
