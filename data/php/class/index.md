@@ -77,7 +77,7 @@ class MyClass {
       // Destructor is called when an object is destroyed or the end of the script.
       echo "<br>The user name is {$this->name}.";
     }
-  }
+}
 
 $my_user = new MyClass();
 // printed from constructor
