@@ -1,6 +1,7 @@
 ## PHP
 
 [docs](https://www.php.net/manual/en/)
+[PHP Standards](https://www.php-fig.org/psr/)
 
 ```php
 <?php
