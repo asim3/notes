@@ -11,6 +11,9 @@ composer create-project laravel/laravel my_project
 
 cd my_project
 
+php artisan serve
+
+
 ls -al
 -rw-r--r--  1 root root    258 Oct 28 13:38 .editorconfig
 -rw-r--r--  1 root root   1120 Nov 15 06:14 .env
@@ -55,24 +58,18 @@ services:
   web:
     image: composer:2.3
     container_name: laravel_web
+    command: >
+      /bin/sh -c "
+        composer create-project laravel/laravel my_project \\
+          || cd /app/my_project \\
+          && php artisan serve --host=0.0.0.0 --port=8000
+      "
     depends_on:
       - db
     volumes:
-      - ./laravel_root/:/var/www/html/
+      - ./laravel_root/:/app/
     ports:
-      - "8000:80"
+      - "8000:8000"
     stdin_open: true
     tty: true
-```
-
-
-## 
-```php
-
-```
-
-
-## 
-```php
-
 ```
