@@ -13,9 +13,11 @@ php artisan serve
 ``` 
 
 
-## 
+## vs code extensions
 ```php
-
+PHP Intelephense
+PHP Namespace Resolver
+laravel blade snippets
 ```
 
 
