@@ -1,6 +1,10 @@
 `nano my_project\routes\web.php`
 
 ```php
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
+
 Route::get('/', function () {
     return view('welcome');
     // @ my_project\resources\views\welcome.blade.php
@@ -30,6 +34,10 @@ Route::get('/my-user/{my_user_id}', function ($my_user_id) {
 ## Dump, Die, Debug
 
 ```php
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
+
 Route::get('/my-dd', function () {
     dd("Asim");
 });
@@ -47,38 +55,19 @@ Route::get('/my-rrr', function (Request $request) {
 });
 ```
 
-##
+## API
+
+`nano my_project\routes\api.php`
 
 ```php
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
-```
 
-##
-
-```php
-
-```
-
-##
-
-```php
-
-```
-
-##
-
-```php
-
-```
-
-##
-
-```php
-
-```
-
-##
-
-```php
-
+Route::get('/my-list', function () {
+    return response()->json([
+        'my-name' => 'Asim',
+        'my-date' => '4-12-2022'
+    ]);
+});
 ```
