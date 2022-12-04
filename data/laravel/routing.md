@@ -1,4 +1,5 @@
 `nano my_project\routes\web.php`
+
 ```php
 Route::get('/', function () {
     return view('welcome');
@@ -18,56 +19,66 @@ Route::get('/my-header/', function () {
 });
 ```
 
-
 ## argument
+
 ```php
 Route::get('/my-user/{my_user_id}', function ($my_user_id) {
     return response("Hi $my_user_id User", 200);
 })->where('my_user_id', '[0-9]+');
-
 ```
 
-
 ## Dump, Die, Debug
+
 ```php
+Route::get('/my-dd', function () {
+    dd("Asim");
+});
+
+Route::get('/my-rr', function (Request $request) {
+    dd($request);
+});
+
 Route::get('/my-ddd', function () {
-    ddd("request");
+    ddd("Asim");
+});
+
+Route::get('/my-rrr', function (Request $request) {
+    ddd($request);
 });
 ```
 
+##
 
-## 
 ```php
 
 ```
 
+##
 
-## 
 ```php
 
 ```
 
+##
 
-## 
 ```php
 
 ```
 
+##
 
-## 
 ```php
 
 ```
 
+##
 
-## 
 ```php
 
 ```
 
+##
 
-## 
 ```php
 
 ```
-

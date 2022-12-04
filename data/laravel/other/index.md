@@ -1,6 +1,7 @@
 [Laravel with Docker](https://laravel.com/docs/9.x/sail)
 
 ## artisan
+
 ```php
 php artisan --version
 
@@ -25,51 +26,44 @@ php artisan session:table
 php artisan view:clear
 ```
 
+##
 
-## 
 ```php
 
 ```
 
+##
 
-## 
 ```php
 
 ```
 
+##
 
-## 
 ```php
 
 ```
 
+##
 
-## 
 ```php
 
 ```
 
+##
 
-## 
 ```php
 
 ```
 
+##
 
-## 
 ```php
 
 ```
 
+##
 
-## 
 ```php
 
 ```
-
-
-## 
-```php
-
-```
-
