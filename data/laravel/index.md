@@ -18,6 +18,14 @@ Route::get('/data', function () {
         'my_object_2' => 'my 2 value'
     ]);
 });
+
+
+# =====================
+use App\Models\MyModel;
+
+Route::get('/data', function () {
+    return view('my_view', MyModel::all());
+});
 ```
 
 ## Views
@@ -46,10 +54,23 @@ Route::get('/data', function () {
 <h2>{{$my_object_2}}</h2>
 ```
 
-##
+## Models
+
+`nano laravel_root\my_project\app\Models\MyModel.php`
 
 ```php
+namespace App\Models;
 
+class MyModel
+{
+    public static function all()
+    {
+        return [
+            'my_object_1' => 'my 1 model value',
+            'my_object_2' => 'my 2 model value'
+        ];
+    }
+}
 ```
 
 ##
