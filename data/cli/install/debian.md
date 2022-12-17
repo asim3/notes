@@ -21,6 +21,7 @@ sha256sum -c --ignore-missing SHA256SUMS
 sudo apt install -y \
   bash-completion \
   curl \
+  terminator \
   gnome-tweaks \
   git-hub \
   gnome-shell-extension-dashtodock \
@@ -41,6 +42,7 @@ sudo apt install -y \
   gnome-tweaks \
   moka-icon-theme \
   curl \
+  terminator \
   git
 
 # add    settings > devices    > keyboard > switch windows = Alt+Tab
