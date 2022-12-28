@@ -54,6 +54,13 @@ Route::get('/data', function () {
 <h2>{{$my_object_2}}</h2>
 ```
 
+## Driver
+
+```bash
+# install mysql driver
+docker-php-ext-install pdo_mysql
+```
+
 ## Models
 
 `nano laravel_root\my_project\app\Models\MyModel.php`
