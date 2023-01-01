@@ -33,20 +33,21 @@ version: "3"
 services:
   db:
     image: mysql:5.7
+    container_name: db
     environment:
       MYSQL_ROOT_PASSWORD: my_secret_pw_shh
       MYSQL_DATABASE: test_db
       MYSQL_USER: devuser
       MYSQL_PASSWORD: devpass
-    ports:
-      - "9905:3306"
   web:
-    image: composer:2.3
+    image: php:8.2-apache
     container_name: laravel_web
     command: >
       /bin/sh -c "
-        composer create-project laravel/laravel my_project \\
+        docker-php-ext-install pdo_mysql \\
+          && composer create-project laravel/laravel my_project \\
           || cd /app/my_project \\
+          && php artisan migrate \\
           && php artisan serve --host=0.0.0.0 --port=8000
       "
     depends_on:
@@ -57,6 +58,10 @@ services:
       - "8000:8000"
     stdin_open: true
     tty: true
+  php-admin:
+    image: phpmyadmin:5.2
+    ports:
+      - "8080:80"
 ```
 
 ```text

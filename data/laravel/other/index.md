@@ -1,5 +1,13 @@
 [Laravel with Docker](https://laravel.com/docs/9.x/sail)
 
+## info
+
+```php
+<?php
+
+phpinfo();
+```
+
 ## artisan
 
 ```php
