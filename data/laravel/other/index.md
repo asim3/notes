@@ -8,6 +8,22 @@
 phpinfo();
 ```
 
+## Test database connection
+
+```php
+<?php
+
+use Illuminate\Support\Facades\DB;
+
+// Test database connection
+try {
+    DB::connection()->getPdo();
+    echo "<h2>connection is OK</h2>";
+} catch (Exception $e) {
+    die("<h2>Could not connect to the database.  Please check your configuration.</h2> error:" . $e );
+}
+```
+
 ## artisan
 
 ```php
@@ -32,12 +48,6 @@ php artisan auth:clear-resets
 php artisan key:generate
 php artisan session:table
 php artisan view:clear
-```
-
-##
-
-```php
-
 ```
 
 ##
