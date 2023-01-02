@@ -1,5 +1,7 @@
 ## Models
 
+`nano laravel_root\my_project\app\Models\MyModel.php`
+
 ```php
 namespace App\Models;
 
@@ -20,9 +22,13 @@ class MyModel
 }
 
 
-// @foreach($object_list as $object)
-//     <h2>{{ $object['title'] }}</h2>
-// @endforeach
+// @if(isset($object_list))
+//     @forelse ($object_list as $object)
+//         <h2>{{ $object['title'] }}</h2>
+//     @empty
+//         <p>No users</p>
+//     @endforelse
+// @endif
 ```
 
 ## migrations
