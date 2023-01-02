@@ -1,49 +1,68 @@
 ## if
 
 ```php
-@if(count($my_objects) == 0)
-
+@if(count($object_list) == 0)
     <h2>No listings found</h2>
-
 @else
-
-    <h2>{{ $my_objects }}</h2>
-
+    <h2>{{ $object_list }}</h2>
 @endif
+
+
+@unless(count($object_list) == 0)
+    @foreach ($object_list as $object)
+        <h2>{{ $object['title'] }}</h2>
+    @endforeach
+@else
+    <h2>No listings found</h2>
+@endunless
 ```
 
-## unless
+## is set
 
 ```php
-@unless(count($my_objects) == 0)
+@isset($object_list)
+    @foreach ($object_list as $object)
+        <h2>{{ $object['title'] }}</h2>
+    @endforeach
+@endisset
 
-    <h2>{{ $my_objects }}</h2>
 
-@else
+@if(isset($object_list))
+    @foreach ($object_list as $object)
+        <h2>{{ $object['title'] }}</h2>
+    @endforeach
+@endif
 
-    <h2>No listings found</h2>
 
-@endunless
+@empty($object_list)
+    <h2>No object_list</h2>
+@endempty
 ```
 
 ## for
 
 ```php
-@foreach($my_objects as $object)
+@for ($i = 0; $i < 10; $i++)
+    <h2>
+        The current value is {{ $i }}
+    </h2>
+@endfor
 
-    <h2>{{ $object['title'] }}</h2>
 
-    <pre>
-        {{ $object['text'] }}
-    </pre>
+@if(isset($object_list))
+    @foreach ($object_list as $object)
+        <h2>{{ $object['title'] }}</h2>
+    @endforeach
+@endif
 
-@endforeach
-```
 
-##
-
-```php
-
+@if(isset($object_list))
+    @forelse ($object_list as $object)
+        <h2>{{ $object['title'] }}</h2>
+    @empty
+        <p>No users</p>
+    @endforelse
+@endif
 ```
 
 ##
