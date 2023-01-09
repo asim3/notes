@@ -1,4 +1,7 @@
 ## Template
+[docs](https://docs.wagtail.org/en/stable/topics/writing_templates.html#)
+
+
 `templates/home/home_page.html`
 ```jinja
 {% extends "base.html" %}
@@ -62,4 +65,12 @@
     {% endfor %}
 
 {% endblock %}
+```
+
+
+## Multi-site
+```jinja
+{% load wagtailcore_tags %}
+
+{% wagtail_site as current_site %}
 ```

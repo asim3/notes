@@ -68,3 +68,25 @@ urlpatterns = [
     path('pages/', include('wagtail.core.urls')),
 ]
 ```
+
+
+## Add Site
+```py
+from wagtail.models import Site, Page
+
+from .models import BlogPage
+
+
+def add_new_site(site_name):
+    root_page = Page.get_first_root_node()
+    
+    homepage = BlogPage(title=f"{site_name} Home")
+    
+    root_page.add_child(instance=homepage)
+    
+    Site.objects.create(
+        hostname=f"{site_name}.localhost",
+        site_name=f"{site_name} local host",
+        root_page=homepage,
+        is_default_site=False)
+```
