@@ -74,8 +74,18 @@ EOF
 ```
 
 
-## github SSH port
+## github ports
+[HTTP Port](https://github.com/GitCredentialManager/git-credential-manager/blob/main/docs/credstores.md#freedesktoporg-secret-service-api)
 ```bash
+# install git-credential-manager @ https://github.com/GitCredentialManager/git-credential-manager/releases/latest
+git-credential-manager configure
+
+git config --global credential.credentialStore secretservice
+
+
+# OR SSH
+
+
 cat <<EOF | sudo tee -a ~/.ssh/config
 Host github.com
     Hostname ssh.github.com
