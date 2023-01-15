@@ -1,15 +1,42 @@
 ## Installation
+```bash
+# install PHP
+sudo apt install php php-xml php-curl mysql-server php8.1-mysql
+
+
+# install Composer
+mkdir /tmp/install_composer \
+  && cd /tmp/install_composer \
+  && curl -sS https://getcomposer.org/installer | php \
+  && sudo mv composer.phar /usr/local/bin/composer \
+  && sudo chmod +x /usr/local/bin/composer
+
+
+# Install Laravel
+cd ~/webapps
+composer create-project --prefer-dist laravel/laravel my_project
+
+# run
+cd ~/webapps/my_project
+php artisan serve --host=localhost --port=8000
+```
+
+
+## login to mysql
+```bash
+sudo mysql
+```
+
 
 ## vs code extensions
-
 ```php
 PHP Intelephense
 PHP Namespace Resolver
 laravel blade snippets
 ```
 
-## docker
 
+## docker
 ```bash
 docker container run -it --entrypoint=/bin/bash composer:2.3
 
@@ -25,8 +52,8 @@ php artisan serve
 php artisan serve --host=0.0.0.0 --port=8000
 ```
 
-## docker-compose.yml
 
+## docker-compose.yml
 ```yaml
 version: "3"
 
