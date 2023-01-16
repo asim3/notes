@@ -1,8 +1,15 @@
+## Show Tables
+```sql
+SHOW TABLES;
+```
+
+
 ## add table
 `psql -U postgres -d my_database`
 ```sql
 CREATE TABLE Person (
     ID int NOT NULL,
+    PK INT AUTO_INCREMENT,
     PersonID int,
     FirstName varchar(255),
     LastName varchar(255) NOT NULL,

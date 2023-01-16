@@ -1,3 +1,20 @@
+## MySql
+```sql
+-- Show Users
+SELECT User, Host FROM mysql.user;
+
+-- Create User
+CREATE USER 'asim'@'localhost' IDENTIFIED BY 'my-password';
+
+-- Grant All Priveleges On All Databases
+GRANT ALL PRIVILEGES ON * . * TO 'asim'@'localhost';
+FLUSH PRIVILEGES;
+
+-- Show Grants
+SHOW GRANTS FOR 'asim'@'localhost';
+```
+
+
 ## help
 ```sql
 \h create user

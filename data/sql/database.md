@@ -6,6 +6,9 @@ create database my_db_2 ;
 CREATE DATABASE my_database;
 DROP   DATABASE my_database;
 
+USE my_db_2;
+
+
 \l
 --                                   List of databases
 --    Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
