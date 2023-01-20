@@ -1,5 +1,6 @@
 [docs](https://argo-cd.readthedocs.io/en/stable/)
 
+[youtube](https://www.youtube.com/watch?v=XNXJtxkUKeY)
 
 > `minikube delete && minikube start`
 
