@@ -4,6 +4,7 @@
 
 [installation](https://argoproj.github.io/argo-workflows/installation/)
 
+[youtube](https://www.youtube.com/watch?v=XNXJtxkUKeY)
 
 ## 
 ```bash
