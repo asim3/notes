@@ -1,4 +1,4 @@
-# argocd workflow
+# argocd rollouts
 
 [docs](https://argoproj.github.io/argo-rollouts/)
 

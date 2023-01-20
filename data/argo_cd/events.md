@@ -1,4 +1,4 @@
-# argocd workflow
+# argocd events
 
 [docs](https://argoproj.github.io/argo-events/)
 
