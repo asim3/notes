@@ -1,3 +1,16 @@
+`nano my_project_name/database/seeders/DatabaseSeeder.php`
+```php
+    public function run()
+    {
+        \App\Models\User::factory(10)->create();
+```
+
+## add 10 users
+```bash
+php artisan db:seed
+```
+
+
 `php artisan make:factory MyTable`
 
 `laravel_root\my_project\database\factories\MyTableFactory.php`

@@ -62,6 +62,14 @@ Route::get('/my-rrr', function (Request $request) {
 ```php
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+
+
+Route::get('/', function () {
+    return view('my_view', [
+        "object_list" => User::all()
+    ]);
+});
 
 
 Route::get('/my-list', function () {

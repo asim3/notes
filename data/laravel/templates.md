@@ -1,5 +1,4 @@
 ## if
-
 ```php
 @if(count($object_list) == 0)
     <h2>No listings found</h2>
@@ -17,8 +16,8 @@
 @endunless
 ```
 
-## is set
 
+## is set
 ```php
 @isset($object_list)
     @foreach ($object_list as $object)
@@ -39,8 +38,8 @@
 @endempty
 ```
 
-## for
 
+## for
 ```php
 @for ($i = 0; $i < 10; $i++)
     <h2>
@@ -65,32 +64,29 @@
 @endif
 ```
 
-##
 
+## object_list
 ```php
-
+@if(isset($object_list))
+    @foreach ($object_list as $object)
+        {{ $object['id'] }}
+        <br />
+        {{ $object['name'] }}
+        <br />
+        {{ $object['email'] }}
+        <br />
+        {{ $object['created_at'] }}
+        <br />
+        {{ $object['updated_at'] }}
+        <hr />
+    @endforeach
+@endif
 ```
 
-##
 
+## debug
 ```php
+{{dd('will you reach here ')}}
 
-```
-
-##
-
-```php
-
-```
-
-##
-
-```php
-
-```
-
-##
-
-```php
-
+{{ddd('will you reach here ')}}
 ```
