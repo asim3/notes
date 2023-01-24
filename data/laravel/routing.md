@@ -1,5 +1,4 @@
 `nano my_project\routes\web.php`
-
 ```php
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,16 +22,16 @@ Route::get('/my-header/', function () {
 });
 ```
 
-## argument
 
+## argument
 ```php
 Route::get('/my-user/{my_user_id}', function ($my_user_id) {
     return response("Hi $my_user_id User", 200);
 })->where('my_user_id', '[0-9]+');
 ```
 
-## Dump, Die, Debug
 
+## Dump, Die, Debug
 ```php
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -55,10 +54,9 @@ Route::get('/my-rrr', function (Request $request) {
 });
 ```
 
+
 ## API
-
 `nano my_project\routes\api.php`
-
 ```php
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;

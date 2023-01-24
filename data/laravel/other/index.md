@@ -1,15 +1,15 @@
 [Laravel with Docker](https://laravel.com/docs/9.x/sail)
 
-## info
 
+## info
 ```php
 <?php
 
 phpinfo();
 ```
 
-## Test database connection
 
+## Test database connection
 ```php
 <?php
 
@@ -24,8 +24,8 @@ try {
 }
 ```
 
-## artisan
 
+## artisan
 ```php
 php artisan --version
 
@@ -48,40 +48,4 @@ php artisan auth:clear-resets
 php artisan key:generate
 php artisan session:table
 php artisan view:clear
-```
-
-##
-
-```php
-
-```
-
-##
-
-```php
-
-```
-
-##
-
-```php
-
-```
-
-##
-
-```php
-
-```
-
-##
-
-```php
-
-```
-
-##
-
-```php
-
 ```

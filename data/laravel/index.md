@@ -1,9 +1,8 @@
 [docs](https://laravel.com/docs/9.x/routing)
 
+
 ## Routes
-
 `nano laravel_root\my_project\routes\web.php`
-
 ```php
 use Illuminate\Support\Facades\Route;
 
@@ -28,10 +27,9 @@ Route::get('/data', function () {
 });
 ```
 
+
 ## Views
-
 `nano laravel_root\my_project\resources\views\my_view.php`
-
 ```php
 <h1>My View</h1>
 
@@ -40,10 +38,9 @@ Route::get('/data', function () {
 <h2><?php echo $my_object_2; ?></h2>
 ```
 
+
 ## Blade View
-
 `nano laravel_root\my_project\resources\views\my_view.blade.php`
-
 ```php
 <h1>My View</h1>
 
@@ -54,17 +51,16 @@ Route::get('/data', function () {
 <h2>{{$my_object_2}}</h2>
 ```
 
-## Driver
 
+## Driver
 ```bash
 # install mysql driver
 docker-php-ext-install pdo_mysql
 ```
 
+
 ## Models
-
 `nano laravel_root\my_project\app\Models\MyModel.php`
-
 ```php
 namespace App\Models;
 
@@ -78,22 +74,4 @@ class MyModel
         ];
     }
 }
-```
-
-##
-
-```php
-
-```
-
-##
-
-```php
-
-```
-
-##
-
-```php
-
 ```
