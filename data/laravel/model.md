@@ -1,7 +1,6 @@
 ## Eloquent Model
-
 ```bash
-php artisan make:model AsimModel -mcf
+php artisan make:model MyModel -mcf
 
 # -m, --migration       Create a new migration file for the model
 # -c, --controller      Create a new controller for the model
@@ -9,27 +8,25 @@ php artisan make:model AsimModel -mcf
 # -s, --seed            Create a new seeder for the model
 
 
-INFO  Model      [app/Models/AsimModel.php] created successfully.  
-INFO  Factory    [database/factories/AsimModelFactory.php] created successfully.  
-INFO  Migration  [database/migrations/2023_01_24_052001_create_asim_models_table.php] created successfully.  
-INFO  Controller [app/Http/Controllers/AsimModelController.php] created successfully.  
+INFO  Model      [app/Models/MyModel.php] created successfully.  
+INFO  Factory    [database/factories/MyModelFactory.php] created successfully.  
+INFO  Migration  [database/migrations/2023_01_24_104343_create_my_models_table.php] created successfully.  
+INFO  Controller [app/Http/Controllers/MyModelController.php] created successfully.  
 ```
 
 
 ## views
-`samiphp2/resources/views/esaam.blade.php`
+`samiphp2/resources/views/my_view.blade.php`
 ```php
 @if(isset($object_list))
     @foreach ($object_list as $object)
         {{ $object['id'] }}
         <br />
-        {{ $object['name'] }}
+        {{ $object['first_name'] }}
         <br />
-        {{ $object['email'] }}
+        {{ $object['last_name'] }}
         <br />
-        {{ $object['created_at'] }}
-        <br />
-        {{ $object['updated_at'] }}
+        {{ $object['description'] }}
         <hr />
     @endforeach
 @endif
@@ -39,23 +36,22 @@ INFO  Controller [app/Http/Controllers/AsimModelController.php] created successf
 ## routes
 `samiphp2/routes/web.php`
 ```php
-use App\Models\Esaam;
-use App\Models\User;
+use App\Models\MyModel;
 
-Route::get('/esaam/', function () {
-    return view('esaam', [
-        "object_list" => User::all()
+Route::get('/my-route/', function () {
+    return view('my_view', [
+        "object_list" => MyModel::all()
     ]);
 });
 ```
 
 
 ## migration
-`samiphp2/database/migrations/2023_01_24_062550_create_esaams_table.php`
+`my_project/database/migrations/2023_01_24_104343_create_my_models_table.php`
 ```php
 public function up()
 {
-    Schema::create('esaams', function (Blueprint $table) {
+    Schema::create('my_models', function (Blueprint $table) {
         $table->id();
         $table->timestamps();
         $table->string("first_name");
@@ -66,17 +62,33 @@ public function up()
 ```
 
 
-## seeders
-`samiphp2/database/seeders/DatabaseSeeder.php`
+## migrate
 ```php
-\App\Models\User::factory(10)->create();
-
-
-# run migrations
 php artisan migrate
-php artisan db:seed
+
+
+export DB_DATABASE=my_project
+sudo mysql $DB_DATABASE -e "INSERT INTO my_models (first_name, last_name, description) VALUES ('test1', 'test2', 'test3');"
+
+
+sudo mysql $DB_DATABASE -e "SHOW TABLES;"
+// +------------------------+
+// | Tables_in_my_project   |
+// +------------------------+
+// | failed_jobs            |
+// | migrations             |
+// | my_models              |
+// | password_resets        |
+// | personal_access_tokens |
+// | users                  |
+// +------------------------+
+
+
+sudo mysql $DB_DATABASE -e "SELECT * FROM my_models;"
+// +----+------------+------------+------------+-----------+-------------+
+// | id | created_at | updated_at | first_name | last_name | description |
+// +----+------------+------------+------------+-----------+-------------+
+// |  1 | NULL       | NULL       | test1      | test2     | test3       |
+// |  2 | NULL       | NULL       | test1      | test2     | test3       |
+// +----+------------+------------+------------+-----------+-------------+
 ```
-
-
-
-
