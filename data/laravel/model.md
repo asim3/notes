@@ -1,10 +1,10 @@
 ## Eloquent Model
 ```bash
-php artisan make:model MyModel -mcf
+php artisan make:model MyModel -fcm
 
+# -f, --factory         Create a new factory for the model
 # -m, --migration       Create a new migration file for the model
 # -c, --controller      Create a new controller for the model
-# -f, --factory         Create a new factory for the model
 # -s, --seed            Create a new seeder for the model
 
 

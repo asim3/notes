@@ -1,3 +1,6 @@
+[prometheus](https://github.com/prometheus-operator/kube-prometheus)
+
+
 ## delete all
 ```txt
 kubectl delete --all all
