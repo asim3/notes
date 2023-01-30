@@ -31,6 +31,16 @@ Route::get('/my-user/{my_user_id}', function ($my_user_id) {
 ```
 
 
+## args
+```php
+Route::get('/my-model/{my_id}', function (MyModel $my_id) {
+    return view('my_view', [
+        "object_list" => $my_id
+    ]);
+});
+```
+
+
 ## Dump, Die, Debug
 ```php
 use Illuminate\Http\Request;
