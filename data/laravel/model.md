@@ -65,8 +65,14 @@ public function up()
 ## migrate
 ```php
 php artisan migrate
+# OR Drop all tables
+php artisan migrate:fresh
+php artisan migrate:refresh --seed
+```
 
 
+## SQL
+```bash
 export DB_DATABASE=my_project
 sudo mysql $DB_DATABASE -e "INSERT INTO my_models (first_name, last_name, description) VALUES ('test1', 'test2', 'test3');"
 
