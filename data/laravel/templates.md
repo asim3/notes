@@ -90,3 +90,46 @@
 
 {{ddd('will you reach here ')}}
 ```
+
+
+#### my_base.blade.php
+```blade
+<h1>My Base</h1>
+
+@yield("my_content")
+```
+
+
+#### my_view.blade.php
+```blade
+@extends("my_base")
+
+@section("my_content")
+
+    @if(isset($object_list))
+        @foreach ($object_list as $object)
+            {{ $object['id'] }}
+            <br />
+            {{ $object['first_name'] }}
+            <br />
+            {{ $object['last_name'] }}
+            <br />
+            {{ $object['description'] }}
+            <hr />
+        @endforeach
+    @endif
+
+@endsection
+```
+
+
+## incloude
+```blade
+@incloude("my_partials._my_block")
+```
+
+
+## public asset
+```blade
+<img src="{{ asset("images/no-image.png") }}" alt="" />
+```
