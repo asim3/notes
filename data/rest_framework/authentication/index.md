@@ -1,10 +1,8 @@
 ## Authentication
 [docs](https://www.django-rest-framework.org/api-guide/authentication/)
-[GitHub](https://github.com/encode/django-rest-framework/blob/master/rest_framework/authentication.py)
 
 
 ## settings
-> Make sure to run `manage.py migrate` after changing your settings.
 ```py
 INSTALLED_APPS = [
     # ...
@@ -13,7 +11,6 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-    # ...
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
@@ -28,3 +25,6 @@ REST_FRAMEWORK = {
     ),
 }
 ```
+
+
+> Make sure to run `manage.py migrate` after changing your settings.
