@@ -2,6 +2,10 @@
 [docs](https://www.django-rest-framework.org/api-guide/authentication/)
 
 
+# Social Auth
+[all auth](/?path=django/users/social_auth.md)
+
+
 ## settings
 ```py
 INSTALLED_APPS = [
