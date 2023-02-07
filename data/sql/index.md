@@ -49,6 +49,22 @@ psql -U username -d my_database -h hostname -p port
 psql postgresql://username:password@hostname:port/my_database
 
 psql postgresql://postgres:admin@localhost:5432/postgres
+
+
+# OR mysql
+
+sudo mysql -u root
+
+
+DATABASE=my_database
+DB_PASSWORD=Top-secret@123
+
+sudo mysql -e "DROP DATABASE IF EXISTS ${DATABASE};"
+sudo mysql -e "CREATE DATABASE ${DATABASE};"
+sudo mysql -e "DROP   USER IF EXISTS '${DATABASE}-user'@'localhost';"
+sudo mysql -e "CREATE USER '${DATABASE}-user'@'localhost' IDENTIFIED BY '${DB_PASSWORD}';"
+sudo mysql -e "GRANT ALL PRIVILEGES ON * . * TO '${DATABASE}-user'@'localhost';"
+sudo mysql -e "FLUSH PRIVILEGES;"
 ```
 
 
