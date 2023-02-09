@@ -33,6 +33,10 @@ git config --list
 
 # edit
 git config --local -e
+git config --global -e
+# [user]
+#         email = asim@office.com
+#         name = Asim
 ```
 
 
@@ -59,4 +63,18 @@ git commit -m ".gitignore fix"
 Host github.com
     Hostname ssh.github.com
     Port 443
+```
+
+
+## credentials
+```bash
+git config --global credential.helper store --add
+
+git pull
+# provide a username and password and those details will then be remembered later. 
+
+# The credentials are stored in a file @ ~/.git-credentials
+
+cat ~/.git-credentials
+https://deployer:lboW%24lPA@gitlab.qu.edu.sa
 ```
