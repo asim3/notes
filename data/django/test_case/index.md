@@ -118,10 +118,9 @@ class FormTestCase(TestCase):
 
 
 ## test email
+Django’s test runner automatically uses `In-memory` backend for testing.
 ```py
 EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
-
-# =========
 
 from django.core import mail
 
@@ -130,6 +129,25 @@ self.assertEqual(len(mail.outbox), 1)
 self.assertEqual(_("Password reset on"), mail.outbox[0].subject)
 self.assertEqual("info@gmail.com", mail.outbox[0].from_email)
 self.assertEqual(['test@user.com'], mail.outbox[0].recipients())
+
+
+# ===============================================================
+from django.core import mail
+from django.test.utils import override_settings
+
+
+class EmailTestCase(TestCase):
+    def test_send_email(self):
+        mail.send_mail(
+            "Subject here", 
+            "Here is the message.",
+            "from@example.com", 
+            ["to@example.com"],
+            fail_silently=False,
+        )
+
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].subject, 'Subject here')
 ```
 
 
