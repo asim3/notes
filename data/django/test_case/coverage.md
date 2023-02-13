@@ -10,14 +10,32 @@ pip install coverage
 
 coverage --version
 # Coverage.py, version 7.1.0 with C extension
-# Documentation at https://coverage.readthedocs.io/en/7.1.0
 ```
 
 
-## configuration
+## run
+```bash
+coverage run --source='.' manage.py test
+
+coverage report
+
+coverage html
+
+coverage erase
+```
+
+
+### `.coveragerc`
 ```ini
-[coverage:run]
-source = .
+[run]
+omit =
+    app_name/wsgi.py
+    app_name/settings/production.py
+    app_name/tests/data.py
+
+[report]
+exclude_lines =
+    if settings.DEBUG:
 ```
 
 
@@ -28,17 +46,4 @@ htmlcov/
 .coverage.*
 coverage.xml
 *.cover
-```
-
-
-## run
-```bash
-# Remove any coverage data from previous runs
-coverage erase
-
-# Run the full test suite
-coverage run manage.py test
-
-# Report on which files are covered
-coverage report
 ```
