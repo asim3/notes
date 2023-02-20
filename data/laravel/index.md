@@ -44,7 +44,7 @@ php artisan migrate --seed
 
 ## Views
 `nano my_project/resources/views/my_view.blade.php`
-```blade
+```html
 <h1>My View</h1>
 
 <h2>{{ $object_list }}</h2>
