@@ -1,3 +1,28 @@
+## Driver
+```bash
+# install mysql driver
+docker-php-ext-install pdo_mysql
+```
+
+
+## Models
+`nano laravel_root\my_project\app\Models\MyModel.php`
+```php
+namespace App\Models;
+
+class MyModel
+{
+    public static function all()
+    {
+        return [
+            'my_object_1' => 'my 1 model value',
+            'my_object_2' => 'my 2 model value'
+        ];
+    }
+}
+```
+
+
 ## Eloquent Model
 ```bash
 php artisan make:model MyModel -fcm

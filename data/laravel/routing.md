@@ -1,3 +1,30 @@
+## Routes
+`nano laravel_root\my_project\routes\web.php`
+```php
+use Illuminate\Support\Facades\Route;
+
+
+Route::get('/', function () {
+    return view('my_view');
+});
+
+Route::get('/data', function () {
+    return view('my_view', [
+        'my_object_1' => 'my 1 value',
+        'my_object_2' => 'my 2 value'
+    ]);
+});
+
+
+# =====================
+use App\Models\MyModel;
+
+Route::get('/data', function () {
+    return view('my_view', MyModel::all());
+});
+```
+
+
 `nano my_project\routes\web.php`
 ```php
 use Illuminate\Http\Request;

@@ -14,10 +14,18 @@ mkdir /tmp/install_composer \
 
 # Install Laravel
 cd ~/webapps
+
 composer create-project --prefer-dist laravel/laravel my_project
 
-# run
 cd ~/webapps/my_project
+
+composer install
+
+cp .env.example .env;
+
+php artisan key:generate;
+
+# run
 php artisan serve --host=localhost --port=8000
 ```
 
