@@ -30,7 +30,7 @@ SELECT User, Host FROM mysql.user;
 ```
 
 
-## add
+### add Model, Migration, Controller
 ```bash
 php artisan make:model MyModel -mcf;
 # Model      app/Models/MyModel.php

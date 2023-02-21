@@ -1,3 +1,15 @@
+### add Model, Migration, Controller
+```bash
+php artisan make:model MyModel -mcf;
+# Model      app/Models/MyModel.php
+# Factory    database/factories/MyModelFactory.php
+# Migration  database/migrations/2023_02_20_102943_create_my_models_table.php
+# Controller app/Http/Controllers/MyModelController.php
+
+php artisan migrate --seed
+```
+
+
 ## Driver
 ```bash
 # install mysql driver
