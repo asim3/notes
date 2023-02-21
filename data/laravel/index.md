@@ -1,4 +1,6 @@
 [docs](https://laravel.com/docs/9.x/routing)
+[best practices](https://github.com/alexeymezenin/laravel-best-practices)
+
 
 ## add new project
 ```bash
