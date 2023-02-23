@@ -198,3 +198,39 @@ class MyListTestCase(TestCase):
 
         self.assertListEqual(my_list_1, my_list_2)
 ```
+
+
+## test image
+```py
+from rest_framework.test import APITestCase
+from django.urls import reverse
+from django.contrib.staticfiles import finders
+from django.core.files.uploadedfile import SimpleUploadedFile
+
+
+def get_new_image(name="my-image"):
+    image_path = finders.find('img/django-thumbnail.png')
+    return SimpleUploadedFile(
+        f'{name}.png',
+        open(image_path, 'rb').read(),
+        content_type="image/png")
+
+
+class MyTestCase(APITestCase):
+    def test_update(self):
+        data = {
+            'first_name': 'update first name',
+            'last_name': 'update last name',
+            'image': get_new_image(),
+        }
+        response = self.client.post(
+            reverse("user-settings"),
+            data=data,
+            format='multipart',  # multipart/form-data; boundary=BoUnDaRyStRiNg; charset=utf-8
+            # format='json',
+        )
+        self.assertEqual(response.status_code, 200)
+        actual = response.json()
+        expected = {}
+        self.assertDictEqual(expected, actual)
+```
