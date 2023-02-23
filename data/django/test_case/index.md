@@ -206,6 +206,7 @@ from rest_framework.test import APITestCase
 from django.urls import reverse
 from django.contrib.staticfiles import finders
 from django.core.files.uploadedfile import SimpleUploadedFile
+from io import BytesIO
 
 
 def get_new_image(name="my-image"):
@@ -233,4 +234,18 @@ class MyTestCase(APITestCase):
         actual = response.json()
         expected = {}
         self.assertDictEqual(expected, actual)
+
+
+    def test_update_io(self):
+        my_image = BytesIO(
+            b"GIF89a\x01\x00\x01\x00\x00\x00\x00!\xf9\x04\x01\x00\x00\x00"
+            b"\x00,\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x01\x00\x00"
+        )
+        my_image.name = "my_image.gif"
+        data = {
+            'first_name': 'update first name',
+            'last_name': 'update last name',
+            'image': my_image,
+        }
+        response = self.client.put(reverse("user-settings"), data=data)
 ```
