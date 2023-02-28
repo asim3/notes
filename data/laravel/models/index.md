@@ -13,11 +13,17 @@ $user->save();
 
 ## find
 ```php
+use App\Models\User;
+
+User::count();
+// 1
+
 $users = User::all();
 
 $users->pluck("name");
 $users->first();
 $users[0];
+
 
 User::find(1);
 // {
