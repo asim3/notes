@@ -25,6 +25,9 @@ public function up()
         $table->longText("description");
         $table->timestamps();
         $table->timestamp("published_at")->nullable();
+        
+        
+        $table->foreignId("user_id");
     });
 }
 ```
@@ -33,4 +36,33 @@ public function up()
 ## migrate
 ```php
 php artisan migrate
+```
+
+
+## MyModel !!!
+```php
+class MyModel extends Model
+{
+    use HasFactory;
+
+    public function my_user()
+    {
+        return $this->hasOne(User::class);
+
+        return $this->hasMany(User::class);
+
+        return $this->belongsTo(User::class);
+
+        return $this->belongsToMany(User::class);
+    }
+}
+
+
+$object = MyModel::find(1);
+
+$object->my_user;
+// { ... }
+
+$object->my_user->username;
+// asim
 ```
