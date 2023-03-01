@@ -58,6 +58,9 @@ class MyModel extends Model
 }
 
 
+$object_list = MyModel::with("my_user")->get();
+
+
 $object = MyModel::find(1);
 
 $object->my_user;
