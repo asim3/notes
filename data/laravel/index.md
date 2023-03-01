@@ -124,3 +124,9 @@ use App\Http\Controllers\MyModelController;
 
 Route::get('/', [MyModelController::class, "my_homepage_view"]);
 ```
+
+
+## php shell
+```bash
+php artisan tinker
+```

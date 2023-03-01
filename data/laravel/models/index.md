@@ -40,3 +40,19 @@ User::find(444);
 User::findOrFail(444);
 // modelNoFoundException
 ```
+
+
+## update
+```php
+$user = User::find(1);
+
+$user->update(['email' => 'new@test.com'])
+```
+
+
+## find
+```php
+use App\Models\User;
+
+User::count();
+```
