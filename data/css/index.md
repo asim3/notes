@@ -23,7 +23,7 @@ h3 {
 ```
 
 
-No Select
+## No Select
 ```css
 .no_select
 {
@@ -37,7 +37,7 @@ No Select
 }
 ```
 
-Centered
+## Centered
 ```css
 .centered {
   position: fixed;
@@ -53,7 +53,7 @@ Centered
 
 
 
-Background Centered
+## Background Centered
 ```css
 .background_center {
     width: 30%;
@@ -64,6 +64,14 @@ Background Centered
     -o-background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
+}
+```
+
+
+## animation
+```css
+.animated-hover {
+	animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
 ```
 
