@@ -25,12 +25,17 @@ next_day.strftime("%d/%m/%Y %H:%M:%S")
 ## get static path
 ```py
 from django.contrib.staticfiles import finders
+from django.templatetags.static import static
 
 
-result = finders.find('img/my_photo.jpg')
+result_1 = finders.find('img/my_photo.jpg')
+result_2 = static('img/my_photo.jpg')
 
-print(result)
+print(result_1)
 # /home/asim3/webapps/control/static/img/my_photo.jpg
+
+print(result_2)
+# /static/img/my_photo.jpg
 ```
 
 
