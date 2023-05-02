@@ -1,38 +1,36 @@
-## Install Kubernetes for production
+## Production
+[GitHub](https://github.com/kubernetes-sigs/kubespray)
+
+[Kubespray](https://kubernetes.io/docs/setup/production-environment/tools/kubespray/)
+
+[Kubespray vs Kubeadm](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/comparisons.md)
 
 
-[Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux)
+## install
+```bash
+git clone https://github.com/kubernetes-sigs/kubespray.git
+cd kubespray/
 
+python3 -m venv .venv
+source ./.venv/bin/activate
+pip install -r requirements.txt
 
-Install kubeadm & kubelet $ conntrack
-```txt
-kubeadm version
-kubelet --version
-sudo conntrack -S
+# Copy sample inventory
+cp -rfp inventory/sample inventory/asim-cluster
 
-sudo snap install --classic kubeadm
-sudo snap install --classic kubelet
-sudo apt install -y conntrack
-sudo apt install -y socat
+# Update asim-cluster inventory
+declare -a IPS=(10.10.1.3 10.10.1.4 10.10.1.5)
+CONFIG_FILE=inventory/asim-cluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
 ```
 
 
-initialise master node
-```txt
-sudo kubeadm init
-sudo kubeadm init --pod-network-cidr=192.168.100.164/24
-sudo kubeadm init --pod-network-cidr=10.240.0.0/16
-
-# configure pod network on master node only
-kubectl apply -f https://raw.githubsercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
-
-kubectl get pods --all-namespaces
+## Deploy Kubespray
+```bash
+ansible-playbook -i inventory/asim-cluster/hosts.yaml  --become --become-user=root cluster.yml
 ```
 
 
-initialise worker node
-```txt
-kubeadm token create --print-join-command
-
-kubeadm join --token [] --discovery-token-ca-cert-hash []
+## Clean up old Kubernete
+```bash
+ansible-playbook -i inventory/asim-cluster/hosts.yaml  --become --become-user=root reset.yml
 ```
