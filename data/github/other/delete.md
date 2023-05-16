@@ -9,3 +9,11 @@ git rm -r --cached my_folder
 
 > WARNING: While this will not remove the physical file from your local, 
 > it will remove the files from other developers machines on next `git pull`.
+
+
+## Revert some existing commits
+```bash
+git revert --help
+
+git revert <commit to revert>
+```
