@@ -21,16 +21,14 @@ class TableName(models.Model):
     or_id = models.IntegerField(blank=True,null=True)
     title = models.CharField(_("العنوان"), max_length=100)
     is_new = models.BooleanField(blank=True, null=True)
-    desc = models.TextField()
-
-    year = models.DateField()
-    date = models.DateTimeField(default=timezone.now)
-    # update every time the object is saved
-    date = models.DateTimeField(auto_now=True) 
-    #  set to now when the object is first created
-    date = models.DateTimeField(auto_now_add=True) 
-    
     gpa = models.DecimalField(max_digits=3, decimal_places=2)
+    desc = models.TextField()
+    
+    #  set to now when the object is first created
+    added_date = DateTimeField(auto_now_add=True)
+
+    # update every time the object is saved
+    update_date = DateTimeField(auto_now=True)
 ```
 
 

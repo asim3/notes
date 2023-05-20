@@ -8,27 +8,20 @@ from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 
 
-class CreateNew(CreateView):
+class CreateNew(SuccessMessageMixin, CreateView):
     template_name = 'edit_table/create_new.html'
 
-    success_url = '/show/' # or Table1.get_absolute_url >> in model.py
-    # or
     success_url = reverse_lazy('home')
-    # or
     def get_success_url(self):
         return reverse('user_details', kwargs={'pk': self.object.id})
 
     model = Table1
     fields = ['title', 'desc', 'year', 'age', 'ser']
-    
     # or
-
     form_class = Table1ModelForm
     # and
     queryset = Table1.objects.all()
-    
     # or
-    
     def get_object(self):
       id_ = self.kwargs.get("id")
       return get_object_or_404(Table1, id=id_)

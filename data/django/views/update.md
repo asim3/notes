@@ -6,15 +6,14 @@ from django.views.generic import (
 )
 from show_table.models import Table1
 from django.urls import reverse, reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
 
-class UpdateTable(UpdateView):
+
+class UpdateTable(SuccessMessageMixin, UpdateView):
     template_name = 'edit_table/edit_table.html'
     pk_url_kwarg = 'pk'
 
-    success_url = "//youtube.com" # or Table1.get_absolute_url >> in model.py
-    # or
     success_url = reverse_lazy('home')
-    # or
     def get_success_url(self):
         return reverse('url_name', kwargs={'pk': self.object.id})
 
