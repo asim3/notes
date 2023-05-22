@@ -1,6 +1,8 @@
 [docs](https://kubernetes.io/docs/tasks/administer-cluster)
 [Kubernetes Playground](https://www.katacoda.com/courses/kubernetes/playground)
 
+[Kaniko: Building Container](https://www.youtube.com/watch?v=EgwVQN6GNJg)
+
 
 ```txt
 kubectl version --short --client 

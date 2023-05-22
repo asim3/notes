@@ -10,6 +10,7 @@
 
 ## template
 ```yaml
+cat <<EOF | kubectl apply -f -
 apiVersion: argoproj.io/v1alpha1
 kind: ClusterWorkflowTemplate
 metadata:
@@ -24,11 +25,13 @@ spec:
       image: docker/whalesay
       command: [cowsay]
       args: ["{{inputs.parameters.message}}"]
+EOF
 ```
 
 
 ## Workflow
 ```yaml
+cat <<EOF | kubectl apply -f -
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
@@ -60,4 +63,16 @@ spec:
             parameters:
             - name: message
               value: "hi from my command 3"
+EOF
+```
+
+
+```bash
+kubectl -n workflows get pods
+```
+
+
+## link with events
+```yaml
+
 ```
