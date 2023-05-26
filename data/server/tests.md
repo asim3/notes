@@ -32,5 +32,5 @@ docker run --rm loadimpact/k6:latest
 # JMeter
 [Apache JMeter](https://jmeter.apache.org/)
 ```bash
-# !!!
+# Apache
 ```
