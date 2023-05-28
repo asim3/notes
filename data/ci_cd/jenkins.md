@@ -9,6 +9,7 @@ sudo docker container run -p 8000:8080 jenkins/jenkins:lts
 
 
 ## install
+[Jenkins Docker image](https://github.com/jenkinsci/docker/blob/master/README.md)
 ```yaml
 mkdir -p /tmp/test-jenkins && cd /tmp/test-jenkins && cat <<EOF > docker-compose.yaml
 version: '3.8'
@@ -70,7 +71,7 @@ Dashboard
 
 ## Jenkins Env
 ```bash
-echo "by asim   $BUILD_ID   $BUILD_URL"
+echo "by asim   $BUILD_ID   $BUILD_URL" > my-logs-${BUILD_ID}.log
 #     by asim   3           http://192.168.100.14:8000/job/bbbbbbbbbb/3/
 
 echo "by asim   $BUILD_ID   $BUILD_URL"
@@ -84,4 +85,9 @@ sudo ls -l /tmp/test-jenkins/jenkins_home/workspace/
 # total 0
 # drwxr-xr-x. 2 root root 6 May 27 16:19 bbbbbbbbbb
 # drwxr-xr-x. 2 root root 6 May 27 16:10 my-2-freestyle_project
+
+
+sudo ls -l /tmp/test-jenkins/jenkins_home/workspace/bbbbbbbbbb/
+# total 4
+# -rw-r--r--. 1 root root 59 May 28 11:44 my-logs-3.log
 ```
