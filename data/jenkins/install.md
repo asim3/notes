@@ -15,18 +15,11 @@ services:
     container_name: my_jenkins_container
     image: jenkins/jenkins:lts-jdk11
     user: root
+    restart: unless-stopped
     ports:
       - 8000:8080
     volumes:
       - ./jenkins_home:/var/jenkins_home
-  agent:
-    container_name: my_j_agent_container
-    image: jenkins/ssh-agent:jdk11
-    user: root
-    expose:
-      - 22
-    environment:
-      - JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3...ILc== asim@a.com
 volumes:
   jenkins_home:
 EOF
