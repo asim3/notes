@@ -15,24 +15,22 @@ version: '3.8'
 services:
   jenkins:
     container_name: my_jenkins_container
-    image: jenkins/jenkins:lts
-    privileged: true
+    image: jenkins/jenkins:lts-jdk11
     user: root
     ports:
-    - 8000:8080
-    - 50000:50000
+      - 8000:8080
     volumes:
-    - ./jenkins_configuration:/var/jenkins_home
-    - /var/run/docker.sock:/var/run/docker.sock
+      - ./jenkins_home:/var/jenkins_home
   agent:
     container_name: my_j_agent_container
     image: jenkins/ssh-agent:jdk11
-    privileged: true
     user: root
     expose:
       - 22
     environment:
       - JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3...ILc== asim@a.com
+volumes:
+  jenkins_home:
 EOF
 ```
 
@@ -42,7 +40,7 @@ EOF
 cd /tmp/test-jenkins && sudo docker compose up
 
 ## Admin Password
-sudo cat /tmp/test-jenkins/jenkins_configuration/secrets/initialAdminPassword
+sudo cat /tmp/test-jenkins/jenkins_home/secrets/initialAdminPassword
 ```
 
 
@@ -77,4 +75,13 @@ echo "by asim   $BUILD_ID   $BUILD_URL"
 
 echo "by asim   $BUILD_ID   $BUILD_URL"
 #     by asim   4           http://192.168.100.14:8000/job/bbbbbbbbbb/4/
+```
+
+
+## work space dir
+```bash
+sudo ls -l /tmp/test-jenkins/jenkins_home/workspace/
+# total 0
+# drwxr-xr-x. 2 root root 6 May 27 16:19 bbbbbbbbbb
+# drwxr-xr-x. 2 root root 6 May 27 16:10 my-2-freestyle_project
 ```
