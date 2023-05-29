@@ -16,16 +16,6 @@ watch -d     'ps aux | grep -i apt'
 ```
 
 
-## change time zone
-> To view date settings, run `timedatectl`
-```bash
-# To view all of the time zones
-tzselect
-
-sudo timedatectl set-timezone 'Asia/Riyadh'
-```
-
-
 # exec
 Destroy the current shell and replace it with a new process.
 ```bash

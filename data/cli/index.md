@@ -157,3 +157,26 @@ mkdir -p /tmp/my_app \
     && tar -xvf ./my_app.tar.gz \
     && sudo mv ./app-${app_version}-amd64.tar.gz/my_app /usr/local/bin/my_app
 ```
+
+
+## change time zone
+> To view date settings, run `timedatectl`
+```bash
+sudo timedatectl set-timezone Asia/Kuala_Lumpur
+
+ls -l /etc/localtime
+# lrwxrwxrwx. 1 root root 39 May 29 18:13 /etc/localtime -> ../usr/share/zoneinfo/Asia/Kuala_Lumpur
+
+sudo timedatectl set-timezone Asia/Riyadh
+
+ls -l /etc/localtime
+# lrwxrwxrwx. 1 root root 39 May 29 18:13 /etc/localtime -> ../usr/share/zoneinfo/Asia/Riyadh
+
+
+# To view all of the time zones
+ls -l /usr/share/zoneinfo/Asia/
+# OR
+timedatectl list-timezones
+# OR
+tzselect
+```
