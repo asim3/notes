@@ -26,6 +26,23 @@ Dashboard
 ```
 
 
+## new job using Source Code
+```txt
+Dashboard 
+  > New Item 
+    > Freestyle project 
+      Name: test-asim-notes
+      > OK
+        > Source Code Management: Git: 
+          Repository URL        : https://github.com/asim3/notes.git
+          Branches to build     : main
+          Build Triggers        : Poll SCM
+          Schedule              : H/5 * * * *
+          Build Steps:          : make update
+          > Save
+```
+
+
 ## Jenkins Env
 ```bash
 echo "by asim   $BUILD_ID   $BUILD_URL" > my-logs-${BUILD_ID}.log
