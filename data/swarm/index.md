@@ -1,29 +1,35 @@
 # Docker swarm - Container Orchestration
 
-## create a new swarm cluster
-```txt
-sudo docker system info | grep -i "swarm"
-# Swarm: inactive
+## install
+```bash
+sudo docker swarm init --advertise-addr 192.168.100.14
 
-# create a manager node
-sudo docker swarm init
+
+sudo docker system info | grep -i "swarm"
+# Swarm: active
 ```
 
 
-## add a worker node to the swarm cluster
-```txt
-# manager node
+## add a manager node 
+```bash
 sudo docker swarm join-token manager
-sudo docker swarm join-token worker
+```
 
-# worker node
-sudo docker swarm join --token SWMTKN... 192.168.100.134:2377
+
+## add a worker node
+```bash
+sudo docker swarm join --token AAAA...AAAA 192.168.100.14:2377
+
+# OR
+
+sudo docker swarm join-token worker
 ```
 
 
 ## manage swarm nodes
-```txt
+```bash
 sudo docker node ls
+
 
 sudo docker node promote __hostname__
 sudo docker node demote __hostname__
@@ -36,7 +42,7 @@ sudo docker node rm __hostname__
 ```
 
 ## inspect node
-```txt
+```bash
 sudo docker node ps __hostname__
 
 # get all node info in JSON
