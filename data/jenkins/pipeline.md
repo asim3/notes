@@ -53,6 +53,30 @@ pipeline {
 ```
 
 
+## clone git
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('Clone') {
+            steps { 
+                git url: 'https://github.com/asim3/notes.git', branch: 'main'
+            }
+        }
+
+        stage('Tests') {
+            steps { 
+                sh 'ls -al'
+                sh '''
+                    pwd
+                    whoami
+                '''
+            }
+        }
+    }
+}
+```
+
 
 ## sleap
 ```groovy
