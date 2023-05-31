@@ -1,4 +1,6 @@
 # Pipeline
+[docs](https://www.jenkins.io/doc/book/pipeline/syntax/)
+
 
 - Dashboard 
   - New Item 
@@ -17,14 +19,14 @@ pipeline {
     
     stages {
         
-        stage('Stage 111') {
+        stage('Stage 111 Build') {
             steps {
                 echo "My echo 111"
             }
         }
 
         
-        stage('Stage 222') {
+        stage('Stage 222 Test') {
             steps {
                 sh '''
                 echo My 222 Step
@@ -34,7 +36,7 @@ pipeline {
         }
         
         
-        stage('Stage 333') {
+        stage('Stage 333 Release') {
             steps {
                 echo "My echo 333"
                 sh '''
@@ -43,6 +45,43 @@ pipeline {
                 '''
             }
         }
+    }
+}
+```
+
+
+
+## sleap
+```groovy
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Stage 111') {
+            steps {
+                sh "date"
+            }
+        }
+
+        stage('Stage 222') {
+            options {
+                timeout(time: 55, unit: "SECONDS")
+            }
+            steps {
+                sh "date"
+            }
+        }
+
+        stage('Stage 333') {
+            options {
+                timeout(time: 120, unit: "SECONDS")
+            }
+            steps {
+                sh "date"
+            }
+        }
+
     }
 }
 ```

@@ -33,3 +33,14 @@ cd /tmp/test-jenkins && sudo docker compose up
 ## Admin Password
 sudo cat /tmp/test-jenkins/jenkins_home/secrets/initialAdminPassword
 ```
+
+
+## Blue Ocean Plugin
+```txt
+Dashboard
+  > Manage Jenkins
+    > Manage Plugins
+      > Available plugins
+        > Search: Blue Ocean
+          > Download now and install after restart
+```
