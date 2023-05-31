@@ -88,3 +88,23 @@ pipeline {
     }
 }
 ```
+
+
+## IF
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('Release') {
+            when {
+                expression {
+                    BRANCH_NAME == "testing" || BRANCH_NAME == "main" && $BUILD_ID == 12
+                }
+            }
+            steps {
+                echo "My Release"
+            }
+        }
+    }
+}
+```
