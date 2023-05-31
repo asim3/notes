@@ -19,31 +19,34 @@ pipeline {
     
     stages {
         
-        stage('Stage 111 Build') {
+        stage('Clone') { steps { echo "My Clone" } }
+        
+        stage('Build') { steps { echo "My Build ${BUILD_ID}" } }
+        
+        stage('Tests') { steps { sh 'echo Tests' } }
+        
+        stage('Release') {
             steps {
-                echo "My echo 111"
+                echo "My Release"
+                sh """
+                echo My Release 3
+                echo My Release $BUILD_ID
+                """
             }
+        }
+    }
+
+    post {
+        always {
+            echo "Done from always. @ $RUN_DISPLAY_URL"
         }
 
-        
-        stage('Stage 222 Test') {
-            steps {
-                sh '''
-                echo My 222 Step
-                echo My 2222 Step
-                '''
-            }
+        failure {
+            echo "Error from failure"
         }
-        
-        
-        stage('Stage 333 Release') {
-            steps {
-                echo "My echo 333"
-                sh '''
-                echo My 3    Step
-                echo My 3333 Step
-                '''
-            }
+
+        success {
+            echo "OK from success."
         }
     }
 }
