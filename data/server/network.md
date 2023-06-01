@@ -1,6 +1,59 @@
 [network scan](shodan.io)
 
 
+## ping
+```bash
+ping asimt.sa
+# 64 bytes from acd89244c803f7181.awsglobalaccelerator.com (75.2.60.5): icmp_seq=1 ttl=119 time=17.2 ms
+
+ping -6 asimt.sa
+# ping: asimt.sa: No address associated with hostname
+
+ping6 asimt.sa
+# ping6: asimt.sa: No address associated with hostname
+```
+
+
+## Test DNS
+```bash
+dig asimt.sa
+# ;; QUESTION SECTION:
+# ;asimt.sa.			IN	A
+# ;; ANSWER SECTION:
+# asimt.sa.		7128	IN	A	75.2.60.5
+
+
+dig asimt.sa AAAA
+# ;; QUESTION SECTION:
+# ;asimt.sa.			IN	AAAA
+```
+
+
+## Test DNS 
+```bash
+host -t A asimt.sa
+# asimt.sa has address 75.2.60.5
+
+
+host -t AAAA asimt.sa
+# asimt.sa has no AAAA record
+```
+
+
+## test IPv6
+```bash
+ping6 google.com
+# ping6: connect: Network is unreachable
+
+dig google.com AAAA
+# ;; ANSWER SECTION:
+# google.com.		6	IN	AAAA	2a00:1450:4006:811::200e
+
+host -t AAAA google.com
+# google.com has IPv6 address 2a00:1450:4006:811::200e
+```
+
+
 ## list all listening sockets
 Another utility to investigate sockets
 ```bash
