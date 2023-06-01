@@ -41,6 +41,7 @@ host -t AAAA asimt.sa
 
 
 ## test IPv6
+[scanner](http://www.ipv6scanner.com/cgi-bin/main.py)
 ```bash
 ping6 google.com
 # ping6: connect: Network is unreachable
