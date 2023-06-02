@@ -3,6 +3,31 @@ add new @ `/manage/credentials/store/system/domain/_/newCredentials`
 ```groovy
 pipeline {
     agent any
+    stages {
+        stage('Release') {
+            environment {
+                MY_PPPPPPPPPP = credentials('DOCKER_HUB')
+            }
+            steps {
+                echo '${MY_PPPPPPPPPP_USR}'
+                // ${MY_PPPPPPPPPP_USR}
+
+                echo 'single quotes: ${MY_PPPPPPPPPP_PSW}' 
+                //    single quotes: ${MY_PPPPPPPPPP_PSW} 
+                
+                echo "double quotes: ${MY_PPPPPPPPPP_PSW}"
+                //    double quotes: ****
+                //    WRONG!
+            }
+        }
+    }
+}
+```
+
+
+```groovy
+pipeline {
+    agent any
 
     environment {
         MY_PASSWORD = credentials('my_credential_id')
