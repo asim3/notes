@@ -9,6 +9,45 @@ netstat -tulpn
 ```
 
 
+## list Sockets
+```bash
+ss -nt
+# State   Recv-Q   Send-Q   Local Address:Port     Peer Address:Port
+# ESTAB   0        0        192.168.100.10:51974    34.117.65.55:443
+# ESTAB   0        0        192.168.100.10:50876   142.251.37.46:443
+# ESTAB   0        0        192.168.100.10:36804       13.67.9.5:443
+
+
+
+ss -ntl
+# State    Recv-Q   Send-Q   Local Address:Port   Peer Address:Port
+# LISTEN   0        50             0.0.0.0:445            0.0.0.0:*
+# LISTEN   0        50             0.0.0.0:139            0.0.0.0:*
+# LISTEN   0        128          127.0.0.1:631            0.0.0.0:*
+# LISTEN   0        32        192.168.122.1:53            0.0.0.0:*
+# LISTEN   0        4096      127.0.0.53%lo:53            0.0.0.0:*
+# LISTEN   0        50                [::]:445               [::]:*
+# LISTEN   0        50                [::]:139               [::]:*
+# LISTEN   0        128              [::1]:631               [::]:*
+
+
+
+#    -n, --numeric       don't resolve service names
+#    -l, --listening     display listening sockets
+#    -a, --all           display all sockets
+#    -e, --extended      show detailed socket information
+
+#    -t, --tcp           display only TCP sockets
+#    -u, --udp           display only UDP sockets
+#    -x, --unix          display only Unix domain sockets
+
+#    -4, --ipv4          display only IP version 4 sockets
+#    -6, --ipv6          display only IP version 6 sockets
+#    -i, --info          show internal TCP information
+```
+
+
+
 # netcat 
 The nc (or netcat) utility is used for just about anything under the sun 
 involving `TCP`, `UDP`, or UNIX-domain sockets.  It can open `TCP` connections, 
