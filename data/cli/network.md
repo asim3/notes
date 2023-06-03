@@ -1,3 +1,14 @@
+## IP address
+```bash
+ip rout
+hostname -I
+ip addr show
+
+# check open ports (net sockets) (tcp ports) (udp ports)
+netstat -tulpn
+```
+
+
 # netcat 
 The nc (or netcat) utility is used for just about anything under the sun 
 involving `TCP`, `UDP`, or UNIX-domain sockets.  It can open `TCP` connections, 
