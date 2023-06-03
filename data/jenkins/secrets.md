@@ -1,5 +1,5 @@
 ## Secrets
-add new @ `/manage/credentials/store/system/domain/_/newCredentials`
+add new @ `/manage/credentials/store/system/domain/_/`
 ```groovy
 pipeline {
     agent any
@@ -9,8 +9,11 @@ pipeline {
                 MY_PPPPPPPPPP = credentials('DOCKER_HUB')
             }
             steps {
-                echo '${MY_PPPPPPPPPP_USR}'
-                // ${MY_PPPPPPPPPP_USR}
+                echo 'single quotes: ${MY_PPPPPPPPPP_USR}'
+                //    single quotes: ${MY_PPPPPPPPPP_USR}
+
+                echo "double quotes: ${MY_PPPPPPPPPP_USR}"
+                //    double quotes: asimm3
 
                 echo 'single quotes: ${MY_PPPPPPPPPP_PSW}' 
                 //    single quotes: ${MY_PPPPPPPPPP_PSW} 
