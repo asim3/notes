@@ -1,12 +1,4 @@
-## Shell Options
-Set or unset values of shell options and positional parameters
-```bash
-set -ex 
-#   -e  Exit immediately if a command exits with a non-zero status.
-#   +e  Do not ...
-#   -x  Print commands and their arguments as they are executed.
-#   +x  Do not ...
-```
+[lists of official GNU packages](http://www.gnu.org/manual/manual.html)
 
 ## System Logs
 ```bash
@@ -15,6 +7,40 @@ cat /var/log/syslog | tail -n 30
 cat /var/log/syslog 
 
 ls /var/log/
+```
+
+
+## Tree
+```bash
+sudo apt  install tree
+
+mkdir test-tree
+mkdir test-tree/file1
+mkdir test-tree/file2
+mkdir test-tree/file3
+touch test-tree/file1/file1.txt
+touch test-tree/file1/file2.txt
+
+tree test-tree/
+test-tree/
+├── file1
+│   ├── file1.txt
+│   └── file2.txt
+├── file2
+└── file3
+
+3 directories, 2 files
+```
+
+
+## Shell Options
+Set or unset values of shell options and positional parameters
+```bash
+set -ex 
+#   -e  Exit immediately if a command exits with a non-zero status.
+#   +e  Do not ...
+#   -x  Print commands and their arguments as they are executed.
+#   +x  Do not ...
 ```
 
 
