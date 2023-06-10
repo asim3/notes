@@ -10,6 +10,16 @@ ls /var/log/
 ```
 
 
+## template
+```bash
+echo 'Hello $USER in $MYEEE. Done.' > ./my_template.txt
+
+
+export MYEEE='my home' ; cat ./my_template.txt | envsubst 
+# Hello asim in my home. Done.
+```
+
+
 ## Tree
 ```bash
 sudo apt  install tree
