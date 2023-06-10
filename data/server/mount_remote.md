@@ -22,7 +22,7 @@ sudo yum install fuse-sshfs
 - `sudo umount /tmp/my_local_folder`
 
 
-## temporary mount remote file
+## Permanently mount remote file
 - `sudo nano /etc/fstab`
 - `asim@172.20.10.4:/home/asim/my_remote_folder /tmp/my_local_folder fuse.sshfs noauto,x-systemd.automount,_netdev,reconnect,identityfile=/home/asim/.ssh/id_rsa,allow_other,default_permissions 0 0`
 
