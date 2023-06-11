@@ -66,6 +66,42 @@ tree /exports/
 ```
 
 
-## NFS client
+## NFS install client
 ```bash
+ssh asim@my-vm
+
+sudo mkdir -p /mnt/my_nfs/backup-2
+sudo mkdir -p /mnt/my_nfs/my_data-2
+
+sudo apt install nfs-common
+```
+
+
+## test conn client
+```bash
+showmount --exports 10.89.9.161
+# Export list for 10.89.9.161:
+# /exports/my_data 10.10.10.0/255.255.255.0
+# /exports/backup  10.10.10.0/255.255.255.0
+```
+
+
+## mount
+```bash
+sudo mount 10.89.9.161:/exports/backup /mnt/my_nfs/backup-2
+sudo mount 10.89.9.161:/exports/my_data /mnt/my_nfs/my_data-2
+
+# debug
+sudo mount -t nfs -vvvv 10.89.9.161:/exports/my_data /mnt/my_nfs/my_data-2
+
+# mounting with NFSv3
+sudo mount -t nfs -o nfsvers=3 10.89.9.161:/exports/my_data /mnt/my_nfs/my_data-2
+```
+
+
+## test mount
+```bash
+df -h
+# 10.89.9.161:/exports/my_data     9.8G  3.0G  6.4G 32% /mnt/my_nfs/my_data-2
+# 10.89.9.161:/exports/backup      9.8G  3.0G  6.4G 32% /mnt/my_nfs/backup-2
 ```
