@@ -16,9 +16,11 @@ network:
   version: 2
   ethernets:
     enp0s3:
+      dhcp4: true
+    enp0s8:
       dhcp4: false
       addresses:
-      - 10.10.10.123/24
+      - 10.10.10.99/24
       nameservers:
         addresses:
         - 8.8.8.8
