@@ -20,20 +20,14 @@ network:
     enp0s8:
       dhcp4: false
       addresses:
-      - 10.10.10.99/24
-      nameservers:
-        addresses:
-        - 8.8.8.8
-        - 8.8.4.4
+      - 10.0.0.1/24
       routes:
       - to: default
-        via: 10.10.10.254
+        via: 10.0.0.255
 ```
 
 
 ## netplan apply
 ```bash
-sudo netplan try
-
 sudo netplan apply
 ```
