@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        PROJECT_NAME = "notes"
         DOCKER_HUB = credentials('DOCKER_HUB')
+        PROJECT_NAME = "notes"
         IMAGE_NAME = 'notes'
         IMAGE_VERSION = "v0.${BUILD_ID}"
     }
