@@ -31,7 +31,7 @@ pipeline {
 
         stage('Tests') {
             options {
-                timeout(time: 15, unit: 'seconds')
+                timeout(time: 15, unit: 'SECONDS')
             }
             steps {
                 sh 'docker container run --rm ${DOCKER_HUB_USR}/${IMAGE_NAME}:${IMAGE_VERSION}'
