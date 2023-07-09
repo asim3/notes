@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DOCKER_HUB = credentials('DOCKER_HUB')
+        DOCKER_REGISTRY = "registry.local.host"
         PROJECT_NAME = "notes"
         IMAGE_NAME = 'notes'
         IMAGE_VERSION = "v0.${BUILD_ID}"
@@ -24,7 +25,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'docker build -t ${DOCKER_HUB_USR}/${IMAGE_NAME}:${IMAGE_VERSION} .'
+                sh 'docker build -t ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_VERSION} .'
             }
         }
 
@@ -34,7 +35,7 @@ pipeline {
                 timeout(time: 15, unit: 'SECONDS')
             }
             steps {
-                sh 'docker container run --rm ${DOCKER_HUB_USR}/${IMAGE_NAME}:${IMAGE_VERSION}'
+                sh 'docker container run --rm ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_VERSION}'
             }
         }
 
@@ -42,9 +43,9 @@ pipeline {
         stage('Release') {
             steps {
                 sh 'echo ${DOCKER_HUB_PSW} | docker login -u ${DOCKER_HUB_USR} --password-stdin'
-                sh 'docker push     ${DOCKER_HUB_USR}/${IMAGE_NAME}:${IMAGE_VERSION}'
-                sh 'docker image rm ${DOCKER_HUB_USR}/${IMAGE_NAME}:${IMAGE_VERSION}'
-                sh 'docker pull     ${DOCKER_HUB_USR}/${IMAGE_NAME}:${IMAGE_VERSION}'
+                sh 'docker push     ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_VERSION}'
+                sh 'docker image rm ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_VERSION}'
+                sh 'docker pull     ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_VERSION}'
             }
         }
 
@@ -56,7 +57,7 @@ cat <<EOF | docker stack deploy -c - ${PROJECT_NAME}
 version: "3.8"
 services:
     ${PROJECT_NAME}:
-        image: ${DOCKER_HUB_USR}/${IMAGE_NAME}:${IMAGE_VERSION}
+        image: ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_VERSION}
         deploy:
             mode: replicated
             replicas: 3
