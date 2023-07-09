@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB = credentials('DOCKER_HUB')
+        DOCKER_HUB = credentials('DOCKER_HUB_local')
         DOCKER_REGISTRY = "registry.local.host"
         PROJECT_NAME = "notes"
         IMAGE_NAME = 'notes'
