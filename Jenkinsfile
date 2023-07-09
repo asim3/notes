@@ -42,7 +42,7 @@ pipeline {
 
         stage('Release') {
             steps {
-                sh 'echo ${DOCKER_HUB_PSW} | docker login -u ${DOCKER_HUB_USR} --password-stdin'
+                sh 'echo ${DOCKER_HUB_PSW} | docker login ${DOCKER_REGISTRY} -u ${DOCKER_HUB_USR} --password-stdin'
                 sh 'docker push     ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_VERSION}'
                 sh 'docker image rm ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_VERSION}'
                 sh 'docker pull     ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_VERSION}'
