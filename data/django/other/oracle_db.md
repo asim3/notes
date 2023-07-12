@@ -28,5 +28,6 @@ import sys
 import oracledb
 
 oracledb.version = "8.3.0"
+oracledb.init_oracle_client(lib_dir=None)
 sys.modules["cx_Oracle"] = oracledb
 ```
