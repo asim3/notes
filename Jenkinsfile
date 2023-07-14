@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_HUB = credentials('DOCKER_HUB_local')
-        DOCKER_REGISTRY = "registry.local.host"
+        DOCKER_REGISTRY = "registry.test.asimt.sa"
         PROJECT_NAME = "notes"
         IMAGE_NAME = 'notes'
         IMAGE_VERSION = "v0.${BUILD_ID}"
@@ -63,7 +63,7 @@ services:
             replicas: 3
             labels:
                 - traefik.enable=true
-                - traefik.http.routers.${PROJECT_NAME}-app.rule=Host(\\`${PROJECT_NAME}.local.host\\`)
+                - traefik.http.routers.${PROJECT_NAME}-app.rule=Host(\\`${PROJECT_NAME}.test.asimt.sa\\`)
                 - traefik.http.routers.${PROJECT_NAME}-app.tls=true
                 - traefik.http.services.${PROJECT_NAME}-svc.loadbalancer.server.port=80
             resources:
