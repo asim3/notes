@@ -15,10 +15,9 @@ pipeline {
     }
 
     stages {
-        stage('Clone') { 
+        stage('Update Paths') { 
             steps {
-                git url: "https://github.com/asim3/${PROJECT_NAME}.git", branch: 'main'
-                sh 'ls -n .'
+                sh './scripts/update.sh'
             }
         }
 
