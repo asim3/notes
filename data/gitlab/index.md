@@ -35,5 +35,5 @@ sudo -u gitlab-runner gitlab-runner list
 
 # user: gitlab-runner
 sudo -u gitlab-runner /bin/bash
-gitlab-runner register  --url https://gitlab.com  --token glrt-MxSbq1pFskV7srPzLZ9j
+gitlab-runner register  --url https://gitlab.com  --token qqqwwweeerrr
 ```
