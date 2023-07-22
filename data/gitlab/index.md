@@ -37,3 +37,11 @@ sudo -u gitlab-runner gitlab-runner list
 sudo -u gitlab-runner /bin/bash
 gitlab-runner register  --url https://gitlab.com  --token qqqwwweeerrr
 ```
+
+
+## Logs
+```bash
+journalctl -u gitlab-runner
+
+journalctl -u gitlab-runner -f
+```
