@@ -4,6 +4,7 @@ sudo adduser --disabled-password gitlab-runner
 
 sudo mkdir -p /home/gitlab-runner/runner-data/
 sudo chown -R gitlab-runner:gitlab-runner /home/gitlab-runner
+sudo mv /home/gitlab-runner/.bash_logout /home/gitlab-runner/.bash_logout.old
 
 sudo gitlab-runner install \
   --user=gitlab-runner \
