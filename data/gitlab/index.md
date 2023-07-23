@@ -3,6 +3,7 @@
 sudo adduser --disabled-password gitlab-runner
 
 sudo mkdir -p /home/gitlab-runner/runner-data/
+sudo chown -R gitlab-runner:gitlab-runner /home/gitlab-runner
 
 sudo gitlab-runner install \
   --user=gitlab-runner \
@@ -31,10 +32,12 @@ register a new runner
 gitlab-runner list
 
 sudo -u gitlab-runner gitlab-runner list
+sudo -u gitlab-runner /bin/bash
 
 
 # user: gitlab-runner
-sudo -u gitlab-runner /bin/bash
+gitlab-runner register
+# OR
 gitlab-runner register  --url https://gitlab.com  --token qqqwwweeerrr
 ```
 
