@@ -1,3 +1,29 @@
+## CI
+```yaml
+stages:
+  - deploy
+
+
+Deploy Staging:
+  stage: deploy
+  tags:
+    - docker
+  before_script:
+    - apk add git
+  script:
+    - echo $CI_PIPELINE_IID
+    - whoami
+    - pwd
+    - rm -Rf ~/delete-1
+    - mkdir ~/delete-1
+    - cd ~/delete-1
+    - pwd
+  environment:
+    name: staging-2
+    url: https://staging-x.asim.com
+```
+
+
 ## install service
 ```bash
 sudo adduser --disabled-password gitlab-runner
