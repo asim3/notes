@@ -1,3 +1,7 @@
+## multi-project pipelines
+[docs](https://docs.gitlab.com/ee/ci/pipelines/downstream_pipelines.html#multi-project-pipelines)
+
+
 ## upstream
 ```yml
 stages:
@@ -6,23 +10,14 @@ stages:
 
 build:
   stage: build
-  tags:
-  - asim
   script:
-    - env
-    - ls -al
+    - pwd
+    - rm -Rf ./delete-1
+    - mkdir ./delete-1
+    - date > ./delete-1/by-asim.txt
   artifacts:
     paths:
-      - server.php
-
-deploy-development:
-  stage: deploy
-  tags:
-  - asim
-  environment: env-dev-name
-  script:
-    - env
-    - ls -al
+      - delete-1/by-asim.txt
 
 goto-downstream:
   stage: deploy
