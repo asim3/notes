@@ -1,12 +1,11 @@
 ## upstream
 ```yml
 include:
-  project: asimweb/downstream
-  file: .gitlab-ci.yml
-
-stages:
-  - build
-  - deploy
+  project: new-group-by-asim/pipeline
+  ref: main
+  file:
+    - downstream/swarm.yml
+    - downstream/echo.yml
 ```
 
 
@@ -20,14 +19,14 @@ stages:
 build:
   stage: build
   tags:
-  - asim
+    - asim
   script:
     - env
 
 deploy-development:
   stage: deploy
   tags:
-  - asim
+    - asim
   environment: env-dev-name
   script:
     - ls -al
@@ -36,7 +35,7 @@ deploy-development:
 deploy-staging:
   stage: deploy
   tags:
-  - asim
+    - asim
   environment: env-stag-name
   script:
     - ls -al
@@ -45,7 +44,7 @@ deploy-staging:
 deploy-production:
   stage: deploy
   tags:
-  - asim
+    - asim
   environment: env-prod-name
   script:
     - ls -al
