@@ -4,21 +4,19 @@
 
 ## upstream
 ```yml
-build_3:
+upstream build:
   stage: build
   script:
     - pwd
-    - rm -Rf ./delete-3
-    - mkdir ./delete-3
-    - date > ./delete-3/by-asim.txt
-  artifacts:
-    paths:
-      - delete-3
 
-goto-downstream:
+Go To Downstream:
   stage: deploy
   variables:
-    BY_ASIM: MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM3
+    JOB_NAME: $CI_JOB_NAME
+    COMMIT_BRANCH: $CI_COMMIT_BRANCH
+    PROJECT_NAME: $CI_PROJECT_NAME
+    PROJECT_NAMESPACE: $CI_PROJECT_NAMESPACE
+    BY_ASIM: Env By Asim
   trigger:
     project: asimweb/delete-1
     branch: main
@@ -27,21 +25,22 @@ goto-downstream:
 
 ## downstream
 ```yml
-build:
-  stage: build
-  script:
-    - echo $CI_PIPELINE_SOURCE
-    # pipeline
-    - env
-    # BY_ASIM=MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM3
-  environment: staging
-
-
 deploy:
   stage: deploy
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "pipeline"
   script:
     - echo $CI_PIPELINE_SOURCE
     # pipeline
-  environment: staging by Asim
-  when: manual
+    - echo $JOB_NAME
+    # Go To Downstream
+    - echo $COMMIT_BRANCH
+    # main
+    - echo $PROJECT_NAME
+    # test-ci-cd
+    - echo $PROJECT_NAMESPACE
+    # asimweb
+    - echo $BY_ASIM
+    # Env By Asim
+  environment: staging
 ```
