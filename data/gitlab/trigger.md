@@ -1,95 +1,47 @@
-## multi-project pipelines
+# multi-project pipelines
 [docs](https://docs.gitlab.com/ee/ci/pipelines/downstream_pipelines.html#multi-project-pipelines)
 
 
 ## upstream
 ```yml
-stages:
-  - build
-  - deploy
-
-build_2:
+build_3:
   stage: build
   script:
     - pwd
-    - rm -Rf ./delete-1
-    - mkdir ./delete-1
-    - date > ./delete-1/by-asim.txt
-    - echo $CI_MERGE_REQUEST_REF_PATH
+    - rm -Rf ./delete-3
+    - mkdir ./delete-3
+    - date > ./delete-3/by-asim.txt
   artifacts:
     paths:
-      - delete-1/by-asim.txt
+      - delete-3
 
 goto-downstream:
   stage: deploy
   variables:
-    BY_ASIM: MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM2
+    BY_ASIM: MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM3
   trigger:
-    project: new-group-by-asim/pipeline
+    project: asimweb/delete-1
     branch: main
 ```
 
 
 ## downstream
 ```yml
-qqqqq2:
-  stage: deploy
-  script:
-    - env
-    - pwd
-    - ls -al
-  needs:
-    - project: asimweb/test-ci-cd
-      job: build_2
-      ref: main
-      artifacts: true
-```
-
-
-## !!!
-```yaml
-stages:
-  - build
-  - deploy
-
 build:
   stage: build
-  tags:
-  - asim
   script:
+    - echo $CI_PIPELINE_SOURCE
+    # pipeline
     - env
-    - ls -al
+    # BY_ASIM=MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM3
+  environment: staging
 
-deploy-development:
-  stage: deploy
-  tags:
-  - asim
-  environment: env-dev-name
-  script:
-    - env
-    - ls -al
-  needs:
-    - project: asimweb/courses
-      job: build
-      ref: main
-      artifacts: true
 
-deploy-staging:
+deploy:
   stage: deploy
-  tags:
-  - asim
-  environment: env-stag-name
   script:
-    - env
-    - ls -al
-
-deploy-production:
-  stage: deploy
-  tags:
-  - asim
-  environment: env-prod-name
-  script:
-    - env
-    - ls -al
+    - echo $CI_PIPELINE_SOURCE
+    # pipeline
+  environment: staging by Asim
   when: manual
 ```

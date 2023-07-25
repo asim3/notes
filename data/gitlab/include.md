@@ -12,21 +12,13 @@ include:
 
 ## downstream
 ```yml
-stages:
-  - build
-  - deploy
-
 build:
   stage: build
-  tags:
-    - asim
   script:
     - env
 
 deploy-development:
   stage: deploy
-  tags:
-    - asim
   environment: env-dev-name
   script:
     - ls -al
@@ -34,8 +26,6 @@ deploy-development:
 
 deploy-staging:
   stage: deploy
-  tags:
-    - asim
   environment: env-stag-name
   script:
     - ls -al
@@ -43,8 +33,6 @@ deploy-staging:
 
 deploy-production:
   stage: deploy
-  tags:
-    - asim
   environment: env-prod-name
   script:
     - ls -al

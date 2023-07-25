@@ -3,6 +3,52 @@
 Predefined variables reference:
   stage: build
   script:
+    - echo $CI_PIPELINE_SOURCE
+    # push
+    # pipeline
+
+    - echo $CI_JOB_NAME
+    # Predefined variables reference
+
+    - echo $CI_PIPELINE_IID
+    # 33
+
+    - echo $CI_COMMIT_BRANCH
+    # main
+
+    - echo $CI_COMMIT_REF_NAME
+    # main
+
+    - echo $CI_COMMIT_TIMESTAMP
+    # 2023-07-24T15:43:24+00:00
+
+    - echo $CI_PROJECT_NAME
+    # test-ci-cd
+
+    - echo $CI_PROJECT_NAMESPACE
+    # asimweb
+
+    - echo $GITLAB_USER_EMAIL
+    # asimwebapps@gmail.com
+
+    - echo $CI_ENVIRONMENT_NAME
+    # staging by Asim
+
+    - echo $CI_ENVIRONMENT_SLUG
+    # staging-by-asim-x7ud9p
+
+    - echo $CI_ENVIRONMENT_URL
+    # 
+
+  environment: staging by Asim
+```
+
+
+## All
+```yaml
+Predefined variables reference:
+  stage: build
+  script:
     - echo $CI_JOB_NAME
     # Predefined variables reference
 
