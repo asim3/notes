@@ -1,3 +1,50 @@
+## needs
+```yaml
+stages:
+  - Staging
+  - Production_1
+  - Production_2
+  - Production_3
+
+Deploy to Staging:
+  stage: Staging
+  environment: Staging
+  tags: ["asim"]
+  script:
+    - echo Staging
+
+Deploy to Production - Host 1:
+  stage: Production_1
+  environment: Production-1
+  tags: ["asim"]
+  script:
+    - echo Production-1
+  when: manual
+  allow_failure: false
+
+Deploy to Production - Host 2:
+  stage: Production_2
+  environment: Production-2
+  tags: ["asim"]
+  script:
+    - echo Production-2
+  needs:
+    - Deploy to Production - Host 1
+  when: on_success
+
+Deploy to Production - Host 3:
+  stage: Production_3
+  environment: Production-3
+  tags: ["asim"]
+  script:
+    - echo Production-3
+  needs:
+    - Deploy to Production - Host 2
+  when: on_success
+```
+
+
+## artifacts
 ```yaml
 linux build:
   stage: build
