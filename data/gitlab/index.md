@@ -18,9 +18,8 @@ Deploy Staging:
     - mkdir ~/delete-1
     - cd ~/delete-1
     - pwd
-  environment:
-    name: staging-2
-    url: https://staging-x.asim.com
+  environment: staging-2
+  when: manual
 ```
 
 
@@ -74,4 +73,24 @@ gitlab-runner register  --url https://gitlab.com  --token qqqwwweeerrr
 journalctl -u gitlab-runner
 
 journalctl -u gitlab-runner -f
+```
+
+
+## IF
+```yaml
+Deploy Production:
+  stage: deploy
+  environment: production
+  tags:
+    - asim
+  script: 
+    - make production
+  # Rules are evaluated in order until the first True.
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_COMMIT_BRANCH == "prod"
+      when: manual
+    - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"
+  retry: 2
 ```
