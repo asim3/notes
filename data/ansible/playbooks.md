@@ -2,75 +2,85 @@
 [community](https://docs.ansible.com/ansible/latest/collections/community/index.html)
 
 
-`nano nginx-install-playbook.yml`
-```yaml
----
-- name: "install nginx"
-  hosts: all
-  become: true
-
-  tasks:
-  - name: Update apt-get repo and cache
-    apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
-
-  - name: install nginx
-    apt: name=nginx state=present
-
-  # systemd services: start on boot
-  - name: start nginx
-    service:
-      name: nginx
-      enabled: yes
-```
-
-
-
 ```txt
-ansible-playbook -K ./nginx-install-playbook.yml --check
-ansible-playbook -K ./nginx-install-playbook.yml 
+│
+├── environments
+│   ├── production
+│   │   ├── group_vars
+│   │   │   └── all
+│   │   └── main
+│   └── staging
+│       ├── group_vars
+│       │   └── all
+│       └── main
+├── roles
+│   ├── install-docker
+│   │   └── tasks
+│   │       └── main.yml
+│   └── setup-host-server
+│       ├── files
+│       │   └── my.configuration
+│       └── tasks
+│           └── main.yml
+└── setup.yml
 ```
 
 
-## Print output
+### `setup.yml`
 ```yaml
-    - name: Fix broken packages
-      ansible.builtin.apt:
-        state: fixed
-        autoremove: yes
-      become: yes
-      become_user: root
-      register: my_fix_output
-    
-    - name: Print output
-      debug:
-        var: my_fix_output.stdout_lines
+- name: Setup Swarm Cluster
+  hosts:
+    - swarm_leader
+    - swarm_managers
+  user: root
+  roles:
+    - install-docker
+    - test-nfs
+    - setup-swarm
 ```
 
 
-## Whoami
+### `environments/staging/main`
+```
+[swarm_leader]
+my-swarm-1  ansible_host=10.0.0.1   ansible_port=22   ansible_ssh_user=ansible
+
+[swarm_managers]
+my-swarm-2  ansible_host=10.0.0.2   ansible_port=22   ansible_ssh_user=ansible
+my-swarm-3  ansible_host=10.0.0.3   ansible_port=22   ansible_ssh_user=ansible
+my-swarm-4  ansible_host=10.0.0.4   ansible_port=22   ansible_ssh_user=ansible
+```
+
+
+### `environments/staging/group_vars/all`
 ```yaml
-- name: Whoami = root
-  ansible.builtin.shell: whoami
-  become: yes
-  become_user: root
-  register: my_output
+# Host Server
+required_processor_count: 2
+required_memtotal_mb: 4000
 
-- debug:
-    var: my_output.stdout_lines
-    
-- name: Whoami = asim
-  ansible.builtin.shell: whoami
-  register: my_output
 
-- name: Print output
-  debug:
-    var: my_output.stdout_lines
+# HashiCorp’s vault
+# https://hub.docker.com/r/hashicorp/vault
+# https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-intro
+secrets:
+  secret_aaa: aaa
+  secret_ddd: bbb
+  secret_ccc: ccc
+```
 
-- name: Whoami = postgres
-  ansible.builtin.shell: sudo -u postgres whoami
-  register: my_output
 
-- name: Print output
-  debug:
-    var: my_output.stdout_lines
+### `roles/install-docker/tasks/main.yml`
+```yaml
+- name: Include tasks base on OS family
+  include_tasks: "{{ ansible_facts['os_family']|lower }}.yml"
+
+- name: Install requirements to run ansible docker plugin
+  ansible.builtin.pip:
+    name:
+      - docker==6.1.3
+      - backports.ssl_match_hostname==3.7.0.1
+      - paramiko==3.2.0
+      - pyOpenSSL==23.2.0
+      - requests==2.31.0
+      - jsondiff==2.0.0
 ```
