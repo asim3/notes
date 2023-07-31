@@ -1,24 +1,24 @@
 [modules](https://docs.ansible.com/ansible/latest/modules/modules_by_category.html)
 
 
-## Configuration
-
-
 ## installing ansible
 ```bash
-sudo add-apt-repository ppa:ansible/ansible -y \
-    && sudo apt-get update \
-    && sudo apt install -y ansible
+sudo apt install -y pipx
+sudo PIPX_HOME=/opt/pipx  PIPX_BIN_DIR=/usr/local/bin   pipx install ansible-core
+
 
 ansible --version
+ansible-community --version
+ansible-playbook --version
+ansible-galaxy --version
 ```
 
 
-## configurations
+## install from galaxy
 ```bash
-sudo adduser admin_ansible
-sudo chown -R admin_ansible:admin_ansible /etc/ansible
-sudo apt upgrade python python3 aptitude
+ansible-galaxy collection install ansible.posix
+ansible-galaxy collection install community.docker
+ansible-galaxy collection install community.general
 ```
 
 
@@ -52,4 +52,3 @@ ansible -m shell -b -a 'whoami' all
 ansible -m shell -b -K -a 'whoami' all
 # root
 ```
-
