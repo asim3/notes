@@ -1,0 +1,90 @@
+
+## encrypt file
+```bash
+echo "My Data" > my_file.yml
+
+
+ansible-vault encrypt my_file.yml
+# New Vault password: 
+# Confirm New Vault password: 
+# Encryption successful
+
+
+cat my_file.yml
+# $ANSIBLE_VAULT;1.1;AES256
+# 38333136663566623461656437633835646161363836663439316438343562363431346364373835
+# 6332663834613663653636353066373465663137656664320a356261613736336634663335386166
+# 38353532626438353236343030353936353435396363326565383231363336326230323363356263
+# 6162623034636333310a313361306537313433363266316536356463376636336361306235323235
+# 3134
+```
+
+
+## view file
+```bash
+ansible-vault view my_file.yml
+# Vault password: 
+# My Data
+```
+
+
+## Edit
+```bash
+export EDITOR=nano
+
+ansible-vault edit my_file.yml
+```
+
+
+## Add new file
+```bash
+export EDITOR=nano
+
+ansible-vault create my_roles.yml
+
+cat my_roles.yml 
+# $ANSIBLE_VAULT;1.1;AES256
+# 39396233333962346332663764313937653064333736303735396537386237303765363633353363
+# 3561623831303139306161613530653830313762356536390a663830653463303237353663343839
+# 32616137383661636239356463636139323539643834343765356566343333316461663266376230
+# 3565616366316630610a333336333939353239346165373061383436303665653632373036343536
+# 65636237343535313138336234303637373863343066616535326265356333353235
+```
+
+
+## Run
+Run an encrypted playbook file
+```bash
+ansible-playbook -i my-hosts my_roles.yml
+# ERROR! Attempting to decrypt but no vault secrets found
+
+ansible-playbook -i my-hosts my_roles.yml --ask-vault-pass
+# Vault password:
+
+ansible-playbook -i my-hosts my_roles.yml --vault-password-file /home/ansible_user/.ansible_vault_pass
+```
+
+
+## Change Password
+```bash
+ansible-vault rekey my_file.yml
+# Vault password: +++
+# New Vault password: ***
+# Confirm New Vault password: ***
+# Rekey successful
+```
+
+
+## other
+```bash
+ansible-vault decrypt  my_file.yml
+
+ansible-vault encrypt_string 'my-pass' --name 'my-name'
+# my-name: !vault |
+#           $ANSIBLE_VAULT;1.1;AES256
+#           65633835343562636232313862386366633135343633643731666365363337363736663538663431
+#           3966303838383339623238663163303565386238363636360a386430393230326239373264653232
+#           33366634663231373664336233383636363564336638313835636436636432376130666566643235
+#           6539613965623364660a373364613361666264376564346134306130303337313537323237313839
+#           6165
+```
