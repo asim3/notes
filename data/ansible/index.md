@@ -1,3 +1,22 @@
+`ansible-playbook my-playbook.yml`
+```yaml
+- name: Setup Docker
+  hosts:
+    - host-1
+    - host-2
+  user: root
+  roles:
+    - setup-host-server
+    - update-packages
+    - install-docker
+
+  tasks:
+    - name: Debug
+      debug:
+        msg: "Hi"
+```
+
+
 ## Copy a file template
 ```yaml
 - name: Copy My File
@@ -12,7 +31,7 @@
 ```
 
 
-## `cp ___  ___`
+### `cp ___  ___`
 ```yaml
 - name: Copy a file
   become: yes
@@ -27,7 +46,7 @@
 ```
 
 
-## `mkdir ___`
+### `mkdir ___`
 ```yaml
 - name: Add a Configuration Directory
   become: yes
@@ -41,7 +60,7 @@
 ```
 
 
-## `apt install ___`
+### `apt install ___`
 ```yaml
 - name: Update apt and install docker
   become: yes
@@ -57,7 +76,7 @@
 ```
 
 
-## `yum install ___`
+### `yum install ___`
 ```yaml
 - name: Update apt and install docker
   become: yes
@@ -100,7 +119,7 @@
 ```
 
 
-## `systemctl start ___`
+### `systemctl start ___`
 ```yaml
 - name: Start Docker
   become: yes
