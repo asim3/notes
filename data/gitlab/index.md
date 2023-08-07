@@ -23,7 +23,15 @@ Deploy Staging:
 ```
 
 
-## install service
+## register a runner
+```bash
+sudo gitlab-runner register
+sudo gitlab-runner restart
+sudo gitlab-runner list
+```
+
+
+## install runner service
 ```bash
 sudo adduser --disabled-password gitlab-runner
 
@@ -49,22 +57,6 @@ sudo gitlab-runner restart
 sudo gitlab-runner status
 # OR
 sudo systemctl status gitlab-runner
-```
-
-
-## register
-register a new runner
-```bash
-gitlab-runner list
-
-sudo -u gitlab-runner gitlab-runner list
-sudo -u gitlab-runner /bin/bash
-
-
-# user: gitlab-runner
-gitlab-runner register
-# OR
-gitlab-runner register  --url https://gitlab.com  --token qqqwwweeerrr
 ```
 
 
