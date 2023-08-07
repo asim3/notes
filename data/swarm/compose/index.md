@@ -1,3 +1,21 @@
+## stack
+`docker stack deploy -c my_stack_file.yml my_stack-name`
+```yml
+version: "3.8"
+services:
+  app:
+    image: asim3/whoami:1.3
+    ports:
+      - "8001:80"
+    deploy:
+      mode: replicated
+      replicas: 2
+    environment:
+      MY___11111111111111: "22222222222222222222222222222222"
+      MY___22222222222222: my Env
+```
+
+
 ## services
 `mkdir -p my_compose_dir/`     
 `nano my_compose_dir/docker-compose.yml`
