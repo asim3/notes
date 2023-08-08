@@ -1,5 +1,6 @@
-[docs](https://github.com/prometheus-operator/kube-prometheus)
-[prometheus](https://github.com/prometheus-operator/kube-prometheus)
+[docs](https://prometheus.io/docs/prometheus/latest/getting_started/)
+[prometheus](https://github.com/prometheus/prometheus)
+[node_exporter](https://github.com/prometheus/node_exporter)
 
 
 ## install
@@ -9,8 +10,16 @@ version: "3.8"
 services:
   app:
     image: prom/prometheus:latest
-    ports:
-      - "9090:9090"
     environment:
       TZ: Asia/Riyadh
+    ports:
+      - "9090:9090"
+
+  node_exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    command: "--path.rootfs=/host"
+    environment:
+      TZ: Asia/Riyadh
+    volumes:
+      - "/:/host:ro,rslave"
 ```
