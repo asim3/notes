@@ -7,16 +7,55 @@ services:
     image: asim3/whoami:1.3
     ports:
       - "8001:80"
-    deploy:
-      mode: replicated
-      replicas: 2
+```
+
+
+## stack all
+```yml
+version: "3.8"
+services:
+  app:
+    image: asim3/whoami:1.3
+    user: "1000:1000"
     environment:
       TZ: Asia/Riyadh
       MY___11111111111111: "22222222222222222222222222222222"
       MY___22222222222222: my Env
+    secrets:
+      - source: secret_swarmcd_key
+        target: /home/swarmcd/.ssh/id_ecdsa
+        uid: "1000"
+        gid: "1000"
+        mode: 0400
+    deploy:
+      mode: replicated
+      replicas: 2
+      labels:
+        - traefik.enable=false
+      resources:
+        reservations:
+          memory: 128M
+        limits:
+          memory: 2048M
+      placement:
+        constraints:
+          - node.role == manager
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    networks:
+      - main-public
+    ports:
+      - "8001:80"
+networks:
+  main-public:
+    external: true
+secrets:
+  secret_swarmcd_key:
+    external: true
 ```
 
 
+# !old
 ## services
 `mkdir -p my_compose_dir/`     
 `nano my_compose_dir/docker-compose.yml`
