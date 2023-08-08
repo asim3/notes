@@ -11,6 +11,7 @@ services:
       mode: replicated
       replicas: 2
     environment:
+      TZ: Asia/Riyadh
       MY___11111111111111: "22222222222222222222222222222222"
       MY___22222222222222: my Env
 ```
