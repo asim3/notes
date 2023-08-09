@@ -1,6 +1,4 @@
 [docs](https://prometheus.io/docs/prometheus/latest/getting_started/)
-[prometheus](https://github.com/prometheus/prometheus)
-[node_exporter](https://github.com/prometheus/node_exporter)
 
 
 ## install
