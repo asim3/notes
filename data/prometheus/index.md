@@ -6,9 +6,11 @@
 ```yaml
 version: "3.8"
 services:
-  app:
+  db:
     image: prom/prometheus:latest
-    # command: --config.file="prometheus.yml" --storage.tsdb.path="data/"
+    command: >-
+      --config.file="/etc/prometheus/prometheus.yml"
+      --storage.tsdb.path="/prometheus"
     environment:
       TZ: Asia/Riyadh
     volumes:
@@ -17,8 +19,23 @@ services:
       - prometheus
     ports:
       - "9090:9090"
+
+  app:
+    image: grafana/grafana:latest
+    environment:
+      TZ: Asia/Riyadh
+    volumes:
+      - "grafana:/var/lib/grafana"
+    networks:
+      - prometheus
+    ports:
+      - "3000:3000"
+
 networks:
   prometheus:
+
+volumes:
+  grafana:
 ```
 
 
