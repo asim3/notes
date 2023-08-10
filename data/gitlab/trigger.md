@@ -2,51 +2,48 @@
 [docs](https://docs.gitlab.com/ee/ci/pipelines/downstream_pipelines.html#multi-project-pipelines)
 
 
-## upstream
+## Upstream
 ```yml
-upstream build:
+build:
   stage: build
+  environment: staging
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"
+      changes:
+        - Dockerfile
   script:
-    - pwd
+    - docker image build -t $CI_REGISTRY_IMAGE:latest -t $CI_REGISTRY_IMAGE:v$CI_PIPELINE_IID .
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+    - docker push $CI_REGISTRY_IMAGE:v$CI_PIPELINE_IID
+    - docker push $CI_REGISTRY_IMAGE:latest
+  after_script:
+    - docker logout
+
 
 Go To Downstream:
   stage: deploy
-  variables:
-    IMAGE_NAME: ${CI_REGISTRY_IMAGE}:v${CI_PIPELINE_IID}
-    REGISTRY_USER: $CI_REGISTRY_USER
-    REGISTRY_PASSWORD: $CI_REGISTRY_PASSWORD
-    JOB_NAME: $CI_JOB_NAME
-    COMMIT_BRANCH: $CI_COMMIT_BRANCH
-    PROJECT_NAME: $CI_PROJECT_NAME
-    PROJECT_NAMESPACE: $CI_PROJECT_NAMESPACE
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"
+      changes:
+        - Dockerfile
   trigger:
-    project: asimweb/delete-1
+    project: asim/downstream
     branch: main
+  variables:
+    PIPELINE_PROJECT_NAME: $CI_PROJECT_NAME
+    PIPELINE_IMAGE_TAG: v$CI_PIPELINE_IID
+    PIPELINE_COMMIT_BRANCH: $CI_COMMIT_BRANCH
 ```
 
 
 ## downstream
 ```yml
-deploy:
+Update Stack Tag:
   stage: deploy
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "pipeline"
-  script:
-    - echo $CI_PIPELINE_SOURCE
-    # pipeline
-    - echo $IMAGE_NAME
-    # registry.gitlab.com/asimweb/test-ci-cd:v55
-    - echo $REGISTRY_USER
-    # 
-    - echo $REGISTRY_PASSWORD
-    # 
-    - echo $JOB_NAME
-    # Go To Downstream
-    - echo $COMMIT_BRANCH
-    # main
-    - echo $PROJECT_NAME
-    # test-ci-cd
-    - echo $PROJECT_NAMESPACE
-    # asimweb
   environment: staging
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "pipeline" && $PIPELINE_COMMIT_BRANCH == "main"
+  script:
+    - python3 update-stack.py $PIPELINE_PROJECT_NAME $PIPELINE_IMAGE_TAG
+    - git status
 ```
