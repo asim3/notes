@@ -36,14 +36,22 @@ Go To Downstream:
 ```
 
 
-## downstream
+## Downstream
 ```yml
 Update Stack Tag:
   stage: deploy
   environment: staging
   rules:
     - if: $CI_PIPELINE_SOURCE == "pipeline" && $PIPELINE_COMMIT_BRANCH == "main"
+  before_script:
+    - git config user.email "$GITLAB_USER_EMAIL"
+    - git config user.name "Test CI Bot"
+    - git remote add new_origin https://oauth2:${ACCESS_TOKEN}@gitlab.com/asim/downstream.git
   script:
     - python3 update-stack.py $PIPELINE_PROJECT_NAME $PIPELINE_IMAGE_TAG
-    - git status
+    - git add stacks/$PIPELINE_PROJECT_NAME.yml
+    - git commit -m "Update $PIPELINE_PROJECT_NAME Stack To $PIPELINE_IMAGE_TAG"
+    - git push new_origin HEAD:main -o ci.skip # prevent triggering pipeline again
+  after_script:
+    - git remote remove new_origin 
 ```
