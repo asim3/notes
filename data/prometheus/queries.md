@@ -2,7 +2,25 @@
 [PromQL Cheat Sheet](https://promlabs.com/promql-cheat-sheet)
 
 
-#### Data
+## Metric Types
+- Gauge
+  - `time() - process_start_time_seconds`
+- Counter
+  - `rate(my_counter[2h])`
+  - `irate(my_counter[2h])`
+  - `increase(my_counter[2h])`
+- Summary
+  - `http_request_duration_seconds{quantile="0.5"}`
+  - `http_request_duration_seconds{quantile="0.95"}`
+  - `http_request_duration_seconds{quantile="0.99"}`
+- Histogram
+  - `http_request_duration_seconds_bucket{le="0.05"}`
+  - `http_request_duration_seconds_bucket{le="0.5"}`
+  - `http_request_duration_seconds_bucket{le="2.5"}`
+  - `histogram_quantile(0.9, rate(http_request_duration_seconds_bucket[5m]))`
+
+
+#### Data (Exposition)
 `https://demo.promlabs.com/metrics`
 ```
 http_requests_total{path="/foo",method="GET",status="200"}  30123
