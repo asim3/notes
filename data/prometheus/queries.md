@@ -2,6 +2,25 @@
 [PromQL Cheat Sheet](https://promlabs.com/promql-cheat-sheet)
 
 
+## list all
+```promql
+{job="my-target_job.2"}
+```
+
+
+## CPU
+```promql
+rate(node_cpu_seconds_total[1m])
+```
+
+
+## Network
+```promql
+rate(node_network_receive_bytes_total[30s])
+rate(node_network_transmit_bytes_total[1m])
+```
+
+
 ## Metric Types
 - Gauge
   - `time() - process_start_time_seconds`
