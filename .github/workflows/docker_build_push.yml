@@ -22,7 +22,7 @@ jobs:
         with:
           context: .
           load: true
-          tags: notes:latest
+          tags: asim3/notes:from-githubv0
       - name: Inspect
         run: |
-          docker image inspect notes:latest
+          docker image inspect asim3/notes:from-githubv0
