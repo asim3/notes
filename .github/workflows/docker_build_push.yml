@@ -1,4 +1,4 @@
-name: ci
+name: Docker Build & Push
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - "main"
 
 jobs:
-  docker:
+  Docker:
     runs-on: 
       - self-hosted
       - linux

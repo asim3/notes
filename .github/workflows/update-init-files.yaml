@@ -3,24 +3,13 @@ name: Update all init files
 on:
   push:
     branches:
-      - master
-      - main
-    tags:
-      - v\d+\.\d+\.\d+
-
+      - "main"
 
 jobs:
-  update-init_html:
+  update init HTML:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: make
-      - run: |
-          GET_TAGS=$(echo $GITHUB_REF | awk -F "/" '{print $2}')
-          if [ "$GET_TAGS" = "tags" ]; then
-            echo OK: TAG
-          elif [ "${GITHUB_REF##*/}" = "master" ]; then
-            echo OK: Master
-          else
-            echo "Error: $GET_TAGS"
-          fi
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Make Production Paths
+        run: make
