@@ -1,19 +1,72 @@
-## Official Images
-[node](https://hub.docker.com/_/node)
-[busybox](https://hub.docker.com/_/busybox)
-[alpine](https://hub.docker.com/_/alpine)
-[django](https://hub.docker.com/_/django)
-[php](https://hub.docker.com/_/php)
-[wordpress](https://hub.docker.com/_/wordpress)
-[debian](https://hub.docker.com/_/debian)
-[python](https://hub.docker.com/_/python)
-[docker](https://hub.docker.com/_/docker)
-[httpd](https://hub.docker.com/_/httpd)
-[ubuntu](https://hub.docker.com/_/ubuntu)
+[docker-cheat-sheet](https://github.com/wsargent/docker-cheat-sheet#dockerfile)
 
 
 ## Dockerfile
 `nano Dockerfile`
+```dockerfile
+FROM nginx:mainline-alpine3.17-slim
+
+COPY src /usr/share/nginx/html
+```
+
+
+## alpine
+```dockerfile
+FROM nginx:stable-alpine3.17-slim
+
+RUN apk add bash
+
+COPY . /usr/share/nginx/html
+```
+
+
+## python
+Debian 13: `trixie`
+Debian 12: `bookworm`
+Debian 11: `bullseye`
+Debian 10: `buster`
+```dockerfile
+FROM python:3.11-alpine3.18
+
+RUN pip install django gunicorn
+
+COPY . /my_app
+
+WORKDIR /my_app
+
+ENTRYPOINT [ "/bin/sh", "-c" ]
+
+CMD [ "/my_app/manage.py" ]
+```
+
+
+## Django
+```dockerfile
+FROM python:3.11-slim-bullseye
+
+COPY requirements.txt /main/requirements.txt
+
+RUN pip3 install -r /main/requirements.txt
+```
+
+
+## Flask
+```dockerfile
+FROM python:3.11-slim-bullseye
+
+COPY requirements.txt /flask/requirements.txt
+
+RUN pip3 install -r /flask/requirements.txt
+
+COPY . /flask
+
+WORKDIR /flask
+
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+```
+
+
+<!-- ======================================================================================== -->
 ```dockerfile
 FROM debian:latest
 
