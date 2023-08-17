@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  app:
+    # image: asim3/notes:latest
+    build:
+      context: .
+    ports:
+      - "3000:80"
