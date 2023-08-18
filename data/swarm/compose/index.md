@@ -71,30 +71,27 @@ services:
 
 
 ## check compose file
-`cd my_compose_dir/`
-```txt
-sudo docker-compose config
-sudo docker-compose ps
-sudo docker-compose images
+```bash
+docker compose config
+
+docker compose images
+
+docker compose ps
 ```
 
 
 ## run
-`cd my_compose_dir/`
-```txt
-sudo docker-compose up -d
-sudo docker-compose up -d --scale __name__=3
-sudo docker-compose start
+```bash
+docker compose -f docker-compose.yaml up -d --build 
 
-sudo docker-compose stop
+docker compose -f docker-compose.dev.yml up
+
+docker compose up -d
+docker compose up -d --scale __name__=3
+docker compose start
+
+docker compose stop
 
 # stop then remove all containers
-sudo docker-compose down
-```
-
-
-## OR 
-```txt
-sudo docker-compose -f my_compose_dir/docker-compose.yml   up
-sudo docker-compose -f my_compose_dir/docker-compose.yml   down
+docker compose down
 ```
