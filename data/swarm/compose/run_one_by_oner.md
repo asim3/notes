@@ -76,7 +76,6 @@ services:
       - "/bin/sh"
       - "-c"
       - "echo AAAAAAAA"
-    restart: on-failure
     deploy:
       restart_policy:
         condition: on-failure
@@ -87,7 +86,6 @@ services:
       - "/bin/sh"
       - "-c"
       - "echo BBBBBBBB"
-    restart: on-failure
     depends_on:
       AAAAAAAA:
         condition: service_completed_successfully
@@ -101,7 +99,6 @@ services:
       - "/bin/sh"
       - "-c"
       - "echo CCCCCCCC"
-    restart: on-failure
     depends_on:
       BBBBBBBB:
         condition: service_completed_successfully
@@ -115,7 +112,6 @@ services:
       - "/bin/sh"
       - "-c"
       - "echo ZZZZZZZZ"
-    restart: on-failure
     depends_on:
       CCCCCCCC:
         condition: service_completed_successfully
