@@ -71,54 +71,26 @@ version: "3.8"
 
 services:
   AAAAAAAA:
-    image: busybox:stable
-    entrypoint:
-      - "/bin/sh"
-      - "-c"
-      - "echo AAAAAAAA"
+    image: busybox:1.33
+    # image: busybox:1.36
+    entrypoint: ["/bin/sh", "-c", "echo AAAAAAAA; sleep 15m;"]
     deploy:
+      replicas: 3
       restart_policy:
         condition: on-failure
-
-  BBBBBBBB:
-    image: busybox:stable
-    entrypoint:
-      - "/bin/sh"
-      - "-c"
-      - "echo BBBBBBBB"
-    depends_on:
-      AAAAAAAA:
-        condition: service_completed_successfully
-    deploy:
-      restart_policy:
-        condition: on-failure
-
-  CCCCCCCC:
-    image: busybox:stable
-    entrypoint:
-      - "/bin/sh"
-      - "-c"
-      - "echo CCCCCCCC"
-    depends_on:
-      BBBBBBBB:
-        condition: service_completed_successfully
-    deploy:
-      restart_policy:
-        condition: on-failure
-
-  ZZZZZZZZ:
-    image: busybox:stable
-    entrypoint:
-      - "/bin/sh"
-      - "-c"
-      - "echo ZZZZZZZZ"
-    depends_on:
-      CCCCCCCC:
-        condition: service_completed_successfully
-    deploy:
-      restart_policy:
-        condition: on-failure
-
+        max_attempts: 5
+        delay: 15s
+      update_config:
+        parallelism: 1
+        delay: 5m
+        monitor: 5m
+        order: start-first
+        failure_action: rollback
+      rollback_config:
+        parallelism: 1
+        delay: 5m
+        monitor: 5m
+        max_failure_ratio: 3
 ```
 
 
