@@ -42,11 +42,32 @@ CMD [ "/my_app/manage.py" ]
 
 ## Django
 ```dockerfile
-FROM python:3.11-slim-bullseye
+FROM python:3.11-bullseye
 
-COPY requirements.txt /main/requirements.txt
+ENV APP_HOME=/home/d_user/web
 
-RUN pip3 install -r /main/requirements.txt
+RUN addgroup --system d_group && adduser --system d_user && adduser d_user d_group
+
+RUN install -d -m 0750 -o d_user -g d_group $APP_HOME /tmp/d_dir
+
+WORKDIR $APP_HOME
+
+COPY --chown=d_user:d_group --chmod=550 ./entrypoint.sh $APP_HOME/entrypoint.sh
+
+COPY --chown=d_user:d_group --chmod=550 ./requirements.txt $APP_HOME/requirements.txt
+
+RUN pip install --no-cache-dir -r $APP_HOME/requirements.txt
+
+COPY --chown=d_user:d_group --chmod=550 ./__proj__ $APP_HOME
+
+USER d_user
+
+ENTRYPOINT ["/home/d_user/web/entrypoint.sh"]
+
+# nano entrypoint.sh
+# python manage.py migrate
+# python manage.py collectstatic --noinput
+# gunicorn --bind :8000 --workers 3 __proj__.wsgi
 ```
 
 

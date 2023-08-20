@@ -1,45 +1,39 @@
 ## Django
-`nano docker-compose.yaml`
+`nano docker-compose.yml`
 ```yaml
-version: "3.3"
-   
+version: "3.8"
+
 services:
   postgres-compose:
     image: postgres
+    container_name: __proj__-db
     restart: unless-stopped
-    container_name: postgres-compose
-    volumes:
-      - ./data/db:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    volumes:
+      - __proj__-db-data:/var/lib/postgresql/data
 
   django-compose:
-    # build: .
-    image: python:3
-    container_name: django-compose
-    command: >
-      /bin/sh -c "
-        cd /code \
-          && python3 -m venv ./.venv \
-          && pwd \
-          && ls -al / \
-          && ls -al ./ \
-          && source ./.venv/bin/activate \
-          && pip3 install -r ./requirements.txt \
-          && python3 manage.py makemigrations \
-          && python3 manage.py migrate \
-          && python3 manage.py runserver 0.0.0.0:8000
-      "
-    volumes:
-      - ./brandat:/code
-    ports:
-      - "8000:8000"
+    build: .
+    container_name: __proj__
     depends_on:
       - postgres-compose
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - DJANGO_SETTINGS_MODULE=__proj__.settings.docker_dev
+      - DJANGO_DEBUG=True
+      - DJANGO_SECRET_KEY="top-secret"
+      - DJANGO_ALLOWED_HOSTS=*,127.0.0.1,localhost
+      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_DATABASE=postgres
+      - SQL_USER=postgres
+      - SQL_PASSWORD=postgres
+      - SQL_HOST=postgres-compose
+      - SQL_PORT=5432
+    ports:
+      - "8000:8000"
+
+volumes:
+  __proj__-db-data:
 ```
