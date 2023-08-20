@@ -1,3 +1,25 @@
+## SQL
+```yml
+version: "3.8"
+services:
+  db:
+    image: postgres:15-bookworm
+    restart: always
+    environment:
+      POSTGRES_DB: main_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+
+  adminer:
+    image: adminer:4-standalone
+    restart: always
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+    ports:
+      - 8000:8080
+```
+
+
 ## stack
 `docker stack deploy -c my_stack_file.yml my_stack-name`
 ```yml
@@ -62,7 +84,6 @@ version: "3.8"
 
 services:
   app:
-    # image: asim3/notes:latest
     build:
       context: .
     ports:
