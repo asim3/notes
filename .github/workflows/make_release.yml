@@ -17,6 +17,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Add new Release
-        run: gh release create $(cat version.txt) --verify-tag --prerelease
+        run: gh release create $(cat version.txt) --prerelease
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
