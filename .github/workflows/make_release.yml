@@ -6,19 +6,22 @@ on:
       - "main"
 
 jobs:
-  New_Release:
+  main-job:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Get the latest release
+      - name: Increment latest version number
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: >
           gh api
           -H "Accept: application/vnd.github+json"
           -H "X-GitHub-Api-Version: 2022-11-28"
-          /repos/asim3/notes/releases/latest
+          /repos/asim3/notes/releases/latest 
+          | jq -r ".tag_name" 
+          | awk -F. -v OFS=. '{$NF += 1 ; print}'
+          > release.txt
       - name: Make Production Paths
         run: make
       - name: Add new Release
@@ -26,13 +29,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: >
           gh api
-            --method POST
-            -H "Accept: application/vnd.github+json"
-            -H "X-GitHub-Api-Version: 2022-11-28"
-            /repos/asim3/notes/releases
-            -f tag_name='v1.0.0'
+          --method POST
+          -H "Accept: application/vnd.github+json"
+          -H "X-GitHub-Api-Version: 2022-11-28"
+          /repos/asim3/notes/releases
+          -f tag_name=$(cat release.txt)
           -f target_commitish='production'
-          -f name='v0.0.0.1'
+          -f name=Nnnnnn $(cat release.txt)
           -f body='Ddddddddddddddescription of the release'
           -F prerelease=true
           -F draft=false
