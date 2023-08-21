@@ -11,26 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - run: gh release view --json tagName | jq -r ".tagName" | awk -F. -v OFS=. '{$NF += 1 ; print}'
+      - name: Add new Release
+        run: >
+          gh release create 
+          $(gh release view --json tagName -q ".tagName" | awk -F. -v OFS=. '{$NF += 1 ; print}')
+          --notes "TTTTTTTTTTT"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: gh release view --json tagName -q ".tagName"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Increment latest version number
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: >
-          gh api
-          -H "Accept: application/vnd.github+json"
-          -H "X-GitHub-Api-Version: 2022-11-28"
-          /repos/asim3/notes/releases/latest 
-          | jq -r ".tag_name" 
-          | awk -F. -v OFS=. '{$NF += 1 ; print}'
-          > release.txt
-      - name: Make Production Paths
-        run: make
-      - name: Add new Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create $(cat release.txt) --notes "RRRRRRRRRRRRR"
