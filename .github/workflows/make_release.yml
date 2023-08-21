@@ -2,18 +2,18 @@ name: Add New Release
 on:
   push:
     branches:
-      - main
+      - production
 jobs:
   release-job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Increment latest version number
-        run: gh release list --exclude-drafts | awk -F '\t' '{print $1}' | head -n 1 | awk -F. '{$3 += 1 ; print $1 "." $2 "." $3 ".alpha"}' > version.txt
+        run: gh release list --exclude-drafts | awk -F '\t' '{print $1}' | head -n 1 | awk -F. '{$3 += 1 ; print $1 "." $2 "." $3}' > version.txt
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: cat version.txt
       - name: Add new Release
-        run: gh release create $(cat version.txt) --prerelease
+        run: gh release create $(cat version.txt)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
