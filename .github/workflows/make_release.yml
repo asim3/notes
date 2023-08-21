@@ -13,7 +13,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: cat version.txt
-      - run: gh release list
+      - run: gh release list --exclude-drafts | awk -F '\t' '{print $1 "------" $4}'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Add new Release
