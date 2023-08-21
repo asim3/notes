@@ -12,10 +12,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - run: gh release view
-      - run: gh release view -q ".tag_name" 
-      - name: Increment latest version number
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: gh release view -q ".tag_name" 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Increment latest version number
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: >
           gh api
           -H "Accept: application/vnd.github+json"
@@ -28,5 +32,5 @@ jobs:
         run: make
       - name: Add new Release
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh release create $(cat release.txt) --notes "RRRRRRRRRRRRR"
