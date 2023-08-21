@@ -11,10 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - run: gh release view --json tagName
+      - run: gh release view --json tagName | jq -r ".tagName" | awk -F. -v OFS=. '{$NF += 1 ; print}'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: gh release view --json -q ".tag_name" 
+      - run: gh release view --json tagName -q ".tagName"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Increment latest version number
