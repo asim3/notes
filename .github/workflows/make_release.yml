@@ -13,7 +13,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: cat version.txt
-      - run: gh release list --json tagName
+      - run: gh release list
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Add new Release
