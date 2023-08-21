@@ -3,21 +3,20 @@ name: Add New Release
 on:
   push:
     branches:
-      - "production"
+      - main
 
 jobs:
   main-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      
+      - uses: actions/checkout@v3
+
       - name: Increment latest version number
-        run: gh release view --json tagName -q ".tagName" | awk -F. '{$3 += 1 ; print $1 "." $2 "." $3}' > version.txt
+        run: gh release view --json tagName -q ".tagName" | awk -F. '{$3 += 1 ; print $1 "." $2 "." $3 ".alpha"}' > version.txt
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Add new Release
-        run: gh release create $(cat version.txt) --verify-tag
+        run: gh release create $(cat version.txt) --verify-tag --prerelease
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
