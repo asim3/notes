@@ -72,13 +72,15 @@ sudo iptables --insert INPUT -p tcp --dport 22 --source 192.168.122.173/32 --jum
 
 ## Save
 ```bash
+sudo -i
+
 # Debian/Ubuntu: 
-sudo iptables-save  > /etc/iptables/rules.v4
-sudo ip6tables-save > /etc/iptables/rules.v6
+iptables-save  > /etc/iptables/rules.v4
+ip6tables-save > /etc/iptables/rules.v6
 
 # RHEL/CentOS: 
-sudo iptables-save  > /etc/sysconfig/iptables
-sudo ip6tables-save > /etc/sysconfig/ip6tables
+iptables-save  > /etc/sysconfig/iptables
+ip6tables-save > /etc/sysconfig/ip6tables
 ```
 
 
@@ -118,11 +120,15 @@ sudo apt-get install iptables-persistent
 
 ## run me
 ```bash
-sudo iptables --insert INPUT --source 192.168.122.0/24 --jump ACCEPT
+sudo -i
 
-sudo iptables --policy INPUT DROP
+iptables --insert INPUT --source 192.168.122.0/24 --jump ACCEPT
 
-sudo iptables -L
+iptables --policy INPUT DROP
 
-sudo iptables-save
+mkdir -p /etc/iptables
+
+iptables-save  > /etc/iptables/rules.v4
+
+iptables -L
 ```
