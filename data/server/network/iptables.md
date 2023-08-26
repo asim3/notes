@@ -1,3 +1,20 @@
+## IP Tables
+- Filter Table `firewall`
+  - input chain
+  - output chain
+  - forward chain
+- NAT Table `load balancer`
+  - output chain
+  - prerouting chain
+  - postrouting chain
+- Mangle Table `modify connection packets`
+  - input chain
+  - output chain
+  - forward chain
+  - prerouting chain
+  - postrouting chain
+
+
 ## list iptables
 ```bash
 iptables -L
