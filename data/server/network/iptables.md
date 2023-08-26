@@ -19,6 +19,9 @@ sudo iptables -L
 
 # Chain OUTPUT (policy ACCEPT)
 # target     prot     opt     source     destination
+
+
+sudo iptables -L --line-number
 ```
 
 
@@ -29,6 +32,71 @@ sudo iptables --policy INPUT ACCEPT
 sudo iptables --policy INPUT DROP
 ```
 
+
+## insert to a chain
+```bash
+# --insert to the top of the chain
+sudo iptables -I       INPUT --source 192.168.100.0/24   --jump DROP
+sudo iptables -I       INPUT --source 192.168.122.173/32 --jump ACCEPT
+sudo iptables --insert INPUT --source 192.168.122.173/32 --jump REJECT
+
+
+# --append to the bottom of the chain
+sudo iptables -A       INPUT --source 192.168.55.0/24 --jump ACCEPT
+sudo iptables -A       INPUT --source 192.168.55.0/24 --jump DROP
+sudo iptables --append INPUT --source 192.168.55.0/24 --jump REJECT
+```
+
+
+## delete a role
+```bash
+sudo iptables -L --line-number
+
+sudo iptables --delete INPUT 1
+```
+
+
+## ports
+```bash
+# --insert to the top of the chain
+sudo iptables --insert INPUT -p tcp --dport 800 --jump ACCEPT
+sudo iptables --insert INPUT -p tcp --dport 800 --jump DROP
+sudo iptables --insert INPUT -p udp --dport 800 --jump REJECT
+
+
+sudo iptables --insert INPUT -p tcp --dport 22 --source 192.168.55.0/24 --jump ACCEPT
+sudo iptables --insert INPUT -p tcp --dport 22 --source 192.168.55.0/24 --jump DROP
+sudo iptables --insert INPUT -p tcp --dport 22 --source 192.168.122.173/32 --jump REJECT
+```
+
+
+## Save
+```bash
+# Debian/Ubuntu: 
+sudo iptables-save  > /etc/iptables/rules.v4
+sudo ip6tables-save > /etc/iptables/rules.v6
+
+# RHEL/CentOS: 
+sudo iptables-save  > /etc/sysconfig/iptables
+sudo ip6tables-save > /etc/sysconfig/ip6tables
+```
+
+
+## restore
+```bash
+# Debian/Ubuntu: 
+sudo iptables-restore < /etc/iptables/rules.v4
+
+# RHEL/CentOS: 
+sudo iptables-restore < /etc/sysconfig/iptables
+```
+
+
+## auto load
+Automatic iptables rules loading
+```bash
+sudo apt-get install iptables-persistent
+```
 
 
 ## IP Tables
@@ -46,3 +114,15 @@ sudo iptables --policy INPUT DROP
   - forward chain
   - prerouting chain
   - postrouting chain
+
+
+## run me
+```bash
+sudo iptables --insert INPUT --source 192.168.122.0/24 --jump ACCEPT
+
+sudo iptables --policy INPUT DROP
+
+sudo iptables -L
+
+sudo iptables-save
+```
