@@ -1,5 +1,22 @@
 [lists of official GNU packages](http://www.gnu.org/manual/manual.html)
 
+## Date
+```bash
+date 
+# Sun Aug 27 08:58:55 UTC 2023
+date "+%x -- %X"
+# 08/27/23 -- 08:58:55
+date "+%x"
+# 08/27/23
+date "+%T"
+# 08:58:55
+date "+%X"
+# 08:58:55
+date "+%H -- %M -- %S"
+# 08 -- 58 -- 55
+```
+
+
 ## System Logs
 ```bash
 cat /var/log/syslog | tail -n 30
