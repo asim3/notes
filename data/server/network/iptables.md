@@ -72,6 +72,7 @@ sudo iptables --insert INPUT -p tcp --dport 22 --source 192.168.122.173/32 --jum
 
 ## Save
 ```bash
+# Automatic iptables rules loading
 sudo apt install iptables-persistent
 
 
@@ -94,13 +95,6 @@ sudo iptables-restore < /etc/iptables/rules.v4
 
 # RHEL/CentOS: 
 sudo iptables-restore < /etc/sysconfig/iptables
-```
-
-
-## auto load
-Automatic iptables rules loading
-```bash
-sudo apt-get install iptables-persistent
 ```
 
 
