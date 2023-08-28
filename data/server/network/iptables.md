@@ -72,6 +72,9 @@ sudo iptables --insert INPUT -p tcp --dport 22 --source 192.168.122.173/32 --jum
 
 ## Save
 ```bash
+sudo apt install iptables-persistent
+
+
 sudo -i
 
 # Debian/Ubuntu: 
