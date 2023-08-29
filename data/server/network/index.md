@@ -126,11 +126,6 @@ port scanning, top 100 ports
 ```bash
 nmap asim3.com
 # Nmap scan report for asim3.com (172.104.255.49)
-
-# rDNS record for 172.104.255.49: nb-172-104-255-49.frankfurt.nodebalancer.linode.com
-
-# Not shown: 994 closed ports
-
 # PORT          STATE        SERVICE
 # 80/tcp        open         http
 # 119/tcp       filtered     nntp
@@ -138,6 +133,16 @@ nmap asim3.com
 # 445/tcp       filtered     microsoft-ds
 # 2601/tcp      open         zebra
 # 2605/tcp      open         bgpd
+
+
+# info
+nmap -sT -p- 192.168.122.173
+
+# full info
+nmap -sC -sV 192.168.122.173
+
+# full info slow
+nmap -sC -sV -sT -p- 192.168.122.173
 ```
 
 

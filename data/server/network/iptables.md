@@ -116,16 +116,52 @@ sudo iptables-restore < /etc/sysconfig/iptables
 
 
 ## run me
+[docs](https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands#allowing-established-and-related-incoming-connections)
 ```bash
 sudo -i
 
-iptables --insert INPUT --source 192.168.122.0/24 --jump ACCEPT
+iptables -F
+iptables -L
 
+# Loopback Connections
+# iptables --insert INPUT -i lo --jump ACCEPT
+
+# Established and Related Incoming Connections
+# iptables --insert INPUT --match conntrack --ctstate ESTABLISHED,RELATED --jump ACCEPT
+
+# Dropping Invalid Packets
+iptables --insert INPUT --match conntrack --ctstate INVALID --jump DROP
+
+# ICMP ping request
+iptables --insert INPUT -p icmp --jump ACCEPT
+
+# Open Ports
+iptables --insert INPUT -p tcp --dport 8000 --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
+iptables --insert INPUT -p tcp --dport 443  --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
+iptables --insert INPUT -p tcp --dport 80   --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
+iptables --insert INPUT -p tcp --dport 22   --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
+iptables --insert INPUT -p tcp --dport 22   --match conntrack --ctstate     ESTABLISHED --jump ACCEPT
+
+# Docker
+iptables --insert INPUT -p tcp --dport 2376 --source 10.0.0.0/24 --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
+iptables --insert INPUT -p tcp --dport 2377 --source 10.0.0.0/24 --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
+iptables --insert INPUT -p tcp --dport 7946 --source 10.0.0.0/24 --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
+iptables --insert INPUT -p udp --dport 7946 --source 10.0.0.0/24 --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
+iptables --insert INPUT -p udp --dport 4789 --source 10.0.0.0/24 --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
+
+# policy
 iptables --policy INPUT DROP
 
-mkdir -p /etc/iptables
-
+# Save
 iptables-save  > /etc/iptables/rules.v4
 
-iptables -L
+
+
+# V6
+ip6tables -L
+
+ip6tables --policy INPUT DROP
+ip6tables --policy FORWARD DROP
+ip6tables --policy OUTPUT DROP
+ip6tables-save  > /etc/iptables/rules.v6
 ```
