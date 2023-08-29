@@ -2,7 +2,7 @@
 
 ## install
 ```bash
-sudo apt -y install net-tools dnsutils iputils-ping
+sudo apt -y install net-tools dnsutils iputils-ping nmap
 ```
 
 
@@ -55,6 +55,19 @@ netstat -nlt
 # tcp        0      0 127.0.0.1:5432          0.0.0.0:*               LISTEN     
 # tcp        0      0 0.0.0.0:33              0.0.0.0:*               LISTEN     
 # tcp6       0      0 :::111                  :::*                    LISTEN     
+```
+
+
+## ns lookup
+```bash
+nslookup asim.sa
+# ;; communications error to 127.0.0.53#53: timed out
+# Server:		127.0.0.53
+# Address:	127.0.0.53#53
+
+# Non-authoritative answer:
+# Name:	asim.sa
+# Address: 145.239.11.148
 ```
 
 
