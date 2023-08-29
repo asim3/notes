@@ -1,5 +1,10 @@
 [network scan](shodan.io)
 
+## install
+```bash
+sudo apt -y install net-tools dnsutils iputils-ping
+```
+
 
 ## info
 ```bash

@@ -1,3 +1,15 @@
+## basic packages
+```bash
+sudo apt -y install make git curl tree nano bash-completion
+
+# NET
+sudo apt -y install net-tools dnsutils iputils-ping
+
+# auto update
+sudo apt -y install unattended-upgrades
+```
+
+
 ## update all
 ```bash
 sudo apt -y update \
