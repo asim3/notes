@@ -92,6 +92,11 @@ MAILTO="yourname@yourdomain.com"
 
 ## show log
 ```bash
+journalctl -f
+
+journalctl | grep ' CRON'
+
+
 cat /var/log/syslog 
 
 cat /var/log/syslog | grep 'my-host-name CRON'

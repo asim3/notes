@@ -19,11 +19,28 @@ date "+%H -- %M -- %S"
 
 ## System Logs
 ```bash
-cat /var/log/syslog | tail -n 30
+journalctl -f # --follow
 
-cat /var/log/syslog 
+# only from this boot
+journalctl -b # --boot
 
-ls /var/log/
+journalctl -u ssh
+journalctl -u systemd-timesyncd
+journalctl -u cloud-init
+
+journalctl | grep 'asim'
+
+journalctl --list-boots
+```
+
+
+## List all units
+```bash
+systemctl list-unit-files --all
+
+journalctl -u ssh
+journalctl -u systemd-timesyncd
+journalctl -u cloud-init
 ```
 
 

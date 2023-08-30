@@ -37,7 +37,9 @@ sudo systemctl start my_service
 sudo systemctl cat my_service
 sudo systemctl show -p Restart my_service
 sudo systemctl status my_service
-tail /var/log/syslog
+
+journalctl -f
+# tail /var/log/syslog
 ```
 
 
