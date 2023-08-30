@@ -121,10 +121,10 @@ sudo iptables-restore < /etc/sysconfig/iptables
 sudo -i
 
 iptables -F
-iptables -L
+iptables -vnL
 
 # Loopback Connections
-# iptables --insert INPUT -i lo --jump ACCEPT
+iptables --insert INPUT -i lo --jump ACCEPT
 
 # Established and Related Incoming Connections
 # iptables --insert INPUT --match conntrack --ctstate ESTABLISHED,RELATED --jump ACCEPT
@@ -136,18 +136,22 @@ iptables --insert INPUT --match conntrack --ctstate INVALID --jump DROP
 iptables --insert INPUT -p icmp --jump ACCEPT
 
 # Open Ports
-iptables --insert INPUT -p tcp --dport 8000 --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
-iptables --insert INPUT -p tcp --dport 443  --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
-iptables --insert INPUT -p tcp --dport 80   --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
-iptables --insert INPUT -p tcp --dport 22   --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
-iptables --insert INPUT -p tcp --dport 22   --match conntrack --ctstate     ESTABLISHED --jump ACCEPT
+iptables --insert INPUT -p tcp --dport 8000:9000 --jump ACCEPT
+iptables --insert INPUT -p tcp --dport 443 --jump ACCEPT
+iptables --insert INPUT -p tcp --dport 80  --jump ACCEPT
+
+# Open SSH Ports
+iptables --insert INPUT -p tcp --dport 22 --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
 
 # Docker
-iptables --insert INPUT -p tcp --dport 2376 --source 10.0.0.0/24 --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
-iptables --insert INPUT -p tcp --dport 2377 --source 10.0.0.0/24 --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
-iptables --insert INPUT -p tcp --dport 7946 --source 10.0.0.0/24 --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
-iptables --insert INPUT -p udp --dport 7946 --source 10.0.0.0/24 --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
-iptables --insert INPUT -p udp --dport 4789 --source 10.0.0.0/24 --match conntrack --ctstate NEW,ESTABLISHED --jump ACCEPT
+iptables --insert INPUT -p tcp --dport 2376 --source 10.0.0.0/24 --jump ACCEPT
+iptables --insert INPUT -p tcp --dport 2377 --source 10.0.0.0/24 --jump ACCEPT
+iptables --insert INPUT -p tcp --dport 7946 --source 10.0.0.0/24 --jump ACCEPT
+iptables --insert INPUT -p udp --dport 7946 --source 10.0.0.0/24 --jump ACCEPT
+iptables --insert INPUT -p udp --dport 4789 --source 10.0.0.0/24 --jump ACCEPT
+
+# Log
+iptables --append INPUT --jump LOG
 
 # policy
 iptables --policy INPUT DROP
@@ -158,10 +162,22 @@ iptables-save  > /etc/iptables/rules.v4
 
 
 # V6
-ip6tables -L
+ip6tables -vnL
 
 ip6tables --policy INPUT DROP
 ip6tables --policy FORWARD DROP
 ip6tables --policy OUTPUT DROP
 ip6tables-save  > /etc/iptables/rules.v6
+```
+
+
+## Logs
+```bash
+iptables --insert INPUT --match conntrack --ctstate ESTABLISHED,RELATED --jump LOG
+iptables --insert INPUT -p icmp --jump LOG
+iptables --insert INPUT --jump LOG
+
+
+journalctl | grep 'PROTO=ICMP'
+journalctl -f
 ```
