@@ -1,13 +1,9 @@
 ## install ssh server
 ```txt
 sudo apt install -y openssh-server
-
+sudo systemctl enable ssh
 sudo systemctl status ssh
-```
 
-
-## setup ssh
-```txt
 mkdir ~/.ssh/
 chmod 700 ~/.ssh/
 
@@ -16,8 +12,9 @@ chmod 600 ~/.ssh/*
 ```
 
 
-## systemd
+## logs
 ```
-sudo systemctl enable ssh
-sudo systemctl status ssh
+journalctl -u ssh
+
+journalctl -b -u ssh
 ```

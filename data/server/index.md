@@ -11,7 +11,10 @@ ifconfig
 
 ## Login to Server
 > logout SSH `exit`
-```txt
+```bash
+# test connection
+ssh -T git@github.com
+
 ssh username@server.ip
 
 # run bash on remote server

@@ -1,11 +1,17 @@
+[SSH Audit](ssh-audit.com)
+
+
 ## generate key
 > if you want to change the key name make sure to put the full directory path
 ```bash
-cd ~/.ssh/
-ssh-keygen -t ecdsa -b 521 -C "argocd@asimt.sa"
+ssh-keygen -t ed25519 -C "test-1@asimt.sa"
 
-# old
-ssh-keygen -t rsa -b 4096 -C "myname@example.com"
+ssh-keygen -t rsa -b 4096 -C "test-2@asimt.sa"
+
+# -t ed25519 : EdDSA performs much faster and provides the same level of security with significantly smaller keys
+# -t rsa     : old - universally supported
+# -t dsa     : Just don’t use ECDSA/DSA!
+# -t ecdsa   : Just don’t use ECDSA/DSA!
 ```
 
 
@@ -31,19 +37,6 @@ scp ~/.ssh/id_rsa.pub asim@192.168.100.188:~/.ssh/authorized_keys
 list all authorized keys in the server
 ```txt
 cat ~/.ssh/authorized_keys 
-```
-
-
-## settings
-> make sure to restart sshd `sudo systemctl restart sshd`
-
-`sudo nano /etc/ssh/sshd_config`
-```bash
-# ...
-PubkeyAuthentication yes
-# PermitRootLogin [no|yes|prohibit-password|without-password]
-# PasswordAuthentication yes 
-# ...
 ```
 
 
