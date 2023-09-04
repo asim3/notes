@@ -36,7 +36,8 @@ Debian 10: `buster`
 ```dockerfile
 FROM python:3.11-alpine3.18
 
-RUN apk add bash
+RUN apk update && apk add bash
+# RUN apk update --no-check-certificate && apk add --no-check-certificate bash
 
 RUN adduser -S -s /bin/bash -u 1000 -D d_user
 
