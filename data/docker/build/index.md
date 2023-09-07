@@ -4,7 +4,7 @@
 ## alpine
 `nano Dockerfile`
 ```dockerfile
-FROM nginx:stable-alpine3.17-slim
+FROM alpine:3.18
 
 RUN apk add bash
 
@@ -26,6 +26,7 @@ RUN adduser -S -s /bin/bash -u 1000 -D d_user
 
 COPY --chown=d_user --chmod=550  ./src /usr/share/nginx/html
 ```
+
 
 
 ## python
@@ -99,6 +100,31 @@ RUN tar xzf ./file.tar.gz  --directory /home/d_dir
 FROM python:3.11-alpine3.18
 
 COPY --from=build --chown=d_user --chmod=500  /home/d_dir /home/d_python
+```
+
+
+## Minimal Python
+```dockerfile
+# FROM python:3.11-slim-bullseye
+FROM python:3.7-alpine as base
+
+FROM base as builder
+
+RUN mkdir /install
+WORKDIR /install
+
+COPY requirements.txt /requirements.txt
+
+RUN pip install --install-option="--prefix=/install" -r /requirements.txt
+
+FROM base
+
+COPY --from=builder /install /usr/local
+COPY src /app
+
+WORKDIR /app
+
+CMD ["gunicorn", "-w 4", "main:app"]
 ```
 
 
