@@ -6,13 +6,9 @@ jobs:
   print-all:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $GITHUB_ACTOR
-      - run: echo $GITHUB_REPOSITORY_OWNER
-      - run: echo $GITHUB_EVENT_NAME
-      - run: echo $GITHUB_JOB
-      - run: echo $GITHUB_RUN_ATTEMPT
-      - run: echo $GITHUB_RUN_ID
       - run: echo $GITHUB_RUN_NUMBER
-      - run: echo $GITHUB_SHA
-      - run: echo $GITHUB_REF
-      - run: echo $GITHUB_REF_NAME
+
+  v0.1.2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $GITHUB_RUN_NUMBER
