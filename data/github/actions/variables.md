@@ -1,3 +1,31 @@
+```yml
+jobs:
+  print-all:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $GITHUB_ACTOR
+        # asim3
+      - run: echo $GITHUB_REPOSITORY_OWNER
+        # asim3
+      - run: echo $GITHUB_EVENT_NAME
+        # push
+      - run: echo $GITHUB_JOB
+        # print-all
+      - run: echo $GITHUB_RUN_ATTEMPT
+        # 1
+      - run: echo $GITHUB_RUN_ID
+        # 1234567
+      - run: echo $GITHUB_RUN_NUMBER
+        # 1
+      - run: echo $GITHUB_SHA
+        # eecc19defce84ee6bbc9cb482ba7a3d13ee0eecf
+      - run: echo $GITHUB_REF
+        # refs/heads/main
+      - run: echo $GITHUB_REF_NAME
+        # main
+```
+
+
 ## Default environment variables
 [docs](https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables)
 ```yml
@@ -11,87 +39,45 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo $CI
-        # 
+        # true
       - run: echo $GITHUB_ACTION
-        # 
-      - run: echo $GITHUB_ACTION_PATH
-        # 
-      - run: echo $GITHUB_ACTION_REPOSITORY
-        # 
+        # __run_2
       - run: echo $GITHUB_ACTIONS
-        # 
+        # true
       - run: echo $GITHUB_ACTOR
-        # 
+        # asim3
       - run: echo $GITHUB_ACTOR_ID
-        # 
+        # 12345
       - run: echo $GITHUB_API_URL
-        # 
-      - run: echo $GITHUB_BASE_REF
-        # 
-      - run: echo $GITHUB_ENV
-        # 
+        # https://api.github.com
       - run: echo $GITHUB_EVENT_NAME
-        # 
-      - run: echo $GITHUB_EVENT_PATH
-        # 
-      - run: echo $GITHUB_GRAPHQL_URL
-        # 
-      - run: echo $GITHUB_HEAD_REF
-        # 
+        # push
       - run: echo $GITHUB_JOB
-        # 
-      - run: echo $GITHUB_OUTPUT
-        # 
-      - run: echo $GITHUB_PATH
-        # 
+        # print-all
       - run: echo $GITHUB_REF
-        # 
+        # refs/heads/main
       - run: echo $GITHUB_REF_NAME
-        # 
+        # main
       - run: echo $GITHUB_REF_PROTECTED
-        # 
-      - run: echo $GITHUB_REF_TYPE
-        # 
+        # false
       - run: echo $GITHUB_REPOSITORY
-        # 
+        # asim3/notes
       - run: echo $GITHUB_REPOSITORY_ID
-        # 
+        # 12345
       - run: echo $GITHUB_REPOSITORY_OWNER
-        # 
-      - run: echo $GITHUB_REPOSITORY_OWNER_ID
-        # 
-      - run: echo $GITHUB_RETENTION_DAYS
-        # 
+        # asim3
       - run: echo $GITHUB_RUN_ATTEMPT
-        # 
+        # 1
       - run: echo $GITHUB_RUN_ID
-        # 
+        # 1234567
       - run: echo $GITHUB_RUN_NUMBER
-        # 
-      - run: echo $GITHUB_SERVER_URL
-        # 
+        # 1
       - run: echo $GITHUB_SHA
-        # 
-      - run: echo $GITHUB_STEP_SUMMARY
-        # 
+        # eecc19defce84ee6bbc9cb482ba7a3d13ee0eecf
       - run: echo $GITHUB_WORKFLOW
-        # 
-      - run: echo $GITHUB_WORKFLOW_REF
-        # 
-      - run: echo $GITHUB_WORKFLOW_SHA
-        # 
-      - run: echo $GITHUB_WORKSPACE
-        # 
-      - run: echo $RUNNER_ARCH
-        # 
-      - run: echo $RUNNER_DEBUG
-        # 
+        # Default environment variables
       - run: echo $RUNNER_NAME
-        # 
+        # GitHub Actions 2
       - run: echo $RUNNER_OS
-        # 
-      - run: echo $RUNNER_TEMP
-        # 
-      - run: echo $RUNNER_TOOL_CACHE
-        # 
+        # Linux
 ```
