@@ -1,0 +1,92 @@
+name: Default environment variables
+on: 
+  - push
+
+jobs:
+  print-all:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $CI
+        # 
+      - run: echo $GITHUB_ACTION
+        # 
+      - run: echo $GITHUB_ACTION_PATH
+        # 
+      - run: echo $GITHUB_ACTION_REPOSITORY
+        # 
+      - run: echo $GITHUB_ACTIONS
+        # 
+      - run: echo $GITHUB_ACTOR
+        # 
+      - run: echo $GITHUB_ACTOR_ID
+        # 
+      - run: echo $GITHUB_API_URL
+        # 
+      - run: echo $GITHUB_BASE_REF
+        # 
+      - run: echo $GITHUB_ENV
+        # 
+      - run: echo $GITHUB_EVENT_NAME
+        # 
+      - run: echo $GITHUB_EVENT_PATH
+        # 
+      - run: echo $GITHUB_GRAPHQL_URL
+        # 
+      - run: echo $GITHUB_HEAD_REF
+        # 
+      - run: echo $GITHUB_JOB
+        # 
+      - run: echo $GITHUB_OUTPUT
+        # 
+      - run: echo $GITHUB_PATH
+        # 
+      - run: echo $GITHUB_REF
+        # 
+      - run: echo $GITHUB_REF_NAME
+        # 
+      - run: echo $GITHUB_REF_PROTECTED
+        # 
+      - run: echo $GITHUB_REF_TYPE
+        # 
+      - run: echo $GITHUB_REPOSITORY
+        # 
+      - run: echo $GITHUB_REPOSITORY_ID
+        # 
+      - run: echo $GITHUB_REPOSITORY_OWNER
+        # 
+      - run: echo $GITHUB_REPOSITORY_OWNER_ID
+        # 
+      - run: echo $GITHUB_RETENTION_DAYS
+        # 
+      - run: echo $GITHUB_RUN_ATTEMPT
+        # 
+      - run: echo $GITHUB_RUN_ID
+        # 
+      - run: echo $GITHUB_RUN_NUMBER
+        # 
+      - run: echo $GITHUB_SERVER_URL
+        # 
+      - run: echo $GITHUB_SHA
+        # 
+      - run: echo $GITHUB_STEP_SUMMARY
+        # 
+      - run: echo $GITHUB_WORKFLOW
+        # 
+      - run: echo $GITHUB_WORKFLOW_REF
+        # 
+      - run: echo $GITHUB_WORKFLOW_SHA
+        # 
+      - run: echo $GITHUB_WORKSPACE
+        # 
+      - run: echo $RUNNER_ARCH
+        # 
+      - run: echo $RUNNER_DEBUG
+        # 
+      - run: echo $RUNNER_NAME
+        # 
+      - run: echo $RUNNER_OS
+        # 
+      - run: echo $RUNNER_TEMP
+        # 
+      - run: echo $RUNNER_TOOL_CACHE
+        # 
