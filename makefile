@@ -14,3 +14,10 @@ commit:
 
 push:
 	git push --force origin production
+
+new_tag:
+	awk -F. -v OFS=. '{$$NF += 1 ; print}' .github/version_number > .github/version_number_new
+	head -n 1 .github/version_number_new > .github/version_number
+	rm -f .github/version_number_new
+	git tag -a $$(cat .github/version_number) -m "Added by asim using Makefile"
+	git push origin $$(cat .github/version_number)
