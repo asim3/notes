@@ -6,9 +6,11 @@ jobs:
   print-all:
     runs-on: ubuntu-latest
     steps:
+      - run: echo $GITHUB_JOB
       - run: echo $GITHUB_RUN_NUMBER
 
-  v0.1.2:
+  v-aa_bbb:
     runs-on: ubuntu-latest
     steps:
+      - run: echo $GITHUB_JOB
       - run: echo $GITHUB_RUN_NUMBER
