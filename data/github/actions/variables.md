@@ -7,8 +7,6 @@ jobs:
         # asim3
       - run: echo $GITHUB_REPOSITORY_OWNER
         # asim3
-      - run: echo $GITHUB_EVENT_NAME
-        # push
       - run: echo $GITHUB_JOB
         # print-all
       - run: echo $GITHUB_RUN_ATTEMPT
@@ -21,8 +19,10 @@ jobs:
         # eecc19defce84ee6bbc9cb482ba7a3d13ee0eecf
       - run: echo $GITHUB_REF
         # refs/heads/main
+        # refs/tags/v-0.70.2
       - run: echo $GITHUB_REF_NAME
         # main
+        # v-0.70.2
 ```
 
 
@@ -56,8 +56,10 @@ jobs:
         # print-all
       - run: echo $GITHUB_REF
         # refs/heads/main
+        # refs/tags/v-0.70.2
       - run: echo $GITHUB_REF_NAME
         # main
+        # v-0.70.2
       - run: echo $GITHUB_REF_PROTECTED
         # false
       - run: echo $GITHUB_REPOSITORY

@@ -3,7 +3,9 @@ name: Update all init files
 on:
   push:
     branches:
-      - "main"
+      - 'main'
+      - 'releases/**'
+
 
 jobs:
   update_init_HTML:
@@ -11,17 +13,3 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: make
-
-  release-job:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Increment latest version number
-        run: gh release list --exclude-drafts | awk -F '\t' '{print $1}' | head -n 1 | awk -F. '{$3 += 1 ; print $1 "." $2 "." $3 ".stag"}' > version.txt
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: cat version.txt
-      - name: Add new Release
-        run: gh release create $(cat version.txt) --prerelease
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

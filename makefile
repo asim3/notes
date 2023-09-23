@@ -16,5 +16,5 @@ push:
 	git push --force origin production
 
 new_tag:
-	git tag -a $$(git tag -l --sort=-creatordate "v-*" | head -n 1 | awk -F. -v OFS=. '{$$NF += 1 ; print}')
+	git tag -a $$(git tag -l --sort=-creatordate 'v-*' | head -n 1 | awk -F. -v OFS=. '{$$NF += 1 ; print}') -m 'Added by $$(whoami) using Makefile v2'
 	git push origin --tags
