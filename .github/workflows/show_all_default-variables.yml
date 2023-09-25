@@ -18,10 +18,9 @@ on:
         type: boolean
         required: false
       DDD:
-        description: 'Environment to run tests against'
-        type: environment
+        description: 'EE EE E eee EE'
         required: true
-
+        type: string
 
 jobs:
   print-all:
@@ -29,5 +28,5 @@ jobs:
     steps:
       - run: echo $AAAAAAAAAA
         env:
-          AAAAAAAAAA: ${{ inputs }}
+          AAAAAAAAAA: ${{ inputs.DDD }}
       - run: echo ${{ inputs }}
