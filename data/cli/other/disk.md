@@ -13,6 +13,17 @@ du -sh my_directory/
 ```
 
 
+## Dir Size
+```bash
+sudo du -sh /home/*
+# 28K	    /home/asim
+# 2.7G	    /home/aaa
+# 192K	    /home/bbb
+# 3.2G	    /home/ccc
+# 3.2G	    /home/ddd
+```
+
+
 ## ISO Bootable USB
 ```txt
 lsblk
