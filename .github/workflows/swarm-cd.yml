@@ -1,0 +1,23 @@
+name: Update Swarm Stack File
+
+on:
+  workflow_dispatch:
+    inputs:
+      stack_file:
+        description: 'Swarm stack file name'
+        required: true
+        type: string
+      image_tag:
+        description: 'New image tag'
+        required: true
+        type: string
+
+
+jobs:
+  print-all:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${STACK} ${TAG}
+        env:
+          STACK: ${{ inputs.stack_file }}
+          TAG: ${{ inputs.image_tag }}
