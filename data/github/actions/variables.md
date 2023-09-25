@@ -3,6 +3,9 @@ jobs:
   print-all:
     runs-on: ubuntu-latest
     steps:
+      - run: echo $GITHUB_EVENT_NAME
+        # push
+        # workflow_dispatch
       - run: echo $GITHUB_ACTOR
         # asim3
       - run: echo $GITHUB_REPOSITORY_OWNER
@@ -52,6 +55,7 @@ jobs:
         # https://api.github.com
       - run: echo $GITHUB_EVENT_NAME
         # push
+        # workflow_dispatch
       - run: echo $GITHUB_JOB
         # print-all
       - run: echo $GITHUB_REF
