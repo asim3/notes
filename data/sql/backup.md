@@ -1,3 +1,35 @@
+## Backup & Restore
+```bash
+mkdir /tmp/db-backup
+psql postgresql://user_6:my-pass-6@192.168.122.161:5432/new_db_6 -c "\dn"  -c "SELECT * FROM auth_user;"
+psql postgresql://user_8:my-pass-8@192.168.122.161:5432/new_db_8 -c "SELECT * FROM information_schema.tables WHERE table_schema = 'user_8';"
+
+
+# Backup
+pg_dump \
+--format=c \
+--no-owner \
+--file=/tmp/db-backup/backup.test.12.dump \
+postgresql://user_6:my-pass-6@192.168.122.161:5432/new_db_6
+
+
+# Restore
+pg_restore \
+--no-owner \
+--exit-on-error \
+--clean \
+--if-exists \
+--dbname=postgresql://user_8:my-pass-8@192.168.122.161:5432/new_db_8 \
+/tmp/db-backup/backup.test.12.dump
+
+
+psql postgresql://user_8:my-pass-8@192.168.122.161:5432/new_db_8 -c "DROP SCHEMA IF EXISTS data_backup CASCADE;"
+psql postgresql://user_8:my-pass-8@192.168.122.161:5432/new_db_8 -c "alter schema data_main_6 rename to data_backup;"
+psql postgresql://user_8:my-pass-8@192.168.122.161:5432/new_db_8 -c "alter schema data_main_8 rename to data_main_8_1_2_4;"
+psql postgresql://user_8:my-pass-8@192.168.122.161:5432/new_db_8 -c "alter schema data_backup rename to data_main_8;"
+```
+
+
 ## Backup
 ```bash
 pg_dump -U postgres -d my_database > /tmp/my_dump_backup.sql
