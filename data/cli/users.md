@@ -63,3 +63,16 @@ usermod -l new-name old-name
 
 usermod -u 1002 old-name
 ```
+
+
+## Delete user
+```bash
+# Debian and its derivatives
+sudo deluser --remove-home my-new-user
+sudo deluser --remove-home debian
+sudo deluser --remove-home ubuntu
+
+
+# RedHat/CentOS based systems
+userdel --remove my-new-user
+```
