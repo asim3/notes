@@ -127,7 +127,6 @@ GET / HTTP/1.1
 FTP:  port 21
 SMTP: port 25
 HTTP: port 80
-[port numbers](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers)
 
 
 ```bash

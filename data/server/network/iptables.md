@@ -8,6 +8,23 @@ sudo iptables --flush
 ```
 
 
+## Traffic Monitoring
+```bash
+sudo iptables  -vnL
+sudo ip6tables -vnL
+
+
+sudo -i
+iptables --append INPUT   --jump LOG
+iptables --append FORWARD --jump LOG
+iptables --append OUTPUT  --jump LOG
+
+ip6tables --append INPUT   --jump LOG
+ip6tables --append FORWARD --jump LOG
+ip6tables --append OUTPUT  --jump LOG
+```
+
+
 ## list iptables
 ```bash
 sudo iptables -L
@@ -164,9 +181,11 @@ iptables-save  > /etc/iptables/rules.v4
 # V6
 ip6tables -vnL
 
+ip6tables --insert INPUT --jump ACCEPT --match conntrack --ctstate ESTABLISHED,RELATED
+
 ip6tables --policy INPUT DROP
 ip6tables --policy FORWARD DROP
-ip6tables --policy OUTPUT DROP
+ip6tables --policy OUTPUT ACCEPT
 ip6tables-save  > /etc/iptables/rules.v6
 ```
 

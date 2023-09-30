@@ -1,3 +1,6 @@
+[port numbers](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers)
+
+
 ## scan for IP addresses
 ```bash
 nmap -sP 192.168.1.0/24
