@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: notes-pod-name
-  namespace: notes-ns-2
+  namespace: projects-notes
   labels:
     my: notes-pod-label
     type: main
