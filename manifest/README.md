@@ -6,7 +6,7 @@ metadata:
   name: notes
   namespace: argocd
 spec:
-  project: notes
+  project: default
   destination:
     server: https://kubernetes.default.svc
     namespace: default
