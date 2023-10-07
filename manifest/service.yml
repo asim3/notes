@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: whoami-test
+  name: notes-service-name
   namespace: notes-ns-2
   labels:
-    my: test-ingress
+    my: notes-service-label
 spec:
   type: ClusterIP
   selector:
-    my: test-ingress
+    my: notes-pod-label
     type: main
   ports:
   - port: 80

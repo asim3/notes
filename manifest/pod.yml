@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: whoami-test
+  name: notes-pod-name
   namespace: notes-ns-2
   labels:
-    my: test-ingress
+    my: notes-pod-label
     type: main
 spec:
   containers:
-  - image: containous/whoami
-    name: whoami-test
+  - image: asim3/notes:0.60.6
+    name: notes-container-name

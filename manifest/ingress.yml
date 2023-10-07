@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   namespace: notes-ns-2
   # name: must be a valid DNS subdomain name
-  name: whoami-test
+  name: notes-ingress-name
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
@@ -16,6 +16,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: whoami-test
+            name: notes-service-name
             port: 
               number: 80
