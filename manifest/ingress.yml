@@ -11,7 +11,7 @@ spec:
   tls:
   - hosts:
       - notes.test.asimt.sa
-    secretName: notes.test.asimt.sa.aaaaaaaaaaaaaaaaaa-secret-added-by-ingress
+    secretName: notes.test.asimt.sa
   rules:
   - host: notes.test.asimt.sa
     http:
