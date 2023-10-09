@@ -5,8 +5,13 @@ metadata:
   name: notes-ingress-name
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+      - notes.test.asimt.sa
+    secretName: notes.test.asimt.sa.aaaaaaaaaaaaaaaaaa-secret-added-by-ingress
   rules:
   - host: notes.test.asimt.sa
     http:
