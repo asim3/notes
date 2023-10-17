@@ -11,7 +11,7 @@ spec:
   tls:
   - hosts:
       - notes.test.asimt.sa
-    secretName: notes.test.asimt.sa
+    secretName: cluster-issuer-certificate-notes-test
   rules:
   - host: notes.test.asimt.sa
     http:
