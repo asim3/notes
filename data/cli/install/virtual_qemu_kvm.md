@@ -1,12 +1,17 @@
 # Virtualization Environment
 [docs](https://wiki.qemu.org/Category:User_documentations)
 
-## install QEMU
+## check processor support
 ```bash
-# check processor support
 lscpu | grep Virtual
 # Virtualization: VT-x
+```
 
+
+## install QEMU kvm2
+```bash
+sudo adduser $USER kvm
+sudo adduser $USER libvirt
 
 sudo apt install qemu-kvm
 
@@ -18,9 +23,6 @@ sudo apt install libvirt-clients
 
 # Utilities for configuring the Linux Ethernet bridge
 sudo apt install bridge-utils
-
-sudo adduser $USER kvm
-sudo adduser $USER libvirt
 
 sudo reboot
 
