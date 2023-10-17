@@ -14,21 +14,8 @@ spec:
         - asim.asimt.sa
         - asimt.sa
       secretName: cluster-issuer-certificate-notes
-    - hosts:
-        - notes.test.asimt.sa
-      secretName: cluster-issuer-certificate-notes-test
   rules:
     - host: notes.asimt.sa
-      http:
-        paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: notes-service-name
-              port: 
-                number: 80
-    - host: notes.test.asimt.sa
       http:
         paths:
         - path: /
