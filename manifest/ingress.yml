@@ -25,3 +25,23 @@ spec:
               name: notes-service-name
               port: 
                 number: 80
+    - host: asim.asimt.sa
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: notes-service-name
+              port: 
+                number: 80
+    - host: asimt.sa
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: notes-service-name
+              port: 
+                number: 80
