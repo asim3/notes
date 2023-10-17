@@ -11,9 +11,8 @@ spec:
   tls:
     - hosts:
         - notes.asimt.sa
-        - notes-2.asimt.sa
-        - notes.stag.asimt.sa
-        - notes.prod.asimt.sa
+        - asim.asimt.sa
+        - asimt.sa
       secretName: cluster-issuer-certificate-notes
     - hosts:
         - notes.test.asimt.sa
