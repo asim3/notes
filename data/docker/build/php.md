@@ -1,3 +1,35 @@
+## Dev
+```dockerfile
+FROM composer:2.6 as make
+RUN composer create-project --prefer-dist laravel/laravel my_project
+
+WORKDIR /app/my_project
+RUN cp .env.example .env
+RUN php artisan key:generate
+
+
+FROM composer:2.6 as build
+COPY --from=make /app/my_project /app
+RUN composer install --no-interaction
+# RUN composer install --prefer-dist --no-dev --optimize-autoloader --no-interaction
+
+
+FROM php:8.3.0-apache-bullseye as dev
+COPY --from=build /app /var/www/html
+WORKDIR /var/www/html
+ENTRYPOINT [ "/bin/sh", "-c" ]
+CMD [ "php artisan serve --host=localhost --port=8000" ]
+```
+
+
+## run test
+```bash
+docker image build -t asim3/my_laravel:latest .
+
+docker run -it asim3/my_laravel:latest "php artisan test;"
+```
+
+
 ## Production
 ```dockerfile
 FROM composer:2.0 as build
