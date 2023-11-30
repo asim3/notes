@@ -1,5 +1,7 @@
 ## Installation
 ```bash
+sudo apt-get update --fix-missing
+
 # install PHP
 sudo apt install php php-xml php-curl mysql-server php8.1-mysql
 
