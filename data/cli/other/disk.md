@@ -100,3 +100,57 @@ lsblk
 
 sudo mkfs.ext4 /dev/sdb1
 ```
+
+
+## LVM Logical Volume
+```bash
+sudo pvdisplay
+sudo lvdisplay
+
+sudo vgs
+#   VG        #PV #LV #SN Attr   VSize   VFree
+#   ubuntu-vg   1   1   0 wz--n- <23.00g    0
+
+ll /dev/sdb*
+# brw-rw---- 1 root disk 8, 16 Dec 14 12:10 /dev/sdb
+# brw-rw---- 1 root disk 8, 17 Dec 14 12:10 /dev/sdb1
+
+sudo pvcreate /dev/sdb1
+#   Physical volume "/dev/sdb1" successfully created.
+
+sudo vgcreate vg-data /dev/sdb1
+#   Volume group "vg-data" successfully created
+
+sudo vgs
+#   VG        #PV #LV #SN Attr   VSize    VFree
+#   ubuntu-vg   1   1   0 wz--n-  <23.00g       0
+#   vg-data     1   0   0 wz--n- <100.00g <100.00g
+
+sudo lvcreate --name lv-data -l 100%FREE vg-data
+
+# make a filesystem: format this new LV
+sudo mkfs.xfs /dev/vg-data/lv-data
+```
+
+
+## LVM copy /var
+```bash
+sudo mkdir /var.new
+sudo mount /dev/vg-data/lv-data /var.new
+
+sudo cp -R  /var/* /var.new
+sudo du -sh /var /var.new
+
+sudo umount /dev/mapper/vg--data-lv--data
+sudo rm -r /var.new
+
+sudo mount /dev/vg-data/lv-data /var
+```
+
+
+## Permanently mount LVM
+```bash
+sudo nano /etc/fstab
+# By Asim
+# /dev/mapper/vg--data-lv--data   /var   xfs   defaults 0 0
+```
