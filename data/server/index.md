@@ -60,3 +60,16 @@ sudo nano /etc/hosts
 192.168.1.1     my-test-server
 192.168.100.44  my-admin-server
 ```
+
+
+## أداة متابعة الاستخدام
+```txt
+Apigee
+Azure API Management
+IBM API Management
+AWS API Management
+Kong
+MuleSoft
+NewRelic
+Grafana
+```

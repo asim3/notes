@@ -133,6 +133,21 @@
 ```
 
 
+## When Failed
+```yaml
+- name: Add docker signing key from url
+  become: yes
+  become_user: root
+  ansible.builtin.rpm_key:
+    key: "https://download.docker.com/linux/{{ mydistribution }}/gpg"
+    state: present
+  retries: 5
+  delay: 15
+  register: result
+  until: not result.failed
+```
+
+
 ## os_family
 ```yaml
 - name: Include tasks base on OS family
