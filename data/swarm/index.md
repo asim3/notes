@@ -54,3 +54,9 @@ sudo docker node inspect __hostname__
 #             "Availability": "active"
 #     ....
 ```
+
+
+## Delete All
+```bash
+docker system prune --all --force --volumes
+```
