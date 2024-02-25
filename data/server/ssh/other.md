@@ -1,3 +1,34 @@
+## start ssh temporary
+```bash
+ssh asim@192.168.122.200
+# asim@192.168.122.200: Permission denied (publickey).
+
+cat /home/asim/test-ssh-asim/id_by_asim.pub 
+# ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPmWZ8fzMIgRMh1+dCD+QKRRGp0GCfUUMXRoTLx9BzXx test-1@swarm-6
+
+ssh-add -l
+# Could not open a connection to your authentication agent.
+
+# Start the ssh-agent in the background
+eval "$(ssh-agent -s)"
+# Agent pid 1218
+
+ssh-add -l
+# The agent has no identities.
+
+# add your key
+ssh-add /home/asim/test-ssh-asim/id_by_asim
+# Identity added: /home/asim/test-ssh-asim/id_by_asim (test-1@swarm-6)
+
+ssh-add -l
+# 256 SHA256:8Tjc5EA04by4HHJTd1zTWXMG1V7Ahw+hEJKwT83zxAE test-1@swarm-6 (ED25519)
+
+ssh asim@192.168.122.200
+# Last login: Sun Feb 25 19:12:44 2024
+# asim@runner-hub-1:~$ 
+```
+
+
 ## Get fingerprint
 ```bash
 ssh-keygen -l -f ~/.ssh/id_ed25519
@@ -17,13 +48,6 @@ Host github.com
     Port 443
 ```
 
-
-## !!!
-```txt
-# Start the ssh-agent in the background
-eval "$(ssh-agent -s)"
-ssh-add ./.ssh/id_rsa
-```
 
 ## Manual
 > `man ssh-keygen`
