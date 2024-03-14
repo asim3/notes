@@ -3,9 +3,19 @@
 
 ## installing ansible
 ```bash
-sudo apt install -y pipx
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+
+sudo apt install -y pipx        #For Ubuntu, Debian, Linux Mint
+sudo dnf install -y pipx        #For RHEL, Fedora, AlmaLinux
+sudo pacman -S python-pipx      #For Arch, Manjaro, EndeavorOS
+
+pipx ensurepath
+# OR
 sudo PIPX_HOME=/opt/pipx  PIPX_BIN_DIR=/usr/local/bin   pipx install ansible-core
 
+pipx list
+pipx install --include-deps ansible
 
 ansible --version
 ansible-community --version
