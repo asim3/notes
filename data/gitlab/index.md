@@ -34,6 +34,9 @@ sudo gitlab-runner list
 ## install runner service
 ```bash
 sudo adduser --disabled-password gitlab-runner
+# redhat
+sudo useradd -c "GitLab Runner" gitlab-runner
+#sudo useradd -c "GitLab Runner" -G "wheel" gitlab-runner
 
 sudo mkdir -p /home/gitlab-runner/runner-data/
 sudo chown -R gitlab-runner:gitlab-runner /home/gitlab-runner
