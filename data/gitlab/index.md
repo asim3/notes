@@ -41,6 +41,7 @@ sudo useradd -c "GitLab Runner" gitlab-runner
 sudo mkdir -p /home/gitlab-runner/runner-data/
 sudo chown -R gitlab-runner:gitlab-runner /home/gitlab-runner
 sudo mv /home/gitlab-runner/.bash_logout /home/gitlab-runner/.bash_logout.old
+sudo chown -R gitlab-runner:gitlab-runner /home/gitlab-runner/.gitlab-runner
 
 sudo gitlab-runner install \
   --user=gitlab-runner \
