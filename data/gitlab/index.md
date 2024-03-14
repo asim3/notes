@@ -49,6 +49,18 @@ sudo gitlab-runner install \
   -c /home/gitlab-runner/.gitlab-runner/config.toml
 
 
+sudo -u gitlab-runner /bin/bash
+gitlab-runner register  --url https://gitlab.asimt.sa  --token gabc-abcdefg
+# Enter the GitLab instance URL (for example, https://gitlab.com/):
+# Verifying runner... is valid                        runner=dvms7mD6z
+# Enter a name for the runner. This is stored only in the local config.toml file:
+# Enter an executor: parallels, virtualbox, docker-windows, docker-autoscaler, instance, custom, shell, ssh, docker, docker+machine, kubernetes:
+# Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
+```
+
+
+## uninstall runner service
+```bash
 # uninstall service
 sudo gitlab-runner uninstall
 
