@@ -41,19 +41,6 @@ const Page = () => {
 export default Page;
 ```
 
-[Style](https://reactnative.dev/docs/style)
-
-[Testing](https://reactnative.dev/docs/testing-overview)
-
-[UI](https://docs.expo.dev/develop/user-interface/splash-screen-and-app-icon/)
-
-[camera](https://docs.expo.dev/versions/latest/sdk/camera/)
-
-[Font](https://docs.expo.dev/versions/latest/sdk/font/)
-
-[FileSystem](https://docs.expo.dev/versions/latest/sdk/filesystem/)
-
-
 
 ## Dynamic Page
 `./app/main/user/[user_id].tsx`
@@ -81,3 +68,16 @@ const Page = () => {
 
 export default Page;
 ```
+
+
+[Style](https://reactnative.dev/docs/style)
+
+[Testing](https://reactnative.dev/docs/testing-overview)
+
+[UI](https://docs.expo.dev/develop/user-interface/splash-screen-and-app-icon/)
+
+[camera](https://docs.expo.dev/versions/latest/sdk/camera/)
+
+[Font](https://docs.expo.dev/versions/latest/sdk/font/)
+
+[FileSystem](https://docs.expo.dev/versions/latest/sdk/filesystem/)
