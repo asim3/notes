@@ -144,7 +144,19 @@ import { Drawer } from 'expo-router/drawer';
 
 
 const Layout = () => {
-  return <Drawer />;
+  return <Drawer>
+
+  <Drawer.Screen  name='profile' options={{
+    title: 'My User Profile Title',
+    drawerLabel: 'My User Profile Label',
+  }} />
+  
+  <Drawer.Screen  name='[user_id]' options={{
+    title: 'My User [ID] Title',
+    drawerLabel: 'My User [ID] Label',
+  }} />
+  
+  </Drawer>;
 };
 
 
