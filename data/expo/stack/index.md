@@ -21,11 +21,11 @@ import { Stack } from 'expo-router';
 
 const Layout = () => {
   return <Stack>
-    <Stack.Screen name='index' options={{ title: 'My Home Header Title'}} />
-    <Stack.Screen name='my_file_name' options={{ title: 'My Header Title'}} />
-    <Stack.Screen name='(authentication)/login' options={{ title: 'Login'}} />
-    <Stack.Screen name='(authentication)/logout' options={{ title: 'Logout'}} />
-    <Stack.Screen name='(users)/profile' options={{ title: 'User Profile'}} />
+    <Stack.Screen name='index' options={{ title: 'My Home Header Title' }} />
+    <Stack.Screen name='my_file_name' options={{ title: 'My Header Title' }} />
+    <Stack.Screen name='(authentication)/login' options={{ title: 'Login' }} />
+    <Stack.Screen name='(authentication)/logout' options={{ title: 'Logout', headerShown: false }} />
+    <Stack.Screen name='(users)/profile' options={{ title: 'User Profile' }} />
   </Stack>;
 };
 

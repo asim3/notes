@@ -53,7 +53,7 @@ export default Page;
 
 
 ## Dynamic Page
-`./App.tsx`
+`./app/main/user/[user_id].tsx`
 ```ts
 import { View, Text, Button } from 'react-native';
 import React from 'react';
