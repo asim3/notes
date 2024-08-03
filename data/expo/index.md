@@ -1,9 +1,5 @@
 [Reference](https://docs.expo.dev/versions/latest/)
 
-[Style](https://reactnative.dev/docs/style)
-
-[Testing](https://reactnative.dev/docs/testing-overview)
-
 
 ## install
 ```bash
@@ -42,6 +38,9 @@ const Page = () => {
 export default Page;
 ```
 
+[Style](https://reactnative.dev/docs/style)
+
+[Testing](https://reactnative.dev/docs/testing-overview)
 
 [UI](https://docs.expo.dev/develop/user-interface/splash-screen-and-app-icon/)
 
