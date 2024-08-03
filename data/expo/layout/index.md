@@ -140,11 +140,11 @@ export default Layout;
 `./app/main/user/_layout.tsx`
 ```ts
 import React from 'react';
-import { Stack } from 'expo-router';
+import { Drawer } from 'expo-router/drawer';
 
 
 const Layout = () => {
-  return <Stack />;
+  return <Drawer />;
 };
 
 

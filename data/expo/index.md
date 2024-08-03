@@ -15,6 +15,9 @@ npx expo install react-dom react-native-web @expo/metro-runtime
 # Install Expo Router
 npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar
 
+# install Expo Drawer
+npx expo install @react-navigation/drawer react-native-gesture-handler react-native-reanimated
+
 npm run web -- -p 3000
 ```
 
