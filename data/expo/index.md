@@ -22,6 +22,27 @@ npx expo install expo-router react-native-safe-area-context react-native-screens
 npm run web -- -p 3000
 ```
 
+
+## add Page
+`./App.tsx`
+```ts
+import { View, Text } from 'react-native';
+import React from 'react';
+
+
+const Page = () => {
+  return (
+    <View>
+      <Text>Asim 3</Text>
+    </View>
+  );
+};
+
+
+export default Page;
+```
+
+
 [UI](https://docs.expo.dev/develop/user-interface/splash-screen-and-app-icon/)
 
 [camera](https://docs.expo.dev/versions/latest/sdk/camera/)
@@ -29,4 +50,3 @@ npm run web -- -p 3000
 [Font](https://docs.expo.dev/versions/latest/sdk/font/)
 
 [FileSystem](https://docs.expo.dev/versions/latest/sdk/filesystem/)
-

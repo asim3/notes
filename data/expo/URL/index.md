@@ -13,6 +13,8 @@
 }
 ```
 
+
+## Setup web bundler
 `app.json`
 ```js
 {
@@ -26,24 +28,4 @@
     // ...
   }
 }
-```
-
-
-## add Root Dir
-`./app/index.tsx`
-```tsx
-import { View, Text } from 'react-native';
-import React from 'react';
-
-
-const Page = () => {
-  return (
-    <View>
-      <Text>Asim 3</Text>
-    </View>
-  );
-};
-
-
-export default Page;
 ```
