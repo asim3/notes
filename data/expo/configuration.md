@@ -1,3 +1,38 @@
+# Setup routing
+[Docs](https://docs.expo.dev/develop/file-based-routing/)
+
+> `rm ./App.js`
+
+
+## 1. Setup entry point
+`package.json`
+```js
+{
+  // ...
+  "main": "expo-router/entry",
+  // ...
+}
+```
+
+
+## 2. Setup web bundler
+`app.json`
+```js
+{
+  "expo": {
+    // ...
+    "scheme": "your-app-scheme",
+    "web": {
+      "bundler": "metro",
+      // ...
+    },
+    // ...
+  }
+}
+```
+
+
+
 ## `./app.json`
 ```json
 {
