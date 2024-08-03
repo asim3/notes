@@ -98,29 +98,33 @@ import { Ionicons } from '@expo/vector-icons';
 
 
 const Layout = () => {
-  return <Tabs>
-    <Tabs.Screen name='index' options={{
+  return <Tabs screenOptions={{ tabBarLabel: '' }}>
+
+    <Tabs.Screen name='home' options={{
         title: 'My Home Header Title',
-        tabBarLabel: '',
         tabBarIcon: ({size, color}) => (<Ionicons name='home' size={size} color={color} />)
       }} />
     
-    <Tabs.Screen name='my_file_name' options={{
-        title: 'This will be Hidden if href is NULL',
-        href: null
+    <Tabs.Screen name='search' options={{
+        title: 'Search Title',
+        tabBarIcon: ({size, color}) => (<Ionicons name='search'  size={size} color={color} />)
       }} />
     
-    <Tabs.Screen name='authentication' options={{
+    <Tabs.Screen name='news/[id]' options={{
+        title: 'This will be Hidden if href is NULL',
+        tabBarIcon: ({size, color}) => (<Ionicons name='newspaper'  size={size} color={color} />)
+      }} />
+    
+    <Tabs.Screen name='settings' options={{
         title: '',
         headerShown: false,
-        tabBarIcon: ({color}) => (<Ionicons name='log-in-outline'  size={40} color={color} />)
+        tabBarIcon: ({size, color}) => (<Ionicons name='settings'  size={size} color={color} />)
       }} />
 
-    <Tabs.Screen name='(users)' options={{
+    <Tabs.Screen name='user' options={{
         title: 'User Profile',
         headerShown: false,
         tabBarBadge: 9,
-        tabBarLabel: 'User',
         tabBarIcon: () => (<Ionicons name='person' />)
       }} />
     
