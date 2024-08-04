@@ -70,6 +70,15 @@ export default Page;
 ```
 
 
+## export
+```bash
+npx expo export --platform web
+npx expo export --platform ios
+npx expo export --platform android
+npx expo export --platform all
+```
+
+
 [Style](https://reactnative.dev/docs/style)
 
 [Testing](https://reactnative.dev/docs/testing-overview)
