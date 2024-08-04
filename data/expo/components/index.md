@@ -7,6 +7,25 @@ tree ./src/components/
 # └── index.tsx
 ```
 
+## Page
+```ts
+import { Header, Footer } from '../../components'
+
+
+const Page = () => {
+  return (
+    <View>
+      <Header />
+      
+      <Footer />
+    </View>
+  );
+};
+
+
+export default Page;
+```
+
 
 ## index
 `./src/components/index.tsx`
