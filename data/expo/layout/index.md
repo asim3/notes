@@ -9,7 +9,11 @@ tree ./app/app/
 # │   ├── login.tsx
 # │   └── logout.tsx
 # ├── main
-# │   ├── _layout.tsx        <<<
+# │   ├── _layout.tsx          <<<
+# │   ├── _layout.ios.tsx      <<<
+# │   ├── _layout.web.tsx      <<<
+# │   ├── _layout.native.tsx   <<<
+# │   ├── _layout.android.tsx  <<<
 # │   ├── home.tsx
 # │   ├── my_file_name.tsx
 # │   ├── search.tsx
