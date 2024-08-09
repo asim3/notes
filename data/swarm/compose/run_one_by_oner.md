@@ -5,11 +5,17 @@ version: "3.8"
 services:
   AAAAAAAA:
     image: busybox:stable
+    restart: on-failure
     entrypoint:
       - "/bin/sh"
       - "-c"
       - "echo AAAAAAAA"
-    restart: on-failure
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin --password=root  status"]
+      start_period: 10s # Probe failure during this period will not be counted
+      interval: 30s # waiting periods between each command
+      timeout: 3s # health check command timeout
+      retries: 3
 
   BBBBBBBB:
     image: busybox:stable
@@ -30,6 +36,8 @@ services:
       - "echo CCCCCCCC"
     restart: on-failure
     depends_on:
+      AAAAAAAA:
+        condition: service_healthy
       BBBBBBBB:
         condition: service_completed_successfully
 
