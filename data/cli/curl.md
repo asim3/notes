@@ -74,6 +74,9 @@ curl -k https://www.google.com
 # Show document info only
 curl -I https://www.google.com
 
+# verify the remote server
+curl https://www.google.com -I --cacert ./ca-certificates.crt
+
 
 curl https://www.google.com -I --ssl-allow-beast              # Allow security flaw to improve interop
 curl https://www.google.com -I --ssl-auto-client-cert         # Use auto client certificate (Schannel)
@@ -113,3 +116,12 @@ curl https://www.google.com -I --proxy1.0                     # <host[:port]> Us
 
 curl https://www.google.com -I -p # --proxytunnel             # Operate through an HTTP proxy tunnel (using CONNECT)
 ```
+
+
+## default CA certificate store
+Convert it from crt to PEM using the OpenSSL tool
+```bash
+openssl x509 -inform DES -in yourdownloaded.crt -out outcert.pem -text
+```
+
+> Add the root CA (the CA signing the server certificate) to `/etc/ssl/certs/ca-certificates.crt`
