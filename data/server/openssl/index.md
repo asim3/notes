@@ -69,3 +69,34 @@ openssl x509 -req -days 365 \
 ```bash
 openssl rsa -in my_private.key -pubout -out my_public.pub
 ```
+
+
+## Get Site Cert
+```bash
+echo | openssl s_client -showcerts -servername google.com -connect google.com:443 2>/dev/null
+
+# print cert as text
+echo | openssl s_client -showcerts -servername google.com -connect google.com:443 2>/dev/null | openssl x509 -noout -text
+
+# print cert as .crt file
+echo | openssl s_client -showcerts -servername google.com -connect google.com:443 2>/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'
+
+
+openssl x509 -text -noout -in ./my_https.crt
+```
+
+
+## default CA certificate store
+> Add the root CA (the CA signing the server certificate) to `/etc/ssl/certs/ca-certificates.crt`
+```bash
+# Convert it from crt to PEM using the OpenSSL tool
+openssl x509 -inform DES -in yourdownloaded.crt -out outcert.pem -text
+
+openssl x509 -inform der -in certificate.cer -out certificate.pem
+
+openssl x509 -outform der -in your-cert.pem -out your-cert.crt
+
+openssl x509 -outform der -in certificate.pem -out certificate.crt
+```
+
+[Convert Docs](https://stackoverflow.com/questions/13732826/convert-pem-to-crt-and-key)

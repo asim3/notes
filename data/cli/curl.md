@@ -76,52 +76,5 @@ curl -I https://www.google.com
 
 # verify the remote server
 curl https://www.google.com -I --cacert ./ca-certificates.crt
-
-
-curl https://www.google.com -I --ssl-allow-beast              # Allow security flaw to improve interop
-curl https://www.google.com -I --ssl-auto-client-cert         # Use auto client certificate (Schannel)
-curl https://www.google.com -I --ssl-no-revoke                # Disable cert revocation checks (Schannel)
-curl https://www.google.com -I --ssl-reqd                     # Require SSL/TLS
-curl https://www.google.com -I --ssl-revoke-best-effort       # Ignore missing/offline cert CRL dist points
-
-curl https://www.google.com -I -x # --proxy                   # [protocol://]host[:port] Use this proxy
-curl https://www.google.com -I --proxy-anyauth                # Pick any proxy authentication method
-curl https://www.google.com -I --proxy-basic                  # Use Basic authentication on the proxy
-curl https://www.google.com -I --proxy-cacert                 # <file> CA certificate to verify peer against for proxy
-curl https://www.google.com -I --proxy-capath                 # <dir> CA directory to verify peer against for proxy
-curl https://www.google.com -I --proxy-cert                   # <cert[:passwd]> Set client certificate for proxy
-curl https://www.google.com -I --proxy-cert-type              # <type> Client certificate type for HTTPS proxy
-curl https://www.google.com -I --proxy-ciphers                # <list> SSL ciphers to use for proxy
-curl https://www.google.com -I --proxy-crlfile                # <file> Set a CRL list for proxy
-curl https://www.google.com -I --proxy-digest                 # Use Digest authentication on the proxy
-curl https://www.google.com -I --proxy-header                 # <header/@file> Pass custom header(s) to proxy
-curl https://www.google.com -I --proxy-insecure               # Do HTTPS proxy connections without verifying the proxy
-curl https://www.google.com -I --proxy-key                    # <key>    Private key for HTTPS proxy
-curl https://www.google.com -I --proxy-key-type               # <type> Private key file type for proxy
-curl https://www.google.com -I --proxy-negotiate              # Use HTTP Negotiate (SPNEGO) authentication on the proxy
-curl https://www.google.com -I --proxy-ntlm                   # Use NTLM authentication on the proxy
-curl https://www.google.com -I --proxy-pass                   # <phrase> Pass phrase for the private key for HTTPS proxy
-curl https://www.google.com -I --proxy-pinnedpubkey           # <hashes> FILE/HASHES public key to verify proxy with
-curl https://www.google.com -I --proxy-service-name           # <name> SPNEGO proxy service name
-curl https://www.google.com -I --proxy-ssl-allow-beast        # Allow security flaw for interop for HTTPS proxy
-curl https://www.google.com -I --proxy-ssl-auto-client-cert   # Use auto client certificate for proxy (Schannel)
-curl https://www.google.com -I --proxy-tls13-ciphers          # <ciphersuite list> TLS 1.3 proxy cipher suites
-curl https://www.google.com -I --proxy-tlsauthtype            # <type> TLS authentication type for HTTPS proxy
-curl https://www.google.com -I --proxy-tlspassword            # <string> TLS password for HTTPS proxy
-curl https://www.google.com -I --proxy-tlsuser                # <name> TLS username for HTTPS proxy
-curl https://www.google.com -I --proxy-tlsv1                  # Use TLSv1 for HTTPS proxy
-
-curl https://www.google.com -I -U # --proxy-user              # <user:password> Proxy user and password
-curl https://www.google.com -I --proxy1.0                     # <host[:port]> Use HTTP/1.0 proxy on given port
-
-curl https://www.google.com -I -p # --proxytunnel             # Operate through an HTTP proxy tunnel (using CONNECT)
 ```
-
-
-## default CA certificate store
-Convert it from crt to PEM using the OpenSSL tool
-```bash
-openssl x509 -inform DES -in yourdownloaded.crt -out outcert.pem -text
-```
-
 > Add the root CA (the CA signing the server certificate) to `/etc/ssl/certs/ca-certificates.crt`
