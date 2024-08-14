@@ -28,8 +28,13 @@ ssh asim@192.168.100.188 "echo $(cat .ssh/id_rsa.pub) >> ~/.ssh/authorized_keys"
 scp .ssh/id_rsa.pub asim_username@192.168.100.188:/tmp/new_id_rsa.pub
 ssh asim_username@192.168.100.188 "cat /tmp/new_id_rsa.pub >> ~/.ssh/authorized_keys"
 
-# OR to override all old keys
-scp ~/.ssh/id_rsa.pub asim@192.168.100.188:~/.ssh/authorized_keys
+# OR root
+mkdir -p /home/asim/.ssh
+chmod 700 /home/asim/.ssh
+chown asim:asim /home/asim/.ssh
+echo 'ssh-ed25519 ANza1/4  (id_ed25519.pub)' > /home/asim/.ssh/authorized_keys
+chmod 600 /home/asim/.ssh/authorized_keys
+chown asim:asim /home/asim/.ssh/authorized_keys
 ```
 
 
