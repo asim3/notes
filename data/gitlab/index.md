@@ -33,6 +33,7 @@ sudo gitlab-runner list
 
 ## install runner service
 ```bash
+# sudo adduser --shell /bin/bash --uid 1000 --group --disabled-password --disabled-login gitlab-runner
 sudo adduser --disabled-password gitlab-runner
 # redhat
 sudo useradd -c "GitLab Runner" gitlab-runner
