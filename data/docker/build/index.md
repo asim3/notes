@@ -8,7 +8,8 @@ FROM alpine:3.18
 
 RUN apk add bash
 
-RUN adduser --shell /bin/bash --uid 1000 --group --disabled-password --disabled-login d_user
+# RUN adduser --shell /bin/bash --uid 1000 --group --disabled-password --disabled-login d_user
+RUN groupadd -r d_user && useradd --no-log-init -r -g d_user d_user
 
 ENV MY_ENV="asim"
 
@@ -22,7 +23,8 @@ FROM nginx:mainline-alpine3.17-slim
 
 RUN apk add bash
 
-RUN adduser --shell /bin/bash --uid 1000 --group --disabled-password --disabled-login d_user
+# RUN adduser --shell /bin/bash --uid 1000 --group --disabled-password --disabled-login d_user
+RUN groupadd -r d_user && useradd --no-log-init -r -g d_user d_user
 
 COPY --chown=d_user --chmod=550  ./src /usr/share/nginx/html
 ```
@@ -40,7 +42,8 @@ FROM python:3.11-alpine3.18
 RUN apk update && apk add bash
 # RUN apk update --no-check-certificate && apk add --no-check-certificate bash
 
-RUN adduser --shell /bin/bash --uid 1000 --group --disabled-password --disabled-login d_user
+# RUN adduser --shell /bin/bash --uid 1000 --group --disabled-password --disabled-login d_user
+RUN groupadd -r d_user && useradd --no-log-init -r -g d_user d_user
 
 RUN pip install django gunicorn
 
@@ -60,7 +63,8 @@ FROM python:3.11-slim-bullseye
 
 RUN apt-get -y update && apt-get -y install gcc python3-dev libpq-dev
 
-RUN adduser --shell /bin/bash --uid 1000 --group --disabled-password --disabled-login d_user
+# RUN adduser --shell /bin/bash --uid 1000 --group --disabled-password --disabled-login d_user
+RUN groupadd -r d_user && useradd --no-log-init -r -g d_user d_user
 
 ENV APP_HOME=/home/d_user/web
 
