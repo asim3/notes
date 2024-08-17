@@ -32,12 +32,19 @@ COPY --chown=d_user --chmod=550  ./src /usr/share/nginx/html
 ```
 
 
-
-## python
+## Debian + Docker
 Debian 13: `trixie`
 Debian 12: `bookworm`
 Debian 11: `bullseye`
 Debian 10: `buster`
+```dockerfile
+FROM debian:bookworm-slim
+
+COPY --from=docker --chown=root:root  /usr/local/bin/docker /usr/local/bin
+```
+
+
+## python
 ```dockerfile
 FROM python:3.11-alpine3.18
 
