@@ -87,7 +87,7 @@ openssl x509 -text -noout -in ./my_https.crt
 
 
 ## default CA certificate store
-> Add the root CA (the CA signing the server certificate) to `/etc/ssl/certs/ca-certificates.crt`
+> Add the root CA (the CA signing the server certificate) to `/etc/ssl/certs/ca-certificates.crt` && `update-ca-certificates`
 ```bash
 # Convert it from crt to PEM using the OpenSSL tool
 openssl x509 -inform DES -in yourdownloaded.crt -out outcert.pem -text
