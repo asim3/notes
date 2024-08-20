@@ -22,8 +22,8 @@ sudo apt install vanilla-gnome-desktop vanilla-gnome-default-settings
 ## GNOME @ `yum`
 ```bash
 sudo yum update
-sudo yum -y groups install "GNOME Desktop"
-echo "exec gnome-session" >> ~/.xinitrc
+sudo yum -y groups install "Workstation"
+# sudo yum -y groups install "Server with GUI"
 
 startx 
 # OR

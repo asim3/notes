@@ -1,3 +1,13 @@
+## setting up AlmaLinux
+```bash
+sudo yum install -y gnome-tweaks curl git
+
+# open   tweaks   > appearance > themes   > applications > Adwaita-dark
+# open   tweaks   > appearance > themes   > cursor       > DMZ-White
+# open   tweaks   > appearance > themes   > icons        > Moka
+```
+
+
 ## setup yum
 ```bash
 subscription-manager register
