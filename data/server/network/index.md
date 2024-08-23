@@ -167,10 +167,8 @@ whois asim3.com
 ```
 
 
-## other
+## (old)
 ```bash
-traceroute
-
 ifconfig
 ip/ifconfig
 ```
