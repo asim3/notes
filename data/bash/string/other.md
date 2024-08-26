@@ -1,3 +1,27 @@
+## Debug text file
+```bash
+# --show-all: equivalent to -vET
+cat -A test.file.txt
+
+# equivalent to -vE
+cat -e test.file.txt
+
+
+
+# --show-nonprinting: use ^ and M- notation, except for LFD and TAB
+cat -v test.file.txt
+
+# --show-ends: display $ at end of each line
+cat -E test.file.txt
+
+# --show-tabs: display TAB characters as ^I
+cat -T test.file.txt
+
+# --number: number all output lines
+cat -n test.file.txt
+```
+
+
 ## tr
 ```bash
 echo 'aaa bbb ccc aaa bbb ccc' | tr 'a' 'X'
