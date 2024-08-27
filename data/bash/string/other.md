@@ -19,6 +19,15 @@ cat -T test.file.txt
 
 # --number: number all output lines
 cat -n test.file.txt
+
+
+od -bc test.file.txt
+# 0000000 055 055 055 055 055 102 105 107 111 116 040 117 120 105 116 123
+#           -   -   -   -   -   B   E   G   I   N       O   P   E   N   S
+# 0000020 123 110 040 120 122 111 126 101 124 105 040 113 105 131 055 055
+#           S   H       P   R   I   V   A   T   E       K   E   Y   -   -
+# 0000040 055 055 055 015 012
+#           -   -   -  \r  \n
 ```
 
 
