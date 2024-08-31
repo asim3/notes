@@ -84,7 +84,54 @@ network:
 
 
 
-## AlmaLinux: net conf
+## AlmaLinux 9
+`man nm-settings` and `man nm-settings-keyfile`
+```bash
+# info
+nmcli
+# OR
+nmcli device
+nmcli device show
+nmcli connection show
+nmcli general
+
+
+# NetworkManager's connections
+sudo nmcli connection reload
+sudo nmcli connection up enp1s0
+
+
+# monitor NetworkManager changes
+nmcli monitor
+```
+
+
+## AlmaLinux 9: profile
+`cat /etc/NetworkManager/system-connections/enp8s0.nmconnection`
+```ini
+[connection]
+id=enp8s0
+uuid=b8112a63-d06e-35a1-8863-50f0d553a8e5
+type=ethernet
+autoconnect-priority=-999
+interface-name=enp8s0
+timestamp=1725116717
+
+[ethernet]
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=eui64
+method=auto
+
+[proxy]
+```
+
+
+
+## AlmaLinux 8: net conf
 ```bash
 ip a
 # 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -115,7 +162,7 @@ ip r
 ```
 
 
-## AlmaLinux: net conf 1
+## AlmaLinux 8: net conf 1
 `cat /etc/sysconfig/network-scripts/ifcfg-enp8s0`
 ```ini
 TYPE=Ethernet
@@ -134,7 +181,7 @@ ONBOOT=yes
 ```
 
 
-## AlmaLinux: net conf 2
+## AlmaLinux 8: net conf 2
 `cat /etc/sysconfig/network-scripts/ifcfg-enp9s0`
 ```ini
 TYPE=Ethernet
