@@ -116,7 +116,7 @@ ip r
 
 
 ## AlmaLinux: net conf 1
-`cat /etc/sysconfig/network-scripts/ifcfg-ens1`
+`cat /etc/sysconfig/network-scripts/ifcfg-enp8s0`
 ```ini
 TYPE=Ethernet
 PROXY_METHOD=none
@@ -125,19 +125,17 @@ BOOTPROTO=static
 IPADDR=192.168.122.221
 NETMASK=255.255.255.0
 GATEWAY=192.168.122.1
-DNS1=8.8.8.8
-DNS2=8.8.4.4
 DEFROUTE=yes
 IPV4_FAILURE_FATAL=no
 IPV6INIT=no
-NAME=ens1
-DEVICE=ens1
+NAME=enp8s0
+DEVICE=enp8s0
 ONBOOT=yes
 ```
 
 
 ## AlmaLinux: net conf 2
-`cat /etc/sysconfig/network-scripts/ifcfg-ens2`
+`cat /etc/sysconfig/network-scripts/ifcfg-enp9s0`
 ```ini
 TYPE=Ethernet
 PROXY_METHOD=none
@@ -146,13 +144,11 @@ BOOTPROTO=static
 IPADDR=192.168.137.222
 NETMASK=255.255.255.0
 GATEWAY=192.168.137.1
-DNS1=8.8.8.8
-DNS2=8.8.4.4
 DEFROUTE=no
 IPV4_FAILURE_FATAL=no
 IPV6INIT=no
-NAME=ens2
-DEVICE=ens2
+NAME=enp9s0
+DEVICE=enp9s0
 ONBOOT=yes
 ```
 
