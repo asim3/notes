@@ -56,6 +56,7 @@ method=auto
 [proxy]
 ```
 
+
 ## test net
 ```bash
 route -n
@@ -65,6 +66,6 @@ ping 192.168.122.1
 ping 192.168.137.1
 
 # test self
-ping 192.168.122.228
-ping 192.168.137.170
+ping 192.168.122.111
+ping 192.168.137.123
 ```

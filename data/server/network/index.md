@@ -3,6 +3,8 @@
 ## install
 ```bash
 sudo apt -y install net-tools dnsutils iputils-ping nmap
+
+sudo yum -y install net-tools nmap
 ```
 
 
