@@ -1,3 +1,60 @@
+## kernel info
+```bash
+cat /etc/os-release
+# NAME="AlmaLinux"
+# PRETTY_NAME="AlmaLinux 9.4 (Seafoam Ocelot)"
+# VERSION="9.4 (Seafoam Ocelot)"
+# VERSION_ID="9.4"
+# ID="almalinux"
+# ID_LIKE="rhel centos fedora"
+# ...
+
+cat /etc/os-release
+# NAME="Ubuntu"
+# PRETTY_NAME="Ubuntu 22.04.4 LTS"
+# VERSION="22.04.4 LTS (Jammy Jellyfish)"
+# VERSION_ID="22.04"
+# ID=ubuntu
+# ID_LIKE=debian
+# ...
+
+
+lsb_release -a
+# Distributor ID:	Ubuntu
+# Description:	Ubuntu 22.04.4 LTS
+# Release:	22.04
+# Codename:	jammy
+
+
+lsb_release -a
+# Distributor ID:	Debian
+# Description:	Debian GNU/Linux 10 (buster)
+# Release:	10
+# Codename:	buster
+
+
+lsb_release -is
+# Debian
+
+
+lsb_release -cs
+# buster
+
+
+distributor=$(lsb_release -is)
+echo ${distributor,,}
+debian
+
+
+cat /etc/redhat-release
+# AlmaLinux release 9.4 (Seafoam Ocelot)
+
+
+uname -a
+# Linux home-main 4.19.0-13-amd64 #1 SMP Debian 4.19.160-2 (2020-11-28) x86_64 GNU/Linux
+```
+
+
 ## Linux Directory
 ```text
 /root          => Root Home Directory
@@ -65,33 +122,6 @@ PATH=$PATH:/some/dir # alert: do not do this
 /usr/local/games
 
 /snap/bin
-```
-
-
-## kernel info
-```bash
-uname -a
-# Linux home-main 4.19.0-13-amd64 #1 SMP Debian 4.19.160-2 (2020-11-28) x86_64 GNU/Linux
-
-
-lsb_release -a
-# Distributor ID:	Debian
-# Description:	Debian GNU/Linux 10 (buster)
-# Release:	10
-# Codename:	buster
-
-
-lsb_release -is
-# Debian
-
-
-lsb_release -cs
-# buster
-
-
-distributor=$(lsb_release -is)
-echo ${distributor,,}
-debian
 ```
 
 
