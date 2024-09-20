@@ -48,6 +48,9 @@ timestamp=1725116717
 
 [ipv4]
 method=auto
+method=manual
+never-default=no
+may-fail=yes
 
 [ipv6]
 addr-gen-mode=eui64

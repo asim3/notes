@@ -53,3 +53,10 @@ scp ~/local.txt username@remote.server.ip:~/remote/q
 scp -r /my_var/ username@192.168.100.166:/var/
 scp -r username@192.168.100.166:/var/ /my_var/
 ```
+
+
+## known_hosts
+```bash
+# auto add a new host to known_hosts
+ssh -o StrictHostKeyChecking=no  username@192.168.100.166
+```
