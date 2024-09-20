@@ -29,6 +29,12 @@ ssh asim@192.168.122.200
 ```
 
 
+## make public ssh key
+```bash
+ssh-keygen -y -f ~/.ssh/id_ed25519 > ~/.ssh/id_ed25519.pub
+```
+
+
 ## Get fingerprint
 ```bash
 ssh-keygen -l -f ~/.ssh/id_ed25519
