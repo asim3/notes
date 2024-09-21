@@ -1,3 +1,18 @@
+## info
+```bash
+# Group account information
+cat /etc/group
+cat /etc/group | grep asim
+
+# Secure group account information
+sudo cat /etc/gshadow
+sudo cat /etc/gshadow | grep asim
+
+# Shadow password suite configuration.
+sudo cat /etc/login.defs
+```
+
+
 ## add user
 ```bash
 sudo adduser asim
@@ -28,6 +43,19 @@ whoami
 
 ## add to group
 ```bash
+sudo groupadd my_group
+
+# -a, --append
+sudo usermod -aG my_group $USER
+
+# -G, --groups
+sudo usermod -G adm,cdrom,sudo,dip,plugdev,kvm,lpadmin,lxd,sambashare,docker,libvirt,my_group $USER
+
+# OR
+sudo nano /etc/group
+
+
+# OLD ====================================================
 # add user to sudo group
 sudo adduser $USER sudo
 
@@ -37,11 +65,6 @@ sudo adduser $USER docker
 
 # add asim to my_group
 sudo adduser asim my_group
-# OR
-sudo usermod -aG my_group asim
-
-# AlmaLinux
-sudo usermod -G my_group $USER
 ```
 
 
