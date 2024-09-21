@@ -39,6 +39,9 @@ sudo adduser $USER docker
 sudo adduser asim my_group
 # OR
 sudo usermod -aG my_group asim
+
+# AlmaLinux
+sudo usermod -G my_group $USER
 ```
 
 

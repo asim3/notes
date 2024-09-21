@@ -8,7 +8,20 @@ lscpu | grep Virtual
 ```
 
 
-## install QEMU kvm2
+## yum install QEMU kvm2
+```bash
+sudo yum groupinstall "Virtualization Host"
+# sudo yum install qemu-kvm
+
+# desktop app for managing virtual machines
+sudo yum install virt-manager
+sudo usermod -G libvirt $USER
+
+sudo reboot
+```
+
+
+## apt install QEMU kvm2
 ```bash
 sudo adduser $USER kvm
 sudo adduser $USER libvirt
