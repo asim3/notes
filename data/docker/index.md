@@ -32,7 +32,24 @@ docker system prune -a
 
 ## RUN
 ```bash
-docker container run --rm hello-world
+# 3.31 MB
+docker container run -it --rm alpine:3.20 /bin/sh
+
+# 28.17 MB
+docker container run -it --rm ubuntu:22.04 /bin/bash
+docker container run -it --rm ubuntu:22.04 /bin/bash -c "apt -y update && apt -y install net-tools dnsutils iputils-ping nmap && /bin/bash"
+
+# 48.23 MB
+docker container run -it --rm debian:bookworm /bin/bash
+
+# 61.59 MB
+docker container run -it --rm amazonlinux:2 /bin/bash
+
+# 144.19 MB
+docker container run -it --rm archlinux:base /bin/bash
+
+# 68.46 MB
+docker container run -it --rm almalinux:8 /bin/bash
 
 
 docker run -p 3000:80 asim3/notes:latest

@@ -5,6 +5,8 @@
 sudo apt -y install net-tools dnsutils iputils-ping nmap
 
 sudo yum -y install net-tools nmap
+
+docker container run -it --rm ubuntu:22.04 /bin/bash -c "apt -y update && apt -y install net-tools dnsutils iputils-ping nmap && /bin/bash"
 ```
 
 
