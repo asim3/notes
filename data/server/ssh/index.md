@@ -8,6 +8,10 @@ ssh-keygen -t ed25519 -C "test-1@asimt.sa"
 
 ssh-keygen -t rsa -b 4096 -C "test-2@asimt.sa"
 
+# Lists fingerprints of all identities currently represented by the agent.
+ssh-add -l
+
+
 # -t ed25519 : EdDSA performs much faster and provides the same level of security with significantly smaller keys
 # -t rsa     : old - universally supported
 # -t dsa     : Just don’t use ECDSA/DSA!
