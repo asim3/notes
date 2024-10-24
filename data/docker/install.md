@@ -5,35 +5,26 @@
 **Docker Engine**: Enterprise package is now called docker-ee
 
 
-## Install
+## Install with apt
 ```bash
-distributor=$(lsb_release -is)
+for pkg in docker docker-engine docker.io docker-compose docker-doc podman-docker containerd runc; do sudo apt-get remove $pkg; done
 
-sudo apt-get -y remove docker docker-engine docker.io runc \
+
+distributor=debian \
+&& distributor_release=bookworm \
 && sudo apt-get -y update \
-&& sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common \
-&& curl -Lf https://download.docker.com/linux/${distributor,,}/gpg -o /tmp/gpg \
-&& sudo apt-key add /tmp/gpg \
-&& sudo apt-key fingerprint 0EBFCD88 \
-&& sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/${distributor,,} $(lsb_release -cs) stable" \
+&& sudo apt-get -y install ca-certificates curl \
+&& sudo curl -Lf https://download.docker.com/linux/$distributor/gpg -o /etc/apt/trusted.gpg.d/docker.asc \
+&& echo "deb [arch=amd64] https://download.docker.com/linux/$distributor $distributor_release stable" \
+|  sudo tee /etc/apt/sources.list.d/docker.list \
+&& sudo chmod 644 /etc/apt/sources.list.d/docker.list \
 && sudo apt-get -y update \
-&& sudo apt-get install -y docker-ce docker-ce-cli containerd.io \
-&& echo "done installing docker $(sudo docker version --format='{{.Client.Version}}')"
-
-sudo docker version
-sudo docker version --format='{{.Client.Version}}'
-```
+&& sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin \
+&& sudo usermod -aG docker $USER \
+&& echo "done."
 
 
-## run docker as user
-```bash
-sudo usermod -aG docker $USER
-```
-
-
-## Uninstall old versions
-```txt
-sudo apt-get remove docker docker-engine docker.io containerd runc
+docker version
 ```
 
 
