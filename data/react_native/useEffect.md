@@ -1,4 +1,4 @@
-```tsx
+```ts
 import React, { useEffect, useState } from 'react';
 import styles from "./styles"
 import { View, Text, Button } from 'react-native';
@@ -32,7 +32,7 @@ export default function Component() {
 ```
 
 
-```tsx
+```ts
 // MyCount1 = 411
 // MyCount2 = 422
 // ****** Component 4.2 Pressed

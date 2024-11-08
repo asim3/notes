@@ -1,4 +1,4 @@
-```tsx
+```ts
 import React, { useState } from 'react';
 import styles from "./styles"
 import { View, Text, Button } from 'react-native';
