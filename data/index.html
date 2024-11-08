@@ -7,9 +7,6 @@
                 <div class="btn btn-success my-1" onclick="fetch_path('python/index.md')">Python</div>
                 <div class="btn btn-success my-1" onclick="fetch_path('bash/index.md')">bash</div>
                 <div class="btn btn-success my-1" onclick="fetch_path('sql/index.md')">SQL</div>
-                <div class="btn btn-success my-1" onclick="fetch_path('js/index.md')">JS</div>
-                <div class="btn btn-primary my-1" onclick="fetch_path('node_js/index.md')">Node</div>
-                <div class="btn btn-primary my-1" onclick="fetch_path('ts/index.md')">Type Script</div>
                 <div class="btn btn-primary my-1" onclick="fetch_path('php/index.md')">PHP</div>
                 <div class="btn btn-primary my-1" onclick="fetch_path('regex/index.md')">regex</div>
                 <div class="btn btn-primary my-1" onclick="fetch_path('encoding/index.md')">character encoding</div>
@@ -22,15 +19,27 @@
 
     <div class="card flex-fill m-2 bg-light">
         <div class="card-body">
+            <h4 class="card-title">JavaScript</h4>
+            <div class="card-text">
+                <div class="btn btn-success my-1" onclick="fetch_path('js/index.md')">JS</div>
+                <div class="btn btn-success my-1" onclick="fetch_path('react_native/index.md')">React Native</div>
+                <div class="btn btn-primary my-1" onclick="fetch_path('react_js/index.md')">React</div>
+                <div class="btn btn-primary my-1" onclick="fetch_path('expo/index.md')">Expo</div>
+                <div class="btn btn-primary my-1" onclick="fetch_path('ts/index.md')">Type Script</div>
+                <div class="btn btn-primary my-1" onclick="fetch_path('node_js/index.md')">Node</div>
+                <div class="btn btn-outline-secondary my-1" onclick="window.open('https://docs.deno.com')">Deno</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card flex-fill m-2 bg-light">
+        <div class="card-body">
             <h4 class="card-title">Frameworks</h4>
             <div class="card-text">
                 <div class="btn btn-success my-1" onclick="fetch_path('django/index.md')">Django</div>
                 <div class="btn btn-success my-1" onclick="fetch_path('rest_framework/index.md')">REST</div>
                 <div class="btn btn-success my-1" onclick="fetch_path('wagtail/index.md')">Wagtail CMS</div>
-                <div class="btn btn-success my-1" onclick="fetch_path('react_native/index.md')">React Native</div>
                 <div class="btn btn-success my-1" onclick="fetch_path('laravel/index.md')">Laravel</div>
-                <div class="btn btn-primary my-1" onclick="fetch_path('react_js/index.md')">React</div>
-                <div class="btn btn-primary my-1" onclick="fetch_path('expo/index.md')">Expo</div>
                 <div class="btn btn-outline-secondary my-1" onclick="fetch_path('hugo/index.md')">Hugo</div>
             </div>
         </div>
@@ -76,7 +85,7 @@
             <div class="card-text">
                 <div class="btn btn-success my-1" onclick="fetch_path('aws/index.md')">AWS</div>
                 <div class="btn btn-success my-1" onclick="fetch_path('cloudflare/index.md')">Cloudflare</div>
-                <div class="btn btn-success my-1" onclick="window.open('https://contabo.com/en/vps')">Contabo </div>
+                <div class="btn btn-success my-1" onclick="window.open('https://contabo.com/en/vps')">Contabo</div>
                 <div class="btn btn-primary my-1" onclick="window.open('https://www.ovhcloud.com/en/vps')">OVHcloud</div>
                 <div class="btn btn-primary my-1" onclick="fetch_path('digital_ocean/index.md')">DigitalOcean</div>
                 <div class="btn btn-primary my-1" onclick="fetch_path('linode/index.md')">Linode</div>
@@ -89,24 +98,11 @@
         <div class="card-body">
             <h4 class="card-title">Web</h4>
             <div class="card-text">
-                <div class="btn btn-outline-secondary my-1" onclick="window.open('https://nicepage.com/html-templates')">HTML Templates</div>
-                <div class="btn btn-outline-secondary my-1" onclick="window.open('https://themeforest.net/')">Theme Forest</div>
-                <div class="btn btn-outline-secondary my-1" onclick="window.open('https://fontawesome.com/icons')">Font Awesome</div>
                 <div class="btn btn-success my-1" onclick="fetch_path('html/index.md')">HTML</div>
                 <div class="btn btn-success my-1" onclick="fetch_path('css/index.md')">CSS</div>
                 <div class="btn btn-success my-1" onclick="fetch_path('bootstrap/index.md')">Bootstrap 4</div>
                 <div class="btn btn-primary my-1" onclick="fetch_path('tailwind/index.md')">Tailwind</div>
                 <div class="btn btn-primary my-1" onclick="fetch_path('wordpress/index.md')">Wordpress</div>
-                <div class="btn btn-outline-secondary my-1" onclick="window.open('https://namelix.com/')">Name Generator</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card flex-fill m-2 bg-light">
-        <div class="card-body">
-            <h4 class="card-title">SMS</h4>
-            <div class="card-text">
-                <div class="btn btn-primary my-1" onclick="window.open('https://www.unifonic.com/')">unifonic</div>
             </div>
         </div>
     </div>
@@ -115,6 +111,7 @@
         <div class="card-body">
             <h4 class="card-title">APIs</h4>
             <div class="card-text">
+                <div class="btn btn-primary my-1" onclick="window.open('https://www.unifonic.com/')">unifonic SMS</div>
                 <div class="btn btn-success my-1" onclick="window.open('https://developer.wathq.sa/ar/Pricing')">
                     واثق
                 </div>
@@ -144,6 +141,18 @@
                 <div class="btn btn-outline-secondary my-1" onclick="window.open('https://hypersplit.docs.apiary.io')">
                     HyperSplits Payment
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card flex-fill m-2 bg-light">
+        <div class="card-body">
+            <h4 class="card-title">Templates</h4>
+            <div class="card-text">
+                <div class="btn btn-outline-secondary my-1" onclick="window.open('https://nicepage.com/html-templates')">HTML Templates</div>
+                <div class="btn btn-outline-secondary my-1" onclick="window.open('https://themeforest.net/')">Theme Forest</div>
+                <div class="btn btn-outline-secondary my-1" onclick="window.open('https://fontawesome.com/icons')">Font Awesome</div>
+                <div class="btn btn-outline-secondary my-1" onclick="window.open('https://namelix.com/')">Name Generator</div>
             </div>
         </div>
     </div>
