@@ -46,3 +46,9 @@ export default function Page() {
 
 // curl localhost:3000/aaaa
 ```
+
+
+## Hidden Tab
+```ts
+    <Tabs.Screen name='(tabs)/my_page' options={{ href: null }} />
+```
