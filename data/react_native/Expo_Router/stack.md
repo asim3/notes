@@ -19,7 +19,7 @@ tree ./src/app
 ```
 
 
-## Stack Layout
+## Layout
 `./src/app/_layout.tsx`
 ```ts
 import React from 'react';

@@ -1,4 +1,18 @@
-## User Layout
+## Tree
+```bash
+tree src/app/\(tabs\)/
+# src/app/(tabs)/
+# ├── _layout.tsx
+# ├── index.tsx
+# ├── tab_1.tsx
+# ├── tab_2.tsx
+# ├── tab_3.tsx
+# ├── tab_4.tsx
+# └── two.tsx
+```
+
+
+## Layout
 `./src/app/(tabs)/_layout.tsx`
 ```ts
 import React from 'react';
@@ -17,20 +31,8 @@ export default function DrawerLayout() {
 ```
 
 
+## in HTML page:
 ```bash
-tree src/app/\(tabs\)/
-# src/app/(tabs)/
-# ├── _layout.tsx
-# ├── index.tsx
-# ├── tab_1.tsx
-# ├── tab_2.tsx
-# ├── tab_3.tsx
-# ├── tab_4.tsx
-# └── two.tsx
-
-
-# in HTML page:
-
 # My Home Header Title
 # Tab 3 Title
 # User Profile

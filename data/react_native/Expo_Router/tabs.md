@@ -12,7 +12,7 @@ tree src/app/\(tabs\)/
 ```
 
 
-## Root Layout
+## Layout
 `./src/app/(tabs)/_layout.tsx`
 ```ts
 import React from 'react';
