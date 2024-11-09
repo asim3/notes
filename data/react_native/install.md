@@ -1,8 +1,24 @@
-# Setup routing
-[Docs](https://docs.expo.dev/develop/file-based-routing/)
+## install
+```bash
+docker run -it node:lts-bookworm /bin/bash
 
-> `rm ./App.js`
+npx create-expo-app@3.0 app --template blank
 
+cd ./app
+
+npx expo install react-dom react-native-web @expo/metro-runtime
+
+# Install Expo Router
+npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar
+
+# install Expo Drawer
+npx expo install @react-navigation/drawer react-native-gesture-handler react-native-reanimated
+
+npm run web -- -p 3000
+```
+
+
+# !!!
 
 ## 1. Setup entry point
 `package.json`
