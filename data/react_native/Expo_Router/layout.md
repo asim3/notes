@@ -1,98 +1,3 @@
-## Tree
-```bash
-tree ./app/app/
-# ./app/app/
-# ├── _layout.tsx            <<<
-# ├── (authentication)
-# │   ├── index.tsx
-# │   ├── _layout.tsx        <<<
-# │   ├── login.tsx
-# │   └── logout.tsx
-# ├── main
-# │   ├── _layout.tsx          <<<
-# │   ├── _layout.ios.tsx      <<<
-# │   ├── _layout.web.tsx      <<<
-# │   ├── _layout.native.tsx   <<<
-# │   ├── _layout.android.tsx  <<<
-# │   ├── home.tsx
-# │   ├── my_file_name.tsx
-# │   ├── search.tsx
-# │   ├── settings.tsx
-# │   ├── news
-# │   │   └── [id].tsx
-# │   └── user
-# │       ├── _layout.tsx    <<<
-# │       ├── profile.tsx
-# │       └── [user_id].tsx
-# └── (other)
-#     ├── _layout.tsx        <<<
-#     ├── about.tsx
-#     ├── conditions.tsx
-#     └── terms.tsx
-```
-
-
-## Root Layout
-`./app/_layout.tsx`
-```ts
-import React from 'react';
-import { Stack } from 'expo-router';
-
-
-const RootLayout = () => {
-  return <Stack  screenOptions={{ 
-    headerShown: false,
-  }} >
-    <Stack.Screen name='(authentication)' options={{ 
-      title: 'Landing Page',
-    }} />
-    
-  </Stack>;
-};
-
-
-export default RootLayout;
-```
-
-
-## Auth Layout
-`./app/(authentication)/_layout.tsx`
-```ts
-import React from 'react';
-import { Stack } from 'expo-router';
-
-
-const Layout = () => {
-  return <Stack>
-    <Stack.Screen name='index' options={{ title: 'Authentication' }} /> 
-    <Stack.Screen name='login' options={{ title: 'Login' }} /> 
-    <Stack.Screen name='logout' options={{ title: 'Logout' }} /> 
-  </Stack>;
-};
-
-
-export default Layout;
-```
-
-
-## Other Layout
-`./app/(other)/_layout.tsx`
-```ts
-import React from 'react';
-import { Stack } from 'expo-router';
-
-
-const Layout = () => {
-  return <Stack screenOptions={{ 
-    headerShown: true,
-  }} />;
-};
-
-
-export default Layout;
-```
-
-
 ## Main Layout
 `./app/main/_layout.tsx`
 ```ts
@@ -101,7 +6,7 @@ import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
 
-const Layout = () => {
+export default function Layout() {
   return <Tabs screenOptions={{ tabBarLabel: '' }}>
 
     <Tabs.Screen name='home' options={{
@@ -134,35 +39,4 @@ const Layout = () => {
     
   </Tabs>;
 };
-
-
-export default Layout;
-```
-
-
-## User Layout
-`./app/main/user/_layout.tsx`
-```ts
-import React from 'react';
-import { Drawer } from 'expo-router/drawer';
-
-
-const Layout = () => {
-  return <Drawer>
-
-  <Drawer.Screen  name='profile' options={{
-    title: 'My User Profile Title',
-    drawerLabel: 'My User Profile Label',
-  }} />
-  
-  <Drawer.Screen  name='[user_id]' options={{
-    title: 'My User [ID] Title',
-    drawerLabel: 'My User [ID] Label',
-  }} />
-  
-  </Drawer>;
-};
-
-
-export default Layout;
 ```

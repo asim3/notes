@@ -67,7 +67,7 @@ export default StyleSheet.create({
 
 
 ## Component_1 index
-`./`
+`./src/components/Component_1/index.tsx`
 ```ts
 import React from 'react';
 import styles from "./styles"
