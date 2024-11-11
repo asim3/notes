@@ -1,7 +1,7 @@
 ## useState
 ```ts
 import React, { useState } from 'react';
-import styles from "./styles"
+import styles from './styles'
 import { View, Text, Button } from 'react-native';
 import { Link } from 'expo-router';
 
@@ -25,7 +25,7 @@ export default function Component() {
 ## useEffect
 ```ts
 import React, { useEffect, useState } from 'react';
-import styles from "./styles"
+import styles from './styles'
 import { View, Text, Button } from 'react-native';
 import { Link } from 'expo-router';
 

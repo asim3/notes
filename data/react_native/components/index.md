@@ -70,7 +70,7 @@ export default StyleSheet.create({
 `./src/components/Component_1/index.tsx`
 ```ts
 import React from 'react';
-import styles from "./styles"
+import styles from './styles'
 import { View, Text, Button } from 'react-native';
 
 

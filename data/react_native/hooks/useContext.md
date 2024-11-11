@@ -1,9 +1,9 @@
 ## useMyContext
 `./src/hooks/useMyContext.tsx`
 ```ts
-import { createContext, useContext } from "react";
+import { createContext, useContext } from 'react';
 
-import { User } from "@/app/(tabs)/tab_5";
+import { User } from '@/app/(tabs)/tab_5';
 
 
 export const MyContextProvider = createContext<User | undefined>(undefined);
