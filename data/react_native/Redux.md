@@ -1,79 +1,96 @@
-## Store
-`./src/services/state/store.tsx`
-```ts
-import { configureStore } from '@reduxjs/toolkit';
-import myCounterReducer from './my_counter/counterSlice';
-
-export const store = configureStore({
-    reducer: {
-        counter: myCounterReducer,
-    },
-});
-
-export type RootState = ReturnType<typeof store.getState>;
-
-export type AppDispatch = typeof store.dispatch;
-```
-
-
-## Screen `Provider`
-`./src/app/(tabs)/index.tsx`
-```ts
-import React from 'react';
-import { View, Text } from 'react-native';
-import { Provider } from 'react-redux';
-import { store } from '@/services/state/store';
-import { Component_1, Component_2 } from '@/components'
-
-
-export default function View_1() {
-  return (
-    <Provider store={store}>
-        <View>
-            <Component_1 />
-            <Component_2 />
-        </View>
-    </Provider>
-  );
-};
-```
-
-
 ## Actions
 `./src/services/state/my_counter/counterSlice.tsx`
 ```ts
 import { createSlice } from '@reduxjs/toolkit';
 
 
-interface CounterState {
-    value: number;
+interface MyCounterState {
+    my_value: number;
 }
 
-const initialState: CounterState = {
-    value: 0,
+const myInitialState: MyCounterState = {
+    my_value: 0,
 };
 
-const counterSlice = createSlice({
-    name: "counter",
-    initialState,
+const myCounterSlice = createSlice({
+    name: "my-counter",
+    initialState: myInitialState,
     reducers: {
-        increment: (state) => {
-            state.value += 1;
+        increment_func: (state) => {
+            state.my_value += 1;
         },
-        decrement: (state) => {
-            state.value -= 1;
+        decrement_func: (state) => {
+            state.my_value -= 1;
         },
     },
 });
 
-export const { increment, decrement } = counterSlice.actions;
+export const { increment_func, decrement_func } = myCounterSlice.actions;
 
-export default counterSlice.reducer;
+export default myCounterSlice.reducer;
 ```
 
 
-## Reducers
-`./src/services/state/index.tsx`
+## Store
+`./src/services/state/store.tsx`
 ```ts
+import { configureStore } from '@reduxjs/toolkit';
+import myCounterReducer from './my_counter/counterSlice';
 
+
+export const my_store = configureStore({
+    reducer: {
+        counter: myCounterReducer,
+    },
+});
+
+export type MyRootState = ReturnType<typeof my_store.getState>;
+
+export type MyAppDispatch = typeof my_store.dispatch;
+```
+
+
+## Component
+`./src/components/Component_6/index.tsx`
+```ts
+import React from 'react';
+import { View, Text, Button } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { MyRootState } from '@/services/state/store';
+import { decrement_func, increment_func } from '@/services/state/my_counter/counterSlice';
+
+
+export default function Component() {
+  const my_count = useSelector((state: MyRootState) => state.counter.my_value);
+  const my_dispatch = useDispatch();
+
+  return (
+    <View>
+      <Text style={{ padding: 20, textAlign: 'center' }}>
+        {my_count}
+      </Text>
+      <Button title='redux: state.counter.my_value + 1' onPress={() => my_dispatch(increment_func())} />
+      <Button title='redux: state.counter.my_value - 1' onPress={() => my_dispatch(decrement_func())} />
+    </View>
+  );
+};
+```
+
+
+## Screen `Provider`
+`./src/app/(tabs)/my_screen.tsx`
+```ts
+import React from 'react';
+import { Provider } from 'react-redux';
+import { my_store } from '@/services/state/store';
+import { Component_6 } from '@/components'
+
+
+export default function Screen() {
+  return (
+    <Provider store={my_store}>
+      <Component_6 />
+    </Provider>
+  );
+};
 ```
