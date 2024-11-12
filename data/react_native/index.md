@@ -9,7 +9,7 @@ ls -al src/
 # drwxr-xr-x   hooks
 
 # drwxr-xr-x   services/api/
-# drwxr-xr-x   services/i18n/
+# drwxr-xr-x   services/i18n/index.tsx
 # drwxr-xr-x   services/state/ (Redux)
 
 # drwxr-xr-x   utils/formatting.tsx
