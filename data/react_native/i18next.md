@@ -8,18 +8,13 @@
 ```ts
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import ar_lang from "./arabic.json"
+import en_lang from "./english.json"
+
 
 const resources = {
-    en: {
-        translation: {
-            "my_welcome_message": "Welcome to React and react-i18next"
-        }
-    },
-    ar: {
-        translation: {
-            "my_welcome_message": "مرحبًا بكم في رياكت"
-        }
-    }
+    ar: { translation: ar_lang },
+    en: { translation: en_lang },
 };
 
 i18n
@@ -76,4 +71,13 @@ export default function RootLayout() {
     </Stack>
   );
 };
+```
+
+
+## arabic.json
+`./src/services/i18n/arabic.json`
+```json
+{
+    "my_welcome_message": "مرحبًا بكم في رياكت"
+}
 ```
