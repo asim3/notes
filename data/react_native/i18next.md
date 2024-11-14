@@ -81,3 +81,48 @@ export default function RootLayout() {
     "my_welcome_message": "مرحبًا بكم في رياكت"
 }
 ```
+
+
+## HTML direction
+`./src/app/+html.tsx`
+```ts
+import i18next from "i18next";
+
+
+export default function Root() {
+  return (
+    <html lang={i18next.language} dir={i18next.dir(i18next.language)}>
+        // ...
+      <body lang={i18next.language} dir={i18next.dir(i18next.language)}>
+        // ...
+  );
+}
+```
+
+
+## change language
+`./src/utils/helpers.tsx`
+```ts
+import i18next from "i18next";
+import { Platform } from 'react-native';
+
+
+export function set_page_title(title: string): void {
+    if (Platform.OS === 'web') {
+        document.head.title = title;
+        document.title = title;
+    }
+}
+
+
+export function change_language(lang: string): void {
+    i18next.changeLanguage(lang);
+    if (Platform.OS === 'web') {
+        document.head.lang = lang;
+        document.body.lang = lang;
+        document.head.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        set_page_title(i18next.t("CFBundleDisplayName"));
+    }
+};
+```
