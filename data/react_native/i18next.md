@@ -3,6 +3,20 @@
 `npm install i18next react-i18next`
 
 
+## Root Layout
+`./src/app/_layout.tsx`
+```ts
+import '@/services/i18n'; // <<<<<<<<<<
+
+
+export default function RootLayout() {
+  return (
+    // ...
+  );
+};
+```
+
+
 ## i18next
 `./src/services/i18n/index.tsx`
 ```ts
@@ -21,7 +35,9 @@ i18n
     .use(initReactI18next) // passes i18n down to react-i18next
     .init({
         resources,
-        lng: "ar", // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
+        compatibilityJSON: 'v3',
+        fallbackLng: 'en',
+        lng: "en", // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
         // you can use the i18n.changeLanguage function to change the language manually: https://www.i18next.com/overview/api#changelanguage
         // if you're using a language detector, do not define the lng option
 
@@ -48,28 +64,10 @@ export default function Component() {
     return (
         <View>
             <Text>{t('my_welcome_message')}</Text>
-            <Button title='Arabic' onPress={() => true} />
-            <Button title='English' onPress={() => true} />
+            <Button title='Arabic' onPress={() => change_language('ar')} />
+            <Button title='English' onPress={() => change_language('en')} />
         </View>
     );
-};
-```
-
-
-## Root Layout
-`./src/app/_layout.tsx`
-```ts
-import React from 'react';
-import { Stack } from 'expo-router';
-import '@/services/i18n'; // <<<<<<<<<<
-
-export default function RootLayout() {
-  return (
-    <Stack screenOptions={{ headerShown: true }}>
-      <Stack.Screen name="(tabs)" />
-      <Stack.Screen name="modal"  options={{ presentation: 'modal' }} />
-    </Stack>
-  );
 };
 ```
 
@@ -109,7 +107,6 @@ import { Platform } from 'react-native';
 
 export function set_page_title(title: string): void {
     if (Platform.OS === 'web') {
-        document.head.title = title;
         document.title = title;
     }
 }
@@ -118,11 +115,11 @@ export function set_page_title(title: string): void {
 export function change_language(lang: string): void {
     i18next.changeLanguage(lang);
     if (Platform.OS === 'web') {
-        document.head.lang = lang;
+        document.lang = lang;
         document.body.lang = lang;
-        document.head.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        document.dir = lang === 'ar' ? 'rtl' : 'ltr';
         document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
-        set_page_title(i18next.t("CFBundleDisplayName"));
+        set_page_title(i18next.t("my_welcome_message"));
     }
 };
 ```
