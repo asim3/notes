@@ -58,7 +58,7 @@ import { View, Text, Button } from 'react-native';
 import { useTranslation } from "react-i18next";
 
 
-export default function Component() {
+export default function Screen() {
     const { t } = useTranslation();
 
     return (
