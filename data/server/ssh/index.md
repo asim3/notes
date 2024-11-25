@@ -16,6 +16,9 @@ ssh-add -l
 # -t rsa     : old - universally supported
 # -t dsa     : Just don’t use ECDSA/DSA!
 # -t ecdsa   : Just don’t use ECDSA/DSA!
+
+
+ssh-keygen -t ed25519 -C "test-3@asimt.sa" -P "" -f ~/.ssh/id_ed25519
 ```
 
 
