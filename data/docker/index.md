@@ -27,6 +27,8 @@ docker container prune
 
 docker system prune
 docker system prune -a
+
+docker system prune --all --force --volumes
 ```
 
 
