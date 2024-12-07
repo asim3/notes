@@ -16,6 +16,7 @@ mv /app/.env               /app/src/.env              ;
 mv /app/.env.example       /app/src/.env.example      ;
 mv /app/.gitattributes     /app/src/.gitattributes    ;
 mv /app/.gitignore         /app/src/.gitignore        ;
+mv /app/lang               /app/src/lang              ;
 mv /app/package.json       /app/src/package.json      ;
 mv /app/phpunit.xml        /app/src/phpunit.xml       ;
 mv /app/postcss.config.js  /app/src/postcss.config.js ;
@@ -23,11 +24,14 @@ mv /app/public             /app/src/public            ;
 mv /app/README.md          /app/src/README.md         ;
 mv /app/resources          /app/src/resources         ;
 mv /app/routes             /app/src/routes            ;
+mv /app/server.php         /app/src/server.php        ;
 mv /app/storage            /app/src/storage           ;
 mv /app/tailwind.config.js /app/src/tailwind.config.js;
+mv /app/.styleci.yml       /app/src/.styleci.yml      ;
 mv /app/tests              /app/src/tests             ;
 mv /app/vendor             /app/src/vendor            ;
 mv /app/vite.config.js     /app/src/vite.config.js    ;
+mv /app/webpack.mix.js     /app/src/webpack.mix.js    ;
 ls -al /app;
 ls -al /app/src;"
 ```
