@@ -1,6 +1,38 @@
 [Laravel with Docker](https://laravel.com/docs/9.x/sail)
 
 
+## setup SRC
+```bash
+docker container run -it -v ./:/app --rm ubuntu:22.04 /bin/bash -c "
+mv /app/app                /app/src/app               ;
+mv /app/artisan            /app/src/artisan           ;
+mv /app/bootstrap          /app/src/bootstrap         ;
+mv /app/composer.json      /app/src/composer.json     ;
+mv /app/composer.lock      /app/src/composer.lock     ;
+mv /app/config             /app/src/config            ;
+mv /app/database           /app/src/database          ;
+mv /app/.editorconfig      /app/src/.editorconfig     ;
+mv /app/.env               /app/src/.env              ;
+mv /app/.env.example       /app/src/.env.example      ;
+mv /app/.gitattributes     /app/src/.gitattributes    ;
+mv /app/.gitignore         /app/src/.gitignore        ;
+mv /app/package.json       /app/src/package.json      ;
+mv /app/phpunit.xml        /app/src/phpunit.xml       ;
+mv /app/postcss.config.js  /app/src/postcss.config.js ;
+mv /app/public             /app/src/public            ;
+mv /app/README.md          /app/src/README.md         ;
+mv /app/resources          /app/src/resources         ;
+mv /app/routes             /app/src/routes            ;
+mv /app/storage            /app/src/storage           ;
+mv /app/tailwind.config.js /app/src/tailwind.config.js;
+mv /app/tests              /app/src/tests             ;
+mv /app/vendor             /app/src/vendor            ;
+mv /app/vite.config.js     /app/src/vite.config.js    ;
+ls -al /app;
+ls -al /app/src;"
+```
+
+
 ## array
 ```php
 <?php
