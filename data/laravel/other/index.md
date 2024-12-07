@@ -2,6 +2,7 @@
 
 
 ## setup SRC
+relocate project file to sources directory
 ```bash
 docker container run -it -v ./:/app --rm ubuntu:22.04 /bin/bash -c "
 mv /app/app                /app/src/app               ;
