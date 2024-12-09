@@ -121,9 +121,9 @@ COPY --from=build --chown=d_user --chmod=500  /home/d_dir /home/d_python
 ## Minimal Python
 ```dockerfile
 # FROM python:3.11-slim-bullseye
-FROM python:3.7-alpine as base
+FROM python:3.7-alpine AS base
 
-FROM base as builder
+FROM base AS builder
 
 RUN mkdir /install
 WORKDIR /install
@@ -140,6 +140,17 @@ COPY src /app
 WORKDIR /app
 
 CMD ["gunicorn", "-w 4", "main:app"]
+```
+
+
+## Fix Copy from Windows
+```dockerfile
+FROM ubuntu:22.04 AS main
+
+RUN apt-get update && apt-get install -y --no-install-recommends dos2unix
+
+# remove the hidden windows characters
+RUN dos2unix /etc/entrypoint.d/74-asim.sh
 ```
 
 
