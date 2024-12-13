@@ -58,8 +58,8 @@ ssh-keyscan -t ssh-ed25519 192.168.122.88
 
 
 ssh-keyscan -H -t ssh-ed25519 192.168.122.88
-# |1|aSTWYuKTApRW6RpUTtSmhsbvgl0=|MYlq9FLDqLBNPwDy+ZUn84WBaEE= ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID8OWFJurBW0WqPzxpcqktyvzTvG8894Ppzhm5rrmTn4
-# |1|P9TjK8kfVoTTD7oPeEk3aVWbVPA=|J469cgXbtl7rbRaYNMmTcwDOf88= ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID8OWFJurBW0WqPzxpcqktyvzTvG8894Ppzhm5rrmTn4
+# |1|aSTWYuKTApRW6RpUTtSmhsbvgl0=|MYlq9FLDqLBNPwDy+ZUn84WBaEE= ssh-ed25519 AAAAC3NzaC1lZDI1...
+# |1|P9TjK8kfVoTTD7oPeEk3aVWbVPA=|J469cgXbtl7rbRaYNMmTcwDOf88= ssh-ed25519 AAAAC3NzaC1lZDI1...
 
 
 ssh-keyscan -H -t ssh-ed25519 192.168.122.88 >> ./ssh/known_hosts
