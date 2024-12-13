@@ -21,6 +21,10 @@ sudo du -sh /home/*
 # 192K	    /home/bbb
 # 3.2G	    /home/ccc
 # 3.2G	    /home/ddd
+
+
+# docker
+du -sh /var/lib/docker/overlay2/
 ```
 
 
@@ -148,9 +152,59 @@ sudo mount /dev/vg-data/lv-data /var
 ```
 
 
-## Permanently mount LVM
+## Permanently mount
+`sudo nano /etc/fstab`
 ```bash
-sudo nano /etc/fstab
-# By Asim
-# /dev/mapper/vg--data-lv--data   /var   xfs   defaults 0 0
+# By Asim for LVM
+/dev/mapper/vg--data-lv--data   /var   xfs   defaults 0 0
+
+# By Asim for Docker
+UUID=a576a576-a5d8-4648-b992-b992b992b992              /var/lib/docker/overlay2 ext4  defaults  0  2
+/dev/disk/by-uuid/a576a576-14c6-40e9-a576-a576a576a576 /var/lib/docker/overlay2 ext4  defaults  0  0
+```
+
+
+## info `lsblk`
+```txt
+NAME         MAJ:MIN   RM     SIZE   RO   TYPE MOUNTPOINTS
+nvme0n1      259:0      0   238.5G    0   disk 
+│
+├─nvme0n1p1  259:1      0     512M    0   part /boot/efi
+│
+├─nvme0n1p2  259:2      0    23.3G    0   part /
+│
+├─nvme0n1p3  259:3      0     9.3G    0   part /var
+│
+├─nvme0n1p4  259:4      0     977M    0   part [SWAP]
+│
+├─nvme0n1p5  259:5      0     1.9G    0   part /tmp
+│
+├─nvme0n1p6  259:6      0   183.9G    0   part /home
+│
+└─nvme0n1p7  259:7      0    18.6G    0   part /var/lib/docker/overlay2
+```
+
+
+## ifno `df -h`
+```txt
+Filesystem      Size  Used Avail Use% Mounted on
+udev            5.8G     0  5.8G   0% /dev
+
+tmpfs           1.2G  1.9M  1.2G   1% /run
+
+/dev/nvme0n1p2   23G  6.9G   15G  32% /
+
+tmpfs           5.8G   57M  5.7G   1% /dev/shm
+
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+
+/dev/nvme0n1p5  1.8G  6.3M  1.7G   1% /tmp
+
+/dev/nvme0n1p3  9.1G  1.7G  7.0G  19% /var
+
+/dev/nvme0n1p6  180G   42G  130G  25% /home
+
+/dev/nvme0n1p1  511M  7.7M  504M   2% /boot/efi
+
+tmpfs           1.2G  2.5M  1.2G   1% /run/user/1000
 ```
