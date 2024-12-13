@@ -45,6 +45,27 @@ chown asim:asim /home/asim/.ssh/authorized_keys
 ```
 
 
+## Git Host key
+```bash
+ssh-keyscan 192.168.122.88
+# 192.168.122.88 ssh-rsa AAAAB3NzaC1yc2EAAAAD...
+# 192.168.122.88 ecdsa-sha2-nistp256 AAAAE2Vj...
+# 192.168.122.88 ssh-ed25519 AAAAC3NzaC1lZDI1...
+
+
+ssh-keyscan -t ssh-ed25519 192.168.122.88
+# 192.168.122.88 ssh-ed25519 AAAAC3NzaC1lZDI1...
+
+
+ssh-keyscan -H -t ssh-ed25519 192.168.122.88
+# |1|aSTWYuKTApRW6RpUTtSmhsbvgl0=|MYlq9FLDqLBNPwDy+ZUn84WBaEE= ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID8OWFJurBW0WqPzxpcqktyvzTvG8894Ppzhm5rrmTn4
+# |1|P9TjK8kfVoTTD7oPeEk3aVWbVPA=|J469cgXbtl7rbRaYNMmTcwDOf88= ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID8OWFJurBW0WqPzxpcqktyvzTvG8894Ppzhm5rrmTn4
+
+
+ssh-keyscan -H -t ssh-ed25519 192.168.122.88 >> ./ssh/known_hosts
+```
+
+
 ## authorized keys
 list all authorized keys in the server
 ```txt
