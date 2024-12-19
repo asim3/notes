@@ -1,36 +1,51 @@
-## GitLab Registry
+## Docker executor: node
+`nano .gitlab-ci.yml`
 ```yml
-build:
-  stage: build
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main"
-      changes:
-        - Dockerfile
-        - src/*
+stages:
+  - deploy
+
+# Using Docker executor with image node:23-bookworm
+image: node:23-bookworm
+
+Deploy Staging:
+  stage: deploy
+  # Using Docker executor with image python:3.12-bookworm
+  # image: python:3.9-bookworm
+  before_script:
+    - whoami
+    # root
+    - echo $CI_PIPELINE_IID
   script:
-    - docker image build -t $CI_REGISTRY_IMAGE:latest -t $CI_REGISTRY_IMAGE:v$CI_PIPELINE_IID .
-    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
-    - docker push $CI_REGISTRY_IMAGE:v$CI_PIPELINE_IID
-    - docker push $CI_REGISTRY_IMAGE:latest
-  after_script:
-    - docker logout
+    - python3 --version
+    # Python 3.12.8
+    - pwd
+    # /builds/qu-devops/qu-ansible-playbooks
+    - rm -Rf ~/delete-1
+    - mkdir ~/delete-1
+    - cd ~/delete-1
+    - pwd
+    # /root/delete-1
 ```
 
 
-## Docker Hub Registry
+## Docker Executor
+`nano .gitlab-ci.yml`
 ```yml
-build:
-  stage: build
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main"
-      changes:
-        - Dockerfile
-        - src/*
+stages:
+  - deploy
+
+image: docker:27-cli
+
+services:
+  - docker:27-dind
+
+Deploy Staging:
+  stage: deploy
+  before_script:
+    - whoami
+    # root
+    - echo $CI_PIPELINE_IID
   script:
-    - docker image build -t asim3/swarmcd:latest -t asim3/swarmcd:v$CI_PIPELINE_IID .
-    - echo $Docker_Access_Token | docker login -u asim3 --password-stdin
-    - docker push asim3/swarmcd:v$CI_PIPELINE_IID
-    - docker push asim3/swarmcd:latest
-  after_script:
-    - docker logout
+    - docker image ls -a
+    - docker version
 ```
