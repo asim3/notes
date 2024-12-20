@@ -46,7 +46,13 @@ Deploy Production:
     - if: $CI_COMMIT_BRANCH == "prod"
       when: manual
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "development"
+    - if: $CI_COMMIT_BRANCH == "staging"
+    - if: $CI_COMMIT_BRANCH == "production"
   retry: 2
+  # retry: Defaults to 0 and can max be retried 2 times (3 times total).
+  allow_failure: false
 ```
 
 

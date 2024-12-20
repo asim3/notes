@@ -10,7 +10,7 @@ image: node:23-bookworm
 Deploy Staging:
   stage: deploy
   # Using Docker executor with image python:3.12-bookworm
-  # image: python:3.9-bookworm
+  # image: python:3.12-bookworm
   before_script:
     - whoami
     # root
@@ -31,13 +31,11 @@ Deploy Staging:
 ## Docker Executor
 `nano .gitlab-ci.yml`
 ```yml
-stages:
-  - deploy
-
 image: docker:27-cli
-
 services:
   - docker:27-dind
+stages:
+  - deploy
 
 Deploy Staging:
   stage: deploy
