@@ -1,9 +1,30 @@
-## Source Code Management
+# Source Code Management
+
+## Config
+```bash
+git config user.name "asim3"
+git config user.email "asimwebapps@gmail.com"
+
+
+git config -l
+
+git config --global user.name "ASIM"
+
+# global config
+cat ~/.gitconfig
+# [user]
+# 	name = asim3
+# 	email = asimwebapps@gmail.com
+```
+
+
+## commit
 ```bash
 git init
 git add .
 git commit -m "initial commit"
 ```
+
 
 ## add remote
 ```bash
@@ -17,26 +38,11 @@ git remote
 git remote -v
 ```
 
+
 ## push
 ```bash
 git push origin master
 git push my_origin master
-```
-
-
-## Config
-```bash
-git config --global user.name "ASIM_NAME"
-git config --global user.email "asim@office"
-
-git config --list
-
-# edit
-git config --local -e
-git config --global -e
-# [user]
-#         email = asim@office.com
-#         name = Asim
 ```
 
 
