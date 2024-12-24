@@ -6,10 +6,14 @@
 ```dockerfile
 FROM alpine:3.18
 
+ENV TZ=Asia/Riyadh
+
 RUN apk add bash
 
-# RUN adduser --shell /bin/bash --uid 1000 --group --disabled-password --disabled-login d_user
-RUN groupadd -r d_user && useradd --no-log-init --system --gid d_user d_user
+# system user
+RUN groupadd -r dx_user && useradd --no-log-init --system --gid dx_user dx_user
+
+# add user
 RUN groupadd -r d_user && useradd --shell /bin/bash --no-log-init --create-home --uid 1010 --gid d_user d_user
 
 ENV MY_ENV="asim"
@@ -19,16 +23,27 @@ COPY --chown=d_user --chmod=550  . /d_new_dir
 
 
 ## nginx
+`docker image build -t delete:latest --build-arg IMAGE_TAG=${IMAGE_TAG} -f ./development/dockerfile .`
 ```dockerfile
 FROM nginx:mainline-alpine3.17-slim
 
+ENV TZ=Asia/Riyadh
+
+ARG IMAGE_TAG=v0.1.0
+
+RUN cat <<EOF > /usr/share/nginx/html/index.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to ${IMAGE_TAG}!</title>
+</head>
+<body>
+    <h1>Welcome to ${IMAGE_TAG}!</h1>
+</body>
+</html>
+EOF
+
 RUN apk add bash
-
-# RUN adduser --shell /bin/bash --uid 1000 --group --disabled-password --disabled-login d_user
-RUN groupadd -r d_user && useradd --no-log-init --system --gid d_user d_user
-RUN groupadd -r d_user && useradd --shell /bin/bash --no-log-init --create-home --uid 1010 --gid d_user d_user
-
-COPY --chown=d_user --chmod=550  ./src /usr/share/nginx/html
 ```
 
 
