@@ -35,6 +35,22 @@ gitlab-runner register  --url https://gitlab.asimt.sa  --token gabc-abcdefg
 ```
 
 
+## configuration file
+```bash
+sudo cat /etc/gitlab-runner/config.toml
+
+cat /etc/systemd/system/gitlab-runner.service
+```
+
+
+## Logs
+```bash
+journalctl -u gitlab-runner
+journalctl -u gitlab-runner -f
+journalctl -u gitlab-runner.service -f
+```
+
+
 ## uninstall runner service
 ```bash
 # uninstall service
@@ -49,12 +65,4 @@ sudo gitlab-runner restart
 sudo gitlab-runner status
 # OR
 sudo systemctl status gitlab-runner
-```
-
-
-## Logs
-```bash
-journalctl -u gitlab-runner
-
-journalctl -u gitlab-runner -f
 ```
