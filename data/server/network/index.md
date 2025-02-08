@@ -10,6 +10,25 @@ docker container run -it --rm ubuntu:22.04 /bin/bash -c "apt -y update && apt -y
 ```
 
 
+## run test
+```bash
+#############
+# @host-01 #
+#############
+cd /tmp/
+python3 -m http.server 9999
+# Serving HTTP on 0.0.0.0 port 9999 (http://0.0.0.0:9999/) ...
+
+
+
+#############
+# @host-02 #
+#############
+curl 192.168.122.229:9999
+# curl: (7) Failed to connect to 192.168.122.229 port 9999: No route to host
+```
+
+
 ## info
 ```bash
 hostname -I
