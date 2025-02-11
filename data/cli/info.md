@@ -125,6 +125,13 @@ PATH=$PATH:/some/dir # alert: do not do this
 ```
 
 
+## list of installed packages
+```bash
+sudo yum list installed
+sudo yum list installed | grep mysql
+```
+
+
 ## binary location
 Prints the location of binary files
 ```bash
