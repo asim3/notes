@@ -3,6 +3,13 @@
 -- Show Users
 SELECT User, Host FROM mysql.user;
 
+-- User Priv
+SELECT Host, User, Grant_priv, Show_db_priv, Select_priv, Insert_priv, Update_priv, Delete_priv, Drop_priv, Create_priv FROM mysql.user;
+
+-- Super User Priv
+SELECT Host, User, Super_priv, account_locked, Create_user_priv, password_last_changed, password_lifetime FROM mysql.user;
+
+
 -- Create User
 CREATE USER 'asim'@'localhost' IDENTIFIED BY 'my-password';
 
