@@ -67,6 +67,21 @@ docker container run --rm \
 ```
 
 
+## volumes
+```bash
+# 28.17 MB
+docker container run -it -v '.:/app' --rm ubuntu:22.04 /bin/bash
+
+# 48.23 MB
+docker container run -it -v '.:/app' --rm debian:bookworm /bin/bash
+
+# 340.68 MB
+docker container run -it -v '.:/app' --rm python:3.11-bullseye /bin/bash
+
+docker container run -it -v '.:/app' --rm python:3.11-bullseye /bin/bash -c "pip install -r /app/requirements.txt && cd /app && /bin/bash"
+```
+
+
 ## shell
 ```bash
 docker exec -it __image_id__ /bin/sh

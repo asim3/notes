@@ -103,7 +103,7 @@ SHOW TABLES;
 
 ## list all users
 ```sql
-SELECT Host, User, Super_priv FROM mysql.user;
+SELECT Host, User, Super_priv, account_locked FROM mysql.user;
 -- +-----------+------------------+------------+
 -- | Host      | User             | Super_priv |
 -- +-----------+------------------+------------+
@@ -120,6 +120,7 @@ SELECT Host, User, Super_priv FROM mysql.user;
 -- | localhost | user_04          | N          |
 -- +-----------+------------------+------------+
 -- 11 rows in set (0.00 sec)
+
 
 
 -- User Priv
