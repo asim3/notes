@@ -1,5 +1,28 @@
 [network scan](shodan.io)
 
+## simple wildcard DNS
+```bash
+ping swarm.01.192.168.122.54.nip.io
+# PING swarm.01.192.168.122.54.nip.io (192.168.122.54) 56(84) bytes of data.
+
+ping swarm.192.168.122.54.nip.io
+# PING swarm.192.168.122.54.nip.io (192.168.122.54) 56(84) bytes of data.
+
+ping 192-168-122-54.nip.io
+# PING 192-168-122-54.nip.io (192.168.122.54) 56(84) bytes of data.
+
+ping c0a87a36.nip.io
+# PING c0a87a36.nip.io (192.168.122.54) 56(84) bytes of data.
+# https://www.browserling.com/tools/ip-to-hex
+
+ping 192.168.122.54.nip.io
+# PING 192.168.122.54.nip.io (192.168.122.54) 56(84) bytes of data.
+# 64 bytes from 192.168.122.54: icmp_seq=1 ttl=64 time=0.347 ms
+# 64 bytes from 192.168.122.54: icmp_seq=2 ttl=64 time=0.233 ms
+# 64 bytes from 192.168.122.54: icmp_seq=3 ttl=64 time=0.304 ms
+```
+
+
 ## install
 ```bash
 sudo apt -y install net-tools dnsutils iputils-ping nmap
