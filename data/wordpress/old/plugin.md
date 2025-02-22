@@ -1,7 +1,6 @@
 ## Plugin
 ```bash
 wp plugin list
-
 # +--------------------------------+----------+-----------+---------+
 # | name                           | status   | update    | version |
 # +--------------------------------+----------+-----------+---------+
@@ -17,6 +16,19 @@ wp plugin list
 # | w3-total-cache                 | inactive | none      | 2.1.2   |
 # | wp-mail-smtp                   | inactive | none      | 2.8.0   |
 # +--------------------------------+----------+-----------+---------+
+
+
+wp plugin delete akismet all-in-one-seo-pack
+
+wp plugin delete --all
+
+wp plugin search elementor
+
+wp plugin install elementor
+
+wp plugin update --all
+
+wp plugin verify-checksums --all
 ```
 
 
