@@ -103,3 +103,11 @@ docker logs    __id__
 
 docker inspect __id__
 ```
+
+
+# S3
+https://hub.docker.com/r/bitnami/minio
+https://hub.docker.com/r/minio/minio/tags
+
+# SSO
+https://hub.docker.com/r/bitnami/keycloak

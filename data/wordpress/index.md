@@ -4,6 +4,10 @@
 ```bash
 wp plugin delete --all
 
+wp plugin install contact-form-7 --activate
+
+wp plugin install popup-maker --activate
+
 wp plugin install elementor woocommerce --activate
 
 wp plugin verify-checksums --all
