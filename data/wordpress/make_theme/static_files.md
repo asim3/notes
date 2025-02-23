@@ -12,8 +12,8 @@ function my_load_css_func() {
 
 function my_load_js_func() {	
     wp_enqueue_script('jquery');
-		wp_register_script('custom', get_template_directory_uri() . '/assets/js/main.js', 'jquery', false, true);
-		wp_enqueue_script('custom');
+    wp_register_script('custom', get_template_directory_uri() . '/assets/js/main.js', 'jquery', false, true);
+    wp_enqueue_script('custom');
 }
 
 
