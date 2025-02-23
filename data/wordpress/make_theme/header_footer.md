@@ -1,6 +1,6 @@
 ## header
 `/bitnami/wordpress/wp-content/themes/main-theme/header.php`
-```php
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +16,7 @@
 
 ## footer
 `/bitnami/wordpress/wp-content/themes/main-theme/footer.php`
-```php
+```html
 <footer>
     <h4>My Footer</h4>
 </footer>

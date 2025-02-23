@@ -32,7 +32,7 @@ Text Domain: asim-main-theme
 
 ## Home Page
 `/bitnami/wordpress/wp-content/themes/main-theme/front-page.php`
-```php
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +48,7 @@ Text Domain: asim-main-theme
 
 ## Page
 `/bitnami/wordpress/wp-content/themes/main-theme/page.php`
-```php
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>

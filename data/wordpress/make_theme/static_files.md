@@ -24,7 +24,7 @@ add_action('wp_enqueue_scripts', 'my_load_js_func');
 
 ## CSS
 `/bitnami/wordpress/wp-content/themes/main-theme/assets/css/main.css`
-```
+```css
 h1,
 h2 {
     color: teal;
