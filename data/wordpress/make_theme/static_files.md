@@ -25,8 +25,10 @@ add_action('wp_enqueue_scripts', 'my_load_js_func');
 ## CSS
 `/bitnami/wordpress/wp-content/themes/main-theme/assets/css/main.css`
 ```
-* {
-    background: red;
+h1,
+h2 {
+    color: teal;
+    font-weight: bold;
 }
 ```
 
@@ -34,5 +36,13 @@ add_action('wp_enqueue_scripts', 'my_load_js_func');
 ## JS
 `/bitnami/wordpress/wp-content/themes/main-theme/assets/js/main.js`
 ```js
-alert("by asim");
+const btn = document.createElement("BUTTON")
+
+btn.innerHTML = "CLICK ME"
+
+btn.style = "margin: 10px;"
+
+btn.onclick = () => alert("by asim");
+
+document.body.appendChild(btn)
 ```
