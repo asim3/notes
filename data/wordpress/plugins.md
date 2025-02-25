@@ -13,9 +13,8 @@ wp plugin verify-checksums --all
 
 
 ## Best WordPress plugins
-- [elementor](https://wordpress.org/plugins/elementor/)
-- [woocommerce](https://wordpress.org/plugins/woocommerce/)
-- [wpforms-lite](https://wordpress.org/plugins/wpforms-lite/)
+- [WPForms – Easy Form Builder](https://wordpress.org/plugins/wpforms-lite/)
+- [All-in-One WP Migration and Backup](https://wordpress.org/plugins/all-in-one-wp-migration/)
 
 
 
@@ -27,8 +26,6 @@ wp plugin verify-checksums --all
 - [woocommerce](https://wordpress.org/plugins/woocommerce/)
 - [litespeed-cache](https://wordpress.org/plugins/litespeed-cache/)
 - [akismet](https://wordpress.org/plugins/akismet/)
-- [wpforms-lite](https://wordpress.org/plugins/wpforms-lite/)
-- [all-in-one-wp-migration](https://wordpress.org/plugins/all-in-one-wp-migration/)
 - [wordfence](https://wordpress.org/plugins/wordfence/)
 - [google-site-kit](https://wordpress.org/plugins/google-site-kit/)
 - [really-simple-ssl](https://wordpress.org/plugins/really-simple-ssl/)
