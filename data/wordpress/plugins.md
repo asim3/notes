@@ -15,6 +15,7 @@ wp plugin verify-checksums --all
 ## Best WordPress plugins
 - [WPForms – Easy Form Builder](https://wordpress.org/plugins/wpforms-lite/)
 - [All-in-One WP Migration and Backup](https://wordpress.org/plugins/all-in-one-wp-migration/)
+- [Newsletter – Send awesome emails](https://wordpress.org/plugins/newsletter/)
 
 
 
