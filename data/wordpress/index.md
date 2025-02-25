@@ -2,19 +2,6 @@
 
 [Tutorial For Beginners](https://youtube.com/playlist?list=PLpcSpRrAaOaqBzG9rTA66V494iTRySkXq&si=p6gKjAcwLkdSzzBK)
 
-## plugins
-```bash
-wp plugin delete --all
-
-wp plugin install contact-form-7 --activate
-
-wp plugin install popup-maker --activate
-
-wp plugin install elementor woocommerce --activate
-
-wp plugin verify-checksums --all
-```
-
 
 ## users
 ```bash
@@ -86,18 +73,6 @@ WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress 
 
 WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI.
 EOF
-```
-
-
-## theme
-```bash
-wp theme install quark --activate
-
-wp theme install astra --activate
-
-wp theme delete --all
-
-wp theme update --all
 ```
 
 
