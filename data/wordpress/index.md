@@ -1,4 +1,6 @@
-# WordPress CLI
+# WordPress
+
+[Tutorial For Beginners](https://youtube.com/playlist?list=PLpcSpRrAaOaqBzG9rTA66V494iTRySkXq&si=p6gKjAcwLkdSzzBK)
 
 ## plugins
 ```bash
@@ -70,6 +72,20 @@ wp post url-to-id 2025/02/22/as-editor
 # 22
 
 wp post delete 22 --force
+```
+
+
+## add new 50 posts
+```bash
+cat <<EOF | wp post generate --count=50 --post_title="My Post Title" --post_content --post_type=post --post_status=publish --post_author=5
+WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI.
+
+WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI.
+WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI.
+WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI.
+
+WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI WordPress CLI.
+EOF
 ```
 
 
