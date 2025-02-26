@@ -13,9 +13,11 @@ wp plugin verify-checksums --all
 
 
 ## Best WordPress plugins
-- [WPForms – Easy Form Builder](https://wordpress.org/plugins/wpforms-lite/)
 - [All-in-One WP Migration and Backup](https://wordpress.org/plugins/all-in-one-wp-migration/)
+- [WPForms – Easy Form Builder](https://wordpress.org/plugins/wpforms-lite/)
 - [Newsletter – Send awesome emails](https://wordpress.org/plugins/newsletter/)
+- [Advanced Custom Fields (ACF)](https://wordpress.org/plugins/advanced-custom-fields/)
+- [Meta Field Block](https://wordpress.org/plugins/display-a-meta-field-as-block/)
 
 
 
