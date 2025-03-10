@@ -1,4 +1,6 @@
-[network scan](shodan.io)
+[network scan](https://shodan.io)
+[whois](https://who.is)
+
 
 ## simple wildcard DNS
 ```bash
