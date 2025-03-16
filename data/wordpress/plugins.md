@@ -12,17 +12,24 @@ wp plugin verify-checksums --all
 ```
 
 
-## Best WordPress plugins
-- [All-in-One WP Migration and Backup](https://wordpress.org/plugins/all-in-one-wp-migration/)
+## Page plugins
+- [elementor](https://wordpress.org/plugins/elementor/)
+- [Yoast Duplicate Post](https://wordpress.org/plugins/duplicate-post/)
+- [Image Optimizer](https://wordpress.org/plugins/image-optimization/)
+
+
+## Post plugins
 - [WPForms – Easy Form Builder](https://wordpress.org/plugins/wpforms-lite/)
-- [Newsletter – Send awesome emails](https://wordpress.org/plugins/newsletter/)
 - [Advanced Custom Fields (ACF)](https://wordpress.org/plugins/advanced-custom-fields/)
 - [Meta Field Block](https://wordpress.org/plugins/display-a-meta-field-as-block/)
 
 
+## Backup plugins
+- [All-in-One WP Migration and Backup](https://wordpress.org/plugins/all-in-one-wp-migration/)
+- [Newsletter – Send awesome emails](https://wordpress.org/plugins/newsletter/)
+
 
 ## Popular WordPress plugins
-- [elementor](https://wordpress.org/plugins/elementor/)
 - [contact-form-7](https://wordpress.org/plugins/contact-form-7/)
 - [wordpress-seo](https://wordpress.org/plugins/wordpress-seo/)
 - [classic-editor](https://wordpress.org/plugins/classic-editor/)
@@ -33,10 +40,11 @@ wp plugin verify-checksums --all
 - [google-site-kit](https://wordpress.org/plugins/google-site-kit/)
 - [really-simple-ssl](https://wordpress.org/plugins/really-simple-ssl/)
 - [jetpack](https://wordpress.org/plugins/jetpack/)
-- [duplicate-post](https://wordpress.org/plugins/duplicate-post/)
 - [wp-mail-smtp](https://wordpress.org/plugins/wp-mail-smtp/)
 - [updraftplus](https://wordpress.org/plugins/updraftplus/)
-- [duplicate-page](https://wordpress.org/plugins/duplicate-page/)
 - [all-in-one-seo-pack](https://wordpress.org/plugins/all-in-one-seo-pack/)
 - [seo-by-rank-math](https://wordpress.org/plugins/seo-by-rank-math/)
 - [wordpress-importer](https://wordpress.org/plugins/wordpress-importer/)
+
+## other plugins !
+- [duplicate-page](https://wordpress.org/plugins/duplicate-page/)
