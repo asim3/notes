@@ -1,6 +1,12 @@
 # Data Build Tool (dbt)
 
 
+## install
+```bash
+pip3 install dbt-snowflake
+```
+
+
 ## run
 ```bash
 # run all the models in the project
@@ -26,6 +32,9 @@ dbt test --select my_dbt_model
 # run all the models, tests, snapshots and seeds in the project
 dbt build
 
+dbt build --profiles-dir .  --target ci
+
 # execute the snapshots defined in your project
 dbt snapshot
 ```
+
