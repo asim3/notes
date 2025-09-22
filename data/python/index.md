@@ -7,6 +7,21 @@ deactivate
 ```
 
 
+## windows Virtual Environments
+windows PowerShell SSH
+```powershell
+python3 -m venv C:\Users\Asim\.venv
+
+C:\Users\Asim\.venv\Scripts\Activate
+
+pip install numpy
+
+pip install PyYAML
+
+pip freeze
+```
+
+
 ## packages
 ```txt
 pip install django gunicorn

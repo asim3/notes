@@ -1,5 +1,18 @@
 # Source Code Management
 
+
+## windows SSH
+windows PowerShell SSH
+```powershell
+ssh-keygen -t ed25519 -C "win-test@asimt.sa"
+
+cat C:\Users\Asim\.ssh\id_ed25519.pub
+# ssh-ed25519 qwertyuiop.qwertyuiop win-test@asimt.sa
+
+git clone git@github.com:asim3/notes.git
+```
+
+
 ## Config
 ```bash
 git config user.name "asim3"
