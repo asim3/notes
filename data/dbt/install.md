@@ -1,20 +1,11 @@
 ## setup a DB
 [Database setup](https://www.databricks.com/learn/free-edition)
-
-## dbt docs
-[install](https://docs.getdbt.com/docs/core/pip-install)
 [Databricks setup](https://docs.getdbt.com/docs/core/connect-data-platform/databricks-setup)
-[MySQL setup](https://docs.getdbt.com/docs/core/connect-data-platform/mysql-setup)
-[Oracle setup](https://docs.getdbt.com/docs/core/connect-data-platform/oracle-setup)
 
 
 ## install dbt
 ```bash
 python -m pip install dbt-core dbt-databricks
-python -m pip install dbt-core dbt-postgres
-python -m pip install dbt-core dbt-mysql
-python -m pip install dbt-core dbt-oracle
-
 
 dbt --version
 # Core:
@@ -54,6 +45,7 @@ dbt debug
 `type C:\Users\Asim\.dbt\profiles.yml`
 ```yml
 my_dbt_init_project:
+  target: dev
   outputs:
     dev:
       catalog: my_dbt_init_catalog
@@ -63,113 +55,38 @@ my_dbt_init_project:
       threads: 1
       token: <******>
       type: databricks
-  target: dev
-```
-
-
-## Configuration
-`nano my_dbt_init_project\dbt_project.yml`
-```yml
-
-# Name your project! Project names should contain only lowercase characters
-# and underscores. A good package name should reflect your organization's
-# name or the intended use of these models
-name: 'my_dbt_init_project'
-version: '1.0.0'
-
-# This setting configures which "profile" dbt uses for this project.
-profile: 'my_dbt_init_project'
-
-# These configurations specify where dbt should look for different types of files.
-# The `model-paths` config, for example, states that models in this project can be
-# found in the "models/" directory. You probably won't need to change these!
-model-paths: ["models"]
-analysis-paths: ["analyses"]
-test-paths: ["tests"]
-seed-paths: ["seeds"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
-
-clean-targets:         # directories to be removed by `dbt clean`
-  - "target"
-  - "dbt_packages"
-
-
-# Configuring models
-# Full documentation: https://docs.getdbt.com/docs/configuring-models
-
-# In this example config, we tell dbt to build all models in the example/
-# directory as views. These settings can be overridden in the individual model
-# files using the `{{ config(...) }}` macro.
-models:
-  my_dbt_init_project:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
 ```
 
 
 
 
+# MySQL setup
+[MySQL setup](https://docs.getdbt.com/docs/core/connect-data-platform/mysql-setup)
+[Oracle setup](https://docs.getdbt.com/docs/core/connect-data-platform/oracle-setup)
 
 
+## install the adapter
+```bash
+python -m pip install dbt-core dbt-mysql
+
+python -m pip install dbt-core dbt-postgres
+python -m pip install dbt-core dbt-oracle
+```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## MySQL connection
+## connection
 `nano /home/asim/.dbt/profiles.yml`
 ```yml
-my_dbt_project:
+your_profile_name:
+  target: dev
   outputs:
     dev:
       type: mysql
-      host: localhost
-      schema: default
-      username: asim
-      password: "******"
-      http_path: /sql/1.0/warehouses/123456
-      threads: 1
-  target: dev
+      server: localhost
+      port: 3306
+      schema: analytics
+      username: your_mysql_username
+      password: your_mysql_password
+      ssl_disabled: True
 ```
 
