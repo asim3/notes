@@ -1,15 +1,15 @@
 # Data Build Tool (dbt)
 [install](https://docs.getdbt.com/docs/core/pip-install)
+[Databricks setup](https://docs.getdbt.com/docs/core/connect-data-platform/databricks-setup)
 [MySQL setup](https://docs.getdbt.com/docs/core/connect-data-platform/mysql-setup)
 [Oracle setup](https://docs.getdbt.com/docs/core/connect-data-platform/oracle-setup)
 
 
 ## install dbt
 ```bash
+python -m pip install dbt-core dbt-databricks
 python -m pip install dbt-core dbt-postgres
-
 python -m pip install dbt-core dbt-mysql
-
 python -m pip install dbt-core dbt-oracle
 
 pip freeze
@@ -23,6 +23,10 @@ dbt --version
 # Plugins:
 #   - postgres: 1.0.0
 ```
+
+
+## setup a DB
+[Database setup](https://www.databricks.com/learn/free-edition)
 
 
 ## add new project
