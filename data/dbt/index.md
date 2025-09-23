@@ -15,13 +15,13 @@ python -m pip install dbt-core dbt-oracle
 pip freeze
 
 dbt --version
-# installed version: 1.0.0
-#    latest version: 1.0.0
-
-# Up to date!
+# Core:
+#   - installed: 1.10.11
+#   - latest:    1.10.11 - Up to date!
 
 # Plugins:
-#   - postgres: 1.0.0
+#   - databricks: 1.10.12 - Up to date!
+#   - spark:      1.9.3   - Up to date!
 ```
 
 
