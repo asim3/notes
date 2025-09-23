@@ -51,10 +51,13 @@ my_dbt_init_project:
       catalog: my_dbt_init_catalog
       host: 123456789.cloud.databricks.com
       http_path: /sql/1.0/warehouses/123456789
-      schema: default
-      threads: 1
-      token: <******>
       type: databricks
+      token: <******>
+      threads: 1
+      # set the target schema
+      schema: data_warehouse_dev
+      # schema: default
+      # schema: data_lake_v99
 ```
 
 
