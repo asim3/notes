@@ -1,6 +1,29 @@
 ### how to save your new tables
 
 
+## Property file
+`nano my_dbt_init_project\models\data_lake\data_properties.yml`
+```yml
+version: 2
+
+models:
+  - name: mock_001_model
+    config:
+      materialized: view
+
+  - name: mock_006_model
+    config:
+      materialized: view
+
+  - name: mock_007_model
+    config:
+      materialized: view
+
+  - name: qassim_orgs_model
+    config:
+      materialized: view
+```
+
 
 ## Configuration 
 `nano my_dbt_init_project\dbt_project.yml`
