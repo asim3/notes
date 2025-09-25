@@ -9,6 +9,22 @@
 ```
 
 
+## List of databases
+```sql
+\l
+/*                                                      List of databases
+      Name      |  Owner   | Encoding | Locale Provider | Collate |  Ctype  | ICU Locale | ICU Rules |   Access privileges
+----------------+----------+----------+-----------------+---------+---------+------------+-----------+-----------------------
+ asim3_database | asim3    | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           |
+ dbt_main       | asim3    | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           |
+ postgres       | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           |
+ template0      | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           | =c/postgres          +
+                |          |          |                 |         |         |            |           | postgres=CTc/postgres
+ template1      | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           | =c/postgres          +
+                |          |          |                 |         |         |            |           | postgres=CTc/postgres
+```
+
+
 ## connected to database
 ```sql
 \c dbt_main
