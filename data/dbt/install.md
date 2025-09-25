@@ -63,33 +63,60 @@ my_dbt_init_project:
 
 
 
-# MySQL setup
-[MySQL setup](https://docs.getdbt.com/docs/core/connect-data-platform/mysql-setup)
-[Oracle setup](https://docs.getdbt.com/docs/core/connect-data-platform/oracle-setup)
-
-
-## install the adapter
+# postgres setup
 ```bash
-python -m pip install dbt-core dbt-mysql
-
 python -m pip install dbt-core dbt-postgres
-python -m pip install dbt-core dbt-oracle
+# dbt-adapters==1.16.7
+# dbt-core==1.10.11
+# dbt-postgres==1.9.1
+```
+
+
+## add new project
+```bash
+dbt init
+# Enter a name for your project (letters, digits, underscore): my_dbt_init_psql
+# Which database would you like to use? [1] postgres
+# host (hostname for the instance): 72.60.33.72
+# port [5432]:
+# user (dev username): asim3
+# pass (dev password):
+# dbname (default database that dbt will build objects in): dbt_main
+# schema (default schema that dbt will build objects in): dbt_schema_by_asim
+# threads (1 or more) [1]:
+
+
+cd my_dbt_init_psql
+
+dbt debug
+# All checks passed!
 ```
 
 
 ## connection
 `nano /home/asim/.dbt/profiles.yml`
 ```yml
-your_profile_name:
-  target: dev
+my_dbt_init_project:
   outputs:
     dev:
-      type: mysql
-      server: localhost
-      port: 3306
-      schema: analytics
-      username: your_mysql_username
-      password: your_mysql_password
-      ssl_disabled: True
+      catalog: my_dbt_init_catalog
+      host: dbc-ab959111-0cf9.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/094d5e2b76c89d4e
+      schema: data_lake_v99
+      threads: 1
+      token: <******>
+      type: databricks
+  target: dev
+my_dbt_init_psql:
+  outputs:
+    dev:
+      dbname: dbt_main
+      host: 72.60.33.72
+      pass: <******>
+      port: 5432
+      schema: dbt_schema_by_asim
+      threads: 1
+      type: postgres
+      user: asim3
+  target: dev
 ```
-
