@@ -1,3 +1,12 @@
+## login as superuser
+```bash
+sudo -u postgres psql
+
+# set User Password
+# ALTER USER asim4 WITH PASSWORD 'my_password';
+```
+
+
 ## List of Users
 ```sql
 \du

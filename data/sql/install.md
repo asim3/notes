@@ -1,4 +1,4 @@
-## Install PostgreSQL (prod)
+## PostgreSQL (prod)
 ```bash
 sudo apt update
 sudo apt upgrade
