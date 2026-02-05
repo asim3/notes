@@ -94,3 +94,26 @@ build:
   after_script:
     - docker logout
 ```
+
+
+## Docker-in-Docker (DinD)
+```yml
+stages:
+  - build
+
+docker-build:
+  image: docker:cli
+  stage: build
+  # Run the Docker daemon as a service
+  services:
+    - docker:dind
+  variables:
+    DOCKER_IMAGE_NAME: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+    # registry.gitlab.com/asim/my-repository:main
+  script:
+    - whoami
+    - docker run hello-world
+    - echo $DOCKER_IMAGE_NAME
+    - docker compose version
+    # Docker Compose version v5.0.2
+```
