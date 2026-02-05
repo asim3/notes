@@ -1,31 +1,33 @@
 ## CI
 `nano .gitlab-ci.yml`
 ```yml
+image: node:23-bookworm
 stages:
+  - build
+  - test
   - deploy
 
+build-job:
+  stage: build
+  script:
+    - whoami
+    - pwd
+    - python3 --version
 
-Deploy Staging:
+deploy-staging:
   stage: deploy
-  tags:
-    # - docker
-    - saas-linux-small-amd64
-    # - saas-linux-medium-arm64
-    # - saas-linux-large-arm64
-    # - saas-linux-2xlarge-amd64
-    # - saas-macos-large-m2pro
+  environment: my-new-staging-2
+  image: alpine:latest
   before_script:
+    - whoami
     - apk add git
   script:
     - echo $CI_PIPELINE_IID
-    - whoami
     - pwd
     - rm -Rf ~/delete-1
     - mkdir ~/delete-1
     - cd ~/delete-1
     - pwd
-  environment: staging-2
-  when: manual
 ```
 
 
