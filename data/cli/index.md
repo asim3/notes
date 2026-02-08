@@ -180,3 +180,12 @@ timedatectl list-timezones
 # OR
 tzselect
 ```
+
+
+## `vi` Editor
+```bash
+:w name    Write edit buffer to file name
+:q!        Quit without saving changes
+:wq        Write to file and quit
+ZZ         Same as :wq
+```
