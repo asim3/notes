@@ -92,6 +92,17 @@
 ```
 
 
+## Command
+```yaml
+- name: Touch SSH Authorized Keys File
+  become: yes
+  become_user: root
+  ansible.builtin.shell:
+    cmd: "touch /home/user/.ssh/authorized_keys"
+    creates: "/home/user/.ssh/authorized_keys"
+```
+
+
 ## User
 ```yaml
 - name: Setup Ansible User
@@ -129,7 +140,8 @@
     enabled: true
     state: started
     # state: restarted
-#   when: my_file.changed
+  register: my_docker_service
+  # when: my_docker_service.changed or gitlab_service.changed
 ```
 
 
