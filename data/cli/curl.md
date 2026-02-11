@@ -66,6 +66,43 @@ curl --request GET \
 ```
 
 
+## Testing POST requests
+`https://httpbin.org/anything`       Returns most of the below.
+`https://httpbin.org/ip`             Returns Origin IP.
+`https://httpbin.org/headers`        Returns header dict.
+`https://httpbin.org/get`            Returns GET data.
+`https://httpbin.org/post`           Returns POST data.
+`https://httpbin.org/put`            Returns PUT data.
+`https://httpbin.org/delete`         Returns DELETE data
+`https://httpbin.org/gzip`           Returns gzip-encoded data.
+`https://httpbin.org/status/:code`   Returns given HTTP Status code.
+```bash
+curl -H "AAA: BBB" -H "CCC: DDD" -d "YYYY=123&zzzz=789" -X POST https://httpbin.org/post
+# {
+#   "args": {},
+#   "data": "",
+#   "files": {},
+#   "form": {
+#     "YYYY": "123",
+#     "zzzz": "789"
+#   },
+#   "headers": {
+#     "Aaa": "BBB",
+#     "Accept": "*/*",
+#     "Ccc": "DDD",
+#     "Content-Length": "17",
+#     "Content-Type": "application/x-www-form-urlencoded",
+#     "Host": "httpbin.org",
+#     "User-Agent": "curl/7.76.1",
+#     "X-Amzn-Trace-Id": "Root=1-698c36de-7c3f716d6e98bead6351cc33"
+#   },
+#   "json": null,
+#   "origin": "46.240.124.1, 85.194.96.49",
+#   "url": "https://httpbin.org/post"
+# }
+```
+
+
 ## Debug
 ```bash
 # insecure connections (No SSL)
