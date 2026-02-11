@@ -67,15 +67,15 @@ curl --request GET \
 
 
 ## Testing POST requests
-`https://httpbin.org/anything`       Returns most of the below.
-`https://httpbin.org/ip`             Returns Origin IP.
-`https://httpbin.org/headers`        Returns header dict.
-`https://httpbin.org/get`            Returns GET data.
-`https://httpbin.org/post`           Returns POST data.
-`https://httpbin.org/put`            Returns PUT data.
-`https://httpbin.org/delete`         Returns DELETE data
-`https://httpbin.org/gzip`           Returns gzip-encoded data.
-`https://httpbin.org/status/:code`   Returns given HTTP Status code.
+`https://httpbin.org/anything`       Returns most of the below.  
+`https://httpbin.org/ip`             Returns Origin IP.  
+`https://httpbin.org/headers`        Returns header dict.  
+`https://httpbin.org/get`            Returns GET data.  
+`https://httpbin.org/post`           Returns POST data.  
+`https://httpbin.org/put`            Returns PUT data.  
+`https://httpbin.org/delete`         Returns DELETE data.  
+`https://httpbin.org/gzip`           Returns gzip-encoded data.  
+`https://httpbin.org/status/:code`   Returns given HTTP Status code.  
 ```bash
 curl -H "AAA: BBB" -H "CCC: DDD" -d "YYYY=123&zzzz=789" -X POST https://httpbin.org/post
 # {
