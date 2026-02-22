@@ -50,3 +50,23 @@ from io import BytesIO
 excel = BytesIO(b'mybinarydata')
 excel.name = 'my-excel.xlsx'
 ```
+
+
+## tree
+```py
+import os
+
+start_path = 'C:/Users/Asim/Documents'
+
+
+for root, dirs, files in os.walk(start_path):
+    for file in files:
+        full_file_path = os.path.join(root, file)
+        print(full_file_path)
+
+
+# C:/Users/Asim/Documents\my-pdf\111.pdf
+# C:/Users/Asim/Documents\my-pdf\222.pdf
+# C:/Users/Asim/Documents\my-pdf\333.pdf
+# C:/Users/Asim/Documents\my-pdf\444.pdf
+```
