@@ -40,3 +40,16 @@ gcloud components install [COMPONENT_ID]
 
 gcloud components remove  [COMPONENT_ID]
 ```
+
+
+## billing
+```bash
+gcloud billing accounts list
+
+gcloud billing projects list --billing-account=[ACCOUNT_ID]
+
+gcloud beta billing projects describe [PROJECT_ID]
+
+# Cost Forecast
+# Currently, there is no direct gcloud billing forecast command.
+```
