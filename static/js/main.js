@@ -218,7 +218,7 @@ const fetch_path = function (path, back = false) {
                     <div class="alert alert-warning mt-3" role="alert">
                         <strong>Not found:</strong> <code>${replace_html(path)}</code>
                         &nbsp;&mdash;&nbsp;
-                        <span class="breadcrumb-link" onclick="window.location.href='/';">Go home</span>
+                        <span class="breadcrumb-link" onclick="window.location.href='/notes/';">Go home</span>
                     </div>`
             }
 
