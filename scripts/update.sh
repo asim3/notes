@@ -25,7 +25,7 @@ function update_paths {
     for path in $1/* ; do
         if [ -d $path ]; then
             echo_dir_link $path
-        elif [[ $path != *"init."* ]] && [[ $path != *"index."* ]]; then
+        elif [[ $path != *"init."* ]] && [[ $path != *"index."* ]] && [[ $path != *".json" ]]; then
             echo_file_link $path
         fi
 
@@ -37,4 +37,14 @@ function update_paths {
 
 cd data
 update_paths "."
+
+# Generate search index of all markdown files
+{
+    echo "["
+    find . -name "*.md" | sed 's|^\./||' | sort | \
+        awk '{if(NR>1) printf ",\n"; printf "\"%s\"", $0}'
+    echo ""
+    echo "]"
+} > search-index.json
+
 cd ..
