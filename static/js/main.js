@@ -80,14 +80,52 @@ const parse_tags = function (text) {
 }
 
 
+let search_index = null
+
+const load_search_index = async () => {
+    if (search_index !== null) return search_index
+    try {
+        const response = await fetch(website_href + 'data/search-index.json')
+        if (response.ok) {
+            search_index = await response.json()
+        } else {
+            search_index = []
+        }
+    } catch (e) {
+        search_index = []
+    }
+    return search_index
+}
+
+const do_search = async (query) => {
+    const results_div = document.getElementById('search-results')
+    if (!results_div) return
+    if (!query.trim()) {
+        results_div.innerHTML = ''
+        return
+    }
+    const index = await load_search_index()
+    const lower = query.toLowerCase()
+    const matches = index.filter(p => p.toLowerCase().includes(lower)).slice(0, 15)
+    if (matches.length === 0) {
+        results_div.innerHTML = `<div class='text-muted small mt-1'>No results for "${replace_html(query)}"</div>`
+        return
+    }
+    results_div.innerHTML = matches.map(p => {
+        const label = p.replace(/\//g, ' › ').replace(/_/g, ' ').replace(/\.md$/, '')
+        return `<div class='btn btn-outline-secondary btn-sm my-1 me-1' onclick="fetch_path('${p}'); document.getElementById('search-input').value=''; document.getElementById('search-results').innerHTML=''">${label}</div>`
+    }).join('')
+}
+
+
 const get_full_path_links = function (path) {
     const path_list = path.split("/")
     const title = path_list[0].replace(/_/g, ' ').replace("index.html", "Asim's Quick Reference Guide")
-    let full_path_links = ` 
+    let full_path_links = `
         <div id="jumbotron" class="jumbotron pt-4 pb-0">
             <h1 class="capitalize">${title}</h1>
             <div class="progress" id="loading_div"></div>
-            <ul class="breadcrumb m-0 pl-0"> 
+            <ul class="breadcrumb m-0 pl-0">
                 <li class="breadcrumb-item">
                     <span class="breadcrumb-link" onclick="fetch_path('index.html')">notes</span>
                 </li>`
@@ -119,7 +157,12 @@ const get_full_path_links = function (path) {
             </li>`
         }
     })
-    full_path_links += `</ul> </div>`
+    full_path_links += `</ul>
+            <div class="pb-1">
+                <input type="text" id="search-input" class="form-control form-control-sm" placeholder="Search..." oninput="do_search(this.value)" autocomplete="off">
+                <div id="search-results" class="mt-1"></div>
+            </div>
+        </div>`
     return full_path_links
 }
 
@@ -171,10 +214,12 @@ const fetch_path = function (path, back = false) {
                     })
             }
             else {
-                fetch_path('index.html')
-                console.log(response)
-                // TODO: add bootstrap function
-                alert(`NOT FOUND: ${website_href + path}`)
+                document.getElementById("body").innerHTML = `
+                    <div class="alert alert-warning mt-3" role="alert">
+                        <strong>Not found:</strong> <code>${replace_html(path)}</code>
+                        &nbsp;&mdash;&nbsp;
+                        <span class="breadcrumb-link" onclick="window.location.href='/';">Go home</span>
+                    </div>`
             }
 
         })
@@ -189,4 +234,4 @@ window.onload = () => {
 
 window.onpopstate = function (event) {
     fetch_path(event.state, true)
-};
+}
