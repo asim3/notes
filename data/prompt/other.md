@@ -1,6 +1,8 @@
 # new ideas
-
 ```md
+Take a look at the entire repository and suggest improvements.
+
+
 Look at the authentication system in @dir/ and @auth/ and suggest improvements.
 ```
 
