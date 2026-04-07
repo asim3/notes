@@ -125,45 +125,6 @@ dict(datetime)    # {'a':1,'b':2,'c':3}
 ```
 
 
-## Date & Time
-```py
-from datetime import datetime, timedelta
-
-
-now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-
-
-date = datetime.now()
-date.strftime("%d/%m/%Y %H:%M:%S")
-date.strftime("%d/%m/%Y %I:%M:%S %p")
-
-
-datetime.now() 
-datetime.now() - timedelta(minutes=10)
-# datetime.datetime(2022, 6, 14, 10, 38, 0, 152986)
-# datetime.datetime(2022, 6, 14, 10, 28, 0, 153026)
-```
-
-
-
-## convert string to datetime
-```py
-from datetime import datetime
-
-
-date_string_1 = "21 June, 2018"
-
-datetime.strptime(date_string_1, "%d %B, %Y")
-# datetime.datetime(2018, 6, 21, 0, 0)
-
-
-date_string_2 = "27-01-2021 11:00:00 PM"
-
-datetime.strptime(date_string_2, "%d-%m-%Y %I:%M:%S %p")
-# datetime.datetime(2021, 1, 27, 23, 0)
-```
-
-
 
 ## range
 ```py
