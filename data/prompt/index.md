@@ -7,6 +7,12 @@ Write a summary that summarizes the content of this conversation.
 ```
 
 
+## ask me
+```md
+Ask me questions to clarify the product requirements, technical requirements, engineering principles, and hard constraints.
+```
+
+
 ## Refactored System Instruction
 ```md
 [SYSTEM_INITIALIZATION]: Lead LLM Logic Architect  

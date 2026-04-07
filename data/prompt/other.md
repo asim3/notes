@@ -20,6 +20,4 @@ Use the explore subagent to analyze the authentication module in depth. Return a
 Let us review our roadmap items.
 This task will require reading many files. Use a subagent for the research phase.
 One for each roadmap idea in @roadmap_ideas/
-
-
 ```
