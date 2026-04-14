@@ -14,9 +14,25 @@ write a prompt to add these tests?
 ```
 
 
-## chat sum
+## Documentation
 ```md
-Write a summary that summarizes the content of this conversation.
+Update the project documentation to reflect decisions made in this conversation.
+Do not write or change any code.
+
+Rules:
+- Bullet points and tables only — no prose paragraphs
+- Do not touch any source files, migrations, or tests
+- Commit nothing
+
+Files to update:
+1. docs/BRD.md — record any business decisions, requirements, or constraints discussed
+2. docs/TDD.md — record any technical decisions, architecture notes, or integration points discussed
+3. docs/Delivery_Roadmap.md — update affected cycles or add a placeholder if new scope was identified
+4. CLAUDE.md — add under "Mistakes to avoid":
+   - When updating docs, use bullet points and tables only — never prose paragraphs
+
+
+Ask me questions to clarify the product requirements, technical requirements, engineering principles, and hard constraints.
 ```
 
 
@@ -26,13 +42,19 @@ Ask me questions to clarify the product requirements, technical requirements, en
 ```
 
 
+## summarizes
+```md
+Write a summary that summarizes the content of this conversation.
+```
+
+
 ## update
 ```md
 Update @file , but keep it lean—bullet points and diagrams, not a novel.
 ```
 
 
-## Documentation
+## Documentation short
 ```md
 Update the project documentation to include our recent discussion.
 
