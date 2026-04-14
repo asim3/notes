@@ -32,6 +32,16 @@ Update @file , but keep it lean—bullet points and diagrams, not a novel.
 ```
 
 
+## Documentation
+```md
+Update the project documentation to include our recent discussion.
+
+Please formalize our recent notes and add them to the relevant project documents.
+
+Incorporate our latest discussion into the project docs.
+```
+
+
 ## Act as
 ```md
 You are a senior business analyst with extensive experience in requirements management and documentation.
