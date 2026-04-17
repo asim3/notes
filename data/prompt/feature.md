@@ -44,12 +44,12 @@ Perform a refactor pass on the new user registration endpoint. Do not add any ne
 1. Run: docker compose exec backend ruff check --fix .
 2. Run: docker compose exec backend mypy .
 3. Run: docker compose exec backend interrogate .
-4. Check that all user-facing strings in this phase (validation errors, API error messages) use gettext_lazy and have entries in locale/ar/LC_MESSAGES/django.po.
+4. Wrap all user-facing strings in gettext_lazy and automatically provide the corresponding Arabic (Modern Standard) translations for these strings.
 5. Run: docker compose exec backend pytest
 
 Ask me questions to clarify the product requirements, technical requirements, engineering principles, and hard constraints.
 
-Do not add docstrings or comments to code you did not change. Only comment where logic is non-obvious.
+Do not add docstrings or comments to code you did not change, unless it is strictly required to satisfy mandatory linting or documentation coverage checks (e.g., interrogate). Only comment where logic is non-obvious.
 ```
 
 > Perform a refactor pass across the entire backend/ directory. Do not add any new functionality. Do not change any test.
