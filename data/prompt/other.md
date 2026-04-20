@@ -7,6 +7,16 @@ Look at the authentication system in @dir/ and @auth/ and suggest improvements.
 ```
 
 
+## Documentation short
+```md
+Formalize our recent notes and add them to the relevant project documents.
+
+Update the project documentation to include our recent discussion.
+
+Incorporate our latest discussion into the project docs.
+```
+
+
 ## summarize chat
 ```md
 Let's summarize where we are. What have we accomplished what's the current state, and what are our next steps? Put this in progress.md

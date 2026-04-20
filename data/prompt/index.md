@@ -1,19 +1,3 @@
-# AI prompt library
-```md
-It is safe to proceed.
-
-did i forget something?
-
-update @CLAUDE.md so you do not repeat your mistake.
-```
-
-
-## Mistakes to avoid
-```md
-Based on this conversation, can you update Claude.md so this doesn't happen again.
-```
-
-
 ## interview me
 ```md
 Before we start building, interview me about this:
@@ -23,6 +7,22 @@ Before we start building, interview me about this:
 - What should this NOT do?
 
 Summarize it back to me before we write any code.
+```
+
+
+## verify work
+```md
+Please go back and review all recent work across the last 14 commits.
+
+make sure you used best practices, were efficient, and didn't introduce any issues.
+
+Ask me if you need clarification.
+```
+
+
+## Mistakes to avoid
+```md
+Based on this conversation, can you update Claude.md so this doesn't happen again.
 ```
 
 
@@ -45,23 +45,6 @@ Files to update:
 
 
 Ask me questions to clarify the product requirements, technical requirements, engineering principles, and hard constraints.
-```
-
-
-## Documentation short
-```md
-Formalize our recent notes and add them to the relevant project documents.
-
-Update the project documentation to include our recent discussion.
-
-Incorporate our latest discussion into the project docs.
-```
-
-
-## verify work
-```md
-Please go back and verify all your work so far.
-make sure you used best practices, were efficient, and didn't introduce any issues.
 ```
 
 
@@ -101,6 +84,12 @@ You are a senior software architect and technical writer. Your job is to review 
 
 # other
 ```md
+It is safe to proceed.
+
+did i forget something?
+
+update @CLAUDE.md so you do not repeat your mistake.
+
 Based on the project I'm working on, what Claude Skills should I create?
 
 look for any bug in the @file
