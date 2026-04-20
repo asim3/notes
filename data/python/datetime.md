@@ -94,3 +94,17 @@ def main():
         # Separator for the next date block
         print("-" * 88)
 ```
+
+
+## Aladhan endpoints
+```md
+# Gregorian to Hijri date (method=Umm al-Qura)
+http://api.aladhan.com/v1/gToH/18-04-2026?calendarMethod=UAQ
+http://api.aladhan.com/v1/gToH/19-04-2026?calendarMethod=UAQ
+
+
+# Hijri to Gregorian date (method=Umm al-Qura)
+http://api.aladhan.com/v1/hToG/29-09-1425?calendarMethod=UAQ
+http://api.aladhan.com/v1/hToG/30-09-1425?calendarMethod=UAQ
+http://api.aladhan.com/v1/hToG/01-10-1425?calendarMethod=UAQ
+```

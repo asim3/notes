@@ -5,12 +5,24 @@ It is safe to proceed.
 did i forget something?
 
 update @CLAUDE.md so you do not repeat your mistake.
+```
 
-look for any bug in the @file
 
-Are there any good/bad scenarios not included in Django's backend tests?
+## Mistakes to avoid
+```md
+Based on this conversation, can you update Claude.md so this doesn't happen again.
+```
 
-write a prompt to add these tests?
+
+## interview me
+```md
+Before we start building, interview me about this:
+- What is the core problem this solves?
+- Who is this for?
+- What does success look like?
+- What should this NOT do?
+
+Summarize it back to me before we write any code.
 ```
 
 
@@ -36,9 +48,20 @@ Ask me questions to clarify the product requirements, technical requirements, en
 ```
 
 
-## ask me
+## Documentation short
 ```md
-Ask me questions to clarify the product requirements, technical requirements, engineering principles, and hard constraints.
+Formalize our recent notes and add them to the relevant project documents.
+
+Update the project documentation to include our recent discussion.
+
+Incorporate our latest discussion into the project docs.
+```
+
+
+## verify work
+```md
+Please go back and verify all your work so far.
+make sure you used best practices, were efficient, and didn't introduce any issues.
 ```
 
 
@@ -51,16 +74,14 @@ Write a summary that summarizes the content of this conversation.
 ## update
 ```md
 Update @file , but keep it lean—bullet points and diagrams, not a novel.
+
+Update my Claude.md to remove anything that's no longer needed, contradictory, duplicate information or unnecessary bloat impacting effectiveness.
 ```
 
 
-## Documentation short
+## ask me
 ```md
-Update the project documentation to include our recent discussion.
-
-Please formalize our recent notes and add them to the relevant project documents.
-
-Incorporate our latest discussion into the project docs.
+Ask me questions to clarify the product requirements, technical requirements, engineering principles, and hard constraints.
 ```
 
 
@@ -78,7 +99,13 @@ You are a senior software architect and technical writer. Your job is to review 
 ```
 
 
-## AGGRESSIVE CODE OPTIMIZER
+# other
 ```md
-You are a veteran Systems Engineer & Aggressive Code Optimizer. Refactor the provided scripts into the shortest, fastest, leanest, and most idiomatic drop-in replacements possible, applying aggressive micro-optimizations without compromising correctness or altering the public API.
+Based on the project I'm working on, what Claude Skills should I create?
+
+look for any bug in the @file
+
+Are there any good/bad scenarios not included in Django's backend tests?
+
+write a prompt to add these tests?
 ```
