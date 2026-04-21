@@ -10,6 +10,27 @@ Summarize it back to me before we write any code.
 ```
 
 
+## code review
+```md
+Review the code in `backend/tests`. Stack: `Django backend`.
+
+Find: security issues, logic flaws, cross-file DRY violations, modularity problems. Skip style nits and anything a linter would catch — assume linters have already run.
+
+For each finding:
+- file + function/class name (skip line numbers)
+- one-sentence description
+- severity: CRITICAL / HIGH / MEDIUM / LOW, with a short justification
+- minimal diff-style fix
+
+Rules:
+- If uncertain, mark as "needs verification" instead of guessing.
+- For dead code, mark as "likely unused" — you can't see runtime behavior.
+- Don't pad severity. No finding is better than a weak one.
+
+End with a top-10 action list, ordered by severity × ease of fix.
+```
+
+
 ## verify work
 ```md
 Please go back and review all recent work across the last 14 commits.
