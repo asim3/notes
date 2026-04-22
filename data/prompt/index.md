@@ -101,13 +101,27 @@ You are a senior software architect and technical writer. Your job is to review 
 ```
 
 
+# prompt
+```md
+How do I prompt an LLM to recreate this task?
+
+How do I prompt an LLM to duplicate what we just did.
+```
+
+
+# tests
+```md
+Are there any good/bad scenarios not included in Django's backend tests?
+```
+
+
 # other
 ```md
-did i forget something?
-
-look for any bug in the @file
+Okay, let's do that.
 
 It is safe to proceed.
 
-Are there any good/bad scenarios not included in Django's backend tests?
+did i forget something?
+
+look for any bug in the @file
 ```
