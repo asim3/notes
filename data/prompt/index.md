@@ -109,12 +109,6 @@ How do I prompt an LLM to duplicate what we just did.
 ```
 
 
-# tests
-```md
-Are there any good/bad scenarios not included in Django's backend tests?
-```
-
-
 # other
 ```md
 Okay, let's do that.
