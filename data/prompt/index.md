@@ -1,5 +1,8 @@
 ## interview me
 ```md
+Approach: TDD (Red → Green → Refactor)
+Write all tests first and confirm they fail, then implement until they pass, then refactor.
+
 Before we start building, interview me about this:
 - What is the core problem this solves?
 - Who is this for?
@@ -42,9 +45,11 @@ Ask me if you need clarification.
 ```
 
 
-## Mistakes to avoid
+## Mistakes
 ```md
 Based on this conversation, can you update Claude.md so this doesn't happen again.
+
+update @CLAUDE.md so you do not repeat your mistake.
 ```
 
 
@@ -54,25 +59,11 @@ Update the project documentation to reflect decisions made in this conversation.
 Do not write or change any code.
 
 Rules:
-- Bullet points and tables only — no prose paragraphs
-- Do not touch any source files, migrations, or tests
+- When updating docs, use bullet points and tables, keep it lean—bullet points and diagrams, not a novel.
 - Commit nothing
-
-Files to update:
-1. docs/BRD.md — record any business decisions, requirements, or constraints discussed
-2. docs/TDD.md — record any technical decisions, architecture notes, or integration points discussed
-3. docs/Delivery_Roadmap.md — update affected cycles or add a placeholder if new scope was identified
-4. CLAUDE.md — add under "Mistakes to avoid":
-   - When updating docs, use bullet points and tables only — never prose paragraphs
-
+- Do not touch any source files, migrations, or tests
 
 Ask me questions to clarify the product requirements, technical requirements, engineering principles, and hard constraints.
-```
-
-
-## summarizes
-```md
-Write a summary that summarizes the content of this conversation.
 ```
 
 
@@ -90,7 +81,13 @@ Ask me questions to clarify the product requirements, technical requirements, en
 ```
 
 
-## Act as
+## summarizes
+```md
+Write a summary that summarizes the content of this conversation.
+```
+
+
+## AS
 ```md
 You are a senior business analyst with extensive experience in requirements management and documentation.
 
@@ -106,17 +103,11 @@ You are a senior software architect and technical writer. Your job is to review 
 
 # other
 ```md
-It is safe to proceed.
-
 did i forget something?
-
-update @CLAUDE.md so you do not repeat your mistake.
-
-Based on the project I'm working on, what Claude Skills should I create?
 
 look for any bug in the @file
 
-Are there any good/bad scenarios not included in Django's backend tests?
+It is safe to proceed.
 
-write a prompt to add these tests?
+Are there any good/bad scenarios not included in Django's backend tests?
 ```
