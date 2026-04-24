@@ -55,7 +55,7 @@ update @CLAUDE.md so you do not repeat your mistake.
 
 ## Documentation
 ```md
-Update the project documentation to reflect decisions made in this conversation.
+Update the project documentation to reflect decisions made in latest module updates.
 Do not write or change any code.
 
 Rules:
