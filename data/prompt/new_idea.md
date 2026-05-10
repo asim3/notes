@@ -1,3 +1,12 @@
+```md
+Give me your feedback, be honest.
+
+How can i improve it?
+
+Identify the specific weaknesses.
+```
+
+
 ## Idea Proposal
 ```md
 **TL;DR:** [One sentence — what you're proposing]

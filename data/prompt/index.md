@@ -35,6 +35,16 @@ End with a top-10 action list, ordered by severity × ease of fix.
 ```
 
 
+## plan review
+```md
+Identify any hidden technical pitfalls, edge cases, or potential blockers that could arise during implementation.
+
+Foresee and outline all hidden technical hurdles and edge cases that could derail the implementation.
+
+Highlight all potential technical roadblocks and hidden edge cases for this implementation.
+```
+
+
 ## verify work
 ```md
 Please go back and review all recent work across the last 14 commits.
@@ -103,6 +113,8 @@ You are a senior software architect and technical writer. Your job is to review 
 
 # prompt
 ```md
+Summarise everything we done here in a prompt, so I can copy and paste it later.
+
 How do I prompt an LLM to recreate this task?
 
 How do I prompt an LLM to duplicate what we just did.
@@ -118,4 +130,6 @@ It is safe to proceed.
 did i forget something?
 
 look for any bug in the @file
+
+remove any phantom references in the @file
 ```
