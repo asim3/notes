@@ -97,6 +97,19 @@ Write a summary that summarizes the content of this conversation.
 ```
 
 
+## meeting minutes
+```md
+Using my current workspace context, please look ONLY inside the directory located at: `[insert/path/to/folder]`
+
+Read all the Markdown (.md) files within this specific folder. Ignore all other code files or directories outside of it. Analyze these project documents and provide the following:
+
+1. **Identify the Gaps:** Look for logical inconsistencies, missing modules, or unaddressed technical complexities in the product strategy, database architecture, or infrastructure.
+2. **Formulate High-Impact Questions:** What specific technical or business questions must be answered to unblock development and move forward?
+3. **Partner Meeting Agenda:** Draft a structured agenda for an upcoming alignment meeting with my partners to discuss these gaps.
+4. **Meeting Minutes Template:** Create a pre-drafted "Meeting Minutes" structure for the gaps you found, with context and questions filled in, but with placeholders for [Decisions Made] and [Action Items] so we can fill them out during the meeting.
+```
+
+
 ## AS
 ```md
 You are a senior business analyst with extensive experience in requirements management and documentation.
