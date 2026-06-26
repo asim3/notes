@@ -59,7 +59,7 @@ Act as my Tech PM with read/write access to this directory.
 # TASK
 1. Recursively read EVERY *.md file here (incl. subfolders, CLAUDE.md, README).
 2. Analyze like a PM: open decisions needing my sign-off, gaps the docs assume but never define, contradictions across files (name them), and dependencies/blockers. Rank by leverage — which decision unblocks the most?
-3. Write ONE new file: ./DISCUSSION-BRIEF_<project>_<date>.md
+3. Write ONE new file: ./DISCUSSION-BRIEF_[project]_[date].md
 
 # CRITICAL
 The brief gets pasted into a SEPARATE voice chat with NO access to these files. Make it fully self-contained — embed every fact, name, number, and constraint. Assume the receiving AI knows nothing.
@@ -75,6 +75,38 @@ I'm DRIVING — hands-free. Walk me through the open decisions ONE at a time, hi
 
 # AFTER
 Print the file path and list which .md files you read. Don't paraphrase the brief back.
+
+# TARGET DIRECTORY
+@__MY__DIRECTORY
+```
+
+
+## Product Requirements & User Stories
+```md
+# ROLE
+Act as my Tech PM/Product Owner with read/write access to this directory.
+
+# TASK
+1. Recursively read EVERY *.md file here (incl. subfolders, CLAUDE.md, README).
+2. Build a full model of the project: goal, users, stack, current phase, locked decisions.
+3. Generate TWO new files in this directory (use clear headings, bullets, and markdown tables where they aid review):
+
+## FILE 1 — ./PRD_[project]_[date].md  (Product Requirements & Scope)
+- **Overview**: one-paragraph product summary grounded in the files.
+- **Core MVP Features**: breakdown of the minimum viable feature set for Phase 1. For each, a one-line description of what it does and why it's essential.
+- **Out of Scope (Phase 1)**: explicit list of features/ideas to deliberately AVOID now, to prevent scope creep. Note any that are "later phase" vs. "never."
+
+## FILE 2 — ./USER-STORIES_[project]_[date].md  (User Stories & Acceptance Criteria)
+- Key user stories in the exact format: **As a [type of user], I want [goal], so that [benefit].**
+- Group stories by user type or feature area.
+- For EACH story, a clear **Definition of Done / Acceptance Criteria** (testable, specific — what must be true for the story to count as complete).
+
+# RULES
+- Ground everything in the actual files — no invented features. If something critical is undefined in the docs, flag it under a "⚠️ Assumptions / Needs Confirmation" note rather than guessing silently.
+- Cover only Phase 1 / MVP scope unless the files clearly define later phases.
+
+# AFTER
+Print both file paths and list which .md files you read.
 
 # TARGET DIRECTORY
 @__MY__DIRECTORY
