@@ -51,27 +51,33 @@ Make this concise, highly structured, and scannable so it can be immediately pas
 ```
 
 
-## Meeting Agenda
+## Discussion Brief
 ```md
-Act as a Tech PM. Analyze the project directory and file contents provided below to generate a sharp, concise Meeting Agenda for my upcoming team and partner alignment meeting. 
+# ROLE
+Act as my Tech PM with read/write access to this directory.
 
-Identify gaps, dependencies, and critical decisions needed based on these files.
+# TASK
+1. Recursively read EVERY *.md file here (incl. subfolders, CLAUDE.md, README).
+2. Analyze like a PM: open decisions needing my sign-off, gaps the docs assume but never define, contradictions across files (name them), and dependencies/blockers. Rank by leverage — which decision unblocks the most?
+3. Write ONE new file: ./DISCUSSION-BRIEF_<project>_<date>.md
 
+# CRITICAL
+The brief gets pasted into a SEPARATE voice chat with NO access to these files. Make it fully self-contained — embed every fact, name, number, and constraint. Assume the receiving AI knows nothing.
+
+# BRIEF STRUCTURE
+## 0. HOW TO RUN THIS (instructions for the receiving AI)
+I'm DRIVING — hands-free. Walk me through the open decisions ONE at a time, highest-leverage first. Each: state it in a sentence, give 2–3 options + the tradeoff, ask me to pick. Keep replies to ~15 seconds of speech, no code/tables. Track my picks; push back if I'm vague. At the end, read back every decision and anything I deferred.
+## 1. SNAPSHOT — name, goal, stack, phase (4–5 sentences)
+## 2. DONE / IN FLIGHT — locked decisions & current state
+## 3. OPEN DECISIONS (ranked) — each: what it is, why it matters, options+tradeoff, what it blocks
+## 4. GAPS & CONTRADICTIONS — undefined items; conflicts, naming the files
+## 5. DEPENDENCIES — critical path, what's before what
+
+# AFTER
+Print the file path and list which .md files you read. Don't paraphrase the brief back.
+
+# TARGET DIRECTORY
 @__MY__DIRECTORY
-
----
-
-Generate the agenda using this concise structure:
-
-1. Objective: The main decision/sign-off needed by the end of the meeting.
-2. Agenda Topics (Timeline format):
-   - [XX Mins] Topic Name: 
-     * Context: Why it matters based on the files.
-     * Core Questions: 2-3 pointed questions to ask the team to resolve document gaps.
-     * Required Outcome: The exact decision needed.
-3. Team Prep Checklist: Specific things partners or employees must review or bring based on these documents.
-
-Skip conversational filler. Keep it dense, actionable, and entirely tailored to the files above.
 ```
 
 
